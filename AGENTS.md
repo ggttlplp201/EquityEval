@@ -144,7 +144,7 @@ The user-authorized code root is this iCloud equityEval directory. Read
 Keep milestone scope, decisions, validation evidence and the next handoff current.
 Preserve originals in `docs/originals`; record interpretations in `docs/decisions.md`.
 S0 scaffolding is complete; its environment limits are in the milestone record.
-Next milestone: S1 SEC reconnaissance and a concept-map document. Keep financial
+Active milestone: S1 SEC reconnaissance and a concept-map document. Keep financial
 schema, concept members, API routes, valuation logic, ingestion and UI deferred
 until their respective reviewed milestones. Remove each
 `tests/**/.allow-empty-s0` marker when that suite gains real tests.

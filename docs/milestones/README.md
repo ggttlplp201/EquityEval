@@ -10,7 +10,7 @@ above. This repository and its commits are the implementation source of truth.
 | ID | Status | Record | Task |
 | --- | --- | --- | --- |
 | S0 | Complete; Docker verification pending | [Scaffold](S0-scaffold.md) | `S0 — EquityEval scaffold and milestones` (ID in record) |
-| S1 | Planned | SEC concept reconnaissance; depends on S0 | Create when work begins |
+| S1 | In progress | [SEC reconnaissance](S1-sec-recon.md) | `EquityEval — milestone build log` (same task, user continued) |
 | S2 | Planned | Reviewed schema and PIT | After S1 review |
 | S3 | Planned | EDGAR ingestion | After S2/Source review |
 | S4 | Planned | Tiingo and FRED | After S3 |
