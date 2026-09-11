@@ -1,0 +1,9 @@
+{
+  "archive_name": "equity-valuation-workbench-codex.zip",
+  "archive_sha256": "87052edee3b11ccecd0fd1f758ddfd11f8e3aff26442d2c97cc9e71ba58a7e20",
+  "files": {
+    "SPEC.txt": "8ac04b3231f6e9d3bafc3ef41e1544563ef14747e4f08519d6e4099b6bdf7a9f",
+    "BUILD_GUIDE.txt": "bc2eeb5b142146123708a1b6708b07a94a1e58d9d53f0169836ad18e832c46c8",
+    "AGENTS.md": "66c30a32928cb1483b09eec20bda08e6d79bb1896d82a875ba21acd537545ad9"
+  }
+}

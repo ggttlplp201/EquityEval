@@ -1,0 +1,459 @@
+================================================================================
+BUILD GUIDE -- HOW TO ACTUALLY BUILD THIS WITH OPENAI CODEX
+Companion to SPEC.txt
+================================================================================
+Target tooling: Codex CLI (terminal), Codex app / IDE extension, Codex cloud.
+Project instruction file: AGENTS.md (see the included AGENTS.md).
+
+================================================================================
+PART 1 -- THE HEADLINE ANSWER ON MULTI-AGENT
+================================================================================
+
+DON'T START MULTI-AGENT. Codex does support parallelism -- background
+`codex exec` runs, parallel threads in the Codex app with built-in worktree
+support, cloud tasks in separate containers, and an experimental multi-agent
+mode behind `/experimental`. Use none of it for the first phase. The reason is
+structural, not a matter of taste.
+
+Parallelism pays off when work is genuinely INDEPENDENT and the interfaces
+between pieces are already frozen. This project is the opposite shape early on.
+It has a deep dependency spine where every layer constrains the next:
+
+    data source shapes
+      -> concept normalization (the concept_std vocabulary)
+        -> fact schema + point-in-time query semantics
+          -> ratio engine (consumes concept_std)
+            -> DCF engine (consumes ratio outputs + macro)
+              -> API contract
+                -> UI
+
+Every arrow is a place where a parallel agent, working without knowledge of
+what its sibling decided, invents a slightly different vocabulary. Concretely:
+
+  - Thread A normalizes revenue to `concept_std = "revenue"`. Thread B writes
+    the ratio engine expecting `"total_revenue"`. Both pass their own tests.
+    Integration produces a silent NULL that propagates into a fair value.
+  - Two threads both need "shares outstanding" and write different
+    implementations -- one using the cover-page dei tag, one the balance-sheet
+    tag. Now P/E and P/B disagree and nobody knows why.
+  - Threads editing the same migration directory produce conflicting schema
+    versions.
+  - Each thread invents its own missing-data behaviour: one returns NULL, one
+    returns 0, one interpolates. Principle 0.3 dies quietly and you get a
+    confident wrong answer -- the worst outcome for this specific tool.
+
+THE RIGHT PATTERN: SEQUENTIAL SPINE, PARALLEL LEAVES.
+Build the spine in one thread with review gates. Once interfaces are FROZEN,
+parallelize the genuinely independent leaves.
+
+  P0 spine (sequential, ~70% of P0 effort):
+    schema -> normalization -> PIT query layer -> ratio engine -> API contract
+  Parallelizable leaves (only after contract freeze):
+    individual ingest adapters (one file each, uniform Source interface)
+    individual UI tabs (once OpenAPI + generated TS types are frozen)
+    golden-file test fixtures (one per company, fully independent)
+    docs, licence register
+
+Rule of thumb for this repo: if two tasks touch the same file or the same
+vocabulary, they are the same task. One thread.
+
+================================================================================
+PART 2 -- USING CODEX MODES INSTEAD OF PARALLEL WORKERS
+================================================================================
+
+Codex has four modes worth using deliberately. Most of what people reach for
+parallel agents to do is better served by picking the right mode.
+
+  READ-ONLY / CHAT MODE  -- for exploration
+    Switch with `/permissions` (CLI) or the mode switcher (app/IDE).
+    Use for the highest-value non-code task in this project:
+      "Fetch the SEC Company Facts JSON for AAPL, MSFT, JPM and CRCL. Report
+       the exact XBRL tag names each uses for revenue, operating income and
+       shares outstanding, and every place they differ. Write no code."
+    This burns a lot of context on raw JSON and returns a one-page answer that
+    becomes your concept_map. Read-only guarantees it cannot "helpfully" start
+    implementing while it explores.
+
+  PLAN MODE  -- before any structural change
+    `/plan` produces a reviewable step list before execution. Use it for every
+    session that touches the schema, the concept vocabulary, or the API
+    contract. This is your cheapest defence against an agent making an
+    expensive-to-reverse decision on your behalf.
+
+  AGENT (AUTO) MODE  -- the normal build mode
+    Reads, edits, runs commands in the working directory. Default for
+    implementation sessions. Do NOT reach for Full Access; this project needs
+    network only for the ingest sessions, and even then you want to see it ask.
+
+  REVIEW  -- `/review`, or `codex review --base origin/main`
+    Codex has a built-in reviewer over uncommitted changes, a base branch, or
+    a specific commit. This replaces hand-rolled review agents entirely.
+    Use it after every numeric module with an explicit focus (see PART 7).
+
+BACKGROUND `codex exec` -- the legitimate parallelism
+  For genuinely independent, read-only-output work, fan out non-interactively:
+
+    codex exec "Review the diff for PR #86: git diff origin/main...origin/pr/86" &
+    codex exec "Generate a golden-file fixture for JPM per docs/spec.txt 12.1" &
+
+  Good for: fixture generation, per-file reviews, recon across several
+  companies, batch PR review. Each produces an independent artifact.
+  Bad for: interdependent implementation code. Same failure modes as PART 1.
+
+CLOUD TASKS
+  Each cloud task runs in its own container preloaded with the repo. Best used
+  for long, well-scoped, independent work AFTER the contract freeze -- "build
+  the Comps tab against the frozen OpenAPI types" is a good cloud task.
+  "Design the schema" is not. Cloud tasks also need the environment configured
+  with your test commands, otherwise the agent cannot verify its own work,
+  which for this project means it will produce plausible untested math.
+
+================================================================================
+PART 3 -- CONTRACT-FIRST, THE ENABLING MOVE
+================================================================================
+
+Parallelism only becomes safe once there is a single immutable interface both
+sides compile against. Make contract definition an explicit, early,
+human-reviewed milestone.
+
+  STEP 1  Pydantic models for every API response in packages/schema.
+  STEP 2  Generate OpenAPI from FastAPI.
+  STEP 3  Generate TypeScript types from OpenAPI (openapi-typescript).
+  STEP 4  Commit the generated types. Add a CI check that regenerating
+          produces no diff -- contract drift becomes a build failure rather
+          than a runtime surprise.
+  STEP 5  Only now let UI work proceed in parallel with engine work.
+
+Also define the concept_std vocabulary as a CHECKED-IN ENUM, not a prose
+convention. If concept_std is a Python Enum plus a TS union type, an agent
+inventing "total_revenue" fails to compile instead of failing silently. This
+single decision eliminates the most dangerous class of parallel-agent error in
+the project, and it matters more than any orchestration choice.
+
+================================================================================
+PART 4 -- AGENTS.md IS THE REAL ORCHESTRATION TOOL
+================================================================================
+
+Codex discovers AGENTS.md hierarchically. It reads your global
+~/.codex/AGENTS.md first, then walks from the repo root down toward the
+working directory, reading every AGENTS.md it finds. Nearest file wins on
+conflicts. For a project with hard correctness invariants, that cascade matters
+more than any agent topology.
+
+4.1  BUDGET AWARENESS  [important]
+     Project docs are subject to a byte cap (`project_doc_max_bytes` in
+     ~/.codex/config.toml, raise it if needed). So:
+       - AGENTS.md stays SHORT and points to docs/spec.txt for detail.
+       - Do NOT paste the 40KB spec into AGENTS.md. It will be truncated and
+         you will not be told which half survived.
+     The included AGENTS.md is deliberately ~5KB. Keep it under that.
+
+4.2  USE NESTED AGENTS.md -- this repo is a natural fit
+     Put layer-specific invariants next to the layer. Codex loads them only
+     when working in that subtree, which keeps each session's instructions
+     relevant and short:
+
+       AGENTS.md                      six design principles, absolute rules,
+                                      test commands, scope discipline
+       packages/core/AGENTS.md        "pure functions only, no I/O, no DB, no
+                                      network. Tests before implementation for
+                                      anything numeric. Hand-compute expected
+                                      values."
+       packages/ingest/AGENTS.md      "every source implements the Source
+                                      protocol. EDGAR needs a contact
+                                      User-Agent and a 10 req/s cap. Archive
+                                      raw payloads before parsing. No
+                                      yfinance."
+       packages/schema/AGENTS.md      "concept_std is the single vocabulary.
+                                      Adding a member requires human approval.
+                                      Regenerate TS types and commit them."
+       apps/web/AGENTS.md             "no arithmetic beyond display
+                                      formatting. All valuation numbers come
+                                      from the API."
+       apps/api/AGENTS.md             "thin layer. No math here; delegate to
+                                      packages/core."
+
+4.3  SCAFFOLD AND MAINTENANCE
+     `/init` generates an AGENTS.md scaffold if you want Codex's own starting
+     structure -- but replace its content with the included file, since the
+     invariants here are the point.
+     Review AGENTS.md after every phase. When Codex makes the same mistake
+     twice, that is not a model problem, it is a missing line in AGENTS.md.
+
+4.4  IF YOU EVER MIX TOOLS
+     Symlink for cross-tool compatibility rather than maintaining two files:
+       ln -s AGENTS.md CLAUDE.md
+       ln -s AGENTS.md .github/copilot-instructions.md
+
+================================================================================
+PART 5 -- SESSION PLAN (concrete, for P0)
+================================================================================
+
+One vertical slice per session. Commit at each green-test point. Start a fresh
+thread per session so stale context does not leak; use `codex resume --last`
+only when genuinely continuing the same slice.
+
+  S0  SCAFFOLD + CONTRACT SKELETON                      [mode: Plan -> Agent]
+      Write docs/spec.txt (from SPEC.txt). Install AGENTS.md at root and the
+      nested files from 4.2. Repo layout, docker-compose, migration tooling,
+      test harness, CI, git pre-commit hook.
+      Deliverable: `make test` runs and passes with zero tests.
+      DO NOT let this session write business logic.
+
+  S1  EDGAR RECON                                       [mode: Read-only]
+      Explore Company Facts for 6-8 diverse companies. Produce a written
+      concept_map covering ~40 core line items with per-company overrides
+      noted. Output is a DOCUMENT, not code.
+      Optionally fan out with background `codex exec`, one company each.
+      >>> HUMAN REVIEW GATE. Read the concept map yourself. This is the
+          foundation and the thing you most need to personally verify.
+
+  S2  SCHEMA + POINT-IN-TIME LAYER                      [mode: Plan -> Agent]
+      Migrations for all tables in SPEC 3.1. Implement PIT query helpers.
+      Write the point-in-time regression test (SPEC 12.5) FIRST, then pass it.
+      >>> HUMAN REVIEW GATE. Schema changes get expensive after this.
+
+  S3  INGEST: EDGAR                                            [mode: Agent]
+      Source implementation, rate limiting, User-Agent compliance, raw payload
+      archiving, normalization via concept_map, data_quality_flag emission.
+      Golden-file tests for all companies from S1.
+      Finish with `/review` focused on silent-wrongness (PART 7).
+
+  S4  INGEST: PRICES + FRED                                    [mode: Agent]
+      Two more Source implementations against the frozen interface. First
+      session where background `codex exec` fan-out is safe -- separate files
+      implementing an existing contract.
+
+  S5  RATIO ENGINE                                             [mode: Agent]
+      Pure functions in packages/core. Percentile computation vs own history.
+      Quality flag rules. Accounting-identity assertions.
+      Unit tests with hand-computed expected values, written first.
+
+  S6  API CONTRACT FREEZE                               [mode: Plan -> Agent]
+      Pydantic models, OpenAPI, TS generation, no-diff CI check.
+      >>> HUMAN REVIEW GATE. After this, UI and engine can diverge safely.
+
+  S7  DCF ENGINE                                               [mode: Agent]
+      FCFF build, WACC with three beta methods, terminal value with the
+      growth < risk-free constraint ENFORCED IN CODE, sensitivity grid.
+      Hand-computed 3-period fixture test written before the implementation.
+
+  S8+ UI, tab by tab, one session each. Now safely parallelizable.
+
+================================================================================
+PART 6 -- WHEN TO ACTUALLY GO PARALLEL, AND HOW
+================================================================================
+
+After the contract freeze (S6), real parallelism earns its keep. Two good
+options:
+
+  OPTION A -- CODEX APP WITH BUILT-IN WORKTREES  [simplest]
+    The Codex desktop app runs threads in parallel with native worktree
+    support, so each thread gets its own checkout automatically. One thread per
+    feature. This is the lowest-friction path and what to reach for first.
+
+  OPTION B -- MANUAL GIT WORKTREES + CLI INSTANCES
+    git worktree add ../evw-ui-dcf   feature/ui-dcf
+    git worktree add ../evw-ui-comps feature/ui-comps
+    git worktree add ../evw-ingest   feature/ingest-finnhub
+    Then `codex --cd ../evw-ui-dcf` per terminal. Separate filesystem,
+    separate context, separate branch. No shared-file conflicts by
+    construction. Merge via normal PRs.
+
+  OPTION C -- CLOUD TASKS
+    Good for long independent features once the environment is configured with
+    working test commands. Verify that test setup before delegating anything
+    numeric, or the agent cannot check its own arithmetic.
+
+RULES FOR THE PARALLEL PHASE
+  - One worktree/thread per FEATURE, never per LAYER. "The DCF tab end to end"
+    is fine. "All the frontend" is not.
+  - No parallel worktree may modify packages/schema or the concept_std enum.
+    A feature needing a contract change stops, and that change happens in a
+    dedicated sequential session on main.
+  - Add `ln -s ../../AGENTS.md AGENTS.md` awareness: worktrees inherit the
+    repo's AGENTS.md files naturally since they are checked in. Verify with
+    `/debug-config` if instructions seem to be missing.
+  - Merge at least daily. Long-lived agent branches diverge fast.
+  - Run the FULL suite on merge, not just the touched package.
+
+AVOID the experimental multi-agent mode (`/experimental`) for this project. It
+adds a coordination surface you do not need when worktrees already give you
+clean isolation, and "experimental" plus "financial correctness invariants" is
+a poor combination.
+
+================================================================================
+PART 7 -- VERIFICATION IS THE ACTUAL BOTTLENECK
+================================================================================
+
+Codex is very good at producing code that LOOKS correct. For a valuation tool,
+looks-correct is the specific failure you cannot tolerate: the output is a
+number a human acts on, and there is no runtime error to tell you it is wrong.
+
+Invest disproportionately in assertions, not in review-by-reading.
+
+7.1  TESTS BEFORE IMPLEMENTATION for anything numeric.
+     Hand-compute the expected answer for a small case, write the test, then
+     let Codex implement. If it writes the test after the code, it will write
+     a test that passes.
+
+7.2  CODEX HAS NO HOOKS SYSTEM -- USE GIT HOOKS AND CI INSTEAD.
+     This is the main workflow difference from other agent CLIs. Do not expect
+     the agent to remember to test. Make it structurally impossible to commit
+     untested math:
+
+     .git/hooks/pre-commit (installed by S0, checked into scripts/):
+       #!/usr/bin/env bash
+       set -e
+       make lint typecheck
+       git diff --cached --name-only | grep -q '^packages/core/' \
+         && make test-core
+       git diff --cached --name-only | grep -q '^packages/ingest/' \
+         && make test-golden
+       exit 0
+
+     Plus CI on every push: full suite, the OpenAPI no-diff check, and the
+     no-yfinance lint rule.
+     Codex runs commands in the working directory in Agent mode, so it will
+     hit the pre-commit hook and see the failure. That is the enforcement
+     mechanism.
+
+7.3  THE SILENT-WRONGNESS REVIEW.
+     After each numeric module, run Codex's built-in reviewer with an explicit
+     focus rather than a generic "review this":
+
+       /review
+       Focus: list every input condition under which functions in this diff
+       would return a plausible but INCORRECT number rather than raising.
+       Cover missing data, unit mismatches, sign conventions, fiscal-period
+       misalignment, currency, and division by near-zero. Do not fix anything.
+
+     Or non-interactively:
+       codex exec "codex review --base origin/main" > review-notes.md
+
+     Then fix the real findings yourself or in a follow-up session. This is the
+     highest-value verification step in the whole build.
+
+7.4  SPOT-CHECK AGAINST REALITY.
+     For 3-5 companies, manually verify computed revenue, EPS and shares
+     outstanding against the actual 10-K PDF. Not against another API --
+     against the filing. Do this at the end of S3 and after any normalization
+     change. Tedious, and the only thing that actually catches mapping errors.
+
+================================================================================
+PART 8 -- ANTI-PATTERNS TO EXPLICITLY FORBID
+================================================================================
+
+Each of these is in AGENTS.md. They are the specific ways this build goes wrong.
+
+  1. FABRICATED FALLBACKS. Never substitute 0, never interpolate, never sum
+     unrelated tags to fill a gap, never "estimate" a missing line item.
+     Missing data returns NULL and raises a data_quality_flag. Rule number one.
+
+  2. yfinance IN THE PRODUCTION PATH. Prototype only. Enforce with a lint rule
+     that fails CI.
+
+  3. VALUATION MATH IN THE FRONTEND. Any arithmetic beyond formatting in
+     apps/web is a bug. Two implementations of a ratio eventually disagree.
+
+  4. MUTABLE MODEL RUNS. Editing a saved run in place destroys the audit
+     trail. Edits create children.
+
+  5. HARD-CODED MACRO CONSTANTS. No `RISK_FREE = 0.042` anywhere. It comes
+     from FRED with a date attached, or it is an assumption row with a
+     rationale.
+
+  6. TERMINAL GROWTH ABOVE RISK-FREE. Enforce in code. An agent will
+     cheerfully accept 5% perpetual growth because the slider allowed it.
+
+  7. MIXING AS-REPORTED AND RESTATED DATA IN ONE SERIES. Pick a mode, label
+     it, never blend.
+
+  8. CONSENSUS ESTIMATES AS A DCF INPUT. A comparison target, never a driver.
+     Otherwise you have built a consensus repeater.
+
+  9. SCOPE CREEP INTO SIGNALS. The moment the tool emits "BUY" it stops being
+     a thinking aid and becomes something you follow without thinking.
+     Verdicts are ranges plus assumptions. No exceptions.
+
+ 10. PRETTY BEFORE CORRECT. Do not let a polished DCF screen get built on top
+     of unverified normalization. The order in PART 5 exists for this reason.
+
+ 11. FULL ACCESS MODE BY DEFAULT. Agent mode plus explicit approvals is
+     correct for this project. Network access belongs to ingest sessions only,
+     and you want to see it ask.
+
+================================================================================
+PART 9 -- EFFORT REALITY CHECK
+================================================================================
+
+Expected distribution of total effort:
+
+  ~45%   XBRL tag normalization, concept mapping, per-company overrides
+  ~25%   data quality handling, flags, point-in-time correctness, tests
+  ~15%   UI
+  ~10%   valuation math
+  ~5%    infrastructure and scheduling
+
+The valuation math -- the part that feels like the project -- is the smallest
+slice and the easiest to get right, because it is well-specified textbook
+arithmetic with clear invariants. The data layer is where the time and the risk
+live.
+
+If, three sessions in, the DCF screen looks great and the concept map has 12
+entries, the project is failing and it will not be obvious for months.
+
+================================================================================
+PART 10 -- THE PROMPT TO OPEN WITH
+================================================================================
+
+Set mode to Plan first (`/plan`), then paste:
+
+---
+Read docs/spec.txt in full before writing anything.
+
+We are building the P0 scope only (spec Section 11). Do not start P1 features.
+
+First task, and the only task this session:
+  1. a repo scaffold matching spec Section 1.1
+  2. install the provided AGENTS.md at the repo root, and create the nested
+     AGENTS.md files for packages/core, packages/ingest, packages/schema,
+     apps/web and apps/api per BUILD_GUIDE Part 4.2
+  3. docker-compose for postgres+timescale and redis
+  4. migration tooling and a test harness where `make test` passes with zero
+     tests, plus `make test-core`, `make test-golden`, `make lint typecheck`
+  5. scripts/pre-commit and an install step for it, per BUILD_GUIDE Part 7.2
+  6. a task breakdown for P0 ONLY as docs/tasks-p0.md, following the session
+     plan in BUILD_GUIDE Part 5
+
+Write NO business logic, no ingest code, no valuation math and no UI this
+session.
+
+Two constraints that override anything else you infer:
+  - Never fabricate, interpolate or default a missing financial value. Missing
+    data returns NULL and raises a data_quality_flag.
+  - concept_std is a checked-in enum and is the only permitted vocabulary for
+    normalized financial concepts.
+
+Show me the plan before executing. Ask before making any decision that is
+expensive to reverse -- specifically schema shape, the concept_std vocabulary,
+and the API contract.
+---
+
+After that session, review the scaffold and AGENTS.md files yourself, then move
+to S1 in read-only mode. The two gates worth your personal attention are the
+concept map (S1) and the schema (S2). Everything downstream inherits both, and
+both are painful to change once ingest and UI sit on top.
+
+================================================================================
+NOTE ON TOOLING DRIFT
+================================================================================
+Codex ships fast. Slash commands, approval-mode names and config keys move.
+If `/plan`, `/review`, `/permissions`, `/init` or `/debug-config` behave
+differently than described, check `codex --help` and the current docs at
+developers.openai.com/codex rather than trusting this file. The orchestration
+advice in Parts 1, 3, 6 and 7 does not depend on those specifics.
+
+================================================================================
+END OF BUILD GUIDE
+================================================================================

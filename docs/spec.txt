@@ -1,0 +1,876 @@
+================================================================================
+EQUITY VALUATION WORKBENCH
+Technical Specification & Build Handoff
+================================================================================
+Version:  1.0
+Date:     2026-09-11
+Purpose:  A local-first, interactive tool that ingests point-in-time
+          fundamental + market data, runs multiple valuation models, forces
+          explicit assumptions, separates signal from noise, and outputs a
+          defensible over/undervalued verdict with a calibration trail.
+
+Non-goals: no order execution, no auto-trading, no "BUY/SELL" signal output,
+          no backtested strategy generator. The tool produces ARGUMENTS.
+          The human makes decisions.
+
+================================================================================
+SECTION 0 -- DESIGN PRINCIPLES
+================================================================================
+These are load-bearing. Every later decision derives from them. If a feature
+conflicts with one of these, the principle wins.
+
+0.1  THE OUTPUT IS A RANGE PLUS ITS ASSUMPTIONS, NEVER A NUMBER.
+     A single "fair value: $87" is worse than useless because it hides its own
+     fragility. Every verdict ships with (a) a distribution, (b) the input set
+     that produced it, (c) which inputs it is most sensitive to.
+
+0.2  REVERSE DCF IS THE PRIMARY LENS, NOT FORWARD DCF.
+     Forward DCF asks "what is this worth?" -- unanswerable, and invites
+     motivated reasoning. Reverse DCF asks "what must I believe to justify
+     today's price?" -- answerable, falsifiable, and immediately comparable to
+     the company's own history and peer base rates. Reverse DCF is the DEFAULT
+     TAB. Forward DCF is secondary.
+
+0.3  PROVENANCE OR IT DOESN'T RENDER.
+     Every displayed number is clickable back to: source name, filing accession
+     + URL, retrieval timestamp, and the full transform chain applied. No
+     orphan figures anywhere in the UI. If provenance can't be established,
+     the cell renders as "--" with a data-quality flag, never as a guess.
+
+0.4  POINT-IN-TIME DISCIPLINE.
+     Store as-reported values ALONGSIDE later restatements, keyed by filing
+     date. Reading restated history as if it were known at the time is
+     lookahead bias. It will silently corrupt any calibration or backtest work.
+     This must be in the schema on day one -- it cannot be retrofitted.
+
+0.5  STRICT THREE-LAYER SEPARATION.
+     Layer 1: FACTS      -- ingested, immutable, provenance-bearing
+     Layer 2: ASSUMPTIONS-- human judgment, versioned, each with rationale
+     Layer 3: CONCLUSIONS-- derived by pure functions, NEVER hand-editable
+     A conclusion that can be hand-edited is an assumption wearing a disguise.
+
+0.6  FORCE FALSIFICATION.
+     No thesis is saveable without a written, dated "I am wrong if X by Y."
+     This is a hard validation constraint, not a nudge.
+
+0.7  DELAYED DATA, HONESTLY LABELLED, BEATS FAKE REAL-TIME.
+     Genuine real-time US equity quotes require exchange data agreements and
+     per-user fees. 15-minute delayed is free/cheap and entirely adequate for
+     valuation work. Build for delayed; render staleness prominently; never
+     imply live when it isn't.
+
+================================================================================
+SECTION 1 -- ARCHITECTURE
+================================================================================
+
+1.1  REPOSITORY LAYOUT
+     apps/
+       web/          Next.js 15 (App Router) + TypeScript
+                     TanStack Query, Tailwind, shadcn/ui, visx or Recharts
+       api/          FastAPI (Python 3.12) -- ALL valuation math lives here
+     packages/
+       core/         valuation engine: pure functions, heavily tested
+       ingest/       one module per data source, uniform Source interface
+       schema/       shared types; generated TS from Pydantic models
+     infra/          docker-compose: postgres+timescale, redis, worker
+     docs/           spec.txt, ADRs, data-source licence register
+     tests/
+       golden/       pinned API responses + hand-checked expected outputs
+
+1.2  WHY THIS SPLIT
+     - Valuation math in Python: numpy / scipy / statsmodels for regressions,
+       Monte Carlo, and factor decomposition. Do not reimplement in JS.
+     - Frontend NEVER computes a valuation. It renders one. This keeps a single
+       source of truth for the math and makes the engine testable in isolation.
+     - core/ is pure: no I/O, no DB, no network. Functions take inputs, return
+       outputs. This is what makes the invariant tests possible.
+
+1.3  STORAGE
+     - Postgres 16 + TimescaleDB.
+       Relational tables for entities, filings, facts, assumptions, theses.
+       Hypertables for price_daily and macro_series.
+     - Redis: upstream response cache + per-source rate-limit token buckets.
+     - Object store (local dir is fine): raw API payloads, gzipped, keyed by
+       (source, endpoint, params_hash, fetched_at). Never re-fetch to re-parse.
+       This makes normalization changes replayable without hammering upstreams.
+
+1.4  SCHEDULING
+     Prefect for ingest DAGs with retry/backfill semantics.
+     If you want less machinery: APScheduler + a jobs table. Acceptable.
+     Requirements either way: idempotent tasks, explicit backfill windows,
+     dead-letter queue, and per-source rate-limit awareness.
+
+1.5  THE SOURCE INTERFACE (every ingest module implements exactly this)
+     class Source(Protocol):
+         name: str
+         licence: str                    # e.g. "free-personal-use-no-redist"
+         redistribution_allowed: bool
+         rate_limit: RateLimit           # requests, window, burst
+         freshness_sla: timedelta
+         def fetch(self, symbol: str, since: date) -> list[RawRecord]: ...
+         def normalize(self, raw: list[RawRecord]) -> list[Fact]: ...
+     Adding a new data source should be ONE new file and one registry line.
+     If it requires touching the engine, the abstraction is wrong.
+
+================================================================================
+SECTION 2 -- DATA SOURCES
+================================================================================
+
+2.1  FUNDAMENTALS (the backbone -- SEC, free, authoritative)
+
+  (a) SEC XBRL Company Facts  [PRIMARY]
+      https://data.sec.gov/api/xbrl/companyfacts/CIK##########.json
+      - Every tagged line item, every filing, full history, as-reported.
+      - Each datapoint carries its own "filed" date -> point-in-time for free.
+      - Free, no API key.
+      - HARD REQUIREMENT: send a real User-Agent header containing a contact
+        email, or you will be blocked. Cap at 10 requests/second.
+      - This is the spine. Everything else is convenience.
+
+  (b) SEC XBRL Frames
+      /api/xbrl/frames/us-gaap/{tag}/USD/CY2025Q2I.json
+      - One tag across all filers for one period.
+      - This is how you build peer comparison sets cheaply.
+
+  (c) SEC Financial Statement Data Sets (quarterly bulk ZIP)
+      - Bulk historical backfill. Far faster than per-company crawling for the
+        initial load. Use for seeding, then switch to (a) for incremental.
+
+  (d) EDGAR full-index + RSS
+      - Filing arrival feed. Poll for new filings; triggers re-ingest and
+        staleness recomputation. Also the 8-K event detector.
+
+2.2  PRICES
+      Tiingo        -- generous free tier, cheap paid. GOOD DEFAULT for EOD.
+      Polygon.io    -- ~$30-200/mo. Best if you want intraday, options, real
+                       websockets. The upgrade path.
+      EODHD         -- ~$20/mo. Broad international coverage.
+      Stooq         -- free CSV. Decent free EOD fallback.
+      Alpha Vantage -- free but 25 calls/day. Too tight for anything real.
+      yfinance      -- UNOFFICIAL, breaks without warning, ToS-grey.
+                       Fine for prototyping. NEVER in the production path.
+                       Enforce this with a lint rule.
+
+2.3  MACRO / DISCOUNT RATE INPUTS
+      FRED API (free key):
+        DGS10  10y Treasury        DGS2   2y Treasury
+        DFF    Fed funds effective T10Y2Y 10y-2y spread
+        BAMLH0A0HYM2  HY credit spread
+        CPIAUCSL, UNRATE
+      Treasury.gov daily yield curve XML
+        -- cleaner than FRED for bootstrapping the full curve.
+      Damodaran public datasets (NYU Stern; annual + monthly ERP update)
+        -- implied equity risk premium, unlevered industry betas, industry
+           WACC, revenue multiples by sector. Free and citable.
+        -- Use as the DEFAULT PRIOR for ERP and beta, user-overridable.
+           This saves you from inventing an ERP, which is the single most
+           common source of garbage DCF output.
+      Ken French Data Library
+        -- Fama-French 3/5 factor daily returns, free. Required by the noise
+           module (Section 5).
+
+2.4  ESTIMATES & CONSENSUS (this is where free data runs out)
+      Finnhub free tier  -- basic EPS/revenue estimates, earnings calendar.
+      FMP (Financial Modeling Prep) ~$20-50/mo -- estimates, price targets,
+           transcripts. Reasonable value.
+      Nasdaq Data Link / Zacks / S&P / Refinitiv -- proper consensus, real money.
+
+      DESIGN RULE: consensus is OPTIONAL and always labelled as third-party
+      opinion. It must NEVER be an input to fair value. Its only two
+      legitimate uses are:
+        (i)  computing forward P/E for comparability with how the market talks
+        (ii) measuring the gap between your forecast and consensus
+      Your own driver forecasts are the DCF input. If consensus drives your
+      DCF, you have built a consensus-repeater, not a valuation tool.
+
+2.5  EVENT / OWNERSHIP / TEXT
+      Forms 3/4/5 (EDGAR)  -> insider transactions
+      13F (EDGAR)          -> institutional holders and quarterly changes
+      DEF 14A (EDGAR)      -> executive comp structure
+      10-K Item 1A         -> risk factor text, for diffing (Section 9.3)
+      FINRA / Nasdaq       -> short interest (bi-monthly)
+      Polygon or CBOE      -> options chains, for implied move around catalysts
+      Fed calendar + CME FedWatch -> rate catalysts
+      News: GDELT (free, huge), Marketaux, Finnhub news, and -- highest
+            signal-to-noise by a wide margin -- direct RSS from each company's
+            own IR page.
+      Transcripts: FMP or API Ninjas.
+      DO NOT scrape Seeking Alpha / Motley Fool / Bloomberg. ToS violation.
+      Do not build a dependency on anything you can't legally keep.
+
+2.6  SECTOR-SPECIFIC PLUGIN SOURCES
+      Crypto-exposed names: DefiLlama, CoinGecko, Dune.
+      Rationale: for something like a stablecoin issuer, on-chain circulation
+      and transaction volume ARE the revenue drivers, and no traditional data
+      vendor carries them. This is precisely why the model layer needs
+      pluggable driver models (Section 4.3).
+      Other examples: app-download data for consumer apps, EIA for energy,
+      FDIC call reports for banks, BLS for labour-cost-exposed businesses.
+
+2.7  LICENCE REGISTER  [REQUIRED, NOT OPTIONAL]
+      Record licence + redistribution_allowed per source in the DB.
+      Most free APIs permit personal use but prohibit redistribution. That
+      field is what prevents a problem if this ever gets shown to anyone else.
+      docs/data-licences.md must list every source, its terms, and its URL.
+
+================================================================================
+SECTION 3 -- DATA MODEL
+================================================================================
+
+3.1  CORE TABLES
+
+  securities
+    id, ticker, cik, name, sic, sector, exchange, currency,
+    shares_class_notes, first_seen, active
+
+  filings
+    id, cik, form_type, period, filed_at, accession, url, raw_blob_key
+
+  fact_fundamental                              [THE MOST IMPORTANT TABLE]
+    security_id, xbrl_tag, concept_std, value, unit,
+    period_start, period_end, fiscal_period, is_instant,
+    filed_at, accession_id, is_restatement_of, source_id
+    UNIQUE (security_id, concept_std, period_start, period_end, accession_id)
+    -- "latest value"        = row with max(filed_at)
+    -- "value as known at D" = row with max(filed_at) WHERE filed_at <= D
+    That second query is your entire point-in-time guarantee. Test it.
+
+  price_daily            [hypertable]
+    security_id, date, open, high, low, close, adj_close, volume, source_id
+
+  macro_series           [hypertable]
+    series_id, date, value, source_id, vintage_date
+
+  estimate
+    security_id, metric, period, consensus, high, low, n_analysts, as_of,
+    source_id
+
+  comps_set
+    id, security_id, name, method(sic|manual|statistical), members[], created_at
+
+  assumption                                    [FIRST-CLASS ROW, NOT A BLOB]
+    id, model_run_id, key, value, unit,
+    kind(hard_data|third_party_estimate|judgment),
+    confidence(low|med|high), source_url, rationale_text,
+    set_by, set_at, sensitivity_rank, derived_from_fact_id NULLABLE
+
+  model_run
+    id, security_id, model_type, created_at, parent_run_id,
+    inputs_hash, outputs_json, note
+    -- Immutable. Editing an assumption creates a NEW run with parent_run_id.
+
+  scenario
+    model_run_id, name(bear|base|bull|custom), probability,
+    overrides_json, mechanism_text NOT NULL
+
+  catalyst
+    security_id, title, date_or_window_start, date_or_window_end,
+    direction(up|down|either), est_magnitude_pct, priced_in_confidence,
+    implied_move_pct, resolved_at, realized_pct, notes
+
+  thesis
+    security_id, stance(long|short|pass|watch), target_range_low,
+    target_range_high, horizon_months,
+    falsification_text NOT NULL, why_mispriced_text NOT NULL,
+    external_bear_case_url, conviction_json, bias_checklist_json,
+    created_at, superseded_by
+
+  prediction_log
+    thesis_id, made_at, claim_text, probability, resolve_by,
+    resolved_at, outcome(bool), brier_score
+
+  news_item
+    security_id, published_at, source, url, title,
+    signal_class(primary_disclosure|analyst_pt|aggregator|opinion),
+    signal_score, tags[]
+
+  data_quality_flag
+    security_id, period, rule_id, severity, message, evidence_url,
+    raised_at, acknowledged_at
+
+3.2  CONCEPT NORMALIZATION LAYER   [THE HARD PART -- READ THIS TWICE]
+
+     Companies tag the same economic concept with different XBRL tags:
+       Revenues
+       RevenueFromContractWithCustomerExcludingAssessedTax
+       RevenueFromContractWithCustomerIncludingAssessedTax
+       SalesRevenueNet                    (deprecated, still in old filings)
+       ...plus company-specific extension tags with custom namespaces.
+
+     Required:
+       concept_map
+         concept_std, xbrl_tag, priority, valid_from, valid_to, notes
+       concept_map_override
+         security_id, concept_std, xbrl_tag, priority, rationale, set_by
+
+     Resolution: for a given (security, concept_std, period), pick the
+     highest-priority available tag, preferring company overrides.
+
+     HARD RULES:
+       - The UI MUST show which raw tag fed each normalized concept.
+       - If no mapped tag is available, return NULL and raise a
+         data_quality_flag. NEVER substitute a fallback value, never sum
+         unrelated tags to "fill the gap", never interpolate. Silent wrong
+         numbers are the worst possible failure mode in this tool.
+       - Custom extension tags require an explicit human-reviewed override.
+
+     Realistic expectation: this layer plus data-quality handling is roughly
+     70% of total build effort. The valuation math is the easy part. Budget
+     accordingly. A beautiful DCF screen sitting on mismapped revenue tags is
+     a machine for generating confident wrong answers.
+
+================================================================================
+SECTION 4 -- VALUATION ENGINE
+================================================================================
+
+4.1  RATIO & QUALITY MODULE
+
+  Compute per period:
+    Multiples : P/E trailing, P/E forward, P/B, P/S, PEG, EV/EBITDA, EV/Sales,
+                EV/FCF, EV/EBIT, FCF yield, earnings yield
+    Returns   : ROE, ROA, ROIC, ROIIC (incremental), and critically
+                ROIC MINUS WACC SPREAD -- the single best one-number test of
+                whether growth creates or destroys value
+    Margins   : gross, operating, EBITDA, net, FCF conversion
+    DuPont    : net margin x asset turnover x equity multiplier
+    Leverage  : net debt/EBITDA, interest coverage, debt/equity, FCF/debt
+    Working cap: DSO, DIO, DPO, cash conversion cycle
+    Composites: Piotroski F-score, Altman Z, Beneish M, Sloan accruals ratio
+
+  DISPLAY RULE -- never show a raw ratio alone. Always the triple:
+    (i)   the value
+    (ii)  its percentile vs this company's own trailing 5-10y distribution
+    (iii) its percentile vs the active comp set
+  "P/E 49" means nothing. "P/E 49 -- 78th pct vs own history, 91st vs peers,
+  on trailing EPS that includes a one-time tax benefit" means something.
+
+  AUTO-RAISED QUALITY FLAGS (each links to its evidence):
+    - FCF / net income persistently < 0.8       -> earnings not becoming cash
+    - SBC > 10% of revenue                      -> the non-GAAP number is fiction
+    - Widening GAAP vs adjusted-EPS gap         -> track the bridge AND the
+                                                   trend in adjustment size
+    - Share count rising while "EPS grows"      -> dilution masking
+    - Accruals ratio in top decile              -> mean-reversion risk
+    - Receivables growing faster than revenue   -> pull-forward or collections
+    - Inventory growing faster than COGS        -> demand miss incoming
+    - Capitalised costs rising as % of opex     -> margin flattery
+    - Any material row in is_restatement_of     -> history changed under you
+    - Auditor change, late filing, going-concern language
+
+4.2  DCF MODULE
+
+  (a) FCFF BUILD
+      revenue -> EBIT -> NOPAT (EBIT x (1-t))
+        less reinvestment = capex + delta NWC - D&A
+        = FCFF
+      Explicit forecast horizon 5-10y, user-set. Fade-to-terminal supported.
+
+  (b) WACC
+      Risk-free: live from FRED (DGS10), with the date shown.
+      ERP: Damodaran implied ERP as default; user override with rationale.
+      Beta -- offer THREE methods, user chooses, diagnostics always shown:
+        1. Regression beta, with R^2, standard error, window length, and the
+           scatter rendered. A beta with R^2 of 0.08 should look untrustworthy.
+        2. Bottom-up: unlevered industry beta (Damodaran) relevered to the
+           company's current capital structure. Usually the better estimate.
+        3. Manual, with required rationale.
+      Cost of debt: actual interest expense / average total debt, OR
+        synthetic rating from interest coverage -> credit spread. Show both.
+      Handle: operating leases as debt, minority interests, cross-holdings.
+
+  (c) TERMINAL VALUE
+      Gordon growth OR exit multiple.
+      HARD CONSTRAINT: terminal growth < risk-free rate. Enforce in code,
+      not in a tooltip. Growing forever faster than the economy is the most
+      common amateur error and it inflates fair value enormously.
+      ALWAYS display TV as % of total enterprise value.
+      If TV > 75% of EV, raise a prominent flag: the model is a
+      terminal-assumption machine wearing a DCF costume, and the sensible
+      response is to lengthen the explicit forecast or switch to a
+      multiple-based approach.
+
+  (d) REVERSE DCF   [DEFAULT TAB]
+      Hold price fixed. Solve for the implied value of one variable:
+      revenue CAGR, terminal operating margin, ROIC, or reinvestment rate.
+      Render the solved value IMMEDIATELY NEXT TO:
+        - the company's own achieved historical value for that variable
+        - the distribution of that variable across the comp set
+        - the historical base rate for sustaining it (how many companies of
+          this size have sustained this growth for this long?)
+      Target output sentence, generated automatically:
+        "Today's price implies 24% revenue CAGR for 10 years. This company has
+         achieved 19%. No peer in the set has sustained above 21%. Of ~4,000
+         US companies above $10bn since 1990, N sustained 24%+ for a decade."
+      This one screen is the most decision-useful thing in the product. Build
+      it properly.
+
+  (e) SENSITIVITY
+      - 2D heatmap: WACC x terminal growth, and growth x terminal margin.
+      - TORNADO CHART ranking every assumption by elasticity of output.
+        The tornado tells you which assumptions deserve research time. Write
+        the ranking back into assumption.sensitivity_rank so the UI can pin
+        the top 3 to the DCF screen header.
+
+  (f) MONTE CARLO
+      Assign distributions to the top-N sensitive assumptions (triangular or
+      normal, user-set bounds). SUPPORT A CORRELATION MATRIX -- growth and
+      margin are not independent, and pretending they are understates the
+      tails badly. 10,000 draws.
+      Outputs: histogram of intrinsic value with current price drawn as a
+      vertical line; P(IV > price); 10th / 25th / 50th / 75th / 90th
+      percentiles. This distribution REPLACES the point estimate everywhere
+      in the UI.
+
+  (g) INVARIANT (assert in CI)
+      Running reverse DCF on the base-case assumption set must reproduce the
+      base-case intrinsic value to within floating-point tolerance.
+      Monte Carlo median must approximate the deterministic base case.
+
+4.3  PLUGGABLE DRIVER MODELS
+
+  A generic FCF DCF is simply wrong for many businesses. Support plugins that
+  define the revenue and margin path bottom-up, then hand off to the shared
+  NOPAT -> FCFF -> discount machinery.
+
+    SaaS / subscription
+      ARR x NRR, gross retention, CAC payback, magic number, S&M efficiency
+    Banks / insurers
+      NIM x earning assets, provisions, fee income, capital ratios.
+      VALUE VIA RESIDUAL INCOME OR DDM, NOT FCFF. FCFF is meaningless for a
+      bank because debt is raw material, not financing.
+    Float / asset-based issuer  (e.g. a stablecoin issuer)
+      reserve_income = avg_float x reserve_yield x retention_rate
+      RLDC = revenue - distribution_share x revenue
+      Rate path is an EXPLICIT MACRO-LINKED INPUT pulled from the forward
+      curve, not a hand-typed constant. This makes the rate sensitivity of the
+      whole thesis visible and auditable.
+    Marketplaces
+      GMV x take rate, cohort retention
+    Commodity / cyclical
+      volume x realised price, with mid-cycle normalisation. Never value a
+      cyclical off peak-cycle earnings.
+    Biotech / binary pipeline
+      rNPV per asset: peak sales x probability of approval x discount
+
+  Plugin interface: declare inputs, produce revenue/margin/reinvestment path,
+  return to shared machinery. Also support:
+    SOTP -- for conglomerates and for companies where one segment carries the
+            optionality and the other carries the cash flow. Value the legacy
+            business on cash flow, the new segment on scenarios, sum, subtract
+            net debt and corporate overhead.
+
+4.4  RELATIVE VALUATION
+
+  Peer selection, three methods:
+    1. SIC / sector code           (fast, often wrong)
+    2. Manual                      (best, if you know the space)
+    3. Statistical                 (cluster on return correlation +
+                                    fundamental similarity -- frequently finds
+                                    better peers than industry codes do)
+
+  DO BETTER THAN A PEER AVERAGE. Peer averages are near-useless because they
+  ignore WHY a company trades where it does.
+
+  Run a cross-sectional regression:
+    EV/Sales ~ b0 + b1*growth + b2*gross_margin + b3*ROIC + b4*leverage
+  Fitted value = the justified multiple for THIS company's fundamentals.
+  Residual    = cheap or expensive AFTER controlling for why it should be.
+
+  Render: scatter with regression line, subject highlighted, R^2 displayed,
+  residual ranking across the comp set.
+  If n < 8 peers: still show it, but warn loudly that the regression is
+  underdetermined.
+
+  ACCOUNTING-REGIME GUARD: refuse to silently mix IFRS and US GAAP filers, or
+  banks with software companies, or different fiscal-year-ends without
+  calendarisation. Flag it in the UI.
+
+4.5  SCENARIO ENGINE
+
+  Three columns minimum (bear / base / bull), each a FULL assumption override
+  set with a probability weight. Weights must sum to 1.0 (validated).
+  Outputs: probability-weighted expected value, expected return vs price,
+  payoff distribution, and upside/downside capture ratio.
+
+  HARD RULE: each scenario requires mechanism_text. A bear case written as
+  "base case minus 30%" is not a bear case. "150bp of rate cuts plus flat
+  circulation plus the distribution partner routing volume to a rival" is.
+  Mechanisms can be checked against reality; haircuts cannot.
+
+================================================================================
+SECTION 5 -- NOISE IDENTIFICATION MODULE
+================================================================================
+Most tools skip this entirely. It is where a lot of the real edge is.
+
+5.1  FUNDAMENTAL NOISE -> NORMALISED EARNINGS BRIDGE
+     Walk GAAP net income to your normalised figure, line by line:
+       SBC, impairments, litigation settlements, restructuring, one-time tax
+       items, FX, gains/losses on investments, acquisition costs, IPO comp.
+     Render as a WATERFALL.
+     Then track ADJUSTMENT AGGRESSIVENESS over time: management's total
+     add-backs as % of GAAP revenue, trended over 12+ quarters. A rising line
+     is itself a signal, independent of the level.
+
+5.2  SEASONALITY
+     Always offer YoY and TTM alongside QoQ. Auto-detect seasonality via
+     seasonal decomposition and warn when a user reads a QoQ move on a
+     strongly seasonal series. Most "sequential deceleration" stories are
+     seasonality plus motivated reasoning.
+
+5.3  PRICE NOISE -> FACTOR DECOMPOSITION
+     Regress daily returns on Fama-French factors (free, Ken French library).
+     Decompose any move into market + size + value + momentum + IDIOSYNCRATIC
+     RESIDUAL.
+     Then, for each large single-day move, flag whether it was explained by
+     market/sector beta or was genuinely stock-specific.
+     Finding: a large share of "big news days" are not stock-specific at all.
+     Knowing which is which prevents building a narrative on a market move.
+
+5.4  EVENT STUDY MODULE
+     Given an event date: abnormal returns vs the factor-model expectation,
+     CAR over configurable windows ([-1,+1], [-5,+5], [0,+20]), and comparison
+     to the pre-event options-implied move.
+     Reusable for: earnings, product launches, regulatory dates, guidance
+     changes, index adds.
+
+5.5  NEWS SIGNAL SCORING
+     Classify every item into exactly one of:
+       primary_disclosure  -- 8-K, press release, prospectus, transcript
+       analyst_pt          -- price target / rating changes
+       aggregator          -- restated headline, no new information
+       opinion             -- commentary
+     Downweight analyst_pt HARD. Price-target revisions overwhelmingly follow
+     price rather than lead it; treating them as information is a reliable way
+     to buy tops.
+     Provide a "new information only" filter showing primary_disclosure plus
+     genuine first-reports. This should be the default view.
+
+5.6  BASE-RATE PANEL  [persistent sidebar, always visible]
+     - Historical accuracy of consensus estimates for THIS name
+     - Post-earnings-announcement drift history for this name
+     - Historical realised move vs options-implied move around earnings
+     - 12-month hit rate of analyst price targets on this name
+     - Frequency with which companies of this size sustain the growth rate
+       your model assumes
+     Cheap to build. Disproportionately useful for calibrating enthusiasm.
+
+================================================================================
+SECTION 6 -- CONVICTION FRAMEWORK
+================================================================================
+A scored, explicit, auditable rubric -- not a vibe. Each dimension 1-5 with a
+REQUIRED written justification (empty justification = cannot save).
+
+  Data quality          Is the fundamental record complete, unrestated,
+                        consistently tagged, flag-free?
+  Estimate dispersion   How wide is the Monte Carlo IV distribution relative
+                        to its median? Wide distribution = low conviction,
+                        regardless of how attractive the median looks.
+  Model agreement       Do DCF, reverse DCF, relative regression, and the
+                        driver model point the same direction?
+  Business durability   Moat, switching costs, contract structure, customer
+                        and supplier concentration, pricing power
+  Assumption fragility  What share of value sits in terminal assumptions and
+                        in the top-3 tornado inputs?
+  Information edge      Do you actually know something, or are you re-reading
+                        the same 10-K everyone else read?
+  Reflexivity           Do fundamentals depend on the market or the stock
+                        itself? (financials, crypto-exposed, serial equity
+                        issuers, anything where a falling price impairs the
+                        business)
+
+  DERIVED OUTPUTS
+    - Overall conviction score
+    - Implied position size: Kelly-style fraction on P(win) and payoff
+      asymmetry, HARD-CAPPED and labelled explicitly as a heuristic, not a
+      recommendation. Full Kelly is too aggressive for equities with
+      uncertain edge; default to quarter-Kelly.
+    - REQUIRED why_mispriced_text: who is on the other side of this trade and
+      why are they wrong? If that can't be answered, conviction is CAPPED at
+      2 regardless of the rubric score. This single constraint eliminates most
+      bad theses.
+
+  CALIBRATION LOG  [BUILD IN P1, NOT "LATER"]
+    Every thesis writes dated predictions to prediction_log with resolve-by
+    dates. The app later scores them (Brier), and surfaces your calibration
+    curve, per-sector hit rate, and whether your confidence is justified.
+    This is the feature that turns a calculator into something that makes you
+    measurably better over time. Retrofitting it means losing the early data
+    permanently, which is exactly the data you most want in two years.
+
+================================================================================
+SECTION 7 -- ASSUMPTION REGISTRY
+================================================================================
+Every input is a row (see schema 3.1) carrying: value, unit, kind, confidence,
+source URL, written rationale, who set it, when, sensitivity rank.
+
+Features:
+  - DIFF between any two model_runs, side-by-side, changed rows highlighted.
+    "What did I change to make this look cheap?" must be a one-click question.
+  - STALENESS ALERTS:
+      * judgment assumptions older than N days
+      * any assumption whose underlying hard data has since been revised by a
+        newer filing (join on fact_fundamental.is_restatement_of)
+  - "TOP 3 ASSUMPTIONS BY SENSITIVITY" pinned to the DCF screen header so you
+    always know what you are actually betting on.
+  - Bulk-clone a registry from a previous run as the starting point for an
+    update, with every cloned row marked as inherited + its age.
+
+================================================================================
+SECTION 8 -- CATALYST TRACKER
+================================================================================
+Per catalyst: title, date or window, direction, YOUR estimated magnitude, YOUR
+confidence it is already priced in, and the OPTIONS-IMPLIED move for that
+window where available.
+
+THE INTERESTING DERIVED FIELD IS THE GAP between your expected move and the
+implied move. That gap is where an edge lives if you have one. If your
+expected move consistently equals the implied move, you have no view.
+
+After resolution: log the realised move. Feeds calibration (Section 6).
+
+Auto-populate where possible:
+  earnings dates, FOMC calendar, IPO lockup expiries (from S-1/prospectus),
+  index rebalance dates, known regulatory effective dates, debt maturities,
+  patent cliffs, contract renewal dates parsed from filings.
+Manual entry for company-specific events.
+
+================================================================================
+SECTION 9 -- ADDITIONAL CONSIDERATIONS
+================================================================================
+These were not in the original brief but materially change answers.
+
+9.1  POINT-IN-TIME / LOOKAHEAD DISCIPLINE
+     Covered in 0.4 and 3.1. The single most important addition. Must be in
+     the schema on day one; cannot be added afterwards.
+
+9.2  DILUTION AND FORWARD CAPITAL STRUCTURE
+     Convertible notes, warrants, SBC overhang, unvested RSUs, ATM programmes.
+     PROJECT DILUTED SHARE COUNT FORWARD rather than holding it constant.
+     A 3%/yr dilution drag compounds to roughly 26% of per-share value over a
+     decade. Most amateur DCFs miss this entirely and are therefore wrong by
+     about that much. Model:
+       - scheduled RSU vesting from the proxy
+       - expected new grants as % of revenue
+       - convert dilution at the strike, with the if-converted test
+       - buyback offset at realistic (not guided) execution rates
+
+9.3  RISK-FACTOR TEXT DIFFING          [HIGH VALUE, LOW COST]
+     Pull Item 1A from consecutive 10-Ks and diff them. What management NEWLY
+     discloses as a risk is real signal that almost nobody tracks
+     systematically. Same treatment for MD&A and critical accounting
+     estimates. You already have EDGAR ingest, so marginal cost is near zero.
+     Render as: added / removed / materially reworded, with the text.
+
+9.4  MANAGEMENT INCENTIVE ANALYSIS
+     Parse DEF 14A: what metrics does compensation vest on, over what period,
+     with what peer group? If comp vests on adjusted EBITDA, expect adjusted
+     EBITDA to be managed. If it vests on TSR vs a weak peer set, expect
+     financial engineering. This explains more capital-allocation behaviour
+     than any strategy deck.
+
+9.5  CONCENTRATION AND CONTRACT STRUCTURE
+     Customer, supplier, geographic, and channel concentration. Contract
+     renewal dates. Change-of-control and exclusivity clauses.
+     A single counterparty clause can BE the entire thesis. Surface the top-5
+     customers as % of revenue and the next renewal date on the Overview tab.
+
+9.6  OWNERSHIP AND GOVERNANCE
+     Dual-class structure, insider control %, float as % of shares out, short
+     interest, borrow cost, days-to-cover, index membership, 13F concentration
+     and crowding. A crowded long with 3 days-to-cover behaves differently
+     from an orphan.
+
+9.7  LIQUIDITY AND IMPLEMENTABILITY
+     ADV, bid-ask spread, and what position size is actually executable
+     without moving the price. A great idea in a $50m-cap with $200k ADV is
+     not an idea. Display max implementable size at your capital level.
+
+9.8  REGULATORY / POLICY EXPOSURE REGISTER
+     Named laws, effective dates, and which revenue lines each touches.
+     Link each to a catalyst row so effective dates appear on the timeline.
+
+9.9  CURRENCY EXPOSURE
+     Revenue currency vs cost currency mismatch, hedging disclosure, and
+     translation vs transaction exposure. For non-USD reporters, decide and
+     document whether you value in local currency at local WACC or in USD at
+     USD WACC. Mixing them is a classic silent error.
+
+9.10 INSIDER TRANSACTION OVERLAY
+     Plot Form 4 activity on the price chart. CLASSIFY BY PLAN vs
+     DISCRETIONARY: scheduled 10b5-1 sales are noise; discretionary open-market
+     purchases by officers are weak-but-real signal. Unclassified insider data
+     is worse than none because it invites false inference.
+
+9.11 BIAS LOG
+     Short required checklist at thesis creation:
+       - Am I anchoring on my entry price or a prior target?
+       - Have I sought disconfirming evidence, specifically?
+       - Am I in this because the narrative is enjoyable?
+       - Would I still hold this at a 30% higher price? At 30% lower?
+       - Am I confusing a good company with a good investment?
+
+9.12 EXTERNAL BEAR CASE SOURCING
+     A required field for the strongest EXTERNAL bear argument found, with a
+     link. Forces reading the other side before committing. If you cannot find
+     a competent bear case, you have not looked hard enough, and that itself
+     should cap conviction.
+
+9.13 TIME AND TAX
+     Holding-period assumptions, expected time-to-thesis-resolution, and
+     after-tax expected return. A 40% gain over five years is a 7% CAGR.
+     Display annualised expected return, not absolute upside, as the headline.
+
+================================================================================
+SECTION 10 -- UI SPECIFICATION
+================================================================================
+
+NAVIGATION: Watchlist -> Company. Company page is tabbed. Every tab shares a
+sticky header: price, staleness indicator, verdict badge, conviction score.
+
+  OVERVIEW
+    Price chart with event markers
+    Verdict badge showing IV RANGE (10th-90th percentile) with the current
+      price positioned inside it -- never a single fair-value number
+    Conviction gauge
+    Key ratios as sparkband rows (value + own-history pct + peer pct)
+    Active quality flags
+    Next 3 catalysts
+    Top-5 customer concentration + next renewal date
+
+  FINANCIALS
+    Statements with AS-REPORTED <-> LATEST-RESTATED toggle
+    TTM / quarterly / annual views
+    Segment and driver breakdown
+    Normalised-earnings waterfall
+    Quality flag detail with evidence links
+
+  RATIOS
+    Interactive multi-metric time series
+    Peer scatter with regression line, subject highlighted
+    Percentile bands vs own history and vs peers
+
+  DCF
+    Left rail: assumption controls, each showing kind, confidence, source
+      link, and sensitivity rank
+    Live-recomputing output
+    Sub-tabs: REVERSE (default) | Forward | Sensitivity heatmap | Tornado |
+      Monte Carlo
+    Terminal-value share of EV always visible
+
+  COMPS
+    Editable peer set with selection method shown
+    Multiple regression output + R^2 + residual ranking
+    Implied price from justified multiple
+    Accounting-regime warnings
+
+  SCENARIOS
+    Three-column editor, probability weights, mechanism text
+    Expected value, payoff distribution, upside/downside capture
+
+  CATALYSTS
+    Timeline
+    Your-move vs implied-move gap column
+    Resolution log with realised moves
+
+  NOISE
+    Factor decomposition stacked chart
+    Per-event abnormal-return viewer
+    News feed filtered by signal class (default: primary disclosures only)
+    Base-rate panel
+
+  THESIS
+    Assumption registry table
+    Falsification statement, why-mispriced, external bear case
+    Bias checklist
+    Version history with diff view
+
+  CALIBRATION
+    Prediction log, Brier score over time, calibration curve,
+    per-sector hit rate, overconfidence measure
+
+INTERACTION RULES
+  - Click ANY number -> provenance drawer (source, accession + link,
+    retrieved-at, transform chain, licence).
+  - Staleness always visible: price age, last filing date, oldest stale
+    assumption.
+  - Assumption edits create a NEW model_run. Immutable history. No
+    destructive edits, ever.
+  - Export a run to JSON + a readable Markdown memo.
+  - Keyboard-first ticker switching. This should feel like a terminal, not a
+    marketing dashboard.
+  - Dense by default. This is a professional tool; whitespace is not the goal.
+
+================================================================================
+SECTION 11 -- PHASING
+================================================================================
+
+P0 -- SKELETON THAT IS ACTUALLY USEFUL
+  EDGAR Company Facts ingest + concept normalization layer
+  Price ingest (Tiingo)
+  FRED macro ingest
+  Point-in-time storage (NON-NEGOTIABLE, day one)
+  Ratio engine with own-history percentiles
+  Company pages: Overview, Financials, Ratios
+  Forward DCF with sliders + sensitivity grid
+  Provenance drawer
+  Golden-file test harness
+
+P1 -- THE JUDGMENT LAYER
+  Reverse DCF (promote to default tab)
+  Monte Carlo + tornado
+  Comps with cross-sectional regression
+  Scenario engine
+  Assumption registry with diffing and staleness
+  Catalyst tracker
+  Thesis + prediction log + calibration scaffolding
+
+P2 -- THE DIFFERENTIATORS
+  Factor decomposition + event study
+  News signal classification
+  Risk-factor text diffing
+  Driver-model plugin system
+  DEF 14A comp parsing
+  Dilution forward model
+  Calibration dashboard
+  Alerting: new filings, stale assumptions, flag escalation
+
+================================================================================
+SECTION 12 -- TESTING & CORRECTNESS
+================================================================================
+
+12.1 GOLDEN-FILE TESTS  [most important test category]
+     Pin one company's raw XBRL response to disk. Assert the normalized
+     statement matches a HAND-CHECKED fixture. Do this for 5-8 companies
+     spanning: clean large-cap, heavy custom-tag user, financial, foreign
+     private issuer, recent IPO, company with a restatement.
+     This catches tag-mapping regressions, which are the primary silent
+     failure mode of the entire system.
+
+12.2 ACCOUNTING IDENTITIES AS RUNTIME ASSERTIONS
+     assets = liabilities + equity
+     cash flow statement net change ties to balance sheet cash delta
+     segment revenue sums to consolidated revenue (within rounding)
+     shares outstanding is monotonic absent a buyback or split
+     On violation: raise a data_quality_flag. Do NOT crash, do NOT silently
+     correct.
+
+12.3 DCF INVARIANTS
+     reverse_dcf(base_assumptions) == base_iv          (within tolerance)
+     terminal_growth < risk_free                       (enforced, tested)
+     monte_carlo_median ~= deterministic_base          (within tolerance)
+     A hand-computed 3-period DCF fixture with a known answer. Do not trust
+     generated valuation math without one.
+
+12.4 RATE-LIMIT AND USER-AGENT COMPLIANCE
+     Test that the EDGAR client sends a contact User-Agent and respects
+     10 req/s, so you do not get IP-banned mid-build.
+
+12.5 POINT-IN-TIME REGRESSION TEST
+     For a company with a known restatement: assert that a query "as of" a
+     date before the restatement returns the ORIGINAL figures, and "as of"
+     after returns the restated ones. If this test does not exist, assume
+     lookahead bias is present.
+
+================================================================================
+END OF SPECIFICATION
+================================================================================

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+# Require matching index/worktree contents so checked files are the committed files.
+if ! git diff --quiet; then
+  echo "Pre-commit: stage or set aside unstaged tracked edits before verification." >&2
+  exit 1
+fi
+if [ -n "$(git ls-files --others --exclude-standard)" ]; then
+  echo "Pre-commit: stage or ignore untracked project files before verification." >&2
+  exit 1
+fi
+make lint typecheck test test-core test-golden

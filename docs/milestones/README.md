@@ -1,0 +1,27 @@
+# Milestone index
+
+Canonical code location:
+`/Users/leon/Library/Mobile Documents/com~apple~CloudDocs/Development/equityEval`
+
+The Codex project is currently saved at the older Documents/ChatGPT path. Until
+its saved path changes, any new task must explicitly use the canonical path
+above. This repository and its commits are the implementation source of truth.
+
+| ID | Status | Record | Task |
+| --- | --- | --- | --- |
+| S0 | Complete; Docker verification pending | [Scaffold](S0-scaffold.md) | `S0 — EquityEval scaffold and milestones` (ID in record) |
+| S1 | Planned | SEC concept reconnaissance; depends on S0 | Create when work begins |
+| S2 | Planned | Reviewed schema and PIT | After S1 review |
+| S3 | Planned | EDGAR ingestion | After S2/Source review |
+| S4 | Planned | Tiingo and FRED | After S3 |
+| S5 | Planned | Ratio engine | After S3/S4 |
+| S6 | Planned | API contract review/freeze | After S5 |
+| S7 | Planned | Forward DCF | After S6 |
+| S8a–d | Planned | P0 company pages and integration | After relevant engine/contracts |
+
+For every milestone use [the template](TEMPLATE.md). Keep its record current,
+link decisions and validation evidence, and use a named commit. Future Codex
+tasks should be titled `S1 — EquityEval SEC concepts`, etc. Create a new task
+only when it has a concrete independent scope or this milestone has a handoff.
+Do not duplicate active implementation across tasks. Use `git log --oneline`
+for exact commits and `docs/decisions.md` for review status.

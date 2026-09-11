@@ -1,0 +1,70 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "equity-valuation-workbench"
+version = "0.0.1"
+description = "Local-first equity valuation workbench; S0 infrastructure scaffold"
+requires-python = ">=3.12,<3.13"
+readme = "README.md"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "pydantic>=2.10,<3",
+  "sqlalchemy>=2.0,<3",
+  # Pin SQLAlchemy's Linux dependency in the shared macOS/Linux lock.
+  "greenlet>=3.1,<4",
+  "alembic>=1.14,<2",
+  "psycopg[binary]>=3.2,<4",
+  "python-dotenv>=1,<2",
+  "uvicorn>=0.34,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3,<10",
+  "ruff>=0.9,<1",
+  "mypy>=1.14,<2",
+  "httpx>=0.28,<1",
+  "pip-tools>=7.4,<8",
+  "setuptools>=75",
+  "wheel",
+  "pyyaml>=6,<7",
+  "types-PyYAML>=6,<7",
+]
+
+[tool.setuptools]
+packages = ["equity_api", "equity_core", "equity_ingest", "equity_schema"]
+
+[tool.setuptools.package-dir]
+equity_api = "apps/api"
+equity_core = "packages/core"
+equity_ingest = "packages/ingest"
+equity_schema = "packages/schema"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers --strict-config -ra"
+markers = [
+  "integration: requires local Postgres/Redis; no upstream HTTP calls",
+  "golden: normalization against archived, hand-checked fixtures",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = ["docs/originals", "infra/migrations/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "TID251"]
+
+[tool.ruff.lint.flake8-tidy-imports.banned-api]
+"yfinance" = { msg = "No yfinance in production ingestion or API code." }
+
+[tool.ruff.lint.extend-per-file-ignores]
+"infra/migrations/env.py" = ["E402"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["apps/api", "packages/core", "packages/ingest", "packages/schema", "scripts", "infra/migrations/env.py"]

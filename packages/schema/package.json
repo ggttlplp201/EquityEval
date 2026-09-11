@@ -1,0 +1,9 @@
+{
+  "name": "@equity/schema",
+  "version": "0.0.1",
+  "private": true,
+  "types": "types/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  }
+}
