@@ -17,7 +17,7 @@ above. This repository and its commits are the implementation source of truth.
 | S5 | Planned | Ratio engine | After S3/S4 |
 | S6 | Planned | API contract review/freeze | After S5 |
 | S7 | Planned | Forward DCF | After S6 |
-| N1a–d | Requested; requirements captured | [News and macro agent](../features/N1-news-and-macro-agent.md) | Alongside S2–S8 contracts |
+| N1a–d | Requested; stock-topic/data/verdict refinement captured (D017) | [News and macro agent](../features/N1-news-and-macro-agent.md) | Alongside S2–S8 contracts |
 | W1 | Requested; in S2 design | [Watchlist and reanalysis](../features/W1-watchlist-analysis.md) | S2 → engines → S8/N1 |
 | U1 | Requested; outline captured | [Manual and glossary](../features/U1-user-manual.md) | Required before finished release |
 | S8a–d | Planned | P0 company pages and integration | After relevant engine/contracts |

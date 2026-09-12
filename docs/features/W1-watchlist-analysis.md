@@ -25,8 +25,11 @@ a new execution even when source data has not changed.
 2. Save watchlist membership and durably record an analysis request in one
    transaction. The UI can immediately show queued progress.
 3. Refresh financial filings/facts, prices and macro observations through the
-   configured sources. Once N1 is available, refresh relevant news/calendar
-   context and include the security in monitoring.
+   configured sources. Once N1 is available, build or refresh its sourced topic
+   profile, collect relevant news/driver metrics and create baseline impact
+   assessments alongside macro context. Include the security in monitoring;
+   see [N1 stock topics](N1-stock-topic-monitoring.md). Discovery gaps remain
+   visible and do not prevent independent financial stages from completing.
 4. Normalize using the reviewed concepts; perform provenance, period, currency,
    instrument, freshness and accounting checks. Preserve available data and gaps.
 5. Recompute available ratios and valuation models in the core engine. Reuse an

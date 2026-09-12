@@ -11,7 +11,9 @@ current deliverable is a concrete schema/point-in-time proposal, before migratio
   analysis request, execution, snapshot and model run.
 - [W1 watchlist analysis](../../features/W1-watchlist-analysis.md).
 - [U1 user manual](../../features/U1-user-manual.md).
-- [N1 news/macro monitoring](../../features/N1-news-and-macro-agent.md).
+- [N1 news/macro monitoring](../../features/N1-news-and-macro-agent.md), including
+  [stock topic and assessment contracts](../../features/N1-stock-topic-monitoring.md)
+  and the [CRCL example](../../features/N1-crcl-topic-example.md).
 
 Recommended reading order: the five decisions at the top of the schema proposal,
 then the point-in-time section and KHC expected pair. Detailed tables are there

@@ -82,6 +82,25 @@ release with its own date, time precision, source and revision history.
 relevance to the market and watchlist securities. Interpretation is separate
 from published facts and observed price reactions.
 
+**Monitoring profile**: The topics and business exposures followed for a watchlist
+stock, with reasons for inclusion and known coverage gaps.
+
+**Topic**: An identified product, organization, project, regulation or other
+subject whose developments may affect a company. A keyword is a search aid,
+not proof of topic identity or relevance.
+
+**Relevance relationship**: The evidenced or hypothesized connection between a
+topic and an issuer's business. A shared topic may affect different companies
+through different channels.
+
+**Driver observation**: A dated measurement relevant to a business mechanism,
+with its definition, units and source. Product activity is not itself revenue.
+
+**Impact assessment**: A conditional judgment about how evidence affects a named
+business driver or hypothesis over a stated horizon. It includes counterevidence,
+uncertainty and conditions that would change the judgment.
+_Avoid_: Price prediction or buy/sell signal when describing a topic verdict
+
 **Alert**: A user-facing heads-up tied to an event, news item or analysis outcome.
 One alert can be presented through several delivery channels.
 

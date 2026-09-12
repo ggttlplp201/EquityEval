@@ -8,7 +8,10 @@ the released version, following [U1 requirements](../features/U1-user-manual.md)
 2. Watchlist: add, choose an instrument, remove and run analysis again.
 3. Reading the results: statements, ratios, assumptions and valuation ranges.
 4. Checking the evidence: source links, missing data and historical versions.
-5. News and macro events: CPI/PPI/Fed briefs and three alert channels.
+5. News and macro events: stock topic profiles, competitor/product/regulatory
+   evidence, impact assessments, CPI/PPI/Fed briefs and three alert channels.
+   Worked CRCL example: Open Standard/Open USD, CLARITY and Arc; confidence,
+   conflicting evidence and what would change a verdict.
 6. Analysis history: retries, partial results, confirmed assumptions and comparisons.
 7. Financial and economic glossary, with short examples and units.
 8. Troubleshooting, worker availability, limits and data-source configuration.

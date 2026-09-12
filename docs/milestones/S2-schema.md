@@ -47,6 +47,27 @@ expected outcomes are documented. No migration, SQL schema, concept enum or
 worker was implemented. Docker remains absent; a psql executable alone does not
 prove a compatible isolated database is available.
 
+## N1 refinement — 2026-09-12
+
+D017 records the user's request for per-stock competitor, product, regulatory and
+ecosystem monitoring with evidence and conditional verdicts. Their Reap link
+resolved Open USD as Open Standard's stablecoin. Added
+[stock-topic requirements](../features/N1-stock-topic-monitoring.md), a sourced
+[CRCL example](../features/N1-crcl-topic-example.md), later S2 contracts and
+acceptance cases. W1 now builds the topic profile/baseline on stock addition;
+U1 teaches topic controls and assessment interpretation. The source register and
+domain glossary include these requirements.
+
+Independent review checked identities, legislative stages, measurement meaning,
+relevance vintages, conflicting/syndicated evidence and alert deduplication. The
+review added persistent topic exclusions, send-time relevance checks and a shared
+development/revision/purpose notification identity across macro/topic producers.
+Open Standard and Circle primary sources support topic identity; the retrieved
+Congress page was cached, so the example makes no current legal-status claim.
+This is a documentation checkpoint; S2-01–05 remain pending and monitoring is
+not running. Required scaffold checks run through the commit hook; no N1
+behavior or database tests are claimed by this refinement.
+
 ## Handoff
 
 Review decisions S2-01 through S2-05. After approval, implement S2a evidence

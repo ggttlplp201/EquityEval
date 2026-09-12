@@ -20,6 +20,13 @@ then verify every step against the built application.
 - Setting/confirming assumptions and understanding why a model may be unavailable.
 - Configuring macro/watchlist news coverage, alert lead times, quiet hours,
   in-app/desktop/email delivery, pause/mute controls and delivery failures.
+- Inspecting and editing stock topics; distinguishing company, competitor and
+  regulatory coverage from macro events; tracing evidence and metric history;
+  reading conditional verdicts, counterevidence, confidence and changed assessments.
+  Include the CRCL/Open USD/CLARITY/Arc example without presenting it as a forecast.
+- Explain circulation versus transaction volume versus revenue, reserve income,
+  distribution costs, monetization, testnet versus production, legislative stages,
+  materiality and observed price reaction versus claimed causation.
 - Local-worker availability, laptop sleep and the requirements for always-on alerts.
 - Glossary with plain-English definitions, units, a small worked example where
   useful, and how the term affects interpretation. Cover ticker, exchange, CIK,
@@ -42,7 +49,9 @@ probability interval.
 
 A new-user acceptance pass must follow the manual to add a stock, inspect a
 source, handle missing assumptions, run analysis again, compare snapshots and
-configure all three alert channels. Broken links, obsolete screenshots and
+configure all three alert channels. Also follow a stock topic, correct an unrelated
+match, inspect an assessment and its counterevidence, and mute its alerts. Broken
+links, obsolete screenshots and
 unimplemented steps fail the release check. Every implemented financial input
 and headline output must have an accessible definition. Verify the numerical
 examples against hand-computed cases and the tested engine, and cite primary

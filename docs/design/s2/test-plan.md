@@ -96,6 +96,31 @@ Write the failing public-query regression before the selector:
 - Missing assumptions and unsupported bank/issuer models return explicit stage
   states while independent supported stages can finish. No default forecasts.
 
+## Later N1 contract acceptance
+
+These requirements constrain the shared design but do not add N1 migrations to
+S2a/S2b. Implement their behavior tests with N1:
+
+- Open Standard/Open USD stays distinct from an unrelated OpenUSD namesake;
+  a relevant competitor story can match without mentioning CRCL.
+- A versioned bill amendment is not enactment; a testnet announcement is not
+  production revenue. Missing adoption/economics evidence stays unavailable.
+- One development maps to multiple issuers through separately evidenced driver
+  relationships. Syndication does not multiply corroboration or notifications.
+- Pin evidence, topic/profile/relevance revisions and knowledge cutoffs; later
+  discovery/corrections cannot appear in an earlier saved assessment.
+- Material corrections create linked assessments; model-only rewording and
+  baseline backfill cannot generate a new breaking-news alert.
+- Removal/re-addition and out-of-order assessment completion cannot revive old
+  deliveries or replace a newer valid result. Saved valuations remain unchanged.
+- Removing/correcting a topic suppresses obsolete queued components even while
+  stock membership remains active; discovery respects persistent exclusions.
+- Separate macro/topic producers converge on the same development/revision/purpose
+  notification. Distinct lead-time, release and correction purposes remain valid;
+  a combined alert pins each included stock-assessment revision.
+
+Full workflow cases are in [N1 stock-topic acceptance](../../features/N1-stock-topic-monitoring.md).
+
 ## Migration checks and limits
 
 S2a and S2b upgrades run on empty disposable databases and on the previous tagged

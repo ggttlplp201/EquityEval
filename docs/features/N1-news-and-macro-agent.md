@@ -2,6 +2,7 @@
 
 Status: user-requested scope extension; requirements captured, implementation pending shared contracts.
 Requested: 2026-09-11, task `EquityEval — milestone build log`.
+Refined: 2026-09-12 with stock-specific topics, evidence collection and assessments (D017).
 
 ## User requirement
 
@@ -20,9 +21,13 @@ monitor, subscribe an email address, or configure an external sending service.
 1. A calendar of US CPI, PPI and FOMC decisions, including the separate statement,
    projections when scheduled, press conference and minutes. Include payrolls
    and PCE as the next closely related calendar sources, after adapter checks.
-2. Watchlist news from SEC filings and each issuer's official investor-relations
-   announcements. Add licensed secondary reporting as an explicitly identified
-   source; do not depend on scraping restricted publishers.
+2. Watchlist news from SEC filings, issuer announcements and relevant products,
+   competitors, partners, customers, suppliers and regulatory developments, even
+   when the story never mentions the ticker. Maintain a sourced topic profile
+   and collect metrics needed for a conditional impact assessment. See the
+   [stock-topic requirements](N1-stock-topic-monitoring.md) and
+   [CRCL example](N1-crcl-topic-example.md). Use permitted primary and secondary
+   sources; do not depend on scraping restricted publishers.
 3. An advance brief explaining the event, its verified release time, affected
    watchlist companies and conditional outcomes. Proposed defaults: 24 hours
    and 1 hour before a major release, with configurable quiet hours and frequency.
@@ -103,9 +108,9 @@ from confirmed reading or notification display.
 
 | Slice | Depends on | Reviewable outcome |
 | --- | --- | --- |
-| N1a — Contracts and source reconnaissance | S1 review and S2 schema proposal | Propose event identity, schedule/release revisions, watchlist relevance, cited analysis and per-channel delivery state. Resolve schedule/consensus/news terms. Include N1 needs in S2 without silently freezing new schema. |
-| N1b — Calendar and watchlist source workers | Reviewed Source/PIT contract (S3/S4) | Archived source payloads; release-time handling; issuer news; no LLM-generated calendar facts. |
-| N1c — Analysis and alert orchestration | N1b + reviewed analysis contract | Evidence-grounded briefs; bounded interpretation; idempotent alert jobs and revisions. Missing source/model results remain visible. |
+| N1a — Contracts and source reconnaissance | S1 review and S2 schema proposal | Propose event/topic identities, profile/relevance revisions, metric evidence, stock impact assessments and per-channel delivery state. Resolve schedule/consensus/news terms. Include N1 needs in S2 without silently freezing new schema. |
+| N1b — Calendar and watchlist source workers | Reviewed Source/PIT contract (S3/S4) | Permitted source archives; release-time handling; stock-topic discovery, news and driver metrics; no LLM-generated source facts. |
+| N1c — Analysis and alert orchestration | N1b + reviewed analysis contract | Evidence-grounded topic/stock briefs with conditional verdicts, counterevidence and history; idempotent alert jobs and revisions. Missing source/model results remain visible. |
 | N1d — Inbox and three delivery channels | N1c + S6 API/shared UI | In-app history, desktop permission flow, verified email configuration; end-to-end delivery checks. Can proceed alongside S8 after shared contracts. |
 
 These slices are authorized as product scope. Their exact schema/API remains
