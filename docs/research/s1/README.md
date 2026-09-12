@@ -1,6 +1,6 @@
 # S1 review packet
 
-Status: research complete, awaiting concept-map review. No financial enum,
+Status: starting vocabulary/source direction accepted for S2 on 2026-09-12. No financial enum,
 schema, normalization adapter or valuation code has been implemented.
 
 Start with the [review brief](review-brief.md), then the

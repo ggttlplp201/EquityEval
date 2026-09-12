@@ -31,3 +31,12 @@ desktop and email delivery. Track requirements, dependencies and acceptance in
 [N1 news and macro agent](features/N1-news-and-macro-agent.md). Bring its contract
 requirements into S2; N1b–d follow the shared source and API contracts. This is
 an explicit scope extension, not activation of all P1/P2 work.
+
+## Additional user requirements — W1 and U1
+
+On 2026-09-12 the user requested [watchlist additions with full reanalysis](features/W1-watchlist-analysis.md)
+and a [user manual with terminology explanations](features/U1-user-manual.md).
+W1 storage and execution semantics enter S2 now; its real pipeline follows the
+source/engine contracts and its UI follows S6/S8. U1 is drafted alongside the
+build and verified against the finished app before release is complete. Track
+all accepted additions in the [feature list](features/README.md).

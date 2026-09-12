@@ -1,6 +1,6 @@
 # S1 — decisions for review
 
-Research completed 2026-09-12. This is the review gate required by
+Research completed 2026-09-12; starting direction accepted when the user instructed progression to S2. The recommendations below preserve the reviewed proposal. This is the review gate required by
 BUILD_GUIDE Part 5, S1. Approval would accept the starting financial vocabulary
 and source-handling direction for the S2 design; the actual schema remains a
 separate review before implementation.

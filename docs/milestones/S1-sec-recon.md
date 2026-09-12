@@ -1,6 +1,6 @@
 # S1 — SEC concept reconnaissance
 
-Status: research complete — awaiting human review
+Status: accepted for S2 — user directed progression on 2026-09-12
 Completed research: 2026-09-12 (Asia/Shanghai)
 Task: EquityEval — milestone build log
 Task ID: 01a08f8c-85c8-7bb0-9e60-6eb24809d8de
@@ -46,7 +46,8 @@ This authorized extension enters shared-contract planning; alerts are not live.
 
 ## Limits and unresolved decisions
 
-The vocabulary/mappings are proposed, not approved. TSM FY2025 financial API
+The starting vocabulary and conservative source direction were accepted for S2;
+this is not blanket approval of every future mapping or schema decision. TSM FY2025 financial API
 coverage is missing; FY2024 examples are labelled secondary. Some reported
 subtotals include different expense, lease or share scopes. Complete current-debt
 and D&A mappings are not guaranteed by this catalogue. These gaps cannot be
@@ -58,7 +59,7 @@ all evidence listed as complete is saved locally.
 
 ## Handoff
 
-Obtain S1 review before beginning the S2 schema/vocabulary design. S2 must present
+S1 review direction accepted; continue with the S2 schema/vocabulary design. S2 must present
 its own concrete schema and point-in-time policy before implementation, including
 N1 event/revision/delivery needs. Write the KHC regression first when numerical
 storage/query behavior is implemented. Preserve all raw evidence and originals.

@@ -124,7 +124,8 @@ inputs that would produce a plausible but incorrect number rather than raising.
 
 ## Scope discipline
 
-Current phase: **P0 only** (spec Section 11). Do not build P1 or P2 features.
+Current scope: **P0 plus user-requested N1, W1 and U1 extensions**. Read the
+feature register in docs/features/README.md. Other P1/P2 features remain deferred.
 If something feels like it needs a contract change (`packages/schema` or the
 `concept_std` enum), stop and ask — that happens in a dedicated sequential
 session, never inside a feature branch.
@@ -144,7 +145,7 @@ The user-authorized code root is this iCloud equityEval directory. Read
 Keep milestone scope, decisions, validation evidence and the next handoff current.
 Preserve originals in `docs/originals`; record interpretations in `docs/decisions.md`.
 S0 scaffolding is complete; its environment limits are in the milestone record.
-Active milestone: S1 research is complete; the concept-map review is pending. Keep financial
+Active milestone: S1 direction is accepted; S2 schema design/review is in progress. Keep financial
 schema, concept members, API routes, valuation logic, ingestion and UI deferred
 until their respective reviewed milestones. Remove each
 `tests/**/.allow-empty-s0` marker when that suite gains real tests.
@@ -152,3 +153,7 @@ until their respective reviewed milestones. Remove each
 User scope extension (2026-09-11): include the N1 US macro/watchlist news agent
 with in-app, desktop and email alerts. Read docs/features/N1-news-and-macro-agent.md;
 bring its requirements into the reviewed shared contracts. Other P1/P2 scope stays deferred.
+
+User scope extensions (2026-09-12): W1 stock additions trigger full applicable
+analysis and preserve rerun history; U1 provides a verified user manual and
+terminology guide before release. The S2 design incorporates these requirements.

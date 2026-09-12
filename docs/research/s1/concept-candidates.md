@@ -1,7 +1,7 @@
 # Candidate concept catalogue — 40 entries
 
-Status: evidence-backed vocabulary proposal, awaiting user review. These names
-are not an approved concept_std enum. Exact tag observations, conditional rules
+Status: accepted as the starting vocabulary for S2 on 2026-09-12. No concept_std
+enum or normalization adapter has been implemented. Exact tag observations, conditional rules
 and gaps are in [concept-map.md](concept-map.md) and the
 [coverage matrix](coverage-matrix.md).
 
@@ -78,5 +78,6 @@ formula and missing-input policies belong in the later reviewed contracts.
 - Record any proposed override with the evidence and rationale for review.
 - Keep reported values separate from any proposed period arithmetic or conversion.
 
-No concept enum or normalization code will be created before the completed S1
-packet is reviewed. The catalogue can change as the sources reveal distinctions.
+The S1 starting vocabulary was accepted for S2 on 2026-09-12. Enum implementation
+follows the reviewed S2 shape; future additions or scope changes require explicit
+review as the sources reveal further distinctions.

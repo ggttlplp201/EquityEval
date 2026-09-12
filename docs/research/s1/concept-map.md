@@ -1,6 +1,6 @@
 # S1 proposed concept map
 
-Status: ready for human review; **no enum or normalization rule is approved**. The 40 names below retain the definitions in [concept-candidates.md](concept-candidates.md). The [coverage matrix](coverage-matrix.md) and [exact observations](evidence/concept-observations.json) show what the archived sources actually contain.
+Status: starting vocabulary and conservative mapping direction **accepted for S2 on 2026-09-12**. Specific adapter rules still require evidence and tests; no enum or adapter is implemented. The 40 names below retain the definitions in [concept-candidates.md](concept-candidates.md). The [coverage matrix](coverage-matrix.md) and [exact observations](evidence/concept-observations.json) show what the archived sources actually contain.
 
 ## Selection proposal
 
