@@ -1,6 +1,7 @@
 # Data-source licence register
 
-SEC public-filing reuse policy was verified during S1 documentation research.
+SEC public-filing reuse policy was verified during S1 documentation research and
+rechecked for the S3 contract on 2026-09-12.
 Other entries remain planned sources with unverified permissions. Unknown
 redistribution permission must never be interpreted as allowed. S1 Company Facts
 payloads and selected filings were captured with the configured SEC contact;
@@ -9,7 +10,7 @@ redistribution permissions.
 
 | Source | Planned milestone | Terms/evidence to record | Licence | Redistribution | Verified |
 | --- | --- | --- | --- | --- | --- |
-| SEC EDGAR public filings / government-created data | S1/S3 | SEC reuse FAQ and dissemination policy; links below | Free access/reuse under SEC published policy | Allowed for this defined scope; attribute SEC and filing | 2026-09-11 |
+| SEC EDGAR public filings / government-created data | S1/S3 | SEC reuse FAQ and dissemination policy; links below | Free access/reuse under SEC published policy | Allowed for this defined scope; attribute SEC and filing | Rechecked 2026-09-12 |
 | Tiingo | S4 | https://www.tiingo.com/about/terms | Pending account-tier review | Unknown | No |
 | FRED | S4 | https://fred.stlouisfed.org/legal/ and series-specific attribution | Pending review | Unknown | No |
 | Damodaran datasets | Before S7, if selected | Exact selected dataset and its source/terms | Pending review | Unknown | No |
@@ -21,6 +22,8 @@ redistribution permissions.
 
 For each approved source record the terms URL, retrieval date, account/tier,
 permitted use, attribution, redistribution decision and the decision's evidence.
-S3/S4 must define registry persistence through the reviewed schema.
+The [S3 proposal](design/s3/source-contract.md) defines versioned policy-review
+persistence and capture links for review. Later providers still need their own
+content-scope/account-tier decision before ingestion or redistribution.
 
 SEC scope evidence: [reuse FAQ](https://www.sec.gov/about/webmaster-frequently-asked-questions) and [dissemination policy](https://www.sec.gov/about/privacy-information). This finding does not grant rights to unrelated artwork, branding or vendor data. See [S1 source boundaries](research/s1/source-boundaries.md).

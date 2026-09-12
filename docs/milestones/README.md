@@ -12,7 +12,7 @@ above. This repository and its commits are the implementation source of truth.
 | S0 | Complete; Docker verification pending | [Scaffold](S0-scaffold.md) | `S0 — EquityEval scaffold and milestones` (ID in record) |
 | S1 | Accepted for S2 — 2026-09-12 | [SEC reconnaissance](S1-sec-recon.md) | `EquityEval — milestone build log` (same task, user continued) |
 | S2 | Complete for accepted storage/request scope; 124 tests | [Schema and PIT](S2-schema.md) | Same milestone build-log task |
-| S3 | Planned | EDGAR ingestion | After S2/Source review |
+| S3 | Source contract ready for review; evidence preparation complete | [SEC ingestion](S3-ingestion.md) | Same milestone build-log task; D008 review before adapters |
 | S4 | Planned | Tiingo and FRED | After S3 |
 | S5 | Planned | Ratio engine | After S3/S4 |
 | S6 | Planned | API contract review/freeze | After S5 |

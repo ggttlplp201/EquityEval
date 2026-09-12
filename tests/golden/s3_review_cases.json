@@ -1,0 +1,941 @@
+{
+  "schema_version": 1,
+  "status": "S3 acceptance/evidence preparation only; not complete normalized golden fixtures",
+  "expected_values_basis": "Amounts transcribed from the reviewed S1 observations and filing spot checks. Locators and lexical tokens were verified against the existing hashed captures. No production normalizer is imported or executed.",
+  "remaining_work": [
+    "Review D008 Source contract and eligible source/mapping revisions before adapter implementation.",
+    "Implement Company Facts parsing, archived provenance and explicit raw-context limitations.",
+    "Implement reviewed normalization choices and compare complete expected statements and missingness flags.",
+    "Test original-filing contexts, scale/sign, custom tags and ADS/currency distinctions separately.",
+    "Test network policy, shared SEC rate limits, retries, cache identity and durable publication."
+  ],
+  "captures": {
+    "AAPL": {
+      "archive": "docs/research/s1/evidence/raw/AAPL-20260911T141346989953Z.json.gz",
+      "raw_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43",
+      "raw_bytes": 3789099,
+      "fetched_at": "2026-09-11T14:13:46.989953+00:00",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "cik": "0000320193",
+      "manifest": "docs/research/s1/evidence/manifest.json",
+      "expected_raw_cik": 320193
+    },
+    "MSFT": {
+      "archive": "docs/research/s1/evidence/raw/MSFT-20260911T141405959153Z.json.gz",
+      "raw_sha256": "f8aae2965b20ad0df44bdf7ccbedf797d275b6b8dc030154a7a311361bb7246f",
+      "raw_bytes": 4881196,
+      "fetched_at": "2026-09-11T14:14:05.959153+00:00",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "cik": "0000789019",
+      "manifest": "docs/research/s1/evidence/manifest.json",
+      "expected_raw_cik": 789019
+    },
+    "JPM": {
+      "archive": "docs/research/s1/evidence/raw/JPM-20260911T141423209446Z.json.gz",
+      "raw_sha256": "e43e1ce75230d81dc20399e0466b13f856103fe7fc4b2bbedde7ea75018326ac",
+      "raw_bytes": 7934834,
+      "fetched_at": "2026-09-11T14:14:23.209446+00:00",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000019617.json",
+      "cik": "0000019617",
+      "manifest": "docs/research/s1/evidence/manifest.json",
+      "expected_raw_cik": 19617
+    },
+    "CRCL": {
+      "archive": "docs/research/s1/evidence/raw/CRCL-20260911T141448625425Z.json.gz",
+      "raw_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "raw_bytes": 455994,
+      "fetched_at": "2026-09-11T14:14:48.625425+00:00",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "cik": "0001876042",
+      "manifest": "docs/research/s1/evidence/manifest.json",
+      "expected_raw_cik": "0001876042"
+    },
+    "RBLX": {
+      "archive": "docs/research/s1/evidence/raw/RBLX-20260911T141454312576Z.json.gz",
+      "raw_sha256": "da93dfbe41ad0be3c80f12e25819e45a48e960678647dc8d7235efdfce5aa481",
+      "raw_bytes": 1327696,
+      "fetched_at": "2026-09-11T14:14:54.312576+00:00",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001315098.json",
+      "cik": "0001315098",
+      "manifest": "docs/research/s1/evidence/manifest.json",
+      "expected_raw_cik": 1315098
+    },
+    "TSM": {
+      "archive": "docs/research/s1/evidence/raw/TSM-20260911T141459576388Z.json.gz",
+      "raw_sha256": "d3ebb91e3ad78c9482e238c4db36df60b295a3b49ca137774706f4f5e526044a",
+      "raw_bytes": 911248,
+      "fetched_at": "2026-09-11T14:14:59.576388+00:00",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001046179.json",
+      "cik": "0001046179",
+      "manifest": "docs/research/s1/evidence/manifest.json",
+      "expected_raw_cik": 1046179
+    },
+    "KHC": {
+      "archive": "docs/research/s1/evidence/raw/KHC-20260911T141504081902Z.json.gz",
+      "raw_sha256": "8fad66c16e535f7749f19126a986a9f43a087ca2472d063fa7742106196d88ac",
+      "raw_bytes": 3417827,
+      "fetched_at": "2026-09-11T14:15:04.081902+00:00",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001637459.json",
+      "cik": "0001637459",
+      "manifest": "docs/research/s1/evidence/manifest.json",
+      "expected_raw_cik": 1637459
+    },
+    "COST": {
+      "archive": "docs/research/s1/evidence/raw/COST-20260911T141517966620Z.json.gz",
+      "raw_sha256": "71a4fd99c86f27c3aa27b8f05b3a9705c16f0060b425395bb1a367ce239b7d1f",
+      "raw_bytes": 3617189,
+      "fetched_at": "2026-09-11T14:15:17.966620+00:00",
+      "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000909832.json",
+      "cik": "0000909832",
+      "manifest": "docs/research/s1/evidence/manifest.json",
+      "expected_raw_cik": 909832
+    }
+  },
+  "observations": [
+    {
+      "id": "aapl_total_revenue",
+      "ticker": "AAPL",
+      "namespace": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/units/USD/111",
+      "expected_numeric_lexical": "416161000000",
+      "expected_decimal": "416161000000",
+      "expected_row_metadata": {
+        "start": "2024-09-29",
+        "end": "2025-09-27",
+        "accn": "0000320193-25-000079",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2025-10-31",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+      "expected_source_description": "Amount, excluding tax collected from customer, of revenue from satisfaction of performance obligation by transferring promised good or service to customer. Tax collected from customer is tax assessed by governmental authority that is both imposed on and concurrent with specific revenue-producing transaction, including, but not limited to, sales, use, value added and excise.",
+      "scope_note": "Consolidated FY2025 revenue; identical tag names in dimensional filing contexts can denote product-only revenue.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Apple"
+      }
+    },
+    {
+      "id": "aapl_year_end_common_shares",
+      "ticker": "AAPL",
+      "namespace": "us-gaap",
+      "tag": "CommonStockSharesOutstanding",
+      "unit": "shares",
+      "json_pointer": "/facts/us-gaap/CommonStockSharesOutstanding/units/shares/137",
+      "expected_numeric_lexical": "14773260000",
+      "expected_decimal": "14773260000",
+      "expected_row_metadata": {
+        "end": "2025-09-27",
+        "accn": "0000320193-25-000079",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2025-10-31"
+      },
+      "expected_source_label": "Common Stock, Shares, Outstanding",
+      "expected_source_description": "Number of shares of common stock outstanding. Common stock represent the ownership interest in a corporation.",
+      "scope_note": "Year-end common shares; retain its observation date rather than the cover-page date.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Apple"
+      }
+    },
+    {
+      "id": "aapl_later_cover_shares",
+      "ticker": "AAPL",
+      "namespace": "dei",
+      "tag": "EntityCommonStockSharesOutstanding",
+      "unit": "shares",
+      "json_pointer": "/facts/dei/EntityCommonStockSharesOutstanding/units/shares/66",
+      "expected_numeric_lexical": "14776353000",
+      "expected_decimal": "14776353000",
+      "expected_row_metadata": {
+        "end": "2025-10-17",
+        "accn": "0000320193-25-000079",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2025-10-31",
+        "frame": "CY2025Q3I"
+      },
+      "expected_source_label": "Entity Common Stock, Shares Outstanding",
+      "expected_source_description": "Indicate number of shares or other units outstanding of each of registrant's classes of capital or common stock or other ownership interests, if and as stated on cover of related periodic report. Where multiple classes or units exist define each class/interest by adding class of stock items such as Common Class A [Member], Common Class B [Member] or Partnership Interest [Member] onto the Instrument [Domain] of the Entity Listings, Instrument.",
+      "scope_note": "Cover shares at 2025-10-17 differ from year-end shares; neither is an annual weighted average.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Apple"
+      }
+    },
+    {
+      "id": "msft_cash_ppe_purchase",
+      "ticker": "MSFT",
+      "namespace": "us-gaap",
+      "tag": "PaymentsToAcquirePropertyPlantAndEquipment",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/PaymentsToAcquirePropertyPlantAndEquipment/units/USD/222",
+      "expected_numeric_lexical": "64551000000",
+      "expected_decimal": "64551000000",
+      "expected_row_metadata": {
+        "start": "2024-07-01",
+        "end": "2025-06-30",
+        "accn": "0000950170-25-100235",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2025-07-30"
+      },
+      "expected_source_label": "Payments to Acquire Property, Plant, and Equipment",
+      "expected_source_description": "The cash outflow associated with the acquisition of long-lived, physical assets that are used in the normal conduct of business to produce goods and services and not intended for resale; includes cash outflows to pay for construction of self-constructed assets.",
+      "scope_note": "Cash PP&E purchases, independently checked against filing literal 64,551 at scale 6; not all capital additions.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Microsoft"
+      }
+    },
+    {
+      "id": "jpm_revenue",
+      "ticker": "JPM",
+      "namespace": "us-gaap",
+      "tag": "Revenues",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/Revenues/units/USD/119",
+      "expected_numeric_lexical": "182447000000",
+      "expected_decimal": "182447000000",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001628280-26-008131",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-13",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Revenues",
+      "expected_source_description": "Amount of revenue recognized from goods sold, services rendered, insurance premiums, or other activities that constitute an earning process. Includes, but is not limited to, investment and interest income before deduction of interest expense when recognized as a component of revenue, and sales and trading gain (loss).",
+      "scope_note": "The reviewed bank revenue basis is net of interest expense; do not subtract interest again.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "JPM: FY2025 anchor"
+      }
+    },
+    {
+      "id": "jpm_explicit_net_revenue",
+      "ticker": "JPM",
+      "namespace": "us-gaap",
+      "tag": "RevenuesNetOfInterestExpense",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/RevenuesNetOfInterestExpense/units/USD/145",
+      "expected_numeric_lexical": "182447000000",
+      "expected_decimal": "182447000000",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001628280-26-008131",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-13",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Revenues, Net of Interest Expense",
+      "expected_source_description": "Amount of revenue recognized from goods sold, services rendered, insurance premiums, or other activities that constitute an earning process. Includes, but is not limited to, investment and interest income after deduction of interest expense when recognized as a component of revenue, and sales and trading gain (loss).",
+      "scope_note": "A second reported tag for the reviewed net revenue basis; equal rows must not be summed.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "JPM: FY2025 anchor"
+      }
+    },
+    {
+      "id": "jpm_operating_interest_expense",
+      "ticker": "JPM",
+      "namespace": "us-gaap",
+      "tag": "InterestExpenseOperating",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/InterestExpenseOperating/units/USD/26",
+      "expected_numeric_lexical": "97898000000",
+      "expected_decimal": "97898000000",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001628280-26-008131",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-13",
+        "frame": "CY2025"
+      },
+      "expected_source_label": null,
+      "expected_source_description": null,
+      "scope_note": "Separate bank operating interest expense; preserve the source label even when null.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "JPM: FY2025 anchor"
+      }
+    },
+    {
+      "id": "crcl_total_revenue",
+      "ticker": "CRCL",
+      "namespace": "us-gaap",
+      "tag": "Revenues",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/Revenues/units/USD/13",
+      "expected_numeric_lexical": "2746642000",
+      "expected_decimal": "2746642000",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001876042-26-000062",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-09",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Revenues",
+      "expected_source_description": "Amount of revenue recognized from goods sold, services rendered, insurance premiums, or other activities that constitute an earning process. Includes, but is not limited to, investment and interest income before deduction of interest expense when recognized as a component of revenue, and sales and trading gain (loss).",
+      "scope_note": "Directly reported total revenue. A generic preference for customer-contract revenue would select only a component.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "CRCL: FY2025 anchor"
+      }
+    },
+    {
+      "id": "crcl_customer_contract_component",
+      "ticker": "CRCL",
+      "namespace": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/units/USD/13",
+      "expected_numeric_lexical": "109820000",
+      "expected_decimal": "109820000",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001876042-26-000062",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-09",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+      "expected_source_description": "Amount, excluding tax collected from customer, of revenue from satisfaction of performance obligation by transferring promised good or service to customer. Tax collected from customer is tax assessed by governmental authority that is both imposed on and concurrent with specific revenue-producing transaction, including, but not limited to, sales, use, value added and excise.",
+      "scope_note": "Customer-contract revenue is a component, not an alternative total.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "CRCL: FY2025 anchor"
+      }
+    },
+    {
+      "id": "crcl_reserve_income",
+      "ticker": "CRCL",
+      "namespace": "us-gaap",
+      "tag": "InterestAndDividendIncomeOperating",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/InterestAndDividendIncomeOperating/units/USD/13",
+      "expected_numeric_lexical": "2636822000",
+      "expected_decimal": "2636822000",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001876042-26-000062",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-09",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Interest and Dividend Income, Operating",
+      "expected_source_description": "Represents the total of interest and dividend income, including any amortization and accretion (as applicable) of discounts and premiums, earned from (1) loans and leases whether held-for-sale or held-in-portfolio; (2) investment securities; (3) federal funds sold; (4) securities purchased under agreements to resell; (5) investments in banker's acceptances, commercial paper, or certificates of deposit; (6) dividend income; or (7) other investments not otherwise specified herein.",
+      "scope_note": "Operating interest/dividend income has separate reserve-income scope; do not synthesize reported total revenue.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "CRCL: FY2025 anchor"
+      }
+    },
+    {
+      "id": "crcl_corporate_cash",
+      "ticker": "CRCL",
+      "namespace": "us-gaap",
+      "tag": "CashAndCashEquivalentsAtCarryingValue",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/CashAndCashEquivalentsAtCarryingValue/units/USD/10",
+      "expected_numeric_lexical": "1526046000",
+      "expected_decimal": "1526046000",
+      "expected_row_metadata": {
+        "end": "2025-12-31",
+        "accn": "0001876042-26-000062",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-09"
+      },
+      "expected_source_label": "Cash and Cash Equivalents, at Carrying Value",
+      "expected_source_description": "Amount of currency on hand as well as demand deposits with banks or financial institutions. Includes other kinds of accounts that have the general characteristics of demand deposits. Also includes short-term, highly liquid investments that are both readily convertible to known amounts of cash and so near their maturity that they present insignificant risk of changes in value because of changes in interest rates. Excludes cash and cash equivalents within disposal group and discontinued operation.",
+      "scope_note": "Corporate cash is distinct from combined cash/restricted cash and stablecoin-holder reserves.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "CRCL: FY2025 anchor"
+      }
+    },
+    {
+      "id": "crcl_cash_and_restricted_aggregate",
+      "ticker": "CRCL",
+      "namespace": "us-gaap",
+      "tag": "CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents/units/USD/15",
+      "expected_numeric_lexical": "77419733000",
+      "expected_decimal": "77419733000",
+      "expected_row_metadata": {
+        "end": "2025-12-31",
+        "accn": "0001876042-26-000062",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-09"
+      },
+      "expected_source_label": "Cash, Cash Equivalents, Restricted Cash and Restricted Cash Equivalents",
+      "expected_source_description": "Amount of cash and cash equivalents, and cash and cash equivalents restricted to withdrawal or usage. Excludes amount for disposal group and discontinued operations. Cash includes, but is not limited to, currency on hand, demand deposits with banks or financial institutions, and other accounts with general characteristics of demand deposits. Cash equivalents include, but are not limited to, short-term, highly liquid investments that are both readily convertible to known amounts of cash and so near their maturity that they present insignificant risk of changes in value because of changes in interest rates.",
+      "scope_note": "Combined cash/restricted cash is not shareholder-available corporate cash.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "CRCL: FY2025 anchor"
+      }
+    },
+    {
+      "id": "crcl_reported_zero_repurchases",
+      "ticker": "CRCL",
+      "namespace": "us-gaap",
+      "tag": "PaymentsForRepurchaseOfCommonStock",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/PaymentsForRepurchaseOfCommonStock/units/USD/2",
+      "expected_numeric_lexical": "0",
+      "expected_decimal": "0",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001876042-26-000062",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-03-09",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Payments for Repurchase of Common Stock",
+      "expected_source_description": "The cash outflow to reacquire common stock during the period.",
+      "scope_note": "Explicit reported zero; unlike the separately absent dividends-paid candidates.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "CRCL: FY2025 anchor"
+      }
+    },
+    {
+      "id": "rblx_loss_eps",
+      "ticker": "RBLX",
+      "namespace": "us-gaap",
+      "tag": "EarningsPerShareBasic",
+      "unit": "USD/shares",
+      "json_pointer": "/facts/us-gaap/EarningsPerShareBasic/units/USD~1shares/65",
+      "expected_numeric_lexical": "-1.54",
+      "expected_decimal": "-1.54",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001315098-26-000024",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-11",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Earnings Per Share, Basic",
+      "expected_source_description": "The amount of net income (loss) for the period per each share of common stock or unit outstanding during the reporting period.",
+      "scope_note": "Negative EPS in USD/shares; retain exact decimal token and loss-period share scope.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Roblox"
+      }
+    },
+    {
+      "id": "rblx_parent_loss",
+      "ticker": "RBLX",
+      "namespace": "us-gaap",
+      "tag": "NetIncomeLoss",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/NetIncomeLoss/units/USD/71",
+      "expected_numeric_lexical": "-1065057000",
+      "expected_decimal": "-1065057000",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001315098-26-000024",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-11"
+      },
+      "expected_source_label": "Net Income (Loss) Attributable to Parent",
+      "expected_source_description": "The portion of profit or loss for the period, net of income taxes, which is attributable to the parent.",
+      "scope_note": "Parent-attributable loss is distinct from consolidated loss.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Roblox"
+      }
+    },
+    {
+      "id": "rblx_consolidated_loss",
+      "ticker": "RBLX",
+      "namespace": "us-gaap",
+      "tag": "ProfitLoss",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/ProfitLoss/units/USD/67",
+      "expected_numeric_lexical": "-1071618000",
+      "expected_decimal": "-1071618000",
+      "expected_row_metadata": {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "accn": "0001315098-26-000024",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2026-02-11",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+      "expected_source_description": "The consolidated profit or loss for the period, net of income taxes, including the portion attributable to the noncontrolling interest.",
+      "scope_note": "Consolidated loss includes noncontrolling interests; no parent/consolidated coalescing.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Roblox"
+      }
+    },
+    {
+      "id": "tsm_fy2025_cover_shares",
+      "ticker": "TSM",
+      "namespace": "dei",
+      "tag": "EntityCommonStockSharesOutstanding",
+      "unit": "shares",
+      "json_pointer": "/facts/dei/EntityCommonStockSharesOutstanding/units/shares/8",
+      "expected_numeric_lexical": "25932524521",
+      "expected_decimal": "25932524521",
+      "expected_row_metadata": {
+        "end": "2025-12-31",
+        "accn": "0001628280-26-025362",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "20-F",
+        "filed": "2026-04-16",
+        "frame": "CY2025Q4I"
+      },
+      "expected_source_label": "Entity Common Stock, Shares Outstanding",
+      "expected_source_description": "Indicate number of shares or other units outstanding of each of registrant's classes of capital or common stock or other ownership interests, if and as stated on cover of related periodic report. Where multiple classes or units exist define each class/interest by adding class of stock items such as Common Class A [Member], Common Class B [Member] or Partnership Interest [Member] onto the Instrument [Domain] of the Entity Listings, Instrument.",
+      "scope_note": "FY2025 common shares are available despite the captured IFRS financial gap; do not combine with FY2024 income as one period.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "TSM: primary FY2025 coverage is missing for IFRS facts"
+      }
+    },
+    {
+      "id": "tsm_fy2024_revenue_twd",
+      "ticker": "TSM",
+      "namespace": "ifrs-full",
+      "tag": "Revenue",
+      "unit": "TWD",
+      "json_pointer": "/facts/ifrs-full/Revenue/units/TWD/25",
+      "expected_numeric_lexical": "2894307700000",
+      "expected_decimal": "2894307700000",
+      "expected_row_metadata": {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "accn": "0001193125-25-083423",
+        "fy": 2024,
+        "fp": "FY",
+        "form": "20-F",
+        "filed": "2025-04-17",
+        "frame": "CY2024"
+      },
+      "expected_source_label": null,
+      "expected_source_description": null,
+      "scope_note": "Historical FY2024 revenue in reporting currency TWD. It must not fill the requested FY2025 gap.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "TSM: primary FY2025 coverage is missing for IFRS facts"
+      }
+    },
+    {
+      "id": "tsm_fy2024_revenue_usd",
+      "ticker": "TSM",
+      "namespace": "ifrs-full",
+      "tag": "Revenue",
+      "unit": "USD",
+      "json_pointer": "/facts/ifrs-full/Revenue/units/USD/8",
+      "expected_numeric_lexical": "88268000000",
+      "expected_decimal": "88268000000",
+      "expected_row_metadata": {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "accn": "0001193125-25-083423",
+        "fy": 2024,
+        "fp": "FY",
+        "form": "20-F",
+        "filed": "2025-04-17",
+        "frame": "CY2024"
+      },
+      "expected_source_label": null,
+      "expected_source_description": null,
+      "scope_note": "Separate FY2024 convenience USD observation, not a second reporting currency or a generated conversion.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "TSM: primary FY2025 coverage is missing for IFRS facts"
+      }
+    },
+    {
+      "id": "tsm_fy2024_ordinary_eps",
+      "ticker": "TSM",
+      "namespace": "ifrs-full",
+      "tag": "BasicEarningsLossPerShare",
+      "unit": "TWD/shares",
+      "json_pointer": "/facts/ifrs-full/BasicEarningsLossPerShare/units/TWD~1shares/25",
+      "expected_numeric_lexical": "44.68",
+      "expected_decimal": "44.68",
+      "expected_row_metadata": {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "accn": "0001193125-25-083423",
+        "fy": 2024,
+        "fp": "FY",
+        "form": "20-F",
+        "filed": "2025-04-17",
+        "frame": "CY2024"
+      },
+      "expected_source_label": null,
+      "expected_source_description": null,
+      "scope_note": "FY2024 ordinary-share EPS in TWD/shares, not ADS EPS; the original filing verifies instrument context.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "TSM: primary FY2025 coverage is missing for IFRS facts"
+      }
+    },
+    {
+      "id": "khc_original_parent",
+      "ticker": "KHC",
+      "namespace": "us-gaap",
+      "tag": "NetIncomeLoss",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/NetIncomeLoss/units/USD/76",
+      "expected_numeric_lexical": "10999000000",
+      "expected_decimal": "10999000000",
+      "expected_row_metadata": {
+        "start": "2017-01-01",
+        "end": "2017-12-30",
+        "accn": "0001637459-18-000015",
+        "fy": 2017,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2018-02-16"
+      },
+      "expected_source_label": "Net Income (Loss) Attributable to Parent",
+      "expected_source_description": "The portion of profit or loss for the period, net of income taxes, which is attributable to the parent.",
+      "scope_note": "Exact FY2017 interval; preserve ownership scope, filing chronology, optional frame and nullable fiscal focus. Repeated value alone is not a new restatement.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "KHC: actual original and restated observations"
+      }
+    },
+    {
+      "id": "khc_revised_parent",
+      "ticker": "KHC",
+      "namespace": "us-gaap",
+      "tag": "NetIncomeLoss",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/NetIncomeLoss/units/USD/77",
+      "expected_numeric_lexical": "10941000000",
+      "expected_decimal": "10941000000",
+      "expected_row_metadata": {
+        "start": "2017-01-01",
+        "end": "2017-12-30",
+        "accn": "0001637459-19-000049",
+        "fy": 2018,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2019-06-07"
+      },
+      "expected_source_label": "Net Income (Loss) Attributable to Parent",
+      "expected_source_description": "The portion of profit or loss for the period, net of income taxes, which is attributable to the parent.",
+      "scope_note": "Exact FY2017 interval; preserve ownership scope, filing chronology, optional frame and nullable fiscal focus. Repeated value alone is not a new restatement.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "KHC: actual original and restated observations"
+      }
+    },
+    {
+      "id": "khc_original_consolidated",
+      "ticker": "KHC",
+      "namespace": "us-gaap",
+      "tag": "ProfitLoss",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/ProfitLoss/units/USD/65",
+      "expected_numeric_lexical": "10990000000",
+      "expected_decimal": "10990000000",
+      "expected_row_metadata": {
+        "start": "2017-01-01",
+        "end": "2017-12-30",
+        "accn": "0001637459-18-000015",
+        "fy": 2017,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2018-02-16"
+      },
+      "expected_source_label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+      "expected_source_description": "The consolidated profit or loss for the period, net of income taxes, including the portion attributable to the noncontrolling interest.",
+      "scope_note": "Exact FY2017 interval; preserve ownership scope, filing chronology, optional frame and nullable fiscal focus. Repeated value alone is not a new restatement.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "KHC: actual original and restated observations"
+      }
+    },
+    {
+      "id": "khc_revised_consolidated",
+      "ticker": "KHC",
+      "namespace": "us-gaap",
+      "tag": "ProfitLoss",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/ProfitLoss/units/USD/66",
+      "expected_numeric_lexical": "10932000000",
+      "expected_decimal": "10932000000",
+      "expected_row_metadata": {
+        "start": "2017-01-01",
+        "end": "2017-12-30",
+        "accn": "0001637459-19-000049",
+        "fy": 2018,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2019-06-07"
+      },
+      "expected_source_label": "Net Income (Loss), Including Portion Attributable to Noncontrolling Interest",
+      "expected_source_description": "The consolidated profit or loss for the period, net of income taxes, including the portion attributable to the noncontrolling interest.",
+      "scope_note": "Exact FY2017 interval; preserve ownership scope, filing chronology, optional frame and nullable fiscal focus. Repeated value alone is not a new restatement.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "KHC: actual original and restated observations"
+      }
+    },
+    {
+      "id": "khc_repeated_nullable_focus",
+      "ticker": "KHC",
+      "namespace": "us-gaap",
+      "tag": "NetIncomeLoss",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/NetIncomeLoss/units/USD/79",
+      "expected_numeric_lexical": "10941000000",
+      "expected_decimal": "10941000000",
+      "expected_row_metadata": {
+        "start": "2017-01-01",
+        "end": "2017-12-30",
+        "accn": "0001637459-20-000168",
+        "fy": null,
+        "fp": null,
+        "form": "8-K",
+        "filed": "2020-11-13",
+        "frame": "CY2017"
+      },
+      "expected_source_label": "Net Income (Loss) Attributable to Parent",
+      "expected_source_description": "The portion of profit or loss for the period, net of income taxes, which is attributable to the parent.",
+      "scope_note": "Exact FY2017 interval; preserve ownership scope, filing chronology, optional frame and nullable fiscal focus. Repeated value alone is not a new restatement.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "KHC: actual original and restated observations"
+      }
+    },
+    {
+      "id": "cost_total_revenue",
+      "ticker": "COST",
+      "namespace": "us-gaap",
+      "tag": "Revenues",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/Revenues/units/USD/319",
+      "expected_numeric_lexical": "275235000000",
+      "expected_decimal": "275235000000",
+      "expected_row_metadata": {
+        "start": "2024-09-02",
+        "end": "2025-08-31",
+        "accn": "0000909832-25-000101",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2025-10-08",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Revenues",
+      "expected_source_description": "Amount of revenue recognized from goods sold, services rendered, insurance premiums, or other activities that constitute an earning process. Includes, but is not limited to, investment and interest income before deduction of interest expense when recognized as a component of revenue, and sales and trading gain (loss).",
+      "scope_note": "Consolidated total includes membership revenue; do not sum equivalent reported total tags.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Costco"
+      }
+    },
+    {
+      "id": "cost_customer_contract_total",
+      "ticker": "COST",
+      "namespace": "us-gaap",
+      "tag": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/RevenueFromContractWithCustomerExcludingAssessedTax/units/USD/122",
+      "expected_numeric_lexical": "275235000000",
+      "expected_decimal": "275235000000",
+      "expected_row_metadata": {
+        "start": "2024-09-02",
+        "end": "2025-08-31",
+        "accn": "0000909832-25-000101",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2025-10-08",
+        "frame": "CY2025"
+      },
+      "expected_source_label": "Revenue from Contract with Customer, Excluding Assessed Tax",
+      "expected_source_description": "Amount, excluding tax collected from customer, of revenue from satisfaction of performance obligation by transferring promised good or service to customer. Tax collected from customer is tax assessed by governmental authority that is both imposed on and concurrent with specific revenue-producing transaction, including, but not limited to, sales, use, value added and excise.",
+      "scope_note": "The reviewed Costco scope equals reported total revenue, unlike CRCL customer-contract revenue.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Costco"
+      }
+    },
+    {
+      "id": "cost_prior_comparative_goodwill",
+      "ticker": "COST",
+      "namespace": "us-gaap",
+      "tag": "Goodwill",
+      "unit": "USD",
+      "json_pointer": "/facts/us-gaap/Goodwill/units/USD/25",
+      "expected_numeric_lexical": "994000000",
+      "expected_decimal": "994000000",
+      "expected_row_metadata": {
+        "end": "2024-09-01",
+        "accn": "0000909832-25-000101",
+        "fy": 2025,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2025-10-08",
+        "frame": "CY2024Q3I"
+      },
+      "expected_source_label": "Goodwill",
+      "expected_source_description": "Amount after accumulated impairment loss of an asset representing future economic benefits arising from other assets acquired in a business combination that are not individually identified and separately recognized.",
+      "scope_note": "A prior-year instant inside the FY2025 filing; not FY2025 year-end goodwill.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Costco"
+      }
+    }
+  ],
+  "gaps": [
+    {
+      "id": "msft_no_combined_sga",
+      "ticker": "MSFT",
+      "kind": "missing_paths",
+      "json_pointers": [
+        "/facts/us-gaap/SellingGeneralAndAdministrativeExpense"
+      ],
+      "expected_count": 0,
+      "gap_note": "Separate expense tags do not establish a directly reported combined SG&A fact.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Microsoft"
+      }
+    },
+    {
+      "id": "msft_custom_namespace_not_in_endpoint",
+      "ticker": "MSFT",
+      "kind": "missing_paths",
+      "json_pointers": [
+        "/facts/msft"
+      ],
+      "expected_count": 0,
+      "gap_note": "The filing-reported custom D&A-and-other tag requires a separate original-filing adapter and still is not D&A alone.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Microsoft"
+      }
+    },
+    {
+      "id": "jpm_no_classified_working_capital",
+      "ticker": "JPM",
+      "kind": "missing_paths",
+      "json_pointers": [
+        "/facts/us-gaap/AssetsCurrent",
+        "/facts/us-gaap/LiabilitiesCurrent"
+      ],
+      "expected_count": 0,
+      "gap_note": "No inspected classified current totals; bank deposits and loans must not be relabelled trade working capital.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "JPM: FY2025 anchor"
+      }
+    },
+    {
+      "id": "crcl_absent_dividends_not_zero",
+      "ticker": "CRCL",
+      "kind": "missing_paths",
+      "json_pointers": [
+        "/facts/us-gaap/PaymentsOfDividends",
+        "/facts/us-gaap/PaymentsOfDividendsCommonStock"
+      ],
+      "expected_count": 0,
+      "gap_note": "Absent dividends-paid candidates remain unavailable; explicit zero common repurchases is a different state.",
+      "review_evidence": {
+        "path": "docs/research/s1/special-sector-observations.md",
+        "section": "CRCL: FY2025 anchor"
+      }
+    },
+    {
+      "id": "rblx_custom_namespace_not_in_endpoint",
+      "ticker": "RBLX",
+      "kind": "missing_paths",
+      "json_pointers": [
+        "/facts/rblx"
+      ],
+      "expected_count": 0,
+      "gap_note": "Original-filing infrastructure/trust/safety expense is outside this endpoint; no invented R&D or SG&A fallback.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Roblox"
+      }
+    },
+    {
+      "id": "tsm_no_fy2025_ifrs_rows",
+      "ticker": "TSM",
+      "kind": "namespace_accession_gap",
+      "json_pointer": "/facts/ifrs-full",
+      "accession": "0001628280-26-025362",
+      "expected_count": 0,
+      "expected_latest_period_end": "2024-12-31",
+      "expected_tag_count": 334,
+      "gap_note": "The captured endpoint has no IFRS row for the selected FY2025 filing, while DEI shares exist; this does not claim the original filing lacks statements.",
+      "review_evidence": {
+        "path": "docs/research/s1/ifrs-and-restatement-observations.md",
+        "section": "TSM: primary FY2025 coverage is missing for IFRS facts"
+      }
+    },
+    {
+      "id": "cost_no_current_goodwill_row",
+      "ticker": "COST",
+      "kind": "tag_period_gap",
+      "json_pointer": "/facts/us-gaap/Goodwill/units/USD",
+      "accession": "0000909832-25-000101",
+      "start": null,
+      "end": "2025-08-31",
+      "expected_count": 0,
+      "gap_note": "A goodwill comparative from 2024 in the same accession cannot fill the current instant.",
+      "review_evidence": {
+        "path": "docs/research/s1/baseline-observations.md",
+        "section": "Costco"
+      }
+    }
+  ]
+}

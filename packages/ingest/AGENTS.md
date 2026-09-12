@@ -9,4 +9,5 @@ Normalize only approved concept_std values and reviewed company overrides.
 Missing values remain NULL and raise a quality flag. Never import yfinance.
 Keep unit, period, filing, retrieval and transformation evidence. Record provider
 terms before ingestion. Use pinned fixtures and `make test-golden` before commit.
-S0 has no source adapters or upstream calls.
+S3 source-contract and evidence preparation is recorded in docs/design/s3.
+No production source adapter or live ingestion is implemented yet.

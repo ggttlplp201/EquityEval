@@ -3,7 +3,9 @@
 A local-first research tool for auditable valuation ranges and explicit
 assumptions. **S2 evidence storage, historical selection and durable watchlist requests are implemented.**
 The database/storage layer has real PostgreSQL tests; live ingestion, financial
-engines and the product interface remain later milestones.
+engines and the product interface remain later milestones. The
+[S3 source contract](docs/design/s3/README.md) and eight-company acceptance
+evidence packet are ready for review before adapter implementation.
 
 Start with [milestones](docs/milestones/README.md), [P0 tasks](docs/tasks-p0.md)
 and [open decisions](docs/decisions.md). Review the [S2 design](docs/design/s2/README.md)

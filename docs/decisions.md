@@ -12,7 +12,7 @@ visible without rewriting the source plan. Status **open** means not approved.
 | D005 | Open | SPEC 0.1 requires a distribution while Monte Carlo/scenarios are P1. Define the meaning and display of the P0 range; never label a sensitivity range a probability interval. | S6 |
 | D006 | Accepted for S2 implementation — 2026-09-12 | Create S2a evidence/PIT and S2b durable requests first; later P0/N1 tables arrive with their implementing milestones. See design/s2/implementation.md. | S2 |
 | D007 | Accepted starting vocabulary — 2026-09-12 | The user directed progression to S2 after the S1 review brief: use its 40 concept names and conservative source rules as the starting design. Production mapping implementations still require evidence/tests. See research/s1/review-brief.md. | S1/S2 |
-| D008 | Open | Define Source, RawRecord, Fact, rate-limit and provenance contracts before adapters; S6 API freeze is too late for this dependency. | S3 |
+| D008 | Ready for review — 2026-09-12 | Concrete S3-01–04 Source/RawRecord/Fact, coverage, archive, shared-rate and policy/attempt persistence proposal prepared in design/s3/source-contract.md. No adapter or new schema is approved yet. | S3 |
 | D009 | Open | Define macro vintage semantics for historical runs and the ERP/beta source or explicit assumption path required by DCF. | S4/S7 |
 | D010 | Open | Review numeric test statements: the reverse solve/reprice round trip must have consistent units; a Monte Carlo median need not equal a nonlinear deterministic model at arbitrary base inputs. Specify valid test conditions. | S7/P1 |
 | D011 | Accepted direction — 2026-09-12 | Company Facts omits custom-taxonomy and non-whole-entity facts. Use the S1 supported subset with explicit gaps and a separately tested raw-filing extraction slice; overrides alone cannot supply omitted data. See S1 source-boundaries.md. | S1/S2 |
@@ -26,4 +26,5 @@ visible without rewriting the source plan. Status **open** means not approved.
 
 Schema shape, financial vocabulary, API contract and changes to missing-data
 representation require a concrete proposal and user review per the supplied
-AGENTS.md. No such decisions are made by this scaffold.
+AGENTS.md. Accepted decisions above apply within their recorded scope; open or
+proposed decisions are not silently accepted by progression to a milestone.
