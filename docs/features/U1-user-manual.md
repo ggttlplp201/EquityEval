@@ -27,6 +27,9 @@ then verify every step against the built application.
 - Explain circulation versus transaction volume versus revenue, reserve income,
   distribution costs, monetization, testnet versus production, legislative stages,
   materiality and observed price reaction versus claimed causation.
+- Continuous background news discovery, source coverage, effective polling cadence,
+  last successful checks, collection delays and catch-up after outages; quiet hours
+  control delivery while collection continues. Example topics are not a fixed list.
 - Local-worker availability, laptop sleep and the requirements for always-on alerts.
 - Glossary with plain-English definitions, units, a small worked example where
   useful, and how the term affects interpretation. Cover ticker, exchange, CIK,

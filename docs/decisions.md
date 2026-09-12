@@ -22,6 +22,7 @@ visible without rewriting the source plan. Status **open** means not approved.
 | D015 | User authorized — 2026-09-12 | Deliver a user manual, terminology explanations and contextual help verified against the finished build. See features/U1-user-manual.md. | U1 / release |
 | D016 | Proposed — schema review pending | S2-01–05 specify staged persistence, issuer/security identity, observations/resolutions, filed-date plus retrieval-vintage policy and durable watchlist execution. See design/s2/schema-proposal.md. | S2 |
 | D017 | User authorized — 2026-09-12 | Extend N1 with per-stock competitor/product/regulatory/ecosystem topics, supporting metrics and conditional impact assessments. User resolved Open USD as Open Standard's stablecoin via the Reap article. See features/N1-stock-topic-monitoring.md and N1-crcl-topic-example.md. Later schema/API review remains pending; no live monitoring activated. | S2/N1/W1/U1 |
+| D018 | User clarified — 2026-09-12 | N1 continuously scans news sites for new relevant announcements across all watchlist stocks. CRCL topics are examples, not fixed coverage or a user-maintained allowlist. Broader discovery, ongoing source checks, recovery and automatic evidence/assessment updates are required. See features/N1-stock-topic-monitoring.md. | N1 / delivery |
 
 Schema shape, financial vocabulary, API contract and changes to missing-data
 representation require a concrete proposal and user review per the supplied

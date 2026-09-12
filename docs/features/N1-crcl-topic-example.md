@@ -3,6 +3,9 @@
 Design example recorded 2026-09-12. These are research topics and conditional
 mechanisms, not a current investment verdict or a running monitor. CRCL identifies
 Circle equity; USDC and Open USD identify stablecoin products, not shares.
+The user's clarification makes these examples illustrative: production discovery
+must continuously find new relevant announcements across the watchlist, including
+subjects that have never appeared in these seed topics.
 
 ## Resolved user reference
 

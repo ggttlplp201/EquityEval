@@ -27,7 +27,10 @@ monitor, subscribe an email address, or configure an external sending service.
    and collect metrics needed for a conditional impact assessment. See the
    [stock-topic requirements](N1-stock-topic-monitoring.md) and
    [CRCL example](N1-crcl-topic-example.md). Use permitted primary and secondary
-   sources; do not depend on scraping restricted publishers.
+   sources; do not depend on scraping restricted publishers. Continuously scan
+   news sites for newly relevant announcements as well as following known topics;
+   CRCL/Open USD/CLARITY/Arc are examples, not an exhaustive watch list. Discovery
+   runs in the background without user searches, open company pages or market hours.
 3. An advance brief explaining the event, its verified release time, affected
    watchlist companies and conditional outcomes. Proposed defaults: 24 hours
    and 1 hour before a major release, with configurable quiet hours and frequency.
@@ -58,6 +61,9 @@ may support history and vintages; the date of a FRED observation is not a releas
 timestamp. A consensus provider, news provider, redistribution terms, quotas and
 costs require verification before integration. No paid service is selected here.
 
+News collection runs continuously while the worker is available, using source
+feeds/APIs or permitted page checks. Track per-source cadence, successful checks,
+collection lag and recovery progress; see the stock-topic discovery requirements.
 Polling should be configurable and respect source limits. Refresh calendars
 regularly; check release sources more frequently around a scheduled publication.
 Show source freshness and outages. Deduplicate by source/event identity and

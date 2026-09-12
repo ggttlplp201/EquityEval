@@ -1,7 +1,7 @@
 # N1 — Stock topics, evidence and impact assessments
 
 Status: user-authorized N1 refinement, 2026-09-12; design requirements, not a running service.
-Task: EquityEval — milestone build log. Decision: D017.
+Task: EquityEval — milestone build log. Decisions: D017, D018 (continuous discovery clarification).
 Parent: [News and macro agent](N1-news-and-macro-agent.md).
 
 ## Requested outcome
@@ -16,6 +16,9 @@ different ways; stock-specific does not mean exclusive to a single company.
 The user's CRCL examples are Open Standard's Open USD stablecoin, the CLARITY
 Act and Circle's Arc network. See the [CRCL topic example](N1-crcl-topic-example.md)
 for resolved identities, research sources and different economic mechanisms.
+These are illustrative examples, not a fixed coverage list. The user explicitly
+requires continuous discovery from news sites: the agent must find new relevant
+announcements without waiting for the user to supply their names or links.
 This refinement brings forward the relevant portions of SPEC 2.6, 8, 9.5 and 9.8;
 it does not activate all deferred sector models or the quantitative event-study engine.
 
@@ -44,6 +47,53 @@ changes create revisions. Historical briefs keep the profile/relevance evidence 
 Periodically revisit coverage so a newly material competitor or regulation can be
 found without the user knowing its name in advance. Respect configured polling,
 source and model budgets; show delayed or incomplete coverage.
+
+## Continuous news discovery
+
+Run an ongoing background collection loop for every active watchlist stock,
+including outside market hours and on weekends. Monitor permitted financial,
+business and relevant industry news sites alongside issuer, competitor, partner
+and regulatory announcements. Use feeds/APIs where available and permitted page
+change checks where needed. An open company page, manual rerun or scheduled macro
+event must not be required to trigger discovery.
+
+Use two complementary discovery paths:
+
+- Follow known companies, topics and relationships for continuing developments.
+- Scan broader business, industry, product and regulatory coverage for previously
+  unknown competitors, initiatives or events. Use each stock's sourced business
+  activities and exposures to identify relevance even when an article contains
+  neither its ticker nor an existing topic alias.
+
+Topic profiles guide discovery and ranking; they are not a hard allowlist. When a
+new announcement has a supported business connection, automatically establish
+its topic/relevance record, gather supporting sources and available metrics,
+produce the stock's impact assessment, and notify through enabled channels when
+material. Uncertain connections remain labelled candidates. User exclusions still
+apply. The user should not need to manually maintain a complete list of catalysts.
+
+Maintain a configurable collection cadence per source, using push updates where
+supported and recurring polling otherwise. Record and display the effective
+cadence, last successful check, collection delay and failures. Rate limits and
+provider indexing delays constrain actual detection speed; do not label a delayed
+polling source as real-time. Source coverage must be explicit, not a promise to
+read every news site on the internet. Quiet hours affect delivery, not collection.
+
+Track pending discovery and assessment work separately from successful fetches.
+Show each stock's last completed assessment coverage and any outstanding backlog;
+healthy polling with stalled analysis is delayed monitoring, not evidence that no
+relevant news exists. Schedule work fairly across the watchlist under heavy volume,
+retaining capacity to discover new topics as well as follow popular existing ones.
+Coverage timestamps describe the configured sources/windows, not the entire web.
+
+Persist collection progress and recover after restarts/outages. Recheck an overlap
+window or equivalent source cursor so late-indexed articles and revisions are not
+lost. After downtime, assess missed material developments with their original
+event/publication times and label delayed discovery. Avoid replaying all historical
+headlines as fresh breaking news. Continuous collection produces alerts only for
+relevant material changes, with the shared-development deduplication rules below.
+An always-on deployment is required for this loop to continue while the user's
+laptop sleeps; local mode must show its availability limits.
 
 ## Evidence the collector must gather
 
@@ -145,8 +195,18 @@ configured delivery channels. U1 teaches this workflow and its terminology.
 
 Required acceptance scenarios, specified now and implemented with those slices:
 
+- Introduce a previously unknown relevant announcement with no ticker or existing
+  topic alias. Broad discovery finds it, establishes supported relevance, collects
+  evidence and generates an assessment/eligible alert without user topic entry.
 - Find a relevant competitor article that never mentions the stock ticker; reject
   an unrelated namesake. User correction fixes future matching and retains history.
+- With the company page closed, a new article outside market hours is collected
+  on the configured cadence. Quiet hours delay delivery without stopping collection.
+- A late-indexed article, revision and worker outage recover through saved progress;
+  delayed coverage is labelled and duplicate headlines do not flood the inbox.
+- Under a burst of news, all active stocks and new-topic discovery receive work;
+  a stalled assessment queue shows backlog and incomplete coverage even when
+  source fetches succeed. It must not report that no relevant developments occurred.
 - A stock addition builds its profile and assessment baseline. Missing metric or
   news access is visible and does not fabricate a complete research result.
 - An amendment is not enacted law; a testnet announcement is not production use;

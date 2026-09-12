@@ -68,6 +68,19 @@ This is a documentation checkpoint; S2-01–05 remain pending and monitoring is
 not running. Required scaffold checks run through the commit hook; no N1
 behavior or database tests are claimed by this refinement.
 
+## Continuous discovery clarification — 2026-09-12
+
+D018 records that the CRCL topics are examples. N1 must continuously scan news
+sites and announcements for new relevant developments across all active watchlist
+stocks. Added broad discovery beyond known aliases/topics, automatic relevance
+and assessment updates, collection outside market hours, visible source cadence
+and lag, and restart/late-index recovery. Added acceptance cases requiring discovery
+of a previously unknown topic without user entry or an open company page. The
+feature register, CRCL example and manual requirements reflect this clarification.
+Independent review added fair scheduling, discovery/assessment backlog and completed
+coverage tracking so successful polling cannot hide stalled assessments.
+This is a requirements checkpoint; monitoring is not activated by documenting it.
+
 ## Handoff
 
 Review decisions S2-01 through S2-05. After approval, implement S2a evidence
