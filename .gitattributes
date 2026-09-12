@@ -1,2 +1,5 @@
 * text=auto eol=lf
 docs/originals/* -text
+
+# Preserve the complete source capture, including original end-of-line whitespace.
+docs/research/s4/evidence/treasury-yield-202609-e655415955c5.xml -text whitespace=-blank-at-eol

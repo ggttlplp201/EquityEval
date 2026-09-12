@@ -1,0 +1,162 @@
+{
+  "fixture_kind": "synthetic_preimplementation_acceptance",
+  "notice": "Invented macro values, series and captures; not FRED data or application inputs.",
+  "series": [
+    {
+      "id": "TEST_RATE",
+      "unit": "percent",
+      "frequency": "daily",
+      "seasonal_adjustment": "not_adjusted"
+    },
+    {
+      "id": "TEST_INDEX",
+      "unit": "index",
+      "index_base": "synthetic_base_100",
+      "frequency": "monthly",
+      "seasonal_adjustment": "adjusted"
+    }
+  ],
+  "numeric_cases": [
+    {
+      "id": "native_percent",
+      "raw_value": "4.25",
+      "unit": "percent",
+      "expected_value": "4.25",
+      "status": "observed",
+      "future_core_fraction": "0.0425",
+      "ingestion_may_rescale": false
+    },
+    {
+      "id": "reported_zero",
+      "raw_value": "0.00",
+      "unit": "percent",
+      "expected_value": "0.00",
+      "status": "observed"
+    },
+    {
+      "id": "negative_spread",
+      "raw_value": "-0.25",
+      "unit": "percentage_points",
+      "expected_value": "-0.25",
+      "status": "observed"
+    },
+    {
+      "id": "source_missing_marker",
+      "raw_value": ".",
+      "expected_value": null,
+      "status": "missing",
+      "reason": "source_marker",
+      "value_state": "source_missing"
+    },
+    {
+      "id": "json_null",
+      "raw_value": null,
+      "expected_value": null,
+      "status": "unparseable",
+      "reason": "unexpected_null"
+    },
+    {
+      "id": "nonfinite",
+      "raw_value": "NaN",
+      "expected_value": null,
+      "status": "unparseable",
+      "reason": "nonfinite_numeric"
+    },
+    {
+      "id": "boolean",
+      "raw_value": true,
+      "expected_value": null,
+      "status": "unparseable",
+      "reason": "boolean_numeric"
+    },
+    {
+      "id": "synthetic_h15_missing_status",
+      "source_status": "ND",
+      "raw_value": "-9999",
+      "expected_value": null,
+      "value_state": "source_missing",
+      "reason": "source_status_missing"
+    },
+    {
+      "id": "synthetic_h15_unknown_status",
+      "source_status": "UNREVIEWED",
+      "raw_value": "4.25",
+      "expected_value": null,
+      "value_state": "unparseable",
+      "reason": "unsupported_source_status"
+    },
+    {
+      "id": "synthetic_h15_status_sentinel_contradiction",
+      "source_status": "A",
+      "raw_value": "-9999",
+      "expected_value": null,
+      "value_state": "unparseable",
+      "reason": "status_sentinel_contradiction"
+    }
+  ],
+  "vintage_rows": [
+    {
+      "id": "original",
+      "series_id": "TEST_INDEX",
+      "date": "2024-01-01",
+      "value": "100.0",
+      "realtime_start": "2024-02-01",
+      "realtime_end": "2024-02-14",
+      "captured_at": "2024-03-01T12:00:00Z"
+    },
+    {
+      "id": "revision",
+      "series_id": "TEST_INDEX",
+      "date": "2024-01-01",
+      "value": "101.0",
+      "realtime_start": "2024-02-15",
+      "realtime_end": "2024-02-29",
+      "captured_at": "2024-03-01T12:00:00Z"
+    }
+  ],
+  "selection_cases": [
+    {
+      "id": "before_publication",
+      "source_as_of": "2024-01-31",
+      "captured_before": "2024-03-02T00:00:00Z",
+      "expected_row": null,
+      "reason": "source_vintage_unavailable"
+    },
+    {
+      "id": "inclusive_original_end",
+      "source_as_of": "2024-02-14",
+      "captured_before": "2024-03-02T00:00:00Z",
+      "expected_row": "original",
+      "expected_value": "100.0"
+    },
+    {
+      "id": "inclusive_revision_start",
+      "source_as_of": "2024-02-15",
+      "captured_before": "2024-03-02T00:00:00Z",
+      "expected_row": "revision",
+      "expected_value": "101.0"
+    },
+    {
+      "id": "strict_capture_cutoff",
+      "source_as_of": "2024-02-15",
+      "captured_before": "2024-02-20T00:00:00Z",
+      "expected_row": null,
+      "reason": "historical_capture_unavailable"
+    },
+    {
+      "id": "no_invented_interval_after_response_boundary",
+      "source_as_of": "2024-03-01",
+      "captured_before": "2024-03-02T00:00:00Z",
+      "expected_row": null,
+      "reason": "source_vintage_unavailable"
+    }
+  ],
+  "metadata_cases": [
+    {
+      "id": "literal_source_multiplier",
+      "raw_unit_multiplier_code": "1",
+      "expected_multiplier": "1",
+      "may_treat_code_as_exponent": false
+    }
+  ]
+}

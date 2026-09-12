@@ -4,7 +4,9 @@ A local-first research tool for auditable valuation ranges and explicit
 assumptions. **S3 SEC ingestion is implemented**, alongside S2 evidence storage,
 historical selection and durable watchlist requests. It includes verified archives,
 reviewed normalization, original-filing extraction and watchlist source stages.
-See the [S3 implementation](docs/design/s3/implementation.md). Financial engines,
+See the [S3 implementation](docs/design/s3/implementation.md). The next
+[S4 source/schema review](docs/design/s4/source-contract.md) is ready; its
+price/macro adapters and tables are not implemented. Financial engines,
 the product interface and news monitoring remain later milestones.
 
 Start with [milestones](docs/milestones/README.md), [P0 tasks](docs/tasks-p0.md)

@@ -13,7 +13,7 @@ above. This repository and its commits are the implementation source of truth.
 | S1 | Accepted for S2 — 2026-09-12 | [SEC reconnaissance](S1-sec-recon.md) | `EquityEval — milestone build log` (same task, user continued) |
 | S2 | Complete for accepted storage/request scope; 124 tests | [Schema and PIT](S2-schema.md) | Same milestone build-log task |
 | S3 | Complete for accepted scope; 440 tests; milestone/s3 | [SEC ingestion](S3-ingestion.md) | Same milestone build-log task; D008 accepted |
-| S4 | Planned | Tiingo and FRED | After S3 |
+| S4 | Contract review prepared; implementation pending D019 | [Prices and macro sources](S4-prices-macro.md) | Same milestone build-log task |
 | S5 | Planned | Ratio engine | After S3/S4 |
 | S6 | Planned | API contract review/freeze | After S5 |
 | S7 | Planned | Forward DCF | After S6 |

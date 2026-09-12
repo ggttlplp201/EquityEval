@@ -148,8 +148,10 @@ S0 scaffolding is complete; its environment limits are in the milestone record.
 S2 is complete at milestone/s2. S3 is complete at milestone/s3 (440 tests). The user
 explicitly approved D008 and S3-01–04 with “implement” on 2026-09-12 after the
 concrete review packet. Read docs/design/s3/source-contract.md and
-docs/milestones/S3-ingestion.md. Use the implementation record and milestone checkpoint for the next handoff: S4
-prices/FRED and its explicit source/vintage decisions.
+docs/milestones/S3-ingestion.md. S4 is at its concrete review checkpoint:
+docs/design/s4/source-contract.md and docs/milestones/S4-prices-macro.md.
+D019/S4-01–04 are proposed, not approved. No S4 schema or adapters are implemented;
+provider retention and complete-payload scope findings are in that review.
 Later API routes, valuation logic and UI remain at their reviewed milestones. Remove each
 `tests/**/.allow-empty-s0` marker when that suite gains real tests.
 

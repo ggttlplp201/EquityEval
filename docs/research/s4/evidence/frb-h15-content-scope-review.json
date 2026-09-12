@@ -1,0 +1,5797 @@
+{
+  "research_only": true,
+  "source_zip_sha256": "cd55cf4eb2f90147a418cd4e9b7fb6529d6f8c7f48135a87ead2c79221681b13",
+  "source_member": "H15_data.xml",
+  "source_member_sha256": "a17ef400424fc543ae036705662194f5f969d22dab86ff2881f7688f060cce51",
+  "full_dataset_scope_review": "pending_specific_third_party_source_review",
+  "contains_financial_observation_values": false,
+  "inspection": "All series identities, attributes and descriptive annotations; values intentionally excluded.",
+  "series": [
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "FF",
+        "MATURITY": "O",
+        "SERIES_NAME": "RIFSPFF_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Federal funds"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Federal funds effective rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "8",
+        "INSTRUMENT": "FF",
+        "MATURITY": "O",
+        "SERIES_NAME": "RIFSPFF_N.D",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Federal funds"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Federal funds effective rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "19",
+        "INSTRUMENT": "FF",
+        "MATURITY": "O",
+        "SERIES_NAME": "RIFSPFF_N.WW",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Federal funds"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Federal funds effective rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "67",
+        "INSTRUMENT": "FF",
+        "MATURITY": "O",
+        "SERIES_NAME": "RIFSPFF_N.BWAW",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Federal funds"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Federal funds effective rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "FF",
+        "MATURITY": "O",
+        "SERIES_NAME": "RIFSPFF_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Federal funds"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Federal funds effective rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "FF",
+        "MATURITY": "O",
+        "SERIES_NAME": "RIFSPFF_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Federal funds"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Federal funds effective rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFSPPNAAD30_N.B",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "30-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFSPPNAAD30_N.WF",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "30-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFSPPNAAD30_N.M",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "30-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFSPPNAAD30_N.A",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "30-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M2",
+        "SERIES_NAME": "RIFSPPNAAD60_N.B",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "60-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M2",
+        "SERIES_NAME": "RIFSPPNAAD60_N.WF",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "60-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M2",
+        "SERIES_NAME": "RIFSPPNAAD60_N.M",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "60-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M2",
+        "SERIES_NAME": "RIFSPPNAAD60_N.A",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "60-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPNAAD90_N.B",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "90-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPNAAD90_N.WF",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "90-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPNAAD90_N.M",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "90-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "NFCP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPNAAD90_N.A",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month nonfinancial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "90-Day AA Nonfinancial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFSPPFAAD30_N.B",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "30-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFSPPFAAD30_N.WF",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "30-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFSPPFAAD30_N.M",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "30-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFSPPFAAD30_N.A",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "30-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M2",
+        "SERIES_NAME": "RIFSPPFAAD60_N.B",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "60-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M2",
+        "SERIES_NAME": "RIFSPPFAAD60_N.WF",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "60-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M2",
+        "SERIES_NAME": "RIFSPPFAAD60_N.M",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "60-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M2",
+        "SERIES_NAME": "RIFSPPFAAD60_N.A",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "60-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPFAAD90_N.B",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "90-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPFAAD90_N.WF",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "90-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPFAAD90_N.M",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "90-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "FCP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPFAAD90_N.A",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month financial commercial paper"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "90-Day AA Financial Commercial Paper Interest Rate"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "PRIME",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSPBLP_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Prime rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average majority prime rate charged by banks  on short-term loans to business,  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "8",
+        "INSTRUMENT": "PRIME",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSPBLP_N.D",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Prime rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average majority prime rate charged by banks  on short-term loans to business,  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "19",
+        "INSTRUMENT": "PRIME",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSPBLP_N.WW",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Prime rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average majority prime rate charged by banks  on short-term loans to business,  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "PRIME",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSPBLP_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Prime rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average majority prime rate charged by banks  on short-term loans to business,  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "PRIME",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSPBLP_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Prime rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average majority prime rate charged by banks  on short-term loans to business,  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "DWPC",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSRP_F02_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Discount rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "The rate charged for primary credit under  amendment to the Board's Regulation A"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "8",
+        "INSTRUMENT": "DWPC",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSRP_F02_N.D",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Discount rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "The rate charged for primary credit under  amendment to the Board's Regulation A"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "19",
+        "INSTRUMENT": "DWPC",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSRP_F02_N.WW",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Discount rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "The rate charged for primary credit under  amendment to the Board's Regulation A"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "DWPC",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSRP_F02_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Discount rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "The rate charged for primary credit under  amendment to the Board's Regulation A"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "DWPC",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIFSRP_F02_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Discount rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "The rate charged for primary credit under  amendment to the Board's Regulation A"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TB",
+        "MATURITY": "WK4",
+        "SERIES_NAME": "RIFSGFSW04_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "4-week Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "4-week Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TB",
+        "MATURITY": "WK4",
+        "SERIES_NAME": "RIFSGFSW04_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "4-week Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "4-week Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TB",
+        "MATURITY": "WK4",
+        "SERIES_NAME": "RIFSGFSW04_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "4-week Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "4-week Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TB",
+        "MATURITY": "WK4",
+        "SERIES_NAME": "RIFSGFSW04_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "4-week Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "4-week Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TB",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSGFSM03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-month Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TB",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSGFSM03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-month Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TB",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSGFSM03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-month Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TB",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSGFSM03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-month Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TB",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RIFSGFSM06_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-month Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TB",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RIFSGFSM06_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-month Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TB",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RIFSGFSM06_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-month Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TB",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RIFSGFSM06_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-month Treasury bill secondary market rate  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TB",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFSGFSY01_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-year Treasury bill secondary market rate^  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TB",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFSGFSY01_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-year Treasury bill secondary market rate^  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TB",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFSGFSY01_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-year Treasury bill secondary market rate^  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TB",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFSGFSY01_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year Treasury bill"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-year Treasury bill secondary market rate^  discount basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFLGFCM01_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 1-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFLGFCM01_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 1-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFLGFCM01_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 1-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RIFLGFCM01_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 1-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFLGFCM03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 3-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFLGFCM03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 3-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFLGFCM03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 3-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFLGFCM03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 3-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RIFLGFCM06_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 6-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RIFLGFCM06_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 6-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RIFLGFCM06_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 6-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RIFLGFCM06_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 6-month  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFLGFCY01_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 1-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFLGFCY01_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 1-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFLGFCY01_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 1-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFLGFCY01_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 1-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y2",
+        "SERIES_NAME": "RIFLGFCY02_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 2-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y2",
+        "SERIES_NAME": "RIFLGFCY02_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 2-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y2",
+        "SERIES_NAME": "RIFLGFCY02_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 2-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y2",
+        "SERIES_NAME": "RIFLGFCY02_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 2-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y3",
+        "SERIES_NAME": "RIFLGFCY03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 3-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y3",
+        "SERIES_NAME": "RIFLGFCY03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 3-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y3",
+        "SERIES_NAME": "RIFLGFCY03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 3-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y3",
+        "SERIES_NAME": "RIFLGFCY03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 3-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLGFCY05_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 5-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLGFCY05_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 5-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLGFCY05_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 5-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLGFCY05_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 5-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLGFCY07_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 7-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLGFCY07_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 7-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLGFCY07_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 7-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLGFCY07_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 7-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLGFCY10_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 10-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLGFCY10_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 10-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLGFCY10_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 10-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLGFCY10_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 10-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIFLGFCY20_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 20-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIFLGFCY20_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 20-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIFLGFCY20_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 20-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIFLGFCY20_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 20-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLGFCY30_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 30-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLGFCY30_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 30-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLGFCY30_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 30-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLGFCY30_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 30-year  constant maturity, quoted on investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLGFCY05_XII_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 5-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLGFCY05_XII_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 5-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLGFCY05_XII_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 5-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLGFCY05_XII_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 5-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLGFCY07_XII_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 7-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLGFCY07_XII_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 7-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLGFCY07_XII_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 7-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLGFCY07_XII_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 7-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLGFCY10_XII_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 10-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLGFCY10_XII_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 10-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLGFCY10_XII_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 10-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLGFCY10_XII_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 10-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIFLGFCY20_XII_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 20-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIFLGFCY20_XII_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 20-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIFLGFCY20_XII_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 20-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIFLGFCY20_XII_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 20-year  constant maturity, quoted on investment basis,  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLGFCY30_XII_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 30-year^  constant maturity, quoted on investment basis,^  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLGFCY30_XII_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 30-year^  constant maturity, quoted on investment basis,^  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLGFCY30_XII_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 30-year^  constant maturity, quoted on investment basis,^  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMII",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLGFCY30_XII_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year inflation indexed Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 30-year^  constant maturity, quoted on investment basis,^  inflation-indexed"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "LTAVG",
+        "MATURITY": "Y10P",
+        "SERIES_NAME": "RIFLGFL_XII_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Inflation indexed long-term average"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Treasury long-term average (over 10 years)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "LTAVG",
+        "MATURITY": "Y10P",
+        "SERIES_NAME": "RIFLGFL_XII_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Inflation indexed long-term average"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Treasury long-term average (over 10 years)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "LTAVG",
+        "MATURITY": "Y10P",
+        "SERIES_NAME": "RIFLGFL_XII_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Inflation indexed long-term average"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Treasury long-term average (over 10 years)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "LTAVG",
+        "MATURITY": "Y10P",
+        "SERIES_NAME": "RIFLGFL_XII_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Inflation indexed long-term average"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Treasury long-term average (over 10 years)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPDCNSM01_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 1-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPDCNSM01_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 1-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPDCNSM01_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 1-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPDCNSM01_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 1-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPDCNSM03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 3-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPDCNSM03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 3-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPDCNSM03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 3-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPDCNSM03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 3-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPDCNSM06_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 6-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPDCNSM06_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 6-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPDCNSM06_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 6-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "CD",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPDCNSM06_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month CD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Average rate on 6-month neogtiable  certificates of deposit (secondary market),  quoted on an investment basis"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RILSPDEPM01_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 1-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RILSPDEPM01_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 1-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RILSPDEPM01_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 1-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M1",
+        "SERIES_NAME": "RILSPDEPM01_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 1-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RILSPDEPM03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 3-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RILSPDEPM03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 3-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RILSPDEPM03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 3-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RILSPDEPM03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 3-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RILSPDEPM06_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 6-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RILSPDEPM06_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 6-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RILSPDEPM06_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 6-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "ED",
+        "MATURITY": "M6",
+        "SERIES_NAME": "RILSPDEPM06_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-month eurodollar deposit rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "U.S. -- SHORT-TERM INTEREST RATES: DAILY 6-MONTH EURO-DOLLAR DEPOSIT RATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "CPFFWOUT",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPCU_N.B",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Nonfinancial or financial posted by CPFF without unsecured credit surcharge"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Interest Rate that Issuers Not Subject to the Unsecured Credit Surcharge Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "CPFFWOUT",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPCU_N.WF",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Nonfinancial or financial posted by CPFF without unsecured credit surcharge"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Interest Rate that Issuers Not Subject to the Unsecured Credit Surcharge Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "CPFFWOUT",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPCU_N.M",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Nonfinancial or financial posted by CPFF without unsecured credit surcharge"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Interest Rate that Issuers Not Subject to the Unsecured Credit Surcharge Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "CPFFWOUT",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPCU_N.A",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Nonfinancial or financial posted by CPFF without unsecured credit surcharge"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Interest Rate that Issuers Not Subject to the Unsecured Credit Surcharge Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "CPFFWITH",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPCUS_N.B",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Nonfinancial or financial posted by CPFF with unsecured credit surcharge"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Interest Rate that Issuers Subject to the Unsecured Credit Surcharge Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "CPFFWITH",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPCUS_N.WF",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Nonfinancial or financial posted by CPFF with unsecured credit surcharge"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Interest Rate that Issuers Subject to the Unsecured Credit Surcharge Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "CPFFWITH",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPCUS_N.M",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Nonfinancial or financial posted by CPFF with unsecured credit surcharge"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Interest Rate that Issuers Subject to the Unsecured Credit Surcharge Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "CPFFWITH",
+        "MATURITY": "M3",
+        "SERIES_NAME": "RIFSPPCUS_N.A",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Nonfinancial or financial posted by CPFF with unsecured credit surcharge"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Interest Rate that Issuers Subject to the Unsecured Credit Surcharge Pay to Issue 3-Month Unsecured Paper to the Commercial Paper Funding Facility (CPFF)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPPCM01_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPPCM01_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPPCM01_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPPCM01_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPPCM03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPPCM03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPPCM03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPPCM03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPPCM06_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPPCM06_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPPCM06_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "CP",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPPCM06_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH PRIME COMMERCIAL PAPER - AVERAGE DEALER OFFERING RATE   QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPPFM01_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPPFM01_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPPFM01_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M1",
+        "SERIES_NAME": "H0.RIFSPPFM01_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "1-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPPFM03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPPFM03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPPFM03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H0.RIFSPPFM03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPPFM06_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPPFM06_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPPFM06_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "FP",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPPFM06_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH FINANCE PAPER PLACED DIRECTLY     AVERAGE OFFERING RATE     QUOTED ON DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "BA",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H1.RIFSPABM03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON THREE-MONTH DOMESTIC"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON THREE-MONTH DOMESTIC"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "BA",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H1.RIFSPABM03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON THREE-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON THREE-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "BA",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H1.RIFSPABM03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON THREE-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON THREE-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "BA",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H1.RIFSPABM03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON THREE-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON THREE-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "BA",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPABM06_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON SIX-MONTH DOMESTIC"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON SIX-MONTH DOMESTIC"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "BA",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPABM06_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON SIX-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON SIX-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "BA",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPABM06_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON SIX-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON SIX-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "BA",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSPABM06_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON SIX-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DEALER OFFERING RATE ON SIX-MONTH DOMESTIC PRIVATE BANKERS' ACCEPTANCES, QUOTED ON A DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "8",
+        "INSTRUMENT": "DWB",
+        "MATURITY": "NA",
+        "SERIES_NAME": "H0.RIFSRD_F02_N.D",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "DWB",
+        "MATURITY": "NA",
+        "SERIES_NAME": "H0.RIFSRD_F02_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "19",
+        "INSTRUMENT": "DWB",
+        "MATURITY": "NA",
+        "SERIES_NAME": "H0.RIFSRD_F02_N.WW",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "DWB",
+        "MATURITY": "NA",
+        "SERIES_NAME": "H0.RIFSRD_F02_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "DWB",
+        "MATURITY": "NA",
+        "SERIES_NAME": "H0.RIFSRD_F02_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "AVERAGE DISCOUNT RATE ON LOANS TO MEMBER BANKS   QUOTED ON INVESTMENT BASIS   FEDERAL RESERVE BANK OF NEW YORK"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "AH",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H1.RIFSGFPAM03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH TREASURY BILL AUCTION HIGH - DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH TREASURY BILL AUCTION HIGH - DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "AH",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSGFPAM06_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH TREASURY BILL AUCTION HIGH - DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH TREASURY BILL AUCTION HIGH - DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "AH",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "H0.RIFSGFPAY01_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "12-MONTH TREASURY BILL AUCTION HIGH - DISCOUNT BASIS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "12-MONTH TREASURY BILL AUCTION HIGH - DISCOUNT BASIS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "AH",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H1.RIFSGFPIM03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "AH",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H1.RIFSGFPIM03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "AH",
+        "MATURITY": "M3",
+        "SERIES_NAME": "H1.RIFSGFPIM03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "3-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "AH",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSGFPIM06_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "AH",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSGFPIM06_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "AH",
+        "MATURITY": "M6",
+        "SERIES_NAME": "H0.RIFSGFPIM06_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "6-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "6-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "AH",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "H0.RIFSGFPIY01_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "12-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "12-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "AH",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "H0.RIFSGFPIY01_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "12-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "12-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "AH",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "H0.RIFSGFPIY01_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "12-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "12-MONTH AUCTION HIGH BILL RATE BY ISSUE DATE"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "H0.RIFLGFCY20_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-YEAR U.S. GOVERNMENT CONSTANT MATURITY YIELD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "20-YEAR U.S. GOVERNMENT CONSTANT MATURITY YIELD"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "H0.RIFLGFCY20_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-YEAR U.S. GOVERNMENT CONSTANT MATURITY YIELD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "20-YEAR U.S. GOVERNMENT CONSTANT MATURITY YIELD"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "H0.RIFLGFCY20_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20 YEAR U.S. GOVT. CONSTANT MATURITY YIELD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "20 YEAR U.S. GOVT. CONSTANT MATURITY YIELD"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "H0.RIFLGFCY20_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "20-YEAR U.S. GOVERNMENT CONSTANT MATURITY YIELD"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "20-YEAR U.S. GOVERNMENT CONSTANT MATURITY YIELD"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "LTNOM",
+        "MATURITY": "Y25P",
+        "SERIES_NAME": "H0.RIFLGFL_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Treasury long-term average (25 years and above)"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Treasury long-term average (25 years and above)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "LTNOM",
+        "MATURITY": "Y25P",
+        "SERIES_NAME": "H0.RIFLGFL_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Treasury long-term average (25 years and above)"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Treasury long-term average (25 years and above)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "LTNOM",
+        "MATURITY": "Y25P",
+        "SERIES_NAME": "H0.RIFLGFL_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Treasury long-term average (25 years and above)"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Treasury long-term average (25 years and above)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "LTNOM",
+        "MATURITY": "Y25P",
+        "SERIES_NAME": "H0.RIFLGFL_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Treasury long-term average (25 years and above)"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Treasury long-term average (25 years and above)"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "COMP",
+        "MATURITY": "Y10P",
+        "SERIES_NAME": "H1.RIFLGFY10P_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "COMPOSITE YIELD ON U.S. TREASURY BONDS WITH MATURITY OVER TEN-YEARS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "COMPOSITE YIELD ON U.S. TREASURY BONDS WITH MATURITY OVER TEN-YEARS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "COMP",
+        "MATURITY": "Y10P",
+        "SERIES_NAME": "H1.RIFLGFY10P_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "COMPOSITE YIELD ON U.S. TREASURY BONDS WITH MATURITY OVER TEN-YEARS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "COMPOSITE YIELD ON U.S. TREASURY BONDS WITH MATURITY OVER TEN-YEARS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "COMP",
+        "MATURITY": "Y10P",
+        "SERIES_NAME": "H1.RIFLGFY10P_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "COMPOSITE YIELD ON U.S. TREASURY BONDS WITH MATURITY OVER TEN-YEARS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "COMPOSITE YIELD ON U.S. TREASURY BONDS WITH MATURITY OVER TEN-YEARS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "COMP",
+        "MATURITY": "Y10P",
+        "SERIES_NAME": "H1.RIFLGFY10P_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "COMPOSITE YIELD ON U.S. TREASURY BONDS WITH MATURITY OVER TEN-YEARS"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "COMPOSITE YIELD ON U.S. TREASURY BONDS WITH MATURITY OVER TEN-YEARS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFLDIY01_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of one year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFLDIY01_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of one year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFLDIY01_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of one year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y1",
+        "SERIES_NAME": "RIFLDIY01_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "1-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of one year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y2",
+        "SERIES_NAME": "RIFLDIY02_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of two year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y2",
+        "SERIES_NAME": "RIFLDIY02_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of two year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y2",
+        "SERIES_NAME": "RIFLDIY02_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of two year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y2",
+        "SERIES_NAME": "RIFLDIY02_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of two year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y3",
+        "SERIES_NAME": "RIFLDIY03_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of three year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y3",
+        "SERIES_NAME": "RIFLDIY03_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of three year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y3",
+        "SERIES_NAME": "RIFLDIY03_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of three year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y3",
+        "SERIES_NAME": "RIFLDIY03_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "3-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of three year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y4",
+        "SERIES_NAME": "RIFLDIY04_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "4-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of four year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y4",
+        "SERIES_NAME": "RIFLDIY04_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "4-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of four year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y4",
+        "SERIES_NAME": "RIFLDIY04_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "4-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of four year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y4",
+        "SERIES_NAME": "RIFLDIY04_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "4-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of four year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLDIY05_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of five year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLDIY05_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of five year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLDIY05_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of five year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y5",
+        "SERIES_NAME": "RIFLDIY05_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "5-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of five year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLDIY07_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of seven year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLDIY07_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of seven year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLDIY07_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of seven year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y7",
+        "SERIES_NAME": "RIFLDIY07_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "7-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of seven year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLDIY10_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of ten year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLDIY10_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of ten year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLDIY10_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of ten year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLDIY10_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of ten year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLDIY30_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of thirty year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLDIY30_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of thirty year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLDIY30_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of thirty year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "SWAPS",
+        "MATURITY": "Y30",
+        "SERIES_NAME": "RIFLDIY30_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "30-year swap rate"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Rate paid by fixed-rate payer on an interest rate swap with   maturity of thirty year."
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "AAA",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIMLPAAAR_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Moody's Aaa"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "MOODY'S YIELD ON SEASONED CORPORATE BONDS - ALL INDUSTRIES, AAA"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "AAA",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIMLPAAAR_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Moody's Aaa"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "MOODY'S YIELD ON SEASONED CORPORATE BONDS - ALL INDUSTRIES, AAA"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "AAA",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIMLPAAAR_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Moody's Aaa"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "MOODY'S YIELD ON SEASONED CORPORATE BONDS - ALL INDUSTRIES, AAA"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "AAA",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIMLPAAAR_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Moody's Aaa"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "MOODY'S YIELD ON SEASONED CORPORATE BONDS - ALL INDUSTRIES, AAA"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "BAA",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIMLPBAAR_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Moody's Baa"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "MOODY'S YIELD ON SEASONED CORPORATE BONDS - ALL INDUSTRIES, BAA"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "BAA",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIMLPBAAR_N.WF",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Moody's Baa"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "MOODY'S YIELD ON SEASONED CORPORATE BONDS - ALL INDUSTRIES, BAA"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "BAA",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIMLPBAAR_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Moody's Baa"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "MOODY'S YIELD ON SEASONED CORPORATE BONDS - ALL INDUSTRIES, BAA"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "BAA",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RIMLPBAAR_N.A",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Moody's Baa"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "MOODY'S YIELD ON SEASONED CORPORATE BONDS - ALL INDUSTRIES, BAA"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "20",
+        "INSTRUMENT": "SL",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIBLGNG20_N.WR",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "State and local bonds"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "BOND BUYER GO 20-BOND MUNICIPAL BOND INDEX"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "SL",
+        "MATURITY": "Y20",
+        "SERIES_NAME": "RIBLGNG20_N.M",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "State and local bonds"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "BOND BUYER GO 20-BOND MUNICIPAL BOND INDEX"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "20",
+        "INSTRUMENT": "MORTG",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RMMPCCFC_N.WR",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Conventional mortgages"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "30-Year Fixed Rate Mortgage Average in the United States"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "21",
+        "INSTRUMENT": "MORTG",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RMMPCCFC_N.WF",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Conventional mortgages"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "CONTRACT RATE ON 30-YEAR, FIXED-RATE CONVENTIONAL HOME MORTGAGE COMMITMENTS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "129",
+        "INSTRUMENT": "MORTG",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RMMPCCFC_N.M",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Conventional mortgages"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "CONTRACT RATE ON 30-YEAR, FIXED-RATE CONVENTIONAL HOME MORTGAGE COMMITMENTS"
+        }
+      ]
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_discontinued}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "203",
+        "INSTRUMENT": "MORTG",
+        "MATURITY": "NA",
+        "SERIES_NAME": "RMMPCCFC_N.A",
+        "UNIT": "Percent",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Conventional mortgages"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "CONTRACT RATE ON 30-YEAR, FIXED-RATE CONVENTIONAL HOME MORTGAGE COMMITMENTS"
+        }
+      ]
+    }
+  ]
+}

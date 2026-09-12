@@ -1,0 +1,176 @@
+{
+  "fixture_kind": "synthetic_preimplementation_acceptance",
+  "notice": "Invented prices, symbols, dates and captures; not vendor data or application inputs.",
+  "source_shape": "tiingo_eod_documented_fields",
+  "security": {
+    "symbol": "TEST",
+    "exchange": "TEST_EXCHANGE",
+    "currency": "USD",
+    "instrument_kind": "common"
+  },
+  "cases": [
+    {
+      "id": "raw_before_split",
+      "capture_label": "before_split",
+      "captured_at": "2024-01-03T23:00:00Z",
+      "raw": {
+        "date": "2024-01-02T00:00:00.000Z",
+        "open": 98,
+        "high": 102,
+        "low": 97,
+        "close": 100,
+        "volume": 1000,
+        "adjOpen": 98,
+        "adjHigh": 102,
+        "adjLow": 97,
+        "adjClose": 100,
+        "adjVolume": 1000,
+        "divCash": 0,
+        "splitFactor": 1
+      },
+      "expected": {
+        "session_date": "2024-01-02",
+        "close": "100",
+        "adj_close": "100",
+        "volume": "1000",
+        "adj_volume": "1000",
+        "status": "observed",
+        "basis": "capture_known"
+      }
+    },
+    {
+      "id": "same_session_after_split_adjustment",
+      "capture_label": "after_split",
+      "captured_at": "2024-02-02T23:00:00Z",
+      "raw": {
+        "date": "2024-01-02T00:00:00.000Z",
+        "open": 98,
+        "high": 102,
+        "low": 97,
+        "close": 100,
+        "volume": 1000,
+        "adjOpen": 49,
+        "adjHigh": 51,
+        "adjLow": 48.5,
+        "adjClose": 50,
+        "adjVolume": 2000,
+        "divCash": 0,
+        "splitFactor": 1
+      },
+      "expected": {
+        "session_date": "2024-01-02",
+        "close": "100",
+        "adj_close": "50",
+        "volume": "1000",
+        "adj_volume": "2000",
+        "status": "observed",
+        "basis": "capture_known",
+        "must_preserve_prior_capture": true,
+        "may_replace_raw_close": false
+      }
+    },
+    {
+      "id": "complete_newer_missing_close",
+      "capture_label": "provider_correction",
+      "captured_at": "2024-02-03T23:00:00Z",
+      "raw": {
+        "date": "2024-01-02T00:00:00.000Z",
+        "open": 98,
+        "high": 102,
+        "low": 97,
+        "close": null,
+        "volume": 1000,
+        "adjOpen": 49,
+        "adjHigh": 51,
+        "adjLow": 48.5,
+        "adjClose": null,
+        "adjVolume": 2000,
+        "divCash": 0,
+        "splitFactor": 1
+      },
+      "expected": {
+        "session_date": "2024-01-02",
+        "close": null,
+        "status": "missing",
+        "reason": "source_null",
+        "may_select_older_close_as_current": false,
+        "close_state": "source_null"
+      }
+    },
+    {
+      "id": "boolean_is_not_one_dollar",
+      "raw": {
+        "date": "2024-01-02T00:00:00.000Z",
+        "close": true
+      },
+      "expected": {
+        "close": null,
+        "status": "unparseable",
+        "reason": "boolean_numeric"
+      }
+    },
+    {
+      "id": "invalid_ohlc",
+      "raw": {
+        "date": "2024-01-02T00:00:00.000Z",
+        "open": 98,
+        "high": 99,
+        "low": 97,
+        "close": 100
+      },
+      "expected": {
+        "status": "invalid",
+        "reason": "ohlc_inconsistent",
+        "may_repair": false,
+        "close_state": "observed",
+        "close": "100"
+      }
+    },
+    {
+      "id": "unknown_quote_currency",
+      "identity_override": {
+        "currency": null
+      },
+      "raw": {
+        "date": "2024-01-02T00:00:00.000Z",
+        "close": 100
+      },
+      "expected": {
+        "status": "unsupported_scope",
+        "reason": "quote_currency_unverified",
+        "may_assume_usd": false
+      }
+    }
+  ],
+  "selection_cases": [
+    {
+      "id": "historical_capture_cutoff",
+      "captured_before": "2024-01-31T23:59:59Z",
+      "available_captures": [
+        "before_split",
+        "after_split"
+      ],
+      "expected_capture": "before_split",
+      "expected_adj_close": "100"
+    },
+    {
+      "id": "only_modern_capture_cannot_reconstruct_old_adjustments",
+      "captured_before": "2024-01-31T23:59:59Z",
+      "available_captures": [
+        "after_split"
+      ],
+      "expected_capture": null,
+      "reason": "historical_capture_unavailable"
+    },
+    {
+      "id": "same_midnight_label_in_every_display_zone",
+      "raw_date": "2024-01-02T00:00:00.000Z",
+      "display_timezones": [
+        "America/New_York",
+        "Asia/Shanghai",
+        "UTC"
+      ],
+      "expected_session_date": "2024-01-02"
+    }
+  ]
+}

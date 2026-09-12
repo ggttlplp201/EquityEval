@@ -1,0 +1,180 @@
+{
+  "research_only": true,
+  "complete_payload": false,
+  "source_zip": "frb-h15-20260912-cd55cf4eb2f9.zip",
+  "source_zip_sha256": "cd55cf4eb2f90147a418cd4e9b7fb6529d6f8c7f48135a87ead2c79221681b13",
+  "source_member": "H15_data.xml",
+  "source_member_sha256": "a17ef400424fc543ae036705662194f5f969d22dab86ff2881f7688f060cce51",
+  "selection": "Exact three proposed government-series identities; limited metadata and first/last/missing observations only. This is an extract, not a full payload or approved application input.",
+  "series": [
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "8",
+        "INSTRUMENT": "FF",
+        "MATURITY": "O",
+        "SERIES_NAME": "RIFSPFF_N.D",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "Federal funds"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Federal funds effective rate"
+        }
+      ],
+      "observations_count": 26370,
+      "first_observation": {
+        "OBS_STATUS": "A",
+        "OBS_VALUE": "1.13",
+        "TIME_PERIOD": "1954-07-01"
+      },
+      "last_observation": {
+        "OBS_STATUS": "A",
+        "OBS_VALUE": "3.63",
+        "TIME_PERIOD": "2026-09-10"
+      },
+      "first_missing_observation": null
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y2",
+        "SERIES_NAME": "RIFLGFCY02_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "2-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 2-year  constant maturity, quoted on investment basis"
+        }
+      ],
+      "observations_count": 13118,
+      "first_observation": {
+        "OBS_STATUS": "A",
+        "OBS_VALUE": "7.26",
+        "TIME_PERIOD": "1976-06-01"
+      },
+      "last_observation": {
+        "OBS_STATUS": "A",
+        "OBS_VALUE": "4.56",
+        "TIME_PERIOD": "2026-09-10"
+      },
+      "first_missing_observation": {
+        "OBS_STATUS": "ND",
+        "OBS_VALUE": "-9999",
+        "TIME_PERIOD": "1976-07-05"
+      }
+    },
+    {
+      "tag": "{http://www.federalreserve.gov/structure/compact/H15_H15}Series",
+      "attributes": {
+        "CURRENCY": "NA",
+        "FREQ": "9",
+        "INSTRUMENT": "TCMNOM",
+        "MATURITY": "Y10",
+        "SERIES_NAME": "RIFLGFCY10_N.B",
+        "UNIT": "Percent:_Per_Year",
+        "UNIT_MULT": "1"
+      },
+      "annotations": [
+        {
+          "AnnotationType": "Short Description",
+          "AnnotationText": "10-year Treasury constant maturity"
+        },
+        {
+          "AnnotationType": "Long Description",
+          "AnnotationText": "Market yield on U.S. Treasury securities at 10-year  constant maturity, quoted on investment basis"
+        }
+      ],
+      "observations_count": 16878,
+      "first_observation": {
+        "OBS_STATUS": "A",
+        "OBS_VALUE": "4.06",
+        "TIME_PERIOD": "1962-01-02"
+      },
+      "last_observation": {
+        "OBS_STATUS": "A",
+        "OBS_VALUE": "4.95",
+        "TIME_PERIOD": "2026-09-10"
+      },
+      "first_missing_observation": {
+        "OBS_STATUS": "ND",
+        "OBS_VALUE": "-9999",
+        "TIME_PERIOD": "1962-02-12"
+      }
+    }
+  ],
+  "reviewed_code_evidence": {
+    "member": "H15_struct.xml",
+    "member_sha256": "c51ca64a9f1fe676694c9b024511c5a5391c5d25831e022c6207337a25d96cb8",
+    "inspection_method": "Literal text inspection of named CodeList and Code elements in complete CRC/hash-verified bytes. Full structure XML parsing rejected due to DOCTYPE; no declaration stripped and no external resource resolved.",
+    "codes": [
+      {
+        "codelist_id": "CL_OBS_STATUS",
+        "code": "A",
+        "description": "Normal"
+      },
+      {
+        "codelist_id": "CL_OBS_STATUS",
+        "code": "NA",
+        "description": "Not available"
+      },
+      {
+        "codelist_id": "CL_OBS_STATUS",
+        "code": "ND",
+        "description": "No data"
+      },
+      {
+        "codelist_id": "CL_OBS_STATUS",
+        "code": "NC",
+        "description": "Not calculable"
+      },
+      {
+        "codelist_id": "CL_FREQ",
+        "code": "8",
+        "description": "Daily"
+      },
+      {
+        "codelist_id": "CL_FREQ",
+        "code": "9",
+        "description": "Business day"
+      },
+      {
+        "codelist_id": "CL_UNIT_MULT",
+        "code": "1",
+        "description": "One"
+      },
+      {
+        "codelist_id": "CL_UNIT",
+        "code": "Percent:_Per_Year",
+        "description": "Percent: Per Year"
+      }
+    ]
+  },
+  "no_valuation_or_unit_conversion": true,
+  "observations_namespace": "http://www.federalreserve.gov/structure/compact/common",
+  "seasonal_adjustment_evidence": {
+    "source_attribute": null,
+    "conclusion": "No seasonal-adjustment attribute in data Series or Obs; not inferred. UNIT Percent:_Per_Year indicates annualized percentage measurement, not seasonal adjustment."
+  },
+  "measurement_evidence": {
+    "nominal_treasury": "INSTRUMENT=TCMNOM and exact long description names constant maturity, investment basis; separate TCMII inflation-indexed series exists.",
+    "fed_funds": "INSTRUMENT=FF, MATURITY=O and long description names effective federal funds rate.",
+    "measurement_date": "TIME_PERIOD is source measurement date; no observation-level public-release timestamp or vintage interval in selected rows."
+  },
+  "source_zip_storage": "Restricted local ignored quarantine; not a public or test fixture and no production replay permitted."
+}

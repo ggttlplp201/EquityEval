@@ -1,0 +1,204 @@
+{
+  "research_only": true,
+  "provider": "Federal Reserve Board",
+  "resource": "H.15 published XML ZIP",
+  "request_url": "https://www.federalreserve.gov/releases/h15/data/FRB_h15_xml.zip",
+  "requested_at_utc": "2026-09-12T09:55:45.692289+00:00",
+  "terms_url": "https://www.federalreserve.gov/disclaimer.htm",
+  "terms_reviewed_on": "2026-09-12",
+  "compressed_limit_bytes": 33554432,
+  "decoded_limit_bytes": 134217728,
+  "credentials_used": false,
+  "http_status": 200,
+  "response_url": "https://www.federalreserve.gov/releases/h15/data/FRB_h15_xml.zip",
+  "headers_received_at_utc": "2026-09-12T09:55:47.543106+00:00",
+  "content_type": "application/x-zip-compressed",
+  "content_encoding": null,
+  "content_length": "4281072",
+  "last_modified": "Fri, 11 Sep 2026 20:15:20 GMT",
+  "completed_at_utc": "2026-09-12T09:55:49.444355+00:00",
+  "byte_count": 4281072,
+  "body_sha256": "cd55cf4eb2f90147a418cd4e9b7fb6529d6f8c7f48135a87ead2c79221681b13",
+  "complete_http_body": true,
+  "zip_members": [
+    {
+      "name": "H15_discontinued.xsd",
+      "compressed_bytes": 1156,
+      "decoded_bytes": 10237,
+      "crc32": "25c1578a",
+      "compression_method": 8,
+      "directory": false
+    },
+    {
+      "name": "H15_H15.xsd",
+      "compressed_bytes": 1152,
+      "decoded_bytes": 10219,
+      "crc32": "eb077507",
+      "compression_method": 8,
+      "directory": false
+    },
+    {
+      "name": "H15_data.xml",
+      "compressed_bytes": 4259954,
+      "decoded_bytes": 70757908,
+      "crc32": "2b279aad",
+      "compression_method": 8,
+      "directory": false
+    },
+    {
+      "name": "H15_struct.xml",
+      "compressed_bytes": 8950,
+      "decoded_bytes": 96648,
+      "crc32": "55ee9173",
+      "compression_method": 8,
+      "directory": false
+    },
+    {
+      "name": "frb_common.xsd",
+      "compressed_bytes": 9316,
+      "decoded_bytes": 139952,
+      "crc32": "0595350d",
+      "compression_method": 8,
+      "directory": false
+    }
+  ],
+  "zip_declared_total_decoded_bytes": 71014964,
+  "zip_safe_member_inventory": true,
+  "zip_decoding_within_limit": true,
+  "raw_response_file": null,
+  "normalization_status": "not_run_research_metadata_only",
+  "xml_verification_status": "data_xml_complete_well_formed_parse; structure/common members rejected for DOCTYPE",
+  "initial_decoded_limit_bytes": 67108864,
+  "research_limit_revision_reason": "Declared full member size exceeded 64 MiB; root authorized 128 MiB research limit before full decode, with same captured ZIP and no new network request.",
+  "actual_decoded_bytes_checked": 71014964,
+  "complete_member_checks": [
+    {
+      "name": "H15_discontinued.xsd",
+      "byte_count": 10237,
+      "sha256": "9caf25223bad9d6932cc2fab2a8141d461e436f4f1553ddfebf38c8204d71aba",
+      "zip_crc_verified": true,
+      "contains_doctype": false,
+      "contains_entity_declaration": false,
+      "xml_status": "complete_well_formed_parse_entities_and_network_disabled",
+      "xml_root": {
+        "tag": "{http://www.w3.org/2001/XMLSchema}schema",
+        "attributes": {
+          "targetNamespace": "http://www.federalreserve.gov/structure/compact/H15_discontinued",
+          "elementFormDefault": "qualified",
+          "attributeFormDefault": "unqualified"
+        },
+        "namespaces": {
+          "null": "http://www.federalreserve.gov/structure/compact/H15_discontinued",
+          "xs": "http://www.w3.org/2001/XMLSchema",
+          "frb": "http://www.federalreserve.gov/structure/compact/common"
+        }
+      }
+    },
+    {
+      "name": "H15_H15.xsd",
+      "byte_count": 10219,
+      "sha256": "be6ea95c4ea694cd420f04021eaf5ad77c5af3154ed2adc8997051d0e93e0c04",
+      "zip_crc_verified": true,
+      "contains_doctype": false,
+      "contains_entity_declaration": false,
+      "xml_status": "complete_well_formed_parse_entities_and_network_disabled",
+      "xml_root": {
+        "tag": "{http://www.w3.org/2001/XMLSchema}schema",
+        "attributes": {
+          "targetNamespace": "http://www.federalreserve.gov/structure/compact/H15_H15",
+          "elementFormDefault": "qualified",
+          "attributeFormDefault": "unqualified"
+        },
+        "namespaces": {
+          "null": "http://www.federalreserve.gov/structure/compact/H15_H15",
+          "xs": "http://www.w3.org/2001/XMLSchema",
+          "frb": "http://www.federalreserve.gov/structure/compact/common"
+        }
+      }
+    },
+    {
+      "name": "H15_data.xml",
+      "byte_count": 70757908,
+      "sha256": "a17ef400424fc543ae036705662194f5f969d22dab86ff2881f7688f060cce51",
+      "zip_crc_verified": true,
+      "contains_doctype": false,
+      "contains_entity_declaration": false,
+      "xml_status": "complete_well_formed_parse_entities_and_network_disabled",
+      "xml_root": {
+        "tag": "{http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message}MessageGroup",
+        "attributes": {
+          "{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message SDMXMessage.xsd http://www.federalreserve.gov/structure/compact/common frb_common.xsd"
+        },
+        "namespaces": {
+          "message": "http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message",
+          "common": "http://www.SDMX.org/resources/SDMXML/schemas/v1_0/common",
+          "frb": "http://www.federalreserve.gov/structure/compact/common",
+          "xsi": "http://www.w3.org/2001/XMLSchema-instance"
+        }
+      }
+    },
+    {
+      "name": "H15_struct.xml",
+      "byte_count": 96648,
+      "sha256": "c51ca64a9f1fe676694c9b024511c5a5391c5d25831e022c6207337a25d96cb8",
+      "zip_crc_verified": true,
+      "contains_doctype": true,
+      "contains_entity_declaration": false,
+      "xml_status": "not_parsed_declaration_rejected"
+    },
+    {
+      "name": "frb_common.xsd",
+      "byte_count": 139952,
+      "sha256": "a5bc6a7d9d3dcac55a81142d3a8b63110b721b9a79ed79f765bdda0f8fca4155",
+      "zip_crc_verified": true,
+      "contains_doctype": true,
+      "contains_entity_declaration": false,
+      "xml_status": "not_parsed_declaration_rejected"
+    }
+  ],
+  "all_member_crcs_verified": true,
+  "data_xml_checked": true,
+  "data_xml_series_count": 263,
+  "data_xml_observation_count": 923533,
+  "data_xml_root": {
+    "tag": "{http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message}MessageGroup",
+    "attributes": {
+      "{http://www.w3.org/2001/XMLSchema-instance}schemaLocation": "http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message SDMXMessage.xsd http://www.federalreserve.gov/structure/compact/common frb_common.xsd"
+    },
+    "namespaces": {
+      "message": "http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message",
+      "common": "http://www.SDMX.org/resources/SDMXML/schemas/v1_0/common",
+      "frb": "http://www.federalreserve.gov/structure/compact/common",
+      "xsi": "http://www.w3.org/2001/XMLSchema-instance"
+    }
+  },
+  "data_xml_headers": [
+    "<message:Header xmlns:message=\"http://www.SDMX.org/resources/SDMXML/schemas/v1_0/message\" xmlns:common=\"http://www.SDMX.org/resources/SDMXML/schemas/v1_0/common\" xmlns:frb=\"http://www.federalreserve.gov/structure/compact/common\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <message:ID>H15</message:ID>\n    <message:Test>false</message:Test>\n    <message:Name>H.15 Selected Interest Rates</message:Name>\n    <message:Prepared>2026-09-11T15:40:02</message:Prepared>\n    <message:Sender id=\"FRB\">\n      <message:Name>Federal Reserve Board</message:Name>\n      <message:Contact>\n        <message:Name>Banking Analysis Section</message:Name>\n        <message:Email>MA-BA-Releases@frb.gov</message:Email>\n      </message:Contact>\n    </message:Sender>\n  </message:Header>\n  "
+  ],
+  "selected_series_evidence_file": "frb-h15-series-review.json",
+  "selected_series_evidence_sha256": "c216ee37d12ac1eb54cdae4d360aacf3516287369c8f378c6c97de5f7223d335",
+  "selected_series_evidence_is_complete_payload": false,
+  "full_payload_rights_review_status": "pending_third_party_series_review_not_approved_for_production_or_redistribution",
+  "all_series_scope_metadata_file": "frb-h15-content-scope-review.json",
+  "full_payload_rights_findings": {
+    "identified_third_party": "Moodys corporate yields in discontinued dataset",
+    "series_names": [
+      "RIMLPAAAR_N.B",
+      "RIMLPAAAR_N.WF",
+      "RIMLPAAAR_N.M",
+      "RIMLPAAAR_N.A",
+      "RIMLPBAAR_N.B",
+      "RIMLPBAAR_N.WF",
+      "RIMLPBAAR_N.M",
+      "RIMLPBAAR_N.A"
+    ],
+    "conclusion": "Board blanket reuse notice excludes indicated third-party material. No specific permission for complete raw ZIP retention or redistribution established. Restrict research artifact; do not publish/provision full-payload policy.",
+    "normalized_allowlist_does_not_clear_raw_rights": true
+  },
+  "original_research_filename": "frb-h15-20260912-cd55cf4eb2f9.zip",
+  "local_quarantine_file": "var/research-quarantine/s4/frb-h15-20260912-cd55cf4eb2f9.zip",
+  "raw_payload_tracked_in_git": false,
+  "raw_payload_is_public_or_test_fixture": false,
+  "production_replay_allowed": false,
+  "quarantine_reason": "Entire ZIP retains discontinued third-party Moodys data. Complete raw retention rights are unresolved; keep only restricted local research evidence pending determination."
+}
