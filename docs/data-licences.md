@@ -22,8 +22,10 @@ redistribution permissions.
 
 For each approved source record the terms URL, retrieval date, account/tier,
 permitted use, attribution, redistribution decision and the decision's evidence.
-The [S3 proposal](design/s3/source-contract.md) defines versioned policy-review
-persistence and capture links for review. Later providers still need their own
+The accepted [S3 contract](design/s3/source-contract.md) is implemented with
+versioned policy reviews and mandatory links on new captures. No application policy
+rows or live workers are automatically provisioned; tests use explicitly fictional
+policy records. Later providers still need their own
 content-scope/account-tier decision before ingestion or redistribution.
 
 SEC scope evidence: [reuse FAQ](https://www.sec.gov/about/webmaster-frequently-asked-questions) and [dissemination policy](https://www.sec.gov/about/privacy-information). This finding does not grant rights to unrelated artwork, branding or vendor data. See [S1 source boundaries](research/s1/source-boundaries.md).

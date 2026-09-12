@@ -87,3 +87,9 @@ def db(test_database_dsn):
     with psycopg.connect(test_database_dsn, autocommit=True, row_factory=dict_row) as connection:
         connection.execute("SET ROLE equity_runtime")
         yield connection
+
+
+@pytest.fixture(scope="session")
+def redis_url():
+    subprocess.run([sys.executable, str(ROOT / "scripts/test_redis.py"), "start"], check=True)
+    return "redis://127.0.0.1:16380/0"

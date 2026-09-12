@@ -1,7 +1,8 @@
 # W1 — Watchlist additions trigger full analysis
 
-Status: user-authorized requirement, captured 2026-09-12; implementation pending.
-Task: EquityEval — milestone build log. Enters the S2 design now.
+Status: S2 durable requests and S3 SEC source stages implemented; remaining
+engines, UI and monitoring follow. Task: EquityEval — milestone build log.
+See [S3 implementation](../design/s3/implementation.md) for the tested add/rerun boundary.
 
 ## Requested behavior
 

@@ -1,8 +1,10 @@
 # S3 acceptance plan
 
-Status: concrete tests specified before numeric implementation. The current
-`s3_review_cases.json` packet verifies archived evidence and expected cases only;
-it is not a working normalizer or a complete normalized statement golden suite.
+Status: implemented acceptance suite. Numeric expectations and adversarial cases
+were specified before their corresponding implementation. `sec_normalized_cohort.json`
+contains all 320 reviewed outcomes; the earlier `s3_review_cases.json` remains the
+source-evidence review checkpoint. See [implementation](implementation.md) and the
+[milestone record](../../milestones/S3-ingestion.md) for validation and limits.
 
 ## Transport and storage
 

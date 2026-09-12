@@ -3,7 +3,7 @@ PYTHON ?= python3.12
 VENV_PY := .venv/bin/python
 COMPOSE := docker compose --project-directory . -f infra/compose.yaml
 
-.PHONY: help bootstrap install-hooks test test-core test-golden lint typecheck check lock-python infra-config infra-up infra-down infra-status migration-history migration-sql migrate test-db-start test-db-status test-db-stop
+.PHONY: help bootstrap install-hooks test test-core test-golden lint typecheck check lock-python infra-config infra-up infra-down infra-status migration-history migration-sql migrate test-db-start test-db-status test-db-stop test-redis-start test-redis-status test-redis-stop
 
 help:
 	@echo "bootstrap | check | test | test-core | test-golden | lint | typecheck"
@@ -70,3 +70,13 @@ test-db-status:
 
 test-db-stop:
 	$(VENV_PY) scripts/test_postgres.py stop
+
+# Only the repository-owned test rate coordinator; never application Redis.
+test-redis-start:
+	$(VENV_PY) scripts/test_redis.py start
+
+test-redis-status:
+	$(VENV_PY) scripts/test_redis.py status
+
+test-redis-stop:
+	$(VENV_PY) scripts/test_redis.py stop

@@ -19,3 +19,6 @@ the released version, following [U1 requirements](../features/U1-user-manual.md)
 The developer [domain glossary](../../CONTEXT.md) establishes consistent names
 for the design. The finished user glossary will explain the financial terms in
 plain language and link directly from the product screens.
+
+The first drafted chapter is [Understanding source data and history](data-and-history.md),
+covering the implemented S2/S3 terminology. It is not a finished interface walkthrough.

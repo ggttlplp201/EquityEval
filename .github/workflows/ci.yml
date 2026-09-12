@@ -6,7 +6,7 @@ permissions:
   contents: read
 jobs:
   scaffold-and-tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -18,11 +18,15 @@ jobs:
         with:
           node-version: "22"
           cache: npm
+      - name: Install isolated database and rate-coordinator binaries
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends postgresql-16 redis-server
       - run: make bootstrap
       - run: make check
       - run: make infra-config
       - run: make migration-history
-      - name: Verify empty migration environment renders offline
+      - name: Verify reviewed migrations render offline
         run: make migration-sql
         env:
           DATABASE_URL: postgresql+psycopg://equity:equity_local_dev@127.0.0.1:5433/equity

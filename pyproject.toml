@@ -18,6 +18,9 @@ dependencies = [
   "psycopg[binary]>=3.2,<4",
   "python-dotenv>=1,<2",
   "uvicorn>=0.34,<1",
+  "httpx>=0.28,<1",
+  "redis>=5,<7",
+  "lxml>=5,<7",
 ]
 
 [project.optional-dependencies]
@@ -25,7 +28,7 @@ dev = [
   "pytest>=8.3,<10",
   "ruff>=0.9,<1",
   "mypy>=1.14,<2",
-  "httpx>=0.28,<1",
+  "lxml-stubs>=0.5,<1",
   "pip-tools>=7.4,<8",
   "setuptools>=75",
   "wheel",

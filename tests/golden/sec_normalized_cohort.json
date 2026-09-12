@@ -1,0 +1,2646 @@
+{
+  "description": "Manually specified S3 anchor outcomes. Exact values transcribed from reviewed S1 source rows and definitions; gaps intentionally remain unavailable. This is not an applicability or exhaustive-history claim.",
+  "evidence": "docs/research/s1/concept-map.md and company observation notes",
+  "companies": [
+    {
+      "ticker": "AAPL",
+      "cik": "0000320193",
+      "accession": "0000320193-25-000079",
+      "start": "2024-09-29",
+      "end": "2025-09-27",
+      "filed": "2025-10-31",
+      "outcomes": [
+        {
+          "concept": "revenue",
+          "value": "416161000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "unit": "USD"
+        },
+        {
+          "concept": "cost_of_revenue",
+          "value": "220960000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CostOfGoodsAndServicesSold",
+          "unit": "USD"
+        },
+        {
+          "concept": "gross_profit",
+          "value": "195201000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:GrossProfit",
+          "unit": "USD"
+        },
+        {
+          "concept": "research_and_development_expense",
+          "value": "34550000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ResearchAndDevelopmentExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "selling_general_and_administrative_expense",
+          "value": "27601000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:SellingGeneralAndAdministrativeExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_expenses",
+          "value": "62151000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:OperatingExpenses",
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_income",
+          "value": "133050000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "interest_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "pretax_income",
+          "value": "132729000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "income_tax_expense",
+          "value": "20719000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeTaxExpenseBenefit",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_parent",
+          "value": "112010000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_consolidated",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "eps_basic",
+          "value": "7.49",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareBasic",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "eps_diluted",
+          "value": "7.46",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "weighted_average_shares_basic",
+          "value": "14948500000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+          "unit": "shares"
+        },
+        {
+          "concept": "weighted_average_shares_diluted",
+          "value": "15004697000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "common_shares_outstanding",
+          "value": "14773260000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CommonStockSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "cash_and_cash_equivalents",
+          "value": "35934000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "unit": "USD"
+        },
+        {
+          "concept": "short_term_investments",
+          "value": "18763000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:MarketableSecuritiesCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_receivable_net",
+          "value": "39777000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AccountsReceivableNetCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "inventory_net",
+          "value": "5718000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InventoryNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_assets",
+          "value": "147957000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AssetsCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "property_plant_equipment_net",
+          "value": "49834000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PropertyPlantAndEquipmentNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "goodwill",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "intangible_assets_net_excluding_goodwill",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "total_assets",
+          "value": "359241000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Assets",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_payable_current",
+          "value": "69860000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AccountsPayableCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_debt",
+          "value": null,
+          "status": "unsupported_scope",
+          "reason": "no_reviewed_complete_scope_tag",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "long_term_debt_noncurrent",
+          "value": "78328000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_liabilities",
+          "value": "165631000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LiabilitiesCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "total_liabilities",
+          "value": "285508000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Liabilities",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_parent",
+          "value": "73733000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquity",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_including_noncontrolling_interests",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "noncontrolling_interests",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "cash_from_operating_activities",
+          "value": "111482000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "unit": "USD"
+        },
+        {
+          "concept": "capital_expenditures_ppe",
+          "value": "12715000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "unit": "USD"
+        },
+        {
+          "concept": "depreciation_and_amortization",
+          "value": "11698000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:DepreciationDepletionAndAmortization",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_based_compensation",
+          "value": "12863000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShareBasedCompensation",
+          "unit": "USD"
+        },
+        {
+          "concept": "dividends_paid",
+          "value": "15421000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsOfDividends",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_repurchases",
+          "value": "90711000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+          "unit": "USD"
+        }
+      ]
+    },
+    {
+      "ticker": "MSFT",
+      "cik": "0000789019",
+      "accession": "0000950170-25-100235",
+      "start": "2024-07-01",
+      "end": "2025-06-30",
+      "filed": "2025-07-30",
+      "outcomes": [
+        {
+          "concept": "revenue",
+          "value": "281724000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "unit": "USD"
+        },
+        {
+          "concept": "cost_of_revenue",
+          "value": "87831000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CostOfGoodsAndServicesSold",
+          "unit": "USD"
+        },
+        {
+          "concept": "gross_profit",
+          "value": "193893000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:GrossProfit",
+          "unit": "USD"
+        },
+        {
+          "concept": "research_and_development_expense",
+          "value": "32488000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ResearchAndDevelopmentExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "selling_general_and_administrative_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_expenses",
+          "value": "65365000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:OperatingExpenses",
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_income",
+          "value": "128528000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "interest_expense",
+          "value": "2385000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InterestExpenseNonoperating",
+          "unit": "USD"
+        },
+        {
+          "concept": "pretax_income",
+          "value": "123627000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "income_tax_expense",
+          "value": "21795000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeTaxExpenseBenefit",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_parent",
+          "value": "101832000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_consolidated",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "eps_basic",
+          "value": "13.7",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareBasic",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "eps_diluted",
+          "value": "13.64",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "weighted_average_shares_basic",
+          "value": "7433000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+          "unit": "shares"
+        },
+        {
+          "concept": "weighted_average_shares_diluted",
+          "value": "7465000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "common_shares_outstanding",
+          "value": "7434000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CommonStockSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "cash_and_cash_equivalents",
+          "value": "30242000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "unit": "USD"
+        },
+        {
+          "concept": "short_term_investments",
+          "value": "64323000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShortTermInvestments",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_receivable_net",
+          "value": "69905000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AccountsReceivableNetCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "inventory_net",
+          "value": "938000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InventoryNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_assets",
+          "value": "191131000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AssetsCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "property_plant_equipment_net",
+          "value": "204966000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PropertyPlantAndEquipmentNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "goodwill",
+          "value": "119509000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Goodwill",
+          "unit": "USD"
+        },
+        {
+          "concept": "intangible_assets_net_excluding_goodwill",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "total_assets",
+          "value": "619003000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Assets",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_payable_current",
+          "value": "27724000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AccountsPayableCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_debt",
+          "value": null,
+          "status": "unsupported_scope",
+          "reason": "no_reviewed_complete_scope_tag",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "long_term_debt_noncurrent",
+          "value": "40152000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_liabilities",
+          "value": "141218000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LiabilitiesCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "total_liabilities",
+          "value": "275524000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Liabilities",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_parent",
+          "value": "343479000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquity",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_including_noncontrolling_interests",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "noncontrolling_interests",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "cash_from_operating_activities",
+          "value": "136162000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "unit": "USD"
+        },
+        {
+          "concept": "capital_expenditures_ppe",
+          "value": "64551000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "unit": "USD"
+        },
+        {
+          "concept": "depreciation_and_amortization",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "share_based_compensation",
+          "value": "11974000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShareBasedCompensation",
+          "unit": "USD"
+        },
+        {
+          "concept": "dividends_paid",
+          "value": "24082000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsOfDividendsCommonStock",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_repurchases",
+          "value": "18420000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+          "unit": "USD"
+        }
+      ]
+    },
+    {
+      "ticker": "JPM",
+      "cik": "0000019617",
+      "accession": "0001628280-26-008131",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "filed": "2026-02-13",
+      "outcomes": [
+        {
+          "concept": "revenue",
+          "value": "182447000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:RevenuesNetOfInterestExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "cost_of_revenue",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "gross_profit",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "research_and_development_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "selling_general_and_administrative_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_expenses",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_income",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "interest_expense",
+          "value": "97898000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InterestExpenseOperating",
+          "unit": "USD"
+        },
+        {
+          "concept": "pretax_income",
+          "value": "72595000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "income_tax_expense",
+          "value": "15547000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeTaxExpenseBenefit",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_parent",
+          "value": "57048000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_consolidated",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "eps_basic",
+          "value": "20.05",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareBasic",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "eps_diluted",
+          "value": "20.02",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "weighted_average_shares_basic",
+          "value": "2776500000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+          "unit": "shares"
+        },
+        {
+          "concept": "weighted_average_shares_diluted",
+          "value": "2781500000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "common_shares_outstanding",
+          "value": "2696200000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CommonStockSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "cash_and_cash_equivalents",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "short_term_investments",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_receivable_net",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "inventory_net",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "current_assets",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "property_plant_equipment_net",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "goodwill",
+          "value": "52731000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Goodwill",
+          "unit": "USD"
+        },
+        {
+          "concept": "intangible_assets_net_excluding_goodwill",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "total_assets",
+          "value": "4424900000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Assets",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_payable_current",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "current_debt",
+          "value": null,
+          "status": "unsupported_scope",
+          "reason": "no_reviewed_complete_scope_tag",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "long_term_debt_noncurrent",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "current_liabilities",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "total_liabilities",
+          "value": "4062462000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Liabilities",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_parent",
+          "value": "362438000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquity",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_including_noncontrolling_interests",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "noncontrolling_interests",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "cash_from_operating_activities",
+          "value": "-147782000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "unit": "USD"
+        },
+        {
+          "concept": "capital_expenditures_ppe",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "depreciation_and_amortization",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "share_based_compensation",
+          "value": "3614000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShareBasedCompensation",
+          "unit": "USD"
+        },
+        {
+          "concept": "dividends_paid",
+          "value": "16625000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsOfDividends",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_repurchases",
+          "value": "31591000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+          "unit": "USD"
+        }
+      ]
+    },
+    {
+      "ticker": "CRCL",
+      "cik": "0001876042",
+      "accession": "0001876042-26-000062",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "filed": "2026-03-09",
+      "outcomes": [
+        {
+          "concept": "revenue",
+          "value": "2746642000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Revenues",
+          "unit": "USD"
+        },
+        {
+          "concept": "cost_of_revenue",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "gross_profit",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "research_and_development_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "selling_general_and_administrative_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_expenses",
+          "value": "1179426000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:OperatingExpenses",
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_income",
+          "value": "-96435000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "interest_expense",
+          "value": "1226000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InterestExpenseNonoperating",
+          "unit": "USD"
+        },
+        {
+          "concept": "pretax_income",
+          "value": "-102893000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "income_tax_expense",
+          "value": "-33375000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeTaxExpenseBenefit",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_parent",
+          "value": "-69508000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_consolidated",
+          "value": "-69518000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ProfitLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "eps_basic",
+          "value": "-0.44",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareBasic",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "eps_diluted",
+          "value": "-0.44",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "weighted_average_shares_basic",
+          "value": "158699000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+          "unit": "shares"
+        },
+        {
+          "concept": "weighted_average_shares_diluted",
+          "value": "158699000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "common_shares_outstanding",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "shares"
+        },
+        {
+          "concept": "cash_and_cash_equivalents",
+          "value": "1526046000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "unit": "USD"
+        },
+        {
+          "concept": "short_term_investments",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_receivable_net",
+          "value": "62866000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AccountsReceivableNetCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "inventory_net",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "current_assets",
+          "value": "77801467000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AssetsCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "property_plant_equipment_net",
+          "value": "22791000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PropertyPlantAndEquipmentNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "goodwill",
+          "value": "265742000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Goodwill",
+          "unit": "USD"
+        },
+        {
+          "concept": "intangible_assets_net_excluding_goodwill",
+          "value": "411146000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IntangibleAssetsNetExcludingGoodwill",
+          "unit": "USD"
+        },
+        {
+          "concept": "total_assets",
+          "value": "78713207000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Assets",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_payable_current",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "current_debt",
+          "value": null,
+          "status": "unsupported_scope",
+          "reason": "no_reviewed_complete_scope_tag",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "long_term_debt_noncurrent",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "current_liabilities",
+          "value": "75328395000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LiabilitiesCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "total_liabilities",
+          "value": "75382434000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Liabilities",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_parent",
+          "value": "3329327000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquity",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_including_noncontrolling_interests",
+          "value": "3330773000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "noncontrolling_interests",
+          "value": "1446000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:MinorityInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "cash_from_operating_activities",
+          "value": "542129000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "unit": "USD"
+        },
+        {
+          "concept": "capital_expenditures_ppe",
+          "value": "12432000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "unit": "USD"
+        },
+        {
+          "concept": "depreciation_and_amortization",
+          "value": "76627000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:DepreciationAndAmortization",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_based_compensation",
+          "value": "566177000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShareBasedCompensation",
+          "unit": "USD"
+        },
+        {
+          "concept": "dividends_paid",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "share_repurchases",
+          "value": "0",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+          "unit": "USD"
+        }
+      ]
+    },
+    {
+      "ticker": "RBLX",
+      "cik": "0001315098",
+      "accession": "0001315098-26-000024",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "filed": "2026-02-11",
+      "outcomes": [
+        {
+          "concept": "revenue",
+          "value": "4890551000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "unit": "USD"
+        },
+        {
+          "concept": "cost_of_revenue",
+          "value": "1072299000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CostOfGoodsAndServicesSold",
+          "unit": "USD"
+        },
+        {
+          "concept": "gross_profit",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "research_and_development_expense",
+          "value": "1567747000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ResearchAndDevelopmentExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "selling_general_and_administrative_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_expenses",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_income",
+          "value": "-1232342000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "interest_expense",
+          "value": "41457000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InterestExpenseNonoperating",
+          "unit": "USD"
+        },
+        {
+          "concept": "pretax_income",
+          "value": "-1068025000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "income_tax_expense",
+          "value": "3593000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeTaxExpenseBenefit",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_parent",
+          "value": "-1065057000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_consolidated",
+          "value": "-1071618000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ProfitLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "eps_basic",
+          "value": "-1.54",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareBasic",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "eps_diluted",
+          "value": "-1.54",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "weighted_average_shares_basic",
+          "value": "689612000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+          "unit": "shares"
+        },
+        {
+          "concept": "weighted_average_shares_diluted",
+          "value": "689612000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "common_shares_outstanding",
+          "value": "708359000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CommonStockSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "cash_and_cash_equivalents",
+          "value": "1205319000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "unit": "USD"
+        },
+        {
+          "concept": "short_term_investments",
+          "value": "1849823000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShortTermInvestments",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_receivable_net",
+          "value": "900646000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AccountsReceivableNetCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "inventory_net",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "current_assets",
+          "value": "4898023000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AssetsCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "property_plant_equipment_net",
+          "value": "884776000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PropertyPlantAndEquipmentNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "goodwill",
+          "value": "142624000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Goodwill",
+          "unit": "USD"
+        },
+        {
+          "concept": "intangible_assets_net_excluding_goodwill",
+          "value": "18234000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IntangibleAssetsNetExcludingGoodwill",
+          "unit": "USD"
+        },
+        {
+          "concept": "total_assets",
+          "value": "9557118000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Assets",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_payable_current",
+          "value": "64948000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AccountsPayableCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_debt",
+          "value": null,
+          "status": "unsupported_scope",
+          "reason": "no_reviewed_complete_scope_tag",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "long_term_debt_noncurrent",
+          "value": "993098000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_liabilities",
+          "value": "5126390000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LiabilitiesCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "total_liabilities",
+          "value": "9182138000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Liabilities",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_parent",
+          "value": "394484000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquity",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_including_noncontrolling_interests",
+          "value": "374980000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "noncontrolling_interests",
+          "value": "-19504000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:MinorityInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "cash_from_operating_activities",
+          "value": "1796358000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "unit": "USD"
+        },
+        {
+          "concept": "capital_expenditures_ppe",
+          "value": "440978000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "unit": "USD"
+        },
+        {
+          "concept": "depreciation_and_amortization",
+          "value": "225820000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:DepreciationAndAmortization",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_based_compensation",
+          "value": "1129004000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShareBasedCompensation",
+          "unit": "USD"
+        },
+        {
+          "concept": "dividends_paid",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "share_repurchases",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        }
+      ]
+    },
+    {
+      "ticker": "TSM",
+      "cik": "0001046179",
+      "accession": "0001628280-26-025362",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "filed": "2026-04-16",
+      "outcomes": [
+        {
+          "concept": "revenue",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "cost_of_revenue",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "gross_profit",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "research_and_development_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "selling_general_and_administrative_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "operating_expenses",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "operating_income",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "interest_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "pretax_income",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "income_tax_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "net_income_parent",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "net_income_consolidated",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "eps_basic",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD/shares"
+        },
+        {
+          "concept": "eps_diluted",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD/shares"
+        },
+        {
+          "concept": "weighted_average_shares_basic",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "shares"
+        },
+        {
+          "concept": "weighted_average_shares_diluted",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "shares"
+        },
+        {
+          "concept": "common_shares_outstanding",
+          "value": "25932524521",
+          "status": "observed",
+          "reason": null,
+          "tag": "dei:EntityCommonStockSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "cash_and_cash_equivalents",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "short_term_investments",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "accounts_receivable_net",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "inventory_net",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "current_assets",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "property_plant_equipment_net",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "goodwill",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "intangible_assets_net_excluding_goodwill",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "total_assets",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "accounts_payable_current",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "current_debt",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "long_term_debt_noncurrent",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "current_liabilities",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "total_liabilities",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "equity_parent",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "equity_including_noncontrolling_interests",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "noncontrolling_interests",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "cash_from_operating_activities",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "capital_expenditures_ppe",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "depreciation_and_amortization",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "share_based_compensation",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "dividends_paid",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        },
+        {
+          "concept": "share_repurchases",
+          "value": null,
+          "status": "missing",
+          "reason": "source_missing",
+          "tag": null,
+          "unit": "TWD"
+        }
+      ]
+    },
+    {
+      "ticker": "KHC",
+      "cik": "0001637459",
+      "accession": "0001637459-19-000049",
+      "start": "2017-12-31",
+      "end": "2018-12-29",
+      "filed": "2019-06-07",
+      "outcomes": [
+        {
+          "concept": "revenue",
+          "value": "26268000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:RevenueFromContractWithCustomerIncludingAssessedTax",
+          "unit": "USD"
+        },
+        {
+          "concept": "cost_of_revenue",
+          "value": "17347000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CostOfGoodsAndServicesSold",
+          "unit": "USD"
+        },
+        {
+          "concept": "gross_profit",
+          "value": "8921000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:GrossProfit",
+          "unit": "USD"
+        },
+        {
+          "concept": "research_and_development_expense",
+          "value": "109000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ResearchAndDevelopmentExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "selling_general_and_administrative_expense",
+          "value": "19141000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:SellingGeneralAndAdministrativeExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_expenses",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_income",
+          "value": "-10220000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "interest_expense",
+          "value": "1284000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InterestExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "pretax_income",
+          "value": "-11321000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "income_tax_expense",
+          "value": "-1067000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeTaxExpenseBenefit",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_parent",
+          "value": "-10192000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_consolidated",
+          "value": "-10254000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ProfitLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "eps_basic",
+          "value": "-8.36",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareBasic",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "eps_diluted",
+          "value": "-8.36",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "weighted_average_shares_basic",
+          "value": "1219000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+          "unit": "shares"
+        },
+        {
+          "concept": "weighted_average_shares_diluted",
+          "value": "1219000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "common_shares_outstanding",
+          "value": "1220000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CommonStockSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "cash_and_cash_equivalents",
+          "value": "1130000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "unit": "USD"
+        },
+        {
+          "concept": "short_term_investments",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_receivable_net",
+          "value": "2129000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AccountsReceivableNetCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "inventory_net",
+          "value": "2667000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InventoryNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_assets",
+          "value": "9075000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AssetsCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "property_plant_equipment_net",
+          "value": "7078000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PropertyPlantAndEquipmentNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "goodwill",
+          "value": "36503000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Goodwill",
+          "unit": "USD"
+        },
+        {
+          "concept": "intangible_assets_net_excluding_goodwill",
+          "value": "49468000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IntangibleAssetsNetExcludingGoodwill",
+          "unit": "USD"
+        },
+        {
+          "concept": "total_assets",
+          "value": "103461000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Assets",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_payable_current",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "current_debt",
+          "value": null,
+          "status": "unsupported_scope",
+          "reason": "no_reviewed_complete_scope_tag",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "long_term_debt_noncurrent",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "current_liabilities",
+          "value": "7503000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LiabilitiesCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "total_liabilities",
+          "value": "51683000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Liabilities",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_parent",
+          "value": "51657000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquity",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_including_noncontrolling_interests",
+          "value": "51775000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "noncontrolling_interests",
+          "value": "118000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:MinorityInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "cash_from_operating_activities",
+          "value": "2574000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "unit": "USD"
+        },
+        {
+          "concept": "capital_expenditures_ppe",
+          "value": "826000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "unit": "USD"
+        },
+        {
+          "concept": "depreciation_and_amortization",
+          "value": "983000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:DepreciationDepletionAndAmortization",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_based_compensation",
+          "value": "33000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShareBasedCompensation",
+          "unit": "USD"
+        },
+        {
+          "concept": "dividends_paid",
+          "value": "3183000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsOfDividendsCommonStock",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_repurchases",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        }
+      ]
+    },
+    {
+      "ticker": "COST",
+      "cik": "0000909832",
+      "accession": "0000909832-25-000101",
+      "start": "2024-09-02",
+      "end": "2025-08-31",
+      "filed": "2025-10-08",
+      "outcomes": [
+        {
+          "concept": "revenue",
+          "value": "275235000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+          "unit": "USD"
+        },
+        {
+          "concept": "cost_of_revenue",
+          "value": "239886000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CostOfGoodsAndServicesSold",
+          "unit": "USD"
+        },
+        {
+          "concept": "gross_profit",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "research_and_development_expense",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "selling_general_and_administrative_expense",
+          "value": "24966000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:SellingGeneralAndAdministrativeExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_expenses",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "operating_income",
+          "value": "10383000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:OperatingIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "interest_expense",
+          "value": "154000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InterestExpense",
+          "unit": "USD"
+        },
+        {
+          "concept": "pretax_income",
+          "value": "10818000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "income_tax_expense",
+          "value": "2719000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:IncomeTaxExpenseBenefit",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_parent",
+          "value": "8099000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetIncomeLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "net_income_consolidated",
+          "value": "8099000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ProfitLoss",
+          "unit": "USD"
+        },
+        {
+          "concept": "eps_basic",
+          "value": "18.24",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareBasic",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "eps_diluted",
+          "value": "18.21",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:EarningsPerShareDiluted",
+          "unit": "USD/shares"
+        },
+        {
+          "concept": "weighted_average_shares_basic",
+          "value": "443985000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfSharesOutstandingBasic",
+          "unit": "shares"
+        },
+        {
+          "concept": "weighted_average_shares_diluted",
+          "value": "444803000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:WeightedAverageNumberOfDilutedSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "common_shares_outstanding",
+          "value": "443237000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CommonStockSharesOutstanding",
+          "unit": "shares"
+        },
+        {
+          "concept": "cash_and_cash_equivalents",
+          "value": "14161000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:CashAndCashEquivalentsAtCarryingValue",
+          "unit": "USD"
+        },
+        {
+          "concept": "short_term_investments",
+          "value": "1123000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShortTermInvestments",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_receivable_net",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "inventory_net",
+          "value": "18116000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:InventoryNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_assets",
+          "value": "38380000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AssetsCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "property_plant_equipment_net",
+          "value": "31909000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PropertyPlantAndEquipmentNet",
+          "unit": "USD"
+        },
+        {
+          "concept": "goodwill",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "intangible_assets_net_excluding_goodwill",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "total_assets",
+          "value": "77099000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Assets",
+          "unit": "USD"
+        },
+        {
+          "concept": "accounts_payable_current",
+          "value": "19783000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:AccountsPayableCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_debt",
+          "value": null,
+          "status": "unsupported_scope",
+          "reason": "no_reviewed_complete_scope_tag",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "long_term_debt_noncurrent",
+          "value": "5713000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LongTermDebtNoncurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "current_liabilities",
+          "value": "37108000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:LiabilitiesCurrent",
+          "unit": "USD"
+        },
+        {
+          "concept": "total_liabilities",
+          "value": "47935000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:Liabilities",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_parent",
+          "value": "29164000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquity",
+          "unit": "USD"
+        },
+        {
+          "concept": "equity_including_noncontrolling_interests",
+          "value": "29164000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest",
+          "unit": "USD"
+        },
+        {
+          "concept": "noncontrolling_interests",
+          "value": null,
+          "status": "missing",
+          "reason": "no_exact_reviewed_observation",
+          "tag": null,
+          "unit": "USD"
+        },
+        {
+          "concept": "cash_from_operating_activities",
+          "value": "13335000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+          "unit": "USD"
+        },
+        {
+          "concept": "capital_expenditures_ppe",
+          "value": "5498000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+          "unit": "USD"
+        },
+        {
+          "concept": "depreciation_and_amortization",
+          "value": "2426000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:DepreciationDepletionAndAmortization",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_based_compensation",
+          "value": "860000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:ShareBasedCompensation",
+          "unit": "USD"
+        },
+        {
+          "concept": "dividends_paid",
+          "value": "2183000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsOfDividendsCommonStock",
+          "unit": "USD"
+        },
+        {
+          "concept": "share_repurchases",
+          "value": "903000000",
+          "status": "observed",
+          "reason": null,
+          "tag": "us-gaap:PaymentsForRepurchaseOfCommonStock",
+          "unit": "USD"
+        }
+      ]
+    }
+  ]
+}

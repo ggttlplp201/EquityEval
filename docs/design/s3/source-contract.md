@@ -1,6 +1,7 @@
-# S3 source contract proposal
+# S3 accepted source contract
 
-Status: ready for user review; D008 and S3-01–04 are not yet accepted.
+Status: D008 and S3-01–04 accepted for implementation by the user (“implement”),
+2026-09-12, after review checkpoint df99735.
 Date: 2026-09-12. Base: `milestone/s2` (`dae3e6e`).
 
 This is the dedicated sequential source-contract review required by
@@ -106,7 +107,7 @@ expire promptly and may not accumulate into delayed bursts. Missing coordination
 fails closed. Tests measure actual request starts, including concurrent processes,
 expired permits and cooldown recovery; configuration cannot exceed 10 requests
 in any one-second window. Initial target is 5/second, burst 1. Live startup requires
-a working coordinator; S3 contract/evidence tests require no Redis or HTTP server.
+a working coordinator. The implementation tests use isolated local Redis and simulated HTTP.
 
 Proposed defaults: connect timeout 10 seconds, read timeout 30 seconds, total
 dispatch budget 120 seconds, and a 360-second logical-fetch deadline including
@@ -316,4 +317,4 @@ Rechecked 2026-09-12 against official SEC sources:
 [developer resources](https://www.sec.gov/about/developer-resources),
 [security/dissemination policy](https://www.sec.gov/about/privacy-information),
 [time and reuse FAQ](https://www.sec.gov/about/webmaster-frequently-asked-questions).
-Operational timeout/body/retry defaults above are proposed app policies, not SEC requirements.
+Operational timeout/body/retry defaults above are accepted app policies, not SEC requirements.

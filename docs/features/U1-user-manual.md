@@ -61,4 +61,5 @@ examples against hand-computed cases and the tested engine, and cite primary
 sources for economic-release definitions.
 
 The initial [manual outline](../user-manual/README.md) is intentionally labelled
-as planned content. S2 includes no completed product walkthrough or live alerts.
+as planned content. The [data and history chapter](../user-manual/data-and-history.md) covers S2/S3 terminology.
+The finished product walkthrough and live-alert instructions remain pending.

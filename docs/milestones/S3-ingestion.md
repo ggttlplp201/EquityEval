@@ -1,90 +1,84 @@
 # S3 — SEC ingestion
 
-Status: Source-contract review and evidence checkpoint; adapter implementation pending
+Status: complete for the accepted S3 ingestion and W1 source-stage scope
 Date: 2026-09-12 (Asia/Shanghai)
 Task: EquityEval — milestone build log
 Task ID: 01a08f8c-85c8-7bb0-9e60-6eb24809d8de
-Branch: codex/s3-source-contract
+Branch: codex/s3-ingestion
 Dependency: S2 `dae3e6e`, tag `milestone/s2`
-Checkpoint tag: `milestone/s3-contract-review`
+Review checkpoint: `df99735`, tag `milestone/s3-contract-review`
+Completion checkpoint: `milestone/s3`
 
-## User direction and current boundary
+## Authorization and traceability
 
-After S2 was completed, the user instructed “continue.” Progression to S3 is
-accepted. D008 remains a source-contract review gate, as required by
-[ingestion instructions](../../packages/ingest/AGENTS.md): “Every provider implements
-the reviewed Source protocol. Freeze the shared raw-record, fact, provenance and
-rate-limit semantics before S3.” The concrete contract was not previously presented.
+The user instructed “implement” after the concrete S3 contract review. D008 and
+S3-01–04 were accepted; the three additive tables and the presented source
+semantics are within that authorization. The earlier proposal/evidence checkpoint
+remains unchanged in Git. Original ZIP documents remain unchanged.
 
-This checkpoint completes the reviewable proposal and source-evidence preparation.
-It does not treat progression as approval of an unseen protocol or new tables.
-Production adapters and proposed migration `0003_source_ingestion` are not implemented.
+Read the [implementation record](../design/s3/implementation.md) for module
+boundaries, internal worker usage, test commands and limits. The
+[accepted contract](../design/s3/source-contract.md) and
+[acceptance plan](../design/s3/test-plan.md) link the intended behavior to this work.
 
-## Concrete review packet
+## Delivered
 
-[Source contract S3-01–04](../design/s3/source-contract.md) specifies:
+- Verified immutable gzip archives; bounded SEC transport; shared Redis rate and
+  cooldown enforcement; source-policy links and durable fenced attempt storage.
+- Company Facts and Submissions parsing; all 320 requested concept outcomes across
+  the eight-company S1 cohort; explicit gaps and exact scope/unit/vintage evidence.
+- Idempotent normalization publication through real S2 database constraints and
+  historical selection, preserving original/revised KHC values and provenance.
+- Strict context-aware Inline XBRL extraction, original-filing spot checks,
+  separate ordinary/ADS scopes and explicit unsupported/malformed cases.
+- W1 source-stage integration: add/rerun requests, bounded retries, cancellation,
+  reviewed mapping gaps and durable archived run manifests. Manifest association
+  and normalization publication commit atomically.
+- Versioned [data/history manual chapter](../user-manual/data-and-history.md),
+  updated feature status and CI dependencies for PostgreSQL/Redis tests.
 
-- Resolved resource requests, complete raw archive references, explicit outcomes
-  and a typed normalization bundle matching the existing S2 evidence model.
-- Pinned filing inventory, scope, authority and public-event evidence. Newer
-  unresolved coverage gets blocking flags; old eligible facts cannot pose as a
-  usable current statement.
-- One shared SEC rate coordinator, complete archive verification before parse,
-  bounded dispatch/retry policies, honest 304 reuse and incomplete-download handling.
-- Three additive tables: source-policy revisions, transport attempts and immutable
-  capture-policy links. Existing complete-capture/financial constraints remain intact.
+## Verification
 
-[Acceptance plan](../design/s3/test-plan.md) specifies transport/concurrency,
-publication, full normalized golden tests and original-filing extraction boundaries.
+`make check` passes: **440 tests**, Ruff/import policy, generated-concept drift,
+ESLint, strict mypy and TypeScript. The separate golden run passes **108 tests**,
+including the eight-by-40 expected outcomes and original-filing checks. The required
+pre-commit hook repeats lint, type checks and all three test commands; it is not bypassed.
+Documentation link checks cover 43 local references with no broken links, and
+`git diff --check` passes. Tests use
+archived SEC evidence or explicitly fictional HTTP/policy/event fixtures. No live
+SEC requests were made. The KHC event-selection integration uses a clearly marked
+annotation fixture because the actual event document is not in the S1 archive;
+it does not claim automatic event extraction or complete original history.
 
-## Evidence prepared
+Independent numeric and storage reviews produced regressions for changed scope
+labels, period/rule reuse, duplicate inventory rows, incomplete history bounds,
+ignored context text, cross-issuer/instrument writes, stale lease reuse, lost
+manifest links, retry-budget exhaustion and overstated source licence settings.
+Capture-vintage preparation now includes new S3 attempts and unknown outcomes in
+the same snapshot as archived captures. Existing S2 partial/304 fixtures now
+seed at their actual old migration before upgrade; assertions remain unchanged.
 
-`tests/golden/s3_review_cases.json` pins eight existing S1 Company Facts archives,
-28 exact audited observations and seven scoped gap cases. Each observation retains
-its exact raw row, JSON pointer, numeric lexical text and Decimal expectation;
-capture references retain the full archived-body hash. No archive is duplicated.
+The financial core suite remains intentionally empty until S5/S7. Local checks
+do not claim that hosted CI, a production service or an end-user UI was exercised.
 
-The cases cover total/component revenue, corporate cash versus reserves, reported
-zero versus missing data, parent/consolidated losses, share dates/classes, banking
-basis, stale/absent API facts, IFRS units and the KHC restatement. The evidence
-checks discovered CRCL's raw CIK is a padded string; other cohort captures use
-numbers. The contract now preserves either representation and validates canonical
-identity without accepting booleans, fractional values or another issuer.
+## Environment changes
 
-These are executable acceptance-evidence checks, not full normalized statements.
-The eight-by-40 concept outcomes still require specific reviewed mapping/coverage
-fixtures before production numeric normalization. Existing S1 filing spot checks
-and S2 PIT regressions remain the reference evidence.
+Environment preparation installed Redis 8.8.1 binaries for an isolated local test
+coordinator. Homebrew also updated OpenSSL to 3.6.3 and ran its automatic cleanup
+of older formula versions and download caches. No launch-at-login service was
+enabled; test helpers own only their dedicated local runtimes. Runtime HTTP/Redis/XML
+dependencies are pinned in the Python lock. Existing contact configuration is unchanged.
 
-## Review and validation
+## Remaining boundaries and next handoff
 
-Two independent reviews examined transport/storage and financial selection.
-Corrections cover shared budgets, completed versus interrupted 200s, policy links,
-stale leases, request validators, exact hash bytes, event/inventory completeness,
-unknown authority, duplicate-candidate representation and retrieval-vintage identity.
+No live worker, schedule, email delivery or news monitor was activated. Mapping
+rules apply only to reviewed accessions/periods; newly archived issuers need
+reviewed mappings. Event discovery and complete historical event coverage remain
+separate work. Parser corrections that alter immutable S2 intrinsic observations
+fail explicitly and need a later reviewed versioning change.
 
-The focused evidence suite passes 44 tests. The combined run passes **168 tests**,
-plus Ruff/import policy, generated-concept drift, ESLint, strict mypy and TypeScript.
-The golden suite also passes separately with 45 tests. The mandatory commit hook
-repeats `make lint typecheck test test-core test-golden`. Financial engine core tests
-remain intentionally empty. Tests make no upstream requests. All 36 local Markdown
-links resolve and `git diff --check` passes.
-
-Official SEC API/access/security/time/reuse references were rechecked for the
-proposal. Local timeout/body-size/retry limits are labeled app choices. No new
-provider account, paid service, credential, monitoring schedule or email delivery
-was configured. The existing contact configuration was not changed or printed.
-
-## Next handoff
-
-Obtain review of S3-01–04, then implement in order:
-
-1. S3a archive/transport, policy/attempt persistence and rate coordination tests.
-2. S3b Company Facts/Submissions normalization through S2 persistence and PIT,
-   with complete reviewed cohort golden fixtures and explicit unsupported gaps.
-3. S3c context-aware original-filing extraction and its own numeric/context tests.
-4. W1 integration of live source stages, preserving queue/retry/history semantics.
-
-N1 continuous discovery and three alert channels, valuation engines, UI and U1's
-verified manual remain in the recorded later milestones. S3 success must not be
-reported as a finished valuation or an active news monitor.
+Next milestone: S4 Tiingo prices and FRED. Resolve its source/account permissions,
+dated observations and macro-vintage policy (D009) before financial inputs are
+used. S5 ratios/accounting checks, S6 API, S7 valuation and S8 interface follow.
+W1's full pipeline, N1 continuous macro/stock-specific discovery with three alert
+channels, and U1's finished manual remain required for the release.

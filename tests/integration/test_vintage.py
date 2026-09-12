@@ -1,15 +1,39 @@
-"""Real-source-capture selection contracts before any upstream adapters exist."""
+"""Capture-vintage contracts, including preserved pre-S3 failure representations."""
 
+from contextlib import contextmanager
 from datetime import UTC, datetime, timedelta
 from uuid import uuid4
 
 import pytest
+from alembic import command
 from equity_schema.vintage import SourceObject, prepare_capture_manifest
 
+from tests.conftest import migration_config
 from tests.evidence_seed import insert, seed_evidence
 
 pytestmark = pytest.mark.integration
 BASE = datetime(2026, 9, 12, tzinfo=UTC)
+
+
+@pytest.fixture
+def legacy_capture_setup(test_database_dsn):
+    """Seed legacy failures using their actual schema, then test them after upgrade.
+
+    S3 writes partial responses/304s to source_fetch_attempts; they may no longer
+    be fabricated as new source_captures. Existing S2 rows must remain readable.
+    This fixture owns only the fresh disposable database supplied by the harness.
+    """
+
+    @contextmanager
+    def at_s2():
+        config = migration_config(test_database_dsn)
+        command.downgrade(config, "0002_watchlist")
+        try:
+            yield
+        finally:
+            command.upgrade(config, "head")
+
+    return at_s2
 
 
 def add_capture(connection, ids, *, at, **overrides):
@@ -99,18 +123,21 @@ def test_byte_identical_ties_co_reference_in_deterministic_order(db_admin, db):
     assert result.usable and not result.flags
 
 
-def test_newer_failed_attempt_preserves_old_capture_with_freshness_evidence(db_admin, db):
-    ids = seed_evidence(db_admin)
-    failure = add_capture(
-        db_admin,
-        ids,
-        at=BASE + timedelta(hours=1),
-        http_status=503,
-        fetched_at=None,
-        body_sha256=None,
-        blob_key=None,
-        byte_count=None,
-    )
+def test_newer_failed_attempt_preserves_old_capture_with_freshness_evidence(
+    db_admin, db, legacy_capture_setup
+):
+    with legacy_capture_setup():
+        ids = seed_evidence(db_admin)
+        failure = add_capture(
+            db_admin,
+            ids,
+            at=BASE + timedelta(hours=1),
+            http_status=503,
+            fetched_at=None,
+            body_sha256=None,
+            blob_key=None,
+            byte_count=None,
+        )
     result = prepare_capture_manifest(
         db, requirements=(requirement(db_admin, ids),), captured_before=BASE + timedelta(hours=2)
     )
@@ -120,19 +147,22 @@ def test_newer_failed_attempt_preserves_old_capture_with_freshness_evidence(db_a
     assert result.usable  # valid historical evidence with an explicit freshness warning
 
 
-def test_failure_before_latest_success_is_not_current_freshness_failure(db_admin, db):
-    ids = seed_evidence(db_admin)
-    add_capture(
-        db_admin,
-        ids,
-        at=BASE + timedelta(hours=1),
-        http_status=None,
-        fetched_at=None,
-        body_sha256=None,
-        blob_key=None,
-        byte_count=None,
-    )
-    latest = add_capture(db_admin, ids, at=BASE + timedelta(hours=2))
+def test_failure_before_latest_success_is_not_current_freshness_failure(
+    db_admin, db, legacy_capture_setup
+):
+    with legacy_capture_setup():
+        ids = seed_evidence(db_admin)
+        add_capture(
+            db_admin,
+            ids,
+            at=BASE + timedelta(hours=1),
+            http_status=None,
+            fetched_at=None,
+            body_sha256=None,
+            blob_key=None,
+            byte_count=None,
+        )
+        latest = add_capture(db_admin, ids, at=BASE + timedelta(hours=2))
     result = prepare_capture_manifest(
         db, requirements=(requirement(db_admin, ids),), captured_before=BASE + timedelta(hours=3)
     )
@@ -178,18 +208,21 @@ def test_validation_and_transaction_ownership(db_admin, db):
             prepare_capture_manifest(db, requirements=(item,), captured_before=BASE)
 
 
-def test_cache_revalidation_does_not_manufacture_a_new_retrieval(db_admin, db):
-    ids = seed_evidence(db_admin)
-    add_capture(
-        db_admin,
-        ids,
-        at=BASE + timedelta(hours=1),
-        http_status=304,
-        fetched_at=None,
-        body_sha256=None,
-        blob_key=None,
-        byte_count=None,
-    )
+def test_cache_revalidation_does_not_manufacture_a_new_retrieval(
+    db_admin, db, legacy_capture_setup
+):
+    with legacy_capture_setup():
+        ids = seed_evidence(db_admin)
+        add_capture(
+            db_admin,
+            ids,
+            at=BASE + timedelta(hours=1),
+            http_status=304,
+            fetched_at=None,
+            body_sha256=None,
+            blob_key=None,
+            byte_count=None,
+        )
     result = prepare_capture_manifest(
         db, requirements=(requirement(db_admin, ids),), captured_before=BASE + timedelta(hours=2)
     )
@@ -198,20 +231,23 @@ def test_cache_revalidation_does_not_manufacture_a_new_retrieval(db_admin, db):
     assert result.usable
 
 
-def test_only_failed_attempts_return_explicit_gap_and_failure_evidence(db_admin, db):
-    ids = seed_evidence(db_admin)
-    failure = add_capture(
-        db_admin,
-        ids,
-        at=BASE + timedelta(hours=1),
-        source_object_key="unavailable-object",
-        http_status=None,
-        fetched_at=None,
-        body_sha256=None,
-        blob_key=None,
-        byte_count=None,
-    )
-    requested = (SourceObject(ids["source"], "unavailable-object", "financial_payload"),)
+def test_only_failed_attempts_return_explicit_gap_and_failure_evidence(
+    db_admin, db, legacy_capture_setup
+):
+    with legacy_capture_setup():
+        ids = seed_evidence(db_admin)
+        failure = add_capture(
+            db_admin,
+            ids,
+            at=BASE + timedelta(hours=1),
+            source_object_key="unavailable-object",
+            http_status=None,
+            fetched_at=None,
+            body_sha256=None,
+            blob_key=None,
+            byte_count=None,
+        )
+        requested = (SourceObject(ids["source"], "unavailable-object", "financial_payload"),)
     result = prepare_capture_manifest(
         db, requirements=requested, captured_before=BASE + timedelta(hours=2)
     )

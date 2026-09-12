@@ -10,7 +10,50 @@ from psycopg.types.json import Jsonb
 
 
 def insert(connection: Connection[Any], table: str, **values: Any) -> None:
-    """Insert named columns with bound values; identifiers are composed, not interpolated."""
+    """Owner-only fictional fixture insertion, with S3 policy provenance when present."""
+    if (
+        table == "source_captures"
+        and connection.execute(
+            "SELECT to_regclass('public.capture_policy_links') AS table_name"
+        ).fetchone()["table_name"]
+    ):
+        with connection.transaction():
+            policy = connection.execute(
+                "SELECT id FROM source_policy_revisions WHERE source_id=%s AND review_key=%s",
+                (values["source_id"], values["terms_review_reference"]),
+            ).fetchone()
+            policy_id = policy["id"] if policy else uuid4()
+            if policy is None:
+                _insert_record(
+                    connection,
+                    "source_policy_revisions",
+                    id=policy_id,
+                    source_id=values["source_id"],
+                    review_key=values["terms_review_reference"],
+                    licence_label="Fictional test evidence only",
+                    content_scope="Fixture",
+                    redistribution_status="unknown",
+                    permitted_use="Automated tests only",
+                    attribution_requirements="Not a production source-policy review",
+                    terms_urls=["https://example.invalid/test-policy"],
+                    reviewed_at=values["requested_at"],
+                    reviewed_by="test-fixture",
+                    review_artifact_reference="tests/evidence_seed.py",
+                    review_artifact_sha256="a" * 64,
+                )
+            _insert_record(connection, table, **values)
+            _insert_record(
+                connection,
+                "capture_policy_links",
+                capture_id=values["id"],
+                policy_revision_id=policy_id,
+            )
+        return
+    _insert_record(connection, table, **values)
+
+
+def _insert_record(connection: Connection[Any], table: str, **values: Any) -> None:
+    """Compose identifiers and bind values without SQL interpolation."""
     connection.execute(
         sql.SQL("INSERT INTO {} ({}) VALUES ({})").format(
             sql.Identifier(table),

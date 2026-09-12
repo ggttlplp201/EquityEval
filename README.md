@@ -1,11 +1,11 @@
 # Equity Valuation Workbench
 
 A local-first research tool for auditable valuation ranges and explicit
-assumptions. **S2 evidence storage, historical selection and durable watchlist requests are implemented.**
-The database/storage layer has real PostgreSQL tests; live ingestion, financial
-engines and the product interface remain later milestones. The
-[S3 source contract](docs/design/s3/README.md) and eight-company acceptance
-evidence packet are ready for review before adapter implementation.
+assumptions. **S3 SEC ingestion is implemented**, alongside S2 evidence storage,
+historical selection and durable watchlist requests. It includes verified archives,
+reviewed normalization, original-filing extraction and watchlist source stages.
+See the [S3 implementation](docs/design/s3/implementation.md). Financial engines,
+the product interface and news monitoring remain later milestones.
 
 Start with [milestones](docs/milestones/README.md), [P0 tasks](docs/tasks-p0.md)
 and [open decisions](docs/decisions.md). Review the [S2 design](docs/design/s2/README.md)
@@ -14,9 +14,9 @@ and the [requested feature list](docs/features/README.md). The supplied [spec](d
 
 ## Setup
 
-Requires Python 3.12, Node 22, npm and PostgreSQL 16 binaries for the integration
+Requires Python 3.12, Node 22, npm, Redis binaries and PostgreSQL 16 binaries for the integration
 tests. Set `EQUITY_TEST_PG_BIN` to the PostgreSQL 16 bin directory if it is not
-automatically detected. Docker with Compose v2 is an alternative runtime for the
+automatically detected. Set `EQUITY_TEST_REDIS_BIN` for Redis binaries if needed. Docker with Compose v2 is an alternative runtime for the
 planned application database/cache, separate from the disposable test cluster.
 From this repository:
 
@@ -30,7 +30,7 @@ Bootstrap creates .venv, installs the exact Python dependency lock and npm lock,
 the local Python distribution in strict editable mode and the repository-local
 pre-commit hook. Rerun bootstrap after adding a Python module so the editable
 package links include it.
-No real API credentials are required for tests. PostgreSQL 16 must already be installed. The checked-in example
+No real API credentials are required for tests. PostgreSQL 16 and Redis must already be installed. The checked-in example
 contains local development database values only. Keep .env out of Git.
 
 ## Commands
@@ -39,7 +39,7 @@ contains local development database values only. Keep .env out of Git.
 | --- | --- |
 | `make test` | Full suite, including isolated PostgreSQL constraints, PIT and queue tests |
 | `make test-core` | Valuation suite; still intentionally empty until S5/S7 |
-| `make test-golden` | Exact archived KHC observation/provenance checks; adapters arrive in S3 |
+| `make test-golden` | Reviewed eight-company normalization and original-filing provenance checks |
 | `make lint typecheck` | Ruff, import policy, generated-concept drift, ESLint, mypy and TypeScript |
 | `make check` | All above checks |
 | `make infra-config` | Validate Compose using Docker Compose |
@@ -51,13 +51,14 @@ contains local development database values only. Keep .env out of Git.
 | `make migrate` | Apply reviewed migrations; needs DATABASE_URL |
 | `make install-hooks` | Install the required local pre-commit hook |
 | `make test-db-start` / `test-db-status` / `test-db-stop` | Control only this repository's isolated PostgreSQL 16 test cluster |
+| `make test-redis-start` / `test-redis-status` / `test-redis-stop` | Control only this repository's Redis test coordinator |
 
 The planned Compose application database binds to localhost:5433; Redis binds to localhost:6380. If you change
 ports/credentials, update both Compose variables and connection URLs in .env.
-Raw payloads will go in ignored var/raw; source adapters arrive after review.
+Application archives belong in ignored `var/raw`. Source workers require explicit configuration; no live ingestion is active.
 
 Tests use a separate cluster at localhost:55432 under ignored `var/test-postgres16`.
-They never use the application DATABASE_URL or .env. Each test gets a fresh
+Redis tests use localhost:16380 under ignored `var/test-redis`. Tests never use the application DATABASE_URL or .env. Each test gets a fresh
 randomly named database cloned from a migrated template; cleanup drops only those
 test-owned databases. The cluster stays available between test commands; stop it
 with `make test-db-stop`. Tests require a real PostgreSQL 16 server and do not
@@ -68,7 +69,7 @@ silently skip database checks. See [S2 implementation](docs/design/s2/implementa
 - apps/web: Next.js configuration and dependencies; pages begin at S8.
 - apps/api: thin Python API package; reviewed routes begin at S6.
 - packages/core: pure financial functions after tested specifications.
-- packages/ingest: source adapters after normalization and contract review.
+- packages/ingest: SEC transport, archive verification, reviewed normalization and source stages.
 - packages/schema: reviewed concepts, generated TS, typed PIT/vintage/queue storage operations.
 - infra: local services, migration environment and worker reservation.
 - tests/golden and tests/integration: source evidence, database and workflow verification.

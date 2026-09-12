@@ -26,6 +26,9 @@ REQUIRED_TABLES = {
     "security_relationships",
     "sources",
     "source_captures",
+    "source_policy_revisions",
+    "source_fetch_attempts",
+    "capture_policy_links",
     "filings",
     "filing_versions",
     "periods",
@@ -281,3 +284,77 @@ def test_explicit_migration_url_never_loads_application_dotenv(
     assert {
         row["version_num"] for row in db_admin.execute("SELECT version_num FROM alembic_version")
     } == set(ScriptDirectory.from_config(config).get_heads())
+
+
+def test_source_storage_exposes_only_fenced_runtime_entry_points(db_admin, db):
+    entry_points = {
+        "ingestion_validate_stage",
+        "ingestion_prepare",
+        "ingestion_dispatch",
+        "ingestion_headers",
+        "ingestion_finalize",
+        "ingestion_recover",
+    }
+    functions = db_admin.execute(r"""
+        SELECT p.proname,p.oid::regprocedure::text AS signature,p.prosecdef,p.proconfig,
+               has_function_privilege('equity_runtime',p.oid,'EXECUTE') AS runtime_allowed,
+               ARRAY(SELECT format_type(a.type_oid,NULL) FROM unnest(p.proargtypes) a(type_oid))
+                   AS argument_types,
+               EXISTS(SELECT 1 FROM aclexplode(coalesce(p.proacl,acldefault('f',p.proowner))) acl
+                      WHERE acl.grantee=0 AND acl.privilege_type='EXECUTE') AS public_allowed
+        FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+        WHERE n.nspname='public' AND p.proname LIKE 'ingestion\_%' ESCAPE '\'
+        ORDER BY p.proname
+    """).fetchall()
+    assert entry_points <= {function["proname"] for function in functions}
+    for function in functions:
+        assert not function["public_allowed"], function["signature"]
+        assert function["runtime_allowed"] == (function["proname"] in entry_points)
+        if function["proname"] in entry_points:
+            assert function["prosecdef"]
+            assert "search_path=public,pg_temp" in {
+                setting.replace(" ", "") for setting in function["proconfig"] or []
+            }
+        else:
+            arguments = sql.SQL(",").join(
+                sql.SQL("NULL::{}").format(sql.SQL(type_name))
+                for type_name in function["argument_types"]
+            )
+            with pytest.raises(psycopg.errors.InsufficientPrivilege):
+                db.execute(
+                    sql.SQL("SELECT {}({})").format(
+                        sql.Identifier("public", function["proname"]), arguments
+                    )
+                )
+
+
+def test_source_upgrade_preserves_legacy_capture_and_restores_s2_grants_on_downgrade(
+    db_admin, db, test_database_dsn
+):
+    from tests.evidence_seed import seed_evidence
+
+    config = migration_config(test_database_dsn)
+    command.downgrade(config, "0002_watchlist")
+    assert db.execute(
+        "SELECT has_table_privilege(current_user,'source_captures','INSERT') AS allowed"
+    ).fetchone()["allowed"]
+    ids = seed_evidence(db_admin)
+    original = db_admin.execute(
+        "SELECT * FROM source_captures WHERE id=%s", (ids["capture"],)
+    ).fetchone()
+    command.upgrade(config, "head")
+    assert (
+        db_admin.execute("SELECT * FROM source_captures WHERE id=%s", (ids["capture"],)).fetchone()
+        == original
+    )
+    assert db.execute(
+        "SELECT review_status,policy_revision_id FROM source_capture_policy_status "
+        "WHERE capture_id=%s",
+        (ids["capture"],),
+    ).fetchone() == {"review_status": "legacy_unreviewed", "policy_revision_id": None}
+    assert not db.execute(
+        "SELECT has_table_privilege(current_user,'source_captures','INSERT') AS allowed"
+    ).fetchone()["allowed"]
+    assert (
+        db_admin.execute("SELECT count(*) AS n FROM source_policy_revisions").fetchone()["n"] == 0
+    )

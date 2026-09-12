@@ -1,13 +1,14 @@
-# S3 source review packet
+# S3 — SEC ingestion
 
-S2 is complete at `milestone/s2` (`dae3e6e`). The user directed progression to S3.
-The source contract is prepared for review before adapters are implemented.
+D008 and S3-01–04 were explicitly accepted after review. SEC ingestion is
+implemented on `codex/s3-ingestion`; completion checkpoint: `milestone/s3`.
 
-- [Recommended contract and four decisions](source-contract.md).
+- [Implementation, worker usage and limits](implementation.md).
+- [Accepted source contract](source-contract.md).
 - [Acceptance and golden-fixture plan](test-plan.md).
-- [Milestone record](../../milestones/S3-ingestion.md).
-- [Existing S1 mapping evidence](../../research/s1/concept-map.md).
-- [Current S2 storage implementation](../s2/implementation.md).
+- [Milestone record and validation](../../milestones/S3-ingestion.md).
+- [S1 mapping evidence](../../research/s1/concept-map.md).
+- [S2 storage implementation](../s2/implementation.md).
 
-Start with the four recommended decisions. Detailed fields and failure behavior
-make the proposed implementation reviewable; none are silently added to S2.
+The earlier proposal/evidence checkpoint remains at
+`df99735` (`milestone/s3-contract-review`). Next: S4 prices and FRED.

@@ -145,10 +145,11 @@ The user-authorized code root is this iCloud equityEval directory. Read
 Keep milestone scope, decisions, validation evidence and the next handoff current.
 Preserve originals in `docs/originals`; record interpretations in `docs/decisions.md`.
 S0 scaffolding is complete; its environment limits are in the milestone record.
-S2 is complete at milestone/s2. Active milestone: S3 source-contract/evidence
-preparation, following the user's direction to continue on 2026-09-12. Read
-docs/design/s3/source-contract.md and docs/milestones/S3-ingestion.md. D008 and
-S3-01–04 remain ready for review, not accepted for adapter/schema implementation.
+S2 is complete at milestone/s2. S3 is complete at milestone/s3 (440 tests). The user
+explicitly approved D008 and S3-01–04 with “implement” on 2026-09-12 after the
+concrete review packet. Read docs/design/s3/source-contract.md and
+docs/milestones/S3-ingestion.md. Use the implementation record and milestone checkpoint for the next handoff: S4
+prices/FRED and its explicit source/vintage decisions.
 Later API routes, valuation logic and UI remain at their reviewed milestones. Remove each
 `tests/**/.allow-empty-s0` marker when that suite gains real tests.
 

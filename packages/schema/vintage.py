@@ -38,6 +38,8 @@ class CaptureManifest:
     failed_capture_ids: tuple[UUID, ...]
     flags: tuple[str, ...]
     usable: bool
+    attempt_ids: tuple[UUID, ...] = ()
+    failed_attempt_ids: tuple[UUID, ...] = ()
 
 
 def _successful(row: Row, cutoff: datetime) -> bool:
@@ -66,7 +68,14 @@ def prepare_capture_manifest(
     attempts warn about freshness while preserving usable historical evidence;
     missing objects and conflicting simultaneous captures block the manifest.
     A 304 revalidation keeps the original body's retrieval time and is not a
-    failed attempt. Incomplete attempts cannot supply captured evidence.
+    failed attempt. Incomplete attempts cannot supply captured evidence. S3
+    attempt IDs are retained separately from legacy failed-capture IDs. Outcomes
+    recorded after the cutoff remain unknown at that cutoff, even when the row
+    has since finalized; no completion time or HTTP result is inferred.
+
+    ``attempt_ids`` audits every known attempt, including unfinished ones. It is
+    not interchangeable with NormalizationInput's completed-at-cutoff attempt
+    list; retain this manifest's unknown-outcome evidence separately.
     """
     if captured_before.utcoffset() is None:
         raise ValueError("Retrieval vintage requires a timezone-aware timestamp")
@@ -93,13 +102,26 @@ def prepare_capture_manifest(
             "WHERE c.completed_at IS NOT NULL AND c.completed_at<=%s",
             ([item[0] for item in objects], [item[1] for item in objects], captured_before),
         ).fetchall()
+        attempts = connection.execute(
+            "SELECT a.* FROM source_fetch_attempts a JOIN "
+            "unnest(%s::uuid[],%s::text[]) AS requested(source_id,object_key) "
+            "ON a.source_id=requested.source_id AND a.source_object_key=requested.object_key "
+            "WHERE a.prepared_at<=%s",
+            ([item[0] for item in objects], [item[1] for item in objects], captured_before),
+        ).fetchall()
 
+    attempt_groups: dict[tuple[UUID, str], list[Row]] = {}
+    for attempt in attempts:
+        attempt_groups.setdefault((attempt["source_id"], attempt["source_object_key"]), []).append(
+            attempt
+        )
     groups: dict[tuple[UUID, str], list[Row]] = {}
     for row in rows:
         groups.setdefault((row["source_id"], row["source_object_key"]), []).append(row)
     selected: set[UUID] = set()
     failed: set[UUID] = set()
     flags: set[str] = set()
+    failed_attempts: set[UUID] = set()
     for identity in objects:
         captures = groups.get(identity, [])
         successes = [row for row in captures if _successful(row, captured_before)]
@@ -112,12 +134,51 @@ def prepare_capture_manifest(
                 flags.add("ambiguous_capture_vintage")
             else:
                 selected.update(row["id"] for row in latest)
+        known = [
+            attempt
+            for attempt in attempt_groups.get(identity, [])
+            if attempt["finished_at"] is not None and attempt["finished_at"] <= captured_before
+        ]
+        unknown = [
+            attempt
+            for attempt in attempt_groups.get(identity, [])
+            if attempt["finished_at"] is None
+            or attempt["finished_at"] > captured_before
+            or attempt["state"] == "interrupted_unknown"
+        ]
+        if unknown:
+            flags.add("source_attempt_outcome_unknown")
+        # A successful revalidation can clear an earlier freshness failure while
+        # preserving every original capture ID and its retrieval timestamp.
+        validated = [
+            attempt["finished_at"]
+            for attempt in known
+            if attempt["state"] == "not_modified" and attempt["reused_capture_id"] in selected
+        ]
+        freshness_boundary = max([newest, *validated]) if newest is not None else None
+        current_attempt_failures = [
+            attempt
+            for attempt in known
+            if attempt["state"]
+            in {
+                "http_error",
+                "transport_error",
+                "body_limit",
+                "redirect_refused",
+                "archive_error",
+                "cancelled",
+            }
+            and (freshness_boundary is None or attempt["finished_at"] >= freshness_boundary)
+        ]
+        if current_attempt_failures:
+            failed_attempts.update(attempt["id"] for attempt in current_attempt_failures)
+            flags.add("newer_capture_failed" if newest is not None else "capture_failed")
         later_failures = [
             row
             for row in captures
             if not _successful(row, captured_before)
             and row["http_status"] != 304
-            and (newest is None or row["completed_at"] >= newest)
+            and (freshness_boundary is None or row["completed_at"] >= freshness_boundary)
         ]
         if later_failures:
             failed.update(row["id"] for row in later_failures)
@@ -129,4 +190,6 @@ def prepare_capture_manifest(
         failed_capture_ids=tuple(sorted(failed, key=str)),
         flags=tuple(sorted(flags)),
         usable=not bool(flags & {"capture_unavailable", "ambiguous_capture_vintage"}),
+        attempt_ids=tuple(sorted((attempt["id"] for attempt in attempts), key=str)),
+        failed_attempt_ids=tuple(sorted(failed_attempts, key=str)),
     )
