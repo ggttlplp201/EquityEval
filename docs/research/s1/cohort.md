@@ -17,5 +17,7 @@ period explicitly.
 | Kraft Heinz (KHC) | 0001637459 | Formal error restatement and an original/revised history pair | [2018 10-K restatement note](https://www.sec.gov/Archives/edgar/data/1637459/000163745919000049/R9.htm) |
 | Costco (COST) | 0000909832 | Inventory-heavy retailer; membership income; non-calendar 52/53-week fiscal periods | [FY2025 10-K](https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm) |
 
-Company-specific tags, actual API coverage and safe mapping priorities remain
-unverified until the corresponding data payloads and filing contexts are read.
+The archived payloads and original-filing contexts have been inspected. See the
+[concept map](concept-map.md), [coverage matrix](coverage-matrix.md) and company
+notes for observed tags, gaps and proposed conditional rules. TSM FY2024 provides
+secondary IFRS examples because the pinned FY2025 financial API rows are absent.

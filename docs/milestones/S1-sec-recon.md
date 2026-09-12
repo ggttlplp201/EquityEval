@@ -1,49 +1,64 @@
 # S1 — SEC concept reconnaissance
 
-Status: in progress — SEC contact configuration pending
+Status: research complete — awaiting human review
+Completed research: 2026-09-12 (Asia/Shanghai)
 Task: EquityEval — milestone build log
 Task ID: 01a08f8c-85c8-7bb0-9e60-6eb24809d8de
 Branch: codex/s1-sec-recon
 Dependency: S0, tag milestone/s0, commit 33d800d
+Review checkpoint: local Git tag milestone/s1-review (created with the final packet)
+Interim checkpoint: bfbb000 (before direct payload inspection)
 Sources: BUILD_GUIDE Part 5 S1; SPEC 2.1, 3.2, 12.1 and 12.5.
 
-## Scope
+## Outcome
 
-Documentation and source reconnaissance only. Propose approximately 40 core
-financial concepts, inspect eight diverse companies, identify exceptions and
-prepare a formal restatement example for S2. No production ingestion, enum,
-financial calculations, schema definitions or API contracts are implemented.
+Eight diverse companies inspected; 40 proposed concepts documented with exact
+candidate tags, unit/period/accession observations and company-specific exceptions.
+Original-filing evidence confirms missing custom/dimensional coverage and scope
+collisions. KHC's formal original/revised income pair is verified in raw API rows.
+No production ingestion, enum, financial schema, math or API implementation.
 
-## Artifacts
+## Review artifacts
 
-- docs/research/s1/README.md — scope and evidence status
-- docs/research/s1/cohort.md — selected companies and anchor filings
-- docs/research/s1/concept-candidates.md — 40 preliminary concept definitions
-- docs/research/s1/source-boundaries.md — verified API limits and data-access implications
-- docs/research/s1/restatement-khc.md — verified original/revised filing evidence
-- Exact tag mappings and company coverage remain pending payload inspection.
+Start with [the review brief](../research/s1/review-brief.md). The
+[packet index](../research/s1/README.md) links the concept map, 40×8 coverage
+matrix, company notes, source limits and archived evidence.
 
-## Decisions and review
+The user's additional US macro/watchlist monitoring requirement is recorded in
+[N1](../features/N1-news-and-macro-agent.md): in-app, desktop and email alerts.
+This authorized extension enters shared-contract planning; alerts are not live.
 
-The concept vocabulary and overrides remain proposals until user review. A real
-contact User-Agent is required before direct SEC data access. No contact has
-been inferred from unrelated account or Git configuration.
+## Verification
 
-## Findings so far
+- Eight Company Facts body checksums and sizes match their manifests.
+- Eight complete original-document body checksums and sizes match. One TSM
+  interrupted response was recorded; the retry completed and is independently hashed.
+- Every exact observation in all 320 concept/company groups matches its archived
+  source tag/unit/row and pinned accession/period; scope suitability remains reviewed separately.
+- Five manually specified filing-to-API checks agree, preserving original literal,
+  scale, context, period and unit. Full normalized golden fixtures remain S3 work.
+- KHC parent net income, USD, 2017-01-01 through 2017-12-30:
+  10,999,000,000 at the 2018 filing; 10,941,000,000 at the 2019 restated filing.
+- Contact configuration is local, ignored by Git and excluded from research files.
+- Required lint, typecheck and full/core/golden harness checks run at the checkpoint
+  through the commit hook. Business suites remain explicitly empty; no financial
+  behavior tests, live database tests or hosted CI success are claimed.
 
-Official SEC documentation limits Company Facts to standard-taxonomy facts
-applying to the entire filing entity. The original spec overstates extension
-and segment coverage. Record raw-filing requirements explicitly at the S1 gate.
+## Limits and unresolved decisions
 
-## Validation evidence
+The vocabulary/mappings are proposed, not approved. TSM FY2025 financial API
+coverage is missing; FY2024 examples are labelled secondary. Some reported
+subtotals include different expense, lease or share scopes. Complete current-debt
+and D&A mappings are not guaranteed by this catalogue. These gaps cannot be
+filled with component guesses. See D007, D011 and D012 for review boundaries.
 
-Public SEC documentation and original/revised KHC filing evidence have been
-reviewed. The catalogue contains 40 numbered proposals and the cohort contains
-eight companies with primary filing locators. Company Facts payloads have not
-yet been fetched; no observed-tag coverage matrix or golden fixture is claimed.
-This is an interim documentation checkpoint, not S1 completion.
+Docker runtime verification remains the S0 environment limitation. Direct data
+access was briefly interrupted by account limits, then resumed successfully;
+all evidence listed as complete is saved locally.
 
 ## Handoff
 
-Complete the evidence-backed concept proposal and present the S1 review packet
-before creating the concept enum or schema in S2.
+Obtain S1 review before beginning the S2 schema/vocabulary design. S2 must present
+its own concrete schema and point-in-time policy before implementation, including
+N1 event/revision/delivery needs. Write the KHC regression first when numerical
+storage/query behavior is implemented. Preserve all raw evidence and originals.

@@ -1,13 +1,13 @@
 # Candidate concept catalogue — 40 entries
 
-Status: preliminary domain proposal, pending Company Facts inspection and user
-review. These identifiers are not an approved concept_std enum. No claimed tag
-coverage, priority, override or mapping is implied by this table.
+Status: evidence-backed vocabulary proposal, awaiting user review. These names
+are not an approved concept_std enum. Exact tag observations, conditional rules
+and gaps are in [concept-map.md](concept-map.md) and the
+[coverage matrix](coverage-matrix.md).
 
-Each observation will retain the original taxonomy/tag, unit, exact period,
-filing accession/date, retrieval evidence and source value. The proposed normalized
-name cannot erase differences in economic scope. All company/tag mapping columns
-remain to be populated from actual archived payloads and relevant filing contexts.
+Each observation retains original taxonomy/tag, unit, exact period, filing
+accession/date, retrieval evidence and source value. Normalized names cannot
+erase differences in economic scope.
 
 | # | Proposed concept | Period and unit | Definition / mapping hazard |
 | --- | --- | --- | --- |
@@ -48,7 +48,7 @@ remain to be populated from actual archived payloads and relevant filing context
 | 35 | `cash_from_operating_activities` | Duration; reporting currency | Reported operating cash flow with retained sign and exact YTD/annual interval. |
 | 36 | `capital_expenditures_ppe` | Duration; reporting currency | Cash paid for PP&E; distinguish acquisitions, finance leases and unpaid additions. |
 | 37 | `depreciation_and_amortization` | Duration; reporting currency | Reported combined D&A with scope; depreciation-only is not an equivalent mapping. |
-| 38 | `share_based_compensation` | Duration; reporting currency | Reported SBC expense/addback with scope; distinguish capitalized amounts, grants and award fair values. |
+| 38 | `share_based_compensation` | Duration; reporting currency | Proposed P0 scope: reported noncash cash-flow SBC addback. Income-statement expense, capitalized amounts, grants and award fair values are distinct. |
 | 39 | `dividends_paid` | Duration; reporting currency | Cash dividends paid; common-only versus all equity instruments needs explicit source scope. |
 | 40 | `share_repurchases` | Duration; reporting currency | Cash spent repurchasing common shares; separate withheld shares, excise taxes and unsettled obligations. |
 

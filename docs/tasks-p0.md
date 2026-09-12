@@ -23,3 +23,11 @@ P1/P2 features remain deferred. S2 may reserve approved future persistence only
 if the schema review explicitly chooses it; this does not authorize later UI or
 valuation features. Review gates: S1 concept map, S2 schema, S3 Source contract,
 S6 API. Each milestone ends with evidence, a commit and a handoff note.
+
+## User-requested extension — N1
+
+The user added US macro/watchlist news monitoring on 2026-09-11, with in-app,
+desktop and email delivery. Track requirements, dependencies and acceptance in
+[N1 news and macro agent](features/N1-news-and-macro-agent.md). Bring its contract
+requirements into S2; N1b–d follow the shared source and API contracts. This is
+an explicit scope extension, not activation of all P1/P2 work.

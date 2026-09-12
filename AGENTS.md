@@ -144,7 +144,11 @@ The user-authorized code root is this iCloud equityEval directory. Read
 Keep milestone scope, decisions, validation evidence and the next handoff current.
 Preserve originals in `docs/originals`; record interpretations in `docs/decisions.md`.
 S0 scaffolding is complete; its environment limits are in the milestone record.
-Active milestone: S1 SEC reconnaissance and a concept-map document. Keep financial
+Active milestone: S1 research is complete; the concept-map review is pending. Keep financial
 schema, concept members, API routes, valuation logic, ingestion and UI deferred
 until their respective reviewed milestones. Remove each
 `tests/**/.allow-empty-s0` marker when that suite gains real tests.
+
+User scope extension (2026-09-11): include the N1 US macro/watchlist news agent
+with in-app, desktop and email alerts. Read docs/features/N1-news-and-macro-agent.md;
+bring its requirements into the reviewed shared contracts. Other P1/P2 scope stays deferred.

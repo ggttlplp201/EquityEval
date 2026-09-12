@@ -1,31 +1,37 @@
-# S1 research packet
+# S1 review packet
 
-Status: work in progress, not an approved vocabulary or mapping.
+Status: research complete, awaiting concept-map review. No financial enum,
+schema, normalization adapter or valuation code has been implemented.
 
-This milestone inspects the source before freezing normalized concept names.
-The candidate cohort is in [cohort.md](cohort.md). Every claimed tag observation
-must identify a saved Company Facts payload, taxonomy/tag, unit, period and
-filing accession. Candidate tag names without observations stay unverified.
+Start with the [review brief](review-brief.md), then the
+[40-concept proposal](concept-map.md) and [company coverage](coverage-matrix.md).
+The eight Company Facts archives and eight original filing documents were
+retrieved on 2026-09-11; source observations and review were completed on
+2026-09-12. A filing transport interruption was recorded and successfully retried.
 
-Direct SEC data downloads are pending a real contact User-Agent. Public SEC
-API documentation and filing research can proceed independently.
+## Contents
 
-The intended deliverable is a reviewable document covering about 40 concepts,
-company exceptions, missing-data behavior, period/share/currency distinctions,
-and an original-versus-restated example. Research extraction is not production
-normalization and does not create hand-checked golden fixtures automatically.
+- [Review brief](review-brief.md): recommended decisions and limits before S2.
+- [Concept definitions](concept-candidates.md): proposed names, scope and units.
+- [Concept map](concept-map.md): exact observed tag candidates and conditional rules.
+- [Coverage matrix](coverage-matrix.md): 40 concepts × 8 pinned company anchors.
+- [Cohort](cohort.md): why each company was selected and primary filing links.
+- [Baseline observations](baseline-observations.md): AAPL, MSFT, RBLX and COST.
+- [Sector observations](special-sector-observations.md): JPM and CRCL, including original-filing exceptions.
+- [IFRS/restatement audit](ifrs-and-restatement-observations.md): TSM source gap and KHC raw history.
+- [KHC restatement brief](restatement-khc.md): the hand-checked original/revised pair.
+- [Source boundaries](source-boundaries.md): verified API limitations and implications.
+- [Evidence guide](evidence/README.md): archives, hashes, exact rows and replay instructions.
 
-## Confirmed source boundary
+## Principal finding
 
-[SEC API documentation](https://www.sec.gov/search-filings/edgar-application-programming-interfaces)
-says the aggregated XBRL APIs cover non-custom taxonomies and whole-entity facts.
-A company-specific map cannot recover a custom tag absent from this endpoint.
-Original filing/Inline XBRL access would be required for those observations, with
-explicit contexts, units and review. Segment coverage must not be inferred from
-entity-wide API rows. This corrects the coverage assumption in SPEC 2.1/3.2.
+Company Facts covers standard-taxonomy, whole-entity observations; it does not
+supply arbitrary issuer extensions or full segment/class contexts. This is both
+[documented by the SEC](https://www.sec.gov/search-filings/edgar-application-programming-interfaces)
+and demonstrated by the archived original filings. An override cannot recover a
+missing source observation. TSM's selected 2025 filing has no IFRS financial rows
+in the captured API response, even though the original filing reports them.
+Missing, stale and incompatible observations must remain distinguishable.
 
-## Current documents
-
-- [40 candidate concepts](concept-candidates.md): definitions and hazards, mapping unverified.
-- [Source boundaries](source-boundaries.md): verified API limits and engineering consequences.
-- [Kraft Heinz restatement](restatement-khc.md): original/revised filing evidence for S2.
+The user's separate [N1 news/macro-agent extension](../../features/N1-news-and-macro-agent.md)
+is captured for S2–S8 contract planning. No live alert service is activated.

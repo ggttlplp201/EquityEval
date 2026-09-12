@@ -1,6 +1,6 @@
 # Kraft Heinz restatement candidate
 
-Status: filing evidence verified; Company Facts mapping and fixtures pending.
+Status: filing and Company Facts observations verified; production fixtures pending.
 CIK: 0001637459. Observation: FY2017 net income attributable to Kraft Heinz,
 period ended 2017-12-30. All amounts below are USD millions as presented in filings.
 
@@ -26,12 +26,14 @@ revisions. Preserve that event separately from the June audited comparative.
 
 ## Proposed later regression
 
-After verifying the exact API rows and any intermediate versions, pin both
-amounts with their original units, intervals and accessions. Choose cutoffs that
-exclude the later version in the earlier query, and verify the later query can
-select the revised value. This is a proposed test design, not an executed test.
+The exact Company Facts rows are verified in
+[the raw-row audit](ifrs-and-restatement-observations.md). They use
+`us-gaap:NetIncomeLoss`, unit `USD`, interval `2017-01-01` to `2017-12-30`,
+values **10999000000** and **10941000000** at the accessions above. Later repeated
+comparatives include an 8-K with nullable `fy`/`fp`; `frame` is optional.
 
-Pending: actual raw tag, unit scale, start date, fy/fp behavior, repeated values,
-intermediate filings and the exact cutoff policy. Parent-attributable income
-must not be confused with consolidated income including noncontrolling interests.
-`us-gaap:NetIncomeLoss` is a candidate to inspect, not a confirmed mapping.
+A proposed filed-date regression can use 2018-02-17 and 2019-06-08 to select
+the original and revised value respectively. Preserve the separate May 2019
+non-reliance event. Exact cutoff/timezone and retrieval-vintage semantics need
+S2 review. Parent income must not be confused with consolidated `ProfitLoss`.
+This is a hand-checked expected pair, not an executed database regression.

@@ -1,0 +1,164 @@
+{
+  "status": "S1 five source spot checks; not complete normalized golden fixtures",
+  "checks": [
+    {
+      "ticker": "AAPL",
+      "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "accession": "0000320193-25-000079",
+      "start": "2024-09-29",
+      "end": "2025-09-27",
+      "unit": "USD",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "filing_raw_file": "raw/AAPL-filing-20260911T142749483879Z.html.gz",
+      "filing_raw_sha256": "548ae59778cf08ee0f2ee088e7ece20d947076c3c01f74d2d65db4c2777e436a",
+      "context_id": "c-1",
+      "context_xml": "<xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000320193</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startDate>2024-09-29</xbrli:startDate><xbrli:endDate>2025-09-27</xbrli:endDate></xbrli:period>",
+      "filing_literal": "416,161",
+      "scale": 6,
+      "hand_checked_expected_api_value": 416161000000,
+      "api_raw_file": "raw/AAPL-20260911T141346989953Z.json.gz",
+      "api_raw_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43",
+      "api_rows": [
+        {
+          "start": "2024-09-29",
+          "end": "2025-09-27",
+          "val": 416161000000,
+          "accn": "0000320193-25-000079",
+          "fy": 2025,
+          "fp": "FY",
+          "form": "10-K",
+          "filed": "2025-10-31",
+          "frame": "CY2025"
+        }
+      ],
+      "result": "exact filing literal, context, scale and API value agree"
+    },
+    {
+      "ticker": "AAPL",
+      "tag": "us-gaap:NetCashProvidedByUsedInOperatingActivities",
+      "accession": "0000320193-25-000079",
+      "start": "2024-09-29",
+      "end": "2025-09-27",
+      "unit": "USD",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "filing_raw_file": "raw/AAPL-filing-20260911T142749483879Z.html.gz",
+      "filing_raw_sha256": "548ae59778cf08ee0f2ee088e7ece20d947076c3c01f74d2d65db4c2777e436a",
+      "context_id": "c-1",
+      "context_xml": "<xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000320193</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startDate>2024-09-29</xbrli:startDate><xbrli:endDate>2025-09-27</xbrli:endDate></xbrli:period>",
+      "filing_literal": "111,482",
+      "scale": 6,
+      "hand_checked_expected_api_value": 111482000000,
+      "api_raw_file": "raw/AAPL-20260911T141346989953Z.json.gz",
+      "api_raw_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43",
+      "api_rows": [
+        {
+          "start": "2024-09-29",
+          "end": "2025-09-27",
+          "val": 111482000000,
+          "accn": "0000320193-25-000079",
+          "fy": 2025,
+          "fp": "FY",
+          "form": "10-K",
+          "filed": "2025-10-31",
+          "frame": "CY2025"
+        }
+      ],
+      "result": "exact filing literal, context, scale and API value agree"
+    },
+    {
+      "ticker": "MSFT",
+      "tag": "us-gaap:PaymentsToAcquirePropertyPlantAndEquipment",
+      "accession": "0000950170-25-100235",
+      "start": "2024-07-01",
+      "end": "2025-06-30",
+      "unit": "USD",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "filing_raw_file": "raw/MSFT-filing-20260911T142807068688Z.html.gz",
+      "filing_raw_sha256": "99d693f6c1544144ebeee92954f151a85bc62111837530a42855953bc01d0bbe",
+      "context_id": "C_7102029d-8d6c-44c5-b166-04cf41443b1e",
+      "context_xml": "<xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000789019</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startDate>2024-07-01</xbrli:startDate><xbrli:endDate>2025-06-30</xbrli:endDate></xbrli:period>",
+      "filing_literal": "64,551",
+      "scale": 6,
+      "hand_checked_expected_api_value": 64551000000,
+      "api_raw_file": "raw/MSFT-20260911T141405959153Z.json.gz",
+      "api_raw_sha256": "f8aae2965b20ad0df44bdf7ccbedf797d275b6b8dc030154a7a311361bb7246f",
+      "api_rows": [
+        {
+          "start": "2024-07-01",
+          "end": "2025-06-30",
+          "val": 64551000000,
+          "accn": "0000950170-25-100235",
+          "fy": 2025,
+          "fp": "FY",
+          "form": "10-K",
+          "filed": "2025-07-30"
+        }
+      ],
+      "result": "exact filing literal, context, scale and API value agree"
+    },
+    {
+      "ticker": "RBLX",
+      "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "accession": "0001315098-26-000024",
+      "start": "2025-01-01",
+      "end": "2025-12-31",
+      "unit": "USD",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1315098/000131509826000024/rblx-20251231.htm",
+      "filing_raw_file": "raw/RBLX-filing-20260911T142741266990Z.html.gz",
+      "filing_raw_sha256": "ff45d4915ef1517c2d6f9492e828dec081b516b8cbca92031943d88d8fd22b2d",
+      "context_id": "c-1",
+      "context_xml": "<xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0001315098</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startDate>2025-01-01</xbrli:startDate><xbrli:endDate>2025-12-31</xbrli:endDate></xbrli:period>",
+      "filing_literal": "4,890,551",
+      "scale": 3,
+      "hand_checked_expected_api_value": 4890551000,
+      "api_raw_file": "raw/RBLX-20260911T141454312576Z.json.gz",
+      "api_raw_sha256": "da93dfbe41ad0be3c80f12e25819e45a48e960678647dc8d7235efdfce5aa481",
+      "api_rows": [
+        {
+          "start": "2025-01-01",
+          "end": "2025-12-31",
+          "val": 4890551000,
+          "accn": "0001315098-26-000024",
+          "fy": 2025,
+          "fp": "FY",
+          "form": "10-K",
+          "filed": "2026-02-11",
+          "frame": "CY2025"
+        }
+      ],
+      "result": "exact filing literal, context, scale and API value agree"
+    },
+    {
+      "ticker": "COST",
+      "tag": "us-gaap:RevenueFromContractWithCustomerExcludingAssessedTax",
+      "accession": "0000909832-25-000101",
+      "start": "2024-09-02",
+      "end": "2025-08-31",
+      "unit": "USD",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "filing_raw_file": "raw/COST-filing-20260911T143031133401Z.html.gz",
+      "filing_raw_sha256": "2cf71f4336c8f36b008a584403551d95ab3b7e4addc9179a99b62029810f7c9a",
+      "context_id": "c-1",
+      "context_xml": "<xbrli:entity><xbrli:identifier scheme=\"http://www.sec.gov/CIK\">0000909832</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startDate>2024-09-02</xbrli:startDate><xbrli:endDate>2025-08-31</xbrli:endDate></xbrli:period>",
+      "filing_literal": "275,235",
+      "scale": 6,
+      "hand_checked_expected_api_value": 275235000000,
+      "api_raw_file": "raw/COST-20260911T141517966620Z.json.gz",
+      "api_raw_sha256": "71a4fd99c86f27c3aa27b8f05b3a9705c16f0060b425395bb1a367ce239b7d1f",
+      "api_rows": [
+        {
+          "start": "2024-09-02",
+          "end": "2025-08-31",
+          "val": 275235000000,
+          "accn": "0000909832-25-000101",
+          "fy": 2025,
+          "fp": "FY",
+          "form": "10-K",
+          "filed": "2025-10-08",
+          "frame": "CY2025"
+        }
+      ],
+      "result": "exact filing literal, context, scale and API value agree"
+    }
+  ]
+}

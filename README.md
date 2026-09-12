@@ -1,11 +1,12 @@
 # Equity Valuation Workbench
 
 A local-first research tool for auditable valuation ranges and explicit
-assumptions. **S0 scaffold complete; next: S1 concept mapping.** There is no runnable product
+assumptions. **S1 research complete; concept review before S2.** There is no runnable product
 or financial implementation yet.
 
 Start with [milestones](docs/milestones/README.md), [P0 tasks](docs/tasks-p0.md)
-and [open decisions](docs/decisions.md). The supplied [spec](docs/spec.txt),
+and [open decisions](docs/decisions.md). Review the [S1 packet](docs/research/s1/review-brief.md)
+and the requested [news/macro agent](docs/features/N1-news-and-macro-agent.md). The supplied [spec](docs/spec.txt),
 [build guide](docs/build-guide.txt) and originals/ checksums preserve the plan.
 
 ## Setup

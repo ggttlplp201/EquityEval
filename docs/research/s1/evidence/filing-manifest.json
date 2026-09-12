@@ -1,0 +1,110 @@
+{
+  "purpose": "Original-filing S1 context evidence; not a production extractor",
+  "requests": [
+    {
+      "id": "CRCL-filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm",
+      "fetched_at": "2026-09-11T14:27:04.146547+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contact_header_configured": true,
+      "status": "archived",
+      "raw_file": "raw/CRCL-filing-20260911T142704146547Z.html.gz",
+      "raw_sha256": "2708bc61b370372a3339229fe0d0977048e11faa7cfc59a4e2509a8082ae35be",
+      "raw_bytes": 3721084,
+      "content_type": "text/html"
+    },
+    {
+      "id": "RBLX-filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1315098/000131509826000024/rblx-20251231.htm",
+      "fetched_at": "2026-09-11T14:27:41.266990+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contact_header_configured": true,
+      "status": "archived",
+      "raw_file": "raw/RBLX-filing-20260911T142741266990Z.html.gz",
+      "raw_sha256": "ff45d4915ef1517c2d6f9492e828dec081b516b8cbca92031943d88d8fd22b2d",
+      "raw_bytes": 2473581,
+      "content_type": "text/html"
+    },
+    {
+      "id": "AAPL-filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+      "fetched_at": "2026-09-11T14:27:49.483879+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contact_header_configured": true,
+      "status": "archived",
+      "raw_file": "raw/AAPL-filing-20260911T142749483879Z.html.gz",
+      "raw_sha256": "548ae59778cf08ee0f2ee088e7ece20d947076c3c01f74d2d65db4c2777e436a",
+      "raw_bytes": 1520208,
+      "content_type": "text/html"
+    },
+    {
+      "id": "MSFT-filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000095017025100235/msft-20250630.htm",
+      "fetched_at": "2026-09-11T14:28:07.068688+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contact_header_configured": true,
+      "status": "archived",
+      "raw_file": "raw/MSFT-filing-20260911T142807068688Z.html.gz",
+      "raw_sha256": "99d693f6c1544144ebeee92954f151a85bc62111837530a42855953bc01d0bbe",
+      "raw_bytes": 8158067,
+      "content_type": "text/html"
+    },
+    {
+      "id": "TSM-filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+      "fetched_at": "2026-09-11T14:29:36.812755+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contact_header_configured": true,
+      "status": "transport_error",
+      "error_type": "IncompleteRead"
+    },
+    {
+      "id": "COST-filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/909832/000090983225000101/cost-20250831.htm",
+      "fetched_at": "2026-09-11T14:30:31.133401+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contact_header_configured": true,
+      "status": "archived",
+      "raw_file": "raw/COST-filing-20260911T143031133401Z.html.gz",
+      "raw_sha256": "2cf71f4336c8f36b008a584403551d95ab3b7e4addc9179a99b62029810f7c9a",
+      "raw_bytes": 1438962,
+      "content_type": "text/html"
+    },
+    {
+      "id": "KHC-restatement-note",
+      "url": "https://www.sec.gov/Archives/edgar/data/1637459/000163745919000049/R9.htm",
+      "fetched_at": "2026-09-11T14:30:49.876361+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contact_header_configured": true,
+      "status": "archived",
+      "raw_file": "raw/KHC-restatement-note-20260911T143049876361Z.html.gz",
+      "raw_sha256": "0126d6e4601ceca0df86cbd89fd2286e9b0be9da39bf4bba1d6a7e759122dce6",
+      "raw_bytes": 1012281,
+      "content_type": "text/html"
+    },
+    {
+      "id": "JPM-filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026008131/jpm-20251231.htm",
+      "fetched_at": "2026-09-11T14:31:00.549012+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contact_header_configured": true,
+      "status": "archived",
+      "raw_file": "raw/JPM-filing-20260911T143100549012Z.html.gz",
+      "raw_sha256": "4d9febdbc2038dcdca8726053286df4cbbfd48885051cbd781efcc3becb66a23",
+      "raw_bytes": 12927325,
+      "content_type": "text/html"
+    },
+    {
+      "id": "TSM-filing",
+      "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm",
+      "fetched_at": "2026-09-11T14:33:53.489715+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contact_header_configured": true,
+      "status": "archived",
+      "raw_file": "raw/TSM-filing-20260911T143353489715Z.html.gz",
+      "raw_sha256": "c3ebd05cd8fb383f53fc21a0ac497ee12cf908b709c380f9bec4f39c4916647b",
+      "raw_bytes": 10355816,
+      "content_type": "text/html"
+    }
+  ]
+}

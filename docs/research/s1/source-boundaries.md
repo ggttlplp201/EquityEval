@@ -1,7 +1,8 @@
 # SEC source boundaries and implications
 
 Verified from official SEC documentation on 2026-09-11. Payload field behavior
-and cohort-specific coverage remain pending empirical inspection.
+and cohort-specific coverage were inspected in the archived responses; see the
+[packet index](README.md).
 
 ## Company Facts
 
@@ -58,9 +59,12 @@ artwork/logo restrictions do not define the selected financial-data scope.
 [Reuse FAQ](https://www.sec.gov/about/webmaster-frequently-asked-questions),
 [dissemination policy](https://www.sec.gov/about/privacy-information)
 
-## Pending empirical checks
+## Empirical findings
 
-Verify the actual availability and meaning of start/end, accn, fy/fp, filed and
-optional frame fields; comparative-period repetitions; restatement rows; units
-and scaling; missing concepts; and company-specific tag choices. API landing
-pages do not establish those observations for this cohort.
+The captured KHC history confirms repeated comparative periods under different
+`fy` values, nullable `fy`/`fp` on an 8-K row and optional frames. AAPL confirms
+cover-date versus period-end shares. TSM confirms `TWD`/`TWD/shares`, missing
+source labels and a newer filing with absent financial API rows. CRCL/MSFT/JPM
+and RBLX original filings demonstrate extension/context gaps and economically
+broader subtotals. The concept map and company notes link exact local evidence.
+These findings are adapter requirements, not implemented normalization.

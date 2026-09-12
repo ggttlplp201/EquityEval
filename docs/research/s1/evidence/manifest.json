@@ -1,0 +1,162 @@
+{
+  "source": "SEC EDGAR Company Facts",
+  "purpose": "S1 source reconnaissance; not normalized golden fixtures",
+  "requests": [
+    {
+      "ticker": "AAPL",
+      "cik": "0000320193",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+      "fetched_at": "2026-09-11T14:13:46.989953+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "raw_file": "raw/AAPL-20260911T141346989953Z.json.gz",
+      "raw_sha256": "73a86c6aedc31f77cac2ea4df5f80f0b3bd7e6eb58bb4e01444fbedf3afb9c43",
+      "raw_bytes": 3789099,
+      "content_type": "application/json",
+      "contact_header_configured": true,
+      "status": "archived",
+      "entity_name": "Apple Inc.",
+      "taxonomies": {
+        "dei": 2,
+        "us-gaap": 503
+      }
+    },
+    {
+      "ticker": "MSFT",
+      "cik": "0000789019",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+      "fetched_at": "2026-09-11T14:14:05.959153+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "raw_file": "raw/MSFT-20260911T141405959153Z.json.gz",
+      "raw_sha256": "f8aae2965b20ad0df44bdf7ccbedf797d275b6b8dc030154a7a311361bb7246f",
+      "raw_bytes": 4881196,
+      "content_type": "application/json",
+      "contact_header_configured": true,
+      "status": "archived",
+      "entity_name": "MICROSOFT CORPORATION",
+      "taxonomies": {
+        "dei": 3,
+        "us-gaap": 562
+      }
+    },
+    {
+      "ticker": "JPM",
+      "cik": "0000019617",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000019617.json",
+      "fetched_at": "2026-09-11T14:14:23.209446+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "raw_file": "raw/JPM-20260911T141423209446Z.json.gz",
+      "raw_sha256": "e43e1ce75230d81dc20399e0466b13f856103fe7fc4b2bbedde7ea75018326ac",
+      "raw_bytes": 7934834,
+      "content_type": "application/json",
+      "contact_header_configured": true,
+      "status": "archived",
+      "entity_name": "JPMORGAN CHASE & CO",
+      "taxonomies": {
+        "dei": 2,
+        "invest": 1,
+        "srt": 2,
+        "us-gaap": 918,
+        "ffd": 6,
+        "ecd": 7
+      }
+    },
+    {
+      "ticker": "CRCL",
+      "cik": "0001876042",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "fetched_at": "2026-09-11T14:14:48.625425+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "raw_file": "raw/CRCL-20260911T141448625425Z.json.gz",
+      "raw_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "raw_bytes": 455994,
+      "content_type": "application/json",
+      "contact_header_configured": true,
+      "status": "archived",
+      "entity_name": "CIRCLE INTERNET GROUP, INC.",
+      "taxonomies": {
+        "us-gaap": 292,
+        "dei": 1,
+        "ffd": 5
+      }
+    },
+    {
+      "ticker": "RBLX",
+      "cik": "0001315098",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001315098.json",
+      "fetched_at": "2026-09-11T14:14:54.312576+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "raw_file": "raw/RBLX-20260911T141454312576Z.json.gz",
+      "raw_sha256": "da93dfbe41ad0be3c80f12e25819e45a48e960678647dc8d7235efdfce5aa481",
+      "raw_bytes": 1327696,
+      "content_type": "application/json",
+      "contact_header_configured": true,
+      "status": "archived",
+      "entity_name": "Roblox Corporation",
+      "taxonomies": {
+        "us-gaap": 368,
+        "dei": 1,
+        "ecd": 7,
+        "srt": 1
+      }
+    },
+    {
+      "ticker": "TSM",
+      "cik": "0001046179",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001046179.json",
+      "fetched_at": "2026-09-11T14:14:59.576388+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "raw_file": "raw/TSM-20260911T141459576388Z.json.gz",
+      "raw_sha256": "d3ebb91e3ad78c9482e238c4db36df60b295a3b49ca137774706f4f5e526044a",
+      "raw_bytes": 911248,
+      "content_type": "application/json",
+      "contact_header_configured": true,
+      "status": "archived",
+      "entity_name": "Taiwan Semiconductor Manufacturing Company Limited",
+      "taxonomies": {
+        "dei": 1,
+        "ifrs-full": 334,
+        "srt": 1
+      }
+    },
+    {
+      "ticker": "KHC",
+      "cik": "0001637459",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001637459.json",
+      "fetched_at": "2026-09-11T14:15:04.081902+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "raw_file": "raw/KHC-20260911T141504081902Z.json.gz",
+      "raw_sha256": "8fad66c16e535f7749f19126a986a9f43a087ca2472d063fa7742106196d88ac",
+      "raw_bytes": 3417827,
+      "content_type": "application/json",
+      "contact_header_configured": true,
+      "status": "archived",
+      "entity_name": "Kraft Heinz Co",
+      "taxonomies": {
+        "dei": 2,
+        "us-gaap": 657,
+        "srt": 1,
+        "ffd": 6
+      }
+    },
+    {
+      "ticker": "COST",
+      "cik": "0000909832",
+      "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000909832.json",
+      "fetched_at": "2026-09-11T14:15:17.966620+00:00",
+      "params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "raw_file": "raw/COST-20260911T141517966620Z.json.gz",
+      "raw_sha256": "71a4fd99c86f27c3aa27b8f05b3a9705c16f0060b425395bb1a367ce239b7d1f",
+      "raw_bytes": 3617189,
+      "content_type": "application/json",
+      "contact_header_configured": true,
+      "status": "archived",
+      "entity_name": "COSTCO WHOLESALE CORP /NEW",
+      "taxonomies": {
+        "dei": 2,
+        "us-gaap": 460,
+        "srt": 1,
+        "ffd": 5
+      }
+    }
+  ]
+}
