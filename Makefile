@@ -3,7 +3,7 @@ PYTHON ?= python3.12
 VENV_PY := .venv/bin/python
 COMPOSE := docker compose --project-directory . -f infra/compose.yaml
 
-.PHONY: help bootstrap install-hooks test test-core test-golden lint typecheck check lock-python infra-config infra-up infra-down infra-status migration-history migration-sql migrate
+.PHONY: help bootstrap install-hooks test test-core test-golden lint typecheck check lock-python infra-config infra-up infra-down infra-status migration-history migration-sql migrate test-db-start test-db-status test-db-stop
 
 help:
 	@echo "bootstrap | check | test | test-core | test-golden | lint | typecheck"
@@ -28,6 +28,7 @@ lint:
 	.venv/bin/ruff check .
 	.venv/bin/ruff format --check .
 	$(VENV_PY) scripts/check_policy.py
+	$(VENV_PY) scripts/generate_concepts.py --check
 	npm run lint
 
 typecheck:
@@ -59,3 +60,13 @@ migration-sql:
 
 migrate:
 	.venv/bin/alembic upgrade head
+
+# Separate disposable PG16 runtime; never uses the application DATABASE_URL.
+test-db-start:
+	$(VENV_PY) scripts/test_postgres.py start
+
+test-db-status:
+	$(VENV_PY) scripts/test_postgres.py status
+
+test-db-stop:
+	$(VENV_PY) scripts/test_postgres.py stop

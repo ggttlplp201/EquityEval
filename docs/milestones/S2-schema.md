@@ -1,10 +1,11 @@
 # S2 — Schema and point-in-time layer
 
-Status: design prepared — schema review pending; implementation not started
+Status: Complete for accepted S2a/S2b storage and durable-request scope
 Date: 2026-09-12 (Asia/Shanghai)
 Task: EquityEval — milestone build log
 Task ID: 01a08f8c-85c8-7bb0-9e60-6eb24809d8de
 Branch: codex/s2-schema-design
+Checkpoint tag: milestone/s2
 Dependency: S1 evidence commit 5746e7d, review tag milestone/s1-review
 User direction: move to S2; add manual/terminology and watchlist-triggered full analysis.
 
@@ -34,18 +35,19 @@ pins real KHC expected values and adversarial SQL/concurrency behavior before co
 - Completed snapshots/model runs are immutable; latest-result pointers and job
   progress are separate. Manual and glossary use the same domain meanings.
 
-## Review performed
+## Earlier design-checkpoint review
 
 Independent reviews challenged PIT and workflow failure cases. The proposal was
 refined to address same-day/source-version ambiguity, statement authority,
 request-wide retry fencing, atomic state/event changes, parent/membership/quote
 consistency, deferred assumption FKs and withdrawn-original eligibility.
 
-Required scaffold lint/typechecks/test harness run at the documentation checkpoint.
-No database or financial behavior tests have been executed for S2 yet; their
-expected outcomes are documented. No migration, SQL schema, concept enum or
-worker was implemented. Docker remains absent; a psql executable alone does not
-prove a compatible isolated database is available.
+At the earlier documentation checkpoint, scaffold lint/typechecks/test harness
+checks ran, but no S2 database or financial behavior tests had been executed.
+Expected outcomes were documented; migrations, SQL schema, concept enum and
+worker were not yet implemented. Docker was absent and the isolated PostgreSQL
+runtime had not yet been established. The implemented checkpoint below supersedes
+that earlier status.
 
 ## N1 refinement — 2026-09-12
 
@@ -81,9 +83,48 @@ Independent review added fair scheduling, discovery/assessment backlog and compl
 coverage tracking so successful polling cannot hide stalled assessments.
 This is a requirements checkpoint; monitoring is not activated by documenting it.
 
+## Implementation authorization — 2026-09-12
+
+After the S2 proposal and N1 refinements, the user instructed “continue with the
+next part.” This is accepted as direction to implement the presented S2-01–05
+recommendations. Earlier sections describe the state at their own checkpoints.
+The current slice implements S2a then S2b; later source/API/N1 contracts remain
+subject to their own milestones. No live monitoring or alerts are activated.
+
+## Implemented checkpoint
+
+See [implementation details](../design/s2/implementation.md) for the actual modules,
+frozen migrations, workflow operations, test runtime and remaining boundaries.
+The final required commit-hook run passes **124 tests**, Ruff/import policy,
+generated-concept drift, ESLint, strict mypy and TypeScript checks. The original
+KHC amounts, non-reliance behavior, source vintages, unknown/missing states,
+immutable records, concurrent queue behavior and migration round trips run on
+PostgreSQL 16. The golden source check also passes separately. The core calculation
+suite remains intentionally empty; no valuation test is claimed.
+
+Validation command: `make lint typecheck test test-core test-golden`. All 44 local
+links in changed Markdown files resolve; `git diff --check` passes. Resolve the
+checkpoint commit with `git show --no-patch milestone/s2`.
+
+Independent reviews found and corrected unverified acceptance ordering, source-role
+vintage conflicts, missing pinned event validation, reporting-currency/measurement-unit
+conflation, additional blocking quality flags, changed-options duplicate Add, archived
+HTTP-error reuse, fixed-snapshot revision-cycle writes, and ticker interval retirement.
+A final migration-isolation regression proves explicit test URLs bypass both .env
+loading and the application DATABASE_URL, including during a fresh upgrade.
+
+Environment: Homebrew PostgreSQL 16.14 binaries were installed. Homebrew's default
+cluster post-install step failed, so the repo helper initializes and manages its own
+isolated cluster. A ca-certificates dependency was updated by Homebrew. Existing PG18
+services/databases and application .env were not changed. Strict editable installation
+and py.typed markers make aliased package imports visible to tests and mypy.
+
 ## Handoff
 
-Review decisions S2-01 through S2-05. After approval, implement S2a evidence
-storage and the KHC regression first, then S2b durable watchlist/request storage.
-Resolve an isolated PostgreSQL runtime before claiming database validation.
-Later W1/N1/U1 implementation follows the dependencies in the feature register.
+S3 begins with the concrete Source/RawRecord/Fact/archiving contract review (D008),
+then the SEC adapter and full-company golden normalization fixtures. S2 storage and
+internal operations are in place; no external API or Source contract is silently
+frozen by them. Prices/macros, engines, persistent model snapshots, product UI,
+continuous news monitoring and the verified user manual follow their recorded
+milestones. Use the original archives and S1 evidence; never fill a missing fact
+with a guess or a prior period's value.

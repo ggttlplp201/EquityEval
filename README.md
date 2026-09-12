@@ -1,8 +1,9 @@
 # Equity Valuation Workbench
 
 A local-first research tool for auditable valuation ranges and explicit
-assumptions. **S2 schema design prepared; implementation awaits review.** There is no runnable product
-or financial implementation yet.
+assumptions. **S2 evidence storage, historical selection and durable watchlist requests are implemented.**
+The database/storage layer has real PostgreSQL tests; live ingestion, financial
+engines and the product interface remain later milestones.
 
 Start with [milestones](docs/milestones/README.md), [P0 tasks](docs/tasks-p0.md)
 and [open decisions](docs/decisions.md). Review the [S2 design](docs/design/s2/README.md)
@@ -11,41 +12,54 @@ and the [requested feature list](docs/features/README.md). The supplied [spec](d
 
 ## Setup
 
-Requires Python 3.12, Node 22 and npm. Docker with Compose v2 is additionally
-required to run the local database/cache. From this repository:
+Requires Python 3.12, Node 22, npm and PostgreSQL 16 binaries for the integration
+tests. Set `EQUITY_TEST_PG_BIN` to the PostgreSQL 16 bin directory if it is not
+automatically detected. Docker with Compose v2 is an alternative runtime for the
+planned application database/cache, separate from the disposable test cluster.
+From this repository:
 
 ```sh
 make bootstrap
-cp .env.example .env
+test -f .env || cp .env.example .env
 make check
 ```
 
 Bootstrap creates .venv, installs the exact Python dependency lock and npm lock, installs
-the local Python distribution and the repository-local pre-commit hook.
-No global packages or real API credentials are required. The checked-in example
+the local Python distribution in strict editable mode and the repository-local
+pre-commit hook. Rerun bootstrap after adding a Python module so the editable
+package links include it.
+No real API credentials are required for tests. PostgreSQL 16 must already be installed. The checked-in example
 contains local development database values only. Keep .env out of Git.
 
 ## Commands
 
 | Command | Purpose |
 | --- | --- |
-| `make test` | Full pytest suite; explicitly empty in S0 |
-| `make test-core` | Valuation tests; explicitly empty in S0 |
-| `make test-golden` | Normalization fixtures; explicitly empty in S0 |
-| `make lint typecheck` | Ruff, import policy, ESLint, mypy and TypeScript |
+| `make test` | Full suite, including isolated PostgreSQL constraints, PIT and queue tests |
+| `make test-core` | Valuation suite; still intentionally empty until S5/S7 |
+| `make test-golden` | Exact archived KHC observation/provenance checks; adapters arrive in S3 |
+| `make lint typecheck` | Ruff, import policy, generated-concept drift, ESLint, mypy and TypeScript |
 | `make check` | All above checks |
 | `make infra-config` | Validate Compose using Docker Compose |
 | `make infra-up` | Start Postgres/Timescale and Redis and wait for health |
 | `make infra-status` | Show service health |
 | `make infra-down` | Stop services; keep named volumes |
-| `make migration-history` | Inspect Alembic revisions; none in S0 |
+| `make migration-history` | Inspect frozen evidence and watchlist Alembic revisions |
 | `make migration-sql` | Render migration SQL without connecting |
 | `make migrate` | Apply reviewed migrations; needs DATABASE_URL |
 | `make install-hooks` | Install the required local pre-commit hook |
+| `make test-db-start` / `test-db-status` / `test-db-stop` | Control only this repository's isolated PostgreSQL 16 test cluster |
 
-Database binds to localhost:5433; Redis binds to localhost:6380. If you change
+The planned Compose application database binds to localhost:5433; Redis binds to localhost:6380. If you change
 ports/credentials, update both Compose variables and connection URLs in .env.
 Raw payloads will go in ignored var/raw; source adapters arrive after review.
+
+Tests use a separate cluster at localhost:55432 under ignored `var/test-postgres16`.
+They never use the application DATABASE_URL or .env. Each test gets a fresh
+randomly named database cloned from a migrated template; cleanup drops only those
+test-owned databases. The cluster stays available between test commands; stop it
+with `make test-db-stop`. Tests require a real PostgreSQL 16 server and do not
+silently skip database checks. See [S2 implementation](docs/design/s2/implementation.md).
 
 ## Layout
 
@@ -53,9 +67,10 @@ Raw payloads will go in ignored var/raw; source adapters arrive after review.
 - apps/api: thin Python API package; reviewed routes begin at S6.
 - packages/core: pure financial functions after tested specifications.
 - packages/ingest: source adapters after normalization and contract review.
-- packages/schema: reviewed shared vocabulary and generated types.
+- packages/schema: reviewed concepts, generated TS, typed PIT/vintage/queue storage operations.
 - infra: local services, migration environment and worker reservation.
-- tests/core, tests/golden, tests/integration: future verification suites.
+- tests/golden and tests/integration: source evidence, database and workflow verification.
+- tests/core: financial calculation fixtures and invariants from S5/S7.
 - docs: originals, decisions, milestone records, licence register and handoffs.
 
 `equity_core`, `equity_ingest`, `equity_schema`, and `equity_api` are the Python

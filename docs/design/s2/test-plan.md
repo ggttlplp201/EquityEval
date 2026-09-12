@@ -1,6 +1,8 @@
 # S2 — Tests specified before implementation
 
-Status: proposed acceptance cases. No listed financial/database test has run yet.
+Status: acceptance cases implemented and exercised for S2 storage/requests on
+PostgreSQL 16. See [implementation](implementation.md) and the milestone record for
+verified coverage and later source/engine/N1 boundaries.
 Use a disposable PostgreSQL 16 database; mocks cannot establish SQL uniqueness,
 transactional enqueue, locks or point-in-time selection behavior.
 

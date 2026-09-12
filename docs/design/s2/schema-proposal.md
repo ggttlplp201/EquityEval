@@ -1,11 +1,11 @@
 # S2 — Storage and point-in-time proposal
 
-Status: proposed for review, 2026-09-12. S1's 40 concepts and conservative source
-rules were accepted when the user directed work to S2. This document proposes
-schema shape and execution semantics; no migrations or production queries have
-been written or applied.
+Status: S2-01–05 accepted for implementation on 2026-09-12 when the user directed
+continuation to the next part after this proposal. S2a/S2b are implemented in frozen
+SQL migrations and tested storage operations. Later contracts remain future
+requirements. See [implementation and validation](implementation.md).
 
-## Decisions requested
+## Accepted S2 decisions
 
 | ID | Recommendation | Reason |
 | --- | --- | --- |
@@ -15,7 +15,7 @@ been written or applied.
 | S2-04 | Choose the eligible reporting edition/coverage before resolving concepts. Preserve a missing/conflicting newest resolution rather than falling back to an older valid number. | Prevents TSM's missing FY2025 financials becoming FY2024 and prevents stale values reappearing after a correction. |
 | S2-05 | Preserve completed analysis snapshots and model runs; keep job progress and “latest” pointers separately mutable. | A watchlist addition/rerun refreshes analysis without overwriting history. |
 
-The reviewer can accept these recommendations together or amend individual IDs.
+These recommendations were presented before the user directed implementation.
 The [test plan](test-plan.md) defines observable outcomes before implementation.
 The new [watchlist workflow](../../features/W1-watchlist-analysis.md),
 [manual](../../features/U1-user-manual.md) and
@@ -37,7 +37,7 @@ with a fake worker; real upstream adapters and financial stages remain later wor
 analysis inputs and model outputs; N1 events/briefs/delivery; S8/W1 orchestration
 and UI. Their required fields/invariants below prevent incompatible designs now,
 but their full contracts are reviewed before migrations at those milestones.
-This is an explicit proposed resolution of D006, not a claim all of S2 is coded.
+This resolves D006 for the initial storage slices; later tables follow their own milestones.
 
 ## Relationship overview
 
@@ -62,7 +62,9 @@ workers or an implemented product.
 
 ## Global types and integrity
 
-- Internal IDs: UUID generated before a transaction; CIK remains nullable text
+- Internal IDs: UUID; evidence IDs are supplied before insertion, while atomic
+  queue functions allocate IDs inside the transaction and preserve retry identity
+  through caller idempotency keys. CIK remains nullable text
   with ten-digit validation and a unique non-null value. Ticker is never a key.
 - Reported amounts: finite PostgreSQL `NUMERIC` without a fixed scale, Python
   `Decimal`, original numeric token/lexical text retained. Fixed-scale coercion
@@ -104,6 +106,8 @@ Tables below are the complete proposed S2a scope; join records are included.
 | `issuers` | id, cik?, legal_name, first_seen_at | Unique non-null CIK. Facts attach to a reporting entity, not every ticker that references it. |
 | `securities` | id, issuer_id, instrument_kind, share_class_label?, underlying_security_id?, active | Ordinary/common class and ADS are distinct instruments. No self-underlying or cross-issuer relationship; unknown class is explicit and blocks class-sensitive calculations. |
 | `security_identifiers` | id, security_id, symbol, exchange_code, quote_currency, valid_from, valid_to?, source_capture_id | Half-open validity intervals; no overlapping assignment of the same exchange/symbol to different securities. Preserve ticker changes/reuse; no naked symbol auto-resolution. |
+| `security_identifier_validity` | quote_identifier_id, security_id, symbol, exchange_code, valid_from, current_valid_to? | Guarded current-interval projection carrying the no-overlap exclusion. Original identifier evidence stays immutable. |
+| `security_identifier_closures` | id, quote_identifier_id, valid_to, source_capture_id, recorded_at | One immutable source-backed closure of an initially open identifier; atomically updates the projection. Only the narrow close function may create it. |
 | `security_relationships` | id, security_id, underlying_security_id, valid_from, valid_to?, underlying_units, instrument_units, source_capture_id | Positive exact ratio, non-overlapping dates per relationship, same issuer; preserve dated ADS ratio without rewriting history. Stock splits are separate source events, not edits to old share observations. |
 | `sources` | id, source_key, name, base_url, terms_review_reference, content_scope | Unique source_key; contact/API secrets remain local configuration. Captures retain their terms-review reference so later source metadata edits cannot relabel history. |
 | `source_captures` | id, source_id, source_object_key, request_url, request_params_hash, requested_at, completed_at?, fetched_at?, http_status?, body_sha256?, blob_key?, byte_count?, content_type?, terms_review_reference | Successful body-bearing captures require a verified blob/hash/count. Failed attempts remain distinguishable; archive before parse. Only actual network attempts create capture rows. Cache reuse is recorded on the stage attempt referencing the old capture; it never creates a new fetch timestamp. Same bytes fetched again are a separate retrieval event. The stable source_object_key groups requests for the same logical source resource. |
@@ -113,16 +117,16 @@ Tables below are the complete proposed S2a scope; join records are included.
 | `units` | id, unit_key, numerator_measures, denominator_measures | Unique canonical measure identity, plus source spelling on each observation. USD, TWD, USD/shares, TWD/shares and shares are distinct; a unit never implies an ADS ratio. |
 | `semantic_scopes` | id, issuer_id, instrument_id?, scope_kind, descriptor_schema_version, descriptor_json, content_sha256 | Immutable full economic-scope descriptor; unique issuer/schema-version/content hash with full-content collision comparison. Unknown and known-empty context remain different. |
 | `mapping_revisions` | id, revision_key, content_sha256, code_revision, approved_at, approved_by, reviewed_scope | Unique immutable revision/content hash for checked-in rules and issuer/era overrides. Only reviewed revisions may publish resolutions. No mutable runtime coalesce list. |
-| `normalization_batches` | id, issuer_id, mapping_revision_id, normalizer_revision, source_authority_policy_revision, created_at, published_at?, state, input_manifest_hash? | States building/published/failed. Publication seals all child inputs/coverage/resolutions in one transaction; published data is immutable. Failed/incomplete batches are never query candidates. |
+| `normalization_batches` | id, issuer_id, mapping_revision_id, normalizer_revision, source_authority_policy_revision, created_at, published_at?, state, input_manifest_hash?, output_manifest_hash? | States building/published/failed. Publication seals all child inputs/coverage/resolutions in one transaction; published data is immutable. Failed/incomplete batches are never query candidates. |
 | `normalization_inputs` | batch_id, source_capture_id, role | Composite primary key; explicit capture manifest including financial payload, filing metadata and any original document. All successful referenced bodies must exist before publication. |
 | `statement_coverage` | id, batch_id, filing_version_id, period_id, statement_family, period_label?, reporting_basis, scope_id, currency_unit_id?, authority_class, assurance, coverage_state, evidence_locator | Unique NULLS NOT DISTINCT(batch,filing-version,period,family,basis,scope,currency). Unknown currency is allowed only for unresolved coverage and blocks value selection; it cannot be filtered away to revive an older edition. Authority and assurance are evidence-backed, not guessed solely from form type. Coverage records whether a filing actually covers a requested statement period, whether the selected source lacks its facts, or scope is unresolved. Annual/YTD/quarter labels are evidence-based. No invented current period merely from today's year. |
-| `source_observations` | id, source_capture_id, filing_version_id, source_locator, namespace, tag, period_id, unit_id, numeric_value?, value_state, original_numeric_text?, context_id?, raw_dimensions?, context_knowledge, parser_revision, transform_metadata, raw_metadata | Unique capture/locator; full raw row/context retains fy/fp/form/frame, sign/scale/precision and source labels, including NULL labels. States numeric/source_nil/unparseable. `numeric` requires finite value; other states require NULL. Do not create an observation for an absent tag. |
+| `source_observations` | id, source_capture_id, filing_version_id, source_locator, namespace, tag, period_id, unit_id, semantic_scope_id?, numeric_value?, value_state, original_numeric_text?, context_id?, raw_dimensions?, context_knowledge, parser_revision, transform_metadata, raw_metadata | Unique capture/locator; full raw row/context retains fy/fp/form/frame, sign/scale/precision and source labels, including NULL labels. States numeric/source_nil/unparseable. `numeric` requires finite value; other states require NULL. Do not create an observation for an absent tag. |
 | `fact_resolutions` | id, coverage_id, concept_std, semantic_scope_id, instrument_id?, unit_id, status, selected_observation_id?, reason? | Unique NULLS NOT DISTINCT(coverage,concept,semantic_scope,instrument,unit). Status observed/source_nil/missing/ambiguous/unsupported_scope/stale_source. Observed requires a numeric source observation; source_nil requires its explicit nil observation; other states have no selected value. Missingness requires a reason and a linked flag. |
 | `resolution_candidates` | resolution_id, observation_id, rule_reference, disposition, explanation | Composite primary key. Retain considered/rejected alternatives and why; prevents a “winner” from erasing disagreement or incompatible scope. |
 | `data_quality_flags` | id, batch_id?, resolution_id?, issuer_id, security_id?, period_id?, rule_key, severity, message, evidence_references, raised_at | Evidence-bearing immutable finding. At least one affected scope is explicit. Acknowledgement is a separate record and does not make a flagged value usable. |
 | `quality_flag_acknowledgements` | id, flag_id, acknowledged_by, acknowledged_at, note | Audit action; cannot change flag severity or source data. |
-| `filing_events` | id, issuer_id, event_kind, announced_date, announced_at?, effective_date?, source_filing_version_id, evidence_locator, description | Non-reliance, withdrawal, formal correction, accounting recast and source correction are distinct. A later different number alone cannot establish the event type. |
-| `filing_event_scopes` | event_id, filing_id?, period_id?, concept_std? | Explicit affected filings/periods/concepts; at least filing or period required, with NULL-aware uniqueness. Non-reliance/withdrawal requires explicit affected filing IDs; a period-only scope cannot automatically taint later replacement editions. No unrelated-period blanket invalidation. |
+| `filing_events` | id, issuer_id, creation_transaction_id, event_kind, announced_date, announced_at?, effective_date?, source_filing_version_id, evidence_locator, description | Non-reliance, withdrawal, formal correction, accounting recast and source correction are distinct. A later different number alone cannot establish the event type. |
+| `filing_event_scopes` | event_id, filing_id?, period_id?, concept_std? | Explicit affected filings/periods/concepts; at least filing or period required, with NULL-aware uniqueness. Non-reliance/withdrawal requires explicit affected filing IDs; a period-only scope cannot automatically taint later replacement editions. No unrelated-period blanket invalidation. Event and scopes must be inserted in one transaction; the scope set seals at commit. |
 | `fact_revision_links` | earlier_resolution_id, later_resolution_id, relation_kind, filing_event_id?, rationale, evidence_reference | Same entity/concept/period/scope/unit; no self-link or cycles. Error-restatement links require supporting event/evidence. Repeated unchanged comparatives do not automatically create restatement links. |
 
 ### Context, value and missingness rules
@@ -153,9 +157,13 @@ No rows are removed from the PIT candidate set just because their values are NUL
 
 The proposed read interface takes issuer/security, exact requested periods and
 statement families, one history mode, optional filed-date cutoff, a required
-retrieval vintage/capture manifest, explicit normalization batch IDs, normalizer
+retrieval vintage/capture manifest, explicit filing-event IDs, optional additional
+quality-flag IDs, explicit normalization batch IDs, normalizer
 revision, mapping revision and source-authority policy revision. It returns resolutions,
-selected edition IDs, evidence and flags; never a bare numeric table.
+selected edition IDs, evidence and flags; never a bare numeric table. Reporting
+currency and fact measurement unit are separate: USD coverage can contain
+USD/share EPS and shares-count facts. Multi-statement reads enforce one snapshot
+and flag incompatible editions, accounting bases, scopes and currencies.
 
 Modes:
 
@@ -238,7 +246,8 @@ silently conflated. Identifiers and ownership are explicit even in single-user u
 | `workspaces` | id, name, display_timezone, created_at | Local workspace, not a remote user account. |
 | `watchlists` | id, workspace_id, name, created_at | One default list initially; no implicit holdings/positions. |
 | `watchlist_memberships` | id, watchlist_id, security_id, quote_identifier_id, added_at, removed_at?, generation | Partial unique active watchlist/security; chosen exchange/currency is preserved by its quote identifier. Old membership preserved. Re-add creates a new generation. |
-| `analysis_requests` | id, workspace_id, security_id, quote_identifier_id, trigger, membership_id?, parent_request_id?, request_sequence, idempotency_key, requested_at, history_mode, filed_cutoff?, requested_periods, retrieval_policy, request_parameters_hash | Immutable request. Unique workspace/idempotency key; same key/different parameters is an error. Sequence allocated by a DB sequence, with unique workspace/security/sequence; gaps are allowed. Parent request, membership and quote identifier must match workspace/security and the intended listing validity. Distinct explicit reruns get new IDs. |
+| `analysis_requests` | id, workspace_id, security_id, quote_identifier_id, trigger, membership_id?, parent_request_id?, request_sequence, idempotency_key, requested_at, history_mode, filed_cutoff?, requested_periods, retrieval_policy, retrieval_vintage?, max_attempts, request_parameters_hash | Immutable request. Unique workspace/idempotency key; same key/different parameters is an error. Sequence allocated by a DB sequence, with unique workspace/security/sequence; gaps are allowed. Parent request, membership and quote identifier must match workspace/security and the intended listing validity. Distinct explicit reruns get new IDs. |
+| `analysis_request_keys` | workspace_id, idempotency_key, request_parameters_hash, request_id | Immutable aliases preserve repeated Add intent even when distinct transport keys coalesce. Changed options require explicit Refresh. |
 | `analysis_request_state` | request_id, current_execution_id?, attempt_epoch, terminal_outcome?, updated_at | One mutable control row per request; current execution belongs to it. Request-wide fencing prevents two retries from publishing. Result FK and one-publication constraint are added with snapshots later. |
 | `analysis_executions` | id, request_id, attempt_no, state, current_stage?, available_at, lease_owner?, lease_expires_at?, fencing_token, cancellation_requested_at?, started_at?, finished_at?, error_code?, error_detail? | Unique request/attempt; only the request-state current attempt/epoch with a valid lease can advance or publish. Retrying preserves request identity. No completed model value is stored in this mutable record. |
 | `analysis_stage_attempts` | id, execution_id, stage_key, attempt_no, state, started_at?, finished_at?, input_manifest?, result_reference?, error_code?, error_detail? | Unique execution/stage/attempt. Source calls, reusable captures, unsupported stages and failures remain traceable. Finished attempts cannot be rewritten. |
@@ -321,16 +330,16 @@ must document its real capabilities and limitations before final release.
 
 ## Migration and validation approach
 
-After review, create sequential Alembic revisions for S2a and S2b. Generate database concept CHECK constraints and TS members from the 40
-accepted checked-in Python enum members;
-reject undeclared concepts at Python and DB validation points. Rebuild a clean
-PostgreSQL 16 test database, run upgrade, constraint/PIT tests, downgrade/upgrade
-in disposable data only, and compare expected metadata/migration SQL. Use a
-separate migration role and runtime grants. Do not run destructive tests against
-the user's development data.
+Implemented as sequential frozen Alembic revisions `0001_evidence` and
+`0002_watchlist`. The database concept CHECK and generated TypeScript members
+are checked against the 40 accepted Python enum members. Undeclared concepts
+are rejected. Tests exercise constraints, PIT selection and workflow behavior on
+PostgreSQL 16, then verify upgrade/downgrade/re-upgrade catalog parity in disposable
+databases. Migration ownership is separate from least-privilege runtime grants.
 
-Docker remains unavailable at the last check; `psql` exists, which does not prove
-a running compatible server. Before implementation validation, detect a suitable
-isolated local test server or resolve Docker. Static SQL/offline Alembic output
-alone cannot satisfy S2's actual database regression gate. The design work is
-not blocked by that runtime prerequisite, and no system service is changed here.
+Validation uses the repository-managed PostgreSQL 16.14 cluster and random test
+databases; Docker is not required. The helper checks cluster identity and leaves
+existing PostgreSQL services and application data untouched. See the
+[implementation record](implementation.md) for setup, executed checks and later
+milestone boundaries. The [milestone record](../../milestones/S2-schema.md) retains
+the earlier design checkpoint and records the runtime installation outcome.

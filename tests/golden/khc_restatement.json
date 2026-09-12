@@ -1,0 +1,76 @@
+{
+  "source_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001637459.json",
+  "capture_time": "2026-09-11T14:15:04.081902+00:00",
+  "archive": "docs/research/s1/evidence/raw/KHC-20260911T141504081902Z.json.gz",
+  "raw_sha256": "8fad66c16e535f7749f19126a986a9f43a087ca2472d063fa7742106196d88ac",
+  "raw_bytes": 3417827,
+  "observations": [
+    {
+      "tag": "NetIncomeLoss",
+      "unit": "USD",
+      "locator": "/facts/us-gaap/NetIncomeLoss/units/USD/76",
+      "row": {
+        "start": "2017-01-01",
+        "end": "2017-12-30",
+        "val": 10999000000,
+        "accn": "0001637459-18-000015",
+        "fy": 2017,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2018-02-16"
+      }
+    },
+    {
+      "tag": "NetIncomeLoss",
+      "unit": "USD",
+      "locator": "/facts/us-gaap/NetIncomeLoss/units/USD/77",
+      "row": {
+        "start": "2017-01-01",
+        "end": "2017-12-30",
+        "val": 10941000000,
+        "accn": "0001637459-19-000049",
+        "fy": 2018,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2019-06-07"
+      }
+    },
+    {
+      "tag": "ProfitLoss",
+      "unit": "USD",
+      "locator": "/facts/us-gaap/ProfitLoss/units/USD/65",
+      "row": {
+        "start": "2017-01-01",
+        "end": "2017-12-30",
+        "val": 10990000000,
+        "accn": "0001637459-18-000015",
+        "fy": 2017,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2018-02-16"
+      }
+    },
+    {
+      "tag": "ProfitLoss",
+      "unit": "USD",
+      "locator": "/facts/us-gaap/ProfitLoss/units/USD/66",
+      "row": {
+        "start": "2017-01-01",
+        "end": "2017-12-30",
+        "val": 10932000000,
+        "accn": "0001637459-19-000049",
+        "fy": 2018,
+        "fp": "FY",
+        "form": "10-K",
+        "filed": "2019-06-07"
+      }
+    }
+  ],
+  "non_reliance": {
+    "announced_date": "2019-05-06",
+    "determined_date": "2019-05-02",
+    "accession": "0001637459-19-000033",
+    "affected_accession": "0001637459-18-000015",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1637459/000163745919000033/may2019form8-k.htm"
+  }
+}

@@ -1,4 +1,4 @@
-"""Alembic environment only. Domain metadata and revisions are pending S2 review."""
+"""Run reviewed, frozen SQL migrations using an explicit migration-owner connection."""
 
 import os
 from logging.config import fileConfig
@@ -11,13 +11,16 @@ from sqlalchemy import create_engine, pool
 config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
-load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
-# None deliberately prevents schema autogeneration before S2 approval.
+# Frozen SQL revisions are authoritative; do not autogenerate from mutable application models.
 target_metadata = None
 
 
 def database_url() -> str:
+    explicit_url = config.get_main_option("sqlalchemy.url")
+    if explicit_url:
+        return explicit_url
+    load_dotenv(Path(__file__).resolve().parents[2] / ".env")
     value = os.environ.get("DATABASE_URL")
     if not value:
         raise RuntimeError("Set DATABASE_URL in the environment or project .env before migrations.")

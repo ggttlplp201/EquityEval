@@ -4,6 +4,6 @@ cd "$(dirname "$0")/.."
 python_bin="${PYTHON:-python3.12}"
 "$python_bin" -m venv .venv
 .venv/bin/python -m pip install -r requirements-dev.lock
-.venv/bin/python -m pip install --no-deps --no-build-isolation -e .
+.venv/bin/python -m pip install --no-deps --no-build-isolation -e . --config-settings editable_mode=strict
 npm ci
 .venv/bin/python scripts/install_hooks.py

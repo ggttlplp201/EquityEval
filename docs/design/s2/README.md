@@ -1,8 +1,11 @@
 # S2 design review
 
 S1 was accepted on 2026-09-12 with the user's instruction to move to S2. The
-current deliverable is a concrete schema/point-in-time proposal, before migrations.
+proposal was then accepted for implementation by the instruction to continue with
+the next part. The storage implementation and tests are now recorded below.
 
+- [Implementation and validation](implementation.md): frozen migrations, runtime,
+  source/vintage/PIT selection, queue operations and remaining milestones.
 - [Schema proposal](schema-proposal.md): decisions S2-01–05, table fields/keys,
   missingness and time policies, watchlist jobs and later contract requirements.
 - [Tests before implementation](test-plan.md): real KHC expected values plus

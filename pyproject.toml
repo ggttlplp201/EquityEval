@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "equity-valuation-workbench"
 version = "0.0.1"
-description = "Local-first equity valuation workbench; S0 infrastructure scaffold"
+description = "Local-first equity valuation workbench with versioned evidence and research workflows"
 requires-python = ">=3.12,<3.13"
 readme = "README.md"
 dependencies = [
@@ -41,6 +41,9 @@ equity_api = "apps/api"
 equity_core = "packages/core"
 equity_ingest = "packages/ingest"
 equity_schema = "packages/schema"
+
+[tool.setuptools.package-data]
+"*" = ["py.typed"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

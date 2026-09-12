@@ -1,2 +1,1 @@
-// Reserved for generated S6 contract types. No domain vocabulary is defined in S0.
-export {};
+export { CONCEPTS, type Concept } from "./concepts";
