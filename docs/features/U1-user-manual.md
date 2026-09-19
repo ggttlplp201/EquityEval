@@ -67,3 +67,25 @@ The finished product walkthrough and live-alert instructions remain pending.
 The [prices and macro chapter](../user-manual/prices-and-macro.md) now documents
 S4a field meanings, native units, independent historical controls, coverage gaps
 and reruns. Product screen walkthroughs remain pending the interface build.
+
+## F1 fundamentals teaching requirements
+
+The [new fundamentals specification](F1-fundamentals-guide.md) is planned for
+S5/S6/S8b/S8d. Add a five-minute company first-pass walkthrough and contextual
+“Why this matters” content for growth, profitability, cash generation, balance
+sheet, valuation and returns on capital. Reuse one definition/formula/example
+source in Help and the company view.
+
+Explain TTM versus fiscal year versus quarter YoY; flow periods versus balance
+sheet dates; percentage versus percentage-point changes; reported versus adjusted
+or forecast EPS; PPE-capex FCF versus FCFF; dilution versus SBC; gross margin
+versus unit economics; net cash versus restricted/reserve cash; common versus
+consolidated scope; N/A versus N/M and usable versus covered inputs.
+
+Teach selection of 3-, 5- and 10-year history, sample dates/counts and exclusions,
+why a band can be unavailable, and why a historical percentile is not intrinsic
+value. Explain loss transitions, extreme ratios, freshness and sector limitations.
+Use the six source fixtures as explicitly synthetic examples, checked against the
+engine. Test keyboard/mobile access to definitions and provenance, shared snapshot
+identity in Overview/Ratios, and the separate previous result after refresh failure.
+This is a manual requirement, not a claim these screens exist today.

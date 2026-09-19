@@ -1,0 +1,17 @@
+{
+  "received_on": "2026-09-19",
+  "source_path": "/Users/leon/Documents/Codex/2026-09-19/referenced-chatgpt-conversation-this-is-an/outputs/EquityEval_Fundamentals_Implementation_Spec.docx",
+  "purpose": "Source specification for planning only; not authorization to implement proposed contracts",
+  "baseline_commit": "5eeec7e5a74107e394cb6893999409038f3d87d8",
+  "files": {
+    "EquityEval_Fundamentals_Implementation_Spec.docx": "551f864fe7819c34fa5335322ed2f5b221421e77d4d9d2d1049ead29f6d61f55",
+    "source-text.md": "2e7e682a4d5feaa57dd6ca7d670c818ab2f5caa54f3b9001fec6ed2b0af2a78d"
+  },
+  "extraction": {
+    "document_order_blocks": 79,
+    "paragraphs": 74,
+    "tables": 5,
+    "media": 0,
+    "rendered_pages_reviewed": 7
+  }
+}

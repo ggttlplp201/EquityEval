@@ -124,8 +124,13 @@ inputs that would produce a plausible but incorrect number rather than raising.
 
 ## Scope discipline
 
-Current scope: **P0 plus user-requested N1, W1 and U1 extensions**. Read the
-feature register in docs/features/README.md. Other P1/P2 features remain deferred.
+Current scope: **P0 plus user-requested N1, W1 and U1 extensions; F1 planned**.
+Read the feature register in docs/features/README.md. F1 fundamentals was added
+to the plan on 2026-09-19, including selectable 3/5/10-year comparison history.
+The user requested planning after S4a completion, not feature implementation.
+Read docs/features/F1-fundamentals-guide.md and docs/milestones/S5-ratios.md
+before its next work; D021 contract/policy review remains open. Other P1/P2
+features remain deferred.
 If something feels like it needs a contract change (`packages/schema` or the
 `concept_std` enum), stop and ask — that happens in a dedicated sequential
 session, never inside a feature branch.

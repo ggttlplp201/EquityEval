@@ -102,3 +102,21 @@ source batches. See the [S4 implementation](../design/s4/implementation.md).
 This completes another source-stage slice of W1b; automatic full financial analysis,
 search/add/rerun screens and monitoring alerts still depend on the remaining
 engines, public API, UI and N1 work.
+
+## F1 planned calculation stage
+
+The [fundamentals guide](F1-fundamentals-guide.md) will become an applicable S5/S6
+calculation stage in this workflow. Reuse existing requests, leases, independent
+source stages and the planned analysis input/snapshot model. Review a typed result
+reference and guarded publication before adding it. S8d will show the same
+snapshot in Overview and Ratios, including selected 3/5/10-year comparison history.
+
+An explicit rerun creates a new request/execution and a new immutable analysis
+snapshot ID even if all calculation inputs match a cached F1 payload. It must
+not merely attach the new execution to an old analysis snapshot; retries of one
+logical request still publish at most one snapshot. A failed refresh keeps the prior
+snapshot separately dated; it must not revive an older usable source batch or
+mark its financial labels current. Missing split/ADS, complete class coverage,
+estimates or sector support blocks only dependent calculations. New multi-class
+source collection requires explicit reviewed request scope; current market plans
+cover one security/quote. No F1 stage was implemented during the planning update.

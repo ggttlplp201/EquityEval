@@ -92,3 +92,13 @@ required. W1's source stages are implemented, but full applicable financial
 reanalysis and the user-facing add/rerun flow still depend on those milestones.
 U1's final manual, searchable Help, screenshots and end-to-end user walkthrough
 must be verified against the finished product before release.
+
+## Subsequent planning checkpoint — 2026-09-19
+
+After S4a was committed at `5eeec7e` and the working tree was clean, the user
+requested incorporation of a fundamentals DOCX into the plan. [F1](../features/F1-fundamentals-guide.md)
+and the [S5 milestone](S5-ratios.md) record conflicts, reuse and dependencies.
+The user retained optional 5/10-year history alongside the proposed 3-year view.
+No fundamentals implementation began. Existing S4b action/ADS review and the
+calendar/coverage gaps are now explicit prerequisites for affected fundamentals
+metrics; source-only S5 work can proceed under its own reviewed contract.
