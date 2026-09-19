@@ -124,12 +124,14 @@ inputs that would produce a plausible but incorrect number rather than raising.
 
 ## Scope discipline
 
-Current scope: **P0 plus user-requested N1, W1 and U1 extensions; F1 planned**.
+Current scope: **P0 plus user-requested N1, W1, U1 and F1 extensions**.
 Read the feature register in docs/features/README.md. F1 fundamentals was added
 to the plan on 2026-09-19, including selectable 3/5/10-year comparison history.
-The user requested planning after S4a completion, not feature implementation.
-Read docs/features/F1-fundamentals-guide.md and docs/milestones/S5-ratios.md
-before its next work; D021 contract/policy review remains open. Other P1/P2
+After planning at c1f2697, the user requested “implement the next step.”
+The first pure source-metric/history slice is implemented on
+codex/s5-source-metrics; read docs/design/s5/source-metrics.md and
+docs/milestones/S5-ratios.md. D022 records that bounded scope; remaining D021
+contract/product-policy review remains open. Other P1/P2
 features remain deferred.
 If something feels like it needs a contract change (`packages/schema` or the
 `concept_std` enum), stop and ask — that happens in a dedicated sequential

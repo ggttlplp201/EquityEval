@@ -89,3 +89,8 @@ Use the six source fixtures as explicitly synthetic examples, checked against th
 engine. Test keyboard/mobile access to definitions and provenance, shared snapshot
 identity in Overview/Ratios, and the separate previous result after refresh failure.
 This is a manual requirement, not a claim these screens exist today.
+
+The [fundamentals calculation chapter](../user-manual/fundamentals.md) now covers
+the tested first S5 source formulas, fractions/percentage points, precision and
+3/5/10-year history limits. API/UI steps and the complete six-fixture walkthrough
+remain pending their implementing slices.

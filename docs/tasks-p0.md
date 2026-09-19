@@ -46,10 +46,15 @@ all accepted additions in the [feature list](features/README.md).
 On 2026-09-19 the user supplied a [fundamentals guide specification](features/F1-fundamentals-guide.md)
 and requested incorporation after finishing current work. S4a was complete at
 `5eeec7e` before planning began. F1 is now assigned to the existing milestones;
-no implementation was started. The user also explicitly retained 5–10-year
-history, so 3/5/10-year comparisons are planned options.
+the planning checkpoint is `c1f2697`. The user also explicitly retained 5–10-year
+history, so 3/5/10-year comparisons remain required options.
 
-Review F1-01–10 under D021 before their implementing slices. S4b covers required
+The subsequent “implement the next step” instruction authorized the first S5
+[source-metric/history calculation slice](design/s5/source-metrics.md), now
+implemented with its [review record](design/s5/review.md). D022 records that scope;
+full S5 and public integration remain in progress.
+
+Review unresolved F1-01–10 items under D021 before their implementing slices. S4b covers required
 corporate-action/ADS semantics; a reviewed calendar/coverage slice is also needed
 for usable historical prices and freshness. These gaps do not require a new live
 provider or prevent supported source-only S5 metrics. [S5's handoff](milestones/S5-ratios.md)

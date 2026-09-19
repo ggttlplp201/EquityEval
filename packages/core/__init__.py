@@ -1,1 +1,1 @@
-"""Pure valuation functions belong here; no financial implementation in S0."""
+"""Pure, evidence-bearing financial calculations; no source selection or I/O."""

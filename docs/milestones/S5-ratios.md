@@ -1,9 +1,10 @@
 # S5 — Ratios and guided fundamentals
 
-Status: planned; F1 incorporated 2026-09-19; no numeric implementation started.
+Status: first source-metric/history slice implemented 2026-09-19; full S5 in progress.
 Task: EquityEval — milestone build log
 Task ID: 01a08f8c-85c8-7bb0-9e60-6eb24809d8de
-Planning branch: `codex/fundamentals-plan`
+Implementation branch: `codex/s5-source-metrics`
+Planning checkpoint: `c1f2697` on `codex/fundamentals-plan`
 Baseline: S4a `5eeec7e`, tag `milestone/s4a`
 Dependencies: S3/S4a evidence; reviewed inputs and policies; S4b and calendar/
 coverage work for applicable price/share-adjustment features.
@@ -49,9 +50,47 @@ activate live providers, create automatic stock scores or resolve D004/D005.
    metric definitions and a proposed result projection; S6 still owns public
    routes, snapshot persistence, generated OpenAPI/TS and cache contracts.
 
-These are work slices within S5, not replacements for S6–S8. Their statuses are
-all planned. S4b's corporate-action/ADS contract and reviewed session coverage
+These are work slices within S5, not replacements for S6–S8. S5a now has a
+bounded source-input review and the complete backlog inventory. S5b source
+formulas and S5c generic history mathematics are partially implemented; the
+remaining period/metric/interpretation work stays open. S5d review applies only
+to this first slice, not the eventual whole-engine acceptance. S4b's corporate-
+action/ADS contract and reviewed session coverage
 can proceed as separate prerequisites without delaying source-only formula work.
+
+## First implementation checkpoint — D022
+
+User instruction: “implement the next step,” after planning was committed.
+Implementation, tests and review are indexed in [S5 design](../design/s5/README.md).
+
+- Pure `FinancialInput` wraps the existing selected fact/statement, period, unit,
+  scope and optional explicit source precision; provenance and source flags remain.
+- `Calculation` retains exact operands, formula revision, `Decimal`/`None` and
+  flags. Supported formulas are selected amounts, compatible calendar-quarter/
+  year revenue YoY, gross/operating/consolidated-net margins, explicit derived
+  gross margin, CFO-minus-cash-PPE-capex FCF and FCF margin.
+- Generic history math supports explicit 3/5/10-year policies, exact percentile
+  interpolation, eligible/excluded samples, missing quarter ends and unavailable
+  bands when the caller's minimum is not met. No application default is chosen.
+- [Manual terminology](../user-manual/fundamentals.md) accompanies these formulas.
+  No API, saved fundamental snapshot, W1 metric stage or interface is claimed.
+
+The [metric inventory](../design/s5/metric-inventory.md) preserves all original
+S5 families. The [review](../design/s5/review.md) records red/green regressions,
+independent numeric checks and the archived-source coverage limitation. The
+focused core suite passes 150 tests. Required
+full repository checks remain the mandatory, non-bypassed commit gate.
+
+## Next bounded step
+
+Review and implement compatible fiscal-period/YTD/TTM assembly and its eligibility
+policies, then remaining supported metric definitions and neutral interpretation.
+EPS, common-equity/debt definitions and applicability need their stated evidence;
+new concepts or shared schema/API shapes still require sequential contract review.
+Keep S4b/calendar prerequisites explicit for price/share metrics. S6 handles
+public result/cache contracts and immutable W1 publication; S8/U1 completes
+controls and the verified product walkthrough. Do not mark S5 complete on the
+basis of this checkpoint.
 
 ## Acceptance
 

@@ -27,7 +27,10 @@ The [prices and macro chapter](prices-and-macro.md) covers S4a source fields,
 historical controls, gaps and reruns, with operator setup separated from the
 future product walkthrough.
 
-Planned F1 chapter: **Your first fundamentals review**. Cover the five sections,
+The [fundamentals calculation chapter](fundamentals.md) now explains the first
+S5 formulas, terminology, limits and 3/5/10-year comparison mathematics.
+
+Planned walkthrough: **Your first fundamentals review**. Cover the five sections,
 metric definitions and limits, TTM/quarter/year controls, 3/5/10-year comparison
 history, N/A/N/M/coverage, neutral review prompts and source inspection. Complete
 and verify it when S8b/S8d exists; [F1 requirements](../features/F1-fundamentals-guide.md)

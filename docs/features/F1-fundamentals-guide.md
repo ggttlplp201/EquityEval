@@ -1,6 +1,6 @@
 # F1 — Guided fundamentals
 
-Status: incorporated into the plan on 2026-09-19; feature implementation has not started.
+Status: first S5 source-metric/history slice implemented on 2026-09-19; full feature remains in progress.
 User direction: read the supplied spec, check conflicts and reuse, place the work
 in existing milestones, and finish current work first. The user also explicitly
 requested retaining 5–10-year history as an option.
@@ -21,8 +21,8 @@ The attachment supplies proposed feature requirements. Its imperative wording,
 example route, status names and thresholds do not independently authorize code,
 new schemas, new data providers or changed financial policies. This integration
 records the user's requested direction and the concrete work still needing review.
-The original ZIP specifications remain unchanged. Decisions are tracked as D020
-and D021 in the [decision register](../decisions.md).
+The original ZIP specifications remain unchanged. Decisions are tracked as D020,
+D021 and D022 in the [decision register](../decisions.md).
 
 ## Product scope
 
@@ -50,7 +50,24 @@ U1. F1 does not replace these features, change the DCF default decision D004 or
 resolve P0 valuation-range semantics D005. No screenshot ingestion, cash-runway
 estimate, new live provider, peer engine or sector valuation model is added here.
 
+## First implementation checkpoint
+
+Following planning commit `c1f2697`, the user requested “implement the next step.”
+The [first source-metric slice](../design/s5/source-metrics.md) implements an
+internal evidence projection, reported amounts, supported revenue YoY growth,
+gross/operating/consolidated-net margins, PPE-capex FCF and FCF margin, plus
+3/5/10-year percentile math over already eligible samples. It reuses existing
+selection, concept, period, unit and scope records. The [metric inventory](../design/s5/metric-inventory.md)
+keeps every original S5 family and its outstanding dependency visible.
+
+No source fetching, stored metric statuses, API, snapshot publication or screen
+is added. Explicit history policy arguments are not production defaults. D022
+records the bounded implementation; remaining F1-01–10 reviews remain open.
+
 ## Reuse and verified gaps at the S4a checkpoint
+
+This table records the planning baseline; the first implementation above adds
+the source-only core layer without changing the source contracts below.
 
 | Existing component | Reuse | Work still required |
 | --- | --- | --- |
@@ -139,7 +156,7 @@ produce new snapshots; saved evaluations remain unchanged.
 
 | Slice | Milestone | Deliverable and dependency |
 | --- | --- | --- |
-| F1 planning | This checkpoint, after S4a completion | Preserved source, conflict/reuse audit, requirements and updated plan; no feature code. |
+| F1 planning | Historical planning checkpoint `c1f2697`, after S4a completion | Preserved source, conflict/reuse audit, requirements and updated plan; no feature code. |
 | F1 source eligibility | S4b plus explicit S4 calendar/coverage review | Corporate-action/ADS and complete-session evidence for price-dependent ratios and history. No reopening accepted S4a schema without a concrete additive review. Core source-only work is not blocked on live-provider activation. |
 | F1a core and fixtures | [S5](../milestones/S5-ratios.md) | Metric registry, pure period/growth/margin/cash/leverage/return/multiple calculations, 3/5/10-year comparisons, versioned interpretation/freshness, coverage and hand-computed tests. First review F1-01–10 and input gaps; do not add concepts opportunistically. |
 | F1b API and saved results | S6 | Review proposed `GET /companies/{issuerId}/fundamentals`, query and immutable snapshot retrieval, status/provenance projection, snapshot persistence, W1 stage outputs and exact cache keys. Generate OpenAPI/TS with no-diff checks only after approval. |
@@ -199,8 +216,9 @@ planning update is not evidence that these new acceptance tests already pass.
 
 ## Next handoff
 
-Planning is complete when the preserved source, milestone/feature/API/manual
-links and this conflict map are checked and committed. Implementation remains
-unstarted. The next implementation task should open the existing S4b/coverage
-review and/or S5's bounded preflight packet, then resolve the relevant shared
-contracts before writing numeric code. Do not seek repeat approval for S4a.
+Planning was committed at `c1f2697`; the first bounded calculation slice is now
+implemented on `codex/s5-source-metrics`. Read the [S5 milestone](../milestones/S5-ratios.md)
+and [numeric review](../design/s5/review.md) before continuing. Next work reviews
+compatible fiscal/YTD/TTM assemblies, applicability and remaining metric inputs.
+S4b/calendar work gates price/share metrics; S6 owns public projections and W1
+snapshot publication. Do not seek repeat approval for completed bounded scope.
