@@ -22,3 +22,7 @@ plain language and link directly from the product screens.
 
 The first drafted chapter is [Understanding source data and history](data-and-history.md),
 covering the implemented S2/S3 terminology. It is not a finished interface walkthrough.
+
+The [prices and macro chapter](prices-and-macro.md) covers S4a source fields,
+historical controls, gaps and reruns, with operator setup separated from the
+future product walkthrough.

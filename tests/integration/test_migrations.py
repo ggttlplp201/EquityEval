@@ -11,7 +11,7 @@ from alembic.script import ScriptDirectory
 from equity_schema.concepts import Concept
 from psycopg import sql
 
-from tests.conftest import migration_config
+from tests.conftest import migration_config, test_migration_target
 
 pytestmark = pytest.mark.integration
 ROOT = Path(__file__).resolve().parents[2]
@@ -121,7 +121,9 @@ def schema_signature(connection):
 
 def test_actual_postgres_upgrade_downgrade_roundtrip(db_admin, test_database_dsn):
     config = migration_config(test_database_dsn)
-    expected_heads = set(ScriptDirectory.from_config(config).get_heads())
+    expected_heads = {
+        ScriptDirectory.from_config(config).get_revision(test_migration_target()).revision
+    }
     assert expected_heads, "At least one frozen migration must exist"
     actual_heads = {
         row["version_num"] for row in db_admin.execute("SELECT version_num FROM alembic_version")
@@ -139,7 +141,7 @@ def test_actual_postgres_upgrade_downgrade_roundtrip(db_admin, test_database_dsn
         "Downgrade must not leave application functions"
     )
 
-    command.upgrade(config, "head")
+    command.upgrade(config, test_migration_target())
     assert schema_signature(db_admin) == before
     assert {
         row["version_num"] for row in db_admin.execute("SELECT version_num FROM alembic_version")
@@ -279,11 +281,11 @@ def test_explicit_migration_url_never_loads_application_dotenv(
 
     monkeypatch.setattr(dotenv, "load_dotenv", unexpected_dotenv)
     monkeypatch.setenv("DATABASE_URL", "must-not-be-used://application-database")
-    command.upgrade(config, "head")
+    command.upgrade(config, test_migration_target())
     assert REQUIRED_TABLES <= public_tables(db_admin)
     assert {
         row["version_num"] for row in db_admin.execute("SELECT version_num FROM alembic_version")
-    } == set(ScriptDirectory.from_config(config).get_heads())
+    } == {ScriptDirectory.from_config(config).get_revision(test_migration_target()).revision}
 
 
 def test_source_storage_exposes_only_fenced_runtime_entry_points(db_admin, db):
@@ -342,7 +344,7 @@ def test_source_upgrade_preserves_legacy_capture_and_restores_s2_grants_on_downg
     original = db_admin.execute(
         "SELECT * FROM source_captures WHERE id=%s", (ids["capture"],)
     ).fetchone()
-    command.upgrade(config, "head")
+    command.upgrade(config, test_migration_target())
     assert (
         db_admin.execute("SELECT * FROM source_captures WHERE id=%s", (ids["capture"],)).fetchone()
         == original

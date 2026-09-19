@@ -1,6 +1,7 @@
 # S4 — Price and macro source contract
 
-Status: **ready for sequential review; not yet approved for implementation**.
+Status: **accepted for implementation on 2026-09-16**. The user instructed
+“you can implement it” after the concrete S4-01–04 review checkpoint.
 Date: 2026-09-12. Baseline: S3 `b71e308` / `milestone/s3`.
 Branch: `codex/s4-source-contract`. Proposed decision: D019; macro part of D009.
 

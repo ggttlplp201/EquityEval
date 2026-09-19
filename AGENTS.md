@@ -148,10 +148,12 @@ S0 scaffolding is complete; its environment limits are in the milestone record.
 S2 is complete at milestone/s2. S3 is complete at milestone/s3 (440 tests). The user
 explicitly approved D008 and S3-01–04 with “implement” on 2026-09-12 after the
 concrete review packet. Read docs/design/s3/source-contract.md and
-docs/milestones/S3-ingestion.md. S4 is at its concrete review checkpoint:
+docs/milestones/S3-ingestion.md. S4a is complete for its accepted scope (717 tests), tag milestone/s4a:
 docs/design/s4/source-contract.md and docs/milestones/S4-prices-macro.md.
-D019/S4-01–04 are proposed, not approved. No S4 schema or adapters are implemented;
-provider retention and complete-payload scope findings are in that review.
+The user approved D019/S4-01–04 with “you can implement it” on 2026-09-16.
+S4a is implemented on codex/s4-market-data; follow the implementation and review records.
+Provider rights, S4b lifecycle changes and later financial/API/UI milestones retain
+their recorded boundaries; do not seek repeat approval for the accepted S4a scope.
 Later API routes, valuation logic and UI remain at their reviewed milestones. Remove each
 `tests/**/.allow-empty-s0` marker when that suite gains real tests.
 

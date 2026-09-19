@@ -4,9 +4,9 @@ A local-first research tool for auditable valuation ranges and explicit
 assumptions. **S3 SEC ingestion is implemented**, alongside S2 evidence storage,
 historical selection and durable watchlist requests. It includes verified archives,
 reviewed normalization, original-filing extraction and watchlist source stages.
-See the [S3 implementation](docs/design/s3/implementation.md). The next
-[S4 source/schema review](docs/design/s4/source-contract.md) is ready; its
-price/macro adapters and tables are not implemented. Financial engines,
+See the [S3 implementation](docs/design/s3/implementation.md). The approved
+S4a price/macro source layer is implemented and verified (717 tests); see its
+[implementation guide](docs/design/s4/implementation.md). Financial engines,
 the product interface and news monitoring remain later milestones.
 
 Start with [milestones](docs/milestones/README.md), [P0 tasks](docs/tasks-p0.md)
@@ -25,6 +25,7 @@ From this repository:
 ```sh
 make bootstrap
 test -f .env || cp .env.example .env
+make test-db-setup-timescale
 make check
 ```
 
@@ -39,6 +40,7 @@ contains local development database values only. Keep .env out of Git.
 
 | Command | Purpose |
 | --- | --- |
+| `make test-db-setup-timescale` | Build the pinned private PG16/Timescale test runtime |
 | `make test` | Full suite, including isolated PostgreSQL constraints, PIT and queue tests |
 | `make test-core` | Valuation suite; still intentionally empty until S5/S7 |
 | `make test-golden` | Reviewed eight-company normalization and original-filing provenance checks |
@@ -59,7 +61,9 @@ The planned Compose application database binds to localhost:5433; Redis binds to
 ports/credentials, update both Compose variables and connection URLs in .env.
 Application archives belong in ignored `var/raw`. Source workers require explicit configuration; no live ingestion is active.
 
-Tests use a separate cluster at localhost:55432 under ignored `var/test-postgres16`.
+Tests default to a separate real Timescale cluster at localhost:55433 under ignored
+`var/test-postgres16-timescale`. The explicit `native-pg16` profile uses localhost:55432
+under `var/test-postgres16`. See [S4 runtime setup](docs/design/s4/runtime.md).
 Redis tests use localhost:16380 under ignored `var/test-redis`. Tests never use the application DATABASE_URL or .env. Each test gets a fresh
 randomly named database cloned from a migrated template; cleanup drops only those
 test-owned databases. The cluster stays available between test commands; stop it

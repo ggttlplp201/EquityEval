@@ -7,6 +7,12 @@ permissions:
 jobs:
   scaffold-and-tests:
     runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        database-profile: [native-pg16, timescale-pg16]
+    env:
+      EQUITY_TEST_DB_PROFILE: ${{ matrix.database-profile }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,6 +29,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends postgresql-16 redis-server
       - run: make bootstrap
+      - name: Build pinned private PostgreSQL and Timescale runtime
+        if: matrix.database-profile == 'timescale-pg16'
+        run: .venv/bin/python scripts/setup_test_timescale.py
       - run: make check
       - run: make infra-config
       - run: make migration-history
@@ -30,4 +39,9 @@ jobs:
         run: make migration-sql
         env:
           DATABASE_URL: postgresql+psycopg://equity:equity_local_dev@127.0.0.1:5433/equity
+      - name: Stop repository-owned test runtimes
+        if: always()
+        run: |
+          .venv/bin/python scripts/test_postgres.py stop
+          .venv/bin/python scripts/test_redis.py stop
       # S6 adds OpenAPI generation and generated-TypeScript no-diff enforcement.

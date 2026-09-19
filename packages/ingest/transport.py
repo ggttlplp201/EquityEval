@@ -71,6 +71,41 @@ class AttemptStore(Protocol):
     ) -> None: ...
 
 
+def validate_persisted_record(database: Database, record: RawRecord) -> None:
+    if database.info.transaction_status.name != "IDLE":
+        raise RuntimeError("Capture validation requires an idle database connection")
+    with database.transaction():
+        row = database.execute(
+            "SELECT c.*, p.policy_revision_id, a.response_headers "
+            "FROM source_captures c JOIN capture_policy_links p ON p.capture_id=c.id "
+            "LEFT JOIN source_fetch_attempts a ON a.completed_capture_id=c.id "
+            "WHERE c.id=%s",
+            (record.capture_id,),
+        ).fetchone()
+    expected = {
+        "id": record.capture_id,
+        "source_id": record.source_id,
+        "source_object_key": record.source_object_key,
+        "request_url": record.request_url,
+        "request_params_hash": record.request_params_hash,
+        "requested_at": record.requested_at,
+        "fetched_at": record.fetched_at,
+        "completed_at": record.completed_at,
+        "http_status": record.http_status,
+        "body_sha256": record.body_sha256,
+        "byte_count": record.byte_count,
+        "blob_key": record.blob_key,
+        "content_type": record.content_type,
+        "policy_revision_id": record.policy_revision_id,
+        "terms_review_reference": record.terms_review_reference,
+    }
+    if row is None or any(row[key] != value for key, value in expected.items()):
+        raise ArchiveError("Capture metadata does not match its persisted identity")
+    headers = row["response_headers"] or {}
+    if record.etag != headers.get("etag") or record.last_modified != headers.get("last_modified"):
+        raise ArchiveError("Conditional validators do not match the archived capture")
+
+
 class DatabaseAttemptStore:
     """Adapter to the narrow committed PostgreSQL operations; owns no transaction."""
 
@@ -79,40 +114,7 @@ class DatabaseAttemptStore:
         self.descriptor = descriptor
 
     def validate_record(self, record: RawRecord) -> None:
-        if self.database.info.transaction_status.name != "IDLE":
-            raise RuntimeError("Capture validation requires an idle database connection")
-        with self.database.transaction():
-            row = self.database.execute(
-                "SELECT c.*, p.policy_revision_id, a.response_headers "
-                "FROM source_captures c JOIN capture_policy_links p ON p.capture_id=c.id "
-                "LEFT JOIN source_fetch_attempts a ON a.completed_capture_id=c.id "
-                "WHERE c.id=%s",
-                (record.capture_id,),
-            ).fetchone()
-        expected = {
-            "id": record.capture_id,
-            "source_id": record.source_id,
-            "source_object_key": record.source_object_key,
-            "request_url": record.request_url,
-            "request_params_hash": record.request_params_hash,
-            "requested_at": record.requested_at,
-            "fetched_at": record.fetched_at,
-            "completed_at": record.completed_at,
-            "http_status": record.http_status,
-            "body_sha256": record.body_sha256,
-            "byte_count": record.byte_count,
-            "blob_key": record.blob_key,
-            "content_type": record.content_type,
-            "policy_revision_id": record.policy_revision_id,
-            "terms_review_reference": record.terms_review_reference,
-        }
-        if row is None or any(row[key] != value for key, value in expected.items()):
-            raise ArchiveError("Capture metadata does not match its persisted identity")
-        headers = row["response_headers"] or {}
-        if record.etag != headers.get("etag") or record.last_modified != headers.get(
-            "last_modified"
-        ):
-            raise ArchiveError("Conditional validators do not match the archived capture")
+        validate_persisted_record(self.database, record)
 
     @staticmethod
     def _lease(request: FetchRequest) -> Lease:

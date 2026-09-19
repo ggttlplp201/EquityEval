@@ -1,6 +1,8 @@
 # S4 storage and provenance review
 
-Status: **proposal for the sequential schema review, not authorization to migrate**.
+Status: **approved with D019/S4-01–04 on 2026-09-16**. The original review
+checkpoint is preserved at milestone/s4-contract-review; implementation follows
+this contract.
 Prepared 2026-09-12 against S3 `b71e308` / `milestone/s3`. This document changes no
 production schema, source activation, retention rule or financial concept.
 

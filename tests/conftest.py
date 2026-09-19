@@ -5,6 +5,7 @@ its cluster; every test clones a migrated template into a fresh random database.
 """
 
 import json
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -18,6 +19,27 @@ from psycopg import sql
 from psycopg.rows import dict_row
 
 ROOT = Path(__file__).resolve().parents[1]
+DB_PROFILES = ("native-pg16", "timescale-pg16")
+
+
+def test_database_profile():
+    profile = os.environ.get("EQUITY_TEST_DB_PROFILE", "timescale-pg16")
+    if profile not in DB_PROFILES:
+        raise RuntimeError(f"Invalid EQUITY_TEST_DB_PROFILE: {profile}")
+    return profile
+
+
+def test_migration_target():
+    return "0004_market_data_contract" if test_database_profile() == "native-pg16" else "head"
+
+
+# Helpers imported by test modules are not themselves tests.
+test_database_profile.__test__ = False
+test_migration_target.__test__ = False
+
+
+def pytest_report_header():
+    return f"database profile: {test_database_profile()}; target: {test_migration_target()}"
 
 
 def migration_config(dsn):
@@ -31,11 +53,18 @@ def migration_config(dsn):
 
 @pytest.fixture(scope="session")
 def postgres_admin_dsn():
-    subprocess.run([sys.executable, str(ROOT / "scripts/test_postgres.py"), "start"], check=True)
-    runtime = json.loads((ROOT / "var/test-postgres16/runtime.json").read_text())
+    profile = test_database_profile()
+    subprocess.run(
+        [sys.executable, str(ROOT / "scripts/test_postgres.py"), "start", "--profile", profile],
+        check=True,
+    )
+    directory = "test-postgres16" if profile == "native-pg16" else "test-postgres16-timescale"
+    runtime = json.loads((ROOT / "var" / directory / "runtime.json").read_text())
     dsn = f"postgresql://localhost:{runtime['port']}/postgres"
     with psycopg.connect(dsn, autocommit=True) as connection:
-        assert 160000 <= connection.info.server_version < 170000, "S2 requires PostgreSQL 16"
+        assert 160000 <= connection.info.server_version < 170000, (
+            "Database tests require PostgreSQL 16"
+        )
     return dsn
 
 
@@ -55,7 +84,18 @@ def migrated_template(postgres_admin_dsn):
         )
         try:
             dsn = postgres_admin_dsn.rsplit("/", 1)[0] + "/" + name
-            command.upgrade(migration_config(dsn), "head")
+            command.upgrade(migration_config(dsn), test_migration_target())
+            # Timescale's scheduler may reconnect to this fresh template. Block
+            # new connections before terminating only sessions on our owned DB.
+            assert name.startswith("equity_test_template_")
+            connection.execute(
+                sql.SQL("ALTER DATABASE {} ALLOW_CONNECTIONS false").format(sql.Identifier(name))
+            )
+            connection.execute(
+                "SELECT pg_terminate_backend(pid) FROM pg_stat_activity "
+                "WHERE datname=%s AND pid<>pg_backend_pid()",
+                (name,),
+            )
             yield name
         finally:
             drop_test_database(connection, name)

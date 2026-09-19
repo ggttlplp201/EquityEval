@@ -10,7 +10,12 @@ from psycopg.types.json import Jsonb
 
 
 def insert(connection: Connection[Any], table: str, **values: Any) -> None:
-    """Owner-only fictional fixture insertion, with S3 policy provenance when present."""
+    """Owner-only fictional fixture insertion, with explicit S3/S4 test grants."""
+    if table == "source_policy_revisions":
+        with connection.transaction():
+            _insert_record(connection, table, **values)
+            _provision_fixture_capability(connection, values["id"], values["source_id"])
+        return
     if (
         table == "source_captures"
         and connection.execute(
@@ -41,6 +46,7 @@ def insert(connection: Connection[Any], table: str, **values: Any) -> None:
                     review_artifact_reference="tests/evidence_seed.py",
                     review_artifact_sha256="a" * 64,
                 )
+            _provision_fixture_capability(connection, policy_id, values["source_id"])
             _insert_record(connection, table, **values)
             _insert_record(
                 connection,
@@ -50,6 +56,38 @@ def insert(connection: Connection[Any], table: str, **values: Any) -> None:
             )
         return
     _insert_record(connection, table, **values)
+
+
+def _provision_fixture_capability(
+    connection: Connection[Any], policy_id: UUID, source_id: UUID
+) -> None:
+    """Explicit owner grant for invented test evidence, never a live provider review."""
+    if not connection.execute(
+        "SELECT to_regclass('public.source_policy_capabilities') AS name"
+    ).fetchone()["name"]:
+        return
+    if connection.execute(
+        "SELECT 1 FROM source_policy_capabilities WHERE policy_revision_id=%s", (policy_id,)
+    ).fetchone():
+        return
+    _insert_record(
+        connection,
+        "source_policy_capabilities",
+        policy_revision_id=policy_id,
+        source_id=source_id,
+        raw_scope_kind="source",
+        raw_scope_keys=[],
+        normalized_scope_kind="source",
+        normalized_scope_keys=[],
+        raw_retention="indefinite_without_required_deletion",
+        normalized_retention="indefinite_without_required_deletion",
+        internal_analysis_allowed=True,
+        review_basis="Fictional fixtures only; no live source retention authorization",
+    )
+    connection.execute(
+        "SELECT market_activate_policy(%s,%s,%s)",
+        (policy_id, "test-fixture-owner", "Invented test evidence; no upstream access"),
+    )
 
 
 def _insert_record(connection: Connection[Any], table: str, **values: Any) -> None:

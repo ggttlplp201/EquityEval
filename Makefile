@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 PYTHON ?= python3.12
-VENV_PY := .venv/bin/python
+VENV_PY := .venv/bin/python scripts/project_python.py
 COMPOSE := docker compose --project-directory . -f infra/compose.yaml
 
 .PHONY: help bootstrap install-hooks test test-core test-golden lint typecheck check lock-python infra-config infra-up infra-down infra-status migration-history migration-sql migrate test-db-start test-db-status test-db-stop test-redis-start test-redis-status test-redis-stop
@@ -32,7 +32,7 @@ lint:
 	npm run lint
 
 typecheck:
-	.venv/bin/mypy
+	$(VENV_PY) -m mypy
 	npm run typecheck
 
 check: lint typecheck test test-core test-golden
@@ -53,13 +53,13 @@ infra-status:
 	$(COMPOSE) ps
 
 migration-history:
-	.venv/bin/alembic history
+	$(VENV_PY) -m alembic history
 
 migration-sql:
-	.venv/bin/alembic upgrade head --sql
+	$(VENV_PY) -m alembic upgrade head --sql
 
 migrate:
-	.venv/bin/alembic upgrade head
+	$(VENV_PY) -m alembic upgrade head
 
 # Separate disposable PG16 runtime; never uses the application DATABASE_URL.
 test-db-start:
@@ -80,3 +80,7 @@ test-redis-status:
 
 test-redis-stop:
 	$(VENV_PY) scripts/test_redis.py stop
+
+.PHONY: test-db-setup-timescale
+test-db-setup-timescale:
+	$(VENV_PY) scripts/setup_test_timescale.py

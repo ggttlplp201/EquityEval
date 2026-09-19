@@ -236,3 +236,21 @@ def test_unreviewed_mapping_archives_sources_and_stops_with_explicit_input_gap(d
         ).fetchone()["n"]
         == 0
     )
+
+
+def test_source_stages_can_leave_execution_open_for_market_stages(db, source_pipeline):
+    source, archive, plan, build, *_ = source_pipeline
+    lease = claim_next(db, worker_id="combined-source-pipeline")
+    result = run_source_stages(db, lease, source, archive, plan, build, finalize_execution=False)
+    assert result.publication
+    assert (
+        db.execute(
+            "SELECT terminal_outcome FROM analysis_request_state WHERE request_id=%s",
+            (lease.request_id,),
+        ).fetchone()["terminal_outcome"]
+        is None
+    )
+    from equity_schema.workflow import finish_stage, start_stage
+
+    stage = start_stage(db, lease, stage_key="market_pending")
+    finish_stage(db, lease, stage_id=stage, outcome="blocked", reason="fixture")

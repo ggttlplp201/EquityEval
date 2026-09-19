@@ -127,13 +127,21 @@ def test_ordinary_share_scope_cannot_name_an_ads_security(db_admin, db):
 def test_legacy_capture_needs_policy_review_before_new_publication(db_admin, db, test_database_dsn):
     from alembic import command
 
-    from tests.conftest import migration_config
+    from tests.conftest import migration_config, test_migration_target
 
     body, inputs = cohort_input("AAPL")
-    seed_normalization_inputs(db_admin, inputs)
     config = migration_config(test_database_dsn)
+    # Create actual pre-policy evidence. Seeding at the current head would add
+    # S4 capability history, which must never be discarded by a downgrade.
     command.downgrade(config, "0002_watchlist")
-    command.upgrade(config, "head")
+    assert (
+        db_admin.execute("SELECT to_regclass('public.source_policy_revisions') AS name").fetchone()[
+            "name"
+        ]
+        is None
+    )
+    seed_normalization_inputs(db_admin, inputs)
+    command.upgrade(config, test_migration_target())
     with pytest.raises(PublicationConflict, match="policy"):
         publish_bundle(db, normalize_verified_bytes(body, inputs))
     assert db.execute("SELECT count(*) AS n FROM normalization_batches").fetchone()["n"] == 0

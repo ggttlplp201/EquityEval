@@ -49,6 +49,73 @@ class RequestedPeriod:
         }
 
 
+MARKET_PLAN_REVISION = "s4-market-data-v1"
+
+
+@dataclass(frozen=True)
+class MarketDataRequestPlan:
+    """Reviewed provider/date intent pinned before an execution is queued."""
+
+    market_plan_revision: str
+    price_source_id: UUID | None = None
+    price_start: date | None = None
+    price_end: date | None = None
+    macro_source_id: UUID | None = None
+    macro_series_keys: tuple[str, ...] = ()
+    macro_start: date | None = None
+    macro_end: date | None = None
+    macro_source_as_of_date: date | None = None
+
+    def __post_init__(self) -> None:
+        if self.market_plan_revision != MARKET_PLAN_REVISION:
+            raise ValueError("Unknown market plan revision")
+        if self.price_source_id is None and self.macro_source_id is None:
+            raise ValueError("Market plan requires a price or macro source")
+        for source in (self.price_source_id, self.macro_source_id):
+            if source is not None and not isinstance(source, UUID):
+                raise ValueError("Market sources require UUID identities")
+        for source, start, end in (
+            (self.price_source_id, self.price_start, self.price_end),
+            (self.macro_source_id, self.macro_start, self.macro_end),
+        ):
+            if source is None:
+                if start is not None or end is not None:
+                    raise ValueError("Dates require a source")
+            elif type(start) is not date or type(end) is not date or start > end:
+                raise ValueError("Market source requires ordered exact dates")
+        if self.macro_source_as_of_date is not None and (
+            self.macro_source_id is None or type(self.macro_source_as_of_date) is not date
+        ):
+            raise ValueError("Source vintage requires a macro source and exact date")
+        if (
+            not isinstance(self.macro_series_keys, tuple)
+            or any(
+                not isinstance(key, str) or not key.strip() or key != key.strip()
+                for key in self.macro_series_keys
+            )
+            or len(set(self.macro_series_keys)) != len(self.macro_series_keys)
+        ):
+            raise ValueError("Macro series must be distinct exact nonempty keys")
+        if bool(self.macro_series_keys) != (self.macro_source_id is not None):
+            raise ValueError("Macro source requires a nonempty series list")
+        object.__setattr__(self, "macro_series_keys", tuple(sorted(self.macro_series_keys)))
+
+    def as_json(self) -> dict[str, Any]:
+        return {
+            "market_plan_revision": self.market_plan_revision,
+            "price_source_id": str(self.price_source_id) if self.price_source_id else None,
+            "price_start": self.price_start.isoformat() if self.price_start else None,
+            "price_end": self.price_end.isoformat() if self.price_end else None,
+            "macro_source_id": str(self.macro_source_id) if self.macro_source_id else None,
+            "macro_series_keys": list(self.macro_series_keys) if self.macro_source_id else None,
+            "macro_start": self.macro_start.isoformat() if self.macro_start else None,
+            "macro_end": self.macro_end.isoformat() if self.macro_end else None,
+            "macro_source_as_of_date": self.macro_source_as_of_date.isoformat()
+            if self.macro_source_as_of_date
+            else None,
+        }
+
+
 @dataclass(frozen=True)
 class RequestOptions:
     history_mode: HistoryMode = "latest_reported"
@@ -56,8 +123,11 @@ class RequestOptions:
     requested_periods: tuple[RequestedPeriod, ...] = ()
     retrieval_vintage: datetime | None = None
     max_attempts: int = 3
+    market_plan: MarketDataRequestPlan | None = None
 
     def __post_init__(self) -> None:
+        if self.market_plan is not None and not isinstance(self.market_plan, MarketDataRequestPlan):
+            raise ValueError("Market plan requires the strict typed plan")
         if self.history_mode not in {"latest_reported", "as_filed_by_date", "original_as_filed"}:
             raise ValueError("Unknown history mode")
         if self.history_mode == "as_filed_by_date" and self.filed_cutoff is None:
@@ -80,6 +150,7 @@ class RequestOptions:
                 self.retrieval_vintage.isoformat() if self.retrieval_vintage else None
             ),
             "max_attempts": self.max_attempts,
+            **({"market_plan": self.market_plan.as_json()} if self.market_plan else {}),
         }
 
 

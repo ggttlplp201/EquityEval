@@ -78,11 +78,14 @@ class SourceContext:
 
 @dataclass(frozen=True)
 class PipelineResult:
-    state: Literal["completed_with_gaps", "retry_scheduled", "waiting_for_input", "failed"]
+    state: Literal[
+        "completed_with_gaps", "retry_scheduled", "waiting_for_input", "failed", "deferred"
+    ]
     publication: PublishedBatch | None = None
     manifest: ArchivedBody | None = None
     inventory: FilingInventory | None = None
     gaps: tuple[str, ...] = ()
+    next_eligible_at: datetime | None = None
 
 
 InputBuilder = Callable[[SourceContext], NormalizationInput | None]
@@ -97,6 +100,7 @@ def run_source_stages(
     build_inputs: InputBuilder,
     *,
     replay_records: tuple[RawRecord, ...] | None = None,
+    finalize_execution: bool = True,
 ) -> PipelineResult:
     """Fetch -> inventory -> reviewed normalization -> immutable publication.
 
@@ -255,6 +259,13 @@ def run_source_stages(
                     1, ceil((max(deferred) - datetime.now(UTC)).total_seconds()) if deferred else 30
                 ),
             )
+            if not finalize_execution:
+                return PipelineResult(
+                    "deferred",
+                    inventory=inventory,
+                    gaps=tuple(gaps),
+                    next_eligible_at=max(deferred) if deferred else None,
+                )
             retry_execution(db, lease, error_code="sec_source_deferred", delay_seconds=delay)
             state = db.execute(
                 "SELECT terminal_outcome FROM analysis_request_state WHERE request_id=%s",
@@ -286,7 +297,8 @@ def run_source_stages(
             reason = "reviewed_mapping_required" if companyfacts else "companyfacts_unavailable"
             finish_stage(db, lease, stage_id=current_stage, outcome="blocked", reason=reason)
             current_stage = None
-            finish_execution(db, lease, outcome="waiting_for_input", reason=reason)
+            if finalize_execution:
+                finish_execution(db, lease, outcome="waiting_for_input", reason=reason)
             return PipelineResult("waiting_for_input", inventory=inventory, gaps=(*gaps, reason))
         assert context is not None
         inputs = _pin_context(inputs, context, plan)
@@ -330,13 +342,18 @@ def run_source_stages(
             stage_manifest=manifest,
         )
         current_stage = None
-        later = start_stage(db, lease, stage_key="valuation")
-        finish_stage(
-            db, lease, stage_id=later, outcome="unsupported", reason="valuation_milestones_pending"
-        )
-        finish_execution(
-            db, lease, outcome="completed_with_gaps", reason="valuation_milestones_pending"
-        )
+        if finalize_execution:
+            later = start_stage(db, lease, stage_key="valuation")
+            finish_stage(
+                db,
+                lease,
+                stage_id=later,
+                outcome="unsupported",
+                reason="valuation_milestones_pending",
+            )
+            finish_execution(
+                db, lease, outcome="completed_with_gaps", reason="valuation_milestones_pending"
+            )
         return PipelineResult("completed_with_gaps", publication, manifest, inventory, tuple(gaps))
     except LeaseLost:
         raise
@@ -345,7 +362,8 @@ def run_source_stages(
             finish_stage(
                 db, lease, stage_id=current_stage, outcome="failed", reason=type(exc).__name__
             )
-        finish_execution(db, lease, outcome="failed", reason=type(exc).__name__)
+        if finalize_execution:
+            finish_execution(db, lease, outcome="failed", reason=type(exc).__name__)
         raise
 
 

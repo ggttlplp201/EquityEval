@@ -91,3 +91,14 @@ completion. Verify that an earlier snapshot is unchanged, the newest finished
 request cannot be replaced by an older late result, and duplicate attempts do
 not duplicate user alerts. Manual acceptance: add a supported stock, follow the
 stages, inspect sources, edit/confirm assumptions, rerun and compare both snapshots.
+
+## S4a source-stage implementation
+
+The internal worker now composes SEC, price and macro source stages using the
+immutable request plan. Verified monthly macro captures can serve multiple exact
+series; failed later responses produce unavailable evidence rather than silently
+reviving an older numeric batch. Explicit reruns preserve prior requests and
+source batches. See the [S4 implementation](../design/s4/implementation.md).
+This completes another source-stage slice of W1b; automatic full financial analysis,
+search/add/rerun screens and monitoring alerts still depend on the remaining
+engines, public API, UI and N1 work.

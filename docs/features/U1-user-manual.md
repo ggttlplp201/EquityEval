@@ -63,3 +63,7 @@ sources for economic-release definitions.
 The initial [manual outline](../user-manual/README.md) is intentionally labelled
 as planned content. The [data and history chapter](../user-manual/data-and-history.md) covers S2/S3 terminology.
 The finished product walkthrough and live-alert instructions remain pending.
+
+The [prices and macro chapter](../user-manual/prices-and-macro.md) now documents
+S4a field meanings, native units, independent historical controls, coverage gaps
+and reruns. Product screen walkthroughs remain pending the interface build.

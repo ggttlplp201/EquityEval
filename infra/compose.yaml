@@ -1,7 +1,7 @@
 name: equity-valuation-workbench
 services:
   postgres:
-    image: timescale/timescaledb:latest-pg16@sha256:75d58b53f3337a6babd3a1cce5e503f2300bdede62dd7d743651deb1a95b6d76
+    image: timescale/timescaledb:2.28.1-pg16@sha256:fdce0a44280da4168ed8e2251f91f813c1e5df9c1c117e16ab7e3bbdbedfca11
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-equity}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-equity_local_dev}

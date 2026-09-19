@@ -8,7 +8,7 @@ import pytest
 from alembic import command
 from equity_schema.vintage import SourceObject, prepare_capture_manifest
 
-from tests.conftest import migration_config
+from tests.conftest import migration_config, test_migration_target
 from tests.evidence_seed import insert, seed_evidence
 
 pytestmark = pytest.mark.integration
@@ -31,7 +31,7 @@ def legacy_capture_setup(test_database_dsn):
         try:
             yield
         finally:
-            command.upgrade(config, "head")
+            command.upgrade(config, test_migration_target())
 
     return at_s2
 

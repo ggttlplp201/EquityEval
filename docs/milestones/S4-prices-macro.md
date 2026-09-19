@@ -1,101 +1,94 @@
 # S4 — Prices and macro sources
 
-Status: concrete source/schema review prepared; implementation pending D019
-Date: 2026-09-12 (Asia/Shanghai)
+Status: S4a complete for the accepted scope; S4b and live-source readiness remain open
+Implementation dates: 2026-09-16 and 2026-09-19
 Task: EquityEval — milestone build log
 Task ID: 01a08f8c-85c8-7bb0-9e60-6eb24809d8de
-Branch: codex/s4-source-contract
+Branch: `codex/s4-market-data`
 Dependency: S3 `b71e308`, tag `milestone/s3`
-Review checkpoint: `milestone/s4-contract-review` (created after verification)
+Review checkpoint: `014351d`, tag `milestone/s4-contract-review`
+Implementation checkpoint: tag `milestone/s4a` (exact commit available via `git show milestone/s4a`)
 
-## Scope and authorization
+## Authorization and trace
 
-The user directed progression with “continue” after S3. This work prepares the
-next concrete review, source research and preimplementation acceptance cases.
-The adopted project instructions require sequential review before new schema
-shape or missingness semantics are decided; the earlier “implement” approved the
-presented S3 contract, not these subsequently proposed S4 tables. Original ZIP
-documents remain unchanged.
+The original ZIP documents remain unchanged. The September 12 review packet
+specified D019 / S4-01–04 and the macro portion of D009. The user authorized
+implementation with “you can implement it” on September 16 and asked to continue
+on September 19. This accepted the eight market tables, additive immutable W1 plan,
+typed provider boundary, source adapters, historical selection and real Timescale
+verification. It did not supply missing provider retention rights or decide S4b.
 
-The proposed S4a scope is daily price fields, native macro observations, typed
-provenance, independent source/capture vintages and W1 price/macro stages.
-S4b must separately resolve corporate-action/ADS relationship correction history.
-No S4 tables, production adapters or policy activations have been implemented.
+The earlier contract/research state is preserved at `014351d`. Implementation is
+recorded here and in the [S4 guide](../design/s4/implementation.md), with the
+[accepted contract](../design/s4/source-contract.md), [storage design](../design/s4/storage-review.md)
+and [correctness review](../design/s4/correctness-review.md).
 
-## Artifacts and findings
+## Delivered behavior
 
-- [Decision brief and S4-01–04 contract](../design/s4/source-contract.md).
-- [Eight-table storage proposal](../design/s4/storage-review.md), including
-  explicit rights gates, units, missingness, atomic publication and Timescale.
-- [Tiingo research](../design/s4/tiingo-research.md) and
-  [FRED/direct-source research](../design/s4/fred-research.md).
-- [Test plan](../design/s4/test-plan.md) and fictional
-  [price](../../tests/fixtures/s4/price-cases.json) /
-  [macro](../../tests/fixtures/s4/macro-cases.json) acceptance cases.
-- [Actual H.15 research manifest](../research/s4/evidence/frb-h15-manifest.json):
-  one complete ZIP response, all five CRC/hash-verified members, full safe parse
-  of the data XML, separately refused DOCTYPE metadata parsing. The initial
-  64 MiB decoded cap was exceeded; the reviewed 128 MiB cap verified the same ZIP
-  without another download. No application normalization or W1 run was created.
+- Eight typed market-data tables, immutable reviewed policies and exact source
+  identity guards; atomic fenced publication with verified archived manifests.
+- PostgreSQL 16/Timescale 2.28.1 date hypertables, without retention/deletion jobs.
+  Native PostgreSQL remains an explicit narrower test profile.
+- Treasury nominal two-/ten-year yields, Tiingo daily raw/adjusted price fields,
+  and native FRED observations with complete bounded pagination. Vendor fixtures
+  are fictional; the separately labelled permitted Treasury capture is a golden.
+- Credential-isolated, bounded transport, durable attempts and conservative
+  Tiingo account quotas. Provider activation, raw retention and normalized scope
+  are checked independently; operational disable preserves authorized history.
+- Exact-date and explicitly age-bounded historical selectors. Source-as-of dates,
+  local capture cutoffs and release precision remain independent. Missing data
+  stays missing; newer failed/malformed responses cannot revive older current values.
+- Watchlist request plans and independent SEC/price/macro stages, shared exact
+  monthly Treasury captures, fresh reruns and deterministic archive replay.
+  Source work can complete with gaps while later valuation remains unsupported.
+- Draft [prices and macro manual](../user-manual/prices-and-macro.md), plus updated
+  setup, feature status and operator instructions.
 
-Current Tiingo and FRED terms do not establish compatible permanent storage for
-this application. No key is configured for either provider, and neither was called.
-The direct H.15 format was validated for exact Treasury/fed-funds identities,
-native percent-per-year units, literal multiplier semantics and explicit missing
-status/sentinel. It does not expose historical release vintages or a verified
-seasonal flag. The full ZIP also contains legacy Moody's data outside the blanket
-Board reuse grant: raw scope remains unresolved. The complete ZIP is quarantined
-in ignored local research storage, not committed or offered as a public fixture.
-Filtering normalized output is insufficient to approve its raw retention.
+## Validation
 
-The subsequent direct Treasury review established official CC0 catalog linkage
-to the current nominal-yield feed. The first bounded research response was not
-saved because the research validator rejected an unreviewed optional property;
-its attempt record makes that limitation explicit. A separately authorized
-replacement request preserved the complete 13,033-byte response before semantic
-checks. Its hash and safe parse were verified, with eight entries and exact
-two-/ten-year field identities. This is the recommended initial yield source,
-still requiring policy provisioning and production adapter tests after review.
-Current absent-field missingness is documented but not present in this capture;
-no historical release-vintage or full-yield-field normalization is claimed.
-See the [Treasury manifest](../research/s4/evidence/treasury-yield-manifest.json).
+Validation on 2026-09-19:
 
-D019/S4-01–04 are **proposed**. D009's macro selection policy is proposed; ERP/beta
-remains open for S7. No API, vocabulary or new table is silently approved.
+| Gate | Result |
+| --- | --- |
+| `make check`, default real Timescale profile | **717 passed**, no skips; Ruff, import policy, generated concepts, ESLint, strict mypy and TypeScript pass |
+| `EQUITY_TEST_DB_PROFILE=native-pg16 make test` | **716 passed, 1 explicit Timescale-only skip**; target 0004 |
+| Separate `make test-golden` | **110 passed**, including the permitted Treasury capture |
+| `make test-core` | Intentionally empty until S5/S7; no valuation tests claimed |
+| Alembic history/full-head offline SQL, documentation links and whitespace | Pass |
 
-## Validation evidence
+Focused verification covers real Timescale publication, populated
+hypertable conversion, FKs/uniqueness, policy bypasses, concurrent quota
+reservations, retries, timezone-stable replay, missing/invalid latest responses,
+quote identity, source-vintage boundaries and the combined watchlist source flow.
 
-The review checks synthetic JSON syntax, explicit fictional labels, split
-arithmetic (100 to 50; volume 1000 to 2000), percentage conversion (4.25 to 0.0425),
-inclusive vintage boundaries and capture-cutoff expectations. These are review
-calculations, not passing production S4 adapter tests.
+Independent review found and resolved OHLC flag scope, timestamp identity,
+failed-fetch lineage, redirect finalization, secret diagnostics, source URL
+attribution and historical-selection problems. See the [review record](../design/s4/correctness-review.md)
+and [provider-store details](../design/s4/provider-store-review.md).
+The mandatory pre-commit hook runs full checks and is not bypassed.
 
-The independent storage review checks for plausible wrong values and policy
-bypasses: adjusted-history coherence, provider-symbol reuse, explicit missing
-status, dividend currency, full raw-body versus normalized scope, source
-activation/replay, date precision and real Timescale acceptance. `make check` passes: **440 tests**, Ruff/import policy, concept generation,
-ESLint, strict mypy and TypeScript. The separate golden run passes **108 tests**.
-The core suite remains intentionally empty until S5/S7; no S4 executable adapter
-tests or Timescale acceptance are claimed. The mandatory pre-commit hook repeats
-these checks before the checkpoint is recorded and is not bypassed.
+Tests use repository-owned disposable databases and fictional HTTP. No application
+`.env`, application database, live API key, source subscription or user data was
+changed. The local [Timescale runtime](../design/s4/runtime.md) was built privately
+because Docker/Podman/Colima were unavailable; no global installation or login
+service was created. Hosted CI and the pinned Compose image were not executed
+locally. The runtime profile is explicit, with no silent fallback.
 
-Review-time validation confirms fictional JSON labels, the hand calculations and
-vintage/capture selections, all current local review links, the quarantined H.15
-body hash/count and member-size totals. The Treasury body hash/count, eight
-selected-date rows and exact field values agree with its manifest.
-The raw Treasury XML retains its original trailing whitespace; a capture-specific
-Git attribute prevents line-ending rewriting and excludes that source whitespace
-from the code-style check. `git diff --check` passes.
+## Remaining scope and next handoff
 
-## Limitations and next handoff
+S4a is not the entire original S4. S4b still requires the corporate-action/ADS
+lifecycle contract. Tiingo/FRED live retained-content permissions remain
+unresolved; no provider was activated. Direct Treasury's reviewed CC0 research
+scope does not itself create an application policy. Bulk H.15 stays quarantined
+because unused third-party series have unresolved raw retention rights.
 
-After review, implement the accepted additive schema sequentially and write
-numeric behavior tests before normalization. Provider code can be exercised with
-fictional fixtures while live rights remain unresolved. A real pinned Timescale
-runtime is required for full S4 acceptance; existing plain PG16 tests cannot
-establish hypertable correctness. No new machine package was installed here.
+Complete calendars and macro coverage remain explicit gaps. CPI/PPI/Fed release
+monitoring, continuous discovery of relevant company/competitor/product/regulatory
+news, conditional impact assessments and in-app/desktop/email alerts remain N1.
+The CRCL examples remain examples rather than a fixed topic list.
 
-No account, subscription, provider contact, live worker, recurring monitor, email
-or desktop delivery was activated. S5–S8, W1's full analysis/UI, N1's continuous
-US macro and stock-specific discovery/assessments across all three alert channels,
-and U1's finished manual/glossary remain required for release.
+S5 financial ratios, S6 public API, S7 valuation and S8 watchlist/product UI remain
+required. W1's source stages are implemented, but full applicable financial
+reanalysis and the user-facing add/rerun flow still depend on those milestones.
+U1's final manual, searchable Help, screenshots and end-to-end user walkthrough
+must be verified against the finished product before release.

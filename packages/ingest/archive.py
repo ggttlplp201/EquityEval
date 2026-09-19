@@ -72,6 +72,7 @@ class LocalArchive:
         content_encoding: str | None = None,
         expected_wire_bytes: int | None = None,
         check_deadline: Callable[[], None] | None = None,
+        validate_decoded: Callable[[bytes], None] | None = None,
     ) -> ArchivedBody:
         if not re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,79}", source_key):
             raise ValueError("Invalid archive source key")
@@ -120,6 +121,8 @@ class LocalArchive:
                             count += len(decoded)
                             if count > max_bytes:
                                 raise BodyLimitExceeded("Decoded-body limit exceeded")
+                            if validate_decoded:
+                                validate_decoded(decoded)
                             checksum.update(decoded)
                             archive.write(decoded)
                     if check_deadline:
