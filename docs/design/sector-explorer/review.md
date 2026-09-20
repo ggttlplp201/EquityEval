@@ -24,6 +24,7 @@ Independent reviewers considered plausible but incorrect values, not only crashe
 | Evidence heading called every roster snapshot a contributor; sign counts were ambiguous for margins. | Disclose roster snapshots including excluded issuers; identify the sign basis and zero-denominator count separately. |
 | Fictional company snapshot identity omitted prior capitalization and profile/context fields. | Hash the full immutable company projection, including all evidence, applicable metrics and calculation context. |
 | Whole-sector unsupported/stale causes were hidden by generic missing-input status. | Preserve issuer exclusion causes when projecting an unavailable sector status; add wholly unsupported/stale regressions. |
+| Market-reference footer omitted visible coverage status while its chart marker correctly respected the gate. | Show benchmark status and both coverage measures beside its factual value; keep the dashed comparison key only for eligible references. |
 | SVG titles with multiple text children caused a React hydration mismatch. | Supply each title as a single complete string and recheck in the browser. |
 
 The independent standards review confirms pure core modules, shared fundamentals

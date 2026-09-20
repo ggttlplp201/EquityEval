@@ -74,14 +74,15 @@ The [manual chapter](../user-manual/sector-explorer.md) accompanies this work.
 - Repository lint and strict Python/TypeScript checks passed. Independent numeric,
   standards and spec reviews are recorded in [review](../design/sector-explorer/review.md).
 - `npm run build --workspace @equity/web` passed with all three routes rendered.
-  The development route has 113 kB first-load JavaScript; this excludes its large
+  The development route has 114 kB first-load JavaScript; this excludes its large
   preloaded fictional data/provenance payload and is not a production-data budget.
 - Verified the production build in Chromium at 1440 px and 390 px. The browser
   checked exact bar values and snapshot IDs against the generated artifact,
   date/total/median/mean transitions, keyboard histogram filtering, search/pin,
   exact company snapshot details and Escape, industry navigation, four-sector
   history selection, five-year window, cap sizing, breadth labeling, unsupported
-  profile visibility, zero page overflow on mobile and both entry routes.
+  profile visibility, visible market-reference coverage, zero page overflow on
+  mobile and both entry routes.
   No hydration/runtime errors occurred. Browser automation used bundled Playwright
   with the installed Chromium runtime because `agent-browser` was unavailable.
 - Fictional fixture: 84 issuers, seven top-level groups including Unclassified,
