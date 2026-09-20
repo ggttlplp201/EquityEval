@@ -228,3 +228,55 @@ def test_growth_retains_invalid_source_period_as_a_gap():
     assert result.value is None
     assert "input_period_invalid" in result.flags
     assert "unsupported_comparison_periods" in result.flags
+
+
+def test_existing_margins_accept_derived_period_amounts_without_rewriting_sources():
+    from equity_core.periods import annual_amount
+
+    revenue = annual_amount(operand(Concept.REVENUE, "100"))
+    income = annual_amount(operand(Concept.OPERATING_INCOME, "20"))
+    result = operating_margin(income, revenue)
+    assert result.value == Decimal(".2")
+    assert result.operands == (income, revenue)
+    assert result.operands[0].operands[0].fact.value == Decimal("20")
+
+
+def test_ttm_cash_metrics_reuse_calculations_and_keep_quarter_sources():
+    from equity_core.metrics import free_cash_flow, free_cash_flow_margin
+    from equity_core.periods import ttm_from_quarters
+
+    def ttm(concept, value):
+        return ttm_from_quarters(
+            tuple(
+                operand(concept, value, start=date(2025, month, 1), end=date(2025, month + 2, day))
+                for month, day in ((1, 31), (4, 30), (7, 30), (10, 31))
+            )
+        )
+
+    cfo, capex, revenue = (
+        ttm(Concept.CASH_FROM_OPERATING_ACTIVITIES, "3"),
+        ttm(Concept.CAPITAL_EXPENDITURES_PPE, "5"),
+        ttm(Concept.REVENUE, "25"),
+    )
+    result = free_cash_flow(cfo, capex)
+    assert result.value == Decimal("-8")
+    assert free_cash_flow_margin(cfo, capex, revenue).value == Decimal("-.08")
+    assert len(result.operands[0].operands) == 4
+    assert cfo.scope.id != capex.scope.id
+
+
+def test_same_dates_do_not_make_different_period_assemblies_compatible():
+    from equity_core.periods import annual_amount, ttm_from_quarters
+
+    income = annual_amount(operand(Concept.OPERATING_INCOME, "20"))
+    revenue = ttm_from_quarters(
+        tuple(
+            operand(
+                Concept.REVENUE, "25", start=date(2025, month, 1), end=date(2025, month + 2, day)
+            )
+            for month, day in ((1, 31), (4, 30), (7, 30), (10, 31))
+        )
+    )
+    result = operating_margin(income, revenue)
+    assert result.value is None
+    assert "incompatible_period_assemblies" in result.flags

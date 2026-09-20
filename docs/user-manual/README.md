@@ -35,3 +35,7 @@ metric definitions and limits, TTM/quarter/year controls, 3/5/10-year comparison
 history, N/A/N/M/coverage, neutral review prompts and source inspection. Complete
 and verify it when S8b/S8d exists; [F1 requirements](../features/F1-fundamentals-guide.md)
 and [U1 acceptance](../features/U1-user-manual.md) define the scope.
+
+The [Sector Explorer chapter](sector-explorer.md) explains the separate graph
+feature, aggregate versus company methods, N/K/V, coverage, exclusions and its
+fictional development walkthrough. Real-data release acceptance remains open.

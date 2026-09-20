@@ -124,7 +124,7 @@ inputs that would produce a plausible but incorrect number rather than raising.
 
 ## Scope discipline
 
-Current scope: **P0 plus user-requested N1, W1, U1 and F1 extensions**.
+Current scope: **P0 plus user-requested N1, W1, U1, F1 and X1 extensions**.
 Read the feature register in docs/features/README.md. F1 fundamentals was added
 to the plan on 2026-09-19, including selectable 3/5/10-year comparison history.
 After planning at c1f2697, the user requested “implement the next step.”
@@ -132,7 +132,10 @@ The first pure source-metric/history slice is implemented on
 codex/s5-source-metrics; read docs/design/s5/source-metrics.md and
 docs/milestones/S5-ratios.md. D022 records that bounded scope; remaining D021
 contract/product-policy review remains open. Other P1/P2
-features remain deferred.
+features remain deferred. X1 Sector Explorer was explicitly requested on
+2026-09-19 after current fundamentals work; read docs/features/X1-sector-explorer.md
+and docs/milestones/X1-sector-explorer.md. Keep fictional graph validation separate
+from real sector coverage and retain D024's shared-contract/source review.
 If something feels like it needs a contract change (`packages/schema` or the
 `concept_std` enum), stop and ask — that happens in a dedicated sequential
 session, never inside a feature branch.

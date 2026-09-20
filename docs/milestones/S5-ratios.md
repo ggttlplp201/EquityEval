@@ -81,10 +81,20 @@ independent numeric checks and the archived-source coverage limitation. The
 focused core suite passes 150 tests. Required
 full repository checks remain the mandatory, non-bypassed commit gate.
 
+## Period prerequisite completed before X1
+
+On `codex/sector-explorer`, the next bounded source-only prerequisite was finished
+before any Sector Explorer math began. [Period assembly](../design/s5/period-assembly.md)
+adds annual, contiguous-quarter TTM, same-edition YTD subtraction and explicit
+revision-compatible annual/YTD TTM bridges. Existing metric formulas consume
+these derived amounts and retain every source operand, precision and coefficient.
+Fourteen period tests and three formula-integration regressions brought core
+coverage to 167 passing tests. Independent review found no blocking numeric issue.
+The 3/5/10-year fundamentals history options are unchanged.
+
 ## Next bounded step
 
-Review and implement compatible fiscal-period/YTD/TTM assembly and its eligibility
-policies, then remaining supported metric definitions and neutral interpretation.
+Complete remaining supported metric definitions and neutral interpretation.
 EPS, common-equity/debt definitions and applicability need their stated evidence;
 new concepts or shared schema/API shapes still require sequential contract review.
 Keep S4b/calendar prerequisites explicit for price/share metrics. S6 handles

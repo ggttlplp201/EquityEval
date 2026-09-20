@@ -1,0 +1,20 @@
+{
+  "received_on": "2026-09-19",
+  "source_path": "/Users/leon/Documents/Codex/2026-09-19/referenced-chatgpt-conversation-this-is-an/outputs/EquityEval_Sector_Explorer_Spec.docx",
+  "baseline_commit": "bd437db",
+  "authority": "User explicitly requested implementation after current fundamentals work; proposed shared contracts and source licensing need their existing reviews.",
+  "files": {
+    "EquityEval_Sector_Explorer_Spec.docx": "925ee5bb5a0f10e461a38c982c15ed04b078078341a7b7f728d2087e89dd7705",
+    "source-text.md": "ed2843a63df143fca85e22e9da656669a1dfa5db2f36a3183c028275853bff58",
+    "image1.png": "553af4e109880fa9e1023eb0add71c12a82dfe6037d0cb949b08aa5bf0f40456"
+  },
+  "body_blocks": 62,
+  "tables": 3,
+  "images": 1,
+  "references": [
+    "https://www.spglobal.com/spdji/en/documents/methodologies/methodology-gics.pdf",
+    "https://www.msci.com/indexes/documents/methodology/0_MSCI_Fundamental_Data_Methodology_20240625.pdf",
+    "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/backtesting-and-simulation",
+    "https://www.investor.gov/introduction-investing/getting-started/asset-allocation"
+  ]
+}

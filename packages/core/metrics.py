@@ -1,5 +1,7 @@
 """Pure source-metric arithmetic with exact input lineage; no source selection or I/O."""
 
+from __future__ import annotations
+
 import calendar
 import json
 import re
@@ -16,9 +18,15 @@ from decimal import (
     Underflow,
     localcontext,
 )
+from typing import TYPE_CHECKING
 
 from equity_core.inputs import FinancialInput
 from equity_schema.concepts import Concept
+
+if TYPE_CHECKING:
+    from equity_core.periods import PeriodAmount
+
+    FinancialOperand = FinancialInput | PeriodAmount
 
 
 @dataclass(frozen=True)
@@ -26,12 +34,12 @@ class Calculation:
     metric_id: str
     value: Decimal | None
     unit: str
-    operands: tuple[FinancialInput, ...]
+    operands: tuple[FinancialOperand, ...]
     flags: tuple[str, ...] = ()
     formula_revision: str = "s5-source-metrics-v1"
 
 
-def _denominator(input_value: FinancialInput) -> set[str]:
+def _denominator(input_value: FinancialOperand) -> set[str]:
     value = input_value.value
     if value is None:
         return {"source_input_unavailable"}
@@ -44,7 +52,7 @@ def _denominator(input_value: FinancialInput) -> set[str]:
     return set()
 
 
-def _issues(
+def _source_issues(
     operands: tuple[FinancialInput, ...],
     expected: tuple[Concept, ...],
     *,
@@ -121,6 +129,45 @@ def _issues(
     return problems
 
 
+def _issues(
+    operands: tuple[FinancialOperand, ...],
+    expected: tuple[Concept, ...],
+    *,
+    same_period: bool = True,
+) -> set[str]:
+    leaves: list[FinancialInput] = []
+    concepts: list[Concept] = []
+    for item, concept in zip(operands, expected, strict=True):
+        sources = (item,) if isinstance(item, FinancialInput) else item.operands
+        leaves.extend(sources)
+        concepts.extend((concept,) * len(sources))
+    if all(isinstance(item, FinancialInput) for item in operands):
+        return _source_issues(tuple(leaves), expected, same_period=same_period)
+    problems = _source_issues(tuple(leaves), tuple(concepts), same_period=False)
+    problems.update(flag for item in operands for flag in item.blocking_flags)
+    if any(item.value is None for item in operands):
+        problems.add("source_input_unavailable")
+    if tuple(item.concept for item in operands) != expected:
+        problems.add("unexpected_concept")
+    if same_period:
+        if len({(item.period.start_date, item.period.end_date) for item in operands}) != 1:
+            problems.add("incompatible_periods")
+        assemblies = {
+            (
+                "selected",
+                item.period.start_date,
+                item.period.end_date,
+                tuple(item.selection.filing_version_ids),
+            )
+            if isinstance(item, FinancialInput)
+            else item.assembly_key
+            for item in operands
+        }
+        if len(assemblies) != 1:
+            problems.add("incompatible_period_assemblies")
+    return problems
+
+
 def _context(*, exact: bool = False) -> Context:
     context = Context(prec=50, rounding=ROUND_HALF_EVEN, Emin=-999, Emax=999)
     context.traps[Subnormal] = True
@@ -137,7 +184,7 @@ def _difference(left: Decimal, right: Decimal) -> Decimal:
 
 def _calculate(
     metric: str,
-    operands: tuple[FinancialInput, ...],
+    operands: tuple[FinancialOperand, ...],
     problems: set[str],
     operation: Callable[[tuple[Decimal, ...]], Decimal],
     *,
@@ -171,29 +218,29 @@ def _calculate(
 def _reported_margin(
     metric: str,
     concept: Concept,
-    numerator: FinancialInput,
-    revenue: FinancialInput,
+    numerator: FinancialOperand,
+    revenue: FinancialOperand,
 ) -> Calculation:
     operands = (numerator, revenue)
     problems = _issues(operands, (concept, Concept.REVENUE)) | _denominator(revenue)
     return _calculate(metric, operands, problems, lambda values: values[0] / values[1], margin=True)
 
 
-def operating_margin(income: FinancialInput, revenue: FinancialInput) -> Calculation:
+def operating_margin(income: FinancialOperand, revenue: FinancialOperand) -> Calculation:
     return _reported_margin("operating_margin", Concept.OPERATING_INCOME, income, revenue)
 
 
-def gross_margin(profit: FinancialInput, revenue: FinancialInput) -> Calculation:
+def gross_margin(profit: FinancialOperand, revenue: FinancialOperand) -> Calculation:
     return _reported_margin("gross_margin", Concept.GROSS_PROFIT, profit, revenue)
 
 
-def net_margin(income: FinancialInput, revenue: FinancialInput) -> Calculation:
+def net_margin(income: FinancialOperand, revenue: FinancialOperand) -> Calculation:
     return _reported_margin(
         "net_margin_consolidated", Concept.NET_INCOME_CONSOLIDATED, income, revenue
     )
 
 
-def derived_gross_margin(revenue: FinancialInput, cost: FinancialInput) -> Calculation:
+def derived_gross_margin(revenue: FinancialOperand, cost: FinancialOperand) -> Calculation:
     """Explicit derived result, never a replacement reported GROSS_PROFIT fact."""
     operands = (revenue, cost)
     problems = _issues(operands, (Concept.REVENUE, Concept.COST_OF_REVENUE)) | _denominator(revenue)
@@ -207,7 +254,7 @@ def derived_gross_margin(revenue: FinancialInput, cost: FinancialInput) -> Calcu
     )
 
 
-def _cash_issues(cfo: FinancialInput, capex: FinancialInput) -> set[str]:
+def _cash_issues(cfo: FinancialOperand, capex: FinancialOperand) -> set[str]:
     problems = _issues(
         (cfo, capex), (Concept.CASH_FROM_OPERATING_ACTIVITIES, Concept.CAPITAL_EXPENDITURES_PPE)
     )
@@ -216,7 +263,7 @@ def _cash_issues(cfo: FinancialInput, capex: FinancialInput) -> set[str]:
     return problems
 
 
-def free_cash_flow(cfo: FinancialInput, capex: FinancialInput) -> Calculation:
+def free_cash_flow(cfo: FinancialOperand, capex: FinancialOperand) -> Calculation:
     """CFO less reported cash PPE purchases, not FCFF or issuer-adjusted FCF."""
     return _calculate(
         "free_cash_flow_ppe",
@@ -228,7 +275,7 @@ def free_cash_flow(cfo: FinancialInput, capex: FinancialInput) -> Calculation:
 
 
 def free_cash_flow_margin(
-    cfo: FinancialInput, capex: FinancialInput, revenue: FinancialInput
+    cfo: FinancialOperand, capex: FinancialOperand, revenue: FinancialOperand
 ) -> Calculation:
     operands = (cfo, capex, revenue)
     problems = (
@@ -252,7 +299,7 @@ def free_cash_flow_margin(
     )
 
 
-def reported_amount(source: FinancialInput) -> Calculation:
+def reported_amount(source: FinancialOperand) -> Calculation:
     """Expose a selected amount without inventing missing denominator precision."""
     flags = set(source.flags)
     if source.value is None:
@@ -266,7 +313,7 @@ def reported_amount(source: FinancialInput) -> Calculation:
     )
 
 
-def _comparison_period(current: FinancialInput, prior: FinancialInput) -> bool:
+def _comparison_period(current: FinancialOperand, prior: FinancialOperand) -> bool:
     """Only exact comparable calendar-month quarters/years; never infer fiscal calendars."""
     start, end = current.period.start_date, current.period.end_date
     old_start, old_end = prior.period.start_date, prior.period.end_date
@@ -290,7 +337,7 @@ def _comparison_period(current: FinancialInput, prior: FinancialInput) -> bool:
     return old_start == previous_start and old_end == previous_end
 
 
-def revenue_growth(current: FinancialInput, prior: FinancialInput) -> Calculation:
+def revenue_growth(current: FinancialOperand, prior: FinancialOperand) -> Calculation:
     operands = (current, prior)
     problems = _issues(
         operands, (Concept.REVENUE, Concept.REVENUE), same_period=False
