@@ -239,6 +239,15 @@ def capture(
         date(2025, 1, 1),
         datetime.now(UTC).date(),
         filing_documents=(
+            # Discovered in the genuine 2026-09-21 Submissions capture. Retain the
+            # amendment for review; its existence does not imply a restatement.
+            SecResource(
+                identities["issuer"],
+                "1876042",
+                ResourceKind.FILING_DOCUMENT,
+                filename="crcl-20251231.htm",
+                accession="0001876042-26-000228",
+            ),
             SecResource(
                 identities["issuer"],
                 "1876042",

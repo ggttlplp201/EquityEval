@@ -1,6 +1,6 @@
 # D3b — First-source bootstrap and CRCL capture
 
-Status: bootstrap implemented; full verification/review and live capture pending.
+Status: bootstrap reviewed and checkpointed; live inventory parser correction in verification.
 Date: 2026-09-21.
 Branch: `codex/source-bootstrap`.
 Baseline: `c314df9` / `milestone/d3a-application-runtime`.
@@ -33,14 +33,29 @@ the redesigned screens and all seven companies. No DCF or other live provider.
 - Application readiness inspection: configured SEC contact is valid; separate PG
   and persistent Redis verified. No secret printed; no application registration
   or live request at this preflight checkpoint.
-- Lint and strict Python types pass; full suites and independent review pending.
+- Checkpoint `de0aefa` / `milestone/d3b-source-bootstrap`: lint, Python/TypeScript
+  types, 1,017 full tests, 225 core and 110 golden passed in the mandatory hook.
+- Standards and Spec reviews both found no actionable findings; see
+  [review record](../design/s3/bootstrap-review.md).
+- Live SEC inventory revealed renderer subdirectories in primaryDocument. The
+  bounded metadata parser correction passes 25 inventory tests and both review
+  axes; transport filename permissions remain unchanged.
 
 ## Live capture and remaining boundary
 
-Not attempted at this implementation checkpoint. Run only after required checks
-and review. Preserve actual HTTP outcomes and record the first real capture's
-source/attempt/policy identity, body hash/count and original timestamps here.
-Do not promote old S1 archives by filling missing completion/request timestamps.
+Application migration 0006 and reviewed owner registration succeeded. Request
+`954c15d5-d14b-471d-8e87-f1e82978f9a1` captured genuine Company Facts and Submissions
+(HTTP 200) through S3, then failed at inventory parsing. The request and its two
+captures remain immutable. Replaying the saved inventory after the parser fix
+produces 421 records (393 within the requested window), complete advertised
+coverage, and no inventory flags. No network was used for this parsing replay.
+
+The inventory identifies annual amendment `0001876042-26-000228`, filed 2026-07-13,
+primary document `crcl-20251231.htm`. Its metadata comes from capture
+`e51439cd-a222-4dd8-9861-b21406eb7693`. The next bounded capture plan includes that
+SEC-hosted amendment for substantive review alongside the original and Q2 filing.
+An amendment alone does not establish financial restatement or non-reliance.
+No quote, normalization batch or financial result has been created.
 
 Successful source acquisition is not financial publication. Require genuine quote
 validity, filing/non-reliance review, supported scope/period/precision and actual

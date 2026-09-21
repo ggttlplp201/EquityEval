@@ -175,3 +175,44 @@ def test_duplicate_rows_in_one_document_do_not_satisfy_advertised_count():
     assert result.completeness == "incomplete"
     assert "duplicate_accessions_in_document" in result.flags
     assert len(result.filings) == 3  # Keep both raw rows as evidence; never silently discard one.
+
+
+@pytest.mark.parametrize(
+    "filename", ["xsl144X01/primary_doc.xml", "xslF345X06/wk-form4_1789074349.xml"]
+)
+def test_primary_document_preserves_sec_renderer_directory(filename):
+    payload = json.loads(recent_document())
+    payload["filings"]["recent"]["primaryDocument"] = [filename]
+    result = parse_submissions(
+        json.dumps(payload).encode(), expected_cik="0000320193", capture_id=uuid4()
+    )
+    assert result.filings[0].primary_document == filename
+    assert json.loads(result.filings[0].raw_metadata)["primaryDocument"] == filename
+
+
+@pytest.mark.parametrize(
+    "filename",
+    [
+        "../doc.xml",
+        "xsl/../doc.xml",
+        "/xsl/doc.xml",
+        "//other/doc.xml",
+        "https://example.com/doc.xml",
+        "xsl//doc.xml",
+        "xsl/./doc.xml",
+        "xsl/%2e%2e/doc.xml",
+        "xsl%2fdoc.xml",
+        "xsl/doc.xml?redirect=1",
+        "xsl/doc.xml#fragment",
+        "xsl\\doc.xml",
+        "xsl/doc.xml\n",
+        "xsl/",
+    ],
+)
+def test_primary_document_rejects_unsafe_relative_paths(filename):
+    payload = json.loads(recent_document())
+    payload["filings"]["recent"]["primaryDocument"] = [filename]
+    with pytest.raises(ValueError, match="safe relative path"):
+        parse_submissions(
+            json.dumps(payload).encode(), expected_cik="0000320193", capture_id=uuid4()
+        )

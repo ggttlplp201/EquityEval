@@ -97,13 +97,18 @@ def _filings(columns: Any, capture_id: UUID, prefix: str) -> tuple[InventoryFili
             raise ValueError("Invalid filing form")
         filed_date = date.fromisoformat(row["filingDate"])
         report = date.fromisoformat(row["reportDate"]) if row.get("reportDate") else None
+        # SEC ownership filings can include renderer directories (e.g. xslF345X06).
+        # Retain that source path verbatim as metadata; transport resources still
+        # require separately reviewed filenames and do not follow inventory paths.
         primary = row.get("primaryDocument") or None
         if primary is not None and (
             not isinstance(primary, str)
-            or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", primary)
+            or not re.fullmatch(
+                r"[A-Za-z0-9][A-Za-z0-9_.-]*(?:/[A-Za-z0-9][A-Za-z0-9_.-]*)*", primary
+            )
             or ".." in primary
         ):
-            raise ValueError("Primary document must be a safe relative filename")
+            raise ValueError("Primary document must be a safe relative path")
         acceptance, basis = None, None
         acceptance_text = row.get("acceptanceDateTime")
         if acceptance_text:
