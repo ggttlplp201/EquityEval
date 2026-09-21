@@ -4,7 +4,9 @@ Canonical repository:
 `/Users/leon/Library/Mobile Documents/com~apple~CloudDocs/Development/equityEval`.
 
 Reviewed redesign recovery: commit `3342595`, tag `milestone/d1b-redesign`.
-Current pilot branch: `codex/seven-company-pilot`.
+D2 pilot branch: `codex/seven-company-pilot`.
+Current continuation: `codex/crcl-source-snapshot`; runtime checkpoint D3a,
+recovery tag `milestone/d3a-application-runtime` (987 full / 225 core / 110 golden).
 Pilot recovery tag: `milestone/d2-observed-pilot`.
 Validation: 970 full, 225 core, 110 golden tests; lint/types/build; 54 browser checks.
 The live publication/core prerequisite remains open.
@@ -35,12 +37,17 @@ retained as a negative observation; it is not silently excluded. There are no
 eligible quarter-end snapshots, so 3/5/10-year history windows do not plot a line,
 compute a percentile or invent annual-to-quarter observations.
 
-The configured application database currently refuses connections on loopback5433.
-Do not replace it with disposable test storage. S3 legacy archive policy links,
-registered source/mapping identities and reviewed filing/non-reliance completeness
-remain the specific next prerequisites. Use existing S3 transport/archive and PIT
-paths when addressing them. Do not build a second ingestion pipeline, reuse test
-policy rows or create selection-shaped objects to make core calculations pass.
+The application database now runs separately on loopback5433 at existing migration
+head; persistent application Redis runs on6380. [D3a](../milestones/D3a-application-runtime.md)
+and the [runtime guide](../design/application-runtime.md) record control commands
+and isolation checks. All six inspected domain/evidence tables remain empty.
+
+The next specific prerequisite is the [D031 first-capture contract review](../design/s3/identity-bootstrap-proposal.md):
+W1 requires an evidenced quote, whose first capture itself requires W1. S1 has
+no authentic completion/request timestamps and cannot substitute for that capture.
+Do not use disposable test storage, policies, synthetic timestamps or
+selection-shaped objects to bypass this dependency. After review, reuse S3's
+existing transport/archive/publication and PIT paths.
 
 The source/numeric checkpoint does not activate D027 attribution. Keep S5 then
 S6 sequential and review any shared contract changes separately.

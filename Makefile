@@ -8,6 +8,8 @@ COMPOSE := docker compose --project-directory . -f infra/compose.yaml
 help:
 	@echo "bootstrap | check | test | test-core | test-golden | lint | typecheck"
 	@echo "infra-config | infra-up | infra-down | infra-status | migration-history | migration-sql | migrate"
+	@echo "app-db-start | app-db-migrate | app-db-inspect | app-db-stop"
+	@echo "app-redis-start | app-redis-status | app-redis-stop"
 
 bootstrap:
 	PYTHON="$(PYTHON)" bash scripts/bootstrap
@@ -84,3 +86,26 @@ test-redis-stop:
 .PHONY: test-db-setup-timescale
 test-db-setup-timescale:
 	$(VENV_PY) scripts/setup_test_timescale.py
+
+# Persistent application stores. Never aliases of the disposable test runtimes.
+.PHONY: app-db-start app-db-migrate app-db-inspect app-db-stop app-redis-start app-redis-status app-redis-stop
+app-db-start:
+	$(VENV_PY) scripts/app_postgres.py start
+
+app-db-migrate:
+	$(VENV_PY) scripts/app_postgres.py migrate
+
+app-db-inspect:
+	$(VENV_PY) scripts/app_postgres.py inspect
+
+app-db-stop:
+	$(VENV_PY) scripts/app_postgres.py stop
+
+app-redis-start:
+	$(VENV_PY) scripts/app_redis.py start
+
+app-redis-status:
+	$(VENV_PY) scripts/app_redis.py status
+
+app-redis-stop:
+	$(VENV_PY) scripts/app_redis.py stop

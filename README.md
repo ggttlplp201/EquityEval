@@ -21,7 +21,9 @@ and the [requested feature list](docs/features/README.md). The supplied [spec](d
 Requires Python 3.12, Node 22, npm, Redis binaries and PostgreSQL 16 binaries for the integration
 tests. Set `EQUITY_TEST_PG_BIN` to the PostgreSQL 16 bin directory if it is not
 automatically detected. Set `EQUITY_TEST_REDIS_BIN` for Redis binaries if needed. Docker with Compose v2 is an alternative runtime for the
-planned application database/cache, separate from the disposable test cluster.
+application database/cache, separate from the disposable test cluster.
+The [native application runtime guide](docs/design/application-runtime.md) describes
+the separate persistent local services now available without Docker.
 From this repository:
 
 ```sh
@@ -55,6 +57,9 @@ contains local development database values only. Keep .env out of Git.
 | `make migration-history` | Inspect frozen evidence and watchlist Alembic revisions |
 | `make migration-sql` | Render migration SQL without connecting |
 | `make migrate` | Apply reviewed migrations; needs DATABASE_URL |
+| `make app-db-start` / `app-db-migrate` / `app-db-inspect` | Start, migrate and inspect the separate native application database |
+| `make app-redis-start` / `app-redis-status` | Start and inspect the persistent application rate coordinator |
+| `make app-db-stop` / `app-redis-stop` | Stop owned application services while retaining data |
 | `make install-hooks` | Install the required local pre-commit hook |
 | `make test-db-start` / `test-db-status` / `test-db-stop` | Control only this repository's isolated PostgreSQL 16 test cluster |
 | `make test-redis-start` / `test-redis-status` / `test-redis-stop` | Control only this repository's Redis test coordinator |
