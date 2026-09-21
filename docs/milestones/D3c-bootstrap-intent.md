@@ -1,6 +1,6 @@
 # D3c — Pinned bootstrap intent and acquisition readiness
 
-Status: reviewed implementation and bounded live application capture verified; registration review remains pending.
+Status: reviewed implementation and bounded live application capture verified; registration review continued in [D3d](D3d-quote-identity-review.md), blocked on explicit quote-currency evidence.
 Date: 2026-09-21. Branch: `codex/source-bootstrap`.
 Baseline: `59a8af7` / `milestone/d3b-crcl-capture`.
 Implementation: `c2b02cf`; reviewed corrections `bba701a`.

@@ -39,6 +39,8 @@ visible without rewriting the source plan. Status **open** means not approved.
 
 | D031 | Corrections and bounded live capture verified — 2026-09-21 | The user authorized immutable versioned bootstrap acquisition intent, exact resources/inventory scope, typed completion and explicit Submissions-based readiness. [Contract](design/s3/bootstrap-intent.md); [D3c](milestones/D3c-bootstrap-intent.md). Migration 0007 preserves already applied 0006 and historical D3b captures. Ordinary requests and financial missingness remain unchanged. | 1,065 tests; pinned capture ready for registration review; no automatic quote or DCF |
 
+| D032 | Bounded identity review completed — 2026-09-21 | Authorized continuation reviewed only captured D3b/D3c evidence. CRCL/NYSE/Class A and June 5, 2025 listing start are supported; quote currency remains unsubstantiated. [D3d](milestones/D3d-quote-identity-review.md) adds a read-only replay/check and audit; no inference from reporting/offer currency, registration writer, quote or ordinary request. New explicit quotation-currency evidence is required before the conditional registration step. | Identity registration before ordinary source-backed analysis; publication remains separate |
+
 Schema shape, financial vocabulary, API contract and changes to missing-data
 representation require a concrete proposal and user review per the supplied
 AGENTS.md. Accepted decisions above apply within their recorded scope; open or
