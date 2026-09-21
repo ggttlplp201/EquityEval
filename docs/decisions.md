@@ -47,6 +47,8 @@ visible without rewriting the source plan. Status **open** means not approved.
 
 | D035 | Approved under user AFK delegation — 2026-09-21 | [D4a monitor contract](design/s3/filing-monitor-proposal.md), including coordinator refinements: reviewed seed/prior-result lineage, every-200 attempt archive, overlap-aware history coverage, typed complete/incomplete/error results, W1 fencing and no downstream dispatch. Additive migration and bounded CRCL check authorized. | D4a bounded check verified; 0009 enforces one typed result per execution; scheduling and financial handoff remain separate |
 
+| D036 | Approved under user AFK delegation — 2026-09-21 | [D4b scheduler contract](design/s3/filing-scheduler-proposal.md): immutable configuration, deterministic UTC slots, W1 materialization/fencing, bounded budget/recovery, fixed scope with typed rebase_required and saved manual-worker health. No automatic scope extension, OS cron or downstream dispatch. | Sequential 0010 and bounded manual tracer verified with six refinements; one real slot completed inside scope, then paused; milestone/d4b-filing-scheduler |
+
 Schema shape, financial vocabulary, API contract and changes to missing-data
 representation require a concrete proposal and user review per the supplied
 AGENTS.md. Accepted decisions above apply within their recorded scope; open or

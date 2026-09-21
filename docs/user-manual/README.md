@@ -45,3 +45,5 @@ fictional development walkthrough. Real-data release acceptance remains open.
 and distinguishes them from U1's pending real-data and alert workflow acceptance.
 
 - [SEC filing monitor](filing-monitor.md): saved real check, source evidence, cutoff and baseline meanings; one-shot operator usage.
+
+- [Filing schedules](filing-scheduler.md): manual application scheduling, revisions, pause/resume, health, budgets and the fixed-window rebase gate. No background service is configured.

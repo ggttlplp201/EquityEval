@@ -154,10 +154,16 @@ D3f adds an **Official-source search** disclosure under Quote registration.
 It explains the issuer/exchange sources checked, their date/policy limitations,
 and why currency remains missing. These authored research notes are separate
 from archived application captures. See [D3f](docs/milestones/D3f-quote-currency-search.md).
-To verify the saved UI still matches the actual application (read-only, no fetch):
+D4b adds a saved **Filing schedule** panel using the same design, with immutable
+revision/slot evidence, UTC timing, retries and attempt budgets. One real CRCL slot
+found no new filings among six scoped reports; the schedule is paused and no
+background service is configured. See [D4b](docs/milestones/D4b-filing-scheduler.md)
+and the [operator guide](docs/user-manual/filing-scheduler.md). Earlier checkpoint
+totals remain separately labelled. Verify the current application and protected
+earlier evidence (read-only, no fetch):
 
 ```sh
-.venv/bin/python scripts/project_python.py -m scripts.export_pipeline_snapshot --check --verify-application
+.venv/bin/python scripts/project_python.py -m scripts.export_scheduler_snapshot --check --verify-application
 ```
 
 The canonical [operational roadmap](docs/roadmap.md) lists every non-operating capability, its dependencies and acceptance gate.

@@ -34,6 +34,7 @@ above. This repository and its commits are the implementation source of truth.
 | D3e | Interactive saved pipeline state verified; registration remains blocked | [Pipeline preview](D3e-pipeline-preview.md) | Six stages, sanitized real audit fixture, evidence disclosures; milestone/d3e-pipeline-preview |
 | D3f | Official-source search remains blocked; saved search disclosure implemented | [Quotation-currency search](D3f-quote-currency-search.md) | D034; primary-source findings, policy/date limits and replayed application invariants; no registration |
 | D4a | Real one-shot check and saved UI verified; no new scoped filings | [SEC filing monitor](D4a-filing-monitor.md) | Saved real check, immutable baseline/body lineage; no scheduler or financial dispatch |
+| D4b | Bounded real slot and saved UI verified; milestone/d4b-filing-scheduler | [Filing scheduler](D4b-filing-scheduler.md) | Fixed-scope UTC slots, lifecycle/budget/health; rebase gate and no background service |
 | S8a–d | Planned; F1 shares provenance, Ratios and Overview | P0 company pages and integration | After relevant engine/contracts |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,
@@ -43,4 +44,4 @@ only when it has a concrete independent scope or this milestone has a handoff.
 Do not duplicate active implementation across tasks. Use `git log --oneline`
 for exact commits and `docs/decisions.md` for review status.
 
-See the [operational roadmap](../roadmap.md) for dependency order and the distinction between implemented code, research and operating application capabilities. D4a SEC incremental discovery is the completed bounded tracer; D4b scheduling readiness follows; its [contract proposal](../design/s3/filing-monitor-proposal.md) was approved under D035.
+See the [operational roadmap](../roadmap.md) for dependency order and the distinction between implemented code, research and operating application capabilities. D4a SEC incremental discovery and D4b manual scheduling readiness are complete for their bounded scopes. [D036](../design/s3/filing-scheduler-proposal.md) governs D4b; reviewed rebase and service configuration remain next.

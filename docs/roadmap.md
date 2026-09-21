@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
-Canonical dependency/status list, reconciled 2026-09-21 from `b4c1e19` /
-`milestone/d3f-currency-search`. This links existing milestones and features;
+Canonical dependency/status list, reconciled 2026-09-21 through
+`milestone/d4b-filing-scheduler`. This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -12,9 +12,10 @@ feature/design retains its detailed acceptance criteria.
   inventory, normalization and PIT infrastructure; S4a price/macro adapters and
   selectors; bounded S5 pure metrics/history and X1 pure comparisons.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
-  12 captures, three acquisition bootstraps and one completed D4a filing check
-  (13 fetch attempts, one retained monitor response body). No exchange quote, membership,
-  normalization batch or financial-analysis result. These counts describe the D4a checkpoint.
+  12 captures, three acquisition bootstraps and two completed filing checks
+  (14 fetch attempts, two retained monitor response bodies). One application-owned
+  schedule is paused after its bounded D4b slot; no background service is configured.
+  No exchange quote, membership, normalization batch or financial-analysis result.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
   operating provider, normalized production fact or published financial result.
@@ -27,7 +28,7 @@ feature/design retains its detailed acceptance criteria.
 
 | Capability | Existing owner / scheduled slice | Current status | Dependencies | Acceptance before calling it operational |
 | --- | --- | --- | --- | --- |
-| Automatic SEC filing monitoring | [S3](milestones/S3-ingestion.md) + [W1d](features/W1-watchlist-analysis.md); [D4a detection](milestones/D4a-filing-monitor.md) then D4b scheduling | D4a one-shot detector verified; recurring service not configured | Reviewed monitor request/result, registered issuer/security, approved SEC policy, W1 leases, shared limiter | D4a: pinned cutoff/forms/baseline, immutable evidence, exact metadata diff, auditable no-change/new/amendment/incomplete/error, concurrency/retry tests and bounded real check. D4b: explicitly configured recurring execution, health/lag/recovery and no duplicate dispatch. |
+| Automatic SEC filing monitoring | [S3](milestones/S3-ingestion.md) + [W1d](features/W1-watchlist-analysis.md); [D4a detection](milestones/D4a-filing-monitor.md) and [D4b scheduling](milestones/D4b-filing-scheduler.md) | Detector and bounded manual schedule verified; schedule paused, recurring service not configured | Reviewed monitor request/result, registered issuer/security, approved SEC policy, W1 leases, shared limiter | D4a: pinned cutoff/forms/baseline, immutable evidence, exact metadata diff, auditable no-change/new/amendment/incomplete/error, concurrency/retry tests and bounded real check. D4b: manual slot/health/recovery and repeat dedup verified. Recurring operation additionally needs reviewed rebase and explicit service configuration. |
 | Scheduled quarterly/annual updates | S3/W1; D4b poll scheduling and later W1b handoff | Not operating | D4a, reviewed schedule/budget, operator service configuration | Discover actual 10-Q/10-K and amendments, including late/out-of-order arrivals; never assume earnings dates are filing availability. Missed poll recovery preserves pinned windows/history. No OS scheduler in D4a. |
 | Approved quote/reference-data provider | [S4](milestones/S4-prices-macro.md), [licence register](data-licences.md), [D3f](milestones/D3f-quote-currency-search.md) | Externally blocked: compatible retained-use entitlement and explicit CRCL currency evidence absent | Exact endpoint/account entitlement, rights for raw/normalized retention, reviewed resource adapter | Retention/attribution/redistribution scope recorded; authoritative issuer/class/exchange/currency/date binding archived through governed attempts; no inference from reporting USD. |
 | Quote registration | [D3d](milestones/D3d-quote-identity-review.md) / D3f conditional follow-up | Blocked; zero identifiers | Qualifying archived currency evidence and effective date, existing issuer/security identity | Narrow idempotent writer; overlap/conflict/identity/date tests; immutable source link and history; no membership or financial publication side effect. |
@@ -46,9 +47,13 @@ feature/design retains its detailed acceptance criteria.
    immutable evidence and saved UI verified. One real CRCL poll found no new
    scoped filings. See the D4a milestone for counts, times and acceptance.
    No automatic scheduler or downstream financial enqueue in this slice.
-2. **D4b — Scheduling readiness:** after D4a acceptance, review/configure the
-   application-owned polling service, cadence, health/recovery and operational
-   lifecycle. OS-level scheduling requires its own explicit task; D4a installs none.
+2. **D4b — Scheduling readiness completed:** [D036](design/s3/filing-scheduler-proposal.md)
+   and its [milestone](milestones/D4b-filing-scheduler.md) record the verified manual
+   slot, lifecycle/budget/recovery and saved UI. The real slot found no new scoped
+   filings; repeat/concurrent ticks added no work. The schedule is paused.
+   Next review is scope replacement/rebase and explicit application-worker service
+   configuration: the fixed window ends 2026-09-21 UTC. No automatic scope
+   expansion or OS-level scheduler was installed.
 3. **In parallel dependency order, not duplicate implementation:** resolve S4
    reference/quote evidence and source entitlement; review S4b lifecycle and
    S5/S6 financial publication boundaries. D4a can proceed while quote currency

@@ -32,6 +32,10 @@ from tests.integration.test_source_bootstrap import (
     enqueue,
 )
 from tests.test_filing_monitor import filing, submissions
+from tests.test_ingest_transport import Clock, Limiter
+
+# Pin fictional acceptance metadata independently of the host calendar.
+MONITOR_CUTOFF = datetime(2026, 9, 21, 12, tzinfo=UTC)
 
 identity = bootstrap_fixtures.identity
 transport = bootstrap_fixtures.transport
@@ -50,7 +54,19 @@ def seeded(db_admin, db, identity, transport):
     request = enqueue(db, identity)
     lease = claim_source_bootstrap(db, worker_id="seed")
     bootstrap = bootstrap_plan(db, identity)
-    result = run_source_bootstrap(db, lease, source, archive, bootstrap)
+    # Seed setup is not a rate-limit test: a wall-clock permit expiring under
+    # CI load must not silently construct an ineligible comparison baseline.
+    # Restore the real shared limiter for every monitor operation below.
+    with pytest.MonkeyPatch.context() as setup:
+        setup.setattr(source.transport, "limiter", Limiter(Clock()))
+        result = run_source_bootstrap(db, lease, source, archive, bootstrap)
+    assert (
+        db.execute(
+            "SELECT terminal_outcome FROM analysis_request_state WHERE request_id=%s",
+            (request.request_id,),
+        ).fetchone()["terminal_outcome"]
+        == "completed"
+    )
     capture = next(r for r in source.records if r.source_object_key.startswith("submissions/"))
     seed_id = uuid4()
     request_hash = db.execute(
@@ -63,7 +79,7 @@ def seeded(db_admin, db, identity, transport):
         bootstrap.policy_revision_id,
         bootstrap.inventory_start,
         bootstrap.inventory_end,
-        datetime.now(UTC),
+        MONITOR_CUTOFF,
         tuple(FORMS),
         (capture.source_object_key,),
         MonitorBaseline(
@@ -71,7 +87,7 @@ def seeded(db_admin, db, identity, transport):
             request.request_id,
             lease.execution_id,
             result.manifest.body_sha256,
-            capture.requested_at,
+            MONITOR_CUTOFF - timedelta(hours=12),
             seed_approval_id=seed_id,
             plan_sha256=request_hash,
             capture_id=capture.capture_id,
@@ -90,7 +106,7 @@ def seeded(db_admin, db, identity, transport):
         request_parameters_hash=request_hash,
         manifest_sha256=result.manifest.body_sha256,
         capture_id=capture.capture_id,
-        cutoff=capture.requested_at,
+        cutoff=plan.baseline.cutoff,
         scope=Jsonb(scope),
         review_reference="D035 fictional test seed",
         review_sha256="a" * 64,
@@ -174,7 +190,7 @@ def test_prior_result_exact_lineage_and_capture_reuse(db, identity, seeded, monk
     request, lease, result, _ = run(db, identity, seeded, monkeypatch, submissions([filing()]))
     plan = replace(
         seeded[0],
-        cutoff=datetime.now(UTC),
+        cutoff=MONITOR_CUTOFF,
         baseline=MonitorBaseline(
             "prior_monitor_result",
             request.request_id,
@@ -302,7 +318,7 @@ def test_conditional_304_retains_validator_without_inventing_body(
     )
     plan = replace(
         seeded[0],
-        cutoff=datetime.now(UTC),
+        cutoff=MONITOR_CUTOFF,
         baseline=MonitorBaseline(
             "prior_monitor_result",
             request.request_id,

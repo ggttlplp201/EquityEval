@@ -147,7 +147,13 @@ def register_seed(db: Database, cutoff: datetime) -> FilingMonitorPlan:
 
 
 def poll(
-    db: Database, plan: FilingMonitorPlan, key: str, contact: str, redis_url: str
+    db: Database,
+    plan: FilingMonitorPlan,
+    key: str,
+    contact: str,
+    redis_url: str,
+    *,
+    max_attempts: int = 3,
 ) -> tuple[UUID, UUID]:
     ids = registered(db)
     request = enqueue_filing_monitor(
@@ -156,6 +162,7 @@ def poll(
         security_id=ids["security"],
         idempotency_key=key,
         plan=plan,
+        max_attempts=max_attempts,
     )
     lease = claim_filing_monitor(
         db, worker_id="crcl-filing-monitor-cli", request_id=request.request_id

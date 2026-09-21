@@ -128,3 +128,9 @@ No OS scheduler is installed in D4a. Automatic financial handoff still requires
 reviewed deduplication plus quote, financial coverage, mapping and S5/S6 gates.
 CRCL quote currency remains unsubstantiated; no speculative USD substitution.
 N1 stock-specific news and CPI/PPI/Fed alerts remain separate planned work.
+
+D4b follow-up: the [completed scheduler milestone](D4b-filing-scheduler.md) now
+verifies current application totals and all protected D4a evidence. The original
+audit above remains byte-identical; its optional old cumulative-count comparison
+is historical. Use the D4b verifier for current state, or plain D4a `--check`
+for its original saved UI projection.

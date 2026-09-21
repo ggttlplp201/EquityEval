@@ -185,3 +185,10 @@ D035's bounded filing monitor is implemented in D4a; read
 seed/prior-result lineage, retained HTTP bodies and one typed result per execution
 are enforced in 0008/0009. This does not authorize automatic financial dispatch
 or imply an operating recurring scheduler; those remain the documented next work.
+
+D036/D4b fixed-scope scheduling readiness is complete: sequential 0010, one real
+CRCL slot, repeat dedup and a saved paused UI; see docs/milestones/D4b-filing-scheduler.md.
+No background service runs. The fixed window ends 2026-09-21 UTC; replacement
+scope/rebase and service configuration require their separate reviewed step.
+Use export_scheduler_snapshot --check --verify-application for current read-only
+verification; older audits and applied migrations remain immutable.

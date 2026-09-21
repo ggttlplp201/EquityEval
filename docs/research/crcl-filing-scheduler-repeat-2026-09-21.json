@@ -1,0 +1,30 @@
+{
+  "after": {
+    "analysis_requests": 5,
+    "source_attempt_payloads": 2,
+    "source_captures": 12,
+    "source_fetch_attempts": 14
+  },
+  "after_sequential_repeat_and_pause": {
+    "analysis_requests": 5,
+    "source_attempt_payloads": 2,
+    "source_captures": 12,
+    "source_fetch_attempts": 14
+  },
+  "all_not_due": true,
+  "before": {
+    "analysis_requests": 5,
+    "source_attempt_payloads": 2,
+    "source_captures": 12,
+    "source_fetch_attempts": 14
+  },
+  "checked_at": "2026-09-21T22:07:33.362718Z",
+  "claim_winners": 0,
+  "concurrent_ticks": 4,
+  "outcome": "no_change",
+  "paused": true,
+  "request_id": "59ca04e0-e3a1-48c3-99b4-9d8238d5dd3c",
+  "schedule_id": "7a5b20c1-ad07-4f9a-a7bf-3915824364f2",
+  "scheduler_audit_sha256": "1b1ddb429521ab8c2593c69b0b6994c61b0c978aa5cfdb96f002bfd92a3859c2",
+  "version": "crcl-scheduler-repeat-proof-v1"
+}

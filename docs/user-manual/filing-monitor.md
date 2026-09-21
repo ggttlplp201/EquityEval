@@ -60,10 +60,18 @@ observations. Terminal incomplete/error results cannot become the next baseline.
 A prior-result plan pins its exact request/execution, manifest ID/hash, version and
 cutoff; retain the same issuer, policy, forms and filed window. The initial D4a
 window ends on 2026-09-21. Do not silently roll it forward: an expanded window or
-changed scope requires the reviewed rebase procedure planned for D4b. This tracer
+changed scope requires separately reviewed rebasing. D4b implements the fixed-scope
+rebase_required gate, not a rebase writer. This tracer
 is deliberately a bounded acceptance check, not an operating daily service.
 
 Saved UI snapshots are regenerated only from reviewed/pinned audits, then verified
 with `python -m scripts.export_monitor_snapshot --check --verify-application` via
 the project Python launcher. The application check is read-only. Builds and normal
 snapshot regeneration do not open the application database.
+
+After D4b, use the [scheduler guide](filing-scheduler.md) and its read-only
+`export_scheduler_snapshot --check --verify-application` command to compare the
+current application and preserve D4a history. This page's D4a checkpoint remains
+unchanged; its older optional cumulative-count equality check is no longer the
+current application total. Plain `export_monitor_snapshot --check` still verifies
+the original saved projection.

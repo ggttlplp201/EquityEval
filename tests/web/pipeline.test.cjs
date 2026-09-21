@@ -6,7 +6,7 @@ const path = require("node:path");
 const { chromium } = require(process.env.EQUITY_PLAYWRIGHT_MODULE || "playwright");
 const base = process.env.EQUITY_PREVIEW_URL || "http://127.0.0.1:3101";
 assert.ok(["127.0.0.1", "localhost"].includes(new URL(base).hostname), "Only local previews are allowed");
-const output = path.resolve(__dirname, "../../var/d4a-browser");
+const output = path.resolve(__dirname, "../../var/d4b-browser");
 const route = "/development/pilot/pipeline";
 
 test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, async (t) => {
@@ -89,10 +89,45 @@ test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, 
       }
       await page.screenshot({ path: path.join(output, "source-search.png"), fullPage: true });
     });
+    await t.test("saved schedule is paused and exposes the real deterministic slot", async () => {
+      const audit = JSON.parse(fs.readFileSync(path.resolve(__dirname, "../../docs/research/crcl-filing-scheduler-2026-09-21.json"), "utf8"));
+      const schedule = page.getByRole("region", { name: "Filing schedule", exact: true });
+      assert.equal(await schedule.getAttribute("data-schedule-kind"), "real-filing-scheduler-snapshot");
+      assert.equal(await schedule.locator("[data-schedule-state]").getAttribute("data-schedule-state"), "paused");
+      assert.match(await schedule.innerText(), /Background service not configured/);
+      assert.match(await schedule.innerText(), /Opening this page does not run a check/);
+      assert.match(await schedule.innerText(), /Not actionable in the saved state/);
+      assert.equal(await schedule.locator("[data-schedule-attempts]").innerText(), String(audit.snapshot.actual_attempts));
+      const slot = schedule.locator("summary").filter({ hasText: "Slot 0" });
+      await slot.focus(); await page.keyboard.press("Enter");
+      assert.match(await schedule.innerText(), /Comparison coverage/);
+      assert.ok((await schedule.innerText()).includes(audit.snapshot.slots[0].request_id));
+      assert.ok((await schedule.innerText()).includes(audit.snapshot.slots[0].plan.baseline.request_id));
+      const history = schedule.getByText("Schedule history and retained response evidence", { exact: true });
+      await history.focus(); await page.keyboard.press("Enter");
+      assert.match(await schedule.innerText(), /Revision 1 · Active/);
+      assert.match(await schedule.innerText(), /Revision 2 · Paused/);
+      assert.match(await schedule.innerText(), /Automatic financial analysis · not dispatched/);
+      await schedule.getByText("Saved application totals after the scheduled check", { exact: true }).click();
+      assert.equal(await schedule.locator('[data-schedule-count="sec_filing_monitor"] dd').innerText(), "2");
+      for (const id of ["security_identifiers", "watchlist_memberships", "normalization_batches"]) {
+        assert.equal(await schedule.locator(`[data-schedule-count="${id}"] dd`).innerText(), "0");
+      }
+      for (const width of [320, 390, 768, 1440]) {
+        await page.setViewportSize({ width, height: 1000 });
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Scheduler overflow at ${width}`);
+      }
+      await page.evaluate(() => document.activeElement?.blur());
+      await schedule.screenshot({ path: path.join(output, "scheduler.png") });
+      await page.setViewportSize({ width: 390, height: 900 });
+      await schedule.locator("header").scrollIntoViewIfNeeded();
+      await page.screenshot({ path: path.join(output, "scheduler-narrow.png") });
+      await page.setViewportSize({ width: 1440, height: 1000 });
+    });
     await t.test("saved filing monitor distinguishes new checks from reused source evidence", async () => {
       const monitor = page.getByRole("region", { name: "SEC filing monitor" });
       assert.equal(await monitor.getAttribute("data-monitor-kind"), "real-filing-monitor-snapshot");
-      assert.match(await monitor.innerText(), /recurring schedule not configured/);
+      assert.match(await monitor.innerText(), /D4a one-shot checkpoint/);
       assert.match(await monitor.innerText(), /Acceptance cutoff/);
       assert.match(await monitor.innerText(), /Downstream analysis · not dispatched/);
       assert.equal(await monitor.locator("[data-monitor-outcome]").getAttribute("data-monitor-outcome"), "no_change");
@@ -107,7 +142,7 @@ test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, 
       await evidence.click();
       assert.match(await monitor.innerText(), /Reviewed D3c acquisition/);
       assert.match(await monitor.innerText(), /Every complete HTTP 200 body is retained/);
-      await monitor.getByText("Current saved totals after this filing check", { exact: true }).click();
+      await monitor.getByText("Saved D4a totals after this filing check", { exact: true }).click();
       assert.equal(await monitor.locator('[data-monitor-count="sec_filing_monitor"] dd').innerText(), "1");
       assert.equal(await monitor.locator('[data-monitor-count="source_bootstrap"] dd').innerText(), "3");
       for (const width of [320, 390, 768, 1440]) {

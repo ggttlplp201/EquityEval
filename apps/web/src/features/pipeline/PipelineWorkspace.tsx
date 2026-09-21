@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import FilingSchedulePanel from "./FilingSchedulePanel";
+import schedulerSnapshot from "./schedulerSnapshot";
 import FilingMonitorPanel from "./FilingMonitorPanel";
 import monitorSnapshot from "./monitorSnapshot";
 import WorkbenchShell from "@/components/WorkbenchShell";
@@ -119,7 +121,7 @@ export default function PipelineWorkspace({ data }: { data: PipelineSnapshot }) 
       <Link href="/development/pilot?company=CRCL" className={styles.back}>← Archived company observations</Link>
       <header className={styles.intro}>
         <div><p className="eyebrow">REAL APPLICATION STATE / CRCL</p><h1>From source to analysis<span aria-hidden="true">.</span></h1><p>Inspect source collection, filing discovery and the evidence still needed for analysis.</p></div>
-        <div className={styles.stamp}><strong>Saved snapshot · {data.reviewedOn}</strong><span>D3c acquisition / D3f search / D4a filing check</span><span>Read-only preview · not a live status service</span></div>
+        <div className={styles.stamp}><strong>Saved snapshot · {data.reviewedOn}</strong><span>D3c acquisition / D3f search / D4a filing check / D4b schedule</span><span>Read-only preview · not a live status service</span></div>
       </header>
       <section className={styles.boundary} aria-label="Application snapshot scope">
         <strong>Acquisition readiness is not financial-analysis readiness.</strong>
@@ -129,6 +131,7 @@ export default function PipelineWorkspace({ data }: { data: PipelineSnapshot }) 
         <div className={styles.sectionHeading}><h2 id="totals-title">Saved application totals</h2><span>D3f acquisition checkpoint · before the filing check</span></div>
         <dl className={styles.counts}>{data.counts.map((count) => <div key={count.id} data-count={count.id}><dt>{count.label}</dt><dd>{count.value}</dd></div>)}</dl>
       </section>
+      <FilingSchedulePanel data={schedulerSnapshot} />
       <FilingMonitorPanel data={monitorSnapshot} />
       <div className={styles.sectionHeading}><h2 id="stages-title">Inspect each stage</h2><span>Select a stage, then expand its evidence.</span></div>
       <div className={styles.workflow}>

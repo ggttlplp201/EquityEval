@@ -24,7 +24,7 @@ const blockerLabels: Record<string, string> = {
 
 export default function FilingMonitorPanel({ data }: { data: MonitorSnapshot }) {
   return <section className={styles.monitor} aria-labelledby="monitor-title" data-monitor-kind={data.kind}>
-    <header className={styles.sectionHeading}><div><p className="eyebrow">FILING DISCOVERY / SAVED REAL CHECK</p><h2 id="monitor-title">SEC filing monitor</h2></div><span>One-shot check · recurring schedule not configured</span></header>
+    <header className={styles.sectionHeading}><div><p className="eyebrow">FILING DISCOVERY / SAVED REAL CHECK</p><h2 id="monitor-title">SEC filing monitor</h2></div><span>D4a one-shot checkpoint · no background service</span></header>
     <div className={styles.monitorSummary}>
       <div><span className="eyebrow">OBSERVED RESULT</span><h3 data-monitor-outcome={data.outcome}>{data.outcomeLabel}</h3><p>{data.newCount} new filings · {data.amendmentCount} new amendments</p></div>
       <div><span className="eyebrow">CHECK COMPLETED (UTC)</span><p>{data.checkedAt ? <time dateTime={data.checkedAt}>{data.checkedAt}</time> : "No source check completed"}</p><p className={styles.note}>This is the attempt completion time. Reused source captures retain their original timestamps.</p></div>
@@ -70,7 +70,7 @@ export default function FilingMonitorPanel({ data }: { data: MonitorSnapshot }) 
       </dl></div>)}
       <p className={styles.note}>Every complete HTTP 200 body is retained. Identical bytes can reuse a verified logical capture. HTTP 304 retains its conditional-response evidence without inventing a new body.</p>
     </details>
-    <details className={styles.disclosure}><summary>Current saved totals after this filing check</summary><dl className={styles.counts}>{data.counts.map((count) => <div key={count.id} data-monitor-count={count.id}><dt>{count.label}</dt><dd>{count.value}</dd></div>)}</dl><p className={styles.note}>Previously saved evidence was verified unchanged. These totals include the filing-monitor request in addition to acquisition requests.</p></details>
+    <details className={styles.disclosure}><summary>Saved D4a totals after this filing check</summary><dl className={styles.counts}>{data.counts.map((count) => <div key={count.id} data-monitor-count={count.id}><dt>{count.label}</dt><dd>{count.value}</dd></div>)}</dl><p className={styles.note}>Previously saved evidence was verified unchanged. These totals include the filing-monitor request in addition to acquisition requests.</p></details>
     <div className={styles.monitorDisposition}><h3>Downstream analysis · not dispatched</h3><ul>{data.blockers.map((blocker) => <li key={blocker}>{blockerLabels[blocker] ?? blocker}</li>)}</ul></div>
     <p className={styles.note}>{data.knownLimits}</p>
   </section>;
