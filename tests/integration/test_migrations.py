@@ -238,6 +238,8 @@ def test_workflow_only_exposes_reviewed_runtime_entry_points(db_admin, db):
         "workflow_retry",
         "workflow_cancel",
     }
+    if test_migration_target() == "head":
+        entry_points |= {"workflow_enqueue_bootstrap", "workflow_claim_bootstrap"}
     functions = db_admin.execute(r"""
         SELECT p.oid,p.proname,p.oid::regprocedure::text AS signature,p.prosecdef,p.proconfig,
                has_function_privilege('equity_runtime',p.oid,'EXECUTE') AS runtime_allowed,

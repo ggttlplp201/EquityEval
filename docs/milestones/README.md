@@ -27,7 +27,8 @@ above. This repository and its commits are the implementation source of truth.
 | D1a | Dark Sector UI verified: 42 snapshot combinations, 13 flow checks; all 143 IDs reconciled | [Redesign implementation](D1a-redesign-implementation.md) | Existing UI first; remaining company/news/R1 and source-contract work explicit |
 | D1b | Reviewed recovery checkpoint: milestone/d1b-redesign; 963 tests, build/browser checks pass | [Connected development workspace](D1b-company-news-help.md) | D029; exact company evidence, 3/5/10-year gaps, unconfigured monitoring and searchable guide |
 | D2 | Archived-source slice verified; 970 tests and 54 browser checks; live publication blocked | [Real-data pilot](D2-real-data-pilot.md) | D030; all seven identities/business coverage retained; S5/S6 gates remain |
-| D3a | Application storage implemented; first-capture contract review pending | [Application runtime](D3a-application-runtime.md) | Separate PG/Redis; D031 identifies the source-backed identity bootstrap dependency |
+| D3a | Application storage verified; milestone/d3a-application-runtime | [Application runtime](D3a-application-runtime.md) | Separate PG/Redis; D031 identifies the source-backed identity bootstrap dependency |
+| D3b | Approved bootstrap implemented; full review/live capture pending | [First-source bootstrap](D3b-source-bootstrap.md) | D031; bounded W1/S3 capture path, then evidence review and S5/S6 |
 | S8a–d | Planned; F1 shares provenance, Ratios and Overview | P0 company pages and integration | After relevant engine/contracts |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,

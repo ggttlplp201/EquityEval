@@ -36,3 +36,8 @@ SEC scope evidence: [reuse FAQ](https://www.sec.gov/about/webmaster-frequently-a
 and [dissemination policy](https://www.sec.gov/about/privacy-information).
 This does not grant rights to unrelated artwork, branding or vendor data.
 See [S1 source boundaries](research/s1/source-boundaries.md).
+
+The owner-approved D031 operational bootstrap uses the narrowly scoped
+[SEC application review](research/sec-application-policy-2026-09-21.md). The
+explicit registration command pins its real review timestamp/hash before capture;
+it does not activate prices, macro/news feeds or any other provider.

@@ -65,8 +65,8 @@ capture and normalization rows. Applying migrations creates structure, not
 financial evidence. This checkpoint inserted no provider policies or domain rows.
 The D2 pilot remains the existing archived observation view.
 
-The [bootstrap review](s3/identity-bootstrap-proposal.md) explains the concrete
+The approved [bootstrap implementation](s3/identity-bootstrap.md) resolves the concrete
 first-capture dependency and proposed W1/S3 extension. Old S1 archives retain their
 actual metadata: unknown request/completion times cannot become invented values.
-After that review, follow the existing SEC archive/publication/PIT path, complete
+After verified genuine bootstrap capture, follow the existing SEC archive/publication/PIT path, complete
 scope/precision/non-reliance checks, finish eligible S5, then review and build S6.

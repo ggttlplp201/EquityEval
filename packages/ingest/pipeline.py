@@ -79,7 +79,12 @@ class SourceContext:
 @dataclass(frozen=True)
 class PipelineResult:
     state: Literal[
-        "completed_with_gaps", "retry_scheduled", "waiting_for_input", "failed", "deferred"
+        "completed",
+        "completed_with_gaps",
+        "retry_scheduled",
+        "waiting_for_input",
+        "failed",
+        "deferred",
     ]
     publication: PublishedBatch | None = None
     manifest: ArchivedBody | None = None
@@ -102,6 +107,54 @@ def run_source_stages(
     replay_records: tuple[RawRecord, ...] | None = None,
     finalize_execution: bool = True,
 ) -> PipelineResult:
+    return _run_source_stages(
+        db,
+        lease,
+        source,
+        archive,
+        plan,
+        build_inputs,
+        replay_records=replay_records,
+        finalize_execution=finalize_execution,
+        bootstrap=False,
+    )
+
+
+def run_source_bootstrap(
+    db: Database,
+    lease: Lease,
+    source: ReadableSource,
+    archive: LocalArchive,
+    plan: SourcePlan,
+    *,
+    replay_records: tuple[RawRecord, ...] | None = None,
+) -> PipelineResult:
+    """Capture issuer evidence without normalization, quotes, membership or valuation."""
+    return _run_source_stages(
+        db,
+        lease,
+        source,
+        archive,
+        plan,
+        None,
+        replay_records=replay_records,
+        finalize_execution=True,
+        bootstrap=True,
+    )
+
+
+def _run_source_stages(
+    db: Database,
+    lease: Lease,
+    source: ReadableSource,
+    archive: LocalArchive,
+    plan: SourcePlan,
+    build_inputs: InputBuilder | None,
+    *,
+    replay_records: tuple[RawRecord, ...] | None = None,
+    finalize_execution: bool = True,
+    bootstrap: bool,
+) -> PipelineResult:
     """Fetch -> inventory -> reviewed normalization -> immutable publication.
 
     ``None`` replay_records means fresh HTTP. A tuple means explicit archive-only
@@ -112,7 +165,6 @@ def run_source_stages(
     """
     if db.info.transaction_status != TransactionStatus.IDLE:
         raise ValueError("Source stages require an idle database connection")
-    lease = renew_lease(db, lease, lease_seconds=360)
     row = db.execute(
         "SELECT r.*,s.issuer_id,i.cik FROM analysis_requests r "
         "JOIN securities s ON s.id=r.security_id JOIN issuers i ON i.id=s.issuer_id "
@@ -121,6 +173,9 @@ def run_source_stages(
     ).fetchone()
     if row is None or row["issuer_id"] != plan.issuer_id or row["cik"] != plan.cik:
         raise ValueError("Source plan does not match the claimed request's issuer")
+    if (row["trigger"] == "source_bootstrap") != bootstrap:
+        raise ValueError("Source worker does not match request trigger")
+    lease = renew_lease(db, lease, lease_seconds=360)
     cutoff = row["retrieval_vintage"]
     if cutoff is not None and replay_records is None:
         raise ValueError("Historical retrieval vintage requires explicit archived replay")
@@ -248,6 +303,57 @@ def run_source_stages(
             gaps.append("filing_inventory_unavailable")
         for resource in plan.filing_documents:
             fetch(resource)
+        if bootstrap and companyfacts is None:
+            gaps.append("companyfacts_unavailable")
+        bootstrap_manifest = None
+        if bootstrap:
+            lease = renew_lease(db, lease, lease_seconds=360)
+            current_stage = start_stage(db, lease, stage_key="sec_bootstrap_manifest")
+            payload = canonical_json(
+                {
+                    "format": "sec-bootstrap-run-v1",
+                    "financial_result": False,
+                    "request": {
+                        k: row[k]
+                        for k in (
+                            "id",
+                            "trigger",
+                            "workspace_id",
+                            "security_id",
+                            "quote_identifier_id",
+                            "history_mode",
+                            "filed_cutoff",
+                            "requested_periods",
+                            "retrieval_vintage",
+                        )
+                    },
+                    "execution_id": lease.execution_id,
+                    "plan": asdict(plan),
+                    "fetch_results": [asdict(r) for r in results],
+                    "inventory": asdict(inventory) if inventory else None,
+                    "source_gaps": gaps,
+                    "event_review": "not_performed",
+                }
+            ).encode()
+            bootstrap_manifest = archive.write(
+                (payload,),
+                source_key="bootstrap",
+                source_object_key=str(lease.execution_id),
+                params_hash=hashlib.sha256(payload).hexdigest(),
+                capture_id=uuid4(),
+                retrieved_at=datetime.now(UTC),
+                max_bytes=64 * 1024 * 1024,
+            )
+            finish_stage(
+                db,
+                lease,
+                stage_id=current_stage,
+                outcome="completed",
+                reason=canonical_json(
+                    {"manifest": asdict(bootstrap_manifest), "financial_result": False}
+                ),
+            )
+            current_stage = None
         deferred = [r.next_eligible_at for r in results if r.next_eligible_at is not None]
         retryable = {"coordination_unavailable", "dispatch_budget_exhausted", "transport_error"}
         if deferred or retryable.intersection(gaps):
@@ -273,9 +379,26 @@ def run_source_stages(
             ).fetchone()
             if state is not None and state["terminal_outcome"] == "failed":
                 return PipelineResult(
-                    "failed", inventory=inventory, gaps=(*gaps, "retry_budget_exhausted")
+                    "failed",
+                    manifest=bootstrap_manifest,
+                    inventory=inventory,
+                    gaps=(*gaps, "retry_budget_exhausted"),
                 )
-            return PipelineResult("retry_scheduled", inventory=inventory, gaps=tuple(gaps))
+            return PipelineResult(
+                "retry_scheduled",
+                manifest=bootstrap_manifest,
+                inventory=inventory,
+                gaps=tuple(gaps),
+            )
+        if bootstrap:
+            outcome: Literal["completed", "completed_with_gaps"] = (
+                "completed_with_gaps" if gaps else "completed"
+            )
+            finish_execution(db, lease, outcome=outcome, reason="source_bootstrap_capture_only")
+            return PipelineResult(
+                outcome, manifest=bootstrap_manifest, inventory=inventory, gaps=tuple(gaps)
+            )
+        assert build_inputs is not None
         current_stage = start_stage(db, lease, stage_key=NORMALIZATION_STAGE)
         context = (
             None

@@ -5,7 +5,8 @@ Canonical repository:
 
 Reviewed redesign recovery: commit `3342595`, tag `milestone/d1b-redesign`.
 D2 pilot branch: `codex/seven-company-pilot`.
-Current continuation: `codex/crcl-source-snapshot`; runtime checkpoint D3a,
+Runtime continuation was `codex/crcl-source-snapshot`; current branch is
+`codex/source-bootstrap` (D3b). Runtime checkpoint D3a,
 recovery tag `milestone/d3a-application-runtime` (987 full / 225 core / 110 golden).
 Pilot recovery tag: `milestone/d2-observed-pilot`.
 Validation: 970 full, 225 core, 110 golden tests; lint/types/build; 54 browser checks.
@@ -42,12 +43,12 @@ head; persistent application Redis runs on6380. [D3a](../milestones/D3a-applicat
 and the [runtime guide](../design/application-runtime.md) record control commands
 and isolation checks. All six inspected domain/evidence tables remain empty.
 
-The next specific prerequisite is the [D031 first-capture contract review](../design/s3/identity-bootstrap-proposal.md):
-W1 requires an evidenced quote, whose first capture itself requires W1. S1 has
-no authentic completion/request timestamps and cannot substitute for that capture.
-Do not use disposable test storage, policies, synthetic timestamps or
-selection-shaped objects to bypass this dependency. After review, reuse S3's
-existing transport/archive/publication and PIT paths.
+The user approved D031. [D3b](../milestones/D3b-source-bootstrap.md) implements the
+source-only request on `codex/source-bootstrap`; see its implementation/operator
+instructions for verification and first capture. The bootstrap worker reuses S3
+transport and does not publish financial results. S1 completion/request timestamps
+remain unknown. After a genuine capture, review identity validity and the actual
+filing/event/precision evidence before normal publication/PIT/core work.
 
 The source/numeric checkpoint does not activate D027 attribution. Keep S5 then
 S6 sequential and review any shared contract changes separately.

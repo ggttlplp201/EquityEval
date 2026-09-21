@@ -293,6 +293,38 @@ def claim_next(db: Database, *, worker_id: str, lease_seconds: int = 60) -> Leas
     return _lease(data) if data else None
 
 
+def enqueue_source_bootstrap(
+    db: Database,
+    *,
+    workspace_id: UUID,
+    security_id: UUID,
+    idempotency_key: str,
+    options: RequestOptions | None = None,
+) -> RequestHandle:
+    """Queue SEC evidence acquisition without claiming a verified quote or membership."""
+    selected = options or RequestOptions()
+    if selected.market_plan is not None:
+        raise ValueError("Source bootstrap cannot request market data")
+    return _request(
+        _invoke(
+            db,
+            "SELECT workflow_enqueue_bootstrap(%s,%s,%s,%s) AS result",
+            (workspace_id, security_id, idempotency_key, Jsonb(selected.as_json())),
+        )
+    )
+
+
+def claim_source_bootstrap(
+    db: Database, *, worker_id: str, lease_seconds: int = 60, request_id: UUID | None = None
+) -> Lease | None:
+    data = _invoke(
+        db,
+        "SELECT workflow_claim_bootstrap(%s,%s,%s) AS result",
+        (worker_id, lease_seconds, request_id),
+    )
+    return _lease(data) if data else None
+
+
 def renew_lease(db: Database, lease: Lease, *, lease_seconds: int = 60) -> Lease:
     return _lease(
         _invoke(

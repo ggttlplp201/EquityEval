@@ -45,6 +45,11 @@ def run_analysis_stages(
     market_replay_records: tuple[RawRecord, ...] | None = None,
 ) -> AnalysisSourcesResult:
     """Unavailable sources keep their own gaps; completed sibling evidence survives."""
+    request = db.execute(
+        "SELECT trigger FROM analysis_requests WHERE id=%s", (lease.request_id,)
+    ).fetchone()
+    if request is None or request["trigger"] == "source_bootstrap":
+        raise ValueError("Analysis requires an ordinary source-backed request")
     try:
         sec = run_source_stages(
             db,

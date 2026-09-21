@@ -1,6 +1,7 @@
 # First-source capture: concrete contract review
 
-Status: proposed, not implemented. D031 / application runtime checkpoint D3a.
+Status: user-approved 2026-09-21; implemented in D3b. D031 follows the separate
+application runtime checkpoint D3a. See [implementation](identity-bootstrap.md).
 
 ## Observed blocker
 
@@ -19,7 +20,7 @@ S1's CRCL manifests contain `fetched_at`, hashes and bytes, but no request or
 completion timestamps. Copying `fetched_at` into those missing fields would
 fabricate capture evidence. Test seed rows do not resolve application cold start.
 
-## Proposed smallest change
+## Approved bounded change
 
 Add a distinct **source_bootstrap** request trigger within existing W1 storage.
 Reuse W1 idempotency, claim/renew, stage fencing, retries, cancellation, audit
@@ -74,6 +75,6 @@ If quote validity cannot be substantiated, keep that subsequent request blocked.
 
 ## Scope and review requested
 
-Approve this precise W1/S3 extension before implementation. It changes shared
+The user explicitly approved this precise W1/S3 extension after reviewing it. It changes shared
 request schema, beyond the already implemented UI and operational runtime.
 It neither freezes the S6 API nor approves DCF, new providers or news delivery.

@@ -155,6 +155,8 @@ def run_market_stages(
     row = db.execute("SELECT * FROM analysis_requests WHERE id=%s", (lease.request_id,)).fetchone()
     if row is None:
         raise ValueError("Unknown immutable request")
+    if row["trigger"] == "source_bootstrap":
+        raise ValueError("Source bootstrap cannot enter market stages")
     cutoff = row["retrieval_vintage"]
     if cutoff is not None and replay_records is None:
         raise ValueError("Historical capture cutoff requires explicit replay")
