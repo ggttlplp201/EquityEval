@@ -1,0 +1,81 @@
+.workspace { min-width: 0; padding: 26px 22px 30px; }
+.titleRow { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 18px; margin-bottom: 20px; }
+.titleRow h1 { margin-top: 9px; font-size: clamp(28px, 4vw, 32px); line-height: 1.12; letter-spacing: -.7px; }
+.subtitle { max-width: 680px; margin-top: 11px; color: var(--muted); }
+.helpLink { display: inline-flex; align-items: center; min-height: 36px; font-size: 12px; }
+.configurationNotice { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 18px; padding: 14px 18px; margin-bottom: 20px; border-left: 3px solid var(--warn-rule); border-radius: 0 5px 5px 0; background: var(--warn-bg); }
+.configurationNotice strong { padding-top: 2px; color: var(--warn); font: 600 10px/1.6 var(--mono); letter-spacing: 1px; }
+.configurationNotice p { flex: 1 1 440px; font-size: 13px; color: var(--ink-2); }
+.toolbar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+.sectionSwitch { display: flex; flex-wrap: wrap; gap: 3px; padding: 3px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--surface-raised); }
+.sectionSwitch button { flex: 1 1 auto; padding: 8px 15px; border-radius: 4px; background: transparent; font-size: 13px; color: var(--ink-2); }
+.sectionSwitch button[aria-pressed="true"] { background: var(--ink); color: var(--bg); font-weight: 600; }
+.filter { display: flex; flex-direction: column; gap: 5px; max-width: 100%; }
+.filter > span { color: var(--muted-2); font: 600 10px/1.4 var(--mono); letter-spacing: .7px; text-transform: uppercase; }
+.filter select { width: 100%; min-height: 38px; border: 1px solid var(--line-strong); border-radius: 5px; padding: 7px 32px 7px 10px; background: var(--surface); font-size: 13px; }
+.clearButton { min-height: 38px; padding: 7px 10px; color: var(--link); background: transparent; text-decoration: underline; text-underline-offset: 3px; }
+.selectionNote { margin: 10px 0 22px; color: var(--muted-2); font-size: 11.5px; }
+.sectionContent { display: grid; gap: 18px; min-width: 0; }
+.panel { min-width: 0; padding: 19px 20px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.panelHeading { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 16px; }
+.panel h2, .sectionHeading h2 { margin-top: 6px; font-size: 21px; line-height: 1.25; letter-spacing: -.4px; }
+.panel h3 { font-size: 16px; line-height: 1.35; letter-spacing: -.15px; }
+.status { display: inline-flex; align-items: center; align-self: flex-start; padding: 4px 8px; border: 1px solid var(--warn-border); border-radius: 4px; background: var(--warn-bg); color: var(--warn); font: 11px/1.45 var(--mono); }
+.emptyState { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; border: 1px dashed var(--line-axis); border-radius: 5px; background: var(--surface-subtle); }
+.emptyState h3 { font-size: 20px; }
+.emptyState p { max-width: 780px; color: var(--muted); font-size: 13px; }
+.emptyIcon { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line-strong); border-radius: 5px; color: var(--muted); font-size: 26px; line-height: 1; }
+.emptyState .scopeNote { color: var(--ink-3); font-size: 12px; }
+.links { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 8px; }
+.links a { display: inline-flex; align-items: center; min-height: 36px; font-size: 12.5px; }
+.macroGrid, .companyTopics, .healthGrid, .channelGrid, .assessmentGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 275px), 1fr)); gap: 14px; min-width: 0; }
+.coverageCard { min-width: 0; padding: 16px; border: 1px solid var(--line-soft); border-radius: 5px; background: var(--surface-subtle); }
+.coverageCard h3 { margin-bottom: 8px; }
+.coverageCard p { color: var(--muted); font-size: 12.5px; }
+.sourceNeed { display: block; margin-top: 12px; color: var(--ink-3); font-size: 11.5px; }
+.footnote { margin-top: 15px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--muted-2); font-size: 11.5px; }
+.twoColumns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 18px; }
+.definitionList { margin: 14px 0 0; }
+.definitionList > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 5px 16px; padding: 10px 0; border-top: 1px solid var(--line-soft); font-size: 12px; }
+.definitionList dt { flex: 1 1 110px; color: var(--ink-2); }
+.definitionList dd { flex: 1 1 160px; margin: 0; color: var(--muted); }
+.aside { background: var(--surface-aside); }
+.aside > p:not(:global(.eyebrow)) { margin-top: 12px; color: var(--muted); font-size: 13px; }
+.intro { color: var(--muted); font-size: 13px; }
+.topicResults { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; justify-content: space-between; margin: 18px 0 14px; color: var(--ink-3); font-size: 12px; }
+.companyCard { min-width: 0; padding: 16px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface-subtle); }
+.companyCard header { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px; justify-content: space-between; }
+.companyCard header h3 { margin-top: 3px; font-size: 16px; }
+.ticker { color: var(--accent); font: 600 12px/1.5 var(--mono); letter-spacing: .4px; }
+.candidate { color: var(--muted-2); font-size: 10.5px; border: 1px solid var(--line-strong); border-radius: 3px; padding: 3px 6px; }
+.companyScope { margin-top: 10px; color: var(--ink-3); font-size: 12px; }
+.companyCard ul { list-style: none; padding: 0; margin: 14px 0 0; }
+.companyCard li { padding: 12px 0; border-top: 1px solid var(--line-strong); }
+.companyCard li:last-child { padding-bottom: 0; }
+.category { color: var(--muted-2); font-size: 10.5px; }
+.companyCard h4 { margin: 4px 0 7px; font-size: 13px; line-height: 1.4; }
+.companyCard li p { color: var(--muted); font-size: 12px; }
+.secondaryButton { padding: 8px 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface-raised); }
+.assessmentGrid { margin-top: 18px; }
+.assessmentGrid > div { padding-left: 14px; border-left: 2px solid var(--line-strong); }
+.assessmentGrid h3 { font-size: 14px; margin-bottom: 8px; }
+.assessmentGrid p { font-size: 12.5px; color: var(--muted); }
+.sectionHeading { margin-bottom: 18px; }
+.sectionHeading > p:last-child { margin-top: 10px; color: var(--muted); font-size: 13px; }
+.healthGrid { gap: 18px; }
+.healthGrid .panel > h3 { margin: 15px 0 4px; }
+.cardDescription { color: var(--muted); font-size: 12px; }
+.healthGrid .definitionList > div { flex-direction: column; gap: 4px; }
+.healthGrid .definitionList dt, .healthGrid .definitionList dd { flex: auto; }
+.channelGrid .status { margin-bottom: 14px; }
+.footer { margin-top: 25px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted-2); font: 10.5px/1.6 var(--mono); }
+@media (max-width: 600px) {
+  .workspace { padding: 22px 14px; }
+  .panel { padding: 17px 15px; }
+  .emptyState { padding: 18px 15px; }
+  .toolbar { align-items: stretch; }
+  .toolbar .filter, .panelHeading .filter { flex: 1 1 100%; }
+  .sectionSwitch { width: 100%; }
+  .sectionSwitch button { padding: 8px 9px; font-size: 12px; }
+  .panel h2, .sectionHeading h2 { font-size: 20px; }
+}

@@ -1,8 +1,9 @@
-# EquityEval user manual — planned contents
+# EquityEval user manual — development guide and release plan
 
-Status: outline, not a manual for a runnable product. The application is still
-being built. Instructions and screenshots will be completed and verified against
-the released version, following [U1 requirements](../features/U1-user-manual.md).
+Status: the in-app `/help` development guide now covers the working fictional
+Sector and Company views with 52 searchable terms and print support. The full
+product manual below is still being built. Its instructions and screenshots will
+be verified against the released version, following [U1 requirements](../features/U1-user-manual.md).
 
 1. Start here: setup and your first stock analysis.
 2. Watchlist: add, choose an instrument, remove and run analysis again.
@@ -39,3 +40,6 @@ and [U1 acceptance](../features/U1-user-manual.md) define the scope.
 The [Sector Explorer chapter](sector-explorer.md) explains the separate graph
 feature, aggregate versus company methods, N/K/V, coverage, exclusions and its
 fictional development walkthrough. Real-data release acceptance remains open.
+
+[D1b](../milestones/D1b-company-news-help.md) records the development-guide checks
+and distinguishes them from U1's pending real-data and alert workflow acceptance.

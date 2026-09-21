@@ -19,3 +19,6 @@ var/
 .build/
 dist/
 build/
+
+# Local design-tool session configuration (preserved on disk).
+apps/web/.impeccable/live/

@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0;background:#0e1413;color-scheme:dark;-webkit-font-smoothing:antialiased}
+input::placeholder{color:#7d8b85}
+option{background:#1d2725;color:#eaf0ed}
+a{color:#6fcfb5;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:#9ae2cd}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+select,input{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid #d99b3e;outline-offset:3px}
+</style>
+</helmet>
+
+<div data-screen-label="Sector Explorer" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#eaf0ed;background:#0e1413;min-height:100vh;width:100%;max-width:{{shellWidth}};margin:0 auto;border-left:1px solid #212b29;border-right:1px solid #212b29">
+
+  <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px 20px;background:#1d2418;color:#cbd5ab;padding:9px 22px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.45">
+    <strong style="font-size:10px;letter-spacing:1px;font-weight:600">FICTIONAL DATA</strong>
+    <span>Invented companies and invented financial inputs. No market conclusions.</span>
+    <a href="#prerequisites" style="color:#cbd5ab;margin-left:auto;text-decoration:underline">Production prerequisites ↗</a>
+  </div>
+
+  <header style="display:flex;align-items:center;flex-wrap:wrap;gap:14px 36px;padding:14px 22px;background:#151d1c;border-bottom:1px solid #26312f">
+    <div style="display:flex;align-items:center;gap:10px">
+      <span style="display:grid;place-items:center;width:30px;height:30px;border-radius:4px;background:#eaf0ed;color:#0e1413;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.5px;line-height:1">E</span>
+      <span style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;letter-spacing:-.4px">EquityEval</span>
+    </div>
+    <nav aria-label="Main" style="display:flex;align-items:center;gap:4px;font-size:13px;flex-wrap:wrap">
+      <sc-for list="{{navItems}}" as="n" hint-placeholder-count="3">
+        <button onClick="{{n.onClick}}" aria-pressed="{{n.pressed}}" style="padding:7px 13px;border-radius:5px;background:{{n.bg}};color:{{n.fg}};font-weight:{{n.weight}}">{{n.label}}</button>
+      </sc-for>
+    </nav>
+    <span style="margin-left:auto;display:flex;align-items:center;gap:7px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10.5px;color:#93a49d;letter-spacing:.4px">
+      <span style="width:6px;height:6px;border-radius:50%;background:#00e0a4"></span>LOCAL WORKBENCH · AWAKE
+    </span>
+  </header>
+
+  <main style="padding:26px 22px 60px">
+
+    <sc-if value="{{isSectors}}" hint-placeholder-val="{{true}}">
+    <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:22px">
+      <div style="max-width:560px">
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.1px;color:#93a49d;margin-bottom:10px">THE BIG PICTURE, WITH THE DETAILS</div>
+        <h1 style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:32px;line-height:1.12;letter-spacing:-.7px;font-weight:700">Sector Explorer</h1>
+        <p style="margin:12px 0 0;font-size:14.5px;line-height:1.5;color:#9fb0a9;text-wrap:pretty">See the sector, then the companies behind it. Every number opens the exact snapshot it came from.</p>
+      </div>
+      <div style="text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10.5px;color:#93a49d;line-height:1.7">
+        <div style="font-size:10px;font-weight:600;letter-spacing:1.1px">SOURCE SNAPSHOT</div>
+        <div style="color:#eaf0ed;font-size:12px">7abdd51e0d0efcb457</div>
+        <div>Current fictional members backcast · survivorship bias</div>
+      </div>
+    </div>
+
+    <section aria-label="Pinned calculation context" style="display:flex;flex-wrap:wrap;background:#161f1e;border:1px solid #26312f;border-radius:6px;margin-bottom:18px;overflow:hidden">
+      <div style="flex:1 1 200px;padding:13px 18px;border-right:1px solid #26312f">
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1px;color:#7b8a84;margin-bottom:5px">UNIVERSE</div>
+        <div style="font-size:12.5px;line-height:1.4">84 fictional issuers · complete demonstration roster</div>
+      </div>
+      <div style="flex:1 1 200px;padding:13px 18px;border-right:1px solid #26312f">
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1px;color:#7b8a84;margin-bottom:5px">TAXONOMY</div>
+        <div style="font-size:12.5px;line-height:1.4">Illustrative taxonomy v1 · not GICS or ICB</div>
+      </div>
+      <label style="flex:1 1 150px;padding:13px 18px;border-right:1px solid #26312f;display:block">
+        <span style="display:block;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1px;color:#7b8a84;margin-bottom:3px">EVALUATION DATE</span>
+        <select value="{{asOf}}" onChange="{{onAsOf}}" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;border:0;background:transparent;padding:2px 0;cursor:pointer">
+          <option value="2026-06-30">2026-06-30</option>
+          <option value="2026-03-31">2026-03-31</option>
+        </select>
+      </label>
+      <div style="flex:1 1 190px;padding:13px 18px;border-right:1px solid #26312f">
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1px;color:#7b8a84;margin-bottom:5px">PERIOD · CURRENCY</div>
+        <div style="font-size:12.5px;line-height:1.4">Trailing twelve months · four exact calendar quarters · USD</div>
+      </div>
+      <div style="flex:1 1 170px;padding:13px 18px">
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1px;color:#7b8a84;margin-bottom:5px">CALCULATION</div>
+        <div style="font-size:12.5px;line-height:1.4">{{methodLabel}}</div>
+      </div>
+    </section>
+
+    <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;margin-bottom:26px">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #26312f">
+        <label style="display:flex;align-items:center;gap:12px">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.1px;color:#93a49d">MEASURE</span>
+          <select value="{{metric}}" onChange="{{onMetric}}" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;border:0;border-bottom:1.5px solid #35423f;background:transparent;padding:2px 22px 2px 0;cursor:pointer">
+            <sc-for list="{{metricOptions}}" as="m" hint-placeholder-count="3">
+              <option value="{{m.id}}">{{m.label}}</option>
+            </sc-for>
+          </select>
+        </label>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <div role="group" aria-label="Calculation method" style="display:flex;border:1px solid #33403d;border-radius:5px;overflow:hidden">
+            <sc-for list="{{methodButtons}}" as="b" hint-placeholder-count="2">
+              <button onClick="{{b.onClick}}" aria-pressed="{{b.pressed}}" disabled="{{b.disabled}}" title="{{b.title}}" style="padding:8px 15px;font-size:12.5px;font-weight:500;background:{{b.bg}};color:{{b.fg}};border-right:1px solid #33403d;opacity:{{b.opacity}}">{{b.label}}</button>
+            </sc-for>
+          </div>
+          <details style="position:relative">
+            <summary style="font-size:12px;color:#93a49d;cursor:pointer;list-style:none">▸ Advanced method</summary>
+            <div style="position:absolute;right:0;top:26px;z-index:20;width:290px;background:#161f1e;border:1px solid #33403d;border-radius:6px;box-shadow:0 12px 30px rgba(0,0,0,.55);padding:14px">
+              <button onClick="{{onMean}}" aria-pressed="{{meanPressed}}" disabled="{{breadthMode}}" style="padding:7px 13px;font-size:12.5px;border:1px solid #33403d;border-radius:4px;background:{{meanBg}};color:{{meanFg}}">Simple mean</button>
+              <p style="margin:10px 0 0;font-size:11.5px;line-height:1.5;color:#9fb0a9">Arithmetic mean of eligible company ratios. Extreme ratios can dominate it; the sample and the full distribution stay visible. It is not a sector aggregate.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:flex-start;padding:18px 20px 12px">
+        <div style="flex:1 1 380px;max-width:620px">
+          <h2 style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;letter-spacing:-.2px">{{comparisonTitle}}</h2>
+          <p style="margin:7px 0 0;font-size:12.5px;line-height:1.55;color:#9fb0a9;text-wrap:pretty">{{metricDefinition}}</p>
+        </div>
+        <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+          <label style="display:flex;align-items:center;gap:7px;font-size:12px;color:#9fb0a9">
+            <input type="checkbox" checked="{{showMarket}}" onChange="{{onMarket}}" style="accent-color:#00e0a4;width:15px;height:15px" />Market reference
+          </label>
+          <label style="display:flex;align-items:center;gap:7px;font-size:12px;color:#9fb0a9">Sort
+            <select value="{{sort}}" onChange="{{onSort}}" style="font-size:12px;border:1px solid #33403d;border-radius:4px;padding:5px 7px;background:#161f1e">
+              <option value="alpha">Alphabetical</option>
+              <option value="numeric">Value · eligible only</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <sc-if value="{{meanWarning}}" hint-placeholder-val="{{false}}">
+        <p style="margin:0 20px 12px;padding:9px 13px;background:#241c10;border-left:3px solid #d99b3e;font-size:12px;line-height:1.5;color:#e8c98d">Simple mean · eligible company ratios only. Sensitive to extreme values. This is not a sector aggregate.</p>
+      </sc-if>
+
+      <sc-if value="{{inDrilldown}}" hint-placeholder-val="{{false}}">
+        <button onClick="{{onBack}}" style="margin:0 20px 10px;font-size:12px;color:#6fcfb5;text-decoration:underline;text-underline-offset:3px">← All sectors</button>
+      </sc-if>
+
+      <div style="padding:0 20px">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;gap:6px 10px;padding-bottom:6px;border-bottom:1px solid #26312f;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.1px;color:#93a49d">
+          <span style="flex:0 0 168px">{{groupHeading}}</span>
+          <div style="flex:1 1 220px;position:relative;height:16px">
+            <sc-for list="{{axisTicks}}" as="t" hint-placeholder-count="5">
+              <span style="position:absolute;left:{{t.left}};transform:translateX({{t.shift}});white-space:nowrap">{{t.label}}</span>
+            </sc-for>
+          </div>
+          <span style="flex:0 0 96px;text-align:right">VALUE</span>
+          <span style="flex:0 0 174px;text-align:right">N · K · V · COVERAGE</span>
+        </div>
+
+        <sc-for list="{{rows}}" as="row" hint-placeholder-count="7">
+          <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;padding:9px 0;border-bottom:1px solid #232e2c;background:{{row.rowBg}}">
+            <button onClick="{{row.onSelect}}" aria-pressed="{{row.pressed}}" style="flex:0 0 168px;display:flex;align-items:center;gap:8px;text-align:left;font-size:13px;font-weight:{{row.weight}};padding:4px 0">
+              <span style="flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:{{row.color}}"></span>{{row.label}}
+            </button>
+            <div style="flex:1 1 220px;position:relative;height:26px;min-width:150px">
+              <span style="position:absolute;left:0;top:0;bottom:0;width:1px;background:#35423f"></span>
+              <sc-if value="{{row.hasBar}}" hint-placeholder-val="{{true}}">
+                <button onClick="{{row.onDetail}}" title="{{row.tip}}" style="position:absolute;left:0;top:4px;height:18px;width:{{row.barWidth}};background:{{row.barFill}};border:1.5px solid {{row.color}};border-radius:2px;min-width:3px"></button>
+              </sc-if>
+              <sc-if value="{{row.noBar}}" hint-placeholder-val="{{false}}">
+                <span style="position:absolute;left:6px;top:5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#93a49d;border:1px dashed #c8d1c8;border-radius:3px;padding:2px 7px">{{row.statusLabel}}</span>
+              </sc-if>
+              <sc-if value="{{marketMarkVisible}}" hint-placeholder-val="{{false}}">
+                <span style="position:absolute;left:{{marketLeft}};top:0;bottom:0;width:0;border-left:1.5px dashed #b6c5bd"></span>
+              </sc-if>
+            </div>
+            <button onClick="{{row.onDetail}}" style="flex:0 0 96px;text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;line-height:1.25">
+              {{row.valueLabel}}
+              <sc-if value="{{row.limited}}" hint-placeholder-val="{{false}}">
+                <span style="display:block;font-size:9px;color:#e3b46c;letter-spacing:.3px">LIMITED COVERAGE</span>
+              </sc-if>
+            </button>
+            <button onClick="{{row.onDetail}}" style="flex:0 0 174px;text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;line-height:1.5;color:#9fb0a9">
+              <span style="display:block;color:#eaf0ed">{{row.counts}}</span>
+              <span style="display:block;color:{{row.coverageColor}}">data {{row.dataCoverage}} · cap {{row.capCoverage}}</span>
+            </button>
+          </div>
+        </sc-for>
+      </div>
+
+      <sc-if value="{{coverageLegend}}" hint-placeholder-val="{{true}}">
+        <div style="margin:14px 20px 0;padding:12px 15px;background:#1a2321;border:1px solid #26312f;border-radius:5px;display:flex;flex-wrap:wrap;gap:8px 26px;font-size:11.5px;line-height:1.5;color:#9fb0a9">
+          <span><strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#eaf0ed">N</strong> declared deduplicated roster</span>
+          <span><strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#eaf0ed">K</strong> complete usable inputs — known losses and exact zeros included</span>
+          <span><strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#eaf0ed">V</strong> contributors to <em>{{methodLabel}}</em></span>
+          <span>Comparison gate · V ≥ 10 · K/N ≥ 70% · cap coverage ≥ 80% · unknown cap fails</span>
+        </div>
+      </sc-if>
+
+      <div style="margin:14px 20px 0;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-size:11.5px;color:#9fb0a9">
+        <span style="display:flex;align-items:center;gap:7px"><span style="width:20px;height:11px;border:1.5px solid #93a49d;border-radius:2px"></span>Outlined bar = limited coverage; no rank or scatter placement</span>
+        <span style="display:flex;align-items:center;gap:7px"><span style="width:20px;border-top:1.5px dashed #b6c5bd"></span>Market reference, shown only while eligible</span>
+      </div>
+
+      <sc-if value="{{showMarket}}" hint-placeholder-val="{{true}}">
+        <button onClick="{{onMarketDetail}}" style="display:block;text-align:left;margin:12px 20px 0;padding:11px 14px;border:1.5px solid {{marketBorder}};border-radius:5px;background:{{marketBg}};font-size:12px;line-height:1.55;color:#eaf0ed;width:calc(100% - 40px)">
+          <strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:600">Market reference — eligible issuer cohort · {{marketValue}}</strong>
+          <span style="display:block;color:#9fb0a9">{{marketStatusLine}}</span>
+          <span style="display:block;color:#9fb0a9">Recomputed over the issuer universe with the same method. It is never the average of the sector bars.</span>
+        </button>
+      </sc-if>
+
+      <details style="margin:16px 20px 18px">
+        <summary style="font-size:12px;color:#6fcfb5;cursor:pointer">Comparison data, exclusions &amp; methods</summary>
+        <div style="overflow-x:auto;margin-top:10px;border:1px solid #26312f;border-radius:5px">
+          <table style="width:100%;border-collapse:collapse;font-size:11.5px;min-width:620px">
+            <thead>
+              <tr style="background:#1a2321;text-align:left">
+                <th style="padding:8px 11px;font-weight:600">Sector</th>
+                <th style="padding:8px 11px;font-weight:600">Value</th>
+                <th style="padding:8px 11px;font-weight:600">N · K · V</th>
+                <th style="padding:8px 11px;font-weight:600">Data cov.</th>
+                <th style="padding:8px 11px;font-weight:600">Cap cov.</th>
+                <th style="padding:8px 11px;font-weight:600">Status · exclusions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <sc-for list="{{rows}}" as="row" hint-placeholder-count="7">
+                <tr style="border-top:1px solid #232e2c">
+                  <td style="padding:8px 11px">{{row.label}}</td>
+                  <td style="padding:8px 11px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">{{row.valueLabel}}</td>
+                  <td style="padding:8px 11px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">{{row.counts}}</td>
+                  <td style="padding:8px 11px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">{{row.dataCoverage}}</td>
+                  <td style="padding:8px 11px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">{{row.capCoverage}}</td>
+                  <td style="padding:8px 11px;color:#9fb0a9">{{row.reasonLine}}</td>
+                </tr>
+              </sc-for>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div>
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.1px;color:#93a49d;margin-bottom:7px">LOOK INSIDE</div>
+        <h2 style="margin:0;display:flex;align-items:center;gap:11px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:23px;font-weight:700;letter-spacing:-.5px">
+          <span style="width:11px;height:11px;border-radius:50%;background:{{sectorColor}}"></span>{{sectorLabel}}
+        </h2>
+      </div>
+      <div style="display:flex;gap:9px;flex-wrap:wrap">
+        <button onClick="{{onDrill}}" style="padding:9px 14px;border:1px solid #33403d;border-radius:5px;background:#161f1e;font-size:12.5px">Explore industries ↗</button>
+        <button onClick="{{onSectorDetail}}" style="padding:9px 14px;border:1px solid #33403d;border-radius:5px;background:#161f1e;font-size:12.5px">Coverage &amp; calculation</button>
+      </div>
+    </div>
+
+    <div style="border-left:3px solid #00e0a4;background:#15251f;padding:13px 17px;margin-bottom:14px;font-size:12.5px;line-height:1.6">
+      <sc-for list="{{observations}}" as="o" hint-placeholder-count="3">
+        <p style="margin:0">{{o.text}}</p>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:16px 34px;align-items:center;background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:16px 20px;margin-bottom:22px">
+      <button onClick="{{onSectorDetail}}" style="display:flex;align-items:center;gap:16px;text-align:left">
+        <span style="font-size:11px;color:#93a49d;line-height:1.45;display:block;max-width:150px">Current top-five cap share<br /><span style="font-size:10px">{{asOf}}</span></span>
+        <strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:19px;font-weight:500">{{topFiveShare}}</strong>
+      </button>
+      <button onClick="{{onSectorDetail}}" style="display:flex;align-items:center;gap:16px;text-align:left">
+        <span style="font-size:11px;color:#93a49d;line-height:1.45;display:block;max-width:190px">Revenue growth excluding the <em>prior-date</em> top five<br /><span style="font-size:10px">Leader set frozen at 2025-06-30</span></span>
+        <strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:19px;font-weight:500">{{growthExTop}}</strong>
+      </button>
+      <p style="margin:0 0 0 auto;max-width:320px;font-size:11px;line-height:1.5;color:#93a49d">Same issuer cohort in both revenue periods. Current concentration and the prior leader set have separate dates and are not interchangeable.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px;margin-bottom:22px">
+
+      <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+          <div>
+            <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">01 / THROUGH TIME</div>
+            <h3 style="margin:5px 0 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700">{{metricLabel}} history</h3>
+          </div>
+          <div style="display:flex;border:1px solid #33403d;border-radius:5px;overflow:hidden">
+            <sc-for list="{{windowButtons}}" as="w" hint-placeholder-count="3">
+              <button onClick="{{w.onClick}}" aria-pressed="{{w.pressed}}" style="padding:6px 12px;font-size:12px;background:{{w.bg}};color:{{w.fg}};border-right:1px solid #33403d">{{w.label}}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:10px">
+          <sc-for list="{{historyToggles}}" as="h" hint-placeholder-count="7">
+            <label style="display:flex;align-items:center;gap:6px;font-size:11.5px;color:{{h.color}}">
+              <input type="checkbox" checked="{{h.checked}}" disabled="{{h.disabled}}" onChange="{{h.onChange}}" style="accent-color:#00e0a4;width:14px;height:14px" />
+              <span style="width:7px;height:7px;border-radius:50%;background:{{h.swatch}}"></span>{{h.label}}
+            </label>
+          </sc-for>
+        </div>
+        <p style="margin:0 0 8px;font-size:11px;color:#93a49d">{{methodLabel}} · trailing twelve months · quarter-end observations · up to four sectors</p>
+        <svg viewBox="0 0 720 240" role="img" aria-label="Quarter-end history of the selected measure" style="width:100%;height:auto;display:block">
+          <sc-for list="{{historyGrid}}" as="g" hint-placeholder-count="5">
+            <g>
+              <line x1="52" x2="710" y1="{{g.y}}" y2="{{g.y}}" stroke="#232e2c" stroke-width="1"></line>
+              <text x="44" y="{{g.y}}" text-anchor="end" dominant-baseline="middle" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#93a49d">{{g.label}}</text>
+            </g>
+          </sc-for>
+          <sc-for list="{{historyPaths}}" as="p" hint-placeholder-count="1">
+            <path d="{{p.d}}" fill="none" stroke="{{p.color}}" stroke-opacity="{{p.op}}" stroke-width="2.25" stroke-linejoin="round"></path>
+          </sc-for>
+          <sc-for list="{{historyDots}}" as="d" hint-placeholder-count="13">
+            <circle cx="{{d.x}}" cy="{{d.y}}" r="3.6" fill="#161f1e" stroke="{{d.color}}" stroke-opacity="{{d.op}}" stroke-width="2"></circle>
+          </sc-for>
+          <text x="52" y="232" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#93a49d">{{historyStart}}</text>
+          <text x="710" y="232" text-anchor="end" font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#93a49d">{{asOf}}</text>
+        </svg>
+        <p style="margin:10px 0 0;font-size:11px;line-height:1.55;color:#93a49d;text-wrap:pretty">Gaps stay gaps — no interpolation. These are <strong>current members backcast</strong>, not historical sector membership, so no historical percentile band is available.</p>
+        <details style="margin-top:10px"><summary style="font-size:12px;color:#6fcfb5;cursor:pointer">History data &amp; sources</summary>
+          <div style="overflow-x:auto;margin-top:8px"><table style="width:100%;border-collapse:collapse;font-size:11.5px">
+            <thead><tr style="background:#1a2321;text-align:left"><th style="padding:7px 10px;font-weight:600">Sector</th><th style="padding:7px 10px;font-weight:600">Quarter end</th><th style="padding:7px 10px;font-weight:600">Value</th><th style="padding:7px 10px;font-weight:600">Status</th></tr></thead>
+            <tbody><sc-for list="{{historyRows}}" as="r" hint-placeholder-count="6"><tr style="border-top:1px solid #232e2c"><td style="padding:7px 10px">{{r.sector}}</td><td style="padding:7px 10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">{{r.asOf}}</td><td style="padding:7px 10px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">{{r.value}}</td><td style="padding:7px 10px;color:#9fb0a9">{{r.status}}</td></tr></sc-for></tbody>
+          </table></div>
+        </details>
+      </section>
+
+      <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px">
+          <div>
+            <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">02 / WITHIN THE SECTOR</div>
+            <h3 style="margin:5px 0 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700">Company distribution</h3>
+          </div>
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#93a49d">{{metricLabel}}</span>
+        </div>
+        <p style="margin:0 0 14px;font-size:11px;color:#93a49d">Eligible company values · {{asOf}} · every outlier retained</p>
+        <div style="display:flex;align-items:flex-end;gap:5px;height:180px;padding-bottom:0;border-bottom:1px solid #35423f">
+          <sc-for list="{{bins}}" as="b" hint-placeholder-count="5">
+            <button onClick="{{b.onClick}}" aria-pressed="{{b.pressed}}" title="{{b.title}}" style="flex:1 1 0;height:{{b.height}};min-height:4px;background:{{b.fill}};border:1.5px solid {{b.stroke}};border-bottom:0;border-radius:3px 3px 0 0;display:flex;align-items:flex-start;justify-content:center;padding-top:4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#eaf0ed">{{b.count}}</button>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:5px;margin-top:6px">
+          <sc-for list="{{bins}}" as="b" hint-placeholder-count="5">
+            <span style="flex:1 1 0;text-align:center;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#93a49d">{{b.range}}</span>
+          </sc-for>
+        </div>
+        <div style="display:flex;gap:22px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid #232e2c">
+          <sc-for list="{{markers}}" as="m" hint-placeholder-count="3">
+            <button onClick="{{m.onClick}}" style="text-align:left">
+              <span style="display:block;font-size:10px;letter-spacing:.6px;color:#93a49d">{{m.label}}</span>
+              <strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;font-weight:500">{{m.value}}</strong>
+            </button>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+          <sc-for list="{{exclusions}}" as="e" hint-placeholder-count="3">
+            <span style="font-size:11px;padding:4px 9px;border:1px solid #2f3b39;border-radius:3px;background:#1a2321;color:#9fb0a9"><strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#eaf0ed">{{e.count}}</strong> {{e.label}}</span>
+          </sc-for>
+        </div>
+        <p style="margin:12px 0 0;font-size:11px;line-height:1.55;color:#93a49d">Full observed range. No trimming, winsorization or axis caps. Choosing a bin filters the constituent table below.</p>
+      </section>
+
+      <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+          <div>
+            <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">03 / TWO DIFFERENT QUESTIONS</div>
+            <h3 style="margin:5px 0 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700">Growth versus valuation</h3>
+          </div>
+          <label style="display:flex;align-items:center;gap:7px;font-size:11.5px;color:#9fb0a9">
+            <input type="checkbox" checked="{{capSized}}" onChange="{{onCapSized}}" style="accent-color:#00e0a4;width:14px;height:14px" />Size by market cap
+          </label>
+        </div>
+        <p style="margin:0 0 14px;font-size:11px;line-height:1.5;color:#93a49d">Both axes use <strong>{{methodLabel}}</strong>. Sizing never changes either axis. Growth and valuation are observations, not an investment ranking.</p>
+        <div style="position:relative;height:230px;border-left:1px solid #35423f;border-bottom:1px solid #35423f;margin:0 10px 0 46px">
+          <sc-for list="{{scatterYTicks}}" as="t" hint-placeholder-count="4">
+            <span style="position:absolute;left:0;right:0;top:{{t.top}};border-top:1px dashed #232e2c">
+              <span style="position:absolute;left:-10px;top:-7px;transform:translateX(-100%);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#93a49d">{{t.label}}</span>
+            </span>
+          </sc-for>
+          <sc-for list="{{scatterPoints}}" as="p" hint-placeholder-count="5">
+            <button onClick="{{p.onClick}}" title="{{p.title}}" style="position:absolute;left:{{p.left}};top:{{p.top}};transform:translate(-50%,-50%);width:{{p.size}};height:{{p.size}};border-radius:50%;background:{{p.color}};border:2px solid {{p.ring}};opacity:.9">
+              <span style="position:absolute;left:calc(100% + 6px);top:-9px;white-space:nowrap;font-size:10.5px;color:#b6c5bd">{{p.label}}</span>
+            </button>
+          </sc-for>
+          <sc-for list="{{scatterXTicks}}" as="t" hint-placeholder-count="4">
+            <span style="position:absolute;top:100%;left:{{t.left}};transform:translateX(-50%);padding-top:5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#93a49d">{{t.label}}</span>
+          </sc-for>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin:26px 10px 0 46px;font-size:10.5px;color:#93a49d">
+          <span>Y · TTM revenue YoY, {{methodLabel}}</span>
+          <span>X · Trailing P/E, {{methodLabel}}</span>
+        </div>
+        <div style="margin-top:14px;padding:12px 14px;background:#1a2321;border:1px solid #26312f;border-radius:5px">
+          <div style="font-size:11px;font-weight:600;margin-bottom:8px">Not placed — limited coverage, N/M or missing</div>
+          <sc-for list="{{scatterUnplaced}}" as="u" hint-placeholder-count="2">
+            <div style="display:flex;justify-content:space-between;gap:14px;font-size:11.5px;padding:4px 0;border-top:1px solid #232e2c">
+              <button onClick="{{u.onClick}}" style="color:#6fcfb5;text-decoration:underline;text-underline-offset:3px">{{u.label}}</button>
+              <span style="color:#93a49d;text-align:right">{{u.reason}}</span>
+            </div>
+          </sc-for>
+          <p style="margin:9px 0 0;font-size:10.5px;color:#93a49d">They are listed here rather than plotted at zero.</p>
+        </div>
+      </section>
+
+      <aside style="background:#1b2320;border:1px solid #2c352c;border-radius:6px;padding:20px 22px">
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1px;color:#93a49d">HOW TO READ THIS VIEW</div>
+        <h3 style="margin:9px 0 16px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;line-height:1.25;font-weight:700;letter-spacing:-.3px">One sector.<br />Different questions.</h3>
+        <div style="display:flex;gap:12px;padding:11px 0;border-top:1px solid #2c352c">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#a9ad8b;padding-top:2px">01</span>
+          <p style="margin:0;font-size:12.5px;line-height:1.55"><strong>Sector total</strong> divides a sum by a matching sum. Real losses stay in aggregate earnings; nonpositive aggregate earnings is N/M, not zero.</p>
+        </div>
+        <div style="display:flex;gap:12px;padding:11px 0;border-top:1px solid #2c352c">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#a9ad8b;padding-top:2px">02</span>
+          <p style="margin:0;font-size:12.5px;line-height:1.55"><strong>Typical company</strong> is the median eligible company. For P/E that describes <em>profitable companies only</em> — a different question, not a better average.</p>
+        </div>
+        <div style="display:flex;gap:12px;padding:11px 0;border-top:1px solid #2c352c">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#a9ad8b;padding-top:2px">03</span>
+          <p style="margin:0;font-size:12.5px;line-height:1.55"><strong>Coverage changes the comparison.</strong> A shared chart context does not imply that P/E and growth share a constituent set — each axis exposes its own cohort.</p>
+        </div>
+        <div style="display:flex;gap:12px;padding:11px 0;border-top:1px solid #2c352c">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#a9ad8b;padding-top:2px">04</span>
+          <p style="margin:0;font-size:12.5px;line-height:1.55">Sector fundamentals do not measure an ETF's return. Its membership, weights, fees and concentration may all differ.</p>
+        </div>
+        <details id="prerequisites" style="margin-top:14px;padding-top:12px;border-top:1px solid #2c352c">
+          <summary style="font-size:12px;color:#cbd5ab;cursor:pointer">Missing production prerequisites</summary>
+          <ul style="margin:10px 0 0;padding-left:18px;font-size:11.5px;line-height:1.6;color:#aab9a5">
+            <li>Approved dated operating-equity roster, independent of available ratios</li>
+            <li>Licensed taxonomy with version, effective and known-at membership</li>
+            <li>Complete common-equity capitalization across classes and depositary receipts</li>
+            <li>Income available to common, with source evidence and compatible precision</li>
+            <li>Reviewed immutable snapshot storage and result API</li>
+          </ul>
+        </details>
+      </aside>
+    </div>
+
+    <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px 22px">
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:flex-end;margin-bottom:14px">
+        <div>
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">THE COMPANIES BEHIND THE GRAPH</div>
+          <h3 style="margin:5px 0 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:17px;font-weight:700">{{sectorLabel}} constituents</h3>
+        </div>
+        <label style="display:flex;align-items:center;gap:8px;border:1px solid #33403d;border-radius:5px;padding:8px 12px;min-width:240px">
+          <span aria-hidden="true" style="color:#93a49d">⌕</span>
+          <input type="search" placeholder="Find a company or ticker" value="{{query}}" onChange="{{onQuery}}" style="border:0;outline:0;background:transparent;font-size:12.5px;width:100%" />
+        </label>
+      </div>
+
+      <sc-if value="{{binFilterActive}}" hint-placeholder-val="{{false}}">
+        <div style="display:inline-flex;align-items:center;gap:9px;margin-bottom:12px;padding:6px 11px;background:#182a25;border-radius:4px;font-size:11.5px">
+          Bin filter · {{binFilterLabel}}
+          <button onClick="{{onClearBin}}" aria-label="Clear histogram filter" style="font-size:14px;line-height:1">×</button>
+        </div>
+      </sc-if>
+
+      <div style="display:flex;flex-wrap:wrap;gap:6px 10px;padding:0 0 7px;border-bottom:1px solid #26312f;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.1px;color:#93a49d">
+        <span style="flex:1 1 200px">COMPANY</span>
+        <span style="flex:0 0 96px;text-align:right">{{metricLabelShort}}</span>
+        <span style="flex:0 0 200px">ELIGIBILITY</span>
+        <span style="flex:0 0 110px">DISTRIBUTION</span>
+        <span style="flex:0 0 130px;text-align:right">SNAPSHOT</span>
+      </div>
+
+      <sc-for list="{{companies}}" as="c" hint-placeholder-count="12">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;padding:11px 0;border-bottom:1px solid #232e2c;background:{{c.rowBg}}">
+          <div style="flex:1 1 200px">
+            <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;font-weight:600">{{c.ticker}}</div>
+            <div style="font-size:11.5px;color:#93a49d">{{c.name}}</div>
+          </div>
+          <button onClick="{{c.onDetail}}" style="flex:0 0 96px;text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px">{{c.value}}</button>
+          <div style="flex:0 0 200px">
+            <span style="display:inline-block;font-size:10.5px;padding:2px 8px;border-radius:3px;border:1px solid {{c.chipBorder}};background:{{c.chipBg}};color:{{c.chipFg}}">{{c.status}}</span>
+            <div style="font-size:10.5px;color:#e3b46c;margin-top:3px">{{c.reason}}</div>
+          </div>
+          <button onClick="{{c.onPin}}" aria-pressed="{{c.pinned}}" style="flex:0 0 110px;text-align:left;font-size:12px;color:#6fcfb5;text-decoration:underline;text-underline-offset:3px">{{c.pinLabel}}</button>
+          <button onClick="{{c.onDetail}}" style="flex:0 0 130px;text-align:right;font-size:12px;color:#6fcfb5;text-decoration:underline;text-underline-offset:3px">Fundamentals ↗</button>
+        </div>
+      </sc-for>
+
+      <sc-if value="{{noCompanies}}" hint-placeholder-val="{{false}}">
+        <p style="margin:18px 0 0;font-size:12.5px;color:#9fb0a9">No companies match this filter. <button onClick="{{onClearFilters}}" style="color:#6fcfb5;text-decoration:underline;text-underline-offset:3px">Clear filters</button></p>
+      </sc-if>
+
+      <p style="margin:14px 0 0;font-size:11px;line-height:1.55;color:#93a49d">Opening a constituent reveals the exact evaluated snapshot used by this sector result — not the latest unrelated data.</p>
+    </section>
+
+    <section id="roadmap" style="margin-top:22px;background:#161f1e;border:1px dashed #35423f;border-radius:6px;padding:18px 20px">
+      <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">NOT IMPLEMENTED — RETAINED SCOPE</div>
+      <h3 style="margin:6px 0 10px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700">Where this workbench goes next</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{roadmap}}" as="r" hint-placeholder-count="8">
+          <span style="font-size:11.5px;padding:5px 10px;border:1px solid #2f3b39;border-radius:3px;background:#1a2321;color:#9fb0a9">{{r.label}} <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#93a49d">{{r.tag}}</span></span>
+        </sc-for>
+      </div>
+      <p style="margin:12px 0 0;font-size:11.5px;line-height:1.55;color:#93a49d">Destinations are kept discoverable and explicitly unbuilt. None of these run today, and no design choice here approves a schema, API or data-rights decision.</p>
+    </section>
+    </sc-if>
+
+    <sc-if value="{{isCompany}}" hint-placeholder-val="{{false}}">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px">
+        <div>
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.1px;color:#93a49d;margin-bottom:10px">RESOLVED SECURITY · FICTIONAL</div>
+          <h1 style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:30px;line-height:1.12;letter-spacing:-.7px;font-weight:700">Fictional Computing 04</h1>
+          <p style="margin:10px 0 0;font-size:14px;color:#9fb0a9">A five-minute read of the fundamentals, in a fixed order, with every number traceable.</p>
+        </div>
+        <div style="text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10.5px;color:#93a49d;line-height:1.7">
+          <div style="font-size:10px;font-weight:600;letter-spacing:1.1px">ANALYSIS RUN</div>
+          <div style="color:#eaf0ed;font-size:12px">run-2026-07-14-v3 · immutable</div>
+          <div>Prior runs v1, v2 retained and separately dated</div>
+        </div>
+      </div>
+
+      <section aria-label="Resolved identity and dates" style="display:flex;flex-wrap:wrap;background:#161f1e;border:1px solid #26312f;border-radius:6px;margin-bottom:18px;overflow:hidden">
+        <sc-for list="{{identity}}" as="i" hint-placeholder-count="5">
+          <div style="flex:1 1 180px;padding:13px 18px;border-right:1px solid #26312f">
+            <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1px;color:#7b8a84;margin-bottom:5px">{{i.label}}</div>
+            <div style="font-size:12.5px;line-height:1.4">{{i.value}}</div>
+          </div>
+        </sc-for>
+      </section>
+
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #26312f">
+        <span style="padding:8px 14px;border-radius:5px;background:#eaf0ed;color:#0e1413;font-size:12.5px;font-weight:500">Fundamentals</span>
+        <span style="padding:8px 14px;border-radius:5px;background:#161f1e;border:1px solid #2f3b39;font-size:12.5px;color:#9fb0a9">Overview</span>
+        <span style="padding:8px 14px;border-radius:5px;background:#161f1e;border:1px solid #2f3b39;font-size:12.5px;color:#9fb0a9">Financials</span>
+        <sc-for list="{{plannedTabs}}" as="t" hint-placeholder-count="6">
+          <span title="Not implemented" style="padding:8px 14px;border-radius:5px;border:1px dashed #2f3b39;font-size:12.5px;color:#7d8b85">{{t.label}} <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.6px">{{t.tag}}</span></span>
+        </sc-for>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:14px 18px;margin-bottom:18px">
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.1px;color:#93a49d">BASIS</span>
+          <div style="display:flex;border:1px solid #33403d;border-radius:5px;overflow:hidden">
+            <sc-for list="{{periodButtons}}" as="p" hint-placeholder-count="3">
+              <button onClick="{{p.onClick}}" aria-pressed="{{p.pressed}}" style="padding:8px 14px;font-size:12.5px;background:{{p.bg}};color:{{p.fg}};border-right:1px solid #33403d">{{p.label}}</button>
+            </sc-for>
+          </div>
+          <span style="font-size:11.5px;color:#93a49d">{{periodNote}}</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.1px;color:#93a49d">OWN HISTORY</span>
+          <div style="display:flex;border:1px solid #33403d;border-radius:5px;overflow:hidden">
+            <sc-for list="{{histButtons}}" as="h" hint-placeholder-count="3">
+              <button onClick="{{h.onClick}}" aria-pressed="{{h.pressed}}" style="padding:8px 14px;font-size:12.5px;background:{{h.bg}};color:{{h.fg}};border-right:1px solid #33403d">{{h.label}}</button>
+            </sc-for>
+          </div>
+          <span style="font-size:11.5px;color:{{histColor}}">{{histNote}}</span>
+        </div>
+      </div>
+
+      <sc-if value="{{histInsufficient}}" hint-placeholder-val="{{false}}">
+        <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 17px;background:#241c10;border-left:3px solid #d99b3e;margin-bottom:18px;font-size:12.5px;line-height:1.6">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.2px;color:#e3b46c;padding-top:2px">INSUFFICIENT HISTORY</span>
+          <p style="margin:0">You selected a 10-year window. This issuer has 24 eligible quarter ends covering 6.0 years from 2020-06-30. The window has <strong>not</strong> been silently shortened and no percentile band or rank is shown. Own-history percentile is not intrinsic value.</p>
+        </div>
+      </sc-if>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:18px;margin-bottom:20px">
+        <sc-for list="{{fundSections}}" as="s" hint-placeholder-count="5">
+          <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+            <div style="display:flex;align-items:baseline;gap:11px;margin-bottom:4px">
+              <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">{{s.step}}</span>
+              <h3 style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700">{{s.title}}</h3>
+            </div>
+            <p style="margin:0 0 12px;font-size:11.5px;color:#93a49d">{{s.purpose}}</p>
+            <sc-for list="{{s.rows}}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;padding:9px 0;border-top:1px solid #232e2c">
+                <span style="flex:1 1 150px;font-size:12.5px">{{r.label}}</span>
+                <span style="flex:0 0 auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px">{{r.value}}</span>
+                <span style="flex:0 0 78px;text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:{{r.deltaColor}}">{{r.delta}}</span>
+                <button onClick="{{r.onEvidence}}" style="flex:0 0 auto;font-size:11px;color:#6fcfb5;text-decoration:underline;text-underline-offset:3px">Evidence</button>
+              </div>
+            </sc-for>
+            <p style="margin:12px 0 0;padding-top:10px;border-top:1px solid #232e2c;font-size:11px;line-height:1.55;color:#93a49d;text-wrap:pretty">{{s.limitation}}</p>
+          </section>
+        </sc-for>
+
+        <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px;align-self:start">
+          <details>
+            <summary style="cursor:pointer;list-style:none;display:flex;align-items:baseline;gap:11px">
+              <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">06</span>
+              <h3 style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700">Returns on capital ▸</h3>
+            </summary>
+            <p style="margin:10px 0 12px;font-size:11.5px;color:#93a49d">Expandable by design — it is not part of the five-minute pass.</p>
+            <div style="display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #232e2c;font-size:12.5px"><span>Return on assets</span><span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px">9.80%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #232e2c;font-size:12.5px"><span>Return on equity · common scope</span><span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px">18.40%</span></div>
+            <div style="display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #232e2c;font-size:12.5px"><span>ROIC · ROIC less WACC</span><span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:#e3b46c">Unavailable — definition under review</span></div>
+            <p style="margin:12px 0 0;padding-top:10px;border-top:1px solid #232e2c;font-size:11px;line-height:1.55;color:#93a49d">Common-scope and consolidated-scope returns are different numbers. Prerequisites for each are stated rather than assumed.</p>
+          </details>
+        </section>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px">
+        <section style="background:#1b2320;border:1px solid #2c352c;border-radius:6px;padding:20px 22px">
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1px;color:#93a49d">NEUTRAL REVIEW PROMPTS · MAXIMUM THREE</div>
+          <h3 style="margin:9px 0 14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:19px;line-height:1.25;font-weight:700;letter-spacing:-.3px">Three things worth checking.</h3>
+          <sc-for list="{{prompts}}" as="p" hint-placeholder-count="3">
+            <div style="display:flex;gap:12px;padding:11px 0;border-top:1px solid #2c352c">
+              <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#a9ad8b;padding-top:3px">{{p.n}}</span>
+              <div>
+                <p style="margin:0;font-size:12.5px;line-height:1.55"><strong>{{p.title}}</strong> {{p.text}}</p>
+                <p style="margin:5px 0 0;font-size:11px;color:#93a49d">Limitation · {{p.limitation}}</p>
+              </div>
+            </div>
+          </sc-for>
+          <p style="margin:14px 0 0;padding-top:12px;border-top:1px solid #2c352c;font-size:11px;line-height:1.55;color:#aab9a5">No overall score, conviction rating, price target, bargain or value-trap label is produced here, by design.</p>
+        </section>
+
+        <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">APPLICABILITY &amp; COVERAGE</div>
+          <h3 style="margin:6px 0 12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700">What this snapshot can and cannot answer</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+            <sc-for list="{{coverageChips}}" as="c" hint-placeholder-count="6">
+              <span style="font-size:11.5px;padding:5px 10px;border:1px solid {{c.border}};border-radius:3px;background:{{c.bg}};color:{{c.fg}}"><strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace">{{c.count}}</strong> {{c.label}}</span>
+            </sc-for>
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid #232e2c;font-size:12px"><span>Issuer profile</span><span style="color:#9fb0a9">Operating technology issuer — generic FCF and debt comparisons apply</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid #232e2c;font-size:12px"><span>Fiscal calendar</span><span style="color:#9fb0a9">Exact calendar quarters supported; 52/53-week calendars are not</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid #232e2c;font-size:12px"><span>Restatement mode</span><span style="color:#9fb0a9">Latest restated — as-reported switch available in Financials</span></div>
+          <p style="margin:12px 0 0;padding-top:10px;border-top:1px solid #232e2c;font-size:11px;line-height:1.55;color:#93a49d">Banks, insurers, REITs and float businesses would show <strong>Sector-specific interpretation needed</strong> here instead, decided by issuer profile rather than by what happens to be available.</p>
+          <p style="margin:10px 0 0;font-size:11px;line-height:1.55;color:#93a49d">The Overview tab displays this same immutable snapshot. A refresh does not recompute a conflicting label in another tab.</p>
+        </section>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{isNews}}" hint-placeholder-val="{{false}}">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px">
+        <div style="max-width:600px">
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.1px;color:#93a49d;margin-bottom:10px">SPECIFIED · NOT RUNNING</div>
+          <h1 style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:30px;line-height:1.12;letter-spacing:-.7px;font-weight:700">News &amp; calendar</h1>
+          <p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:#9fb0a9;text-wrap:pretty">Facts, then inference, then a conditional business effect. Never a price prediction.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:flex-start;padding:13px 17px;background:#241c10;border-left:3px solid #d99b3e;margin-bottom:18px;font-size:12.5px;line-height:1.6">
+        <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1.2px;color:#e3b46c;padding-top:2px;flex:0 0 auto">PROPOSAL</span>
+        <p style="margin:0">Monitoring is designed, not deployed. No collector is running, no assessment has been generated and no alert has been sent. Everything below is a labelled mock of the intended states.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;margin-bottom:20px">
+        <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">COLLECTION HEALTH</div>
+          <h3 style="margin:6px 0 12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700">Are the sources arriving?</h3>
+          <sc-for list="{{collectionHealth}}" as="h" hint-placeholder-count="4">
+            <div style="display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-top:1px solid #232e2c;font-size:12px">
+              <span>{{h.label}}</span><span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:{{h.color}};text-align:right">{{h.value}}</span>
+            </div>
+          </sc-for>
+        </section>
+        <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">ASSESSMENT HEALTH</div>
+          <h3 style="margin:6px 0 12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700">Is anything being judged?</h3>
+          <sc-for list="{{assessmentHealth}}" as="h" hint-placeholder-count="4">
+            <div style="display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-top:1px solid #232e2c;font-size:12px">
+              <span>{{h.label}}</span><span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:{{h.color}};text-align:right">{{h.value}}</span>
+            </div>
+          </sc-for>
+          <p style="margin:11px 0 0;font-size:11px;line-height:1.5;color:#93a49d">Separate from collection on purpose: sources can arrive while no assessment is produced, and the reverse.</p>
+        </section>
+        <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">RUNTIME &amp; DELIVERY</div>
+          <h3 style="margin:6px 0 12px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;font-weight:700">Where this actually runs</h3>
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-top:1px solid #232e2c;font-size:12px"><span>Runtime</span><span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-align:right">Local machine — not always-on</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-top:1px solid #232e2c;font-size:12px"><span>While asleep</span><span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#e3b46c;text-align:right">No collection · catch-up on wake</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-top:1px solid #232e2c;font-size:12px"><span>Quiet hours</span><span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-align:right">22:00–07:30 — delays delivery, not collection</span></div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
+            <sc-for list="{{channels}}" as="c" hint-placeholder-count="3">
+              <span style="font-size:11.5px;padding:5px 10px;border:1px solid {{c.border}};border-radius:3px;background:{{c.bg}};color:{{c.fg}}">{{c.label}} · {{c.state}}</span>
+            </sc-for>
+          </div>
+          <p style="margin:11px 0 0;font-size:11px;line-height:1.5;color:#93a49d">Monitoring never requires an open company page. A sleeping laptop cannot claim continuous uptime.</p>
+        </section>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:18px">
+        <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">US ECONOMIC CALENDAR</div>
+          <h3 style="margin:6px 0 14px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700">Heads-up, release, correction</h3>
+          <sc-for list="{{calendar}}" as="c" hint-placeholder-count="4">
+            <div style="padding:13px 0;border-top:1px solid #232e2c">
+              <div style="display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;margin-bottom:6px">
+                <span style="font-size:10.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.8px;padding:3px 8px;border-radius:3px;border:1px solid {{c.border}};background:{{c.bg}};color:{{c.fg}}">{{c.state}}</span>
+                <strong style="font-size:13px">{{c.title}}</strong>
+                <span style="margin-left:auto;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;color:#93a49d">{{c.when}}</span>
+              </div>
+              <p style="margin:0;font-size:12px;line-height:1.55;color:#9fb0a9">{{c.detail}}</p>
+            </div>
+          </sc-for>
+          <p style="margin:12px 0 0;padding-top:10px;border-top:1px solid #232e2c;font-size:11px;line-height:1.55;color:#93a49d">Release, consensus and prior are three different numbers. Without a consensus there is no surprise to report — one is never invented.</p>
+        </section>
+
+        <section style="background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+          <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">WATCHLIST DEVELOPMENT · ASSESSMENT</div>
+          <h3 style="margin:6px 0 4px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700">Draft rule would change settlement reserve treatment</h3>
+          <p style="margin:0 0 14px;font-size:11.5px;color:#93a49d">Discovered without any ticker mention · affects DEMO-COMPUTING-04 through a supplier · revision 2 of 2</p>
+
+          <div style="padding:11px 14px;border-left:3px solid #00e0a4;background:#15251f;margin-bottom:10px">
+            <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1.2px;color:#6fcfb5;margin-bottom:5px">VERIFIED FACTS</div>
+            <p style="margin:0;font-size:12.5px;line-height:1.55">A consultation document was published on 2026-09-16. It proposes a 30-day comment window. No rule has been adopted.</p>
+          </div>
+          <div style="padding:11px 14px;border-left:3px solid #d99b3e;background:#241c10;margin-bottom:10px">
+            <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:9.5px;font-weight:600;letter-spacing:1.2px;color:#e3b46c;margin-bottom:5px">INFERENCE — NOT FACT</div>
+            <p style="margin:0;font-size:12.5px;line-height:1.55">If adopted unchanged, the issuer's largest supplier would likely hold higher non-interest-bearing balances, which could compress the supplier's margin and raise input prices.</p>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px 18px;padding:10px 0;border-top:1px solid #232e2c;border-bottom:1px solid #232e2c;margin-bottom:10px">
+            <sc-for list="{{assessmentMeta}}" as="a" hint-placeholder-count="4">
+              <span style="font-size:11.5px;color:#9fb0a9">{{a.label}} <strong style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#eaf0ed">{{a.value}}</strong></span>
+            </sc-for>
+          </div>
+          <div style="font-size:12.5px;line-height:1.6">
+            <p style="margin:0 0 7px"><strong>Business driver ·</strong> supplier input cost, not demand.</p>
+            <p style="margin:0 0 7px"><strong>Counterevidence ·</strong> two prior consultations in this area were withdrawn before adoption.</p>
+            <p style="margin:0 0 7px"><strong>What would reverse this ·</strong> an adopted rule that exempts settlement balances, or a supplier disclosure showing no balance change.</p>
+            <p style="margin:0;color:#93a49d;font-size:11.5px">Any observed price movement on this date does not establish causation, and article sentiment is never translated into a fair value.</p>
+          </div>
+          <details style="margin-top:12px;padding-top:10px;border-top:1px solid #232e2c">
+            <summary style="font-size:12px;color:#6fcfb5;cursor:pointer">Revision history &amp; sources</summary>
+            <div style="margin-top:9px;font-size:11.5px;line-height:1.6;color:#9fb0a9">
+              <p style="margin:0 0 5px"><strong>Rev 2 · 2026-09-18</strong> — materiality lowered from medium to low after the exemption clause was found. Rev 1 retained, not overwritten.</p>
+              <p style="margin:0"><strong>Rev 1 · 2026-09-16</strong> — initial assessment on publication.</p>
+            </div>
+          </details>
+        </section>
+      </div>
+
+      <section style="margin-top:18px;background:#161f1e;border:1px solid #26312f;border-radius:6px;padding:18px 20px">
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:baseline;margin-bottom:12px">
+          <div>
+            <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">TOPIC DISCOVERY</div>
+            <h3 style="margin:5px 0 0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700">Topics found, not a keyword allowlist</h3>
+          </div>
+          <span style="font-size:11.5px;color:#93a49d">Edit · mute · exclude — each change is dated and reversible</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{topics}}" as="t" hint-placeholder-count="8">
+            <span style="display:inline-flex;align-items:center;gap:8px;font-size:12px;padding:6px 11px;border:1px solid {{t.border}};border-radius:4px;background:{{t.bg}};color:{{t.fg}}">{{t.label}}<span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.5px">{{t.state}}</span></span>
+          </sc-for>
+        </div>
+        <p style="margin:12px 0 0;font-size:11px;line-height:1.55;color:#93a49d">Regulation, products, ecosystems, competitors, customers and suppliers all qualify, including developments that never name the ticker. Baseline older stories are surfaced as context, never as breaking-news alerts.</p>
+      </section>
+    </sc-if>
+
+    <footer style="display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;margin-top:26px;padding-top:16px;border-top:1px solid #26312f;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;letter-spacing:.5px;color:#93a49d">
+      <span>FICTIONAL SNAPSHOT · {{asOf}} · TRAILING TWELVE MONTHS · FOUR EXACT CALENDAR QUARTERS · USD</span>
+      <span>sector-fixture-v1 / fictional-coverage-policy-v1</span>
+    </footer>
+  </main>
+
+  <sc-if value="{{drawerOpen}}" hint-placeholder-val="{{false}}">
+    <div style="position:fixed;inset:0;z-index:60;display:flex;justify-content:flex-end">
+      <button onClick="{{onCloseDrawer}}" aria-label="Close source details" style="position:absolute;inset:0;background:rgba(0,0,0,.62)"></button>
+      <div role="dialog" aria-label="Frozen source snapshot" style="position:relative;width:min(540px,100%);height:100%;overflow-y:auto;background:#161f1e;border-left:1px solid #33403d;padding:22px 26px 40px">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:12px">
+          <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">FROZEN SNAPSHOT · FICTIONAL</span>
+          <button onClick="{{onCloseDrawer}}" style="font-size:22px;line-height:1;color:#93a49d">×</button>
+        </div>
+        <h2 style="margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:20px;font-weight:700;letter-spacing:-.3px">{{drawerTitle}}</h2>
+        <p style="margin:7px 0 18px;font-size:12.5px;line-height:1.55;color:#9fb0a9">{{drawerSubtitle}}</p>
+        <sc-for list="{{drawerSections}}" as="s" hint-placeholder-count="3">
+          <section style="margin-bottom:18px">
+            <h3 style="margin:0 0 8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">{{s.heading}}</h3>
+            <sc-for list="{{s.rows}}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;justify-content:space-between;gap:18px;padding:7px 0;border-top:1px solid #232e2c;font-size:12px;line-height:1.5">
+                <span style="color:#9fb0a9;flex:1 1 auto">{{r.label}}</span>
+                <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-align:right;flex:0 1 auto">{{r.value}}</span>
+              </div>
+            </sc-for>
+          </section>
+        </sc-for>
+        <section>
+          <h3 style="margin:0 0 8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;font-weight:600;letter-spacing:1px;color:#93a49d">SOURCE CHAIN</h3>
+          <sc-for list="{{drawerSources}}" as="src" hint-placeholder-count="2">
+            <div style="padding:11px 13px;border:1px solid #26312f;border-radius:5px;margin-bottom:9px;font-size:11.5px;line-height:1.6;background:#1a2321">
+              <strong style="display:block;font-size:12.5px">{{src.label}}</strong>
+              <span style="display:block;color:#9fb0a9">Accession · {{src.accession}}</span>
+              <span style="display:block;color:#9fb0a9">Captured · {{src.capturedAt}}</span>
+              <span style="display:block;color:#9fb0a9">Transform · {{src.transform}}</span>
+              <span style="display:block;color:#9fb0a9">Usage · {{src.licence}}</span>
+            </div>
+          </sc-for>
+        </section>
+        <p style="margin:12px 0 0;font-size:11px;line-height:1.55;color:#93a49d">Fictional demonstration evidence. A source revision creates a new result; it never overwrites this saved snapshot.</p>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1480},&quot;device&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;desktop&quot;,&quot;mobile&quot;],&quot;default&quot;:&quot;desktop&quot;,&quot;tsType&quot;:&quot;'desktop' | 'mobile'&quot;,&quot;section&quot;:&quot;Layout&quot;},&quot;showCoverageLegend&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Disclosure&quot;}}">
+const SECTORS = [
+  { id: 'computing', label: 'Computing', color: '#00e0a4' },
+  { id: 'consumer', label: 'Consumer', color: '#00e0a4' },
+  { id: 'energy', label: 'Energy', color: '#00e0a4' },
+  { id: 'health', label: 'Health', color: '#00e0a4' },
+  { id: 'industry', label: 'Industry', color: '#00e0a4' },
+  { id: 'property', label: 'Property & finance', color: '#00e0a4' },
+  { id: 'unclassified', label: 'Unclassified', color: '#00e0a4' }
+];
+
+const METRICS = [
+  { id: 'pe', label: 'P/E', short: 'P/E', unit: 'x', def: 'Common equity market value / income available to common shareholders. Losses stay in total earnings; a company P/E requires positive earnings.' },
+  { id: 'ps', label: 'P/S', short: 'P/S', unit: 'x', def: 'Common equity market value / matched trailing-twelve-month revenue over identical issuer IDs.' },
+  { id: 'pfcf', label: 'P/FCF', short: 'P/FCF', unit: 'x', def: 'Common equity market value / cash from operations less cash PPE capital expenditure. Negative FCF stays in the aggregate; a nonpositive aggregate denominator is N/M.' },
+  { id: 'rev', label: 'TTM revenue YoY', short: 'REV YOY', unit: '%', def: 'Matched current and prior trailing-twelve-month revenue for exactly the same current-membership issuers. Each prior company revenue must be positive and comparable.' },
+  { id: 'opm', label: 'Operating margin', short: 'OP MARGIN', unit: '%', def: 'Sum matching operating income / sum revenue. Negative numerators are retained; aggregate revenue must be positive.' },
+  { id: 'fcfm', label: 'FCF margin', short: 'FCF MARGIN', unit: '%', def: 'Sum free cash flow / sum revenue over a matched issuer cohort. Margins may legitimately be negative.' },
+  { id: 'gb', label: 'Growth breadth', short: 'GROWTH BREADTH', unit: '%', breadth: true, def: 'Positive growth observations / valid growth observations, equal company weights. Zero is valid but not positive; missing is not zero.' },
+  { id: 'pb', label: 'Profit breadth', short: 'PROFIT BREADTH', unit: '%', breadth: true, def: 'Positive known common earnings / known common earnings. Missing is not a loss.' },
+  { id: 'cb', label: 'Cash breadth', short: 'CASH BREADTH', unit: '%', breadth: true, def: 'Positive known free cash flow / known free cash flow, equal company weights.' }
+];
+
+// Fictional fixture: [sector total, typical company (median), simple mean]
+const FIX = {
+  computing: { pe: [40.96, 35.23, 35.18], ps: [6.12, 5.44, 5.61], pfcf: [31.40, 28.12, 29.05], rev: [33.09, 29.40, 30.11], opm: [24.80, 22.10, 21.70], fcfm: [19.50, 17.20, 17.90], gb: [100, 100, 100], pb: [92, 92, 92], cb: [92, 92, 92] },
+  consumer: { pe: [30.38, 27.11, 27.64], ps: [2.44, 2.21, 2.30], pfcf: [22.85, 20.90, 21.42], rev: [12.40, 10.80, 11.05], opm: [11.20, 10.40, 10.10], fcfm: [7.80, 7.10, 7.35], gb: [73, 73, 73], pb: [82, 82, 82], cb: [73, 73, 73] },
+  energy: { pe: [27.51, 24.90, 25.33], ps: [1.62, 1.48, 1.53], pfcf: [15.70, 14.20, 14.85], rev: [17.85, 15.60, 16.02], opm: [15.40, 14.10, 13.80], fcfm: [10.90, 9.80, 10.15], gb: [83, 83, 83], pb: [92, 92, 92], cb: [75, 75, 75] },
+  health: { pe: [32.28, 29.44, 29.90], ps: [4.05, 3.72, 3.81], pfcf: [26.60, 24.10, 24.75], rev: [9.60, 8.40, 8.72], opm: [13.70, 12.50, 12.20], fcfm: [9.20, 8.30, 8.55], gb: [64, 64, 64], pb: [73, 73, 73], cb: [64, 64, 64] },
+  industry: { pe: [29.55, 26.80, 27.12], ps: [1.98, 1.82, 1.88], pfcf: [19.40, 17.90, 18.30], rev: [14.20, 12.90, 13.11], opm: [12.60, 11.80, 11.50], fcfm: [8.40, 7.60, 7.90], gb: [75, 75, 75], pb: [100, 100, 100], cb: [83, 83, 83] },
+  property: { pe: [36.50, 32.10, 32.88], ps: [5.30, 4.85, 4.96], pfcf: [null, null, null], rev: [6.80, 5.90, 6.12], opm: [18.90, 17.40, 17.00], fcfm: [12.10, 11.20, 11.45], gb: [58, 58, 58], pb: [83, 83, 83], cb: [67, 67, 67] },
+  unclassified: { pe: [31.19, 28.40, 28.77], ps: [3.11, 2.88, 2.94], pfcf: [24.30, 22.10, 22.66], rev: [10.50, 9.60, 9.81], opm: [10.80, 9.90, 9.70], fcfm: [6.90, 6.20, 6.45], gb: [67, 67, 67], pb: [75, 75, 75], cb: [null, null, null] }
+};
+
+const COVER = {
+  computing: { n: 12, k: 12, nonpos: 1, data: '100%', cap: '100%', limited: false },
+  consumer: { n: 12, k: 11, nonpos: 1, data: '92%', cap: '88%', limited: false },
+  energy: { n: 12, k: 12, nonpos: 1, data: '100%', cap: '100%', limited: false },
+  health: { n: 12, k: 11, nonpos: 1, data: '92%', cap: 'Unavailable', limited: true },
+  industry: { n: 12, k: 12, nonpos: 0, data: '100%', cap: '100%', limited: false },
+  property: { n: 12, k: 12, nonpos: 1, data: '100%', cap: '100%', limited: false },
+  unclassified: { n: 12, k: 12, nonpos: 1, data: '100%', cap: '100%', limited: false }
+};
+
+const MARKET = {
+  pe: [32.49, 'limited', '98%', 'Unavailable'], ps: [3.24, 'eligible', '98%', '96%'], pfcf: [24.10, 'eligible', '98%', '96%'],
+  rev: [14.80, 'eligible', '98%', '96%'], opm: [15.20, 'eligible', '98%', '96%'], fcfm: [10.60, 'eligible', '98%', '96%'],
+  gb: [74, 'eligible', '98%', '96%'], pb: [85, 'eligible', '98%', '96%'], cb: [73, 'eligible', '98%', '96%']
+};
+
+const CONC = {
+  computing: ['51%', '33.09%'], consumer: ['44%', '11.80%'], energy: ['57%', '14.20%'], health: ['Unavailable', 'Unavailable'],
+  industry: ['39%', '13.60%'], property: ['62%', '5.10%'], unclassified: ['48%', '9.90%']
+};
+
+const OBS = {
+  computing: ['Aggregate revenue expanded.', 'Median company revenue grew.', '12 of 12 observed companies grew revenue; 0 were unchanged and 0 declined.'],
+  consumer: ['Aggregate revenue expanded.', 'Median company revenue grew.', '8 of 11 observed companies grew revenue; 1 was unchanged and 2 declined.'],
+  energy: ['Aggregate revenue expanded.', 'Median company revenue grew.', '10 of 12 observed companies grew revenue; 0 were unchanged and 2 declined.'],
+  health: ['Growth observations are withheld: coverage does not pass the comparison gate.', 'Capitalization coverage is unavailable because one roster issuer has unknown capitalization.', 'Values remain visible with reasons; no comparative claim is made.'],
+  industry: ['Aggregate revenue expanded.', 'Median company revenue grew.', '9 of 12 observed companies grew revenue; 1 was unchanged and 2 declined.'],
+  property: ['Aggregate revenue expanded.', 'Median company revenue grew.', '7 of 12 observed companies grew revenue; 0 were unchanged and 5 declined.'],
+  unclassified: ['Aggregate revenue expanded.', 'Median company revenue grew.', '8 of 12 observed companies grew revenue; 0 were unchanged and 4 declined.']
+};
+
+const ROADMAP = [
+  ['Company Overview', 'F-13 · PLAN'], ['Guided Fundamentals', 'F-01 · PLAN'], ['Financials', 'F-12 · PLAN'],
+  ['Watchlist & reanalysis', 'W1 · PLAN'], ['News & economic calendar', 'N1 · PLAN'], ['Reverse DCF', 'D004 · P1'],
+  ['Comps', 'P1'], ['Scenarios & sensitivity', 'G-12 · P1'], ['Assumption registry', 'G-03 · P1'],
+  ['Catalysts', 'P2'], ['Noise & base rates', 'P2'], ['Thesis & conviction rubric', 'P2'], ['Prediction calibration', 'P2'],
+  ['Help, glossary & manual', 'U1 · PLAN']
+];
+
+const QUARTERS = ['2021-06-30','2021-09-30','2021-12-31','2022-03-31','2022-06-30','2022-09-30','2022-12-31','2023-03-31','2023-06-30','2023-09-30','2023-12-31','2024-03-31','2024-06-30','2024-09-30','2024-12-31','2025-03-31','2025-06-30','2025-09-30','2025-12-31','2026-03-31','2026-06-30'];
+
+const SCREENS = [['sectors', 'Sector Explorer'], ['company', 'Company · Fundamentals'], ['news', 'News & calendar']];
+
+// Fictional company fixture. Values: [TTM, latest quarter, fiscal year]
+const FUND = [
+  { step: '01', title: 'Growth', purpose: 'Is the business getting bigger, and on what basis?', limitation: 'Growth percentages need an eligible, comparable prior base. Reported, adjusted and forecast EPS are different figures; weighted-average diluted shares are not ownership shares, and share-based compensation is not dilution.', rows: [
+    { label: 'Revenue', v: ['4,182.6m', '1,092.4m', '3,948.1m'], delta: '+11.4%', up: true },
+    { label: 'Revenue YoY', v: ['+11.40%', '+9.80%', '+12.60%'], delta: 'vs +12.6%', up: false },
+    { label: 'Gross profit · derived', v: ['2,434.3m', '638.0m', '2,286.1m'], delta: '+10.1%', up: true },
+    { label: 'EPS diluted', v: ['3.92', '1.02', '3.61'], delta: '+8.6%', up: true } ] },
+  { step: '02', title: 'Profitability', purpose: 'What is left after the cost of doing business?', limitation: 'Gross margin is not unit economics. Consolidated net income is not necessarily earnings available to common stockholders; the common-scope figure is shown where evidence supports it.', rows: [
+    { label: 'Gross margin', v: ['58.20%', '58.40%', '57.90%'], delta: '+0.3pp', up: true },
+    { label: 'Operating margin', v: ['21.70%', '22.40%', '20.90%'], delta: '+0.8pp', up: true },
+    { label: 'Net margin · consolidated', v: ['16.40%', '16.90%', '15.80%'], delta: '+0.6pp', up: true },
+    { label: 'Net margin · common scope', v: ['16.10%', '16.60%', '15.50%'], delta: '+0.6pp', up: true } ] },
+  { step: '03', title: 'Cash generation', purpose: 'Does the profit turn into cash?', limitation: 'Free cash flow here is cash from operations less cash PPE capital expenditure. That is not FCFF, and no cash-runway estimate is produced from it.', rows: [
+    { label: 'Cash from operations', v: ['902.3m', '246.1m', '831.4m'], delta: '+8.5%', up: true },
+    { label: 'Capital expenditure · PPE', v: ['−211.8m', '−58.4m', '−199.2m'], delta: '+6.3%', up: false },
+    { label: 'Free cash flow', v: ['690.5m', '187.7m', '632.2m'], delta: '+9.2%', up: true },
+    { label: 'FCF margin', v: ['16.51%', '17.18%', '16.01%'], delta: '+0.5pp', up: true } ] },
+  { step: '04', title: 'Balance sheet', purpose: 'What is owed, and what is genuinely available?', limitation: 'Restricted, client or reserve cash is not freely available corporate cash and is excluded from net cash. Debt composition and maturities matter more than a single ratio.', rows: [
+    { label: 'Cash & equivalents · unrestricted', v: ['1,204.7m', '1,204.7m', '1,118.2m'], delta: '+7.7%', up: true },
+    { label: 'Total debt', v: ['890.0m', '890.0m', '905.0m'], delta: '−1.7%', up: true },
+    { label: 'Net cash', v: ['314.7m', '314.7m', '213.2m'], delta: '+47.6%', up: true },
+    { label: 'Interest coverage', v: ['14.20×', '14.60×', '13.40×'], delta: '+0.8×', up: true } ] },
+  { step: '05', title: 'Valuation', purpose: 'What is being paid for all of the above?', limitation: 'Forward P/E and PEG require reviewed, dated estimate data; revenue growth is never substituted for an EPS estimate. Multiples need compatible instrument and capitalization evidence.', rows: [
+    { label: 'Trailing P/E', v: ['35.02×', '35.02×', '37.10×'], delta: '', up: true },
+    { label: 'P/S', v: ['6.10×', '6.10×', '6.46×'], delta: '', up: true },
+    { label: 'P/FCF', v: ['31.40×', '31.40×', '33.80×'], delta: '', up: true },
+    { label: 'Forward P/E · PEG', v: ['Unavailable', 'Unavailable', 'Unavailable'], delta: '', up: false } ] }
+];
+
+const IDENTITY = [
+  ['ISSUER · SECURITY', 'Fictional Computing 04 · ordinary shares, Class A'],
+  ['EXCHANGE · CURRENCY', 'DEMO-EX · USD · no implicit FX translation'],
+  ['QUOTE', '2026-06-30 16:00 ET · delayed 15 min · captured 3h ago'],
+  ['REPORTING PERIOD', 'TTM to 2026-06-30 · four exact calendar quarters'],
+  ['BALANCE-SHEET DATE', '2026-06-30 · instant, not a flow period'],
+  ['FILING CUTOFF · VINTAGE', '2026-07-10 · captured 2026-07-14']
+];
+
+const PLANNED_TABS = [['DCF', 'P1'], ['Comps', 'P1'], ['Scenarios', 'P1'], ['Catalysts', 'P2'], ['Noise', 'P2'], ['Thesis', 'P2'], ['Calibration', 'P2']];
+
+const PROMPTS = [
+  { n: '01', title: 'Data first ·', text: 'one quarter in this window comes from a later restatement. Compare it against the as-reported view before reading the trend.', limitation: 'A restatement changes the number, not the original filing. Both remain retrievable.' },
+  { n: '02', title: 'Cash and debt ·', text: 'the issuer holds a net cash position and interest coverage above 14×. Check debt maturities rather than the ratio alone.', limitation: 'Unrestricted cash only; no runway is inferred from it.' },
+  { n: '03', title: 'Operating trend ·', text: 'operating margin expanded 0.8pp while revenue growth slowed from 12.6% to 11.4%. Examine business mix before drawing a conclusion.', limitation: 'Two observations moving together is not a cause.' }
+];
+
+const CAL = [
+  { state: 'HEADS-UP', title: 'US CPI · August', when: 'in 2 days · 08:30 ET', detail: 'Scheduled release. Consensus not yet collected — no surprise can be reported until it is.', tone: 'plan' },
+  { state: 'RELEASED', title: 'US PPI · August', when: '2026-09-17 08:30 ET', detail: 'Release 0.30% · consensus 0.20% · prior 0.10%. Release, consensus and prior are shown as three separate figures.', tone: 'ok' },
+  { state: 'CORRECTION', title: 'US PPI · August, revised', when: '2026-09-18 11:05 ET', detail: 'Issuing agency corrected the release to 0.28%. The original value and its timestamp are retained alongside this correction.', tone: 'warn' },
+  { state: 'HEADS-UP', title: 'FOMC statement & press conference', when: 'in 9 days · 14:00 ET', detail: 'Calendar entry only. No expectation, probability or directional claim is generated from it.', tone: 'plan' }
+];
+
+const TOPICS = [
+  ['Settlement reserve rulemaking', 'active'], ['Supplier capacity expansion', 'active'], ['Competitor pricing moves', 'active'],
+  ['Top-five customer renewals', 'active'], ['Export-control scope', 'muted'], ['Executive commentary', 'muted'],
+  ['Retail sentiment threads', 'excluded'], ['Unrelated same-name issuer', 'excluded']
+];
+
+class Component extends DCLogic {
+  state = {
+    screen: 'sectors',
+    metric: 'pe', method: 'total', asOf: '2026-06-30', sector: 'computing',
+    win: '3', sort: 'alpha', showMarket: true, capSized: false,
+    query: '', bin: null, pinned: null, historySel: ['computing'], detail: null,
+    fPeriod: 0, fWin: '5'
+  };
+
+  fmt(v, m) {
+    if (v === null || v === undefined) return 'N/M';
+    if (m.breadth) return v.toFixed(0) + '%';
+    return m.unit === 'x' ? v.toFixed(2) + '\u00d7' : v.toFixed(2) + '%';
+  }
+
+  metricDef() { return METRICS.find(m => m.id === this.state.metric); }
+
+  rawValue(sectorId) {
+    const m = this.metricDef();
+    const idx = m.breadth ? 0 : (this.state.method === 'total' ? 0 : this.state.method === 'median' ? 1 : 2);
+    const set = FIX[sectorId][this.state.metric];
+    return set ? set[idx] : null;
+  }
+
+  vCount(sectorId) {
+    const c = COVER[sectorId];
+    if (this.state.method === 'total' || this.metricDef().breadth) return c.k;
+    return c.k - c.nonpos;
+  }
+
+  statusOf(sectorId) {
+    const v = this.rawValue(sectorId);
+    if (v === null) return 'nm';
+    if (COVER[sectorId].limited) return 'limited';
+    if (this.vCount(sectorId) < 10) return 'limited';
+    return 'eligible';
+  }
+
+  companiesFor(sectorId) {
+    const m = this.metricDef();
+    const base = FIX[sectorId][this.state.metric];
+    const centre = base && base[1] !== null ? base[1] : 20;
+    const cover = COVER[sectorId];
+    const slug = sectorId.toUpperCase().replace(' ', '-').slice(0, 9);
+    const out = [];
+    for (let i = 0; i < 12; i++) {
+      const id = String(i + 1).padStart(2, '0');
+      let status = 'eligible', reason = '', value = centre * (0.982 + i * 0.0032);
+      if (i === 11) { status = 'nm'; reason = 'Company earnings are zero or negative'; value = null; }
+      if (cover.k < 12 && i === 10) { status = 'missing'; reason = 'Capitalization missing for one share class'; value = null; }
+      if (sectorId === 'computing' && this.state.metric === 'pe') {
+        const exact = [34.57, 34.75, 34.90, 35.02, 35.14, 35.23, 35.32, 35.39, 35.46, 35.52, 35.58, null];
+        value = exact[i];
+      }
+      out.push({ id: slug + '-' + id, ticker: 'DEMO-' + slug + '-' + id, name: 'Fictional ' + SECTORS.find(s => s.id === sectorId).label + ' ' + id, value, status, reason, raw: value, metric: m });
+    }
+    return out;
+  }
+
+  open(detail) { this.setState({ detail }); }
+
+  renderVals() {
+    const st = this.state;
+    const m = this.metricDef();
+    const breadth = !!m.breadth;
+    const methodLabel = breadth ? 'Equal-company breadth' : st.method === 'total' ? 'Sector total' : st.method === 'median' ? 'Typical company (median)' : 'Simple mean (advanced)';
+    const set = (k, v) => () => this.setState({ [k]: v, bin: null, detail: null });
+
+    // ---- comparison rows
+    let list = SECTORS.slice();
+    if (st.sort === 'numeric') {
+      list.sort((a, b) => {
+        const av = this.rawValue(a.id), bv = this.rawValue(b.id);
+        const ae = this.statusOf(a.id) === 'eligible', be = this.statusOf(b.id) === 'eligible';
+        if (ae !== be) return ae ? -1 : 1;
+        if (av === null) return 1;
+        if (bv === null) return -1;
+        return bv - av;
+      });
+    }
+    const values = SECTORS.map(s => this.rawValue(s.id)).filter(v => v !== null);
+    const marketRaw = MARKET[st.metric];
+    const peak = Math.max(...values, marketRaw[0]);
+    const step = Math.pow(10, Math.floor(Math.log10(peak))) / 2;
+    const axisMax = Math.ceil(peak / step) * step;
+    const axisTicks = [0, 1, 2, 3, 4].map(i => {
+      const val = axisMax * i / 4;
+      return { label: this.fmt(val, m), left: (i * 25) + '%', shift: i === 4 ? '-100%' : i === 0 ? '0' : '-50%' };
+    });
+
+    const rows = list.map(s => {
+      const v = this.rawValue(s.id);
+      const status = this.statusOf(s.id);
+      const c = COVER[s.id];
+      const vc = this.vCount(s.id);
+      const reasons = [];
+      if (v === null) reasons.push('Nonpositive aggregate denominator — N/M');
+      if (c.limited) reasons.push('Capitalization coverage unavailable; fails the \u2265 80% gate');
+      if (vc < 10) reasons.push('Contributors below V \u2265 10');
+      const sel = st.sector === s.id;
+      return {
+        id: s.id, label: s.label, color: s.color,
+        valueLabel: this.fmt(v, m), statusLabel: v === null ? 'N/M — nonpositive denominator' : 'Limited coverage',
+        hasBar: v !== null, noBar: v === null,
+        barWidth: v === null ? '0%' : Math.max(0.4, (v / axisMax) * 100).toFixed(2) + '%',
+        barFill: status === 'limited' ? 'transparent' : s.color,
+        limited: status === 'limited' && v !== null,
+        counts: 'N ' + c.n + ' \u00b7 K ' + c.k + ' \u00b7 V ' + vc,
+        dataCoverage: c.data, capCoverage: c.cap,
+        coverageColor: c.cap === 'Unavailable' ? '#e3b46c' : '#9fb0a9',
+        reasonLine: reasons.length ? reasons.join('; ') : 'Eligible; no exclusions',
+        rowBg: sel ? '#1b2523' : 'transparent',
+        weight: sel ? '600' : '400',
+        pressed: sel ? 'true' : 'false',
+        tip: s.label + ' \u00b7 ' + this.fmt(v, m) + ' \u00b7 ' + methodLabel + ' \u2014 open source details',
+        onSelect: () => this.setState({ sector: s.id, historySel: [s.id], bin: null, pinned: null, query: '' }),
+        onDetail: () => this.open({ kind: 'sector', id: s.id })
+      };
+    });
+
+    const marketEligible = marketRaw[1] === 'eligible';
+    const marketValue = this.fmt(marketRaw[0], m);
+
+    // ---- history
+    const nPts = st.win === '1' ? 5 : st.win === '3' ? 13 : 21;
+    const qs = QUARTERS.slice(QUARTERS.length - nPts);
+    const sel = st.historySel;
+    const seriesRaw = sel.map((id, si) => {
+      const base = this.rawValue(id);
+      const s = SECTORS.find(x => x.id === id);
+      const pts = qs.map((q, i) => {
+        if (base === null) return { q, v: null };
+        if (id === 'health' && (i === 1 || i === 2)) return { q, v: null };
+        const t = i / (nPts - 1);
+        const v = base * (0.80 + 0.20 * t + 0.028 * Math.sin(i * 1.7 + si * 2.1));
+        return { q, v };
+      });
+      return { id, label: s.label, color: s.color, op: [1, .68, .44, .26][si] || .26, pts };
+    });
+    const allV = seriesRaw.flatMap(s => s.pts.map(p => p.v)).filter(v => v !== null);
+    const ymin = allV.length ? Math.min(...allV) * 0.94 : 0;
+    const ymax = allV.length ? Math.max(...allV) * 1.05 : 1;
+    const X = i => 52 + i * (658 / (nPts - 1));
+    const Y = v => 196 - ((v - ymin) / (ymax - ymin)) * 172;
+    const historyGrid = [0, 1, 2, 3, 4].map(i => ({ y: (196 - i * 43).toFixed(1), label: this.fmt(ymin + (ymax - ymin) * i / 4, m) }));
+    const historyPaths = seriesRaw.map(s => {
+      let d = '', pen = false;
+      s.pts.forEach((p, i) => {
+        if (p.v === null) { pen = false; return; }
+        d += (pen ? ' L ' : ' M ') + X(i).toFixed(1) + ' ' + Y(p.v).toFixed(1);
+        pen = true;
+      });
+      return { d: d.trim(), color: s.color, op: s.op };
+    });
+    const historyDots = seriesRaw.flatMap(s => s.pts.map((p, i) => p.v === null ? null : { x: X(i).toFixed(1), y: Y(p.v).toFixed(1), color: s.color, op: s.op }).filter(Boolean));
+    const historyRows = seriesRaw.flatMap(s => s.pts.slice(-6).map(p => ({ sector: s.label, asOf: p.q, value: p.v === null ? '—' : this.fmt(p.v, m), status: p.v === null ? 'Gap — excluded observation, not interpolated' : 'Eligible' })));
+
+    // ---- distribution
+    const comps = this.companiesFor(st.sector);
+    const eligible = comps.filter(c => c.value !== null).map(c => c.value).sort((a, b) => a - b);
+    const lo = eligible.length ? eligible[0] : 0;
+    const hi = eligible.length ? eligible[eligible.length - 1] : 1;
+    const span = (hi - lo) || 1;
+    const binDefs = [0, 1, 2, 3, 4].map(i => {
+      const a = lo + span * i / 5, b = lo + span * (i + 1) / 5;
+      const members = comps.filter(c => c.value !== null && c.value >= a - 1e-9 && (i === 4 ? c.value <= b + 1e-9 : c.value < b));
+      return { i, a, b, members };
+    });
+    const maxCount = Math.max(1, ...binDefs.map(b => b.members.length));
+    const bins = binDefs.map(b => ({
+      count: b.members.length,
+      height: ((b.members.length / maxCount) * 100).toFixed(1) + '%',
+      range: this.fmt(b.a, m),
+      pressed: st.bin === b.i ? 'true' : 'false',
+      fill: st.bin === b.i ? '#00e0a4' : '#177a61',
+      stroke: st.bin === b.i ? '#8affd8' : '#25a483',
+      title: this.fmt(b.a, m) + ' to ' + this.fmt(b.b, m) + ' \u00b7 ' + b.members.length + ' companies',
+      onClick: () => this.setState({ bin: st.bin === b.i ? null : b.i })
+    }));
+    const pick = f => eligible.length ? eligible[Math.min(eligible.length - 1, Math.floor(eligible.length * f))] : null;
+    const markers = [
+      { label: 'P25', value: this.fmt(pick(0.25), m), onClick: () => this.open({ kind: 'sector', id: st.sector }) },
+      { label: 'MEDIAN', value: this.fmt(pick(0.5), m), onClick: () => this.open({ kind: 'sector', id: st.sector }) },
+      { label: 'P75', value: this.fmt(pick(0.75), m), onClick: () => this.open({ kind: 'sector', id: st.sector }) }
+    ];
+    const exclusions = [
+      { count: comps.filter(c => c.status === 'nm').length, label: 'nonpositive earnings — N/M' },
+      { count: comps.filter(c => c.status === 'missing').length, label: 'missing inputs' },
+      { count: 0, label: 'stale beyond freshness policy' },
+      { count: 0, label: 'unsupported issuer profile' }
+    ];
+
+    // ---- scatter
+    const placedIds = ['computing', 'consumer', 'energy', 'industry', 'unclassified'];
+    const pxs = placedIds.map(id => ({ id, x: FIX[id].pe[0], y: FIX[id].rev[0], s: SECTORS.find(z => z.id === id) }));
+    const xmin = 24, xmax = 44, ymn = 0, ymx = 40;
+    const scatterPoints = pxs.map(p => ({
+      label: p.s.label, color: p.s.color,
+      ring: st.sector === p.id ? '#eaf0ed' : '#1d2725',
+      size: (st.capSized ? (p.x > 35 ? 22 : p.x > 30 ? 16 : 11) : 13) + 'px',
+      left: (((p.x - xmin) / (xmax - xmin)) * 100).toFixed(1) + '%',
+      top: (100 - ((p.y - ymn) / (ymx - ymn)) * 100).toFixed(1) + '%',
+      title: p.s.label + ' \u00b7 P/E ' + p.x.toFixed(2) + '\u00d7 \u00b7 growth ' + p.y.toFixed(2) + '% \u2014 select sector',
+      onClick: () => this.setState({ sector: p.id, historySel: [p.id], bin: null, pinned: null, query: '' })
+    }));
+    const scatterYTicks = [40, 30, 20, 10].map(v => ({ label: v.toFixed(2) + '%', top: (100 - (v / ymx) * 100).toFixed(1) + '%' }));
+    const scatterXTicks = [28, 32, 36, 40, 44].map(v => ({ label: v.toFixed(2) + '\u00d7', left: (((v - xmin) / (xmax - xmin)) * 100).toFixed(1) + '%' }));
+    const scatterUnplaced = [
+      { label: 'Health', reason: 'Limited coverage — cap coverage unavailable', onClick: () => this.setState({ sector: 'health', historySel: ['health'] }) },
+      { label: 'Property & finance', reason: 'Unsupported issuer profile for this axis pair', onClick: () => this.setState({ sector: 'property', historySel: ['property'] }) }
+    ];
+
+    // ---- constituents
+    const binMembers = st.bin === null ? null : binDefs[st.bin].members.map(c => c.id);
+    const q = st.query.toLowerCase();
+    const companies = comps
+      .filter(c => (!binMembers || binMembers.indexOf(c.id) >= 0) && (c.ticker + ' ' + c.name).toLowerCase().indexOf(q) >= 0)
+      .map(c => ({
+        ticker: c.ticker, name: c.name, value: this.fmt(c.value, m),
+        status: c.status === 'eligible' ? 'eligible' : c.status === 'nm' ? 'N/M' : 'missing',
+        reason: c.reason,
+        chipBg: c.status === 'eligible' ? '#182a25' : '#241c10',
+        chipBorder: c.status === 'eligible' ? '#2f6455' : '#5b4826',
+        chipFg: c.status === 'eligible' ? '#6fcfb5' : '#e3b46c',
+        rowBg: st.pinned === c.id ? '#1b2523' : 'transparent',
+        pinned: st.pinned === c.id ? 'true' : 'false',
+        pinLabel: st.pinned === c.id ? 'Unpin' : 'Pin company',
+        onPin: () => this.setState({ pinned: st.pinned === c.id ? null : c.id }),
+        onDetail: () => this.open({ kind: 'company', id: c.id, ticker: c.ticker, value: this.fmt(c.value, m), status: c.status, reason: c.reason })
+      }));
+
+    // ---- drawer
+    const d = st.detail;
+    let drawerTitle = '', drawerSubtitle = '', drawerSections = [], drawerSources = [];
+    if (d) {
+      const sc = d.kind === 'sector' ? SECTORS.find(s => s.id === d.id) : null;
+      if (d.kind === 'company') {
+        drawerTitle = d.ticker;
+        drawerSubtitle = 'Frozen company fundamentals used by this sector result. Fictional demonstration data.';
+        drawerSections = [
+          { heading: 'Result', rows: [{ label: m.label + ' (' + methodLabel + ' input)', value: d.value }, { label: 'Eligibility', value: d.status }, { label: 'Reason', value: d.reason || 'None' }, { label: 'Evaluation date', value: st.asOf }] },
+          { heading: 'Inputs', rows: [{ label: 'Common-equity capitalization', value: 'All classes reconciled' }, { label: 'Income available to common', value: 'Evidenced amount, not parent net income' }, { label: 'Period', value: 'Four exact calendar quarters' }, { label: 'Precision evidence', value: 'Present' }] }
+        ];
+      } else if (d.kind === 'market') {
+        drawerTitle = 'Market reference';
+        drawerSubtitle = 'Recomputed over the eligible issuer cohort with ' + methodLabel + '. It is not an average of the sector bars.';
+        drawerSections = [
+          { heading: 'Result', rows: [{ label: 'Value', value: marketValue }, { label: 'Status', value: marketEligible ? 'Eligible' : 'Limited coverage' }, { label: 'Data coverage', value: marketRaw[2] }, { label: 'Cap coverage', value: marketRaw[3] }] },
+          { heading: 'Gate', rows: [{ label: 'V \u2265 10', value: 'Pass' }, { label: 'K/N \u2265 70%', value: 'Pass' }, { label: 'Cap coverage \u2265 80%', value: marketRaw[3] === 'Unavailable' ? 'Fail — unknown' : 'Pass' }] }
+        ];
+      } else if (sc) {
+        const c = COVER[sc.id];
+        const v = this.rawValue(sc.id);
+        drawerTitle = sc.label + ' \u00b7 ' + m.label;
+        drawerSubtitle = methodLabel + ' \u00b7 ' + st.asOf + ' \u00b7 trailing twelve months \u00b7 USD. Fictional demonstration data.';
+        drawerSections = [
+          { heading: 'Calculation', rows: [{ label: 'Method', value: methodLabel }, { label: 'Definition', value: m.def }, { label: 'Result', value: this.fmt(v, m) }, { label: 'Identical issuer IDs in both sums', value: 'Enforced' }] },
+          { heading: 'Coverage', rows: [{ label: 'N — declared roster', value: String(c.n) }, { label: 'K — complete inputs', value: String(c.k) }, { label: 'V — contributors to this method', value: String(this.vCount(sc.id)) }, { label: 'Data coverage K/N', value: c.data }, { label: 'Capitalization coverage', value: c.cap }] },
+          { heading: 'Exclusions', rows: [{ label: 'Nonpositive earnings (kept in K)', value: String(c.nonpos) }, { label: 'Missing or invalid inputs', value: String(c.n - c.k) }, { label: 'Stale beyond policy', value: '0' }, { label: 'Unsupported profile', value: '0' }] },
+          { heading: 'Concentration', rows: [{ label: 'Current top-five cap share (' + st.asOf + ')', value: CONC[sc.id][0] }, { label: 'Growth excluding prior-date top five (2025-06-30 set)', value: CONC[sc.id][1] }] }
+        ];
+      }
+      drawerSources = [
+        { label: 'Fictional filing extract — annual/quarterly report', accession: '0000000000-26-000' + (d.kind === 'company' ? '412' : '108'), capturedAt: '2026-07-14 09:41 UTC', transform: 'Calendar TTM assembly \u2192 income available to common', licence: 'Demonstration fixture — no redistribution rights claimed' },
+        { label: 'Fictional market capitalization record', accession: 'cap-rec-2026-06-30-v1', capturedAt: '2026-07-01 22:05 UTC', transform: 'All common classes summed; depositary receipts deduplicated', licence: 'Demonstration fixture' }
+      ];
+    }
+
+    const sectorObj = SECTORS.find(s => s.id === st.sector);
+
+    // ---- company screen
+    const pi = st.fPeriod;
+    const fundSections = FUND.map(s => ({
+      step: s.step, title: s.title, purpose: s.purpose, limitation: s.limitation,
+      rows: s.rows.map(r => ({
+        label: r.label, value: r.v[pi], delta: r.delta,
+        deltaColor: r.delta ? (r.up ? '#6fcfb5' : '#e3b46c') : '#93a49d',
+        onEvidence: () => this.open({ kind: 'company', id: 'fund', ticker: 'DEMO-COMPUTING-04 · ' + r.label, value: r.v[pi], status: r.v[pi] === 'Unavailable' ? 'unavailable' : 'eligible', reason: r.v[pi] === 'Unavailable' ? 'No reviewed dated estimate data' : '' })
+      }))
+    }));
+    const periodNames = ['Trailing twelve months', 'Latest quarter', 'Fiscal year 2025'];
+    const periodNotes = ['Four exact calendar quarters to 2026-06-30', 'Q2 2026, with year-over-year context', 'Annual filing basis · 52/53-week calendars unsupported'];
+
+    // ---- news screen
+    const tone = t => t === 'ok' ? { border: '#2f6455', bg: '#182a25', fg: '#6fcfb5' } : t === 'warn' ? { border: '#5b4826', bg: '#241c10', fg: '#e3b46c' } : { border: '#2f3b39', bg: '#1a2321', fg: '#9fb0a9' };
+
+    return {
+      navItems: SCREENS.map(s => ({
+        label: s[1], pressed: st.screen === s[0] ? 'true' : 'false',
+        bg: st.screen === s[0] ? '#182a25' : 'transparent',
+        fg: st.screen === s[0] ? '#eaf0ed' : '#93a49d',
+        weight: st.screen === s[0] ? '600' : '400',
+        onClick: () => this.setState({ screen: s[0], detail: null })
+      })),
+      isSectors: st.screen === 'sectors', isCompany: st.screen === 'company', isNews: st.screen === 'news',
+      identity: IDENTITY.map(i => ({ label: i[0], value: i[1] })),
+      plannedTabs: PLANNED_TABS.map(t => ({ label: t[0], tag: t[1] })),
+      fundSections,
+      periodButtons: periodNames.map((label, i) => ({
+        label, pressed: pi === i ? 'true' : 'false',
+        bg: pi === i ? '#eaf0ed' : '#1d2725', fg: pi === i ? '#0e1413' : '#d9e4df',
+        onClick: () => this.setState({ fPeriod: i })
+      })),
+      periodNote: periodNotes[pi],
+      histButtons: ['3', '5', '10'].map(w => ({
+        label: w + 'Y', pressed: st.fWin === w ? 'true' : 'false',
+        bg: st.fWin === w ? '#eaf0ed' : '#1d2725', fg: st.fWin === w ? '#0e1413' : '#d9e4df',
+        onClick: () => this.setState({ fWin: w })
+      })),
+      histInsufficient: st.fWin === '10',
+      histNote: st.fWin === '10' ? '24 of 40 quarter ends available' : (st.fWin === '3' ? '12 of 12 quarter ends · complete' : '20 of 20 quarter ends · complete'),
+      histColor: st.fWin === '10' ? '#e3b46c' : '#93a49d',
+      prompts: PROMPTS,
+      coverageChips: [
+        { count: 18, label: 'valid', border: '#2f6455', bg: '#182a25', fg: '#6fcfb5' },
+        { count: 1, label: 'N/M — fully evidenced, unrankable', border: '#5b4826', bg: '#241c10', fg: '#e3b46c' },
+        { count: 2, label: 'unavailable — estimates not reviewed', border: '#5b4826', bg: '#241c10', fg: '#e3b46c' },
+        { count: 0, label: 'stale', border: '#2f3b39', bg: '#1a2321', fg: '#9fb0a9' },
+        { count: 0, label: 'invalid', border: '#2f3b39', bg: '#1a2321', fg: '#9fb0a9' },
+        { count: 0, label: 'unsupported profile', border: '#2f3b39', bg: '#1a2321', fg: '#9fb0a9' }
+      ],
+      collectionHealth: [
+        { label: 'Configured sources', value: '0 of 6', color: '#e3b46c' },
+        { label: 'Cadence', value: 'Not scheduled', color: '#e3b46c' },
+        { label: 'Last successful fetch', value: 'Never', color: '#e3b46c' },
+        { label: 'Lag behind publication', value: 'Not measurable yet', color: '#9fb0a9' }
+      ],
+      assessmentHealth: [
+        { label: 'Assessments produced', value: '0 — mock only', color: '#e3b46c' },
+        { label: 'Pending queue', value: '0', color: '#9fb0a9' },
+        { label: 'Revisions issued', value: '0', color: '#9fb0a9' },
+        { label: 'Outside market hours', value: 'Collected, delivery deferred', color: '#9fb0a9' }
+      ],
+      channels: [
+        { label: 'In-app', state: 'ready', border: '#2f6455', bg: '#182a25', fg: '#6fcfb5' },
+        { label: 'Desktop', state: 'permission not granted', border: '#5b4826', bg: '#241c10', fg: '#e3b46c' },
+        { label: 'Email', state: 'unconfigured', border: '#5b4826', bg: '#241c10', fg: '#e3b46c' }
+      ],
+      calendar: CAL.map(c => ({ ...c, ...tone(c.tone) })),
+      assessmentMeta: [
+        { label: 'Assessment confidence', value: 'Low' },
+        { label: 'Source reliability', value: 'High — primary document' },
+        { label: 'Horizon', value: '2–4 quarters' },
+        { label: 'Materiality', value: 'Low' }
+      ],
+      topics: TOPICS.map(t => ({
+        label: t[0], state: t[1].toUpperCase(),
+        border: t[1] === 'active' ? '#2f6455' : '#2f3b39',
+        bg: t[1] === 'active' ? '#182a25' : '#1a2321',
+        fg: t[1] === 'active' ? '#6fcfb5' : '#93a49d'
+      })),
+      shellWidth: (this.props.device === 'mobile') ? '390px' : '1480px',
+      coverageLegend: this.props.showCoverageLegend !== false,
+      asOf: st.asOf, metric: st.metric, sort: st.sort, query: st.query,
+      showMarket: st.showMarket, capSized: st.capSized, breadthMode: breadth,
+      metricLabel: m.label, metricLabelShort: m.short, metricDefinition: m.def, methodLabel,
+      metricOptions: METRICS.map(x => ({ id: x.id, label: x.label })),
+      comparisonTitle: 'Across the declared sectors',
+      groupHeading: 'SECTOR',
+      inDrilldown: false,
+      meanWarning: st.method === 'mean',
+      meanPressed: st.method === 'mean' ? 'true' : 'false',
+      meanBg: st.method === 'mean' ? '#eaf0ed' : '#1d2725',
+      meanFg: st.method === 'mean' ? '#0e1413' : '#d9e4df',
+      methodButtons: [
+        { id: 'total', label: breadth ? 'Equal-company breadth' : 'Sector total', title: 'Ratio of sums; losses retained', pressed: st.method === 'total' ? 'true' : 'false', bg: st.method === 'total' ? '#eaf0ed' : '#1d2725', fg: st.method === 'total' ? '#0e1413' : '#d9e4df', disabled: false, opacity: '1' },
+        { id: 'median', label: 'Typical company', title: 'Median eligible company; for P/E, among profitable companies only', pressed: st.method === 'median' ? 'true' : 'false', bg: st.method === 'median' ? '#eaf0ed' : '#1d2725', fg: st.method === 'median' ? '#0e1413' : '#d9e4df', disabled: breadth, opacity: breadth ? '.45' : '1' }
+      ].map(b => ({ ...b, onClick: set('method', b.id) })),
+      onMean: set('method', 'mean'),
+      axisTicks, rows,
+      marketMarkVisible: st.showMarket && marketEligible,
+      marketLeft: ((marketRaw[0] / axisMax) * 100).toFixed(2) + '%',
+      marketValue,
+      marketBorder: marketEligible ? '#33403d' : '#d99b3e',
+      marketBg: marketEligible ? '#1a2321' : '#241c10',
+      marketStatusLine: (marketEligible ? 'Eligible' : 'Limited coverage — no dashed reference line is drawn') + ' \u00b7 data ' + marketRaw[2] + ' \u00b7 cap ' + marketRaw[3],
+      onMarketDetail: () => this.open({ kind: 'market' }),
+      sectorLabel: sectorObj.label, sectorColor: sectorObj.color,
+      observations: OBS[st.sector].map(t => ({ text: t })),
+      topFiveShare: CONC[st.sector][0], growthExTop: CONC[st.sector][1],
+      windowButtons: ['1', '3', '5'].map(w => ({ label: w + 'Y', pressed: st.win === w ? 'true' : 'false', bg: st.win === w ? '#eaf0ed' : '#1d2725', fg: st.win === w ? '#0e1413' : '#d9e4df', onClick: () => this.setState({ win: w }) })),
+      historyToggles: SECTORS.map(s => {
+        const on = sel.indexOf(s.id) >= 0;
+        const dis = !on && sel.length >= 4;
+        return { label: s.label, swatch: s.color, checked: on, disabled: dis, color: dis ? '#a9b2ac' : '#b6c5bd', onChange: () => this.setState({ historySel: on ? sel.filter(x => x !== s.id) : sel.concat([s.id]) }) };
+      }),
+      historyGrid, historyPaths, historyDots, historyRows, historyStart: qs[0],
+      bins, markers, exclusions,
+      scatterPoints, scatterYTicks, scatterXTicks, scatterUnplaced,
+      companies, noCompanies: companies.length === 0,
+      binFilterActive: st.bin !== null,
+      binFilterLabel: st.bin === null ? '' : this.fmt(binDefs[st.bin].a, m) + ' – ' + this.fmt(binDefs[st.bin].b, m),
+      onClearBin: () => this.setState({ bin: null }),
+      onClearFilters: () => this.setState({ bin: null, query: '' }),
+      roadmap: ROADMAP.map(r => ({ label: r[0], tag: r[1] })),
+      onMetric: e => this.setState({ metric: e.target.value, method: METRICS.find(x => x.id === e.target.value).breadth ? 'total' : st.method, bin: null, detail: null }),
+      onAsOf: e => this.setState({ asOf: e.target.value, bin: null, detail: null }),
+      onSort: e => this.setState({ sort: e.target.value }),
+      onMarket: e => this.setState({ showMarket: e.target.checked }),
+      onCapSized: e => this.setState({ capSized: e.target.checked }),
+      onQuery: e => this.setState({ query: e.target.value }),
+      onBack: () => {},
+      onDrill: () => this.open({ kind: 'sector', id: st.sector }),
+      onSectorDetail: () => this.open({ kind: 'sector', id: st.sector }),
+      drawerOpen: !!d, drawerTitle, drawerSubtitle, drawerSections, drawerSources,
+      onCloseDrawer: () => this.setState({ detail: null })
+    };
+  }
+}
+</script>
+</body>
+</html>

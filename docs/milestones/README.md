@@ -19,9 +19,13 @@ above. This repository and its commits are the implementation source of truth.
 | S7 | Planned | Forward DCF | After S6 |
 | N1a–d | Requested; continuous discovery and stock assessments specified (D017/D018) | [News and macro agent](../features/N1-news-and-macro-agent.md) | Alongside S2–S8 contracts |
 | W1 | Durable requests and SEC/price/macro source stages implemented; full pipeline/UI follow | [Watchlist and reanalysis](../features/W1-watchlist-analysis.md) | S2 → engines → S8/N1 |
-| U1 | Draft data/history, price/macro and fundamentals chapters; finished manual pending UI | [Manual and glossary](../features/U1-user-manual.md) | Required before finished release |
-| F1 | First source-metric/history slice implemented; remaining guided feature pending | [Guided fundamentals](../features/F1-fundamentals-guide.md) | S5 → S6 → S8b/S8d/U1; preserve 3/5/10-year history options |
+| U1 | Development Help with searchable glossary; complete release manual acceptance pending | [Manual and glossary](../features/U1-user-manual.md) | Required before finished release |
+| F1 | Source-metric/history core and bounded fictional Company page implemented; production feature pending | [Guided fundamentals](../features/F1-fundamentals-guide.md) | S5 → S6 → S8b/S8d/U1; preserve 3/5/10-year history options |
 | X1 | Core and fictional graphs verified; 950 tests; milestone/x1-core-graphs | [Sector Explorer](X1-sector-explorer.md) | Separate feature; graph-first, source/contract gaps explicit |
+| R1 | Design/acceptance and seven-issuer profile evidence packet delivered; application work follows UI/pilot sequence | [Business-aware research](../features/R1-business-aware-research.md) | D026; explanations, small thesis continuity and reviewed profiles |
+| D1 | Updated Figma TXT handover with R1; original MCP concept partial | [Design and real-data preparation](D1-design-handover.md) | Original handover preserved; supplied redesign resumes application work in D1a |
+| D1a | Dark Sector UI verified: 42 snapshot combinations, 13 flow checks; all 143 IDs reconciled | [Redesign implementation](D1a-redesign-implementation.md) | Existing UI first; remaining company/news/R1 and source-contract work explicit |
+| D1b | Reviewed recovery checkpoint: milestone/d1b-redesign; 963 tests, build/browser checks pass | [Connected development workspace](D1b-company-news-help.md) | D029; exact company evidence, 3/5/10-year gaps, unconfigured monitoring and searchable guide |
 | S8a–d | Planned; F1 shares provenance, Ratios and Overview | P0 company pages and integration | After relevant engine/contracts |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,

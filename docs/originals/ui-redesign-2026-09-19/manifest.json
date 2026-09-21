@@ -1,0 +1,20 @@
+{
+  "source_file": "/Users/leon/Downloads/Sector Explorer redesign demo.zip",
+  "sha256": "f905e7608e9fcfe3d5a57b84829b3878612eecabf52f61655933ec7c0e1f2fb0",
+  "files": [
+    {
+      "archive_path": "design_handoff_equityeval_redesign/README.md",
+      "preserved_file": "README.md",
+      "bytes": 21538,
+      "sha256": "357a4bc215a5376de9ba6f8da797c5f2f05d039f16d2533643c83ae7848c5b23"
+    },
+    {
+      "archive_path": "design_handoff_equityeval_redesign/SectorExplorer.design.html",
+      "preserved_file": "SectorExplorer.design.html",
+      "bytes": 108692,
+      "sha256": "75d9660751aa9a4a0edf8e42e7d27b77527d94327368a725a5cb697b90704775"
+    }
+  ],
+  "validation": "CRC, safe paths, regular files, bounded sizes checked; no prototype scripts executed",
+  "missing_reference": "SectorExplorer.design.html references ./support.js, not present in supplied archive"
+}

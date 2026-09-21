@@ -94,3 +94,12 @@ The [fundamentals calculation chapter](../user-manual/fundamentals.md) now cover
 the tested first S5 source formulas, fractions/percentage points, precision and
 3/5/10-year history limits. API/UI steps and the complete six-fixture walkthrough
 remain pending their implementing slices.
+
+## D1b development guide
+
+`/help` now contains a five-minute walkthrough of the working Sector and Company
+demonstrations, 52 searchable definitions, contextual anchors, explicit source
+and history limits and a printable full glossary. This does not finish U1:
+centralized Markdown/Help content, current primary-source macro citations and
+new-user acceptance of real watchlist, analysis and three-channel alert setup
+remain required before release. See [D1b](../milestones/D1b-company-news-help.md).

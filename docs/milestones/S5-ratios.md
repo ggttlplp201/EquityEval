@@ -94,6 +94,18 @@ The 3/5/10-year fundamentals history options are unchanged.
 
 ## Next bounded step
 
+[D1b](D1b-company-news-help.md) now renders the existing source calculations in
+a guided fictional Company page with exact evidence, missing inputs and
+3/5/10-year history controls. It introduces no additional financial formula or
+production result/API contract and does not complete S5/F1.
+
+D026/D027 advance [R1](../features/R1-business-aware-research.md) within the
+UI-redesign-first/small-pilot sequence. The [change explanation packet](../design/research-refinements/change-explanations.md)
+proposes comparable annual operating-margin attribution as the first later
+numeric extension, with tests before implementation; profile applicability and
+evidence-based neutral rules share the same review. No new calculation is
+implemented by that design packet.
+
 Complete remaining supported metric definitions and neutral interpretation.
 EPS, common-equity/debt definitions and applicability need their stated evidence;
 new concepts or shared schema/API shapes still require sequential contract review.

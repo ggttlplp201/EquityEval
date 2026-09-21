@@ -2,8 +2,8 @@
 
 The X1 Sector Explorer provides a graph-first development interface using a
 checked, explicitly fictional snapshot. `/sectors` reports production data
-prerequisites; `/development/sectors` opens the demonstration. This bounded UI
-exception does not implement the S6 API or finish S8/F1 company pages.
+prerequisites; `/development/sectors` opens the demonstration. The Company, News and Help development routes extend the same visual system.
+These bounded views do not implement the S6 API or finish production S8/F1.
 
 From the repository root:
 
@@ -43,3 +43,44 @@ Validation uses `npm run typecheck --workspace @equity/web`, the root lint and
 Python presentation tests, `next build`, and browser checks of desktop/mobile,
 linked controls, source drilldown, missing states and hydration. The release
 milestone records what was actually verified.
+
+## Supplied redesign — D1a
+
+The 2026-09-19 dark redesign is applied to the existing Sector Explorer.
+Its original HTML/README are preserved under `docs/originals/ui-redesign-2026-09-19`;
+`docs/design/ui-redesign/reconciliation.md` compares every one of the 143 design
+requirements. The prototype's arithmetic and invented Company/News records are
+not imported. Financial math, fixture values, types and eligibility remain in
+the existing pipeline. D1b adds Company/News/Help routes; R1 persistence and live services remain
+planned. The production-readiness route retains its gates.
+
+One mint hue uses matching dash patterns for up to four history series, rather
+than dim opacity-only lines. Narrow chart regions and tables scroll inside their
+panels; their data/source alternatives remain available. See D1a's milestone for
+actual checks and remaining acceptance.
+
+## Connected development views — D1b
+
+- `/development/company?company=computing-01&asOf=2026-06-30`: guided existing
+  metrics and amounts, exact evidence, 3/5/10-year history gaps and dated value
+  comparison. The page sends only one issuer's available-by-date results to the
+  client. Unknown issuer/date values return not found. Sector links preserve the
+  selected constituent and snapshot date.
+- `/development/news`: proposed macro/stock-topic coverage and unconfigured
+  collection, assessment, host and in-app/desktop/email delivery. No news source,
+  background worker, alert subscription or notification is activated.
+- `/help`: development instructions, contextual/searchable glossary and browser
+  print support. Complete U1 release workflows remain pending.
+
+The Company fixture reuses the same raw core results and source details:
+
+```sh
+.venv/bin/python scripts/project_python.py -m scripts.export_company_fundamentals \
+  var/sector-explorer-raw.json apps/web/src/features/company/fixture.json.gz
+```
+
+Only two company snapshot dates are supplied. Longer selected windows expose
+missing quarters and never borrow the separate Sector histories. All source
+amounts are USD without a million/billion multiplier. New presentation tests
+compare every supplied metric against the unchanged Sector fixture. Read
+`docs/milestones/D1b-company-news-help.md` for validation and remaining work.

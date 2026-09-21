@@ -1,0 +1,99 @@
+.page { min-width: 0; padding: 30px 24px 40px; }
+.intro { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 24px; }
+.intro h1 { margin: 9px 0 12px; font-size: clamp(28px, 4vw, 36px); line-height: 1.15; letter-spacing: -1px; }
+.intro > div > p:last-child { max-width: 640px; color: var(--muted); }
+.version { color: var(--muted-2); font: 11px/1.8 var(--mono); text-align: right; }
+.notice { display: grid; gap: 5px; padding: 15px 18px; margin-bottom: 30px; border: 1px solid var(--warn-border); border-left: 3px solid var(--warn-rule); border-radius: 5px; background: var(--warn-bg); }
+.notice > strong { color: var(--warn-strong); font-size: 13px; }
+.notice p { color: var(--ink-3); font-size: 13px; }
+.layout { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 30px; align-items: start; }
+.contents { position: sticky; top: 24px; display: grid; gap: 4px; padding: 16px 0; }
+.contents p { padding: 0 10px 12px; }
+.contents a { display: flex; align-items: center; min-height: 40px; padding: 8px 10px; border-left: 1px solid var(--line-strong); color: var(--muted); font-size: 12px; }
+.contents a:hover { border-color: var(--accent); background: var(--surface); color: var(--ink); text-decoration: none; }
+.chapters { display: grid; gap: 22px; min-width: 0; }
+.section { min-width: 0; padding: 25px; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); scroll-margin-top: 24px; }
+.section > p { margin-top: 14px; color: var(--ink-3); }
+.sectionHeading { display: grid; gap: 8px; padding-bottom: 19px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.sectionHeading h2 { font-size: 22px; line-height: 1.25; letter-spacing: -0.4px; }
+.section h3 { color: var(--ink); font-size: 14px; line-height: 1.45; }
+.section strong { color: var(--ink-2); }
+.steps { margin: 0; padding-left: 21px; }
+.steps li { padding: 0 0 19px 6px; }
+.steps li:last-child { padding-bottom: 0; }
+.steps li::marker { color: var(--accent); font: 12px var(--mono); }
+.steps p { margin-top: 5px; color: var(--ink-3); font-size: 13px; }
+.guideGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 26px; }
+.guideGrid p { margin-top: 6px; color: var(--ink-3); font-size: 13px; }
+.example { display: grid; gap: 9px; margin-top: 23px; padding: 17px; border: 1px solid var(--border-ok); border-radius: 5px; background: var(--tint-ok-2); }
+.example p { color: var(--ink-3); font-size: 13px; }
+.subheading { margin: 24px 0 12px; }
+.inlineDefinitions { margin: 0; }
+.inlineDefinitions > div { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.inlineDefinitions dt { color: var(--ink); font-size: 12px; font-weight: 600; }
+.inlineDefinitions dd { margin: 0; color: var(--ink-3); font-size: 13px; }
+.section > .note { color: var(--muted); font-size: 12px; }
+.callout { display: grid; gap: 6px; margin-top: 23px; padding: 16px 18px; border-left: 2px solid var(--accent-deep); background: var(--surface-subtle); }
+.callout p { color: var(--ink-3); font-size: 13px; }
+.glossary { margin-top: 20px; }
+.searchControls label { display: block; color: var(--ink-2); font-size: 12px; font-weight: 600; }
+.searchRow { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.searchRow input { flex: 1 1 210px; width: 100%; min-width: 0; min-height: 42px; padding: 9px 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--bg); font-size: 13px; }
+.searchRow button { padding: 7px 12px; border: 1px solid var(--line-strong); border-radius: 4px; background: var(--surface-raised); color: var(--ink-2); font-size: 12px; }
+.searchRow button:hover { border-color: var(--accent-deep); }
+.searchCount { margin-top: 8px; color: var(--muted); font-size: 12px; }
+.entries { margin: 18px 0 0; }
+.entry { padding: 17px 0; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
+.entry:target { padding-inline: 12px; border-left: 2px solid var(--accent); background: var(--surface-subtle); }
+.entry dt { display: flex; flex-wrap: wrap; gap: 7px 12px; align-items: baseline; justify-content: space-between; color: var(--ink); font-size: 14px; font-weight: 600; }
+.entry dd { margin: 7px 0 0; color: var(--ink-3); font-size: 13px; }
+.category { color: var(--muted-2); font: 10px/1.6 var(--mono); letter-spacing: 0.2px; }
+.termDetail { margin-top: 7px; color: var(--muted); font-size: 12px; }
+.noResults { padding: 20px 0; color: var(--muted); }
+.roadmapRows { display: grid; gap: 20px; }
+.roadmapRows article { display: grid; grid-template-columns: 68px minmax(0, 1fr); gap: 15px; align-items: start; }
+.roadmapRows p { margin-top: 6px; color: var(--ink-3); font-size: 13px; }
+.status { width: fit-content; padding: 3px 7px; border: 1px solid var(--line-strong); border-radius: 3px; color: var(--muted); font: 10px/1.6 var(--mono); }
+.footer { color: var(--muted); font: 11px/1.7 var(--mono); }
+
+@media (max-width: 850px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .contents { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 0; }
+  .contents p { grid-column: 1 / -1; }
+  .version { text-align: left; }
+}
+@media (max-width: 540px) {
+  .page { padding: 24px 15px 30px; }
+  .section { padding: 20px 16px; }
+  .guideGrid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .inlineDefinitions > div { grid-template-columns: minmax(0, 1fr); gap: 5px; }
+  .roadmapRows article { grid-template-columns: minmax(0, 1fr); gap: 7px; }
+  .sectionHeading h2 { font-size: 21px; }
+  .notice { padding: 13px; }
+  .contents a { padding-inline: 8px; }
+}
+@media print {
+  .page { padding: 0; color: #111; --muted: #333; --muted-2: #333; --ink: #111; --ink-2: #111; --ink-3: #111; --accent: #111; }
+  .page, .section, .callout, .example, .notice { background: #fff; }
+  .page p, .page dt, .page dd, .page h1, .page h2, .page h3, .page strong, .page span, .page li, .page a { color: #111; }
+  .page a { text-decoration: underline; }
+  .page :global(.eyebrow) { color: #444; }
+  .contents, .searchControls, .noResults { display: none; }
+  .layout { display: block; }
+  .chapters { display: block; }
+  .intro { margin-bottom: 14px; }
+  .version { font-size: 10px; text-align: left; }
+  .section { border: 0; border-top: 1px solid #999; border-radius: 0; margin-top: 22px; padding: 18px 0 0; }
+  .sectionHeading { break-after: avoid; border: 0; margin-bottom: 8px; padding-bottom: 5px; }
+  .guideGrid { display: block; }
+  .guideGrid article { margin-bottom: 14px; }
+  .example, .callout, .notice { border: 1px solid #999; break-inside: avoid; }
+  .entry, .entry[hidden] { display: block; break-inside: avoid; }
+  .entry { border-color: #bbb; }
+  .entry dt { display: block; }
+  .category { display: inline-block; margin-left: 12px; }
+  .roadmapRows { display: block; }
+  .roadmapRows article { break-inside: avoid; margin-bottom: 15px; }
+  .inlineDefinitions > div { break-inside: avoid; }
+  .footer { margin-top: 20px; color: #444; }
+}
