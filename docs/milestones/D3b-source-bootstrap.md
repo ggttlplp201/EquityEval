@@ -1,6 +1,6 @@
 # D3b — First-source bootstrap and CRCL capture
 
-Status: bootstrap reviewed and checkpointed; live inventory parser correction in verification.
+Status: capture-only implementation and genuine CRCL capture verified; financial publication remains open.
 Date: 2026-09-21.
 Branch: `codex/source-bootstrap`.
 Baseline: `c314df9` / `milestone/d3a-application-runtime`.
@@ -60,3 +60,19 @@ No quote, normalization batch or financial result has been created.
 Successful source acquisition is not financial publication. Require genuine quote
 validity, filing/non-reliance review, supported scope/period/precision and actual
 PIT/core selection before eligible S5 and the minimal S6 result contract.
+
+
+## Completed capture checkpoint
+
+Parser recovery `ec7f3f7` / `milestone/d3b-inventory-parser` passed 1,033 full,
+225 core and 110 golden tests plus lint/types. The subsequent bounded request
+completed all five HTTP200 captures, including the discovered amendment.
+[Capture audit and evidence review](../research/crcl-first-application-capture-2026-09-21.md)
+records source identities, hashes, original timestamps, metadata replay, amendment
+scope, genuine listing-date evidence, remaining statement issues and next gates.
+No secret or old timestamp placeholder was published. Terminal-key reuse produced
+no new dispatch. Source-only recovery is tagged `milestone/d3b-crcl-capture`.
+
+D3b acquisition is complete. Normal quote registration and financial publication
+remain pending their explicit evidence review; then continue PIT → eligible S5 →
+reviewed minimal S6. The fresh capture does not itself update the D2 UI artifact.

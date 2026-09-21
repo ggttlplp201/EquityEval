@@ -62,7 +62,9 @@ remains a separate alternative. There are no new background launch/login service
 
 The initial application inspection found zero policy, issuer, security, mapping,
 capture and normalization rows. Applying migrations creates structure, not
-financial evidence. This checkpoint inserted no provider policies or domain rows.
+financial evidence. D3a inserted no provider policies or domain rows; the later
+[D3b capture review](../research/crcl-first-application-capture-2026-09-21.md) records
+the genuine registered identities and captures now present.
 The D2 pilot remains the existing archived observation view.
 
 The approved [bootstrap implementation](s3/identity-bootstrap.md) resolves the concrete

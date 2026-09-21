@@ -1,4 +1,4 @@
-# Real-data pilot handoff — 2026-09-20
+# Real-data pilot handoff — 2026-09-21
 
 Canonical repository:
 `/Users/leon/Library/Mobile Documents/com~apple~CloudDocs/Development/equityEval`.
@@ -41,7 +41,9 @@ compute a percentile or invent annual-to-quarter observations.
 The application database now runs separately on loopback5433 at existing migration
 head; persistent application Redis runs on6380. [D3a](../milestones/D3a-application-runtime.md)
 and the [runtime guide](../design/application-runtime.md) record control commands
-and isolation checks. All six inspected domain/evidence tables remain empty.
+and isolation checks. Application migration is now 0006. D3b contains one reviewed
+source/policy/issuer/security, seven genuine captures, and two bootstrap requests;
+quote identifiers, watchlist memberships and normalization batches remain empty.
 
 The user approved D031. [D3b](../milestones/D3b-source-bootstrap.md) implements the
 source-only request on `codex/source-bootstrap`; see its implementation/operator
@@ -52,3 +54,14 @@ filing/event/precision evidence before normal publication/PIT/core work.
 
 The source/numeric checkpoint does not activate D027 attribution. Keep S5 then
 S6 sequential and review any shared contract changes separately.
+
+
+D3b capture is verified at `milestone/d3b-crcl-capture`: 1,033 full / 225 core /
+110 golden tests, lint/types and both review axes passed. Read the
+[actual capture review](../research/crcl-first-application-capture-2026-09-21.md)
+before continuing. The first request's inventory parsing failure is retained;
+the corrected request captured all five SEC sources, including the annual
+amendment. Actual listing start is evidenced as 2025-06-05. Quote currency/validity,
+explicit event/statement coverage and pinned normalization review remain before
+financial publication. Do not convert bootstrap completion into an S6 result.
+The D2 presentation still deliberately pins its legacy source artifact.

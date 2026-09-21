@@ -66,7 +66,7 @@ created with the existing workspace function has no stock membership.
 Capture uses the restricted application login, `SecTransport`,
 `DatabaseAttemptStore`, `LocalArchive` under `var/raw`, and the shared SEC Redis
 key/rate. It requests Company Facts, submissions/advertised history and the
-reviewed FY2025 and Q2 2026 filing documents, with actual capture times. There is
+reviewed FY2025, discovered July amendment and Q2 2026 filing documents, with actual capture times. There is
 no alternate downloader, fabricated legacy completion or rate-limit bypass.
 
 Reuse the same explicit key for a transport retry. A terminal request or an
