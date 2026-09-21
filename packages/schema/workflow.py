@@ -11,6 +11,7 @@ from datetime import date, datetime
 from typing import Any, Literal
 from uuid import UUID
 
+from equity_schema.bootstrap import BootstrapPlan
 from psycopg import Connection
 from psycopg.errors import ObjectNotInPrerequisiteState
 from psycopg.types.json import Jsonb
@@ -299,18 +300,38 @@ def enqueue_source_bootstrap(
     workspace_id: UUID,
     security_id: UUID,
     idempotency_key: str,
-    options: RequestOptions | None = None,
+    plan: BootstrapPlan,
+    max_attempts: int = 3,
 ) -> RequestHandle:
-    """Queue SEC evidence acquisition without claiming a verified quote or membership."""
-    selected = options or RequestOptions()
-    if selected.market_plan is not None:
-        raise ValueError("Source bootstrap cannot request market data")
+    """Queue only the immutable, explicitly reviewed acquisition resources."""
+    if (
+        not isinstance(plan, BootstrapPlan)
+        or type(max_attempts) is not int
+        or not 1 <= max_attempts <= 3
+    ):
+        raise ValueError("Bootstrap requires a bounded plan and one to three attempts")
     return _request(
         _invoke(
             db,
             "SELECT workflow_enqueue_bootstrap(%s,%s,%s,%s) AS result",
-            (workspace_id, security_id, idempotency_key, Jsonb(selected.as_json())),
+            (
+                workspace_id,
+                security_id,
+                idempotency_key,
+                Jsonb({"plan": plan.as_json(), "max_attempts": max_attempts}),
+            ),
         )
+    )
+
+
+def complete_bootstrap_stage(
+    db: Database, lease: Lease, *, stage_id: UUID, result: dict[str, Any]
+) -> None:
+    """Persist the typed acquisition result under the existing stage fence."""
+    _invoke(
+        db,
+        "SELECT workflow_complete_bootstrap_stage(%s,%s,%s) AS result",
+        (Jsonb(lease.as_json()), stage_id, Jsonb(result)),
     )
 
 

@@ -2,6 +2,7 @@
 
 import json
 from concurrent.futures import ThreadPoolExecutor
+from dataclasses import replace
 from datetime import UTC, date, datetime, timedelta
 from uuid import uuid4
 
@@ -15,9 +16,9 @@ from equity_ingest.limiter import RedisRateLimiter
 from equity_ingest.pipeline import SourcePlan, run_source_bootstrap, run_source_stages
 from equity_ingest.sec import SecSource
 from equity_ingest.transport import DatabaseAttemptStore, SecTransport
+from equity_schema.bootstrap import BootstrapPlan
 from equity_schema.workflow import (
     LeaseLost,
-    RequestOptions,
     cancel_request,
     claim_next,
     claim_source_bootstrap,
@@ -64,13 +65,61 @@ def identity(db_admin, db):
         share_class_label="Fictional class",
     )
     workspace = create_workspace_watchlist(db, name="Bootstrap fixture")
+    source_id, policy_id = uuid4(), uuid4()
+    insert(
+        db_admin,
+        "sources",
+        id=source_id,
+        source_key="bootstrap-test",
+        name="Fictional SEC policy",
+        base_url="https://data.sec.gov",
+        terms_review_reference="bootstrap-test",
+        content_scope="Fictional tests",
+    )
+    insert(
+        db_admin,
+        "source_policy_revisions",
+        id=policy_id,
+        source_id=source_id,
+        review_key="bootstrap-test",
+        licence_label="Fictional test policy",
+        content_scope="Fictional tests",
+        redistribution_status="unknown",
+        permitted_use="Tests only",
+        attribution_requirements="Fixture",
+        terms_urls=["https://example.invalid"],
+        reviewed_at=datetime.now(UTC),
+        reviewed_by="fixture",
+        review_artifact_reference="tests/integration/test_source_bootstrap.py",
+        review_artifact_sha256="a" * 64,
+    )
     return workspace, issuer, security
+
+
+def bootstrap_plan(db, identity):
+    row = db.execute(
+        "SELECT source_id,id FROM source_policy_revisions WHERE review_key='bootstrap-test'"
+    ).fetchone()
+    return BootstrapPlan(
+        identity[1],
+        "0001876042",
+        row["source_id"],
+        row["id"],
+        date(2025, 1, 1),
+        date(2026, 9, 21),
+        ("company_facts/0001876042", "submissions/0001876042"),
+    )
 
 
 def enqueue(db, identity, key="bootstrap", **kwargs):
     workspace, _, security = identity
     return enqueue_source_bootstrap(
-        db, workspace_id=workspace.workspace_id, security_id=security, idempotency_key=key, **kwargs
+        db,
+        workspace_id=workspace.workspace_id,
+        security_id=security,
+        idempotency_key=key,
+        plan=kwargs.pop("plan", bootstrap_plan(db, identity)),
+        **kwargs,
     )
 
 
@@ -109,7 +158,11 @@ def test_concurrent_idempotency_and_changed_parameters(db_admin, db, identity):
     assert len({r.request_id for r in results}) == 1
     assert db.execute("SELECT count(*) AS n FROM analysis_executions").fetchone()["n"] == 1
     with pytest.raises(psycopg.errors.InvalidParameterValue, match="different parameters"):
-        enqueue(db, identity, options=RequestOptions(history_mode="original_as_filed"))
+        enqueue(
+            db,
+            identity,
+            plan=replace(bootstrap_plan(db, identity), inventory_start=date(2025, 1, 2)),
+        )
     assert enqueue(db, identity) == results[0]
 
 
@@ -216,34 +269,10 @@ def test_bootstrap_retry_expiry_cancel_and_stage_fences(db_admin, db, identity):
 
 @pytest.fixture
 def transport(db_admin, db, identity, redis_url, tmp_path):
-    source_id, policy_id = uuid4(), uuid4()
-    insert(
-        db_admin,
-        "sources",
-        id=source_id,
-        source_key="bootstrap-test",
-        name="Fictional SEC policy",
-        base_url="https://data.sec.gov",
-        terms_review_reference="bootstrap-test",
-        content_scope="Fictional tests",
-    )
-    insert(
-        db_admin,
-        "source_policy_revisions",
-        id=policy_id,
-        source_id=source_id,
-        review_key="bootstrap-test",
-        licence_label="Fictional test policy",
-        content_scope="Fictional tests",
-        redistribution_status="unknown",
-        permitted_use="Tests only",
-        attribution_requirements="Fixture",
-        terms_urls=["https://example.invalid"],
-        reviewed_at=datetime.now(UTC),
-        reviewed_by="fixture",
-        review_artifact_reference="tests/integration/test_source_bootstrap.py",
-        review_artifact_sha256="a" * 64,
-    )
+    row = db.execute(
+        "SELECT source_id,id FROM source_policy_revisions WHERE review_key='bootstrap-test'"
+    ).fetchone()
+    source_id, policy_id = row["source_id"], row["id"]
     descriptor = SourceDescriptor(
         source_id,
         "bootstrap-test",
@@ -302,14 +331,21 @@ def test_genuine_workflow_transport_captures_but_never_normalizes(
     source, archive, calls = transport
     request = enqueue(db, identity)
     lease = claim_source_bootstrap(db, worker_id="bootstrap")
-    plan = SourcePlan(identity[1], "1876042", date(2025, 1, 1), date(2026, 9, 21))
+    plan = bootstrap_plan(db, identity)
 
     def forbidden(*args):
         raise AssertionError("Bootstrap must never normalize or build financial inputs")
 
     monkeypatch.setattr(source, "normalize", forbidden)
     with pytest.raises(ValueError, match="trigger"):
-        run_source_stages(db, lease, source, archive, plan, forbidden)
+        run_source_stages(
+            db,
+            lease,
+            source,
+            archive,
+            SourcePlan(plan.issuer_id, plan.cik, plan.inventory_start, plan.inventory_end),
+            forbidden,
+        )
     assert not calls
     result = run_source_bootstrap(db, lease, source, archive, plan)
     assert result.publication is None and result.manifest is not None
@@ -379,16 +415,15 @@ def test_populated_upgrade_preserves_ordinary_requests(db_admin, db, test_databa
         "SELECT * FROM analysis_requests WHERE id=%s", (request.request_id,)
     ).fetchone()
     command.upgrade(config, "head")
-    assert (
-        db.execute("SELECT * FROM analysis_requests WHERE id=%s", (request.request_id,)).fetchone()
-        == before
-    )
+    assert db.execute(
+        "SELECT * FROM analysis_requests WHERE id=%s", (request.request_id,)
+    ).fetchone() == {**before, "bootstrap_plan": None}
     assert claim_next(db, worker_id="ordinary").request_id == request.request_id
 
 
 def test_downgrade_refuses_to_erase_bootstrap_history(db, identity, test_database_dsn):
     enqueue(db, identity)
-    with pytest.raises(Exception, match="refusing to discard bootstrap"):
+    with pytest.raises(Exception, match="refusing to discard pinned bootstrap"):
         command.downgrade(migration_config(test_database_dsn), "0005_market_data_hypertables")
 
 
@@ -407,7 +442,7 @@ def test_bootstrap_rejected_by_combined_and_market_workers(db, identity, transpo
     source, archive, calls = transport
     enqueue(db, identity)
     lease = claim_source_bootstrap(db, worker_id="bootstrap")
-    plan = SourcePlan(identity[1], "1876042", date(2025, 1, 1), date(2026, 9, 21))
+    plan = bootstrap_plan(db, identity)
     with pytest.raises(ValueError, match="ordinary"):
         run_analysis_stages(db, lease, source, archive, plan, lambda _: None, {}, MarketReview())
     with pytest.raises(ValueError, match="cannot enter market"):
@@ -432,7 +467,7 @@ def test_http_failure_preserves_real_attempt_and_null_quote_manifest(db, identit
             lease,
             source,
             archive,
-            SourcePlan(identity[1], "1876042", date(2025, 1, 1), date(2026, 9, 21)),
+            bootstrap_plan(db, identity),
         )
     assert result.state == "completed_with_gaps" and result.publication is None
     assert (
@@ -504,17 +539,259 @@ def test_retry_exhaustion_retains_bootstrap_manifest(db, identity, transport):
     with httpx.Client(transport=httpx.MockTransport(unavailable)) as client:
         source.transport.client = client
         source.transport.sleep = lambda _: None
-        enqueue(db, identity, options=RequestOptions(max_attempts=1))
+        enqueue(db, identity, max_attempts=1)
         lease = claim_source_bootstrap(db, worker_id="bootstrap")
         result = run_source_bootstrap(
             db,
             lease,
             source,
             archive,
-            SourcePlan(identity[1], "1876042", date(2025, 1, 1), date(2026, 9, 21)),
+            bootstrap_plan(db, identity),
         )
     assert result.state == "failed" and "retry_budget_exhausted" in result.gaps
     manifest = json.loads(archive.read(result.manifest))
     assert manifest["request"]["quote_identifier_id"] is None
     assert "companyfacts_unavailable" in manifest["source_gaps"]
     assert db.execute("SELECT count(*) AS n FROM source_captures").fetchone()["n"] == 0
+
+
+def test_plan_is_idempotent_immutable_and_runtime_mismatch_fails_before_dispatch(
+    db_admin, db, identity, transport
+):
+    source, archive, calls = transport
+    plan = bootstrap_plan(db, identity)
+    request = enqueue(db, identity, plan=plan)
+    assert (
+        enqueue(db, identity, plan=replace(plan, resources=tuple(reversed(plan.resources))))
+        == request
+    )
+    changed = replace(
+        plan,
+        resources=(
+            *plan.resources,
+            "filing_document/0001876042/0001876042-26-000062/crcl-20251231.htm",
+        ),
+    )
+    with pytest.raises(psycopg.errors.InvalidParameterValue, match="different parameters"):
+        enqueue(db, identity, plan=changed)
+    with pytest.raises(psycopg.errors.ObjectNotInPrerequisiteState, match="immutable"):
+        db_admin.execute(
+            "UPDATE analysis_requests SET bootstrap_plan=%s WHERE id=%s",
+            (Jsonb(changed.as_json()), request.request_id),
+        )
+    lease = claim_source_bootstrap(db, worker_id="plan-check")
+    with pytest.raises(ValueError, match="immutable request intent"):
+        run_source_bootstrap(db, lease, source, archive, changed)
+    assert not calls
+    assert db.execute("SELECT count(*) AS n FROM analysis_stage_attempts").fetchone()["n"] == 0
+    stage = start_stage(db, lease, stage_key="sec_fetch_" + "c" * 24)
+    with pytest.raises(psycopg.errors.CheckViolation, match="outside pinned plan"):
+        source.fetch(
+            FetchRequest(
+                uuid4(),
+                SecResource(
+                    identity[1],
+                    "1876042",
+                    ResourceKind.FILING_DOCUMENT,
+                    accession="0001876042-26-000062",
+                    filename="crcl-20251231.htm",
+                ),
+                lease,
+                stage,
+            )
+        )
+    assert not calls
+
+
+def test_ready_result_is_persisted_and_completed_error_fields_are_null(db, identity, transport):
+    source, archive, _ = transport
+    enqueue(db, identity)
+    lease = claim_source_bootstrap(db, worker_id="ready")
+    result = run_source_bootstrap(db, lease, source, archive, bootstrap_plan(db, identity))
+    assert result.state == "completed" and result.bootstrap_readiness.registration_review_ready
+    readiness = result.bootstrap_readiness
+    capture = next(c for c in source.records if c.source_object_key == "submissions/0001876042")
+    assert (
+        readiness.identity_capture_id == capture.capture_id
+        and readiness.identity_status == "captured"
+    )
+    assert readiness.blocking_reasons == ()
+    stages = db.execute(
+        "SELECT * FROM analysis_stage_attempts WHERE execution_id=%s", (lease.execution_id,)
+    ).fetchall()
+    assert all(s["error_code"] is None and s["error_detail"] is None for s in stages)
+    stage = next(s for s in stages if s["stage_key"] == "sec_bootstrap_manifest")
+    stored = json.loads(stage["result_reference"])
+    assert stored["version"] == "sec-bootstrap-result-v1"
+    assert stored["readiness"]["identity_capture_id"] == str(capture.capture_id)
+    assert stored["manifest"]["body_sha256"] == result.manifest.body_sha256
+    assert stage["input_manifest"]["bootstrap_plan"] == bootstrap_plan(db, identity).as_json()
+    execution = db.execute(
+        "SELECT error_code,error_detail FROM analysis_executions WHERE id=%s", (lease.execution_id,)
+    ).fetchone()
+    assert execution == {"error_code": None, "error_detail": None}
+    with pytest.raises(psycopg.errors.ObjectNotInPrerequisiteState, match="lease lost"):
+        db.execute(
+            "SELECT workflow_finish_stage(%s,%s,'completed',NULL,'{}')",
+            (Jsonb(lease.as_json()), stage["id"]),
+        )
+
+
+@pytest.mark.parametrize("submissions_status", [404, 200])
+def test_absent_or_invalid_submissions_never_claims_registration_readiness(
+    db, identity, transport, submissions_status
+):
+    source, archive, _ = transport
+
+    def handler(request):
+        if "/companyfacts/" in str(request.url):
+            return httpx.Response(200, stream=httpx.ByteStream(b'{"cik":1876042,"facts":{}}'))
+        return httpx.Response(submissions_status, stream=httpx.ByteStream(b"{}"))
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        source.transport.client = client
+        enqueue(db, identity)
+        lease = claim_source_bootstrap(db, worker_id="missing-identity")
+        result = run_source_bootstrap(db, lease, source, archive, bootstrap_plan(db, identity))
+    assert result.state == "completed_with_gaps"
+    assert result.bootstrap_readiness.identity_capture_id is None
+    assert result.bootstrap_readiness.identity_status == "unavailable"
+    assert not result.bootstrap_readiness.registration_review_ready
+    assert "identity_submissions_unavailable" in result.bootstrap_readiness.blocking_reasons
+    stored = db.execute(
+        "SELECT result_reference,error_code FROM analysis_stage_attempts "
+        "WHERE execution_id=%s AND stage_key='sec_bootstrap_manifest'",
+        (lease.execution_id,),
+    ).fetchone()
+    assert stored["error_code"] is None
+    assert json.loads(stored["result_reference"])["readiness"]["registration_review_ready"] is False
+
+
+def test_unplanned_advertised_history_is_a_gap_not_a_new_dispatch(db, identity, transport):
+    source, archive, calls = transport
+
+    def handler(request):
+        calls.append(request)
+        if "/companyfacts/" in str(request.url):
+            body = {"cik": 1876042, "facts": {}}
+        else:
+            body = {
+                "cik": 1876042,
+                "filings": {
+                    "recent": {"accessionNumber": [], "filingDate": [], "form": []},
+                    "files": [
+                        {
+                            "name": "CIK0001876042-submissions-001.json",
+                            "filingCount": 1,
+                            "filingFrom": "2025-01-01",
+                            "filingTo": "2025-02-01",
+                        }
+                    ],
+                },
+            }
+        return httpx.Response(200, stream=httpx.ByteStream(json.dumps(body).encode()))
+
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        source.transport.client = client
+        enqueue(db, identity)
+        lease = claim_source_bootstrap(db, worker_id="bounded")
+        result = run_source_bootstrap(db, lease, source, archive, bootstrap_plan(db, identity))
+    assert len(calls) == 2
+    assert "unplanned_advertised_history" in result.gaps
+    assert not result.bootstrap_readiness.registration_review_ready
+
+
+def test_typed_completion_rejects_missing_identity_and_stale_worker(db, identity):
+    from equity_schema.workflow import complete_bootstrap_stage
+
+    request = enqueue(db, identity)
+    lease = claim_source_bootstrap(db, worker_id="fenced-result")
+    stage = start_stage(db, lease, stage_key="sec_bootstrap_manifest")
+    invalid = {
+        "version": "sec-bootstrap-result-v1",
+        "manifest": {"blob_key": "bootstrap/test.gz", "body_sha256": "a" * 64, "byte_count": 1},
+        "readiness": {
+            "identity_capture_id": None,
+            "identity_status": "unavailable",
+            "registration_review_ready": True,
+            "blocking_reasons": [],
+        },
+    }
+    with pytest.raises(
+        psycopg.errors.InvalidParameterValue, match="inconsistent bootstrap readiness"
+    ):
+        complete_bootstrap_stage(db, lease, stage_id=stage, result=invalid)
+    cancel_request(db, request_id=request.request_id)
+    with pytest.raises(LeaseLost):
+        complete_bootstrap_stage(db, lease, stage_id=stage, result=invalid)
+
+
+def test_populated_0006_upgrade_keeps_legacy_request_without_invented_plan(
+    db_admin, db, identity, test_database_dsn
+):
+    config = migration_config(test_database_dsn)
+    command.downgrade(config, "0006_source_bootstrap")
+    old = db.execute(
+        "SELECT workflow_enqueue_bootstrap(%s,%s,%s,'{}') AS r",
+        (identity[0].workspace_id, identity[2], "legacy"),
+    ).fetchone()["r"]
+    lease = claim_source_bootstrap(db, worker_id="old")
+    finish_execution(db, lease, reason="source_bootstrap_capture_only")
+    before = db.execute(
+        "SELECT * FROM analysis_requests WHERE id=%s", (old["request_id"],)
+    ).fetchone()
+    command.upgrade(config, "head")
+    after = db.execute(
+        "SELECT * FROM analysis_requests WHERE id=%s", (old["request_id"],)
+    ).fetchone()
+    assert after == {**before, "bootstrap_plan": None}
+    assert (
+        db.execute(
+            "SELECT error_code FROM analysis_executions WHERE id=%s", (lease.execution_id,)
+        ).fetchone()["error_code"]
+        == "source_bootstrap_capture_only"
+    )
+    assert enqueue(db, identity, key="new").request_id != lease.request_id
+
+
+def test_new_bootstrap_success_cannot_bypass_typed_completion(db, identity):
+    enqueue(db, identity)
+    lease = claim_source_bootstrap(db, worker_id="guarded-success")
+    with pytest.raises(psycopg.errors.CheckViolation, match="typed acquisition result"):
+        finish_execution(db, lease)
+    stage = start_stage(db, lease, stage_key="sec_bootstrap_manifest")
+    from equity_schema.workflow import finish_stage
+
+    with pytest.raises(psycopg.errors.CheckViolation, match="typed result reference"):
+        finish_stage(db, lease, stage_id=stage, outcome="completed")
+    with pytest.raises(psycopg.errors.CheckViolation, match="cannot carry error fields"):
+        finish_stage(db, lease, stage_id=stage, outcome="completed", reason="success metadata")
+
+
+@pytest.mark.parametrize(
+    "changes",
+    [
+        {"inventory_end": "2030-01-01"},
+        {"resources": ["company_facts/0001876042"]},
+        {"version": "unknown"},
+        {"financial_periods": []},
+    ],
+)
+def test_database_rejects_unbounded_or_unreviewed_plan(db, identity, changes):
+    options = {"plan": {**bootstrap_plan(db, identity).as_json(), **changes}, "max_attempts": 3}
+    with pytest.raises(psycopg.errors.InvalidParameterValue, match="invalid acquisition plan"):
+        db.execute(
+            "SELECT workflow_enqueue_bootstrap(%s,%s,%s,%s)",
+            (identity[0].workspace_id, identity[2], "invalid-plan", Jsonb(options)),
+        )
+
+
+def test_pinned_plan_checks_policy_before_runtime_fetch(db, identity, transport):
+    source, archive, calls = transport
+    plan = bootstrap_plan(db, identity)
+    enqueue(db, identity, plan=plan)
+    lease = claim_source_bootstrap(db, worker_id="wrong-policy")
+    source.descriptor = replace(source.descriptor, policy_revision_id=uuid4())
+    with pytest.raises(ValueError, match="immutable request intent"):
+        run_source_bootstrap(db, lease, source, archive, plan)
+    assert not calls

@@ -18,16 +18,15 @@ import httpx
 import psycopg
 from dotenv import dotenv_values
 from equity_ingest.archive import LocalArchive
-from equity_ingest.contracts import ResourceKind, SecResource, SourceDescriptor
+from equity_ingest.contracts import ResourceKind, SourceDescriptor
 from equity_ingest.financial_types import canonical_json
 from equity_ingest.limiter import RedisRateLimiter
-from equity_ingest.pipeline import SourcePlan, run_source_bootstrap
+from equity_ingest.pipeline import run_source_bootstrap
 from equity_ingest.sec import SecSource
 from equity_ingest.transport import DatabaseAttemptStore, SecTransport
+from equity_schema.bootstrap import BootstrapPlan
 from equity_schema.workflow import (
     Database,
-    RequestedPeriod,
-    RequestOptions,
     claim_source_bootstrap,
     create_workspace_watchlist,
     enqueue_source_bootstrap,
@@ -198,14 +197,27 @@ def registered(db: Database) -> dict[str, UUID]:
 def capture(
     db: Database, identities: dict[str, UUID], contact: str, redis_url: str, key: str
 ) -> dict[str, Any]:
+    plan = BootstrapPlan(
+        identities["issuer"],
+        "0001876042",
+        identities["source"],
+        identities["policy"],
+        date(2025, 1, 1),
+        date(2026, 9, 21),
+        (
+            "company_facts/0001876042",
+            "submissions/0001876042",
+            "filing_document/0001876042/0001876042-26-000062/crcl-20251231.htm",
+            "filing_document/0001876042/0001876042-26-000228/crcl-20251231.htm",
+            "filing_document/0001876042/0001876042-26-000248/crcl-20260630.htm",
+        ),
+    )
     request = enqueue_source_bootstrap(
         db,
         workspace_id=identities["workspace"],
         security_id=identities["security"],
         idempotency_key=key,
-        options=RequestOptions(
-            requested_periods=(RequestedPeriod("duration", date(2025, 12, 31), date(2025, 1, 1)),)
-        ),
+        plan=plan,
     )
     lease = claim_source_bootstrap(
         db, worker_id="crcl-bootstrap-cli", lease_seconds=360, request_id=request.request_id
@@ -233,37 +245,6 @@ def capture(
         timedelta(minutes=15),
     )
     archive = LocalArchive(ROOT / "var/raw")
-    plan = SourcePlan(
-        identities["issuer"],
-        "0001876042",
-        date(2025, 1, 1),
-        datetime.now(UTC).date(),
-        filing_documents=(
-            # Discovered in the genuine 2026-09-21 Submissions capture. Retain the
-            # amendment for review; its existence does not imply a restatement.
-            SecResource(
-                identities["issuer"],
-                "1876042",
-                ResourceKind.FILING_DOCUMENT,
-                filename="crcl-20251231.htm",
-                accession="0001876042-26-000228",
-            ),
-            SecResource(
-                identities["issuer"],
-                "1876042",
-                ResourceKind.FILING_DOCUMENT,
-                filename="crcl-20251231.htm",
-                accession="0001876042-26-000062",
-            ),
-            SecResource(
-                identities["issuer"],
-                "1876042",
-                ResourceKind.FILING_DOCUMENT,
-                filename="crcl-20260630.htm",
-                accession="0001876042-26-000248",
-            ),
-        ),
-    )
     limiter = RedisRateLimiter.from_url(redis_url)
     try:
         with httpx.Client(timeout=30, follow_redirects=False) as client:

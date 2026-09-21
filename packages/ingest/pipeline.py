@@ -12,11 +12,13 @@ from math import ceil
 from typing import Literal, Protocol
 from uuid import UUID, uuid4
 
+from equity_schema.bootstrap import BootstrapPlan
 from equity_schema.workflow import (
     Database,
     Lease,
     LeaseLost,
     RequestedPeriod,
+    complete_bootstrap_stage,
     finish_execution,
     finish_stage,
     renew_lease,
@@ -77,6 +79,14 @@ class SourceContext:
 
 
 @dataclass(frozen=True)
+class BootstrapReadiness:
+    identity_capture_id: UUID | None
+    identity_status: Literal["captured", "unavailable"]
+    registration_review_ready: bool
+    blocking_reasons: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class PipelineResult:
     state: Literal[
         "completed",
@@ -91,6 +101,7 @@ class PipelineResult:
     inventory: FilingInventory | None = None
     gaps: tuple[str, ...] = ()
     next_eligible_at: datetime | None = None
+    bootstrap_readiness: BootstrapReadiness | None = None
 
 
 InputBuilder = Callable[[SourceContext], NormalizationInput | None]
@@ -125,21 +136,45 @@ def run_source_bootstrap(
     lease: Lease,
     source: ReadableSource,
     archive: LocalArchive,
-    plan: SourcePlan,
+    plan: BootstrapPlan,
     *,
     replay_records: tuple[RawRecord, ...] | None = None,
 ) -> PipelineResult:
-    """Capture issuer evidence without normalization, quotes, membership or valuation."""
+    """Acquire only the persisted identity plan; never normalize or register quotes."""
+    if not isinstance(plan, BootstrapPlan):
+        raise ValueError("Bootstrap worker requires a bounded BootstrapPlan")
+    documents = []
+    for key in plan.resources:
+        parts = key.split("/")
+        if parts[0] == ResourceKind.FILING_DOCUMENT.value:
+            documents.append(
+                SecResource(
+                    plan.issuer_id,
+                    plan.cik,
+                    ResourceKind.FILING_DOCUMENT,
+                    accession=parts[2],
+                    filename=parts[3],
+                )
+            )
+    source_plan = SourcePlan(
+        plan.issuer_id,
+        plan.cik,
+        plan.inventory_start,
+        plan.inventory_end,
+        tuple(documents),
+        max_history_documents=10,
+    )
     return _run_source_stages(
         db,
         lease,
         source,
         archive,
-        plan,
+        source_plan,
         None,
         replay_records=replay_records,
         finalize_execution=True,
         bootstrap=True,
+        bootstrap_plan=plan,
     )
 
 
@@ -154,6 +189,7 @@ def _run_source_stages(
     replay_records: tuple[RawRecord, ...] | None = None,
     finalize_execution: bool = True,
     bootstrap: bool,
+    bootstrap_plan: BootstrapPlan | None = None,
 ) -> PipelineResult:
     """Fetch -> inventory -> reviewed normalization -> immutable publication.
 
@@ -175,6 +211,13 @@ def _run_source_stages(
         raise ValueError("Source plan does not match the claimed request's issuer")
     if (row["trigger"] == "source_bootstrap") != bootstrap:
         raise ValueError("Source worker does not match request trigger")
+    if bootstrap and (
+        bootstrap_plan is None
+        or row["bootstrap_plan"] != bootstrap_plan.as_json()
+        or source.descriptor.source_id != bootstrap_plan.source_id
+        or source.descriptor.policy_revision_id != bootstrap_plan.policy_revision_id
+    ):
+        raise ValueError("Bootstrap runtime plan differs from immutable request intent")
     lease = renew_lease(db, lease, lease_seconds=360)
     cutoff = row["retrieval_vintage"]
     if cutoff is not None and replay_records is None:
@@ -194,6 +237,8 @@ def _run_source_stages(
     current_stage: UUID | None = None
 
     def fetch(resource: SecResource) -> RawRecord | None:
+        if bootstrap_plan is not None and resource.object_key not in bootstrap_plan.resources:
+            raise ValueError("Resource is outside immutable bootstrap intent")
         nonlocal lease, current_stage
         lease = renew_lease(db, lease, lease_seconds=360)
         current_stage = start_stage(
@@ -237,15 +282,30 @@ def _run_source_stages(
     try:
         companyfacts = fetch(SecResource(plan.issuer_id, plan.cik, ResourceKind.COMPANY_FACTS))
         recent_record = fetch(SecResource(plan.issuer_id, plan.cik, ResourceKind.SUBMISSIONS))
+        recent = None
         if recent_record is not None:
             current_stage = start_stage(db, lease, stage_key="sec_inventory_parse")
-            recent = parse_submissions(
-                source.read_verified(recent_record.capture_id),
-                expected_cik=plan.cik,
-                capture_id=recent_record.capture_id,
-            )
-            finish_stage(db, lease, stage_id=current_stage, outcome="completed")
+            try:
+                recent = parse_submissions(
+                    source.read_verified(recent_record.capture_id),
+                    expected_cik=plan.cik,
+                    capture_id=recent_record.capture_id,
+                )
+            except ValueError:
+                if not bootstrap:
+                    raise
+                gaps.append("identity_submissions_invalid")
+                finish_stage(
+                    db,
+                    lease,
+                    stage_id=current_stage,
+                    outcome="blocked",
+                    reason="identity_submissions_invalid",
+                )
+            else:
+                finish_stage(db, lease, stage_id=current_stage, outcome="completed")
             current_stage = None
+        if recent is not None:
             older = []
             needed = sorted(
                 (
@@ -255,7 +315,21 @@ def _run_source_stages(
                 ),
                 key=lambda d: d.name,
             )
+            if bootstrap_plan is not None:
+                advertised_keys = {f"submissions_history/{plan.cik}/{d.name}" for d in needed}
+                planned_keys = {
+                    k for k in bootstrap_plan.resources if k.startswith("submissions_history/")
+                }
+                if planned_keys - advertised_keys:
+                    gaps.append("planned_history_not_advertised")
             for document in needed[: plan.max_history_documents]:
+                if (
+                    bootstrap_plan is not None
+                    and f"submissions_history/{plan.cik}/{document.name}"
+                    not in bootstrap_plan.resources
+                ):
+                    gaps.append("unplanned_advertised_history")
+                    continue
                 record = fetch(
                     SecResource(
                         plan.issuer_id,
@@ -294,7 +368,9 @@ def _run_source_stages(
                 lease,
                 stage_id=current_stage,
                 outcome="completed" if inventory.completeness == "complete" else "blocked",
-                reason=canonical_json(
+                reason=None
+                if bootstrap and inventory.completeness == "complete"
+                else canonical_json(
                     {"flags": inventory.flags, "missing": inventory.missing_documents}
                 ),
             )
@@ -306,12 +382,27 @@ def _run_source_stages(
         if bootstrap and companyfacts is None:
             gaps.append("companyfacts_unavailable")
         bootstrap_manifest = None
+        readiness = None
+        if bootstrap:
+            blockers = list(dict.fromkeys(gaps))
+            if recent is None:
+                blockers.append("identity_submissions_unavailable")
+            if inventory is None or inventory.completeness != "complete":
+                blockers.append("identity_inventory_incomplete")
+            readiness = BootstrapReadiness(
+                recent_record.capture_id if recent_record and recent else None,
+                "captured" if recent else "unavailable",
+                recent is not None and not blockers,
+                tuple(dict.fromkeys(blockers)),
+            )
         if bootstrap:
             lease = renew_lease(db, lease, lease_seconds=360)
             current_stage = start_stage(db, lease, stage_key="sec_bootstrap_manifest")
             payload = canonical_json(
                 {
-                    "format": "sec-bootstrap-run-v1",
+                    "format": "sec-bootstrap-run-v2",
+                    "bootstrap_plan": row["bootstrap_plan"],
+                    "readiness": asdict(readiness) if readiness else None,
                     "financial_result": False,
                     "request": {
                         k: row[k]
@@ -344,14 +435,21 @@ def _run_source_stages(
                 retrieved_at=datetime.now(UTC),
                 max_bytes=64 * 1024 * 1024,
             )
-            finish_stage(
+            assert readiness is not None
+            complete_bootstrap_stage(
                 db,
                 lease,
                 stage_id=current_stage,
-                outcome="completed",
-                reason=canonical_json(
-                    {"manifest": asdict(bootstrap_manifest), "financial_result": False}
-                ),
+                result={
+                    "version": "sec-bootstrap-result-v1",
+                    "manifest": asdict(bootstrap_manifest),
+                    "readiness": {
+                        **asdict(readiness),
+                        "identity_capture_id": str(readiness.identity_capture_id)
+                        if readiness.identity_capture_id
+                        else None,
+                    },
+                },
             )
             current_stage = None
         deferred = [r.next_eligible_at for r in results if r.next_eligible_at is not None]
@@ -381,12 +479,14 @@ def _run_source_stages(
                 return PipelineResult(
                     "failed",
                     manifest=bootstrap_manifest,
+                    bootstrap_readiness=readiness,
                     inventory=inventory,
                     gaps=(*gaps, "retry_budget_exhausted"),
                 )
             return PipelineResult(
                 "retry_scheduled",
                 manifest=bootstrap_manifest,
+                bootstrap_readiness=readiness,
                 inventory=inventory,
                 gaps=tuple(gaps),
             )
@@ -394,9 +494,13 @@ def _run_source_stages(
             outcome: Literal["completed", "completed_with_gaps"] = (
                 "completed_with_gaps" if gaps else "completed"
             )
-            finish_execution(db, lease, outcome=outcome, reason="source_bootstrap_capture_only")
+            finish_execution(db, lease, outcome=outcome)
             return PipelineResult(
-                outcome, manifest=bootstrap_manifest, inventory=inventory, gaps=tuple(gaps)
+                outcome,
+                manifest=bootstrap_manifest,
+                inventory=inventory,
+                gaps=tuple(gaps),
+                bootstrap_readiness=readiness,
             )
         assert build_inputs is not None
         current_stage = start_stage(db, lease, stage_key=NORMALIZATION_STAGE)
