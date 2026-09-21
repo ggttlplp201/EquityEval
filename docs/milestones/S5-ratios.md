@@ -106,6 +106,11 @@ numeric extension, with tests before implementation; profile applicability and
 evidence-based neutral rules share the same review. No new calculation is
 implemented by that design packet.
 
+The [D2 real-data pilot](D2-real-data-pilot.md) connects archived CRCL observations
+to the redesigned source view and keeps all seven requested issuers in a dated
+coverage roster. Incomplete history and absent application publication prevent a
+real PIT/core result. No synthetic test selection is promoted into application data.
+
 Complete remaining supported metric definitions and neutral interpretation.
 EPS, common-equity/debt definitions and applicability need their stated evidence;
 new concepts or shared schema/API shapes still require sequential contract review.

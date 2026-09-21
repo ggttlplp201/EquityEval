@@ -84,3 +84,24 @@ missing quarters and never borrow the separate Sector histories. All source
 amounts are USD without a million/billion multiplier. New presentation tests
 compare every supplied metric against the unchanged Sector fixture. Read
 `docs/milestones/D1b-company-news-help.md` for validation and remaining work.
+
+## Real-source pilot — D2
+
+`/development/pilot?company=CRCL` uses a separate real-source artifact. It keeps
+all seven requested companies in a dated identity/business/coverage roster.
+CRCL FY2025 has two exact observed amounts cross-checked between archived SEC
+Company Facts and the original filing. All derived metrics and company-history
+series remain unavailable while actual publication/PIT and completeness
+prerequisites are unresolved. Research-reference dates and observed-filing dates
+are distinct.
+
+Reproduce without provider or database access:
+
+```sh
+.venv/bin/python scripts/project_python.py -m scripts.export_real_pilot
+.venv/bin/python scripts/project_python.py -m scripts.export_real_pilot --check
+```
+
+Read `docs/milestones/D2-real-data-pilot.md` for checks and concrete next steps.
+The pilot does not convert the seven stocks into a sector universe, start
+monitoring, or replace the separate fictional Company/Sector fixtures.

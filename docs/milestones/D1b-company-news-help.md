@@ -95,3 +95,6 @@ navigation reaches Sector Explorer, News, Help and production data readiness.
 
 Checkpoint rerun (2026-09-20): 963 full, 225 core and 110 golden tests pass,
 as do lint/types, optimized build and eight production browser route cases.
+
+The authorized next source slice is recorded in [D2](D2-real-data-pilot.md),
+with the separate real-source pilot and its exact publication/eligibility gaps.

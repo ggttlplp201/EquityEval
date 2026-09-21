@@ -70,14 +70,14 @@ export default function HelpPage() {
     <header className={styles.intro}>
       <div><p className="eyebrow">RESEARCH COMPANION</p><h1>Help & terminology<span className="title-dot">.</span></h1>
         <p>Read the graphs, inspect the evidence, and understand what each result can tell you.</p></div>
-      <p className={styles.version}>Development guide · 19 September 2026<br />Fictional examples · live services inactive</p>
+      <p className={styles.version}>Development guide · 20 September 2026<br />Fictional demos & archived sources · live services inactive</p>
     </header>
 
-    <div className={styles.notice}><strong>Start with the data label.</strong><p>The development views use explicitly fictional, offline calculation results. They are for exploring the interface, not current market research. Production data prerequisites remain visible on <Link href="/sectors">Data readiness</Link>.</p></div>
+    <div className={styles.notice}><strong>Start with the data label.</strong><p>The Sector and Company demonstrations use explicitly fictional, offline calculation results. The separate Real-data pilot shows archived SEC observations with incomplete coverage. Neither is a live valuation service. Production data prerequisites remain visible on <Link href="/sectors">Data readiness</Link>.</p></div>
 
     <div className={styles.layout}>
       <nav className={styles.contents} aria-label="Help contents"><p className="eyebrow">IN THIS GUIDE</p>
-        <a href="#start">A five-minute first pass</a><a href="#sectors">Read Sector Explorer</a><a href="#company">Read company fundamentals</a><a href="#evidence">Check evidence & history</a><a href="#glossary">Find a definition</a><a href="#planned">What comes next</a><a href="#troubleshooting">Troubleshooting & printing</a>
+        <a href="#start">A five-minute first pass</a><a href="#real-source-pilot">Read the real-data pilot</a><a href="#sectors">Read Sector Explorer</a><a href="#company">Read company fundamentals</a><a href="#evidence">Check evidence & history</a><a href="#glossary">Find a definition</a><a href="#planned">What comes next</a><a href="#troubleshooting">Troubleshooting & printing</a>
       </nav>
       <div className={styles.chapters}>
         <section id="start" className={styles.section} aria-labelledby="start-title"><div className={styles.sectionHeading}><span className="eyebrow">01 / START HERE</span><h2 id="start-title">A five-minute first pass</h2></div>
@@ -88,6 +88,11 @@ export default function HelpPage() {
             <li><strong>Review the company in context.</strong><p>Open the <Link href="/development/company">Company demonstration</Link>. Separate growth, profitability, cash generation, balance sheet, and valuation/returns. Read each missing or unsupported reason rather than inferring a result.</p></li>
             <li><strong>Keep the question separate from the verdict.</strong><p>A cheap-looking ratio is a starting question. Check the business model, reporting scope, source dates and alternatives. Saved expectations, full analysis reruns and valuation ranges remain planned workflows.</p></li>
           </ol>
+        </section>
+
+        <section id="real-source-pilot" className={styles.section} aria-labelledby="pilot-title"><div className={styles.sectionHeading}><span className="eyebrow">ARCHIVED SOURCES / SMALL PILOT</span><h2 id="pilot-title">Real evidence, explicit gaps</h2></div>
+          <p>Open the <Link href="/development/pilot">Real-data pilot</Link> and choose CRCL, MSTR, COIN, HOOD, USAR, MP or GOOGL. This route is separate from the fictional Company and Sector demonstrations. Its real-source banner identifies archived SEC observations, incomplete coverage and no live prices.</p>
+          <ol className={styles.steps}><li><strong>Confirm the instrument.</strong><p>Read the CIK, exchange, security description, identity evidence and dated business context. A ticker alone is insufficient.</p></li><li><strong>Distinguish research from observed values.</strong><p>The filing reviewed for company context can be newer than the filing behind the displayed financial amounts. Check both period and filing dates; archive capture time is a separate date.</p></li><li><strong>Open each supplied amount.</strong><p>Its evidence identifies the reported concept, source, units and period. Companies without qualified observations keep an explicit gap; fictional values and zero are never substituted.</p></li><li><strong>Read the remaining prerequisites.</strong><p>Derived metrics are unavailable in this source-only slice. The 3Y/5Y/10Y controls keep requested dates and coverage visible without inventing a graph, percentile or rank. The seven companies are not a sector universe or one peer group.</p></li></ol>
         </section>
 
         <section id="sectors" className={styles.section} aria-labelledby="sectors-title"><div className={styles.sectionHeading}><span className="eyebrow">02 / SECTOR EXPLORER</span><h2 id="sectors-title">Four graphs, one dated comparison</h2></div>
@@ -142,7 +147,7 @@ export default function HelpPage() {
           <div className={styles.guideGrid}><article><h3>There is no sector point</h3><p>Read the unavailable list and coverage details. Missing inputs, a nonmeaningful ratio or a failed coverage gate should not create a point at zero.</p></article><article><h3>A table looks empty</h3><p>Check the selected sector or industry, search text and distribution-bin filter. Clear the bin or search. If no constituents qualify, keep the empty-state reason visible.</p></article><article><h3>The history has gaps</h3><p>Check eligible dates, excluded observations, classification history and the selected window. More years requested does not create more evidence.</p></article><article><h3>No current data or alerts</h3><p>This build does not activate live providers or alerts. Visit <Link href="/sectors">Data readiness</Link>. A provider key alone does not establish source rights, reviewed definitions or complete coverage.</p></article></div>
           <div className={styles.callout}><h3>Print or save this guide</h3><p>Use your browser&apos;s <strong>Print</strong> command, then choose paper or <strong>Save as PDF</strong>. The print view uses this same guide and includes every glossary entry, even if a search is active. This is a development guide; the complete release manual will be checked against the finished watchlist, analysis and alert workflows.</p></div>
         </section>
-        <footer className={styles.footer}>Guide version: 2026-09-19 · Development interface · All numerical examples are illustrative. No investment recommendation is implied.</footer>
+        <footer className={styles.footer}>Guide version: 2026-09-20 · Development interface · All numerical examples are illustrative. No investment recommendation is implied.</footer>
       </div>
     </div>
   </main></WorkbenchShell>;

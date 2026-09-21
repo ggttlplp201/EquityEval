@@ -14,5 +14,7 @@ export default function SectorsPage() {
     </ol>
     <Link className="primary-link" href="/development/sectors">Explore the fictional demonstration <span aria-hidden="true">↗</span></Link>
     <p className="small muted">The demonstration uses invented companies and financial inputs. It is not current market data.</p>
+    <p><Link className="primary-link" href="/development/pilot">Inspect the real-data pilot <span aria-hidden="true">↗</span></Link></p>
+    <p className="small muted">Seven dated company research reports, with limited archived CRCL observations and explicit calculation gaps.</p>
   </main>;
 }

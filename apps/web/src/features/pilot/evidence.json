@@ -1,0 +1,1417 @@
+{
+  "kind": "real-source-pilot",
+  "reviewedAt": "2026-09-20",
+  "companies": [
+    {
+      "ticker": "CRCL",
+      "cik": "0001876042",
+      "name": "Circle Internet Group, Inc.",
+      "security": "Class A common stock",
+      "exchange": "New York Stock Exchange",
+      "identityDate": "2026-08-05",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm",
+      "businessSummary": "Stablecoin issuer with reserve-income and platform economics that require separate analysis.",
+      "businessEvidenceDate": "2026-08-05",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm",
+      "filing": {
+        "accession": "0001876042-26-000248",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-08-05",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "The existing S1 mapping covers FY2025 accession 0001876042-26-000062 only; it does not qualify this quarterly filing or its comparative periods."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Reserve balances, yield, distribution costs and fee revenue require matched definitions and reviewed extraction."
+        },
+        {
+          "area": "Applicability",
+          "reason": "Keep stablecoin-holder reserves separate from corporate cash; industrial cash-flow interpretations are not automatically applicable."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Review all common classes and common earnings before issuer capitalization or P/E; a CRCL quote alone is insufficient."
+        }
+      ],
+      "observedFiling": {
+        "accession": "0001876042-26-000062",
+        "form": "10-K",
+        "periodStart": "2025-01-01",
+        "periodEnd": "2025-12-31",
+        "filed": "2026-03-09",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm",
+        "capturedAt": "2026-09-11T14:27:04.146547+00:00",
+        "companyfactsCapturedAt": "2026-09-11T14:14:48.625425+00:00"
+      },
+      "amounts": [
+        {
+          "id": "revenue",
+          "label": "Total revenue and reserve income",
+          "value": "2746642000",
+          "valueLabel": "$2,746,642,000",
+          "period": "2025-01-01 → 2025-12-31",
+          "detailId": "real|CRCL|0001876042-26-000062|revenue",
+          "statusLabel": "Observed · calculation eligibility blocked"
+        },
+        {
+          "id": "operating_income",
+          "label": "Operating income (loss)",
+          "value": "-96435000",
+          "valueLabel": "$-96,435,000",
+          "period": "2025-01-01 → 2025-12-31",
+          "detailId": "real|CRCL|0001876042-26-000062|operating_income",
+          "statusLabel": "Observed · calculation eligibility blocked"
+        }
+      ],
+      "metrics": [
+        {
+          "id": "revenue_yoy",
+          "label": "Revenue growth",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Filing inventory and non-reliance event coverage are incomplete.",
+            "No published PIT selection is supplied by this archived research artifact.",
+            "A reviewed comparable prior period is missing."
+          ],
+          "detailId": "real|CRCL|0001876042-26-000062|revenue"
+        },
+        {
+          "id": "operating_margin",
+          "label": "Operating margin",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Filing inventory and non-reliance event coverage are incomplete.",
+            "No published PIT selection is supplied by this archived research artifact.",
+            "The reported operating loss is retained; source eligibility remains blocked.",
+            "Business applicability must be reviewed independently of data availability."
+          ],
+          "detailId": "real|CRCL|0001876042-26-000062|revenue"
+        },
+        {
+          "id": "fcf_margin",
+          "label": "Cash generation",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Filing inventory and non-reliance event coverage are incomplete.",
+            "No published PIT selection is supplied by this archived research artifact.",
+            "Comparable CFO and cash PPE purchases are not supplied; no FCFF inference."
+          ],
+          "detailId": "real|CRCL|0001876042-26-000062|revenue"
+        },
+        {
+          "id": "balance_sheet",
+          "label": "Balance sheet",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Filing inventory and non-reliance event coverage are incomplete.",
+            "No published PIT selection is supplied by this archived research artifact.",
+            "Corporate cash, holder/customer assets and obligations require separate scopes."
+          ],
+          "detailId": "real|CRCL|0001876042-26-000062|revenue"
+        },
+        {
+          "id": "pe",
+          "label": "P/E",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Filing inventory and non-reliance event coverage are incomplete.",
+            "No published PIT selection is supplied by this archived research artifact.",
+            "Missing quote, earnings/share bridge and action/calendar coverage."
+          ],
+          "detailId": "real|CRCL|0001876042-26-000062|revenue"
+        },
+        {
+          "id": "ps",
+          "label": "P/S",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Filing inventory and non-reliance event coverage are incomplete.",
+            "No published PIT selection is supplied by this archived research artifact.",
+            "No reviewed common-equity market value for the exact security scope."
+          ],
+          "detailId": "real|CRCL|0001876042-26-000062|revenue"
+        }
+      ],
+      "history": {
+        "3": {
+          "windowStart": "2023-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 12 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "5": {
+          "windowStart": "2021-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 20 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "10": {
+          "windowStart": "2016-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 40 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        }
+      }
+    },
+    {
+      "ticker": "MSTR",
+      "cik": "0001050446",
+      "name": "Strategy Inc",
+      "security": "Class A common stock",
+      "exchange": "Nasdaq Global Select Market",
+      "identityDate": "2026-08-03",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000044/mstr-20260630.htm",
+      "businessSummary": "Bitcoin treasury and enterprise software operations require distinct analytical scopes.",
+      "businessEvidenceDate": "2026-08-03",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000044/mstr-20260630.htm",
+      "filing": {
+        "accession": "0001050446-26-000044",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-08-03",
+        "url": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000044/mstr-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require dated bitcoin holdings, fair-value changes, software results and the full financing claim stack."
+        },
+        {
+          "area": "Comparability",
+          "reason": "Q2 2026 introduced separate Bitcoin and Software reportable segments and recast comparatives; January 2025 fair-value adoption also affects history."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Resolve common classes, preferred claims and conversion terms; management bitcoin KPIs are not common-stock returns."
+        }
+      ],
+      "amounts": [],
+      "metrics": [
+        {
+          "id": "revenue_yoy",
+          "label": "Revenue growth",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "A reviewed comparable prior period is missing."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "operating_margin",
+          "label": "Operating margin",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "fcf_margin",
+          "label": "Cash generation",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Comparable CFO and cash PPE purchases are not supplied; no FCFF inference."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "balance_sheet",
+          "label": "Balance sheet",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Corporate cash, holder/customer assets and obligations require separate scopes."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "pe",
+          "label": "P/E",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Missing quote, earnings/share bridge and action/calendar coverage."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "ps",
+          "label": "P/S",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "No reviewed common-equity market value for the exact security scope."
+          ],
+          "detailId": null
+        }
+      ],
+      "history": {
+        "3": {
+          "windowStart": "2023-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 12 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "5": {
+          "windowStart": "2021-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 20 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "10": {
+          "windowStart": "2016-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 40 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        }
+      }
+    },
+    {
+      "ticker": "COIN",
+      "cik": "0001679788",
+      "name": "Coinbase Global, Inc.",
+      "security": "Class A common stock",
+      "exchange": "Nasdaq Stock Market LLC",
+      "identityDate": "2026-07-30",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
+      "businessSummary": "Trading platform with transaction revenue and subscription/service streams.",
+      "businessEvidenceDate": "2026-07-30",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
+      "filing": {
+        "accession": "0001679788-26-000088",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-07-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require product-specific volume, fee and stablecoin-economics definitions; customer assets must not be treated as corporate cash."
+        },
+        {
+          "area": "Comparability",
+          "reason": "The former aggregate Trading Volume key metric was discontinued in Q2 2026; acquisition and product changes require explicit comparison boundaries."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Class A quote, other common classes, common-income allocation and dated issuer capitalization remain unqualified."
+        }
+      ],
+      "amounts": [],
+      "metrics": [
+        {
+          "id": "revenue_yoy",
+          "label": "Revenue growth",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "A reviewed comparable prior period is missing."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "operating_margin",
+          "label": "Operating margin",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "fcf_margin",
+          "label": "Cash generation",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Comparable CFO and cash PPE purchases are not supplied; no FCFF inference."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "balance_sheet",
+          "label": "Balance sheet",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Corporate cash, holder/customer assets and obligations require separate scopes."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "pe",
+          "label": "P/E",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Missing quote, earnings/share bridge and action/calendar coverage."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "ps",
+          "label": "P/S",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "No reviewed common-equity market value for the exact security scope."
+          ],
+          "detailId": null
+        }
+      ],
+      "history": {
+        "3": {
+          "windowStart": "2023-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 12 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "5": {
+          "windowStart": "2021-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 20 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "10": {
+          "windowStart": "2016-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 40 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        }
+      }
+    },
+    {
+      "ticker": "HOOD",
+      "cik": "0001783879",
+      "name": "Robinhood Markets, Inc.",
+      "security": "Class A common stock",
+      "exchange": "Nasdaq Stock Market LLC",
+      "identityDate": "2026-07-30",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm",
+      "businessSummary": "Brokerage platform with transaction, net-interest and subscription revenue.",
+      "businessEvidenceDate": "2026-07-30",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm",
+      "filing": {
+        "accession": "0001783879-26-000114",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-07-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require interest-earning balances, revenue mix, credit costs, regulatory capital and customer-versus-corporate cash scope."
+        },
+        {
+          "area": "Comparability",
+          "reason": "WonderFi customers entered Funded Customers from June 2026; acquired scope and annualized KPI definitions require review."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Reconcile Class A and Class B common ownership and earnings; an industrial FCFF model is not automatically applicable."
+        }
+      ],
+      "amounts": [],
+      "metrics": [
+        {
+          "id": "revenue_yoy",
+          "label": "Revenue growth",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "A reviewed comparable prior period is missing."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "operating_margin",
+          "label": "Operating margin",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "fcf_margin",
+          "label": "Cash generation",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Comparable CFO and cash PPE purchases are not supplied; no FCFF inference."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "balance_sheet",
+          "label": "Balance sheet",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Corporate cash, holder/customer assets and obligations require separate scopes."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "pe",
+          "label": "P/E",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Missing quote, earnings/share bridge and action/calendar coverage."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "ps",
+          "label": "P/S",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "No reviewed common-equity market value for the exact security scope."
+          ],
+          "detailId": null
+        }
+      ],
+      "history": {
+        "3": {
+          "windowStart": "2023-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 12 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "5": {
+          "windowStart": "2021-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 20 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "10": {
+          "windowStart": "2016-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 40 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        }
+      }
+    },
+    {
+      "ticker": "USAR",
+      "cik": "0001970622",
+      "name": "USA Rare Earth, Inc.",
+      "security": "Common stock",
+      "exchange": "Nasdaq Stock Market LLC",
+      "identityDate": "2026-08-10",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1970622/000197062226000057/usar-20260630.htm",
+      "businessSummary": "Rare-earth company with an acquisition boundary after the Serra Verde transaction closed on September 3, 2026.",
+      "businessEvidenceDate": "2026-09-04",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1970622/000121390026097399/ea0304001-8k_usarare.htm",
+      "filing": {
+        "accession": "0001970622-26-000057",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-08-10",
+        "url": "https://www.sec.gov/Archives/edgar/data/1970622/000197062226000057/usar-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require project-specific ownership, stage, sales, costs, capex and financing conditions; a uniform prerevenue label is unsuitable."
+        },
+        {
+          "area": "Comparability",
+          "reason": "Q2 revenue came from acquired Less Common Metals; later Serra Verde results and pro forma data must remain separate from Q2 reported results."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Reconcile acquisition issuance, warrants and other dilution to the selected price date; complete post-close capitalization is unverified."
+        }
+      ],
+      "amounts": [],
+      "metrics": [
+        {
+          "id": "revenue_yoy",
+          "label": "Revenue growth",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "A reviewed comparable prior period is missing."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "operating_margin",
+          "label": "Operating margin",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "fcf_margin",
+          "label": "Cash generation",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Comparable CFO and cash PPE purchases are not supplied; no FCFF inference."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "balance_sheet",
+          "label": "Balance sheet",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Corporate cash, holder/customer assets and obligations require separate scopes."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "pe",
+          "label": "P/E",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Missing quote, earnings/share bridge and action/calendar coverage."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "ps",
+          "label": "P/S",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "No reviewed common-equity market value for the exact security scope."
+          ],
+          "detailId": null
+        }
+      ],
+      "history": {
+        "3": {
+          "windowStart": "2023-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 12 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "5": {
+          "windowStart": "2021-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 20 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "10": {
+          "windowStart": "2016-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 40 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        }
+      }
+    },
+    {
+      "ticker": "MP",
+      "cik": "0001801368",
+      "name": "MP Materials Corp.",
+      "security": "Common stock",
+      "exchange": "New York Stock Exchange",
+      "identityDate": "2026-08-07",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000048/mp-20260630.htm",
+      "businessSummary": "Materials and Magnetics operations span production and downstream manufacturing investment.",
+      "businessEvidenceDate": "2026-08-07",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000048/mp-20260630.htm",
+      "filing": {
+        "accession": "0001801368-26-000048",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-08-07",
+        "url": "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000048/mp-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require production/sales units, realized prices, costs, intersegment eliminations and price-protection income separately."
+        },
+        {
+          "area": "Comparability",
+          "reason": "The NdPr metal-to-oxide-equivalent ratio changed from 1.20 to 1.25 in Q1 2026; downstream ramp and construction have different stages."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Review common shares, preferred/convertible claims and financing before capitalization or enterprise-value comparisons."
+        }
+      ],
+      "amounts": [],
+      "metrics": [
+        {
+          "id": "revenue_yoy",
+          "label": "Revenue growth",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "A reviewed comparable prior period is missing."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "operating_margin",
+          "label": "Operating margin",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "fcf_margin",
+          "label": "Cash generation",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Comparable CFO and cash PPE purchases are not supplied; no FCFF inference."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "balance_sheet",
+          "label": "Balance sheet",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Corporate cash, holder/customer assets and obligations require separate scopes."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "pe",
+          "label": "P/E",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Missing quote, earnings/share bridge and action/calendar coverage."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "ps",
+          "label": "P/S",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "No reviewed common-equity market value for the exact security scope."
+          ],
+          "detailId": null
+        }
+      ],
+      "history": {
+        "3": {
+          "windowStart": "2023-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 12 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "5": {
+          "windowStart": "2021-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 20 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "10": {
+          "windowStart": "2016-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 40 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        }
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "cik": "0001652044",
+      "name": "Alphabet Inc.",
+      "security": "Class A common stock",
+      "exchange": "Nasdaq Global Select Market",
+      "identityDate": "2026-07-23",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
+      "businessSummary": "Google Services, Google Cloud and Other Bets require segment and corporate-cost context.",
+      "businessEvidenceDate": "2026-07-23",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
+      "filing": {
+        "accession": "0001652044-26-000071",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-07-23",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require segment reconciliation, shared costs, capex/depreciation, common earnings and dilution; cloud growth does not establish company retention."
+        },
+        {
+          "area": "Comparability",
+          "reason": "Maintain segment definitions and reporting editions; aggregate operating results are not a pure cloud or SaaS metric."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Resolve A/B/C common classes and GOOGM/GOOGN mandatory-convertible preferred claims; do not duplicate the issuer or price every class at GOOGL."
+        }
+      ],
+      "amounts": [],
+      "metrics": [
+        {
+          "id": "revenue_yoy",
+          "label": "Revenue growth",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "A reviewed comparable prior period is missing."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "operating_margin",
+          "label": "Operating margin",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "fcf_margin",
+          "label": "Cash generation",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Comparable CFO and cash PPE purchases are not supplied; no FCFF inference."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "balance_sheet",
+          "label": "Balance sheet",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Corporate cash, holder/customer assets and obligations require separate scopes."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "pe",
+          "label": "P/E",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "Missing quote, earnings/share bridge and action/calendar coverage."
+          ],
+          "detailId": null
+        },
+        {
+          "id": "ps",
+          "label": "P/S",
+          "value": null,
+          "valueLabel": "—",
+          "statusLabel": "Unavailable · prerequisites missing",
+          "reasons": [
+            "Exact filing, period and concept mappings/archives are not yet reviewed.",
+            "A dated business/identity reference does not establish numeric eligibility.",
+            "No reviewed common-equity market value for the exact security scope."
+          ],
+          "detailId": null
+        }
+      ],
+      "history": {
+        "3": {
+          "windowStart": "2023-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 12 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "5": {
+          "windowStart": "2021-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 20 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        },
+        "10": {
+          "windowStart": "2016-09-20",
+          "windowEnd": "2026-09-20",
+          "coverageLabel": "0 eligible of 40 completed quarter-end snapshots",
+          "note": "No published, eligible point-in-time company history in this pilot. An annual filing observation is not a quarter-end valuation snapshot. No percentile, interpolation or sector rank is available."
+        }
+      }
+    }
+  ],
+  "details": {
+    "real|CRCL|0001876042-26-000062|revenue": {
+      "title": "Total revenue and reserve income",
+      "subtitle": "CRCL · FY2025 · archived reported observation. Calculation eligibility is blocked; not a current valuation.",
+      "sections": [
+        {
+          "heading": "Source identity",
+          "rows": [
+            {
+              "label": "CIK",
+              "value": "0001876042"
+            },
+            {
+              "label": "Accession",
+              "value": "0001876042-26-000062"
+            },
+            {
+              "label": "Form",
+              "value": "10-K"
+            },
+            {
+              "label": "Filed date",
+              "value": "2026-03-09"
+            },
+            {
+              "label": "Period",
+              "value": "2025-01-01 → 2025-12-31"
+            },
+            {
+              "label": "Original filing SHA256",
+              "value": "2708bc61b370372a3339229fe0d0977048e11faa7cfc59a4e2509a8082ae35be"
+            },
+            {
+              "label": "Company Facts SHA256",
+              "value": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af"
+            },
+            {
+              "label": "Original filing bytes",
+              "value": "3721084"
+            },
+            {
+              "label": "Company Facts bytes",
+              "value": "455994"
+            },
+            {
+              "label": "Capture completion timestamp",
+              "value": "Unknown in legacy S1 manifests. Offline DTO uses fetched_at only as a required-field placeholder; not a recorded completion event."
+            }
+          ]
+        },
+        {
+          "heading": "Exact filing observation",
+          "rows": [
+            {
+              "label": "Concept",
+              "value": "revenue"
+            },
+            {
+              "label": "Tag",
+              "value": "{http://fasb.org/us-gaap/2025}Revenues"
+            },
+            {
+              "label": "Context",
+              "value": "c-1"
+            },
+            {
+              "label": "Context validation",
+              "value": "Exact period, issuer and empty dimensions"
+            },
+            {
+              "label": "Unit",
+              "value": "usd · iso4217:USD"
+            },
+            {
+              "label": "Literal",
+              "value": "2,746,642"
+            },
+            {
+              "label": "Scale",
+              "value": "3"
+            },
+            {
+              "label": "Sign",
+              "value": "positive"
+            },
+            {
+              "label": "Decimals",
+              "value": "-3"
+            },
+            {
+              "label": "Value (USD)",
+              "value": "2746642000"
+            },
+            {
+              "label": "Matching filing occurrences",
+              "value": "2"
+            },
+            {
+              "label": "Filing locators",
+              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\nelementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[4]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+            },
+            {
+              "label": "Company Facts locator",
+              "value": "/facts/us-gaap/Revenues/units/USD/13"
+            },
+            {
+              "label": "Company Facts numeric token",
+              "value": "2746642000"
+            },
+            {
+              "label": "Company Facts transform",
+              "value": "{\"operation\":\"identity_decimal\",\"scale_applied\":false}"
+            },
+            {
+              "label": "Cross-check",
+              "value": "Exact value agreement"
+            },
+            {
+              "label": "Whole-document extraction",
+              "value": "Incomplete"
+            },
+            {
+              "label": "Extraction issue count",
+              "value": "249"
+            },
+            {
+              "label": "Extraction coverage note",
+              "value": "Only these exact supported facts were cross-checked. Other extraction issues remain; this is not complete financial-statement coverage."
+            }
+          ]
+        },
+        {
+          "heading": "Mapping, history and eligibility",
+          "rows": [
+            {
+              "label": "Mapping reference",
+              "value": "s3-reviewed-s1:0001876042:0001876042-26-000062:revenue"
+            },
+            {
+              "label": "Mapping rationale",
+              "value": "Customer-contract revenue is a component; total includes reserve income"
+            },
+            {
+              "label": "Scope",
+              "value": "{\"cash_scope\":\"not_applicable\",\"consolidation\":\"consolidated\",\"context_knowledge\":\"unknown\",\"instrument\":null,\"payment_basis\":\"as_reported\",\"revenue_basis\":\"reported_complete_scope\",\"scope_evidence\":\"docs/research/s1/concept-map.md\"}"
+            },
+            {
+              "label": "Normalizer",
+              "value": "companyfacts-reviewed-v1"
+            },
+            {
+              "label": "Input manifest SHA256",
+              "value": "f40529e86b689f7309110cb27ce9fbb731a9761355d3ff969c4400ec949d21dc"
+            },
+            {
+              "label": "Output manifest SHA256",
+              "value": "f355065bdcfb4fce1f244d2a0d1154859223121e3e816be549129c5b35543a1d"
+            },
+            {
+              "label": "Flags",
+              "value": "event_history_incomplete, inventory_history_incomplete, legacy_completion_timestamp_unknown, unpublished_archive_observations"
+            },
+            {
+              "label": "Publication",
+              "value": "Offline normalization only; no published PIT selection"
+            },
+            {
+              "label": "Calculation eligibility",
+              "value": "Blocked"
+            },
+            {
+              "label": "Reason",
+              "value": "Incomplete filing/non-reliance history. Legacy S1 captures have no application capture-policy links; no published PIT result is asserted."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "SEC original CRCL 10-K",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm",
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-11T14:27:04.146547+00:00",
+          "transform": "LocalArchive hash/count verification → existing Inline XBRL reader → exact c-1/usd/empty-dimension selection; original sign and scale.",
+          "licence": "SEC disclosure; bounded research reuse, docs/data-licences.md"
+        },
+        {
+          "label": "SEC Company Facts archive",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-11T14:14:48.625425+00:00",
+          "transform": "Verified archived bytes → existing reviewed_cohort_rules → normalize_verified_bytes; exact accession/period, no fallback.",
+          "licence": "SEC disclosure; no new live source activated"
+        }
+      ]
+    },
+    "real|CRCL|0001876042-26-000062|operating_income": {
+      "title": "Operating income (loss)",
+      "subtitle": "CRCL · FY2025 · archived reported observation. Calculation eligibility is blocked; not a current valuation.",
+      "sections": [
+        {
+          "heading": "Source identity",
+          "rows": [
+            {
+              "label": "CIK",
+              "value": "0001876042"
+            },
+            {
+              "label": "Accession",
+              "value": "0001876042-26-000062"
+            },
+            {
+              "label": "Form",
+              "value": "10-K"
+            },
+            {
+              "label": "Filed date",
+              "value": "2026-03-09"
+            },
+            {
+              "label": "Period",
+              "value": "2025-01-01 → 2025-12-31"
+            },
+            {
+              "label": "Original filing SHA256",
+              "value": "2708bc61b370372a3339229fe0d0977048e11faa7cfc59a4e2509a8082ae35be"
+            },
+            {
+              "label": "Company Facts SHA256",
+              "value": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af"
+            },
+            {
+              "label": "Original filing bytes",
+              "value": "3721084"
+            },
+            {
+              "label": "Company Facts bytes",
+              "value": "455994"
+            },
+            {
+              "label": "Capture completion timestamp",
+              "value": "Unknown in legacy S1 manifests. Offline DTO uses fetched_at only as a required-field placeholder; not a recorded completion event."
+            }
+          ]
+        },
+        {
+          "heading": "Exact filing observation",
+          "rows": [
+            {
+              "label": "Concept",
+              "value": "operating_income"
+            },
+            {
+              "label": "Tag",
+              "value": "{http://fasb.org/us-gaap/2025}OperatingIncomeLoss"
+            },
+            {
+              "label": "Context",
+              "value": "c-1"
+            },
+            {
+              "label": "Context validation",
+              "value": "Exact period, issuer and empty dimensions"
+            },
+            {
+              "label": "Unit",
+              "value": "usd · iso4217:USD"
+            },
+            {
+              "label": "Literal",
+              "value": "96,435"
+            },
+            {
+              "label": "Scale",
+              "value": "3"
+            },
+            {
+              "label": "Sign",
+              "value": "-"
+            },
+            {
+              "label": "Decimals",
+              "value": "-3"
+            },
+            {
+              "label": "Value (USD)",
+              "value": "-96435000"
+            },
+            {
+              "label": "Matching filing occurrences",
+              "value": "1"
+            },
+            {
+              "label": "Filing locators",
+              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+            },
+            {
+              "label": "Company Facts locator",
+              "value": "/facts/us-gaap/OperatingIncomeLoss/units/USD/13"
+            },
+            {
+              "label": "Company Facts numeric token",
+              "value": "-96435000"
+            },
+            {
+              "label": "Company Facts transform",
+              "value": "{\"operation\":\"identity_decimal\",\"scale_applied\":false}"
+            },
+            {
+              "label": "Cross-check",
+              "value": "Exact value agreement"
+            },
+            {
+              "label": "Whole-document extraction",
+              "value": "Incomplete"
+            },
+            {
+              "label": "Extraction issue count",
+              "value": "249"
+            },
+            {
+              "label": "Extraction coverage note",
+              "value": "Only these exact supported facts were cross-checked. Other extraction issues remain; this is not complete financial-statement coverage."
+            }
+          ]
+        },
+        {
+          "heading": "Mapping, history and eligibility",
+          "rows": [
+            {
+              "label": "Mapping reference",
+              "value": "s3-reviewed-s1:0001876042:0001876042-26-000062:operating_income"
+            },
+            {
+              "label": "Mapping rationale",
+              "value": "S1 reviewed directly reported concept scope; preference applies only to this accession and actual period"
+            },
+            {
+              "label": "Scope",
+              "value": "{\"cash_scope\":\"not_applicable\",\"consolidation\":\"consolidated\",\"context_knowledge\":\"unknown\",\"instrument\":null,\"payment_basis\":\"as_reported\",\"revenue_basis\":\"reported_complete_scope\",\"scope_evidence\":\"docs/research/s1/concept-map.md\"}"
+            },
+            {
+              "label": "Normalizer",
+              "value": "companyfacts-reviewed-v1"
+            },
+            {
+              "label": "Input manifest SHA256",
+              "value": "f40529e86b689f7309110cb27ce9fbb731a9761355d3ff969c4400ec949d21dc"
+            },
+            {
+              "label": "Output manifest SHA256",
+              "value": "f355065bdcfb4fce1f244d2a0d1154859223121e3e816be549129c5b35543a1d"
+            },
+            {
+              "label": "Flags",
+              "value": "event_history_incomplete, inventory_history_incomplete, legacy_completion_timestamp_unknown, unpublished_archive_observations"
+            },
+            {
+              "label": "Publication",
+              "value": "Offline normalization only; no published PIT selection"
+            },
+            {
+              "label": "Calculation eligibility",
+              "value": "Blocked"
+            },
+            {
+              "label": "Reason",
+              "value": "Incomplete filing/non-reliance history. Legacy S1 captures have no application capture-policy links; no published PIT result is asserted."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "label": "SEC original CRCL 10-K",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm",
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-11T14:27:04.146547+00:00",
+          "transform": "LocalArchive hash/count verification → existing Inline XBRL reader → exact c-1/usd/empty-dimension selection; original sign and scale.",
+          "licence": "SEC disclosure; bounded research reuse, docs/data-licences.md"
+        },
+        {
+          "label": "SEC Company Facts archive",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-11T14:14:48.625425+00:00",
+          "transform": "Verified archived bytes → existing reviewed_cohort_rules → normalize_verified_bytes; exact accession/period, no fallback.",
+          "licence": "SEC disclosure; no new live source activated"
+        }
+      ]
+    }
+  },
+  "snapshotId": "d580d2ddb9c6e00381c1664d29ceb80195643a6ad4c4e4277bac99c9df9c9e1e"
+}

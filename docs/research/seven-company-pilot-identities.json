@@ -1,0 +1,292 @@
+{
+  "reviewedAt": "2026-09-20",
+  "companies": [
+    {
+      "ticker": "CRCL",
+      "cik": "0001876042",
+      "name": "Circle Internet Group, Inc.",
+      "security": "Class A common stock",
+      "exchange": "New York Stock Exchange",
+      "identityDate": "2026-08-05",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm",
+      "businessSummary": "Stablecoin issuer with reserve-income and platform economics that require separate analysis.",
+      "businessEvidenceDate": "2026-08-05",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm",
+      "filing": {
+        "accession": "0001876042-26-000248",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-08-05",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "The existing S1 mapping covers FY2025 accession 0001876042-26-000062 only; it does not qualify this quarterly filing or its comparative periods."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Reserve balances, yield, distribution costs and fee revenue require matched definitions and reviewed extraction."
+        },
+        {
+          "area": "Applicability",
+          "reason": "Keep stablecoin-holder reserves separate from corporate cash; industrial cash-flow interpretations are not automatically applicable."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Review all common classes and common earnings before issuer capitalization or P/E; a CRCL quote alone is insufficient."
+        }
+      ]
+    },
+    {
+      "ticker": "MSTR",
+      "cik": "0001050446",
+      "name": "Strategy Inc",
+      "security": "Class A common stock",
+      "exchange": "Nasdaq Global Select Market",
+      "identityDate": "2026-08-03",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000044/mstr-20260630.htm",
+      "businessSummary": "Bitcoin treasury and enterprise software operations require distinct analytical scopes.",
+      "businessEvidenceDate": "2026-08-03",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000044/mstr-20260630.htm",
+      "filing": {
+        "accession": "0001050446-26-000044",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-08-03",
+        "url": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000044/mstr-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require dated bitcoin holdings, fair-value changes, software results and the full financing claim stack."
+        },
+        {
+          "area": "Comparability",
+          "reason": "Q2 2026 introduced separate Bitcoin and Software reportable segments and recast comparatives; January 2025 fair-value adoption also affects history."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Resolve common classes, preferred claims and conversion terms; management bitcoin KPIs are not common-stock returns."
+        }
+      ]
+    },
+    {
+      "ticker": "COIN",
+      "cik": "0001679788",
+      "name": "Coinbase Global, Inc.",
+      "security": "Class A common stock",
+      "exchange": "Nasdaq Stock Market LLC",
+      "identityDate": "2026-07-30",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
+      "businessSummary": "Trading platform with transaction revenue and subscription/service streams.",
+      "businessEvidenceDate": "2026-07-30",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm",
+      "filing": {
+        "accession": "0001679788-26-000088",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-07-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/1679788/000167978826000088/coin-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require product-specific volume, fee and stablecoin-economics definitions; customer assets must not be treated as corporate cash."
+        },
+        {
+          "area": "Comparability",
+          "reason": "The former aggregate Trading Volume key metric was discontinued in Q2 2026; acquisition and product changes require explicit comparison boundaries."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Class A quote, other common classes, common-income allocation and dated issuer capitalization remain unqualified."
+        }
+      ]
+    },
+    {
+      "ticker": "HOOD",
+      "cik": "0001783879",
+      "name": "Robinhood Markets, Inc.",
+      "security": "Class A common stock",
+      "exchange": "Nasdaq Stock Market LLC",
+      "identityDate": "2026-07-30",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm",
+      "businessSummary": "Brokerage platform with transaction, net-interest and subscription revenue.",
+      "businessEvidenceDate": "2026-07-30",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm",
+      "filing": {
+        "accession": "0001783879-26-000114",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-07-30",
+        "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000114/hood-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require interest-earning balances, revenue mix, credit costs, regulatory capital and customer-versus-corporate cash scope."
+        },
+        {
+          "area": "Comparability",
+          "reason": "WonderFi customers entered Funded Customers from June 2026; acquired scope and annualized KPI definitions require review."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Reconcile Class A and Class B common ownership and earnings; an industrial FCFF model is not automatically applicable."
+        }
+      ]
+    },
+    {
+      "ticker": "USAR",
+      "cik": "0001970622",
+      "name": "USA Rare Earth, Inc.",
+      "security": "Common stock",
+      "exchange": "Nasdaq Stock Market LLC",
+      "identityDate": "2026-08-10",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1970622/000197062226000057/usar-20260630.htm",
+      "businessSummary": "Rare-earth company with an acquisition boundary after the Serra Verde transaction closed on September 3, 2026.",
+      "businessEvidenceDate": "2026-09-04",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1970622/000121390026097399/ea0304001-8k_usarare.htm",
+      "filing": {
+        "accession": "0001970622-26-000057",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-08-10",
+        "url": "https://www.sec.gov/Archives/edgar/data/1970622/000197062226000057/usar-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require project-specific ownership, stage, sales, costs, capex and financing conditions; a uniform prerevenue label is unsuitable."
+        },
+        {
+          "area": "Comparability",
+          "reason": "Q2 revenue came from acquired Less Common Metals; later Serra Verde results and pro forma data must remain separate from Q2 reported results."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Reconcile acquisition issuance, warrants and other dilution to the selected price date; complete post-close capitalization is unverified."
+        }
+      ]
+    },
+    {
+      "ticker": "MP",
+      "cik": "0001801368",
+      "name": "MP Materials Corp.",
+      "security": "Common stock",
+      "exchange": "New York Stock Exchange",
+      "identityDate": "2026-08-07",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000048/mp-20260630.htm",
+      "businessSummary": "Materials and Magnetics operations span production and downstream manufacturing investment.",
+      "businessEvidenceDate": "2026-08-07",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000048/mp-20260630.htm",
+      "filing": {
+        "accession": "0001801368-26-000048",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-08-07",
+        "url": "https://www.sec.gov/Archives/edgar/data/1801368/000180136826000048/mp-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require production/sales units, realized prices, costs, intersegment eliminations and price-protection income separately."
+        },
+        {
+          "area": "Comparability",
+          "reason": "The NdPr metal-to-oxide-equivalent ratio changed from 1.20 to 1.25 in Q1 2026; downstream ramp and construction have different stages."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Review common shares, preferred/convertible claims and financing before capitalization or enterprise-value comparisons."
+        }
+      ]
+    },
+    {
+      "ticker": "GOOGL",
+      "cik": "0001652044",
+      "name": "Alphabet Inc.",
+      "security": "Class A common stock",
+      "exchange": "Nasdaq Global Select Market",
+      "identityDate": "2026-07-23",
+      "identityUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
+      "businessSummary": "Google Services, Google Cloud and Other Bets require segment and corporate-cost context.",
+      "businessEvidenceDate": "2026-07-23",
+      "businessEvidenceUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm",
+      "filing": {
+        "accession": "0001652044-26-000071",
+        "form": "10-Q",
+        "periodEnd": "2026-06-30",
+        "filed": "2026-07-23",
+        "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm"
+      },
+      "gaps": [
+        {
+          "area": "Source coverage",
+          "reason": "This dated research link is not an archived production result. Complete filing/event history, precision and source-to-core eligibility remain unverified for this quarterly slice."
+        },
+        {
+          "area": "Mapping",
+          "reason": "No reviewed issuer/accession/period rules exist in the baseline normalizer for this company."
+        },
+        {
+          "area": "Drivers",
+          "reason": "Require segment reconciliation, shared costs, capex/depreciation, common earnings and dilution; cloud growth does not establish company retention."
+        },
+        {
+          "area": "Comparability",
+          "reason": "Maintain segment definitions and reporting editions; aggregate operating results are not a pure cloud or SaaS metric."
+        },
+        {
+          "area": "Price and reference",
+          "reason": "Resolve A/B/C common classes and GOOGM/GOOGN mandatory-convertible preferred claims; do not duplicate the issuer or price every class at GOOGL."
+        }
+      ]
+    }
+  ]
+}
