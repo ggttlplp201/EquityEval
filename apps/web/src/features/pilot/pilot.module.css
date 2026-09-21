@@ -78,3 +78,7 @@
   .filingFields > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
   .noChart { padding: 16px; text-align: left; }
 }
+
+.pipelineLink { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin: 0 0 18px; font-size: 12px; }
+.pipelineLink a { display: inline-flex; align-items: center; min-height: 44px; }
+.pipelineLink span { color: var(--muted); }

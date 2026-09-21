@@ -31,6 +31,7 @@ above. This repository and its commits are the implementation source of truth.
 | D3b | Capture-only path verified; five genuine CRCL captures; 1,033 tests | [First-source bootstrap](D3b-source-bootstrap.md) | D031; milestone/d3b-crcl-capture; identity/publication review precedes S5/S6 |
 | D3c | Pinned intent/readiness and live capture verified; 1,065 tests | [Bootstrap intent](D3c-bootstrap-intent.md) | D031 correction; milestone/d3c-pinned-capture; registration review pending; no automatic quote |
 | D3d | Identity review verified; quote currency unsubstantiated | [Quote identity review](D3d-quote-identity-review.md) | Read-only replay/check; no registration or ordinary request; milestone/d3d-identity-review |
+| D3e | Interactive saved pipeline state verified; registration remains blocked | [Pipeline preview](D3e-pipeline-preview.md) | Six stages, sanitized real audit fixture, evidence disclosures; milestone/d3e-pipeline-preview |
 | S8a–d | Planned; F1 shares provenance, Ratios and Overview | P0 company pages and integration | After relevant engine/contracts |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,

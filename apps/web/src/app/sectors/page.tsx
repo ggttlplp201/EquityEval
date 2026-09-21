@@ -16,5 +16,7 @@ export default function SectorsPage() {
     <p className="small muted">The demonstration uses invented companies and financial inputs. It is not current market data.</p>
     <p><Link className="primary-link" href="/development/pilot">Inspect the real-data pilot <span aria-hidden="true">↗</span></Link></p>
     <p className="small muted">Seven dated company research reports, with limited archived CRCL observations and explicit calculation gaps.</p>
+    <p><Link className="primary-link" href="/development/pilot/pipeline">Inspect CRCL’s application pipeline <span aria-hidden="true">↗</span></Link></p>
+    <p className="small muted">Saved real acquisition and identity-review state. Quote currency remains unsubstantiated; financial analysis has not started.</p>
   </main>;
 }

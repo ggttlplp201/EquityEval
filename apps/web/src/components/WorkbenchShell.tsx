@@ -14,7 +14,7 @@ export default function WorkbenchShell({ active, fictional = false, children }: 
   active: Destination; fictional?: boolean; children: ReactNode;
 }) {
   const banner = active === "pilot"
-    ? { label: "REAL SOURCE PILOT", text: "Archived SEC observations · incomplete coverage · no live prices" }
+    ? { label: "REAL SOURCE PILOT", text: "Saved application state and archived SEC observations · incomplete coverage · no live prices" }
     : active === "news"
     ? { label: "NOT MONITORING", text: "Sources, collection, assessments and alert delivery are unconfigured" }
     : active === "help"
@@ -26,7 +26,7 @@ export default function WorkbenchShell({ active, fictional = false, children }: 
     <header className="app-header">
       <Link href="/development/sectors" prefetch={false} className="brand"><span className="brand-mark">E</span> EquityEval</Link>
       <nav aria-label="Main">{destinations.map((item) => <Link key={item.id} href={item.href} prefetch={false} className={active === item.id ? "nav-active" : undefined} aria-current={active === item.id ? "page" : undefined}>{item.label}</Link>)}<Link href="/sectors">Data readiness</Link></nav>
-      <span className="local-indicator"><span /> {active === "news" ? "Monitoring inactive" : active === "pilot" ? "Archived SEC evidence" : "Local development"}</span>
+      <span className="local-indicator"><span /> {active === "news" ? "Monitoring inactive" : active === "pilot" ? "Saved SEC evidence" : "Local development"}</span>
     </header>
     {children}
   </div>;

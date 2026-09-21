@@ -96,3 +96,5 @@ Then review the new evidence, implement the narrow idempotent owner registration
 and enqueue an ordinary request only after its prerequisites are met. Identity
 success alone must not create membership or publish financial statements.
 Financial event/statement review, normalization/PIT/S5 and S6 boundaries still apply.
+
+The saved state is now inspectable through [D3e’s interactive pipeline preview](D3e-pipeline-preview.md). The preview does not change this evidence decision or application state.

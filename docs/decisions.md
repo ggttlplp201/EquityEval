@@ -41,6 +41,8 @@ visible without rewriting the source plan. Status **open** means not approved.
 
 | D032 | Bounded identity review completed — 2026-09-21 | Authorized continuation reviewed only captured D3b/D3c evidence. CRCL/NYSE/Class A and June 5, 2025 listing start are supported; quote currency remains unsubstantiated. [D3d](milestones/D3d-quote-identity-review.md) adds a read-only replay/check and audit; no inference from reporting/offer currency, registration writer, quote or ordinary request. New explicit quotation-currency evidence is required before the conditional registration step. | Identity registration before ordinary source-backed analysis; publication remains separate |
 
+| D033 | User-authorized pipeline preview — 2026-09-21 | Expose D3c/D3d saved application state through a sanitized typed development fixture at `/development/pilot/pipeline`, linked from pilot/readiness. [D3e](milestones/D3e-pipeline-preview.md) preserves the existing design and separates source acquisition, identity review and blocked financial work. No live fetch/retry, registration mutation, API/schema or valuation change. | UI interaction testing; D3d evidence blocker and S5/S6 publication prerequisites remain |
+
 Schema shape, financial vocabulary, API contract and changes to missing-data
 representation require a concrete proposal and user review per the supplied
 AGENTS.md. Accepted decisions above apply within their recorded scope; open or

@@ -46,6 +46,7 @@ export default function PilotWorkspace({ data }: { data: PilotPageData }) {
         <div className={`${companyStyles.snapshot} ${styles.snapshot}`}><span className="eyebrow">ARCHIVED PILOT SNAPSHOT</span><code title={data.snapshotId}>{data.snapshotId}</code><span>Reviewed {data.reviewedAt}</span></div>
       </div>
       <section className={styles.notice} aria-label="Pilot scope"><strong>Real sources. Incomplete financial coverage.</strong><p>This page presents archived source observations and the evidence behind them. It is not a current valuation, live quote service or completed analysis. The seven selected companies are neither a complete sector universe nor a comparable peer group.</p></section>
+      <p className={styles.pipelineLink}><Link href="/development/pilot/pipeline">Inspect CRCL’s application pipeline ↗</Link><span>Saved acquisition and identity-review state · separate from these archived observations</span></p>
       <section className={styles.context} aria-label="Selected security and evidence" aria-busy={pending}>
         <label>Selected pilot company<select value={company.ticker} disabled={pending} onChange={(event) => navigate(event.target.value)}>{data.roster.map((item) => <option key={item.ticker} value={item.ticker}>{item.ticker} · {item.name}</option>)}</select></label>
         <div><span>Security in dated filing</span><strong>{company.security}</strong><a href={company.identityUrl} target="_blank" rel="noreferrer">Identity evidence · {company.identityDate} ↗</a></div>

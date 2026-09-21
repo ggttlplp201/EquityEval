@@ -103,6 +103,25 @@ payload. This verifies chart behavior without claiming production performance;
 reviewed S6 snapshot retrieval will load the relevant results and evidence.
 No live provider or production database is activated by these commands.
 
+## CRCL application pipeline preview
+
+Open `http://127.0.0.1:3101/development/pilot/pipeline` on the existing local
+preview, or use `/development/pilot/pipeline` on your development server.
+Links also appear in the real-data pilot and Data readiness pages.
+
+Select a stage to inspect the pinned plan, source captures, identity review,
+blocked quote registration and unstarted financial stages. Expand evidence for
+public SEC links, exact capture times, source locators and hashes. The saved
+September 21 application snapshot is separate from archived financial observations
+and fictional demos. It contains no financial-analysis result or live actions.
+
+See [D3e](docs/milestones/D3e-pipeline-preview.md) for verification and the
+`test:pipeline` browser-test prerequisites. Check the sanitized typed fixture with:
+
+```sh
+.venv/bin/python scripts/project_python.py scripts/export_pipeline_snapshot.py --check
+```
+
 ## Layout
 
 - apps/web: Sector Explorer development graphs and real-data readiness page; full company pages remain S8.

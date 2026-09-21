@@ -6,7 +6,8 @@
     "typecheck": "tsc --noEmit",
     "dev": "next dev --hostname 127.0.0.1",
     "build": "next build",
-    "start": "next start --hostname 127.0.0.1"
+    "start": "next start --hostname 127.0.0.1",
+    "test:pipeline": "node --test ../../tests/web/pipeline.test.cjs"
   },
   "dependencies": {
     "next": "15.5.25",
