@@ -33,7 +33,8 @@ class BootstrapPlan:
         for key in keys - required:
             if (
                 re.fullmatch(
-                    rf"filing_document/{self.cik}/[0-9]{{10}}-[0-9]{{2}}-[0-9]{{6}}/[A-Za-z0-9][A-Za-z0-9_.-]*",
+                    rf"filing_document/{self.cik}/[0-9]{{10}}-[0-9]{{2}}-[0-9]{{6}}/"
+                    r"[A-Za-z0-9][A-Za-z0-9_.-]*\.(?:htm|html|xml|txt|xsd)",
                     key,
                 )
                 and ".." not in key

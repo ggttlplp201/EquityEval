@@ -76,3 +76,12 @@ no new dispatch. Source-only recovery is tagged `milestone/d3b-crcl-capture`.
 D3b acquisition is complete. Normal quote registration and financial publication
 remain pending their explicit evidence review; then continue PIT → eligible S5 →
 reviewed minimal S6. The fresh capture does not itself update the D2 UI artifact.
+
+
+## Follow-up review correction
+
+The user subsequently required persisted exact bootstrap intent and explicit
+readiness, plus typed success metadata instead of overloaded error fields.
+[D3c](D3c-bootstrap-intent.md) implements this via new migration 0007. D3b's actual
+capture evidence and checkpoints remain historical; its initial request/completion
+contract is superseded for new acquisition requests. No old rows are rewritten.

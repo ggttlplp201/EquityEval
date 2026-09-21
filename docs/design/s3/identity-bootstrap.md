@@ -4,6 +4,11 @@ User authorization: continue from c314df9 and implement the reviewed D031
 proposal, then attempt genuine CRCL capture using existing settings. Shared
 contracts are changed sequentially on `codex/source-bootstrap`.
 
+Current contract: [D031 pinned-intent correction](bootstrap-intent.md), migration
+0007, supersedes the initial D3b plan and completion behavior described below.
+Use a fresh key such as `crcl-pinned-bootstrap-20260921` for new pinned intent.
+The original example key belongs to historical intent and cannot be repurposed.
+
 ## Storage and execution
 
 Migration `0006_source_bootstrap` adds the distinct `source_bootstrap` trigger.

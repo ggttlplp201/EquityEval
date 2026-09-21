@@ -163,7 +163,8 @@ docs/design/s4/source-contract.md and docs/milestones/S4-prices-macro.md.
 The user approved D019/S4-01–04 with “you can implement it” on 2026-09-16.
 S4a is implemented on codex/s4-market-data; follow the implementation and review records.
 D031's first-source bootstrap extension was explicitly approved on 2026-09-21.
-Read docs/design/s3/identity-bootstrap.md and docs/milestones/D3b-source-bootstrap.md.
+Read docs/design/s3/bootstrap-intent.md and docs/milestones/D3c-bootstrap-intent.md.
+The user authorized the follow-up pinned plan, typed completion and readiness corrections.
 It reuses W1 leases and S3 capture with no quote only for source_bootstrap;
 ordinary requests and financial-result/S6 boundaries remain unchanged.
 Provider rights, S4b lifecycle changes and later financial/API/UI milestones retain

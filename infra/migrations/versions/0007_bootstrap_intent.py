@@ -36,7 +36,7 @@ BEGIN
  THEN RETURN FALSE; END IF;
  FOR k IN SELECT jsonb_array_elements_text(p->'resources') LOOP
   IF k IN ('company_facts/'||c,'submissions/'||c) THEN CONTINUE;
-  ELSIF k ~ ('^filing_document/'||c||'/[0-9]{10}-[0-9]{2}-[0-9]{6}/[A-Za-z0-9][A-Za-z0-9_.-]*$')
+  ELSIF k ~ ('^filing_document/'||c||'/[0-9]{10}-[0-9]{2}-[0-9]{6}/[A-Za-z0-9][A-Za-z0-9_.-]*\.(htm|html|xml|txt|xsd)$')
    AND position('..' IN k)=0 THEN f:=f+1;
   ELSIF k ~ ('^submissions_history/'||c||'/CIK'||c||'-submissions-[0-9]{3}\.json$') THEN h:=h+1;
   ELSE RETURN FALSE; END IF;

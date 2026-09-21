@@ -3,6 +3,11 @@
 Status: user-approved 2026-09-21; implemented in D3b. D031 follows the separate
 application runtime checkpoint D3a. See [implementation](identity-bootstrap.md).
 
+The initial D3b request options below were superseded by the explicitly authorized
+[2026-09-21 review correction](bootstrap-intent.md): new requests pin a bounded
+versioned acquisition plan and expose typed readiness. Preserve this proposal as
+the initial decision record, not the current enqueue signature.
+
 ## Observed blocker
 
 A fresh application database cannot start the currently accepted S3 path:

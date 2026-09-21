@@ -194,6 +194,21 @@ def registered(db: Database) -> dict[str, UUID]:
     return {key: rows[0][key] for key in ("source", "policy", "issuer", "security", "workspace")}
 
 
+def acquisition_result(db: Database, execution_id: UUID) -> dict[str, Any] | None:
+    row = db.execute(
+        "SELECT result_reference FROM analysis_stage_attempts WHERE execution_id=%s "
+        "AND stage_key='sec_bootstrap_manifest' AND state='completed' "
+        "ORDER BY attempt_no DESC LIMIT 1",
+        (execution_id,),
+    ).fetchone()
+    if row is None or row["result_reference"] is None:
+        return None
+    result: dict[str, Any] = json.loads(row["result_reference"])
+    if result.get("version") != "sec-bootstrap-result-v1":
+        raise ValueError("Unsupported persisted acquisition result")
+    return result
+
+
 def capture(
     db: Database, identities: dict[str, UUID], contact: str, redis_url: str, key: str
 ) -> dict[str, Any]:
@@ -224,13 +239,18 @@ def capture(
     )
     if lease is None:
         row = db.execute(
-            "SELECT terminal_outcome FROM analysis_request_state WHERE request_id=%s",
+            "SELECT terminal_outcome,current_execution_id FROM analysis_request_state "
+            "WHERE request_id=%s",
             (request.request_id,),
         ).fetchone()
         return {
             "request_id": str(request.request_id),
             "state": row["terminal_outcome"] if row else "unknown",
             "dispatched": False,
+            "execution_id": str(row["current_execution_id"]) if row else None,
+            "acquisition_result": acquisition_result(db, row["current_execution_id"])
+            if row and row["terminal_outcome"] is not None
+            else None,
             "note": "Request is terminal, leased, or waiting for its retry time",
         }
     descriptor = SourceDescriptor(
@@ -265,6 +285,7 @@ def capture(
                 "request_id": str(request.request_id),
                 "execution_id": str(lease.execution_id),
                 "result": asdict(result),
+                "acquisition_result": acquisition_result(db, lease.execution_id),
                 "captures": [asdict(r) for r in source.records],
                 "identity_review": IDENTITY_PATH,
                 "identity_review_sha256": hashlib.sha256(

@@ -795,3 +795,73 @@ def test_pinned_plan_checks_policy_before_runtime_fetch(db, identity, transport)
     with pytest.raises(ValueError, match="immutable request intent"):
         run_source_bootstrap(db, lease, source, archive, plan)
     assert not calls
+
+
+@pytest.mark.parametrize("filename", ["payload.exe", "report"])
+def test_sql_plan_rejects_filing_extensions_before_request_creation(db, identity, filename):
+    plan = bootstrap_plan(db, identity).as_json()
+    plan["resources"].append("filing_document/0001876042/0001876042-26-000062/" + filename)
+    with pytest.raises(psycopg.errors.InvalidParameterValue, match="invalid acquisition plan"):
+        db.execute(
+            "SELECT workflow_enqueue_bootstrap(%s,%s,%s,%s)",
+            (
+                identity[0].workspace_id,
+                identity[2],
+                "bad-extension",
+                Jsonb({"plan": plan, "max_attempts": 3}),
+            ),
+        )
+    assert db.execute("SELECT count(*) AS n FROM analysis_requests").fetchone()["n"] == 0
+
+
+def test_one_shot_terminal_repeat_returns_same_readiness_without_network(
+    db_admin, db, redis_url, tmp_path, monkeypatch
+):
+    from scripts import bootstrap_crcl
+
+    ids = bootstrap_crcl.register(db_admin)
+    calls = []
+
+    def handler(request):
+        calls.append(str(request.url))
+        body = (
+            {"cik": 1876042, "facts": {}}
+            if "/companyfacts/" in str(request.url)
+            else {
+                "cik": 1876042,
+                "filings": {
+                    "recent": {"accessionNumber": [], "filingDate": [], "form": []},
+                    "files": [],
+                },
+            }
+        )
+        return httpx.Response(200, stream=httpx.ByteStream(json.dumps(body).encode()))
+
+    real_client = httpx.Client
+    real_limiter = RedisRateLimiter.from_url
+    monkeypatch.setattr(
+        bootstrap_crcl.httpx,
+        "Client",
+        lambda **kwargs: real_client(transport=httpx.MockTransport(handler), **kwargs),
+    )
+    monkeypatch.setattr(
+        bootstrap_crcl.RedisRateLimiter,
+        "from_url",
+        lambda url: real_limiter(url, key="test:" + uuid4().hex),
+    )
+    real_archive = LocalArchive
+    monkeypatch.setattr(bootstrap_crcl, "LocalArchive", lambda _: real_archive(tmp_path))
+    initial = bootstrap_crcl.capture(
+        db, ids, "test@example.invalid", redis_url, "terminal-readiness"
+    )
+    assert len(calls) == 5
+    saved = initial["acquisition_result"]
+    assert saved["readiness"]["registration_review_ready"] is True
+    repeated = bootstrap_crcl.capture(
+        db, ids, "test@example.invalid", redis_url, "terminal-readiness"
+    )
+    assert repeated["acquisition_result"] == saved
+    assert repeated["dispatched"] is False and repeated["state"] == "completed"
+    assert repeated["execution_id"] == initial["execution_id"]
+    assert len(calls) == 5
+    assert db.execute("SELECT count(*) AS n FROM analysis_requests").fetchone()["n"] == 1

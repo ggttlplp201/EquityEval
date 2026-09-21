@@ -50,6 +50,8 @@ def test_invalid_plan_bounds(change):
         "filing_document/0001876042/0001876042-26-000062/../x.htm",
         "filing_document/0001876042/0001876042-26-000062/https://example.invalid/x",
         "submissions_history/0001876042/CIK0000320193-submissions-001.json",
+        "filing_document/0001876042/0001876042-26-000062/payload.exe",
+        "filing_document/0001876042/0001876042-26-000062/report",
         "price/0001876042",
         "macro/fed",
     ],

@@ -61,6 +61,8 @@ The existing `scripts.bootstrap_crcl` register/capture command remains the one-s
 application path. It uses the reviewed policy and issuer/security seed and now pins
 its dated 2025-01-01 through 2026-09-21 resource plan before enqueue. Its end date
 cannot drift across retries. It does not auto-register quotes or invent listing dates.
+Initial and terminal CLI calls return the same persisted `acquisition_result`,
+including readiness and manifest, without dispatching again for a terminal key.
 Old request keys cannot be reused for new pinned intent. A fresh explicit key is
 required for the new bounded capture. A terminal key never dispatches again.
 
