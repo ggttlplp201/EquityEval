@@ -29,7 +29,7 @@ above. This repository and its commits are the implementation source of truth.
 | D2 | Archived-source slice verified; 970 tests and 54 browser checks; live publication blocked | [Real-data pilot](D2-real-data-pilot.md) | D030; all seven identities/business coverage retained; S5/S6 gates remain |
 | D3a | Application storage verified; milestone/d3a-application-runtime | [Application runtime](D3a-application-runtime.md) | Separate PG/Redis; D031 identifies the source-backed identity bootstrap dependency |
 | D3b | Capture-only path verified; five genuine CRCL captures; 1,033 tests | [First-source bootstrap](D3b-source-bootstrap.md) | D031; milestone/d3b-crcl-capture; identity/publication review precedes S5/S6 |
-| D3c | Pinned intent/readiness checks passed; review/application verification pending | [Bootstrap intent](D3c-bootstrap-intent.md) | D031 correction; 1,060 tests, preserve historical evidence; no automatic quote registration |
+| D3c | Pinned intent/readiness and live capture verified; 1,065 tests | [Bootstrap intent](D3c-bootstrap-intent.md) | D031 correction; milestone/d3c-pinned-capture; registration review pending; no automatic quote |
 | S8a–d | Planned; F1 shares provenance, Ratios and Overview | P0 company pages and integration | After relevant engine/contracts |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,

@@ -72,3 +72,9 @@ first-capture dependency and proposed W1/S3 extension. Old S1 archives retain th
 actual metadata: unknown request/completion times cannot become invented values.
 After verified genuine bootstrap capture, follow the existing SEC archive/publication/PIT path, complete
 scope/precision/non-reliance checks, finish eligible S5, then review and build S6.
+
+
+The current [D3c checkpoint](../milestones/D3c-bootstrap-intent.md) is migration
+0007 with genuine pinned-plan capture and readiness. Historical D3b records were
+preserved. Use the milestone's completed request key to inspect its typed result
+without dispatch; a new key is new acquisition intent, not a status command.

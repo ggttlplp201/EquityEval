@@ -25,5 +25,6 @@ Python validation and direct SQL calls.
 Recheck: both resolved; no new actionable findings.
 
 Final unresolved findings: Standards 0; Spec 0. Neither axis has a remaining blocker.
-The corrective targeted suite passed 74 tests; the next mandatory hook verifies
-all suites before application migration. The application remains at 0006 during review.
+The corrective targeted suite passed 74 tests. The mandatory hook then passed
+1,065 full / 225 core / 110 golden tests plus lint/types before the application
+migrated to 0007. The application remained at 0006 throughout review.

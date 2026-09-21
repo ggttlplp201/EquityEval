@@ -65,3 +65,26 @@ amendment. Actual listing start is evidenced as 2025-06-05. Quote currency/valid
 explicit event/statement coverage and pinned normalization review remain before
 financial publication. Do not convert bootstrap completion into an S6 result.
 The D2 presentation still deliberately pins its legacy source artifact.
+
+
+## Current D031 correction checkpoint
+
+[D3c](../milestones/D3c-bootstrap-intent.md) supersedes the initial bootstrap
+request/completion contract. `c2b02cf` plus `bba701a` pin the exact versioned
+resource/policy/window plan, reject unlisted resources, and persist typed readiness
+in result_reference with NULL successful error fields. Both review axes are clear;
+1,065 full / 225 core / 110 golden tests and lint/types passed.
+
+Application migration 0007 preserved all historical row hashes. The one new bounded
+capture completed five HTTP200 resources; selected Submissions identity capture
+`0e93340d-a10c-40eb-b463-047c23be58bf` is ready for registration review, with no
+acquisition blockers. Repeating its key returned the identical typed result and
+made no dispatch. See the milestone's audit link and recovery tag
+`milestone/d3c-pinned-capture`.
+
+Current application counts supersede the earlier D3b counts above: 12 captures,
+12 attempts, 3 bootstrap requests, 1 source/policy/issuer/security, no quotes,
+watchlist memberships or normalization batches. No acquisition configuration is
+missing. Quote currency/validity review and an explicit registration decision
+remain; do not auto-register from capture readiness. The actual source/PIT/core
+and minimal S6 publication sequence remains open. No UI data artifact was changed.

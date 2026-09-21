@@ -1,9 +1,10 @@
 # D3c — Pinned bootstrap intent and acquisition readiness
 
-Status: implementation checks passed; review findings resolved; final correction checks and application verification pending.
+Status: reviewed implementation and bounded live application capture verified; registration review remains pending.
 Date: 2026-09-21. Branch: `codex/source-bootstrap`.
 Baseline: `59a8af7` / `milestone/d3b-crcl-capture`.
-Implementation: `c2b02cf`.
+Implementation: `c2b02cf`; reviewed corrections `bba701a`.
+Recovery: `milestone/d3c-bootstrap-intent`; verified capture: `milestone/d3c-pinned-capture`.
 
 ## Authorized scope and diff
 
@@ -25,7 +26,8 @@ legacy behavior. Nine files changed (964 additions, 105 deletions) at implementa
 ## Validation
 
 Created this milestone after the mandatory implementation checks passed:
-1,060 full tests, 225 core, 110 golden, lint and Python/TypeScript types.
+1,060 full tests initially. After review corrections, the mandatory hook passed
+1,065 full tests, 225 core, 110 golden, lint and Python/TypeScript types.
 Expanded bootstrap/migration/plan selection: 74 passing targeted tests after corrections.
 Coverage includes exact resource and policy boundaries, changed-plan idempotency,
 unplanned history, absent/invalid Submissions, success/error semantics, typed-result
@@ -46,9 +48,37 @@ A local row-hash baseline covers those identities, captures and workflow history
 The earlier report of empty 0005 application state predates the completed D3b work.
 No fixtures were imported and no credentials were printed.
 
-Apply only reviewed migration 0007 after review, compare the legacy row baseline,
-and run one bounded capture under a fresh explicit key. Record actual selected
-Submissions capture, readiness, completion fields and archive/policy links here.
+Application migration 0007 succeeded after the reviewed recovery checkpoint.
+Every preexisting identity/policy/capture/request/execution/stage/event row matches
+the saved hash baseline (new request column is NULL for legacy rows). The idempotent
+owner seed reused its existing records. One bounded live request then captured
+five HTTP200 responses under the exact plan, with no acquisition gaps.
+
+[Application audit](../research/crcl-pinned-bootstrap-2026-09-21.json):
+request `19340d60-6544-4ac5-8d69-241f166e28a1`, execution
+`d5e8458f-da16-4b83-a371-1572e8e625a7`. Selected identity capture:
+`0e93340d-a10c-40eb-b463-047c23be58bf` (SEC Submissions, status captured).
+`registration_review_ready=true`, blocking reasons empty. Every new completed
+stage and execution has NULL error_code/error_detail. The typed result_reference,
+input manifest and archived source manifest agree with the immutable request plan.
+Hashes/counts, actual timestamps, source-policy and attempt links were verified.
+
+Repeating `crcl-pinned-bootstrap-20260921` returned identical saved readiness,
+manifest and execution with `dispatched=false`. Counts remained 12 captures /
+12 attempts / 3 requests. There is still 1 source/policy/issuer/security and zero
+quote identifiers, watchlist memberships or normalization batches. The test
+fixtures remain in their separate PostgreSQL/Redis runtimes.
+
+Inspect the saved result without another SEC dispatch:
+
+```sh
+.venv/bin/python scripts/project_python.py -m scripts.bootstrap_crcl capture --key crcl-pinned-bootstrap-20260921
+```
+
+No external configuration is missing for this bounded acquisition. Remaining
+registration blockers are substantive review of quote currency/validity and an
+explicit quote registration decision; capture readiness grants neither. Financial
+event/statement coverage, publication and PIT/core eligibility remain separate.
 
 ## Remaining registration boundary
 
