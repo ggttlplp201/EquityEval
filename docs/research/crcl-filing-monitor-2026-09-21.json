@@ -1,0 +1,446 @@
+{
+  "application_counts": {
+    "normalization_batches": 0,
+    "sec_filing_monitor": 1,
+    "security_identifiers": 0,
+    "source_attempt_payloads": 1,
+    "source_bootstrap": 3,
+    "source_captures": 12,
+    "source_fetch_attempts": 13,
+    "watchlist_memberships": 0
+  },
+  "attempts": [
+    {
+      "attempt_id": "40045a2f-f1f3-49eb-bea1-72a906e69544",
+      "completed_capture_id": null,
+      "finished_at": "2026-09-21T20:36:50.335318Z",
+      "http_status": 200,
+      "payload": {
+        "archived_at": "2026-09-21T20:36:50.332622Z",
+        "bytes": 66909,
+        "sha256": "c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3"
+      },
+      "requested_at": "2026-09-21T20:36:50.211096Z",
+      "reused_capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "source_object_key": "submissions/0001876042",
+      "state": "content_unchanged",
+      "validator_capture_id": null
+    }
+  ],
+  "captures": [
+    {
+      "body_sha256": "c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3",
+      "byte_count": 66909,
+      "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "completed_at": "2026-09-21T17:07:35.957888Z",
+      "content_type": "application/json",
+      "fetched_at": "2026-09-21T17:07:35.957888Z",
+      "http_status": 200,
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/submissions/CIK0001876042.json",
+      "requested_at": "2026-09-21T17:07:35.880159Z",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "submissions/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    }
+  ],
+  "execution_id": "b70b17cc-e7d1-471e-8207-c6bb9f9934ec",
+  "execution_state": "completed",
+  "protected_history_sha256": {
+    "analysis_executions": [
+      "4efc3e7f8c2ee31313c6317ef0849ac4646c11021bbe1b6b75ff3221603d5059",
+      "8b67cd684f57e3b2b9b1ac343f0dc1ab82f0e8fad3b608d397d4f6dd15193e23",
+      "9b32cebd99d770efee1913d881f16e915186217119dbb4eed698eff0bc864a65"
+    ],
+    "analysis_requests": [
+      "7d72f92a9da89eb254ed2f1712ae34b5a2e6f7d17dcbfe2c330b42ac18863662",
+      "9bc42da8a59d1d3dca768322d3d99f7869d38c27ab20cae6e852d60f5ae76ebd",
+      "e0a629ba314be79dc161de09a5e1e91e5fba486b07dbceb474b23b69c709da30"
+    ],
+    "analysis_stage_attempts": [
+      "04c861d2a865dab02329897fa913058e270837ef9bc47c4e39eb430365af7c50",
+      "1ab9b163ce5ecb5893bb92b1ef943c7253e9cbbcccc9f4a071fa5d100a9d5b6b",
+      "2c517c2bed2c99cd5b497296cfda4f04f578fdba17d03fee642e8230f47fa84f",
+      "530cc29bb62e8aab07f3437e4a901b26728d7949a8a5cedefa1b48eab94b0d17",
+      "560214b28e6b53dfde7ca4a709aabca1db93342050653641ecad041f8147e928",
+      "65d991bad9102ce84272d0172fb3568bc38ed66a77e62d67222a5496d7bcc8fd",
+      "6dd50679bf0352d72f4a8d8556fdbc1e2e28750b7046d534e39cc1f2cbf2933f",
+      "88da23879283754a213e57bdd3b4b085c9662c14c52888f327ce166a23ea28c8",
+      "8aae9c6f8b2466243822da720399e65c32cee875bce7b99d7315cf85b3000be5",
+      "9d8ba7bc3e74d60ebfee870fcc9aff4592570c8289867e683c1dc0667099c3dd",
+      "a57f0f1d65aa7ed1c4bd98d2f94e171635cadbecadc8004844890d0a8183b46e",
+      "ab8178060c6de9424be183e4fef3b74e7c4389877469dd9a83a8e164ad84bfe5",
+      "c3133e402bd3107ec20d0f481ea7cffc8e5af80d4bf982bef2e2b46ce45751d8",
+      "c8bbc1de84f7e347fe801fb6739010e5efa36eb5beddb07692a142a81cd66574",
+      "d078aaf505fead68f647d35d877199d9f94dbf8395ad4a77ca1270f0b4af8bf9",
+      "de3e60bca6016fa8347f97bb3e2ec1e2f9f804acf3e2a6b0c4741c6c106b8247",
+      "ed3f38a749904c99785d75334dccfb69fc7cc03b7a44e711f0f10e66cf972c84",
+      "f5f51c66580867d2bcc7704647b4dc89c7940de03c211f15bb7f9a257976592d",
+      "f93139dc8c75ec2d12cb0959a44d2eedd3da9724ffb98ed37eeeab21a38b430f"
+    ],
+    "capture_policy_links": [
+      "241f3aa2c4322528ce2783b6449717253a262a73713e11808d6455ec8398b3b4",
+      "25f5b0338a19942d6634edcddeeddd3e9a466328e20a10adb482eaa12554f6d3",
+      "27f067deb07a0117f882a852657311c1cb5404683037e09b30ec4ec92f155de3",
+      "3338479d4ba6d42abd31e7e99abe4eba58fb630374b1395feab345b8e87f0ab8",
+      "49157de50d3384b684a639453629b68b4bfdebdb38648ae7abc035b3a08bd88f",
+      "55eccfe104cf30e70e10e514c809933a5a7de5a454775c9741365528c091ba8f",
+      "79ab73d60dbefebad4605b6f40cd0018d24841ec95fe5db7820a47f74852132f",
+      "b292c1239f700754739e9b1114c19ff892bbd28433dc92a79c99e00648783ec8",
+      "b671c329852ec544f0ffff8d9b7c6348544386818c8e01f5965fd14a61a4e89a",
+      "d103cab20fa1f3e4f090c6bd16d37f821835e18a5a7a5d5e07084ef709bfb14e",
+      "e89f05fc3b0ed346e79fb54bfed4669db9e9af1634d1971d6ed2ede283d17fbf",
+      "ea764e3e76f1c19b8e5fb533b54018a55cce91a48ce97910a0542d73e6a06432"
+    ],
+    "execution_events": [
+      "0270ceb45ce12e4ec499fb10f7c348ee823551eb8118d2e62dea4963b07b29b0",
+      "0912690f39dd7d3f13a913ec704e485510d1ff23fe4e696778b2dca8cf58ae76",
+      "0e3678926c35c0c425d3f1d658a5e75c93572df3e8e3f538a57a8b46e08565a5",
+      "148f1e8eb99aed6b61a4f442fa227b33eaf44a75ffb14cb3fb1ad43a98afa02d",
+      "1adbc6a2bfdc103efcfc23a01cf3fe1254fd44db90b7b29682889950e64aa871",
+      "1e1d446e805c68e601e35a2d3bf5e7b2c12dab2ae13b5e511fdd2c44d25a2792",
+      "1ef12e0818727b29f246d52351ba4bf251538f5821bb4f62a903c313cf1994cd",
+      "277ae9a6978f53c0352e29bbfac69efa8372fbb68340aecf6993a34b8f679d5e",
+      "2b18942418ab7f8aa3412a584da5e52cf53a3c1419914ae3d1d5476512b62054",
+      "3e078ae27b57591795691e8c3fa53e74b5ca598cc322d0dcf1f62ed7615c52d6",
+      "3e435487d67b67cdf0f250638411ddf751cd13dd7fe935817a20b1085e87a281",
+      "40f831d4adcb0e7b2a6f567720f3c6da96dda93821815737cc858eaa0ea7239f",
+      "48d1334927046b90140ab38bce812a577ea56cb7d1fe5228ce44c82df50f4014",
+      "4f384907e83085ccba39a9817278186f35ff283ada1fea3a67ce04b025c89bb2",
+      "578e0c65f8ddfb2b48e1cdef485b67f6a3348b033cd8daf7dce88dfec10bcb83",
+      "5abfc427d8c83c9cff824325d6ffbc0b8f635b2e70cca3d8a281ccf3b6850283",
+      "5c10479171d349bd31332401e66c6adb42ba6ef8e6bd0fb02f1af5137d4d4b96",
+      "608f365c796859af8eccdfaa45e74beafa3d5d1bf26cbdfec459dc07f9783e08",
+      "63520b6bc75b0f7303cc72c46895598bf3deca5ab8f8733d6b904f875c20388f",
+      "63b6fde2154e0647afd1a1590ce39128c514d00fe2a310e85d7125ed2cd583a5",
+      "65edad01e57a122c4742f07473cc6d8ef1b8f0ffa2ca77c401bebf57c7ced8f3",
+      "66916ac5a1fecadc0638483d7855c318ab0be617cde5e5490fed807eabb3f1af",
+      "6c2214c910bf9359038be34cdaf12834184e2641ee87a0f61d5e54fa76c84dda",
+      "6f6aacd4e2792874eeb2c2db68dd64d80e3301d8023f1862fcdb1e3ce2cc6399",
+      "6f80a6d8afdc6816d77dd6c4c71474cd00081264df200ab518d595600975aafa",
+      "7313b5500db418e1e2b79b93b902b21d4666920c34e8b50e4887a1ba660a2d55",
+      "73d62feb082d2baac2a301eedd8c430874db0b3d52e0ecbe5112a49ccb6c2635",
+      "73dd131e2190a9e9e87f56f66064fd513bf888d9fce9feb5d8d925170558ec5b",
+      "7655f11e999ed26ebb34b9ed2cb015177fdc0a232ecb3b42bb93bce49e321abf",
+      "782aba42cdcbe76ac58f02c7072dd0692452f5fd5fe08b49ab978a95d437fee7",
+      "7a4cc211d7b6a108329f55a7003d74540582027df97d66a2bf96f5f77952cc32",
+      "7e7779157a0a934e0d1e80c69e38783f41fbdefe3bebcd17770027f99f6f5511",
+      "841a120a1c0de8a473682520ee440b7792ce455ef9ac7073dd3fa415762c869a",
+      "850678c341e82d0a5f3470f49bcf5f9983a3bd74c37e75f6b7be4ad44a67b5e5",
+      "860ecae2c6551e021e2c65a206455ee266f978f2bda1508073e1364cb46b64cc",
+      "867e3b4e61bb715b6b5493b29d37216c3e0f8c7e98fa4b984c45383fbaa27c66",
+      "8f99f2351a78ef17df198089a573a289d5929504115da6ad908dcef6870c9dae",
+      "92e42515cc43d3775ec19c0d32fd39f1362c1685c55bd99d2e4de15d04d8a984",
+      "94bb233da77233b26ceb28709fafbd394a5f54f53496260eb9c332fd64c81ac3",
+      "96ba0a8cf1496aeb046419ee277eca60664a985e4533dbebbb5117d2bcc96b6a",
+      "9a0fd539cce03ddc577b4cc3823e0044b2d774fc45ae813ef9cbd14b2dfdb743",
+      "9b71bff2bcfbcfa13f167cc37e8aa73a67e3dc544bcd113ce37873e5ad200c14",
+      "ac820c7cd99e4db708d93066e59a4dd424e1b735b4e87b05a4cb5f3cad7e6c86",
+      "af684b4b19526813a76ec48f00910c0f8ee6de2eee3c509f179e77736067a5e8",
+      "b0c7f0604e559189473730832eb0f30d83e9f8b1cfc3c98088a333963accb992",
+      "b302f554cea44ed4b0633871a6d5995342ad334816a7d211618cdbc420ec0a61",
+      "b35ed6612bd064cf2dca63f055637d4676fd0c468ba33bb2449a14492a7014e9",
+      "b9bf271b985bb25e661d6d5f9853cb2d151734599a1d02e7c8ef2ee9f235957f",
+      "bb40e1b9f052ae25240c9b0c17f3b046e922129a5fd706973fba6eb34ace3ccd",
+      "bc26f152c750a84e38c0cfc912d6fed296615bbc5086bb89524c5a273232db49",
+      "bf11cdffe3360e7539a09a8e9f051b33ec9d2276d5c391a6a82cfadf44572ce8",
+      "cb9c88b70fc7ed1e7d416add6c42759ddacfa3f05e3c3cad8a7f01dc5c5c26b5",
+      "cdf0433adfe5f43cd1e62075a41cf93757d741b4470f20027f9e379da9fd08d3",
+      "ce6d001ffb47d29d22cc6016c832637d466e085e3792c73908c0449b154ecc45",
+      "d36f1090cc0f424e0cc97e28bc7f2b18b8b12000c00c10f0a3a379f7294c0b49",
+      "d437198cd572e93bbb96d7c8d89c190cc759d4a5eea47b3ebdd9bff789fe594a",
+      "e2763995671f370aa49daa0252543ee36bbbf1a6eeb375268df5878ae1fe4a9b",
+      "ed8ba5fc1ecdc39fadcdd1b43063c5f6050db1eb03d2ac739c9a6d55dc7b66ae",
+      "f2478561e3d552e4fb62af67da3d65a0b621f2f30a5504d03dfbd4032706b9bb",
+      "f2754c2c2e505e710d22a2c0607fbc8420d5bcaf97a7a9182dcaed3e69ab05ea",
+      "f5e2f6360d51fb4f46c2c4fb43422666325c2982d4942a956f872f7edc6014fe",
+      "f96b7c0384d2aaf338f7d86aaf442b8434b16e3b93c0536e5ce1ed3840d82584",
+      "fb1a9b89476907382a721a820f111a4f2849bcf0e592a3079d7368fb09502eb8",
+      "fd98a112c37b1e369132af8de0ede1ff49f4d3a9bf47668243b2ff3295ef2dc6"
+    ],
+    "issuers": [
+      "56c078a4efcf39ffaaa7fdff4a963edb0b7e0cad925db4c2f4aa32026912cd1e"
+    ],
+    "normalization_batches": [],
+    "securities": [
+      "759bfbf8a86071c3c43f9ad90f5f628b3a8266945e55e993d768bf92cabd388e"
+    ],
+    "security_identifier_validity": [],
+    "security_identifiers": [],
+    "source_captures": [
+      "0b125296f2646e953ff80d1f3c06b908d247a3c3127345baabe58e3ea4d70b7f",
+      "0bc15c52f8eb10c4f105b0512aa20e83126c044c666d8ab20987488eb17c15ac",
+      "0ce1efdfcc4483bbcdd401d4a6ef7e6ce4d101dcf3d5992e8d86c172450ded35",
+      "2d9f316bf2f074dafd110189282c3a33ecccfefa9ec2b121248fa3ad04af795d",
+      "3be0a7a501bc2c4f62dfd358c9531db2ac27dc5f0350e1ba951636b5055f3e2b",
+      "493d038ca3c7fac95fd76e5c56fb301d91960d354a14fa4082f7981e769765f6",
+      "769dc49703eb012059b4fb9f0eb8ed48aca9e62f497b70f785dd1da1bbebf85d",
+      "842862eff5b4ad04e5235c9f616420eda939823716119cf684222e622e2d1398",
+      "8744f8c852b3645a69a8bcb2119a2550272af9f8d8d02aab135c323125a5df50",
+      "bd256b4b2e568018260817275d39e6b027808d914635812ec51112033da30503",
+      "d6024b8ae2c4392dd3c46bdec35e765a6677790084d6f9d46892750a2b166832",
+      "e38639552546e153b6ef07daac9d3607bdca250e511693ec97d3af3a013015ec"
+    ],
+    "source_fetch_attempts": [
+      "086b50cd45d8da730e25622773ae6415358846352cca443f65c98482beb86832",
+      "3c1ab69534c92449d4f709fe28d71d9c0b3e3dcbcaf800d09bf9c5c56444f5aa",
+      "4eedd8fef398deacd690fbdc5d4376035eb9b58799cd65e26b0fcd961e2c3c08",
+      "68061e73927c31c54ae3a6d7f102a59e1e5ba446ea2985e4fc0bea8f152846dd",
+      "6bf7fef60777abf41c77a92b5eb1ac706667c1de5ee0b3d95e99f3536905f85e",
+      "7773993da6a23e59de605f3395e6ec8dd05595326175df72b1e855714ed5e688",
+      "9840e84d6bbc7b666bce1763914afe02afa02ba0c27bd1eccb6963d21476ced3",
+      "adb6698a7ba267158dc64b7d262716e8e63bccae65ee70348044cf9f24b9c4c4",
+      "becc8743c492d88406b0a2b0340aa110ddc1aa672db8fb5bb9309c988ac13d85",
+      "c93ba79148e615247bcdc71ac66c1e49fc4f652f869514774d16027854978282",
+      "ddda49d12e71fec202b8e39eef8c244bdefdde177d2e5c885a68a715345d3980",
+      "e0d496897f9443d503c5b20d351878ab8fd546c78eb405387fbfa3297a754cd3"
+    ],
+    "source_policy_revisions": [
+      "91c446d0bfe65e3a89679d1234d67b21a6b043b5d1fc201daeecbc9ef95217a9"
+    ],
+    "sources": [
+      "91c3379e08e8250d011568bb3055064b4d83e19dcfe4d3f3303a8bdc97c11669"
+    ],
+    "watchlist_memberships": []
+  },
+  "protected_history_verified": true,
+  "request_id": "be853bd4-9847-4fc0-beaf-d33de1e8ee86",
+  "request_parameters_hash": "29c179eacf915a5b2164c480cf43099411e508ca9303451688ff0bf245dc75d4",
+  "result": {
+    "baseline_capture_ids": [
+      "0e93340d-a10c-40eb-b463-047c23be58bf"
+    ],
+    "baseline_eligible": true,
+    "checked_at": "2026-09-21T20:36:50.335318Z",
+    "comparison": {
+      "amendment_meaning": "Separate filing edition; no restatement or non-reliance inference",
+      "amendments": [],
+      "baseline_eligible": true,
+      "baseline_filings": [
+        {
+          "acceptance_at": "2025-08-12T13:21:01.000000Z",
+          "acceptance_raw": "2025-08-12T13:21:01.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001628280-25-039781",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2025-08-12",
+          "form": "10-Q",
+          "primary_document": "crcl-20250630.htm",
+          "report_date": "2025-06-30",
+          "source_locator": "/filings/recent/325"
+        },
+        {
+          "acceptance_at": "2025-11-12T14:21:02.000000Z",
+          "acceptance_raw": "2025-11-12T14:21:02.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-25-000047",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2025-11-12",
+          "form": "10-Q",
+          "primary_document": "crcl-20250930.htm",
+          "report_date": "2025-09-30",
+          "source_locator": "/filings/recent/279"
+        },
+        {
+          "acceptance_at": "2026-03-09T12:36:51.000000Z",
+          "acceptance_raw": "2026-03-09T12:36:51.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-26-000062",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2026-03-09",
+          "form": "10-K",
+          "primary_document": "crcl-20251231.htm",
+          "report_date": "2025-12-31",
+          "source_locator": "/filings/recent/177"
+        },
+        {
+          "acceptance_at": "2026-05-11T13:16:55.000000Z",
+          "acceptance_raw": "2026-05-11T13:16:55.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-26-000150",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2026-05-11",
+          "form": "10-Q",
+          "primary_document": "crcl-20260331.htm",
+          "report_date": "2026-03-31",
+          "source_locator": "/filings/recent/118"
+        },
+        {
+          "acceptance_at": "2026-07-13T20:40:02.000000Z",
+          "acceptance_raw": "2026-07-13T20:40:02.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-26-000228",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2026-07-13",
+          "form": "10-K/A",
+          "primary_document": "crcl-20251231.htm",
+          "report_date": "2025-12-31",
+          "source_locator": "/filings/recent/48"
+        },
+        {
+          "acceptance_at": "2026-08-05T13:02:57.000000Z",
+          "acceptance_raw": "2026-08-05T13:02:57.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-26-000248",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2026-08-05",
+          "form": "10-Q",
+          "primary_document": "crcl-20260630.htm",
+          "report_date": "2026-06-30",
+          "source_locator": "/filings/recent/36"
+        }
+      ],
+      "current_filings": [
+        {
+          "acceptance_at": "2025-08-12T13:21:01.000000Z",
+          "acceptance_raw": "2025-08-12T13:21:01.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001628280-25-039781",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2025-08-12",
+          "form": "10-Q",
+          "primary_document": "crcl-20250630.htm",
+          "report_date": "2025-06-30",
+          "source_locator": "/filings/recent/325"
+        },
+        {
+          "acceptance_at": "2025-11-12T14:21:02.000000Z",
+          "acceptance_raw": "2025-11-12T14:21:02.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-25-000047",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2025-11-12",
+          "form": "10-Q",
+          "primary_document": "crcl-20250930.htm",
+          "report_date": "2025-09-30",
+          "source_locator": "/filings/recent/279"
+        },
+        {
+          "acceptance_at": "2026-03-09T12:36:51.000000Z",
+          "acceptance_raw": "2026-03-09T12:36:51.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-26-000062",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2026-03-09",
+          "form": "10-K",
+          "primary_document": "crcl-20251231.htm",
+          "report_date": "2025-12-31",
+          "source_locator": "/filings/recent/177"
+        },
+        {
+          "acceptance_at": "2026-05-11T13:16:55.000000Z",
+          "acceptance_raw": "2026-05-11T13:16:55.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-26-000150",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2026-05-11",
+          "form": "10-Q",
+          "primary_document": "crcl-20260331.htm",
+          "report_date": "2026-03-31",
+          "source_locator": "/filings/recent/118"
+        },
+        {
+          "acceptance_at": "2026-07-13T20:40:02.000000Z",
+          "acceptance_raw": "2026-07-13T20:40:02.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-26-000228",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2026-07-13",
+          "form": "10-K/A",
+          "primary_document": "crcl-20251231.htm",
+          "report_date": "2025-12-31",
+          "source_locator": "/filings/recent/48"
+        },
+        {
+          "acceptance_at": "2026-08-05T13:02:57.000000Z",
+          "acceptance_raw": "2026-08-05T13:02:57.000Z",
+          "acceptance_time_basis": "verified_timezone",
+          "accession": "0001876042-26-000248",
+          "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+          "filed_date": "2026-08-05",
+          "form": "10-Q",
+          "primary_document": "crcl-20260630.htm",
+          "report_date": "2026-06-30",
+          "source_locator": "/filings/recent/36"
+        }
+      ],
+      "excluded_after_cutoff": {
+        "baseline": [],
+        "current": []
+      },
+      "flags": [],
+      "metadata_changes": [],
+      "missing_accessions": [],
+      "new_filings": [],
+      "outcome": "no_change"
+    },
+    "coverage": {
+      "baseline": "complete",
+      "current": "complete"
+    },
+    "current_capture_ids": [
+      "0e93340d-a10c-40eb-b463-047c23be58bf"
+    ],
+    "downstream": {
+      "blockers": [
+        "handoff_not_implemented",
+        "financial_coverage_not_reviewed",
+        "quote_registration_missing"
+      ],
+      "dispatched": false
+    },
+    "history": {
+      "baseline": {
+        "excluded_nonoverlap": [],
+        "required": []
+      },
+      "current": {
+        "excluded_nonoverlap": [],
+        "required": []
+      }
+    },
+    "known_limits": "Advertised Submissions documents within the pinned filed window; acceptance metadata is not proof of historical public availability. No event or accounting restatement review.",
+    "manifest": {
+      "body_sha256": "9e48e428b7bdd4f60e38326a21f697312aa34bef76339a29c3978d3a3dbd8c04",
+      "byte_count": 6592
+    },
+    "manifest_id": "66de6d3c-dd3a-4640-bfa1-35f086e6068e",
+    "outcome": "no_change",
+    "plan": {
+      "baseline": {
+        "capture_id": "0e93340d-a10c-40eb-b463-047c23be58bf",
+        "cutoff": "2026-09-21T17:07:35.880159Z",
+        "execution_id": "d5e8458f-da16-4b83-a371-1572e8e625a7",
+        "kind": "initial_seed",
+        "manifest_id": null,
+        "manifest_sha256": "135f9e9f468836ecceadc1317efaaa3f9f91190795f23b96f674fa60161910ad",
+        "plan_sha256": "ef20189a84b51fcde081ee216b3b97d6e058e01d3ea6dbd7767c5657271389b0",
+        "request_id": "19340d60-6544-4ac5-8d69-241f166e28a1",
+        "seed_approval_id": "4c7b95f2-ae6e-56c5-ac94-89b4999cf856",
+        "version": "sec-filing-monitor-v1"
+      },
+      "cik": "0001876042",
+      "cutoff": "2026-09-21T20:32:51.000000Z",
+      "forms": [
+        "10-K",
+        "10-K/A",
+        "10-Q",
+        "10-Q/A"
+      ],
+      "inventory_end": "2026-09-21",
+      "inventory_start": "2025-01-01",
+      "issuer_id": "00d0d7d7-5864-418b-a973-ba6447a2ebe3",
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "resources": [
+        "submissions/0001876042"
+      ],
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "version": "sec-filing-monitor-v1"
+    },
+    "version": "sec-filing-monitor-result-v1"
+  },
+  "scheduler": "not_configured",
+  "source_policy": "Existing approved SEC policy; no new provider",
+  "version": "crcl-filing-monitor-audit-v1"
+}

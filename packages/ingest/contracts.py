@@ -187,8 +187,13 @@ class FetchRequest:
     replay_records: tuple[RawRecord, ...] = ()
     requested_periods: tuple[RequestedPeriod, ...] = ()
     retrieval_cutoff: datetime | None = None
+    monitor_payload: bool = False
 
     def __post_init__(self) -> None:
+        if type(self.monitor_payload) is not bool or (
+            self.monitor_payload and self.cache_mode not in {"refresh", "conditional"}
+        ):
+            raise ValueError("Monitor payload retention requires a live checked request")
         if self.cache_mode not in {"refresh", "reuse", "conditional", "replay"}:
             raise ValueError("Unknown source cache mode")
         if self.cache_mode != "replay" and (self.lease is None or self.stage_id is None):

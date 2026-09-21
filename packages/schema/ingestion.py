@@ -18,6 +18,7 @@ from psycopg.types.json import Jsonb
 AttemptOutcome = Literal[
     "complete",
     "not_modified",
+    "content_unchanged",
     "redirected",
     "http_error",
     "transport_error",
@@ -184,3 +185,41 @@ def finalize_attempt(
 
 def recover_interrupted_attempt(db: Database, attempt_id: UUID) -> bool:
     return bool(_invoke(db, "SELECT ingestion_recover(%s) AS result", (attempt_id,)))
+
+
+@dataclass(frozen=True)
+class MonitorPayload:
+    fetched_at: datetime
+    body_sha256: str
+    byte_count: int
+    blob_key: str
+
+
+def record_monitor_payload(
+    db: Database, lease: Lease, attempt_id: UUID, payload: MonitorPayload
+) -> None:
+    _invoke(
+        db,
+        "SELECT ingestion_monitor_payload(%s,%s,%s) AS result",
+        (
+            Jsonb(lease.as_json()),
+            attempt_id,
+            Jsonb(_json(asdict(payload))),
+        ),
+    )
+
+
+def finalize_monitor_unchanged(
+    db: Database, lease: Lease, attempt_id: UUID, at: datetime, capture_id: UUID
+) -> None:
+    _aware(at)
+    _invoke(
+        db,
+        "SELECT ingestion_monitor_unchanged(%s,%s,%s,%s) AS result",
+        (
+            Jsonb(lease.as_json()),
+            attempt_id,
+            at,
+            capture_id,
+        ),
+    )

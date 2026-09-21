@@ -16,3 +16,5 @@ in the milestone index.
 A finished release requires the manual, watchlist workflow and configured alert
 channels to pass their acceptance checks. Capturing a feature here is not a claim
 that its UI, analysis engine or delivery service is implemented.
+
+The [operational roadmap](../roadmap.md) links these features to SEC monitoring, quote/provider/lifecycle prerequisites, real-data publication and production watchlist acceptance. It is the canonical cross-feature dependency list.

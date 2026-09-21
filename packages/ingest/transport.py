@@ -58,6 +58,9 @@ class AttemptStore(Protocol):
         status: int,
         headers: ingestion.ResponseHeaders,
     ) -> None: ...
+    def payload(
+        self, request: FetchRequest, attempt_id: UUID, payload: ingestion.MonitorPayload
+    ) -> None: ...
     def finish(
         self,
         request: FetchRequest,
@@ -186,6 +189,11 @@ class DatabaseAttemptStore:
             headers,
         )
 
+    def payload(
+        self, request: FetchRequest, attempt_id: UUID, payload: ingestion.MonitorPayload
+    ) -> None:
+        ingestion.record_monitor_payload(self.database, self._lease(request), attempt_id, payload)
+
     def finish(
         self,
         request: FetchRequest,
@@ -197,6 +205,13 @@ class DatabaseAttemptStore:
         reused: UUID | None = None,
         failure: str | None = None,
     ) -> None:
+        if outcome == "content_unchanged":
+            if reused is None or capture is not None:
+                raise ValueError("Unchanged monitor body needs only a verified reused capture")
+            ingestion.finalize_monitor_unchanged(
+                self.database, self._lease(request), attempt_id, at, reused
+            )
+            return
         metadata = (
             None
             if capture is None
@@ -537,6 +552,39 @@ class SecTransport:
                         )
                         check_deadline()
                         finished = self.now()
+                        if request.monitor_payload and current_status == 200:
+                            # Every 200 entity is retained even when its logical capture is reused.
+                            self.archive.read_blob(body.blob_key, body.body_sha256, body.byte_count)
+                            self.attempts.payload(
+                                request,
+                                current_id,
+                                ingestion.MonitorPayload(
+                                    finished,
+                                    body.body_sha256,
+                                    body.byte_count,
+                                    body.blob_key,
+                                ),
+                            )
+                            if cached is not None and (body.body_sha256, body.byte_count) == (
+                                cached.body_sha256,
+                                cached.byte_count,
+                            ):
+                                self._verify(cached, request)
+                                self.attempts.finish(
+                                    request,
+                                    current_id,
+                                    "content_unchanged",
+                                    self.now(),
+                                    reused=cached.capture_id,
+                                )
+                                outcomes.append(
+                                    AttemptOutcome(current_id, "content_unchanged", 200)
+                                )
+                                return FetchResult(
+                                    records=tuple(records) + (cached,),
+                                    attempts=tuple(outcomes),
+                                    reused_capture_ids=(cached.capture_id,),
+                                )
                         capture = RawRecord(
                             capture_id,
                             self.descriptor.source_id,

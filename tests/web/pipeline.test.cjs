@@ -6,7 +6,7 @@ const path = require("node:path");
 const { chromium } = require(process.env.EQUITY_PLAYWRIGHT_MODULE || "playwright");
 const base = process.env.EQUITY_PREVIEW_URL || "http://127.0.0.1:3101";
 assert.ok(["127.0.0.1", "localhost"].includes(new URL(base).hostname), "Only local previews are allowed");
-const output = path.resolve(__dirname, "../../var/d3f-browser");
+const output = path.resolve(__dirname, "../../var/d4a-browser");
 const route = "/development/pilot/pipeline";
 
 test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, async (t) => {
@@ -89,6 +89,34 @@ test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, 
       }
       await page.screenshot({ path: path.join(output, "source-search.png"), fullPage: true });
     });
+    await t.test("saved filing monitor distinguishes new checks from reused source evidence", async () => {
+      const monitor = page.getByRole("region", { name: "SEC filing monitor" });
+      assert.equal(await monitor.getAttribute("data-monitor-kind"), "real-filing-monitor-snapshot");
+      assert.match(await monitor.innerText(), /recurring schedule not configured/);
+      assert.match(await monitor.innerText(), /Acceptance cutoff/);
+      assert.match(await monitor.innerText(), /Downstream analysis · not dispatched/);
+      assert.equal(await monitor.locator("[data-monitor-outcome]").getAttribute("data-monitor-outcome"), "no_change");
+      const filings = monitor.getByText("Inspect 6 scoped filings at the cutoff", { exact: true });
+      await filings.focus(); await page.keyboard.press("Enter");
+      assert.match(await monitor.innerText(), /previously observed filings/);
+      const first = monitor.locator("details[open] details").first();
+      await first.locator("summary").click();
+      assert.match(await first.innerText(), /Source locator/);
+      assert.match(await first.innerText(), /SEC acceptance/);
+      const evidence = monitor.getByText("Baseline, request and retained response evidence", { exact: true });
+      await evidence.click();
+      assert.match(await monitor.innerText(), /Reviewed D3c acquisition/);
+      assert.match(await monitor.innerText(), /Every complete HTTP 200 body is retained/);
+      await monitor.getByText("Current saved totals after this filing check", { exact: true }).click();
+      assert.equal(await monitor.locator('[data-monitor-count="sec_filing_monitor"] dd').innerText(), "1");
+      assert.equal(await monitor.locator('[data-monitor-count="source_bootstrap"] dd').innerText(), "3");
+      for (const width of [320, 390, 768, 1440]) {
+        await page.setViewportSize({ width, height: 1000 });
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Monitor overflow at ${width}`);
+      }
+      await page.evaluate(() => document.activeElement?.blur());
+      await monitor.screenshot({ path: path.join(output, "monitor.png") });
+    });
     await t.test("every stage can be selected with the keyboard and announces its status", async () => {
       for (const id of ["plan", "captures", "identity", "registration", "normalization", "analysis"]) {
         const button = page.locator(`[data-stage="${id}"]`);
@@ -108,7 +136,7 @@ test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, 
     await t.test("capture disclosures retain exact source hashes, UTC dates and safe source links", async () => {
       await select("captures");
       assert.equal(await page.locator("#stage-panel details").count(), 5);
-      assert.match(await page.locator("#stage-panel").innerText(), /five captures.*12 cumulative/s);
+      assert.match(await page.locator("#stage-panel").innerText(), /five captures.*12 application captures at the D3f checkpoint/s);
       for (const details of await page.locator("#stage-panel details").all()) {
         await details.locator("summary").focus();
         await page.keyboard.press("Enter");

@@ -417,7 +417,7 @@ def test_populated_upgrade_preserves_ordinary_requests(db_admin, db, test_databa
     command.upgrade(config, "head")
     assert db.execute(
         "SELECT * FROM analysis_requests WHERE id=%s", (request.request_id,)
-    ).fetchone() == {**before, "bootstrap_plan": None}
+    ).fetchone() == {**before, "bootstrap_plan": None, "filing_monitor_plan": None}
     assert claim_next(db, worker_id="ordinary").request_id == request.request_id
 
 
@@ -744,7 +744,7 @@ def test_populated_0006_upgrade_keeps_legacy_request_without_invented_plan(
     after = db.execute(
         "SELECT * FROM analysis_requests WHERE id=%s", (old["request_id"],)
     ).fetchone()
-    assert after == {**before, "bootstrap_plan": None}
+    assert after == {**before, "bootstrap_plan": None, "filing_monitor_plan": None}
     assert (
         db.execute(
             "SELECT error_code FROM analysis_executions WHERE id=%s", (lease.execution_id,)

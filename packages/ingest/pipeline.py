@@ -209,6 +209,8 @@ def _run_source_stages(
     ).fetchone()
     if row is None or row["issuer_id"] != plan.issuer_id or row["cik"] != plan.cik:
         raise ValueError("Source plan does not match the claimed request's issuer")
+    if row["trigger"] not in {"source_bootstrap", "watchlist_add", "manual_refresh"}:
+        raise ValueError("Source worker cannot consume filing-monitor requests")
     if (row["trigger"] == "source_bootstrap") != bootstrap:
         raise ValueError("Source worker does not match request trigger")
     if bootstrap and (

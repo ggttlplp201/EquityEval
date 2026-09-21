@@ -45,6 +45,8 @@ visible without rewriting the source plan. Status **open** means not approved.
 
 | D034 | Next-step search completed with blocked evidence — 2026-09-21 | [D3f](milestones/D3f-quote-currency-search.md) records bounded official issuer/exchange research. No qualifying retained quotation-currency evidence was obtained, so no quote registration or new source activation occurs. The existing preview gains separately labelled, hash-pinned research notes and an optional read-only application comparison. No ordinary analysis, watchlist or financial publication is authorized by this result. | Explicit currency/identity/effective-date evidence plus reviewed acquisition rights/path before conditional registration |
 
+| D035 | Approved under user AFK delegation — 2026-09-21 | [D4a monitor contract](design/s3/filing-monitor-proposal.md), including coordinator refinements: reviewed seed/prior-result lineage, every-200 attempt archive, overlap-aware history coverage, typed complete/incomplete/error results, W1 fencing and no downstream dispatch. Additive migration and bounded CRCL check authorized. | D4a bounded check verified; 0009 enforces one typed result per execution; scheduling and financial handoff remain separate |
+
 Schema shape, financial vocabulary, API contract and changes to missing-data
 representation require a concrete proposal and user review per the supplied
 AGENTS.md. Accepted decisions above apply within their recorded scope; open or

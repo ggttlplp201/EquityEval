@@ -12,6 +12,7 @@ from typing import Any, Literal
 from uuid import UUID
 
 from equity_schema.bootstrap import BootstrapPlan
+from equity_schema.filing_monitor import FilingMonitorPlan
 from psycopg import Connection
 from psycopg.errors import ObjectNotInPrerequisiteState
 from psycopg.types.json import Jsonb
@@ -414,3 +415,57 @@ def retry_execution(
 
 def cancel_request(db: Database, *, request_id: UUID) -> bool:
     return bool(_invoke(db, "SELECT workflow_cancel(%s) AS result", (request_id,)))
+
+
+def enqueue_filing_monitor(
+    db: Database,
+    *,
+    workspace_id: UUID,
+    security_id: UUID,
+    idempotency_key: str,
+    plan: FilingMonitorPlan,
+    max_attempts: int = 3,
+) -> RequestHandle:
+    if (
+        not isinstance(plan, FilingMonitorPlan)
+        or type(max_attempts) is not int
+        or not 1 <= max_attempts <= 3
+    ):
+        raise ValueError("Monitor requires pinned intent and one to three attempts")
+    return _request(
+        _invoke(
+            db,
+            "SELECT workflow_enqueue_monitor(%s,%s,%s,%s) AS result",
+            (
+                workspace_id,
+                security_id,
+                idempotency_key,
+                Jsonb({"plan": plan.as_json(), "max_attempts": max_attempts}),
+            ),
+        )
+    )
+
+
+def claim_filing_monitor(
+    db: Database,
+    *,
+    worker_id: str,
+    lease_seconds: int = 360,
+    request_id: UUID | None = None,
+) -> Lease | None:
+    data = _invoke(
+        db,
+        "SELECT workflow_claim_monitor(%s,%s,%s) AS result",
+        (worker_id, lease_seconds, request_id),
+    )
+    return _lease(data) if data else None
+
+
+def complete_filing_monitor(
+    db: Database, lease: Lease, *, stage_id: UUID, result: dict[str, Any]
+) -> None:
+    _invoke(
+        db,
+        "SELECT workflow_complete_monitor(%s,%s,%s) AS result",
+        (Jsonb(lease.as_json()), stage_id, Jsonb(result)),
+    )

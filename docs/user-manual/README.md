@@ -43,3 +43,5 @@ fictional development walkthrough. Real-data release acceptance remains open.
 
 [D1b](../milestones/D1b-company-news-help.md) records the development-guide checks
 and distinguishes them from U1's pending real-data and alert workflow acceptance.
+
+- [SEC filing monitor](filing-monitor.md): saved real check, source evidence, cutoff and baseline meanings; one-shot operator usage.

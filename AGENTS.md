@@ -179,3 +179,9 @@ bring its requirements into the reviewed shared contracts. Other P1/P2 scope sta
 User scope extensions (2026-09-12): W1 stock additions trigger full applicable
 analysis and preserve rerun history; U1 provides a verified user manual and
 terminology guide before release. The S2 design incorporates these requirements.
+
+D035's bounded filing monitor is implemented in D4a; read
+`docs/milestones/D4a-filing-monitor.md` and `docs/roadmap.md`. The exact reviewed
+seed/prior-result lineage, retained HTTP bodies and one typed result per execution
+are enforced in 0008/0009. This does not authorize automatic financial dispatch
+or imply an operating recurring scheduler; those remain the documented next work.

@@ -143,3 +143,11 @@ required, needs the concrete sequential review specified in AGENTS.md; no such
 contract change is hidden in this milestone. Only then implement/test the
 conditional idempotent registration writer. Watchlist, financial coverage,
 normalization/PIT/S5 and S6 publication remain later work.
+
+## Later checkpoint
+
+D4a adds a separate governed monitor request and attempt history. D3f's optional
+current-database equality check deliberately describes the D3f checkpoint only;
+after D4a use the [new monitor verification](D4a-filing-monitor.md), which checks
+old row hashes and the new audit separately. Plain D3f snapshot `--check` remains
+offline and unchanged. The old JSON audits are not rewritten.

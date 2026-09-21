@@ -159,3 +159,5 @@ To verify the saved UI still matches the actual application (read-only, no fetch
 ```sh
 .venv/bin/python scripts/project_python.py -m scripts.export_pipeline_snapshot --check --verify-application
 ```
+
+The canonical [operational roadmap](docs/roadmap.md) lists every non-operating capability, its dependencies and acceptance gate.

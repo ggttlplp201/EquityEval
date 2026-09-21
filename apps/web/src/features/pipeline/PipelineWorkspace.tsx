@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import FilingMonitorPanel from "./FilingMonitorPanel";
+import monitorSnapshot from "./monitorSnapshot";
 import WorkbenchShell from "@/components/WorkbenchShell";
 import type { PipelineCapture, PipelineEvidence, PipelineSnapshot, PipelineStageId } from "./types";
 import styles from "./pipeline.module.css";
@@ -37,7 +39,7 @@ function StageContent({ selected, data }: { selected: PipelineStageId; data: Pip
     </details>
   </>;
   if (selected === "captures") return <>
-    <p className={styles.note}>These are the five captures in the latest pinned request, within 12 cumulative application captures. Source collection does not establish complete statement or event coverage.</p>
+    <p className={styles.note}>These are the five captures in the pinned acquisition request, within 12 application captures at the D3f checkpoint. Source collection does not establish complete statement or event coverage.</p>
     <div>{data.captures.map((capture) => <details className={styles.disclosure} key={capture.id}>
       <summary>{capture.label} <span className={styles.captureStatus}>HTTP {capture.httpStatus}</span></summary>
       <a href={capture.url} target="_blank" rel="noreferrer">Open public SEC source ↗</a>
@@ -89,7 +91,7 @@ function StageContent({ selected, data }: { selected: PipelineStageId; data: Pip
         </ul>
       </details>)}
       <p className={styles.note}>{data.currencySearch.effectiveDateRule}</p>
-      <p className={styles.note}>Search notes added no application captures or source policies. The saved totals above remain unchanged.</p>
+      <p className={styles.note}>Search notes added no application captures or source policies. The acquisition totals above describe that checkpoint; the filing-monitor section records later activity.</p>
     </section>
     <details className={styles.disclosure}><summary>What the blocked check means</summary>
       <p>The repeatable identity check returned a blocked result. The saved application has zero quote identifiers and zero watchlist memberships. Issuer and security records already exist; they are not the same as a registered exchange quote.</p>
@@ -104,7 +106,7 @@ function StageContent({ selected, data }: { selected: PipelineStageId; data: Pip
   </div>;
   return <div className={styles.unstarted}>
     <h3>No financial-analysis result</h3>
-    <p>All three saved requests are acquisition bootstraps. Ordinary analysis has not started, and no financial result has been published from them.</p>
+    <p>The three acquisition requests are bootstraps. The separate filing check discovers source changes only. Ordinary analysis has not started, and no financial result has been published from them.</p>
     <p>Quote registration alone would not establish complete financial coverage, add a watchlist membership or publish an analysis. Those prerequisites remain separate.</p>
   </div>;
 }
@@ -116,17 +118,18 @@ export default function PipelineWorkspace({ data }: { data: PipelineSnapshot }) 
     <main id="main-content" tabIndex={-1} className={styles.page} data-pipeline-kind={data.kind}>
       <Link href="/development/pilot?company=CRCL" className={styles.back}>← Archived company observations</Link>
       <header className={styles.intro}>
-        <div><p className="eyebrow">REAL APPLICATION STATE / CRCL</p><h1>From source to analysis<span aria-hidden="true">.</span></h1><p>Collection is verified. One identity field still blocks the next step.</p></div>
-        <div className={styles.stamp}><strong>Saved snapshot · {data.reviewedOn}</strong><span>D3c acquisition / D3d identity / D3f search</span><span>Read-only preview · not a live status service</span></div>
+        <div><p className="eyebrow">REAL APPLICATION STATE / CRCL</p><h1>From source to analysis<span aria-hidden="true">.</span></h1><p>Inspect source collection, filing discovery and the evidence still needed for analysis.</p></div>
+        <div className={styles.stamp}><strong>Saved snapshot · {data.reviewedOn}</strong><span>D3c acquisition / D3f search / D4a filing check</span><span>Read-only preview · not a live status service</span></div>
       </header>
       <section className={styles.boundary} aria-label="Application snapshot scope">
         <strong>Acquisition readiness is not financial-analysis readiness.</strong>
         <p>This saved state comes from real application audits. It is separate from the fictional company/sector demonstrations and the pilot’s older archived financial observations. It contains no financial-analysis result.</p>
       </section>
       <section aria-labelledby="totals-title">
-        <div className={styles.sectionHeading}><h2 id="totals-title">Saved application totals</h2><span>Cumulative across the three bootstrap requests</span></div>
+        <div className={styles.sectionHeading}><h2 id="totals-title">Saved application totals</h2><span>D3f acquisition checkpoint · before the filing check</span></div>
         <dl className={styles.counts}>{data.counts.map((count) => <div key={count.id} data-count={count.id}><dt>{count.label}</dt><dd>{count.value}</dd></div>)}</dl>
       </section>
+      <FilingMonitorPanel data={monitorSnapshot} />
       <div className={styles.sectionHeading}><h2 id="stages-title">Inspect each stage</h2><span>Select a stage, then expand its evidence.</span></div>
       <div className={styles.workflow}>
         <nav aria-labelledby="stages-title" className={styles.stageNav}><ol>{data.stages.map((item) => <li key={item.id}>

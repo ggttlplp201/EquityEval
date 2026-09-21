@@ -243,6 +243,10 @@ def test_workflow_only_exposes_reviewed_runtime_entry_points(db_admin, db):
             "workflow_enqueue_bootstrap",
             "workflow_claim_bootstrap",
             "workflow_complete_bootstrap_stage",
+            "workflow_enqueue_monitor",
+            "workflow_claim_monitor",
+            "workflow_monitor_baseline",
+            "workflow_complete_monitor",
         }
     functions = db_admin.execute(r"""
         SELECT p.oid,p.proname,p.oid::regprocedure::text AS signature,p.prosecdef,p.proconfig,
@@ -303,6 +307,8 @@ def test_source_storage_exposes_only_fenced_runtime_entry_points(db_admin, db):
         "ingestion_finalize",
         "ingestion_recover",
     }
+    if test_migration_target() == "head":
+        entry_points |= {"ingestion_monitor_payload", "ingestion_monitor_unchanged"}
     functions = db_admin.execute(r"""
         SELECT p.proname,p.oid::regprocedure::text AS signature,p.prosecdef,p.proconfig,
                has_function_privilege('equity_runtime',p.oid,'EXECUTE') AS runtime_allowed,
