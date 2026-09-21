@@ -43,6 +43,8 @@ visible without rewriting the source plan. Status **open** means not approved.
 
 | D033 | User-authorized pipeline preview — 2026-09-21 | Expose D3c/D3d saved application state through a sanitized typed development fixture at `/development/pilot/pipeline`, linked from pilot/readiness. [D3e](milestones/D3e-pipeline-preview.md) preserves the existing design and separates source acquisition, identity review and blocked financial work. No live fetch/retry, registration mutation, API/schema or valuation change. | UI interaction testing; D3d evidence blocker and S5/S6 publication prerequisites remain |
 
+| D034 | Next-step search completed with blocked evidence — 2026-09-21 | [D3f](milestones/D3f-quote-currency-search.md) records bounded official issuer/exchange research. No qualifying retained quotation-currency evidence was obtained, so no quote registration or new source activation occurs. The existing preview gains separately labelled, hash-pinned research notes and an optional read-only application comparison. No ordinary analysis, watchlist or financial publication is authorized by this result. | Explicit currency/identity/effective-date evidence plus reviewed acquisition rights/path before conditional registration |
+
 Schema shape, financial vocabulary, API contract and changes to missing-data
 representation require a concrete proposal and user review per the supplied
 AGENTS.md. Accepted decisions above apply within their recorded scope; open or

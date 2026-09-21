@@ -71,6 +71,26 @@ function StageContent({ selected, data }: { selected: PipelineStageId; data: Pip
       <span className="eyebrow">REQUIRED EVIDENCE MISSING</span><h3>{data.blocker.title}</h3>
       <p>{data.blocker.explanation}</p>
     </div>
+    <section className={styles.search} aria-labelledby="currency-search-title">
+      <h3 id="currency-search-title">Official-source search</h3>
+      <p>{data.currencySearch.summary}</p>
+      <p className={styles.note}>Reviewed <time dateTime={data.currencySearch.reviewedOn}>{data.currencySearch.reviewedOn}</time>. {data.currencySearch.basis}</p>
+      {data.currencySearch.sources.map((source) => <details className={styles.disclosure} key={source.id} data-search-source={source.id}>
+        <summary>{source.label}<span className={styles.searchStatus}>{source.statusLabel}</span></summary>
+        <p>{source.finding}</p>
+        <dl className={styles.facts}>
+          <div><dt>How checked</dt><dd>{source.method}</dd></div>
+          <div><dt>Date context</dt><dd>{source.dateContext}</dd></div>
+          <div><dt>Retention / source policy</dt><dd>{source.policy}</dd></div>
+        </dl>
+        <ul className={styles.searchLinks}>
+          <li><a href={source.url} target="_blank" rel="noreferrer">{source.label} ↗</a></li>
+          {source.links.map((link) => <li key={link.url}><a href={link.url} target="_blank" rel="noreferrer">{link.label} ↗</a></li>)}
+        </ul>
+      </details>)}
+      <p className={styles.note}>{data.currencySearch.effectiveDateRule}</p>
+      <p className={styles.note}>Search notes added no application captures or source policies. The saved totals above remain unchanged.</p>
+    </section>
     <details className={styles.disclosure}><summary>What the blocked check means</summary>
       <p>The repeatable identity check returned a blocked result. The saved application has zero quote identifiers and zero watchlist memberships. Issuer and security records already exist; they are not the same as a registered exchange quote.</p>
       <p className={styles.note}>Recorded reason: <code>{data.blocker.code}</code></p>
@@ -97,7 +117,7 @@ export default function PipelineWorkspace({ data }: { data: PipelineSnapshot }) 
       <Link href="/development/pilot?company=CRCL" className={styles.back}>← Archived company observations</Link>
       <header className={styles.intro}>
         <div><p className="eyebrow">REAL APPLICATION STATE / CRCL</p><h1>From source to analysis<span aria-hidden="true">.</span></h1><p>Collection is verified. One identity field still blocks the next step.</p></div>
-        <div className={styles.stamp}><strong>Saved snapshot · {data.reviewedOn}</strong><span>D3c acquisition / D3d identity review</span><span>Read-only preview · not a live status service</span></div>
+        <div className={styles.stamp}><strong>Saved snapshot · {data.reviewedOn}</strong><span>D3c acquisition / D3d identity / D3f search</span><span>Read-only preview · not a live status service</span></div>
       </header>
       <section className={styles.boundary} aria-label="Application snapshot scope">
         <strong>Acquisition readiness is not financial-analysis readiness.</strong>
@@ -124,7 +144,7 @@ export default function PipelineWorkspace({ data }: { data: PipelineSnapshot }) 
       </div>
       <aside className={styles.nextAction} aria-labelledby="next-action-title"><div><p className="eyebrow">NEXT STEP / BLOCKED</p><h2 id="next-action-title">Evidence before registration</h2></div><p>{data.blocker.nextAction}</p><p className={styles.note}>This preview does not fetch sources, retry requests or change registrations.</p></aside>
       <details className={`${styles.disclosure} ${styles.audit}`}><summary>Snapshot provenance and audit references</summary>
-        <p>Generated from the checked D3c/D3d audit artifacts. Source links open public SEC documents; capture hashes identify the saved bytes reviewed here.</p>
+        <p>Generated from the checked D3c/D3d audit artifacts and D3f research notes. Capture hashes identify archived SEC evidence. Search links identify inspected sources; research notes are not archived source payloads.</p>
         <dl className={styles.facts}>
           <div><dt>Identity checkpoint</dt><dd>{data.reviewCheckpoint}</dd></div>
           <div><dt>Acquisition verified (UTC)</dt><dd><time dateTime={data.acquisitionVerifiedAt}>{data.acquisitionVerifiedAt}</time></dd></div>
@@ -132,6 +152,7 @@ export default function PipelineWorkspace({ data }: { data: PipelineSnapshot }) 
           <div><dt>Execution ID</dt><dd><code>{data.executionId}</code></dd></div>
           <div><dt>Acquisition audit SHA256</dt><dd><code>{data.acquisitionAuditSha256}</code></dd></div>
           <div><dt>Identity audit SHA256</dt><dd><code>{data.identityAuditSha256}</code></dd></div>
+          <div><dt>Search notes SHA256</dt><dd><code>{data.currencySearch.sha256}</code></dd></div>
         </dl>
       </details>
       <footer className={styles.footer}><span>SAVED APPLICATION STATE · NO PUBLISHED FINANCIAL RESULT</span><Link href="/sectors">Data readiness ↗</Link></footer>

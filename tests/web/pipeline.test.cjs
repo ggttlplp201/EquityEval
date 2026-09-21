@@ -6,7 +6,7 @@ const path = require("node:path");
 const { chromium } = require(process.env.EQUITY_PLAYWRIGHT_MODULE || "playwright");
 const base = process.env.EQUITY_PREVIEW_URL || "http://127.0.0.1:3101";
 assert.ok(["127.0.0.1", "localhost"].includes(new URL(base).hostname), "Only local previews are allowed");
-const output = path.resolve(__dirname, "../../var/d3e-browser");
+const output = path.resolve(__dirname, "../../var/d3f-browser");
 const route = "/development/pilot/pipeline";
 
 test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, async (t) => {
@@ -60,6 +60,34 @@ test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, 
       assert.match(await page.locator("#stage-panel").innerText(), /Quote currency needs source evidence/);
       assert.equal(await page.locator("[data-amount-id], [data-metric-id], svg, canvas").count(), 0);
       await page.screenshot({ path: path.join(output, "desktop.png"), fullPage: true });
+    });
+    await t.test("official-source search explains unresolved meaning, dates and retention", async () => {
+      const search = page.getByRole("region", { name: "Official-source search" });
+      assert.match(await search.innerText(), /No qualifying quotation-currency evidence acquired/);
+      assert.match(await search.innerText(), /not archived application evidence/);
+      assert.match(await search.innerText(), /cannot be backdated to the IPO/);
+      const notes = search.locator("[data-search-source]");
+      assert.equal(await notes.count(), 4);
+      for (const note of await notes.all()) {
+        await note.locator("summary").focus();
+        await page.keyboard.press("Enter");
+        assert.equal(await note.getAttribute("open"), "");
+        assert.match(await note.innerText(), /Date context/);
+        assert.match(await note.innerText(), /Retention \/ source policy/);
+        for (const link of await note.getByRole("link").all()) {
+          const url = new URL(await link.getAttribute("href"));
+          assert.equal(url.protocol, "https:");
+          assert.ok(["www.sec.gov", "www.nyse.com", "www.ice.com", "ftp.nyse.com", "investor.circle.com", "www.circle.com"].includes(url.hostname));
+          assert.equal(url.search, "");
+        }
+      }
+      assert.match(await search.locator('[data-search-source="nyse-quote"]').innerText(), /no explicit quotation-currency field/);
+      assert.match(await search.locator('[data-search-source="circle-ir"]').innerText(), /security check/);
+      for (const width of [320, 390, 768, 1440]) {
+        await page.setViewportSize({ width, height: 1000 });
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `Search overflow at ${width}`);
+      }
+      await page.screenshot({ path: path.join(output, "source-search.png"), fullPage: true });
     });
     await t.test("every stage can be selected with the keyboard and announces its status", async () => {
       for (const id of ["plan", "captures", "identity", "registration", "normalization", "analysis"]) {

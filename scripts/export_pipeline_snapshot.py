@@ -1,10 +1,14 @@
-"""Export a sanitized development-only UI snapshot from the pinned D3c/D3d audits."""
+"""Export a sanitized development snapshot from D3c/D3d audits and D3f research.
+
+Use python -m scripts.export_pipeline_snapshot for the optional application check.
+"""
 
 from __future__ import annotations
 
 import argparse
 import hashlib
 import json
+import sys
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -14,6 +18,8 @@ ROOT = Path(__file__).resolve().parents[1]
 ACQUISITION = "docs/research/crcl-pinned-bootstrap-2026-09-21.json"
 REVIEW = "docs/research/crcl-quote-identity-review-2026-09-21.json"
 REVIEW_SHA = "4f6c25d275d87ecd41a6b40ade9eb2cb75179a9b385dc554cc24ea2ab4474c99"
+SEARCH = "docs/research/crcl-quote-currency-search-2026-09-21.json"
+SEARCH_SHA = "229c3ac229324e209bc72adddfbaf29d09928e3058174bb94f34bbb5bdb41b5a"
 OUTPUT = "apps/web/src/features/pipeline/snapshot.ts"
 CAPTURE_LABELS = (
     "Company Facts",
@@ -254,7 +260,95 @@ def project(acquisition: dict[str, Any], review: dict[str, Any]) -> dict[str, An
     }
 
 
-def export(root: Path = ROOT) -> str:
+def research_url(value: str) -> str:
+    parsed = urlsplit(value)
+    if (
+        parsed.scheme != "https"
+        or parsed.netloc
+        not in {
+            "www.sec.gov",
+            "www.nyse.com",
+            "ftp.nyse.com",
+            "www.ice.com",
+            "investor.circle.com",
+            "www.circle.com",
+        }
+        or parsed.query
+        or parsed.fragment
+    ):
+        raise ValueError("Only reviewed public research URLs may reach the UI")
+    return value
+
+
+def project_search(search: dict[str, Any], review: dict[str, Any]) -> dict[str, Any]:
+    """Project authored search notes; they can never authorize registration."""
+    target = search["target"]
+    expected = {
+        "cik": "0001876042",
+        "issuer": "Circle Internet Group, Inc.",
+        **{
+            key: review["fields"][key]["value"]
+            for key in (
+                "symbol",
+                "exchange_code",
+                "share_class",
+            )
+        },
+        "listing_start": review["fields"]["valid_from"]["value"],
+    }
+    if target != expected or search["identity_audit_sha256"] != REVIEW_SHA:
+        raise ValueError("Currency search must bind to the reviewed Circle Class A identity")
+    if (
+        search["version"] != "crcl-currency-search-v1"
+        or search["outcome"] != "blocked"
+        or search["blocking_reasons"] != review["blocking_reasons"]
+        or search["registration_ready"] is not False
+        or review["registration_ready"] is not False
+        or search["quote_currency"] is not None
+        or search["quote_currency_valid_from"] is not None
+        or search["new_capture_ids"] != []
+        or search["new_policy_revision_ids"] != []
+    ):
+        raise ValueError("Search notes are not new capture, currency or registration evidence")
+    sources = []
+    seen = set()
+    for source in search["sources"]:
+        if source["id"] in seen or source["application_evidence"] not in {
+            "none",
+            "existing-captures-only",
+        }:
+            raise ValueError("Search sources must be unique and cannot claim new captures")
+        seen.add(source["id"])
+        sources.append(
+            {
+                "id": source["id"],
+                "label": source["label"],
+                "url": research_url(source["url"]),
+                "statusLabel": source["status_label"],
+                "method": source["method"],
+                "finding": source["finding"],
+                "dateContext": source["date_context"],
+                "policy": source["policy"],
+                "links": [
+                    {"label": link["label"], "url": research_url(link["url"])}
+                    for link in source.get("related_urls", [])
+                ],
+            }
+        )
+    if not sources:
+        raise ValueError("The bounded search requires its source review notes")
+    return {
+        "reviewedOn": search["reviewed_on"],
+        "sha256": SEARCH_SHA,
+        "basis": search["basis"],
+        "summary": search["summary"],
+        "effectiveDateRule": search["effective_date_rule"],
+        "nextAction": search["next_action"],
+        "sources": sources,
+    }
+
+
+def read_pinned_audits(root: Path) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     acquisition_raw = (root / ACQUISITION).read_bytes()
     review_raw = (root / REVIEW).read_bytes()
     review = json.loads(review_raw)
@@ -263,7 +357,26 @@ def export(root: Path = ROOT) -> str:
         or hashlib.sha256(acquisition_raw).hexdigest() != review["audit_sha256"]
     ):
         raise ValueError("Pinned D3c/D3d audit changed; review the new state before exporting")
-    result = project(json.loads(acquisition_raw), review)
+    search_raw = (root / SEARCH).read_bytes()
+    if hashlib.sha256(search_raw).hexdigest() != SEARCH_SHA:
+        raise ValueError("Pinned D3f search changed; review the new findings before exporting")
+    return json.loads(acquisition_raw), review, json.loads(search_raw)
+
+
+def verify_application(root: Path = ROOT) -> None:
+    # Optional operator check only. Normal export/build/tests never open application storage.
+    from scripts.review_crcl_identity import application_review
+
+    _, expected, _ = read_pinned_audits(root)
+    if application_review() != expected:
+        raise ValueError("Application evidence or counts drifted from the reviewed snapshot")
+
+
+def export(root: Path = ROOT) -> str:
+    acquisition, review, search = read_pinned_audits(root)
+    result = project(acquisition, review)
+    result["currencySearch"] = project_search(search, review)
+    result["blocker"]["nextAction"] = result["currencySearch"]["nextAction"]
     return (
         "// Generated by scripts/export_pipeline_snapshot.py; do not hand edit.\n"
         "// Sanitized development snapshot, not a live status service or S6 API.\n"
@@ -277,14 +390,31 @@ def export(root: Path = ROOT) -> str:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument(
+        "--verify-application",
+        action="store_true",
+        help="Replay existing archived identity evidence in a read-only transaction",
+    )
     args = parser.parse_args()
     rendered = export()
+    if args.verify_application:
+        try:
+            verify_application()
+        except Exception as error:
+            # Database exceptions may include connection details; never print their message.
+            print(
+                f"Application snapshot verification failed ({type(error).__name__}).",
+                file=sys.stderr,
+            )
+            raise SystemExit(1) from None
     destination = ROOT / OUTPUT
     if args.check:
         if destination.read_text() != rendered:
             raise SystemExit("Pipeline snapshot differs from its reviewed source audits")
     else:
         destination.write_text(rendered)
+    if args.verify_application:
+        print("Application evidence and counts match the pinned snapshot; registration blocked.")
 
 
 if __name__ == "__main__":

@@ -262,7 +262,7 @@ const snapshot = {
     "code": "quote_currency_unsubstantiated",
     "title": "Quote currency needs source evidence",
     "explanation": "The reviewed captures do not explicitly establish the currency in which CRCL's NYSE Class A shares are quoted. Reporting currency and offering-price units cannot fill this gap.",
-    "nextAction": "Obtain and archive authoritative evidence linking this listing to its quote currency and effective dates. Review that evidence before registering a quote identifier or starting ordinary analysis."
+    "nextAction": "Obtain an issuer or exchange statement, or an entitled reference-data record, explicitly binding Circle Class A / CRCL / NYSE to quotation currency with effective-date context. Verify retention rights and capture it through a reviewed acquisition path before registration."
   },
   "stages": [
     {
@@ -313,7 +313,84 @@ const snapshot = {
       "statusLabel": "Not started",
       "summary": "Ordinary analysis is blocked. There is no completed financial analysis or published result from these requests."
     }
-  ]
+  ],
+  "currencySearch": {
+    "reviewedOn": "2026-09-21",
+    "sha256": "229c3ac229324e209bc72adddfbaf29d09928e3058174bb94f34bbb5bdb41b5a",
+    "basis": "Authored research notes from bounded primary-source inspection; not archived application evidence.",
+    "summary": "No qualifying quotation-currency evidence acquired. The existing registration blocker remains.",
+    "effectiveDateRule": "The supported 2025-06-05 listing start does not establish a currency effective date. A current quote or retrieval time cannot be backdated to the IPO.",
+    "nextAction": "Obtain an issuer or exchange statement, or an entitled reference-data record, explicitly binding Circle Class A / CRCL / NYSE to quotation currency with effective-date context. Verify retention rights and capture it through a reviewed acquisition path before registration.",
+    "sources": [
+      {
+        "id": "sec-filings",
+        "label": "Archived SEC identity review",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm",
+        "statusLabel": "Currency has a different meaning",
+        "method": "Replay of pinned D3c application captures under D3d review; targeted SEC discovery search.",
+        "finding": "The reviewed filings support issuer, Class A, symbol, exchange and listing start. Reporting currency and offering-price units do not establish exchange quotation currency.",
+        "dateContext": "Listing start is supported from 2025-06-05; quotation-currency effective date remains unknown.",
+        "policy": "Existing reviewed SEC scope and immutable captures remain valid. No new SEC capture was needed for this replay.",
+        "links": []
+      },
+      {
+        "id": "nyse-quote",
+        "label": "NYSE CRCL quote page",
+        "url": "https://www.nyse.com/quote/XNYS:CRCL",
+        "statusLabel": "Explicit currency not established",
+        "method": "Public page and identity/currency fields in responses delivered by a normal browser load.",
+        "finding": "The filter response identified Circle, CRCL and XNYS. The inspected quote response exposed a quote timestamp but no explicit quotation-currency field. Displayed prices or the word dollars cannot establish USD. No raw response was retained in application storage.",
+        "dateContext": "The displayed quote was dated 2026-09-21; this is not evidence of quotation currency since the listing start.",
+        "policy": "ICE website terms do not establish an approved retained automated-ingestion policy. Reachable public endpoints are not a permission grant.",
+        "links": [
+          {
+            "label": "ICE website terms",
+            "url": "https://www.ice.com/privacy-security-center/terms-of-use"
+          }
+        ]
+      },
+      {
+        "id": "circle-ir",
+        "label": "Circle investor stock information",
+        "url": "https://investor.circle.com/stock-info/",
+        "statusLabel": "Quote evidence unavailable",
+        "method": "Public text extraction, issuer FAQ and ordinary browser inspection.",
+        "finding": "The extracted stock page contained quote section headings without populated currency evidence. The browser stopped at a Cloudflare security check; no bypass was attempted. The linked terms describe Circle Mint, so they were not treated as an IR quote-data retention grant.",
+        "dateContext": "Research checked on 2026-09-21; no currency effective date obtained.",
+        "policy": "Exact IR/Q4 quote-data retention scope remains unverified; no source policy activated.",
+        "links": [
+          {
+            "label": "Investor FAQs",
+            "url": "https://investor.circle.com/resources/investor-faqs/default.aspx"
+          },
+          {
+            "label": "Linked Circle Mint agreement",
+            "url": "https://www.circle.com/legal/user-agreement"
+          }
+        ]
+      },
+      {
+        "id": "nyse-master",
+        "label": "NYSE Group Security Master",
+        "url": "https://www.nyse.com/data-products/catalog/nyse-group-security-master",
+        "statusLabel": "Record and rights not obtained",
+        "method": "Official product description, technical-document catalog and public sample directory inspection.",
+        "finding": "The product offers reference files for the next trading session. No entitled CRCL record was obtained. The equity sample filenames inspected refer to vintages before the June 2025 listing, despite later directory modification dates; samples were not imported.",
+        "dateContext": "A directory modification date is not a security record effective date. No qualifying CRCL currency interval was established.",
+        "policy": "Purchase/access and retained-use entitlement remain unverified. No account, purchase or provider activation was performed.",
+        "links": [
+          {
+            "label": "Technical documents",
+            "url": "https://www.nyse.com/market-data/technical-documents"
+          },
+          {
+            "label": "Public sample directory",
+            "url": "https://ftp.nyse.com/Reference%20Data%20Samples/NYSE%20GROUP%20SECURITY%20MASTER/"
+          }
+        ]
+      }
+    ]
+  }
 } satisfies PipelineSnapshot;
 
 export default snapshot;

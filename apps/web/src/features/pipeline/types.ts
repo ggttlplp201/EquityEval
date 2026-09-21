@@ -14,6 +14,13 @@ export interface PipelineStage {
   status: "verified" | "gap" | "blocked" | "not-started";
   statusLabel: string; summary: string;
 }
+export interface CurrencySearch {
+  reviewedOn: string; sha256: string; basis: string; summary: string;
+  effectiveDateRule: string; nextAction: string;
+  sources: { id: string; label: string; url: string; statusLabel: string;
+    method: string; finding: string; dateContext: string; policy: string;
+    links: { label: string; url: string }[] }[];
+}
 export interface PipelineSnapshot {
   kind: "real-application-pipeline-snapshot"; ticker: "CRCL"; reviewedOn: string;
   acquisitionVerifiedAt: string; reviewCheckpoint: string; requestId: string; executionId: string;
@@ -23,5 +30,6 @@ export interface PipelineSnapshot {
   reportingCurrencyEvidence: PipelineEvidence[];
   plan: { inventoryStart: string; inventoryEnd: string; resources: string[]; hash: string; policy: string };
   blocker: { code: "quote_currency_unsubstantiated"; title: string; explanation: string; nextAction: string };
+  currencySearch: CurrencySearch;
   stages: PipelineStage[];
 }

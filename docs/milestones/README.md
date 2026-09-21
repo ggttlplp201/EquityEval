@@ -32,6 +32,7 @@ above. This repository and its commits are the implementation source of truth.
 | D3c | Pinned intent/readiness and live capture verified; 1,065 tests | [Bootstrap intent](D3c-bootstrap-intent.md) | D031 correction; milestone/d3c-pinned-capture; registration review pending; no automatic quote |
 | D3d | Identity review verified; quote currency unsubstantiated | [Quote identity review](D3d-quote-identity-review.md) | Read-only replay/check; no registration or ordinary request; milestone/d3d-identity-review |
 | D3e | Interactive saved pipeline state verified; registration remains blocked | [Pipeline preview](D3e-pipeline-preview.md) | Six stages, sanitized real audit fixture, evidence disclosures; milestone/d3e-pipeline-preview |
+| D3f | Official-source search remains blocked; saved search disclosure implemented | [Quotation-currency search](D3f-quote-currency-search.md) | D034; primary-source findings, policy/date limits and replayed application invariants; no registration |
 | S8a–d | Planned; F1 shares provenance, Ratios and Overview | P0 company pages and integration | After relevant engine/contracts |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,

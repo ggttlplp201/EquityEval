@@ -149,3 +149,13 @@ An S0 suite can be empty only while it has a .allow-empty-s0 marker and no test
 files. Remove the marker with its first tests. Failing tests, collection errors
 and accidental deselection always fail. CI's future OpenAPI drift check is
 explicitly deferred to S6; see [contract status](docs/api-contract.md).
+
+D3f adds an **Official-source search** disclosure under Quote registration.
+It explains the issuer/exchange sources checked, their date/policy limitations,
+and why currency remains missing. These authored research notes are separate
+from archived application captures. See [D3f](docs/milestones/D3f-quote-currency-search.md).
+To verify the saved UI still matches the actual application (read-only, no fetch):
+
+```sh
+.venv/bin/python scripts/project_python.py -m scripts.export_pipeline_snapshot --check --verify-application
+```
