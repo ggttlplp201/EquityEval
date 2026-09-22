@@ -44,4 +44,4 @@ jobs:
         run: |
           .venv/bin/python scripts/test_postgres.py stop
           .venv/bin/python scripts/test_redis.py stop
-      # S6 adds OpenAPI generation and generated-TypeScript no-diff enforcement.
+      # make check includes the S6a OpenAPI/TypeScript regeneration no-diff gate.

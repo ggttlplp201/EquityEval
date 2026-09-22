@@ -49,7 +49,15 @@ visible without rewriting the source plan. Status **open** means not approved.
 
 | D036 | Approved under user AFK delegation — 2026-09-21 | [D4b scheduler contract](design/s3/filing-scheduler-proposal.md): immutable configuration, deterministic UTC slots, W1 materialization/fencing, bounded budget/recovery, fixed scope with typed rebase_required and saved manual-worker health. No automatic scope extension, OS cron or downstream dispatch. | Sequential 0010 and bounded manual tracer verified with six refinements; one real slot completed inside scope, then paused; milestone/d4b-filing-scheduler |
 
+| D037 | Approved S6a continuation — 2026-09-22 | User “move on,” relayed by the milestone coordinator, approves the narrow [S6a publication packet](design/s6/publication-contract-proposal.md): one-to-one statuses, explicit selectors/policies, sequential 0011, immutable typed inputs/payloads/snapshots, canonicalization v1, W1 fenced publication/rerun identity, protected exact latest lookup and read-only generated API. Governed synthetic tracer only; no real financial publication/provider/quote inference/scheduler changes. S6b/S7 and D004/D005 remain separate. | Complete and audit S6a before moving to valuation contracts |
+
 Schema shape, financial vocabulary, API contract and changes to missing-data
 representation require a concrete proposal and user review per the supplied
 AGENTS.md. Accepted decisions above apply within their recorded scope; open or
 proposed decisions are not silently accepted by progression to a milestone.
+
+D037 implementation: migration 0011 only; expected-payload digest at owner fixture
+review, enqueue-time immutable S6 intent through a narrow W1 wrapper, explicit
+idle-autocommit writers, workspace-bound read-only API and generated contracts.
+[Milestone and audit corrections](milestones/S6a-fundamentals-publication.md).
+No real publication, source activation, scheduler rebase or valuation work.

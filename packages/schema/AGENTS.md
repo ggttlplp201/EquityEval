@@ -8,3 +8,8 @@ semantics. Prepare a concrete proposal before asking. Changes happen sequentiall
 At S6, generate OpenAPI from Pydantic/FastAPI and commit generated TypeScript.
 Add a regeneration/no-diff CI check at that milestone; an empty S0 type module
 is only workspace scaffolding and is not a reviewed API contract.
+
+S6a is approved under D037; its versioned fundamentals contract, migration 0011
+and generated OpenAPI/TypeScript are implemented. Canonical Decimal strings,
+seven statuses, explicit selectors and immutable W1 result identities are fixed.
+`make lint` verifies generation. S6b model contracts retain their separate review.

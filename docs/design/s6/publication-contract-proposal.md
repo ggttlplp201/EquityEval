@@ -1,7 +1,8 @@
 # S6 review packet — immutable source-metric publication
 
-Status: **proposal for sequential review, not an approved or implemented API or
-schema**, 2026-09-22. S5 source-only acceptance is in
+Status: **approved for narrow S6a implementation under D037**, 2026-09-22.
+The decisions and constraints are recorded in [S6a implementation](implementation.md).
+S6b/S7 and real-data publication remain outside this approval. S5 source-only acceptance is in
 [the handoff audit](../s5/acceptance-handoff.md). This packet advances the deferred
 S2 input/result records and existing W1 publication controls; it does not create
 a parallel job system, relax source rights or enable new provider calls.
@@ -200,12 +201,12 @@ models and enforce regeneration/no-diff. No routes are implemented by this packe
 
 ## Review decisions and present blockers
 
-Approve or revise the S6a/S6b split, internal-to-public status mapping, input/
-payload/snapshot records, exact canonicalization, W1 atomic publication, latest
-selection/error behavior and generated-client boundary. Review product profile,
-age/deadline, history sufficiency and trend defaults rather than silently adopting
-test values. D021 and D024 stay open until their relevant concrete decisions are
-recorded; D027 attribution/profile persistence stays separate where not included.
+D037 approved the narrow S6a/S6b split, status mapping, immutable input/payload/
+snapshot records, canonicalization, W1 publication, exact retrieval and generated
+contract. See the implementation record and S6a milestone for the resulting code
+and validation. Production profile, age/deadline, history sufficiency and trend
+defaults remain explicit review inputs rather than test values adopted silently.
+D021/D024 and D027 retain their remaining production/profile/sector boundaries.
 
 Real publication additionally lacks reviewed financial normalization/selection,
 production fiscal/profile/precision inputs and the existing ordinary-request quote

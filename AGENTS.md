@@ -192,3 +192,9 @@ No background service runs. The fixed window ends 2026-09-21 UTC; replacement
 scope/rebase and service configuration require their separate reviewed step.
 Use export_scheduler_snapshot --check --verify-application for current read-only
 verification; older audits and applied migrations remain immutable.
+
+D037 approves narrow S6a, implemented on the current source-bootstrap branch:
+read docs/milestones/S6a-fundamentals-publication.md and docs/design/s6/implementation.md.
+Migration 0011, governed synthetic reviews, immutable W1 intent/input/results and
+read-only generated fundamentals API reuse S5. S6b/S7 and real publication remain
+separate gates; no provider, quote inference or scheduler activation is authorized.

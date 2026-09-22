@@ -1,0 +1,1466 @@
+{
+  "components": {
+    "schemas": {
+      "FundamentalsPayload": {
+        "additionalProperties": false,
+        "properties": {
+          "accounting": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PublicAccounting"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "comparison_policy_hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Comparison Policy Hash",
+            "type": "string"
+          },
+          "coverage": {
+            "$ref": "#/components/schemas/PublicCoverage"
+          },
+          "dependency_hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Dependency Hash",
+            "type": "string"
+          },
+          "evidence": {
+            "items": {
+              "$ref": "#/components/schemas/PublicEvidence"
+            },
+            "title": "Evidence",
+            "type": "array"
+          },
+          "evidence_mode": {
+            "const": "synthetic",
+            "title": "Evidence Mode",
+            "type": "string"
+          },
+          "fixture_label": {
+            "const": "Synthetic integration fixture — not company data",
+            "title": "Fixture Label",
+            "type": "string"
+          },
+          "history": {
+            "items": {
+              "$ref": "#/components/schemas/PublicHistory"
+            },
+            "title": "History",
+            "type": "array"
+          },
+          "metrics": {
+            "items": {
+              "$ref": "#/components/schemas/PublicMetric"
+            },
+            "title": "Metrics",
+            "type": "array"
+          },
+          "observations": {
+            "items": {
+              "$ref": "#/components/schemas/PublicObservation"
+            },
+            "title": "Observations",
+            "type": "array"
+          },
+          "review_items": {
+            "items": {
+              "$ref": "#/components/schemas/PublicObservation"
+            },
+            "title": "Review Items",
+            "type": "array"
+          },
+          "selector": {
+            "$ref": "#/components/schemas/SelectionKey"
+          },
+          "trend": {
+            "$ref": "#/components/schemas/PublicTrend"
+          },
+          "version": {
+            "const": "s6-fundamentals-v1",
+            "title": "Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "evidence_mode",
+          "fixture_label",
+          "selector",
+          "dependency_hash",
+          "comparison_policy_hash",
+          "metrics",
+          "evidence",
+          "coverage",
+          "observations",
+          "review_items",
+          "history",
+          "trend",
+          "accounting"
+        ],
+        "title": "FundamentalsPayload",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "LatestResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "latest_request_id": {
+            "format": "uuid",
+            "title": "Latest Request Id",
+            "type": "string"
+          },
+          "latest_request_state": {
+            "enum": [
+              "queued",
+              "running",
+              "waiting_for_input",
+              "retry_scheduled",
+              "completed",
+              "completed_with_gaps",
+              "failed",
+              "cancelled"
+            ],
+            "title": "Latest Request State",
+            "type": "string"
+          },
+          "snapshot": {
+            "$ref": "#/components/schemas/SnapshotResponse"
+          }
+        },
+        "required": [
+          "snapshot",
+          "latest_request_id",
+          "latest_request_state"
+        ],
+        "title": "LatestResponse",
+        "type": "object"
+      },
+      "NoResult": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "enum": [
+              "snapshot_not_found",
+              "no_compatible_snapshot"
+            ],
+            "title": "Code",
+            "type": "string"
+          },
+          "message": {
+            "title": "Message",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "NoResult",
+        "type": "object"
+      },
+      "PublicAccounting": {
+        "additionalProperties": false,
+        "properties": {
+          "input_indices": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Input Indices",
+            "type": "array"
+          },
+          "matches": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Matches"
+          },
+          "period_end": {
+            "format": "date",
+            "title": "Period End",
+            "type": "string"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Reasons",
+            "type": "array"
+          },
+          "residual": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Residual"
+          },
+          "rule_revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Rule Revision",
+            "type": "string"
+          },
+          "tolerance": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tolerance"
+          }
+        },
+        "required": [
+          "period_end",
+          "residual",
+          "tolerance",
+          "matches",
+          "input_indices",
+          "reasons",
+          "rule_revision"
+        ],
+        "title": "PublicAccounting",
+        "type": "object"
+      },
+      "PublicCoverage": {
+        "additionalProperties": false,
+        "properties": {
+          "applicable_count": {
+            "title": "Applicable Count",
+            "type": "integer"
+          },
+          "counts": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "propertyNames": {
+              "enum": [
+                "valid",
+                "not_meaningful",
+                "missing",
+                "invalid",
+                "stale",
+                "unsupported",
+                "inapplicable"
+              ]
+            },
+            "title": "Counts",
+            "type": "object"
+          },
+          "covered_count": {
+            "title": "Covered Count",
+            "type": "integer"
+          },
+          "fraction": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Fraction"
+          },
+          "revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Revision",
+            "type": "string"
+          },
+          "unresolved_count": {
+            "title": "Unresolved Count",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "applicable_count",
+          "covered_count",
+          "unresolved_count",
+          "fraction",
+          "counts",
+          "revision"
+        ],
+        "title": "PublicCoverage",
+        "type": "object"
+      },
+      "PublicEvidence": {
+        "additionalProperties": false,
+        "properties": {
+          "absolute_error": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Absolute Error"
+          },
+          "accession": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Accession"
+          },
+          "capture_ids": {
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "title": "Capture Ids",
+            "type": "array"
+          },
+          "concept": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Concept",
+            "type": "string"
+          },
+          "filed_on": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filed On"
+          },
+          "flags": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Flags",
+            "type": "array"
+          },
+          "input_index": {
+            "title": "Input Index",
+            "type": "integer"
+          },
+          "mapping_revision_id": {
+            "format": "uuid",
+            "title": "Mapping Revision Id",
+            "type": "string"
+          },
+          "normalization_operation": {
+            "anyOf": [
+              {
+                "const": "identity_decimal",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Normalization Operation"
+          },
+          "normalizer_revision": {
+            "title": "Normalizer Revision",
+            "type": "string"
+          },
+          "observation_ids": {
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "title": "Observation Ids",
+            "type": "array"
+          },
+          "original_numeric_text": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Original Numeric Text"
+          },
+          "period_end": {
+            "format": "date",
+            "title": "Period End",
+            "type": "string"
+          },
+          "period_start": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Period Start"
+          },
+          "resolution_ids": {
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "title": "Resolution Ids",
+            "type": "array"
+          },
+          "retrieved_at": {
+            "items": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "title": "Retrieved At",
+            "type": "array"
+          },
+          "scope_hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Scope Hash",
+            "type": "string"
+          },
+          "scope_kind": {
+            "title": "Scope Kind",
+            "type": "string"
+          },
+          "selection_hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Selection Hash",
+            "type": "string"
+          },
+          "source_hashes": {
+            "items": {
+              "pattern": "^[a-f0-9]{64}$",
+              "type": "string"
+            },
+            "title": "Source Hashes",
+            "type": "array"
+          },
+          "source_tag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Tag"
+          },
+          "source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Url"
+          },
+          "transform_hash": {
+            "anyOf": [
+              {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Transform Hash"
+          },
+          "unit": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "input_index",
+          "concept",
+          "source_url",
+          "accession",
+          "filed_on",
+          "capture_ids",
+          "retrieved_at",
+          "source_tag",
+          "original_numeric_text",
+          "normalization_operation",
+          "transform_hash",
+          "mapping_revision_id",
+          "normalizer_revision",
+          "selection_hash",
+          "scope_kind",
+          "scope_hash",
+          "source_hashes",
+          "resolution_ids",
+          "observation_ids",
+          "period_start",
+          "period_end",
+          "unit",
+          "value",
+          "absolute_error",
+          "flags"
+        ],
+        "title": "PublicEvidence",
+        "type": "object"
+      },
+      "PublicHistory": {
+        "additionalProperties": false,
+        "properties": {
+          "eligible_snapshot_ids": {
+            "items": {
+              "format": "uuid",
+              "type": "string"
+            },
+            "title": "Eligible Snapshot Ids",
+            "type": "array"
+          },
+          "excluded": {
+            "items": {
+              "maxItems": 2,
+              "minItems": 2,
+              "prefixItems": [
+                {
+                  "format": "uuid",
+                  "type": "string"
+                },
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                }
+              ],
+              "type": "array"
+            },
+            "title": "Excluded",
+            "type": "array"
+          },
+          "metric_id": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Metric Id",
+            "type": "string"
+          },
+          "minimum_samples": {
+            "title": "Minimum Samples",
+            "type": "integer"
+          },
+          "missing_quarter_ends": {
+            "items": {
+              "format": "date",
+              "type": "string"
+            },
+            "title": "Missing Quarter Ends",
+            "type": "array"
+          },
+          "p25": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "P25"
+          },
+          "p50": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "P50"
+          },
+          "p75": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "P75"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Reasons",
+            "type": "array"
+          },
+          "relation": {
+            "anyOf": [
+              {
+                "enum": [
+                  "below",
+                  "within",
+                  "above"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Relation"
+          },
+          "window_end": {
+            "format": "date",
+            "title": "Window End",
+            "type": "string"
+          },
+          "window_start": {
+            "format": "date",
+            "title": "Window Start",
+            "type": "string"
+          },
+          "years": {
+            "enum": [
+              3,
+              5,
+              10
+            ],
+            "title": "Years",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "metric_id",
+          "years",
+          "minimum_samples",
+          "window_start",
+          "window_end",
+          "eligible_snapshot_ids",
+          "excluded",
+          "missing_quarter_ends",
+          "p25",
+          "p50",
+          "p75",
+          "relation",
+          "reasons"
+        ],
+        "title": "PublicHistory",
+        "type": "object"
+      },
+      "PublicMetric": {
+        "additionalProperties": false,
+        "properties": {
+          "applicability": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Applicability"
+          },
+          "formula_revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Formula Revision",
+            "type": "string"
+          },
+          "input_hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Input Hash",
+            "type": "string"
+          },
+          "input_indices": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Input Indices",
+            "type": "array"
+          },
+          "metric_id": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Metric Id",
+            "type": "string"
+          },
+          "operands": {
+            "items": {
+              "$ref": "#/components/schemas/PublicOperand"
+            },
+            "title": "Operands",
+            "type": "array"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Reasons",
+            "type": "array"
+          },
+          "status": {
+            "enum": [
+              "valid",
+              "not_meaningful",
+              "missing",
+              "invalid",
+              "stale",
+              "unsupported",
+              "inapplicable"
+            ],
+            "title": "Status",
+            "type": "string"
+          },
+          "unit": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Unit",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "metric_id",
+          "value",
+          "unit",
+          "status",
+          "applicability",
+          "reasons",
+          "formula_revision",
+          "input_hash",
+          "input_indices",
+          "operands"
+        ],
+        "title": "PublicMetric",
+        "type": "object"
+      },
+      "PublicObservation": {
+        "additionalProperties": false,
+        "properties": {
+          "category": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Category",
+            "type": "string"
+          },
+          "metric_ids": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Metric Ids",
+            "type": "array"
+          },
+          "rule_id": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Rule Id",
+            "type": "string"
+          },
+          "rule_revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Rule Revision",
+            "type": "string"
+          },
+          "text": {
+            "title": "Text",
+            "type": "string"
+          },
+          "topic": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Topic",
+            "type": "string"
+          }
+        },
+        "required": [
+          "rule_id",
+          "rule_revision",
+          "topic",
+          "category",
+          "text",
+          "metric_ids"
+        ],
+        "title": "PublicObservation",
+        "type": "object"
+      },
+      "PublicOperand": {
+        "additionalProperties": false,
+        "properties": {
+          "absolute_error": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Absolute Error"
+          },
+          "coefficients": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Coefficients",
+            "type": "array"
+          },
+          "formula_id": {
+            "title": "Formula Id",
+            "type": "string"
+          },
+          "formula_revision": {
+            "title": "Formula Revision",
+            "type": "string"
+          },
+          "input_indices": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Input Indices",
+            "type": "array"
+          },
+          "period_end": {
+            "format": "date",
+            "title": "Period End",
+            "type": "string"
+          },
+          "period_start": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Period Start"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Reasons",
+            "type": "array"
+          },
+          "review_hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Review Hash",
+            "type": "string"
+          },
+          "value": {
+            "anyOf": [
+              {
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Value"
+          }
+        },
+        "required": [
+          "input_indices",
+          "coefficients",
+          "period_start",
+          "period_end",
+          "value",
+          "absolute_error",
+          "formula_id",
+          "formula_revision",
+          "reasons",
+          "review_hash"
+        ],
+        "title": "PublicOperand",
+        "type": "object"
+      },
+      "PublicTrend": {
+        "additionalProperties": false,
+        "properties": {
+          "changes": {
+            "items": {
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+              "type": "string"
+            },
+            "title": "Changes",
+            "type": "array"
+          },
+          "input_indices": {
+            "items": {
+              "type": "integer"
+            },
+            "title": "Input Indices",
+            "type": "array"
+          },
+          "input_reasons": {
+            "items": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "title": "Input Reasons",
+            "type": "array"
+          },
+          "input_statuses": {
+            "items": {
+              "enum": [
+                "valid",
+                "not_meaningful",
+                "missing",
+                "invalid",
+                "stale",
+                "unsupported",
+                "inapplicable"
+              ],
+              "type": "string"
+            },
+            "title": "Input Statuses",
+            "type": "array"
+          },
+          "period_ends": {
+            "items": {
+              "format": "date",
+              "type": "string"
+            },
+            "title": "Period Ends",
+            "type": "array"
+          },
+          "rates": {
+            "items": {
+              "anyOf": [
+                {
+                  "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "title": "Rates",
+            "type": "array"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "title": "Reasons",
+            "type": "array"
+          },
+          "relation": {
+            "anyOf": [
+              {
+                "enum": [
+                  "rising",
+                  "falling",
+                  "broadly_stable",
+                  "mixed"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Relation"
+          },
+          "rule_revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Rule Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "period_ends",
+          "input_indices",
+          "rates",
+          "input_statuses",
+          "input_reasons",
+          "relation",
+          "changes",
+          "reasons",
+          "rule_revision"
+        ],
+        "title": "PublicTrend",
+        "type": "object"
+      },
+      "SelectionKey": {
+        "additionalProperties": false,
+        "properties": {
+          "as_of": {
+            "format": "date",
+            "title": "As Of",
+            "type": "string"
+          },
+          "captured_before": {
+            "format": "date-time",
+            "title": "Captured Before",
+            "type": "string"
+          },
+          "currency": {
+            "pattern": "^[A-Z]{3}$",
+            "title": "Currency",
+            "type": "string"
+          },
+          "engine_revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Engine Revision",
+            "type": "string"
+          },
+          "evaluated_at": {
+            "format": "date-time",
+            "title": "Evaluated At",
+            "type": "string"
+          },
+          "filed_cutoff": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filed Cutoff"
+          },
+          "freshness_revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Freshness Revision",
+            "type": "string"
+          },
+          "history_mode": {
+            "enum": [
+              "as_filed_by_date",
+              "original_as_filed",
+              "latest_reported"
+            ],
+            "title": "History Mode",
+            "type": "string"
+          },
+          "history_revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "History Revision",
+            "type": "string"
+          },
+          "history_years": {
+            "enum": [
+              3,
+              5,
+              10
+            ],
+            "title": "History Years",
+            "type": "integer"
+          },
+          "issuer_id": {
+            "format": "uuid",
+            "title": "Issuer Id",
+            "type": "string"
+          },
+          "period_basis": {
+            "enum": [
+              "annual",
+              "quarter",
+              "ttm",
+              "instant"
+            ],
+            "title": "Period Basis",
+            "type": "string"
+          },
+          "period_end": {
+            "format": "date",
+            "title": "Period End",
+            "type": "string"
+          },
+          "period_start": {
+            "anyOf": [
+              {
+                "format": "date",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Period Start"
+          },
+          "policy_content_hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Policy Content Hash",
+            "type": "string"
+          },
+          "profile_revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Profile Revision",
+            "type": "string"
+          },
+          "quote_identifier_id": {
+            "format": "uuid",
+            "title": "Quote Identifier Id",
+            "type": "string"
+          },
+          "reporting_basis": {
+            "enum": [
+              "us_gaap",
+              "ifrs"
+            ],
+            "title": "Reporting Basis",
+            "type": "string"
+          },
+          "security_id": {
+            "format": "uuid",
+            "title": "Security Id",
+            "type": "string"
+          },
+          "trend_revision": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Trend Revision",
+            "type": "string"
+          }
+        },
+        "required": [
+          "issuer_id",
+          "security_id",
+          "quote_identifier_id",
+          "period_basis",
+          "period_start",
+          "period_end",
+          "reporting_basis",
+          "currency",
+          "history_mode",
+          "filed_cutoff",
+          "captured_before",
+          "as_of",
+          "evaluated_at",
+          "profile_revision",
+          "freshness_revision",
+          "history_revision",
+          "trend_revision",
+          "policy_content_hash",
+          "history_years",
+          "engine_revision"
+        ],
+        "title": "SelectionKey",
+        "type": "object"
+      },
+      "SnapshotResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "compatibility_key": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Compatibility Key",
+            "type": "string"
+          },
+          "execution_id": {
+            "format": "uuid",
+            "title": "Execution Id",
+            "type": "string"
+          },
+          "generated_at": {
+            "format": "date-time",
+            "title": "Generated At",
+            "type": "string"
+          },
+          "input_snapshot_id": {
+            "format": "uuid",
+            "title": "Input Snapshot Id",
+            "type": "string"
+          },
+          "outcome": {
+            "enum": [
+              "completed",
+              "completed_with_gaps"
+            ],
+            "title": "Outcome",
+            "type": "string"
+          },
+          "payload_hash": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Payload Hash",
+            "type": "string"
+          },
+          "request_id": {
+            "format": "uuid",
+            "title": "Request Id",
+            "type": "string"
+          },
+          "result": {
+            "$ref": "#/components/schemas/FundamentalsPayload"
+          },
+          "snapshot_id": {
+            "format": "uuid",
+            "title": "Snapshot Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "snapshot_id",
+          "request_id",
+          "execution_id",
+          "input_snapshot_id",
+          "generated_at",
+          "compatibility_key",
+          "payload_hash",
+          "outcome",
+          "result"
+        ],
+        "title": "SnapshotResponse",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "title": "equityEval Fundamentals",
+    "version": "s6a-v1"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/analysis-snapshots/{snapshot_id}": {
+      "get": {
+        "operationId": "snapshot_analysis_snapshots__snapshot_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "snapshot_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Snapshot Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NoResult"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Snapshot"
+      }
+    },
+    "/companies/{issuer_id}/fundamentals": {
+      "get": {
+        "operationId": "latest_companies__issuer_id__fundamentals_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "issuer_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Issuer Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "security_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Security Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "compatibility_key",
+            "required": true,
+            "schema": {
+              "pattern": "^[a-f0-9]{64}$",
+              "title": "Compatibility Key",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "scope_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Scope Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LatestResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NoResult"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Latest"
+      }
+    }
+  }
+}

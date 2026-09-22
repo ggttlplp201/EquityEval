@@ -31,6 +31,7 @@ lint:
 	.venv/bin/ruff format --check .
 	$(VENV_PY) scripts/check_policy.py
 	$(VENV_PY) scripts/generate_concepts.py --check
+	$(VENV_PY) scripts/generate_fundamentals_api.py --check
 	npm run lint
 
 typecheck:

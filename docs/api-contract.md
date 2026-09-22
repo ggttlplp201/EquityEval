@@ -1,49 +1,34 @@
 # API contract status
 
-**Public HTTP API not defined — review milestone S6.** No API routes or OpenAPI
-artifact are implemented. S2 includes reviewed internal storage interfaces and a
-generated TypeScript financial-concept union; these are not an HTTP API contract.
-The separate [S3 source protocol](design/s3/source-contract.md) is implemented
-under D008. The [S4 provider extension](design/s4/source-contract.md) is implemented
-under accepted D019. Neither freezes S6 endpoints.
+D037 approves narrow **S6a fundamentals publication and read-only retrieval**.
+The implementation and generated contract cover governed synthetic S5 outputs.
+S6b assumptions/DCF/model contracts remain unimplemented, with D004/D005 open.
+No production source or application financial result was activated.
 
-The [S6 review packet](design/s6/publication-contract-proposal.md), prepared
-2026-09-22, proposes immutable input/result storage, exact cache identity, W1
-rerun/publication semantics and acceptance tests for the implemented S5 boundary.
-It remains a proposal; no migrations or routes have started.
+| Endpoint | Contract |
+| --- | --- |
+| `GET /analysis-snapshots/{snapshot_id}` | Exact immutable snapshot; no selector query parameters. Unknown/out-of-workspace ID returns `snapshot_not_found` 404. |
+| `GET /companies/{issuer_id}/fundamentals` | Requires security ID, full-selector compatibility hash and explicit membership/independent scope ID. No nearest fallback; no exact saved result returns `no_compatible_snapshot` 404. |
 
-At S6: review P0 endpoints, provenance for filing and non-filing sources, units,
-missing values, errors, point-in-time selection, immutable run inputs and DCF
-output semantics. Generate OpenAPI and TS types and enforce regeneration/no-diff
-in CI. Cover DCF inputs/results before freezing even though S7 implements its math.
+Both endpoints preserve Decimal strings, nulls, all seven S5 statuses, dated
+provenance, formula/coefficient lineage, full coverage and selected 3/5/10-year
+history. Latest response separates the saved result from the latest declared W1
+request and its state. Reads do not calculate, acquire data or age stored labels.
+Invalid selectors produce the generated validation-error shape (422).
 
-## F1 fundamentals proposal for S6
+The app factory requires a trusted workspace and connection factory; it enables
+no default credentials or network listener. Query parameters cannot change the
+workspace. The API uses read-only transactions. Multi-user authentication and UI
+integration remain later boundaries; no mutation HTTP route was added.
 
-The [F1 integration plan](features/F1-fundamentals-guide.md) adds a candidate
-`GET /companies/{issuerId}/fundamentals` projection and immutable snapshot
-retrieval. These are proposals, not existing routes or an approved API. D021
-tracks the outstanding review; use S5's tested definitions as inputs to S6.
+Source: `apps/api/fundamentals.py` and `packages/schema/fundamentals.py`.
+Generated artifacts: `packages/schema/openapi/fundamentals.json` and
+`packages/schema/types/fundamentals.ts`. Run
+`scripts/generate_fundamentals_api.py --check` through `scripts/project_python.py`;
+`make lint` and CI enforce no-diff regeneration.
 
-Review identity mapping (`instrumentId` versus security/quote), financial period,
-accounting/earnings basis, inclusive filing cutoff, capture timestamp, source-known
-limits and a frozen evaluation timestamp. Include selected **3/5/10-year history
-window**, sample policy and excluded sample metadata. Return Decimal strings,
-units/fractions, typed evidence references, formula/rule versions, coverage and
-reasons for valid, N/M, missing, invalid, stale or unsupported results. Preserve
-underlying source statuses/NULLs rather than replacing storage semantics.
-
-Integrate fundamentals results with the analysis input/snapshot persistence
-already deferred from S2; do not create duplicate source or snapshot models.
-Cache identity must include every selection field, input manifest, mapping/
-normalizer/selection revisions and rule, freshness, applicability, precision,
-comparison and display-sensitivity policy versions. Snapshot retrieval returns
-the saved evaluation, not newly aged labels. Each explicit W1 rerun creates a new request/execution and a new immutable
-analysis snapshot ID even if its F1 calculation payload is reusable. Linking a
-new execution only to an old analysis snapshot does not satisfy W1. Retries
-within the same logical request must not publish duplicate snapshots.
-
-Review guarded publication/latest-result pointers, restart/retry behavior and
-failed refresh: show the prior dated snapshot separately, never substitute its
-values into a newer unavailable selection. Carry market observation dates with
-composite evidence keys. Only after sequential review should migrations, public
-models, OpenAPI and generated TS be implemented.
+The [implementation record](design/s6/implementation.md),
+[milestone](milestones/S6a-fundamentals-publication.md) and
+[manual](user-manual/saved-fundamentals.md) describe private input reviews, typed
+source links, immutable request/result identities, exact cache reuse, fenced
+publication and remaining real-data/valuation prerequisites.

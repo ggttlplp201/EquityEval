@@ -5,3 +5,8 @@ request/response types, orchestrate services, delegate valuation to equity_core.
 Do not perform financial math here or import yfinance. Preserve provenance,
 missing-data flags, point-in-time selection and immutable model-run history.
 Prepare API contract changes for review in S6. S0 defines no domain routes.
+
+D037 approves the S6a read-only fundamentals endpoints and generated contract.
+Use the explicit workspace-bound app factory; no implicit database/listener/auth
+configuration. No mutation route, real publication or valuation model is included.
+See docs/api-contract.md and docs/design/s6/implementation.md.

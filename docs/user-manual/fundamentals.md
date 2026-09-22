@@ -2,8 +2,8 @@
 
 Status: draft for the first S5 calculation slice. This chapter explains the
 implemented source formulas and their limits. It is not a guide to working product
-screens. The public API, saved fundamentals snapshots, automatic watchlist
-calculation stage and Fundamentals interface are still pending. The source
+screens. S6a implements [saved fundamentals and read-only retrieval](saved-fundamentals.md)
+for governed synthetic fixtures. Production data and UI integration remain pending. The source
 formulas and history math have core tests; the product walkthrough is pending.
 
 The full [fundamentals plan](../features/F1-fundamentals-guide.md) includes more

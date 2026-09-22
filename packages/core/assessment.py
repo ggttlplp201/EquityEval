@@ -189,6 +189,8 @@ def _known_metric(metric_id: str) -> bool:
 
 
 def _rebuild(calculation: Calculation) -> tuple[Calculation | None, set[str]]:
+    if not _known_metric(calculation.metric_id):
+        return None, {"unsupported_metric_definition"}
     operands = calculation.operands
     if (
         not isinstance(operands, tuple)
@@ -196,8 +198,6 @@ def _rebuild(calculation: Calculation) -> tuple[Calculation | None, set[str]]:
         or any(not isinstance(item, FinancialInput | PeriodAmount) for item in operands)
     ):
         return None, {"calculation_inputs_invalid"}
-    if not _known_metric(calculation.metric_id):
-        return None, {"unsupported_metric_definition"}
     if calculation.metric_id.startswith("reported."):
         if len(operands) != 1:
             return None, {"calculation_inputs_invalid"}

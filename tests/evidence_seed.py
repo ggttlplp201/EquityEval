@@ -132,6 +132,8 @@ def seed_evidence(
     statement_family: str = "income",
     scope_kind: str = "consolidated",
     descriptor: dict[str, Any] | None = None,
+    scope_content_sha256: str | None = None,
+    transform_metadata: dict[str, Any] | None = None,
     unit_key: str = "USD",
     namespace: str = "us-gaap",
     tag: str = "Revenues",
@@ -256,7 +258,7 @@ def seed_evidence(
             scope_kind=scope_kind,
             descriptor_schema_version=1,
             descriptor_json=Jsonb(descriptor or {"ownership": scope_kind, "dimensions": {}}),
-            content_sha256=str(ids["scope"]).replace("-", "") * 2,
+            content_sha256=scope_content_sha256 or str(ids["scope"]).replace("-", "") * 2,
         )
     else:
         ids["scope"] = scope_id
@@ -350,7 +352,7 @@ def seed_evidence(
             raw_dimensions=Jsonb({}),
             context_knowledge="known_empty",
             parser_revision="test-v1",
-            transform_metadata=Jsonb([]),
+            transform_metadata=Jsonb(transform_metadata if transform_metadata is not None else []),
             raw_metadata=Jsonb({"source_unit": unit_key}),
         )
     insert(
