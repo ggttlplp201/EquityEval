@@ -9,13 +9,7 @@ from equity_core.metrics import current_ratio, net_working_capital
 from equity_ingest.financial_types import canonical_json, content_hash
 from equity_schema.concepts import Concept
 
-from tests.core.metric_fixtures import operand
-
-
-def balance(concept, value, **kwargs):
-    source = operand(concept, value, start=None, **kwargs)
-    query = replace(source.selection.query, statement_family="balance_sheet")
-    return replace(source, selection=replace(source.selection, query=query))
+from tests.core.metric_fixtures import balance, operand
 
 
 def pair(assets="150", liabilities="100", **kwargs):

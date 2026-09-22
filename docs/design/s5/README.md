@@ -5,6 +5,7 @@ The first bounded implementation follows planning commit `c1f2697` and the user'
 The milestone record is [S5 ratios and fundamentals](../../milestones/S5-ratios.md).
 
 - [Source-metric boundary](source-metrics.md): supported inputs/formulas and limits.
+- [Annual return on assets](return-on-assets.md): matching income and opening/closing assets.
 - [Liquidity calculations](liquidity.md): current ratio and reported net working capital.
 - [Period assembly](period-assembly.md): the source-preserving prerequisite completed before X1.
 - [Metric inventory](metric-inventory.md): complete original S5 backlog disposition.

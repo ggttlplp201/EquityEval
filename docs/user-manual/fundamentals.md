@@ -111,6 +111,19 @@ of cash flows. Its meaning depends on the business and composition of the balanc
 Unavailable results display **N/A**. The calculation preserves its source operands
 for inspection and does not assign a good/bad liquidity score.
 
+## Return on assets (ROA)
+
+ROA compares consolidated net income with the average of total assets at the
+beginning and end of the reporting year:
+
+`ROA = annual net income ÷ ((opening assets + closing assets) ÷ 2)`
+
+For a synthetic example, net income of 10 and assets of 80 at the beginning and
+120 at the end give average assets of 100 and **ROA of 10%**. A net loss produces
+negative ROA. This uses two balance-sheet dates, not a daily average. It describes
+reported profitability relative to assets; it does not by itself determine
+whether a stock is attractive. Unavailable results display **N/A**.
+
 ## Percentages, percentage points and units
 
 The calculation layer represents percentages as fractions: 0.25 displays as

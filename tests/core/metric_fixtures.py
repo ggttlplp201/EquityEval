@@ -1,5 +1,6 @@
 """Synthetic, source-shaped operands; none of these values describe a company."""
 
+from dataclasses import replace
 from datetime import UTC, date, datetime
 from decimal import Decimal
 from uuid import NAMESPACE_URL, uuid5
@@ -118,3 +119,10 @@ def operand(
         )
     )
     return FinancialInput(selection, concept, period, unit, scope, precision)
+
+
+def balance(concept, value, **kwargs):
+    """A selected instant balance using the same synthetic source evidence."""
+    source = operand(concept, value, start=None, **kwargs)
+    query = replace(source.selection.query, statement_family="balance_sheet")
+    return replace(source, selection=replace(source.selection, query=query))

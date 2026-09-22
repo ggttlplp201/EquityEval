@@ -165,3 +165,10 @@ After D4c UI acceptance, the user requested continuing functional work.
 [S5b liquidity](S5b-liquidity.md) adds current ratio and reported net working
 capital using existing selected balance-sheet concepts and Calculation output.
 No schema/API or source activation; real publication remains downstream.
+
+## Annual ROA follow-on — 2026-09-21
+
+The user's next continuation adds [annual ROA](S5b-roa.md) to the pure engine,
+using exact opening/closing asset dates, same-edition source evidence and
+positive endpoints at reported precision. Publication and other returns remain
+in their existing later milestones.

@@ -7,7 +7,7 @@ import json
 import re
 from collections.abc import Callable
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, timedelta
 from decimal import (
     ROUND_HALF_EVEN,
     Context,
@@ -52,12 +52,8 @@ def _denominator(input_value: FinancialOperand) -> set[str]:
     return set()
 
 
-def _source_issues(
-    operands: tuple[FinancialInput, ...],
-    expected: tuple[Concept, ...],
-    *,
-    same_period: bool = True,
-    balance_sheet: bool = False,
+def _selection_issues(
+    operands: tuple[FinancialInput, ...], expected: tuple[Concept, ...]
 ) -> set[str]:
     problems = {flag for item in operands for flag in item.blocking_flags}
     if any(item.value is None for item in operands):
@@ -81,6 +77,17 @@ def _source_issues(
         for item in operands
     ):
         problems.add("incompatible_units")
+    return problems
+
+
+def _source_issues(
+    operands: tuple[FinancialInput, ...],
+    expected: tuple[Concept, ...],
+    *,
+    same_period: bool = True,
+    balance_sheet: bool = False,
+) -> set[str]:
+    problems = _selection_issues(operands, expected)
     if balance_sheet:
         if any(
             item.period.period_kind != "instant" or item.period.start_date is not None
@@ -336,6 +343,50 @@ def net_working_capital(assets: FinancialInput, liabilities: FinancialInput) -> 
         _current_balance_issues(assets, liabilities),
         lambda values: _difference(values[0], values[1]),
         unit=assets.unit.unit_key,
+    )
+
+
+def _average_balance(left: Decimal, right: Decimal) -> Decimal:
+    with localcontext(_context(exact=True)):
+        return (left + right) / 2
+
+
+def return_on_assets(
+    income: FinancialInput, opening_assets: FinancialInput, closing_assets: FinancialInput
+) -> Calculation:
+    """Annual consolidated net income / same-edition average opening and closing assets."""
+    # Reuse the existing twelve-calendar-month gate without a module import cycle.
+    from equity_core.periods import annual_amount
+
+    operands = (income, opening_assets, closing_assets)
+    problems = _selection_issues(
+        operands, (Concept.NET_INCOME_CONSOLIDATED, Concept.TOTAL_ASSETS, Concept.TOTAL_ASSETS)
+    )
+    problems.update(annual_amount(income).blocking_flags)
+    problems.update(
+        _source_issues(
+            (opening_assets, closing_assets),
+            (Concept.TOTAL_ASSETS, Concept.TOTAL_ASSETS),
+            same_period=False,
+            balance_sheet=True,
+        )
+    )
+    problems.update(_denominator(opening_assets) | _denominator(closing_assets))
+    if len({frozenset(item.selection.filing_version_ids) for item in operands}) != 1:
+        problems.add("incompatible_filing_editions")
+    start = income.period.start_date
+    if (
+        type(start) is not date
+        or start == date.min
+        or opening_assets.period.end_date != start - timedelta(days=1)
+        or closing_assets.period.end_date != income.period.end_date
+    ):
+        problems.add("incompatible_balance_dates")
+    return _calculate(
+        "return_on_assets",
+        operands,
+        problems,
+        lambda values: values[0] / _average_balance(values[1], values[2]),
     )
 
 

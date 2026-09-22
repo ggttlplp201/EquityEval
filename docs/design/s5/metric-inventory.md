@@ -17,7 +17,8 @@ guards. An absent input never authorizes a fallback to another concept.
 | EV/EBITDA, EV/Sales, EV/EBIT, EV/FCFF | Deferred | Reviewed EV components and enterprise-compatible denominator; EBIT/EBITDA definitions are not supplied by operating income alone. |
 | Generic EV/FCF | Unsupported convention | Do not pair EV with CFO-minus-PPE FCF. Resolve a named compatible FCFF definition in S7. |
 | Current ratio and reported net working capital | Implemented pure same-date balance-sheet ratio/subtraction; [liquidity boundary](liquidity.md) | Real selected current-assets/current-liabilities inputs; public snapshot integration remains S6. No operating-NWC, cash or health-score inference. |
-| ROA, ROE | Deferred | Beginning/end balance alignment; common-income/equity vocabulary and precision for ROE. |
+| ROA | Implemented pure reported-annual consolidated income / mean opening and closing total assets; [boundary](return-on-assets.md) | Exact same-edition dates and positive endpoints with precision; assembled TTM, 52/53-week calendars and real publication remain later work. |
+| ROE | Deferred | Common-income/equity vocabulary and precision; no parent-equity shortcut. |
 | ROIC, ROIIC, ROIC–WACC spread | Deferred | Reviewed NOPAT, tax, invested-capital and dated WACC policies. |
 | EBITDA margin, FCF conversion | Deferred | Reviewed EBITDA or matching net-income denominator and suitability conventions. |
 | DuPont | Deferred | Reviewed ownership/scope basis, average balances and decomposition. |
