@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
 Canonical dependency/status list, reconciled 2026-09-22 through the
-[S6a fundamentals publication](milestones/S6a-fundamentals-publication.md). This links existing milestones and features;
+[S6b/S7a synthetic valuation](milestones/S6b-S7a-valuation-contract.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -13,6 +13,8 @@ feature/design retains its detailed acceptance criteria.
   selectors; S5 source metrics/fiscal periods, explicit applicability/freshness/coverage,
   neutral rules/trends, accounting checks/history and X1 pure comparisons. S6a adds
   governed synthetic snapshot publication and read-only retrieval with generated contracts.
+  S6b/S7a adds audited synthetic reverse DCF, immutable assumptions/runs, W1 publication
+  and a trusted-local generated API.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
   12 captures, three acquisition bootstraps and two completed filing checks
   (14 fetch attempts, two retained monitor response bodies). One application-owned
@@ -38,7 +40,7 @@ feature/design retains its detailed acceptance criteria.
 | Corporate-action processing | S4b action/ADS lifecycle review | Planned; not operating | Concrete shared contract, action source rights, instrument lifecycle evidence | Splits/dividends/share-class/ADS changes retain effective/known-at evidence; prevent adjusted/raw/share-basis mixing; restatement and out-of-order action regressions. |
 | Ordinary company analysis requests | [W1b](features/W1-watchlist-analysis.md), S3/S4 stages → S5/S7 | Request/source-stage infrastructure exists; zero ordinary application requests | Quote identity, explicit plan/coverage, eligible implemented engines | Every applicable stage considered; unavailable/unsupported remains visible; immutable results, retry/cancel/fencing, no duplicate membership/results. |
 | Real financial normalization and PIT selection | S3 + [S5](milestones/S5-ratios.md) real-data handoff | Infrastructure and reviewed fixtures exist; zero application batches | Ordinary source request or separately reviewed handoff; exact financial/event coverage and mappings | Real archived filings normalize through existing publication fence; accounting flags/source precision; as-reported/restated and filed/capture cutoffs verified without lookahead. |
-| Published company ratios/valuation | S5 → [S6](api-contract.md) → S7/S8; [F1](features/F1-fundamentals-guide.md) | S5 engine and narrow synthetic S6a snapshots/API implemented; production publication/valuation pending | Real selected facts; reviewed production S5 policies; S6 snapshots/API; S7 assumptions/valuation; price/actions for applicable ratios | Real values trace to operands/formula/source; 3/5/10-year coverage preserved; missing inputs remain gaps; valuation is a range with assumptions, never a buy/sell signal. |
+| Published company ratios/valuation | S5 → [S6](api-contract.md) → S7/S8; [F1](features/F1-fundamentals-guide.md) | S5, synthetic S6a snapshots and S6b/S7a reverse model/API implemented; production publication pending | Real selected facts; reviewed production S5 policies; S6 snapshots/API; S7 assumptions/valuation; price/actions for applicable ratios | Real values trace to operands/formula/source; 3/5/10-year coverage preserved; missing inputs remain gaps; valuation is a range with assumptions, never a buy/sell signal. |
 | Real sector-wide data/comparisons | [X1](milestones/X1-sector-explorer.md), D024, S6 | Pure calculations/fictional graphs verified; real publication blocked | Reviewed universe/taxonomy/membership history, constituent fundamentals/prices/actions, common basis, S6 | Graphs use real eligible constituents; aggregate vs median explicit; coverage/exclusions/calculation/source details; historical membership and no lookahead; thresholds remain versioned policy. |
 | Automatic result refresh after eligible filings | W1b + S5/S6; D4a discovery → reviewed financial handoff | Not operating; D4a reports discovery eligibility/blockers only | Complete discovery, quote/coverage gates, explicit reviewed deduplicated handoff, published snapshot contract | One eligible filing edition queues one logical downstream job; late completion cannot replace newer result; old snapshots retained; amendment is not automatically restatement/non-reliance. |
 | Production watchlist/search/add/rerun | [W1a–c](features/W1-watchlist-analysis.md), S6/S8/U1 | Membership/request primitives implemented; production search/UI/full analysis pending | Search/identity source, quote registry, S6 API, W1b engine results | Resolve ambiguous instruments; atomic add+request; repeat-click idempotency; visible progress/errors; remove/re-add and explicit rerun preserve history; verified user-manual walkthrough. |
@@ -61,12 +63,13 @@ feature/design retains its detailed acceptance criteria.
    enqueue-time selection intent and read-only API. See the
    [milestone](milestones/S6a-fundamentals-publication.md) and
    [operator/manual chapter](user-manual/saved-fundamentals.md). UI is unchanged.
-   The [S6b/S7a proposal](design/s6/valuation-contract-proposal.md) and
-   [acceptance plan](design/s7/acceptance-plan.md) are now ready for coordinator
-   audit. D004/D005 propose reverse DCF as primary and a deterministic named range;
-   D038 keeps new assumptions/model/schema/API/math implementation gated. Review
-   the [proposal milestone](milestones/S6b-S7a-valuation-contract.md), then stop
-   until scoped approval. A real-data tracer remains a separate reviewed gate.
+   **S6b/S7a — audited synthetic reverse valuation implemented:** D038 approval of
+   `5b85140` covers the [implementation](design/s7/implementation.md), sequential
+   0012, immutable assumptions, certified Decimal solver, full bridge, W1 worker
+   and generated API. See the [milestone](milestones/S6b-S7a-valuation-contract.md)
+   for checkpoint verification and [manual](user-manual/saved-valuations.md) for
+   the operator workflow. Real publication and connected valuation UI remain later.
+
 4. Resolve S4 reference/quote evidence and source entitlement, S4b lifecycle and
    real governed normalization/PIT/profile/calendar/precision inputs. No source
    scope expansion, quote inference or provider activation occurred in S5.

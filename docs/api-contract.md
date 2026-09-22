@@ -2,10 +2,9 @@
 
 D037 approves narrow **S6a fundamentals publication and read-only retrieval**.
 The implementation and generated contract cover governed synthetic S5 outputs.
-S6b assumptions/DCF/model contracts remain unimplemented. D004/D005 now have
-[proposed resolutions and routes](design/s6/valuation-contract-proposal.md), with
-an [acceptance plan](design/s7/acceptance-plan.md), awaiting coordinator review.
-Those proposed mutation/model routes are not part of the generated S6a API.
+D038 now approves synthetic **S6b/S7a assumptions and reverse valuation** as a
+separate trusted-local app. Its [implementation](design/s7/implementation.md)
+reuses saved S6a evidence and W1; the S6a generated routes remain unchanged.
 No production source or application financial result was activated.
 
 | Endpoint | Contract |
@@ -22,7 +21,7 @@ Invalid selectors produce the generated validation-error shape (422).
 The app factory requires a trusted workspace and connection factory; it enables
 no default credentials or network listener. Query parameters cannot change the
 workspace. The API uses read-only transactions. Multi-user authentication and UI
-integration remain later boundaries; no mutation HTTP route was added.
+integration remain later boundaries; S6a itself has no mutation HTTP route.
 
 Source: `apps/api/fundamentals.py` and `packages/schema/fundamentals.py`.
 Generated artifacts: `packages/schema/openapi/fundamentals.json` and
@@ -35,3 +34,29 @@ The [implementation record](design/s6/implementation.md),
 [manual](user-manual/saved-fundamentals.md) describe private input reviews, typed
 source links, immutable request/result identities, exact cache reuse, fenced
 publication and remaining real-data/valuation prerequisites.
+
+## S6b/S7a valuation app
+
+| Endpoint | Contract |
+| --- | --- |
+| `POST /assumption-sets` | 201 immutable current-authored content, optional parent and idempotency key; same-key changed content is 409. |
+| `GET /assumption-sets/{assumption_id}` | Exact same-workspace assumptions including private author/rationale. |
+| `POST /valuation-requests` | 202 for reviewed synthetic inputs, explicit parent, idempotency key and attempt budget; enqueue only. |
+| `GET /valuation-requests/{request_id}` | Current execution, valuation stage, fixed safe error and saved run ID. |
+| `GET /model-runs/{run_id}` | Exact immutable envelope and sanitized valuation payload, without recalculation. |
+| `GET /companies/{issuer_id}/valuation` | Exact security/quote/scope/compatibility key; saved run and latest requested state are separate. |
+
+All exact-ID routes reject extra selectors with 422; inaccessible IDs return 404.
+The app factory requires the trusted workspace and connection factory explicitly;
+there is no default listener, auth identity, provider or worker. Mutation handlers
+only create assumptions or enqueue owner-reviewed work. Reads use read-only
+transactions. Public runs omit private authorship/rationale and all raw worker
+error text. Decimal strings, nulls, ordered scenarios/cells, five solve states,
+three separate uncertainty fields and signed evaluation diagnostics are retained.
+
+Sources: `apps/api/valuation.py`, `packages/schema/valuation.py` and
+`packages/schema/valuation_store.py`. Generated files are
+`packages/schema/openapi/valuation.json` and `packages/schema/types/valuation.ts`.
+`make lint` runs `scripts/generate_valuation_api.py --check` through the project
+Python wrapper. The [saved-valuation manual](user-manual/saved-valuations.md)
+explains creating a reviewed fixture run, reading it and changing assumptions.

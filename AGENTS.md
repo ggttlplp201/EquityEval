@@ -198,3 +198,10 @@ read docs/milestones/S6a-fundamentals-publication.md and docs/design/s6/implemen
 Migration 0011, governed synthetic reviews, immutable W1 intent/input/results and
 read-only generated fundamentals API reuse S5. S6b/S7 and real publication remain
 separate gates; no provider, quote inference or scheduler activation is authorized.
+
+D038 approves synthetic S6b/S7a after `5b85140`: read docs/design/s7/implementation.md
+and docs/milestones/S6b-S7a-valuation-contract.md. Sequential 0012, explicit
+assumptions, certified Decimal reverse FCFF, complete claims and W1 publication
+are implemented. Preserve numerical/scenario/source uncertainty separately.
+Real publication, providers, automated WACC, Monte Carlo and valuation UI remain
+outside that approval. Existing 0001–0011 and the accepted UI stay unchanged.

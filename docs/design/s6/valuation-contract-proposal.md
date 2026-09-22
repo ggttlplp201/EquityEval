@@ -1,5 +1,10 @@
 # S6b / S7a — Assumptions and reverse valuation contract proposal
 
+Implementation status update — 2026-09-22: coordinator approved `5b85140`
+for synthetic S6b/S7a. The original proposal/acceptance text below is retained as
+review history. See [the milestone](../../milestones/S6b-S7a-valuation-contract.md)
+for implementation, audits and actual verification results.
+
 **Status: proposed, awaiting coordinator review. No implementation authorized.**
 Prepared 2026-09-22 after coordinator acceptance of `3909572`,
 `milestone/s6a-fundamentals`. That checkpoint, migrations 0001–0011 and retained

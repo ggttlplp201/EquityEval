@@ -13,3 +13,7 @@ S6a is approved under D037; its versioned fundamentals contract, migration 0011
 and generated OpenAPI/TypeScript are implemented. Canonical Decimal strings,
 seven statuses, explicit selectors and immutable W1 result identities are fixed.
 `make lint` verifies generation. S6b model contracts retain their separate review.
+
+D038 additionally approves synthetic S6b/S7a assumptions/model/run contracts,
+0012 and generated valuation API. See docs/design/s7/implementation.md. New
+model or production-source scope still requires its own reviewed contract.

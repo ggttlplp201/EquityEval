@@ -1,5 +1,10 @@
 # S6b / S7a — Proposed acceptance plan
 
+Implementation status update — 2026-09-22: coordinator approved `5b85140`
+for synthetic S6b/S7a. The original proposal/acceptance text below is retained as
+review history. See [the milestone](../../milestones/S6b-S7a-valuation-contract.md)
+for implementation, audits and actual verification results.
+
 Status: **proposed; implementation and tests await coordinator review**.
 Date: 2026-09-22. Baseline: `3909572`, `milestone/s6a-fundamentals`.
 This is a test specification, not a report of implemented valuation behavior.
