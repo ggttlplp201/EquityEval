@@ -14,11 +14,12 @@ above. This repository and its commits are the implementation source of truth.
 | S2 | Complete for accepted storage/request scope; 124 tests | [Schema and PIT](S2-schema.md) | Same milestone build-log task |
 | S3 | Complete for accepted scope; 440 tests; milestone/s3 | [SEC ingestion](S3-ingestion.md) | Same milestone build-log task; D008 accepted |
 | S4 | S4a complete; 717 tests; milestone/s4a; S4b/live sources remain open | [Prices and macro sources](S4-prices-macro.md) | Same milestone build-log task |
-| S5 | First source-metric/history slice implemented; full S5 in progress | [Ratios and guided fundamentals](S5-ratios.md) | D022 source core; calendar-period prerequisite complete before X1; S4b gates price/share ratios |
+| S5 | Unblocked source-only engine boundary complete; remaining definition/data gates explicit | [Ratios and guided fundamentals](S5-ratios.md) | S5b fiscal + S5c/S5d handoff; full S5/F1 and production data remain gated |
 | S5b liquidity | Source-only current ratio and net working capital implemented | [Liquidity follow-on](S5b-liquidity.md) | Reuses selected balance-sheet inputs; UI unchanged; missing source values remain N/A |
 | S5b ROA | Reported-annual return on assets implemented | [ROA follow-on](S5b-roa.md) | Same-edition net income and exact opening/closing total assets; UI unchanged |
 | S5b fiscal | Reviewed fiscal-calendar assembly and growth compatibility implemented | [Fiscal follow-on](S5b-fiscal.md) | Explicit calendar/edition/PIT proof; no application calendar inferred |
-| S6 | Planned; include F1 result, snapshot and cache review | [API contract review/freeze](../api-contract.md) | After S5 |
+| S5c/S5d | Engine acceptance, 386 core tests before full checkpoint gate | [Source engine handoff](S5c-engine-handoff.md) | Applicability/freshness, neutral rules, trend, accounting checks and blocker audit |
+| S6 | Concrete immutable result/cache/publication proposal ready for sequential review | [Publication review packet](../design/s6/publication-contract-proposal.md) | No schema/API/publication implementation; D021 and D004/D005 gates explicit |
 | S7 | Planned | Forward DCF | After S6 |
 | N1a–d | Requested; continuous discovery and stock assessments specified (D017/D018) | [News and macro agent](../features/N1-news-and-macro-agent.md) | Alongside S2–S8 contracts |
 | W1 | Durable requests and SEC/price/macro source stages implemented; full pipeline/UI follow | [Watchlist and reanalysis](../features/W1-watchlist-analysis.md) | S2 → engines → S8/N1 |

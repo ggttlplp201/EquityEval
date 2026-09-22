@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
-Canonical dependency/status list, reconciled 2026-09-21 through
-`milestone/d4b-filing-scheduler`. This links existing milestones and features;
+Canonical dependency/status list, reconciled 2026-09-22 through the
+[S5 source-engine handoff](milestones/S5c-engine-handoff.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -10,7 +10,8 @@ feature/design retains its detailed acceptance criteria.
 
 - **Implemented code:** W1 durable requests/leases/retries; S3 SEC transport,
   inventory, normalization and PIT infrastructure; S4a price/macro adapters and
-  selectors; bounded S5 pure metrics/history and X1 pure comparisons.
+  selectors; S5 source metrics/fiscal periods, explicit applicability/freshness/coverage,
+  neutral rules/trends, accounting checks/history and X1 pure comparisons.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
   12 captures, three acquisition bootstraps and two completed filing checks
   (14 fetch attempts, two retained monitor response bodies). One application-owned
@@ -36,7 +37,7 @@ feature/design retains its detailed acceptance criteria.
 | Corporate-action processing | S4b action/ADS lifecycle review | Planned; not operating | Concrete shared contract, action source rights, instrument lifecycle evidence | Splits/dividends/share-class/ADS changes retain effective/known-at evidence; prevent adjusted/raw/share-basis mixing; restatement and out-of-order action regressions. |
 | Ordinary company analysis requests | [W1b](features/W1-watchlist-analysis.md), S3/S4 stages → S5/S7 | Request/source-stage infrastructure exists; zero ordinary application requests | Quote identity, explicit plan/coverage, eligible implemented engines | Every applicable stage considered; unavailable/unsupported remains visible; immutable results, retry/cancel/fencing, no duplicate membership/results. |
 | Real financial normalization and PIT selection | S3 + [S5](milestones/S5-ratios.md) real-data handoff | Infrastructure and reviewed fixtures exist; zero application batches | Ordinary source request or separately reviewed handoff; exact financial/event coverage and mappings | Real archived filings normalize through existing publication fence; accounting flags/source precision; as-reported/restated and filed/capture cutoffs verified without lookahead. |
-| Published company ratios/valuation | S5 → [S6](api-contract.md) → S7/S8; [F1](features/F1-fundamentals-guide.md) | Bounded pure metrics and fictional UI exist; production publication/valuation pending | Real selected facts; S5 policy completion; S6 snapshots/API; S7 assumptions/valuation; price/actions for applicable ratios | Real values trace to operands/formula/source; 3/5/10-year coverage preserved; missing inputs remain gaps; valuation is a range with assumptions, never a buy/sell signal. |
+| Published company ratios/valuation | S5 → [S6](api-contract.md) → S7/S8; [F1](features/F1-fundamentals-guide.md) | Unblocked source-only engine boundary complete; S6 review packet ready; production publication/valuation pending | Real selected facts; reviewed production S5 policies; S6 snapshots/API; S7 assumptions/valuation; price/actions for applicable ratios | Real values trace to operands/formula/source; 3/5/10-year coverage preserved; missing inputs remain gaps; valuation is a range with assumptions, never a buy/sell signal. |
 | Real sector-wide data/comparisons | [X1](milestones/X1-sector-explorer.md), D024, S6 | Pure calculations/fictional graphs verified; real publication blocked | Reviewed universe/taxonomy/membership history, constituent fundamentals/prices/actions, common basis, S6 | Graphs use real eligible constituents; aggregate vs median explicit; coverage/exclusions/calculation/source details; historical membership and no lookahead; thresholds remain versioned policy. |
 | Automatic result refresh after eligible filings | W1b + S5/S6; D4a discovery → reviewed financial handoff | Not operating; D4a reports discovery eligibility/blockers only | Complete discovery, quote/coverage gates, explicit reviewed deduplicated handoff, published snapshot contract | One eligible filing edition queues one logical downstream job; late completion cannot replace newer result; old snapshots retained; amendment is not automatically restatement/non-reliance. |
 | Production watchlist/search/add/rerun | [W1a–c](features/W1-watchlist-analysis.md), S6/S8/U1 | Membership/request primitives implemented; production search/UI/full analysis pending | Search/identity source, quote registry, S6 API, W1b engine results | Resolve ambiguous instruments; atomic add+request; repeat-click idempotency; visible progress/errors; remove/re-add and explicit rerun preserve history; verified user-manual walkthrough. |
@@ -54,13 +55,19 @@ feature/design retains its detailed acceptance criteria.
    Next review is scope replacement/rebase and explicit application-worker service
    configuration: the fixed window ends 2026-09-21 UTC. No automatic scope
    expansion or OS-level scheduler was installed.
-3. **In parallel dependency order, not duplicate implementation:** resolve S4
-   reference/quote evidence and source entitlement; review S4b lifecycle and
-   S5/S6 financial publication boundaries. D4a can proceed while quote currency
-   remains blocked; production analysis cannot bypass that blocker.
-4. Connect eligible discoveries to W1b only through the reviewed deduplicated
-   handoff, then publish S5/S7/S6 results and complete S8/W1 UI and U1 acceptance.
-   X1 real coverage follows its constituent/universe dependencies.
+3. **S5 engine / S6 contract gate:** remaining unblocked pure engine work is
+   complete; [acceptance and explicit blockers](design/s5/acceptance-handoff.md)
+   preserve all remaining financial definitions and real-data prerequisites.
+   Review the [S6 publication packet](design/s6/publication-contract-proposal.md)
+   before implementing typed immutable snapshots, exact cache identity, API
+   models and W1 fenced publication. Product profile/freshness/history defaults
+   remain reviewed policy; D004/D005 still gate the full model/P0 API freeze.
+4. Resolve S4 reference/quote evidence and source entitlement, S4b lifecycle and
+   real governed normalization/PIT/profile/calendar/precision inputs. No source
+   scope expansion, quote inference or provider activation occurred in S5.
+5. After contract and data gates, connect eligible discoveries through reviewed
+   W1b deduplication, publish the supported S5/S7/S6 results, and finish S8/W1/U1
+   flows. X1 real coverage follows its constituent/universe dependencies.
 
 N1 stock-specific discovery, CPI/PPI/Fed calendars, conditional assessments and
 in-app/desktop/email delivery retain the existing [N1 plan](features/N1-news-and-macro-agent.md).

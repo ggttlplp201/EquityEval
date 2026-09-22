@@ -202,3 +202,37 @@ editions. Unequal 52/53-week exposures and irregular transition years currently
 show N/A. The original reported amounts and sources remain available. These are
 engine capabilities; they do not indicate a live fiscal calendar or published
 financial result for your watchlist.
+
+## Applicability, freshness and coverage
+
+**Applicability** means whether a metric suits the company's reviewed business
+model, lifecycle and instrument. It does not mean that the source happens to
+supply the data. A specialized business may retain factual rows while its
+interpretation is unavailable.
+
+**Freshness** measures age against an explicit policy at the analysis date. A
+missing expected filing can also make a metric stale. A stale result may retain
+its original number and date, but cannot drive a financial interpretation.
+**N/M** means the ratio is mathematically unsuitable, such as division by a
+nonpositive or precision-indistinguishable denominator. Missing required inputs
+remain **N/A** in the interface.
+
+**Coverage** measures completeness, not investment quality. It counts complete
+valid or evidenced N/M metrics against every applicable metric, including those
+with missing inputs. Stale, missing, invalid and unsupported counts stay
+separate. Unknown applicability or no applicable metrics gives no percentage.
+
+A **growth-rate trend** compares three consecutive quarterly year-over-year
+rates. Rising rates can still be negative: −10%, −8%, −6% means revenue is still
+falling year over year while the rate of decline narrows. The comparison uses a
+versioned sensitivity policy; it is not a healthy/unhealthy or buy/sell boundary.
+
+A **balance-sheet reconciliation** checks whether assets equal liabilities plus
+consolidated equity including noncontrolling interests, allowing only the
+uncertainty supported by the sources. A mismatch flags the original figures
+for review; it does not change them. Negative equity is retained, and parent or
+common equity cannot silently replace consolidated equity.
+
+These tested engine functions are ready for the S6 integration review. There is
+no new live-data control or published watchlist analysis in this checkpoint;
+the saved pilot and existing interface remain unchanged.

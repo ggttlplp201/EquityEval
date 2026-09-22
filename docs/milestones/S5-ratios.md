@@ -1,6 +1,7 @@
 # S5 — Ratios and guided fundamentals
 
-Status: first source-metric/history slice implemented 2026-09-19; full S5 in progress.
+Status: unblocked source-only engine acceptance complete 2026-09-22; full S5/F1
+retains reviewed-definition/data/publication blockers. See [S5c/S5d handoff](S5c-engine-handoff.md).
 Task: EquityEval — milestone build log
 Task ID: 01a08f8c-85c8-7bb0-9e60-6eb24809d8de
 Implementation branch: `codex/s5-source-metrics`
@@ -178,3 +179,13 @@ in their existing later milestones.
 [S5b fiscal](S5b-fiscal.md) extends period assembly using exact reviewed fiscal
 calendars and tightens cross-edition growth. The [completion plan](../design/s5/completion-plan.md)
 continues through remaining unblocked S5 work to the S6 proposal gate.
+
+## Source engine acceptance / S6 gate — 2026-09-22
+
+[S5c/S5d](S5c-engine-handoff.md) completes the remaining unblocked evaluation,
+neutral interpretation, trend and accounting-validation boundary. The
+[acceptance audit](../design/s5/acceptance-handoff.md) reconciles all six F1
+examples without claiming unsupported EPS/PEG/ROE work. The next deliverable is
+review of the concrete S6 input/result/cache/publication packet, not another
+unchecked metric or production source activation. Historical entries above
+record their original checkpoint scope; the linked audit is the current status.

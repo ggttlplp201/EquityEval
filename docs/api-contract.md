@@ -7,6 +7,11 @@ The separate [S3 source protocol](design/s3/source-contract.md) is implemented
 under D008. The [S4 provider extension](design/s4/source-contract.md) is implemented
 under accepted D019. Neither freezes S6 endpoints.
 
+The [S6 review packet](design/s6/publication-contract-proposal.md), prepared
+2026-09-22, proposes immutable input/result storage, exact cache identity, W1
+rerun/publication semantics and acceptance tests for the implemented S5 boundary.
+It remains a proposal; no migrations or routes have started.
+
 At S6: review P0 endpoints, provenance for filing and non-filing sources, units,
 missing values, errors, point-in-time selection, immutable run inputs and DCF
 output semantics. Generate OpenAPI and TS types and enforce regeneration/no-diff

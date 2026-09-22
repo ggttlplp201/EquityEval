@@ -4,6 +4,8 @@ The first bounded implementation follows planning commit `c1f2697` and the user'
 “implement the next step” instruction. Branch: `codex/s5-source-metrics`.
 The milestone record is [S5 ratios and fundamentals](../../milestones/S5-ratios.md).
 
+- [Acceptance and S6 handoff](acceptance-handoff.md): current completion/blocker disposition.
+- [Evaluation, interpretation and reconciliation](assessment-and-reconciliation.md): current source-only engine layer.
 - [Source-metric boundary](source-metrics.md): supported inputs/formulas and limits.
 - [Annual return on assets](return-on-assets.md): matching income and opening/closing assets.
 - [Liquidity calculations](liquidity.md): current ratio and reported net working capital.
