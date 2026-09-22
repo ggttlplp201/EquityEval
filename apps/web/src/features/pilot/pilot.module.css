@@ -2,9 +2,6 @@
 .snapshot { max-width: 320px; min-width: 0; }
 .snapshot code { max-width: 100%; overflow-wrap: anywhere; font-size: 10px; }
 .snapshot > span:last-child { color: var(--muted); font: 11px/1.6 var(--mono); }
-.notice { padding: 17px 20px; border: 1px solid var(--warn-border); border-left: 3px solid var(--warn-rule); background: var(--warn-bg); margin-bottom: 18px; }
-.notice strong { color: var(--warn-strong); font-size: 14px; }
-.notice p { margin-top: 6px; color: var(--ink-3); font-size: 13px; max-width: 1000px; }
 .context { display: grid; grid-template-columns: minmax(200px, 1fr) minmax(230px, 1.2fr) minmax(190px, 1fr); border: 1px solid var(--line); background: var(--surface); }
 .context > * { min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 16px; border-right: 1px solid var(--line); }
 .context > :last-child { border-right: 0; }
@@ -20,32 +17,22 @@
 .filingFields > div { display: grid; grid-template-columns: 125px minmax(0, 1fr); gap: 12px; padding-block: 9px; border-bottom: 1px solid var(--line-soft); }
 .filingFields dt { color: var(--muted); font-size: 12px; }
 .filingFields dd { margin: 0; color: var(--ink-3); font: 11px/1.7 var(--mono); overflow-wrap: anywhere; }
-.note { margin-top: 16px; color: var(--muted); font-size: 12px; }
-.empty { padding: 22px; border: 1px dashed var(--line-strong); background: var(--surface-subtle); }
-.empty strong { color: var(--warn); font-size: 14px; font-weight: 500; }
-.empty p { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+.empty { padding: 22px; border: 1px dashed var(--line-strong); background: var(--surface-subtle); color: var(--muted); font-family: var(--mono); }
 .business { margin-top: 20px; padding: 23px; background: var(--surface-aside); border-top: 2px solid var(--accent-deep); }
 .business h2 { margin: 7px 0 12px; font-size: 20px; line-height: 1.3; letter-spacing: -.3px; }
 .business > p { color: var(--ink-3); font-size: 13px; max-width: 1000px; }
 .business a { display: inline-block; margin-top: 12px; font-size: 12px; }
-.business > .note { color: var(--muted); font-size: 12px; }
 .amountTable { min-width: 650px; }
 .amountTable caption { text-align: left; }
-.sectionNote { color: var(--muted); font-size: 12px; max-width: 950px; margin-bottom: 16px; }
 .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .metric { padding: 20px; border: 1px solid var(--line); background: var(--surface); min-width: 0; }
 .metric h3 { font-size: 14px; font-weight: 500; color: var(--ink-3); }
 .unavailableValue { margin-block: 8px; color: var(--muted); font: 26px/1.4 var(--mono); overflow-wrap: anywhere; }
-.status { color: var(--warn); font-size: 12px; }
-.metric ul { margin: 10px 0 0; padding-left: 17px; color: var(--muted); font-size: 12px; }
-.metric li { padding-block: 3px; }
 .metric button { margin-top: 12px; font-size: 12px; text-align: left; }
 .historySummary { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 20px; color: var(--muted); font-size: 12px; }
-.historySummary strong { color: var(--warn); font-weight: 500; }
+.historySummary strong { color: var(--muted); font-weight: 500; }
 .historySummary > span { font-family: var(--mono); }
-.historySummary p { flex: 1 1 100%; }
 .noChart { display: grid; gap: 8px; place-content: center; min-height: 145px; margin-top: 18px; padding: 22px; border: 1px dashed var(--line-strong); text-align: center; }
-.noChart p { max-width: 640px; color: var(--muted); font-size: 12px; }
 .roster { border: 1px solid var(--line); background: var(--surface); }
 .rosterRow { display: grid; grid-template-columns: minmax(165px, .8fr) minmax(0, 3fr); gap: 20px; padding: 20px; border-bottom: 1px solid var(--line); border-left: 3px solid transparent; }
 .rosterRow:last-child { border-bottom: 0; }
@@ -54,7 +41,7 @@
 .rosterRow header > a { display: inline-flex; gap: 8px; align-items: center; min-height: 36px; font: 600 15px var(--mono); }
 .rosterRow header > a > span { font: 14px var(--sans); }
 .rosterRow header > span { color: var(--ink-3); font-size: 12px; }
-.rosterRow header p { margin-top: 7px; color: var(--warn); font-size: 11px; }
+.rosterRow header p { margin-top: 7px; color: var(--muted); font-size: 11px; }
 .rosterRow dl { margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 20px; }
 .rosterRow dt { color: var(--ink-3); font-size: 12px; font-weight: 500; }
 .rosterRow dd { margin: 3px 0 0; color: var(--muted); font-size: 12px; overflow-wrap: anywhere; }
@@ -74,11 +61,10 @@
   .context, .metrics, .rosterRow dl { grid-template-columns: minmax(0, 1fr); }
   .context > * { border-right: 0; }
   .context > :nth-child(2) { border-top: 1px solid var(--line); }
-  .panel, .business, .metric, .empty, .notice, .rosterRow { padding: 16px; }
+  .panel, .business, .metric, .empty, .rosterRow { padding: 16px; }
   .filingFields > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
   .noChart { padding: 16px; text-align: left; }
 }
 
 .pipelineLink { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin: 0 0 18px; font-size: 12px; }
 .pipelineLink a { display: inline-flex; align-items: center; min-height: 44px; }
-.pipelineLink span { color: var(--muted); }

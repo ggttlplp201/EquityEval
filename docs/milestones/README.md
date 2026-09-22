@@ -35,6 +35,7 @@ above. This repository and its commits are the implementation source of truth.
 | D3f | Official-source search remains blocked; saved search disclosure implemented | [Quotation-currency search](D3f-quote-currency-search.md) | D034; primary-source findings, policy/date limits and replayed application invariants; no registration |
 | D4a | Real one-shot check and saved UI verified; no new scoped filings | [SEC filing monitor](D4a-filing-monitor.md) | Saved real check, immutable baseline/body lineage; no scheduler or financial dispatch |
 | D4b | Bounded real slot and saved UI verified; milestone/d4b-filing-scheduler | [Filing scheduler](D4b-filing-scheduler.md) | Fixed-scope UTC slots, lifecycle/budget/health; rebase gate and no background service |
+| D4c | Pilot copy simplified; unavailable values show N/A | [Pilot UI cleanup](D4c-pilot-ui-simplification.md) | User-requested removal of repetitive notices; source details and history controls retained |
 | S8a–d | Planned; F1 shares provenance, Ratios and Overview | P0 company pages and integration | After relevant engine/contracts |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,
