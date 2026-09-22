@@ -39,8 +39,45 @@ class ModelDefinition(Frozen):
     engine_build: Sha256
 
 
+class ScalarBinding(Frozen):
+    kind: Literal["scalar"]
+    value: Input
+
+
+class VectorBinding(Frozen):
+    kind: Literal["vector"]
+    value: tuple[Input, ...]
+
+
+class SolvedBinding(Frozen):
+    kind: Literal["solved"]
+    variable: Variable
+
+
+class ScheduleBinding(Frozen):
+    kind: Literal["schedule"]
+    value: tuple[date, ...]
+
+
+class SolverBinding(Frozen):
+    kind: Literal["solver"]
+    value: SolveSpec
+
+
+JudgmentBinding = Annotated[
+    ScalarBinding | VectorBinding | SolvedBinding | ScheduleBinding | SolverBinding,
+    Field(discriminator="kind"),
+]
+
+
 class Judgment(Frozen):
+    scenario: Nonempty
     parameter: Nonempty
+    binding: JudgmentBinding
+    origin: Literal["user_judgment"]
+    author_id: Nonempty
+    authored_at: AwareDatetime
+    known_at: AwareDatetime
     unit: Literal["fraction", "currency", "years", "schedule", "solver_policy"]
     rationale: Annotated[str, StringConstraints(min_length=1, max_length=4000)]
     effective_from: date
@@ -87,6 +124,20 @@ class Scenario(Frozen):
         if v == "terminal_operating_margin" and len(self.solve.margin_weights) != n:
             raise ValueError("Full margin fade required")
         return self
+
+
+def binding_for(scenario: Scenario, parameter: str, dates: tuple[date, ...]) -> JudgmentBinding:
+    """Typed identity binding only; does not infer values or provenance."""
+    if parameter == "schedule":
+        return ScheduleBinding(kind="schedule", value=dates)
+    if parameter == "solver_policy":
+        return SolverBinding(kind="solver", value=scenario.solve)
+    value = getattr(scenario, parameter)
+    if value is None:
+        return SolvedBinding(kind="solved", variable=scenario.solve.variable)
+    if isinstance(value, tuple):
+        return VectorBinding(kind="vector", value=value)
+    return ScalarBinding(kind="scalar", value=value)
 
 
 class SensitivityGrid(Frozen):
@@ -158,7 +209,7 @@ class AssumptionContent(Frozen):
                 expected.append(date(today.year + year, 2, 28))
         if tuple(expected) != self.forecast_dates or any(len(s.taxes) != n for s in self.scenarios):
             raise ValueError("Explicit annual anniversary forecast dates required")
-        keys = {j.parameter for j in self.judgments}
+        keys = {(j.scenario, j.parameter) for j in self.judgments}
         required = {
             "revenue_anchor",
             "growth",
@@ -174,9 +225,24 @@ class AssumptionContent(Frozen):
             "schedule",
             "solver_policy",
         }
-        if keys != required or len(keys) != len(self.judgments):
-            raise ValueError("Every parameter requires one dated judgment rationale")
+        if keys != {(name, key) for name in names for key in required} or len(keys) != len(
+            self.judgments
+        ):
+            raise ValueError("Every scenario/parameter requires one immutable judgment binding")
+        scenarios = {scenario.name: scenario for scenario in self.scenarios}
         for judgment in self.judgments:
+            if (
+                judgment.author_id != self.author_id
+                or judgment.authored_at != self.authored_at
+                or judgment.known_at != self.authored_at
+                or canonical_json(judgment.binding)
+                != canonical_json(
+                    binding_for(
+                        scenarios[judgment.scenario], judgment.parameter, self.forecast_dates
+                    )
+                )
+            ):
+                raise ValueError("Judgment value or authorship differs from bound scenario")
             expected_unit = (
                 "currency"
                 if judgment.parameter == "revenue_anchor"
@@ -212,8 +278,16 @@ class AssumptionSaved(Frozen):
     content: AssumptionContent
 
 
+class ClaimCoverage(Frozen):
+    component: ClaimKind
+    disposition: Literal["included", "excluded", "unknown"]
+    explanation: Nonempty
+    evidence_hash: Sha256 | None
+
+
 class Claim(Frozen):
     kind: ClaimKind
+    coverage: tuple[ClaimCoverage, ...] | None
     economic_claim_ids: tuple[Nonempty, ...]
     state: Literal["eligible_amount", "evidenced_absence", "unavailable"]
     amount: Input | None
@@ -248,6 +322,10 @@ class Claim(Frozen):
 
 
 class SharePool(Frozen):
+    source_basic: Input | None
+    source_diluted: Input | None
+    source_unit: Literal["shares", "thousand_shares", "million_shares"] | None
+    source_multiplier: Input | None
     current_basic: Input | None
     current_diluted: Input | None
     currency: Currency

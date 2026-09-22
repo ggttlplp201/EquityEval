@@ -295,6 +295,20 @@
             "title": "Captured At",
             "type": "string"
           },
+          "coverage": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/ClaimCoverage"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Coverage"
+          },
           "currency": {
             "pattern": "^[A-Z]{3}$",
             "title": "Currency",
@@ -367,6 +381,7 @@
         },
         "required": [
           "kind",
+          "coverage",
           "economic_claim_ids",
           "state",
           "amount",
@@ -381,6 +396,59 @@
           "reasons"
         ],
         "title": "Claim",
+        "type": "object"
+      },
+      "ClaimCoverage": {
+        "additionalProperties": false,
+        "properties": {
+          "component": {
+            "enum": [
+              "cash",
+              "nonoperating_assets",
+              "debt",
+              "leases",
+              "preferred",
+              "nci",
+              "other"
+            ],
+            "title": "Component",
+            "type": "string"
+          },
+          "disposition": {
+            "enum": [
+              "included",
+              "excluded",
+              "unknown"
+            ],
+            "title": "Disposition",
+            "type": "string"
+          },
+          "evidence_hash": {
+            "anyOf": [
+              {
+                "pattern": "^[a-f0-9]{64}$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Evidence Hash"
+          },
+          "explanation": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Explanation",
+            "type": "string"
+          }
+        },
+        "required": [
+          "component",
+          "disposition",
+          "explanation",
+          "evidence_hash"
+        ],
+        "title": "ClaimCoverage",
         "type": "object"
       },
       "Evaluation": {
@@ -556,6 +624,47 @@
       "Judgment": {
         "additionalProperties": false,
         "properties": {
+          "author_id": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Author Id",
+            "type": "string"
+          },
+          "authored_at": {
+            "format": "date-time",
+            "title": "Authored At",
+            "type": "string"
+          },
+          "binding": {
+            "discriminator": {
+              "mapping": {
+                "scalar": "#/components/schemas/ScalarBinding",
+                "schedule": "#/components/schemas/ScheduleBinding",
+                "solved": "#/components/schemas/SolvedBinding",
+                "solver": "#/components/schemas/SolverBinding",
+                "vector": "#/components/schemas/VectorBinding"
+              },
+              "propertyName": "kind"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ScalarBinding"
+              },
+              {
+                "$ref": "#/components/schemas/VectorBinding"
+              },
+              {
+                "$ref": "#/components/schemas/SolvedBinding"
+              },
+              {
+                "$ref": "#/components/schemas/ScheduleBinding"
+              },
+              {
+                "$ref": "#/components/schemas/SolverBinding"
+              }
+            ],
+            "title": "Binding"
+          },
           "effective_from": {
             "format": "date",
             "title": "Effective From",
@@ -564,6 +673,16 @@
           "effective_to": {
             "format": "date",
             "title": "Effective To",
+            "type": "string"
+          },
+          "known_at": {
+            "format": "date-time",
+            "title": "Known At",
+            "type": "string"
+          },
+          "origin": {
+            "const": "user_judgment",
+            "title": "Origin",
             "type": "string"
           },
           "parameter": {
@@ -576,6 +695,12 @@
             "maxLength": 4000,
             "minLength": 1,
             "title": "Rationale",
+            "type": "string"
+          },
+          "scenario": {
+            "maxLength": 250,
+            "minLength": 1,
+            "title": "Scenario",
             "type": "string"
           },
           "supporting_hashes": {
@@ -599,7 +724,13 @@
           }
         },
         "required": [
+          "scenario",
           "parameter",
+          "binding",
+          "origin",
+          "author_id",
+          "authored_at",
+          "known_at",
           "unit",
           "rationale",
           "effective_from",
@@ -1221,6 +1352,28 @@
         "title": "SafeAssumptions",
         "type": "object"
       },
+      "ScalarBinding": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "const": "scalar",
+            "title": "Kind",
+            "type": "string"
+          },
+          "value": {
+            "format": "decimal_dcf_input",
+            "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+            "title": "Value",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "value"
+        ],
+        "title": "ScalarBinding",
+        "type": "object"
+      },
       "Scenario": {
         "additionalProperties": false,
         "description": "Null is permitted only at a declared solved slot; no hidden fixed fallback.",
@@ -1436,6 +1589,30 @@
           "reasons"
         ],
         "title": "ScenarioResult",
+        "type": "object"
+      },
+      "ScheduleBinding": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "const": "schedule",
+            "title": "Kind",
+            "type": "string"
+          },
+          "value": {
+            "items": {
+              "format": "date",
+              "type": "string"
+            },
+            "title": "Value",
+            "type": "array"
+          }
+        },
+        "required": [
+          "kind",
+          "value"
+        ],
+        "title": "ScheduleBinding",
         "type": "object"
       },
       "SelectionKey": {
@@ -1991,12 +2168,71 @@
             "title": "Reasons",
             "type": "array"
           },
+          "source_basic": {
+            "anyOf": [
+              {
+                "format": "decimal_dcf_input",
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Basic"
+          },
+          "source_diluted": {
+            "anyOf": [
+              {
+                "format": "decimal_dcf_input",
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Diluted"
+          },
+          "source_multiplier": {
+            "anyOf": [
+              {
+                "format": "decimal_dcf_input",
+                "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Multiplier"
+          },
+          "source_unit": {
+            "anyOf": [
+              {
+                "enum": [
+                  "shares",
+                  "thousand_shares",
+                  "million_shares"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Unit"
+          },
           "unrestricted_nonoperating_cash": {
             "title": "Unrestricted Nonoperating Cash",
             "type": "boolean"
           }
         },
         "required": [
+          "source_basic",
+          "source_diluted",
+          "source_unit",
+          "source_multiplier",
           "current_basic",
           "current_diluted",
           "currency",
@@ -2223,6 +2459,50 @@
           "anchor_margin"
         ],
         "title": "SolveSpec",
+        "type": "object"
+      },
+      "SolvedBinding": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "const": "solved",
+            "title": "Kind",
+            "type": "string"
+          },
+          "variable": {
+            "enum": [
+              "revenue_cagr",
+              "terminal_operating_margin",
+              "reinvestment_to_revenue"
+            ],
+            "title": "Variable",
+            "type": "string"
+          }
+        },
+        "required": [
+          "kind",
+          "variable"
+        ],
+        "title": "SolvedBinding",
+        "type": "object"
+      },
+      "SolverBinding": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "const": "solver",
+            "title": "Kind",
+            "type": "string"
+          },
+          "value": {
+            "$ref": "#/components/schemas/SolveSpec"
+          }
+        },
+        "required": [
+          "kind",
+          "value"
+        ],
+        "title": "SolverBinding",
         "type": "object"
       },
       "ValidationError": {
@@ -2545,6 +2825,31 @@
           "sensitivity_ranking"
         ],
         "title": "ValuationPolicy",
+        "type": "object"
+      },
+      "VectorBinding": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "const": "vector",
+            "title": "Kind",
+            "type": "string"
+          },
+          "value": {
+            "items": {
+              "format": "decimal_dcf_input",
+              "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?$",
+              "type": "string"
+            },
+            "title": "Value",
+            "type": "array"
+          }
+        },
+        "required": [
+          "kind",
+          "value"
+        ],
+        "title": "VectorBinding",
         "type": "object"
       }
     }

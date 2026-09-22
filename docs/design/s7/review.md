@@ -31,3 +31,20 @@ cannot be substituted. No migration 0001–0011 changes were made. Production
 providers, application publication, automatic services and valuation UI remain
 outside this review. See the [milestone](../../milestones/S6b-S7a-valuation-contract.md)
 for final full-suite, generation, build and checkpoint evidence.
+
+## Coordinator audit correction after 7c86c04
+
+The coordinator identified three missed contract requirements: scenario-specific
+value binding in assumption entries, inclusion/exclusion proof for bridge scope,
+and N17 share-count unit scaling. The original independent review clearance did
+not establish those requirements. They are repaired in the separate
+[corrective checkpoint](../../milestones/S7a-corrections.md), preserving the old
+commit and tag for audit.
+
+New numerical review independently checked share-scale equivalence, rejected
+wrong multipliers/counts, rejected included or unknown debt/lease overlap and
+stale scalar/vector/solver bindings. Standards review confirmed SQL shape parity,
+complete immutable rows and protected private authorship. It found a generated
+TypeScript oneOf omission; a regression failed before the generator was repaired.
+The full five-way typed binding union is now preserved. Final evidence and exact
+test counts belong to the corrective checkpoint tag and commit-hook log.

@@ -7,6 +7,7 @@ from uuid import uuid4
 from equity_schema.valuation import (
     AssumptionContent,
     Claim,
+    ClaimCoverage,
     Judgment,
     ModelDefinition,
     PriceEvidence,
@@ -14,6 +15,7 @@ from equity_schema.valuation import (
     SharePool,
     ValuationManifest,
     ValuationPolicy,
+    binding_for,
 )
 
 from tests.core.test_valuation import spec
@@ -89,7 +91,13 @@ def assumptions():
         sensitivities=(),
         judgments=tuple(
             Judgment(
+                scenario=scenario.name,
                 parameter=k,
+                binding=binding_for(scenario, k, tuple(date(2026 + y, 2, 28) for y in range(1, 6))),
+                origin="user_judgment",
+                author_id="private-fixture-author",
+                authored_at=stamp,
+                known_at=stamp,
                 unit="currency"
                 if k == "revenue_anchor"
                 else k
@@ -100,6 +108,7 @@ def assumptions():
                 effective_to=date(2031, 2, 28),
                 supporting_hashes=(),
             )
+            for scenario in scenarios
             for k in keys
         ),
     )
@@ -113,6 +122,23 @@ def manifest():
     claims = tuple(
         Claim(
             kind=k,
+            coverage=tuple(
+                ClaimCoverage(
+                    component=component,
+                    disposition="included" if component == k and value != "0" else "excluded",
+                    explanation="Fictional reviewed scope: " + component,
+                    evidence_hash="b" * 64,
+                )
+                for component in (
+                    "cash",
+                    "nonoperating_assets",
+                    "debt",
+                    "leases",
+                    "preferred",
+                    "nci",
+                    "other",
+                )
+            ),
             economic_claim_ids=(f"fictional:{k}",),
             state="evidenced_absence" if value == "0" else "eligible_amount",
             amount=D(value),
@@ -175,6 +201,10 @@ def manifest():
             reasons=(),
         ),
         shares=SharePool(
+            source_basic=D(10),
+            source_diluted=D(10),
+            source_unit="shares",
+            source_multiplier=D(1),
             current_basic=D(10),
             current_diluted=D(10),
             currency="USD",
@@ -198,3 +228,25 @@ def manifest():
         source_eligibility_reasons=(),
         source_measurement_uncertainty=(("revenue_anchor", D(".5")),),
     )
+
+
+def reauthor(content, stamp, author=None):
+    author = author or content.author_id
+    return content.model_copy(
+        update={
+            "authored_at": stamp,
+            "author_id": author,
+            "retrospective": stamp > content.valuation_at,
+            "judgments": tuple(
+                j.model_copy(update={"author_id": author, "authored_at": stamp, "known_at": stamp})
+                for j in content.judgments
+            ),
+        }
+    )
+
+
+def stamp_body(body, stamp):
+    body["authored_at"] = stamp
+    for judgment in body["judgments"]:
+        judgment["authored_at"] = stamp
+        judgment["known_at"] = stamp

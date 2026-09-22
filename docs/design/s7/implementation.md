@@ -108,3 +108,29 @@ Real company publication still requires reviewed quote rights/identity, action a
 share/claim coverage, normalized financial/PIT evidence and applicable policies.
 Automated WACC, Monte Carlo, valuation UI and operating providers/schedulers are
 outside this checkpoint. Existing F1 history and X1 graph work is preserved.
+
+## Corrective contract after 7c86c04
+
+The coordinator's final audit required explicit scenario-value provenance,
+economic-scope exclusion proofs and source share scaling. The
+[corrective checkpoint](../../milestones/S7a-corrections.md) records that scope.
+Each scenario has all 13 judgment entries, keyed by scenario and parameter.
+`binding.kind` is scalar, vector, solved, schedule or solver; its value must match
+the scenario or shared schedule byte-for-byte under canonical serialization.
+Each entry retains unit, effective period, user_judgment origin, author and equal
+set/entry authored-known times, rationale and supporting evidence hashes. An edit
+must change both the scenario and its binding in a new set. SQL binds the same
+values and requires the complete entry roster at transaction commit.
+
+Every claim's coverage is a seven-component proof roster. Included/excluded/unknown
+states carry explanations and evidence hashes. Only a proved own inclusion (or
+proved absence) plus exclusion of all separately counted components is eligible.
+Thus debt marked as including leases cannot pass merely by using different IDs.
+Unknown, incomplete or unproved coverage produces a gapped saved run.
+
+SharePool retains source_basic, source_diluted, source_unit and source_multiplier
+alongside current_basic/current_diluted in canonical shares. The core verifies
+exact Decimal normalization with supported multipliers 1, 1000 and 1000000; the
+model consumes only matching canonical counts. Unsupported units are rejected;
+missing or inconsistent evidence produces an unavailable bridge. All source
+scaling and claim coverage survives in saved evidence and dependency hashes.

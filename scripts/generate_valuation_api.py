@@ -22,8 +22,8 @@ def ts_type(schema: dict[str, Any]) -> str:
         return json.dumps(schema["const"])
     if "enum" in schema:
         return " | ".join(json.dumps(item) for item in schema["enum"])
-    if "anyOf" in schema:
-        return " | ".join(ts_type(item) for item in schema["anyOf"])
+    if "anyOf" in schema or "oneOf" in schema:
+        return " | ".join(ts_type(item) for item in schema.get("anyOf", schema.get("oneOf", [])))
     kind = schema.get("type")
     if kind in ("integer", "number"):
         return "number"

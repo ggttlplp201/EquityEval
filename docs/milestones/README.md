@@ -20,7 +20,7 @@ above. This repository and its commits are the implementation source of truth.
 | S5b fiscal | Reviewed fiscal-calendar assembly and growth compatibility implemented | [Fiscal follow-on](S5b-fiscal.md) | Explicit calendar/edition/PIT proof; no application calendar inferred |
 | S5c/S5d | Engine acceptance, 386 core tests before full checkpoint gate | [Source engine handoff](S5c-engine-handoff.md) | Applicability/freshness, neutral rules, trend, accounting checks and blocker audit |
 | S6a | Narrow synthetic fundamentals publication complete; milestone/s6a-fundamentals | [Publication milestone](S6a-fundamentals-publication.md) | D037; immutable snapshots, W1 publication and read-only API; S6b/S7a follows D038 |
-| S6b/S7a | Synthetic implementation audited; milestone/s7a-synthetic-valuation uses required full hook | [Assumptions and reverse valuation](S6b-S7a-valuation-contract.md) | D004/D005/D038 approved; Decimal reverse model, immutable W1 runs and generated API; UI unchanged |
+| S6b/S7a | Synthetic implementation; coordinator corrections tracked in [S7a corrections](S7a-corrections.md) | [Assumptions and reverse valuation](S6b-S7a-valuation-contract.md) | D004/D005/D038 approved; Decimal reverse model, immutable W1 runs and generated API; UI unchanged |
 | S7 follow-on | Planned | Forward comparison and later model extensions | After reviewed S6b/S7a scope; Monte Carlo remains P1 |
 | N1a–d | Requested; continuous discovery and stock assessments specified (D017/D018) | [News and macro agent](../features/N1-news-and-macro-agent.md) | Alongside S2–S8 contracts |
 | W1 | Durable requests and SEC/price/macro source stages implemented; full pipeline/UI follow | [Watchlist and reanalysis](../features/W1-watchlist-analysis.md) | S2 → engines → S8/N1 |

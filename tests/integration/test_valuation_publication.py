@@ -370,6 +370,9 @@ def test_runtime_sql_rejects_nested_assumption_contract_violations(db, valuation
     body["authored_at"] = (
         datetime.now(UTC).isoformat(timespec="microseconds").replace("+00:00", "Z")
     )
+    from tests.valuation_seed import stamp_body
+
+    stamp_body(body, body["authored_at"])
     body["retrospective"] = True
     if defect == "extra":
         body["scenarios"][0]["invented_parameter"] = "1"
@@ -452,11 +455,19 @@ def test_runtime_sql_rejects_noncanonical_typed_values(db, valuation_setup, fiel
     body["authored_at"] = (
         datetime.now(UTC).isoformat(timespec="microseconds").replace("+00:00", "Z")
     )
+    from tests.valuation_seed import stamp_body
+
+    stamp_body(body, body["authored_at"])
     body["retrospective"] = True
     if field == "valuation_at":
         body[field] = value
     else:
         body["scenarios"][0][field] = value
+        next(
+            j
+            for j in body["judgments"]
+            if j["scenario"] == body["scenarios"][0]["name"] and j["parameter"] == field
+        )["binding"]["value"] = value
     with pytest.raises(psycopg.errors.CheckViolation):
         db.execute(
             "SELECT valuation_create_assumptions(%s,NULL,%s,%s)",
@@ -546,8 +557,16 @@ def test_sql_canonical_decimal_spelling_matches_python(db, valuation_setup, text
     body["authored_at"] = (
         datetime.now(UTC).isoformat(timespec="microseconds").replace("+00:00", "Z")
     )
+    from tests.valuation_seed import stamp_body
+
+    stamp_body(body, body["authored_at"])
     body["retrospective"] = True
     body["scenarios"][0]["revenue_anchor"] = text
+    next(
+        j
+        for j in body["judgments"]
+        if j["scenario"] == body["scenarios"][0]["name"] and j["parameter"] == "revenue_anchor"
+    )["binding"]["value"] = text
     workspace = valuation_setup[0][0].workspace_id
     saved = db.execute(
         "SELECT valuation_create_assumptions(%s,NULL,%s,%s) id",
@@ -561,3 +580,109 @@ def test_sql_canonical_decimal_spelling_matches_python(db, valuation_setup, text
         )
         == text
     )
+
+
+@pytest.mark.parametrize("defect", ["value", "scenario", "known_at", "origin"])
+def test_sql_rejects_unbound_assumption_provenance(db, valuation_setup, defect):
+    import json
+
+    from equity_schema.fundamentals_canonical import canonical_json
+
+    from tests.valuation_seed import reauthor
+
+    content = reauthor(valuation_setup[1].assumptions, datetime.now(UTC))
+    body = json.loads(canonical_json(content))
+    row = next(j for j in body["judgments"] if j["parameter"] == "wacc")
+    if defect == "value":
+        row["binding"]["value"] = "0.12"
+    elif defect == "scenario":
+        row["scenario"] = "unknown"
+    elif defect == "known_at":
+        row["known_at"] = "2026-02-28T00:00:00.000000Z"
+    else:
+        row["origin"] = "consensus"
+    with pytest.raises(psycopg.errors.CheckViolation):
+        db.execute(
+            "SELECT valuation_create_assumptions(%s,NULL,%s,%s)",
+            (valuation_setup[0][0].workspace_id, "bad-binding-" + defect, canonical_json(body)),
+        )
+
+
+def test_bound_entries_are_complete_and_immutable(db_admin, db, valuation_setup):
+    _, draft, _ = valuation_setup
+    rows = db.execute(
+        "SELECT scenario,parameter_key,entry_text FROM valuation_assumption_entries "
+        "WHERE assumption_id=%s",
+        (draft.assumption_set_id,),
+    ).fetchall()
+    assert len(rows) == 39
+    assert len({(r["scenario"], r["parameter_key"]) for r in rows}) == 39
+    assert all(
+        '"binding"' in r["entry_text"] and '"origin":"user_judgment"' in r["entry_text"]
+        for r in rows
+    )
+    with pytest.raises(psycopg.errors.CheckViolation):
+        db_admin.execute(
+            "UPDATE valuation_assumption_entries SET scenario=%s WHERE assumption_id=%s",
+            ("forged", draft.assumption_set_id),
+        )
+
+
+@pytest.mark.parametrize("defect", ["overlap", "scale"])
+def test_unproven_bridge_scope_or_share_scale_publishes_only_gapped_result(
+    db_admin, db, valuation_setup, defect
+):
+    source, draft, _ = valuation_setup
+    if defect == "overlap":
+        debt = draft.claims[2]
+        coverage = tuple(
+            c.model_copy(update={"disposition": "included"}) if c.component == "leases" else c
+            for c in debt.coverage
+        )
+        draft = draft.model_copy(
+            update={
+                "claims": (
+                    *draft.claims[:2],
+                    debt.model_copy(update={"coverage": coverage}),
+                    *draft.claims[3:],
+                )
+            }
+        )
+    else:
+        draft = draft.model_copy(
+            update={"shares": draft.shares.model_copy(update={"source_multiplier": Decimal(1000)})}
+        )
+    review = approve_fixture_manifest(
+        db_admin,
+        workspace_id=source[0].workspace_id,
+        manifest=draft,
+        reviewed_by="owner",
+        reason="Fictional invalid bridge basis",
+    )
+    _, lease = enqueue(db, (source, draft, review))
+    result = get_run(db, workspace_id=source[0].workspace_id, run_id=run_valuation_stage(db, lease))
+    assert result.outcome == "completed_with_gaps"
+    assert result.result.bridge.market_ev_target is None
+    assert all(s.solve.state == "unavailable" for s in result.result.scenarios)
+
+
+def test_owner_cannot_commit_assumptions_without_complete_bound_entries(db_admin, valuation_setup):
+    from equity_schema.fundamentals_canonical import canonical_json, content_hash
+
+    content = valuation_setup[1].assumptions
+    with pytest.raises(psycopg.errors.CheckViolation, match="incomplete assumption bindings"):
+        with db_admin.transaction():
+            db_admin.execute(
+                """INSERT INTO valuation_assumption_sets
+                (id,workspace_id,parent_id,idempotency_key,content_text,content_hash,authored_at,retrospective)
+                VALUES(%s,%s,NULL,%s,%s,%s,%s,%s)""",
+                (
+                    uuid4(),
+                    valuation_setup[0][0].workspace_id,
+                    "incomplete-entry-test",
+                    canonical_json(content),
+                    content_hash(content),
+                    content.authored_at,
+                    content.retrospective,
+                ),
+            )

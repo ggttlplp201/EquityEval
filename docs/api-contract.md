@@ -60,3 +60,8 @@ Sources: `apps/api/valuation.py`, `packages/schema/valuation.py` and
 `make lint` runs `scripts/generate_valuation_api.py --check` through the project
 Python wrapper. The [saved-valuation manual](user-manual/saved-valuations.md)
 explains creating a reviewed fixture run, reading it and changing assumptions.
+
+The [S7a corrective contract](milestones/S7a-corrections.md) adds scenario-bound
+judgment values/provenance, a five-way discriminated TypeScript binding union,
+explicit claim coverage evidence and source share units/counts/multipliers. SQL
+and typed validation agree; public runs still omit private judgments.

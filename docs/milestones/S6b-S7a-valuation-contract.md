@@ -1,6 +1,6 @@
 # S6b / S7a — Assumptions and reverse valuation review packet
 
-Status: **synthetic implementation and independent audits complete; checkpoint is governed by the required commit gate below**.
+Status: **original synthetic checkpoint retained; coordinator audit requires the [corrective checkpoint](S7a-corrections.md) before milestone approval**.
 Task: continuing equityEval milestone build log; proposal requested by coordinator
 `01a0bbd2-bd4d-77c2-86f6-2a34fef283f1` on 2026-09-22.
 Branch: `codex/source-bootstrap`. Approved baseline: `3909572`,

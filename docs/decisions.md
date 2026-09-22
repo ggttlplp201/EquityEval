@@ -63,3 +63,8 @@ review, enqueue-time immutable S6 intent through a narrow W1 wrapper, explicit
 idle-autocommit writers, workspace-bound read-only API and generated contracts.
 [Milestone and audit corrections](milestones/S6a-fundamentals-publication.md).
 No real publication, source activation, scheduler rebase or valuation work.
+
+D038 corrective scope after `7c86c04`: coordinator explicitly requested scenario/value
+provenance bindings, typed economic claim exclusions and N17 share-unit scaling.
+[Corrective milestone](milestones/S7a-corrections.md) preserves the prior commit/tag;
+0001–0011, real application data, providers and UI remain unchanged.

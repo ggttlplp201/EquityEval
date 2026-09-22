@@ -97,3 +97,27 @@ None of these is a statistical confidence interval.
 
 Every saved result includes model/policy, source identity and dates, bridge claims,
 assumptions and numerical evidence. Exact ID reads do not refresh or recalculate.
+
+## Assumption and source details in the corrective contract
+
+Each named scenario needs one judgment entry for every parameter group. The entry
+names the scenario and parameter and binds its exact scalar, yearly vector,
+solved-variable marker, forecast schedule or solver settings. It also records
+unit, effective dates, author, authored/known time, written rationale, supporting
+hashes and `user_judgment` origin. Both timestamps match the saved set's authorship.
+When editing, change the scenario value and its bound judgment together in a new
+set. A stale binding is rejected. Public saved results keep the model inputs but
+omit private entry author and rationale.
+
+Bridge evidence must explain what each cash/asset/debt/lease/preferred/NCI/other
+amount includes and excludes. Every component needs its own coverage disposition
+and supporting evidence hash. Debt that includes leases cannot also have those
+leases subtracted separately. Unknown or incomplete coverage displays N/A.
+
+Share counts retain their source unit: `shares` uses multiplier 1,
+`thousand_shares` uses 1000 and `million_shares` uses 1000000. For example,
+0.01 thousand shares equals 10 shares. Both source basic/diluted counts must
+normalize exactly to the stored canonical share counts. Currency is not a share
+unit. Changing a unit label without the correct multiplier and matching counts
+cannot produce a valuation. Interest/growth rates remain explicit fractions;
+no automatic percentage or foreign-exchange conversion occurs.

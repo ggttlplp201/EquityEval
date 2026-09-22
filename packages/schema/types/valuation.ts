@@ -47,6 +47,7 @@ export type Claim = {
   readonly "as_of": string;
   readonly "basis": "economic_value" | "absence" | "unreviewed";
   readonly "captured_at": string;
+  readonly "coverage": ReadonlyArray<ClaimCoverage> | null;
   readonly "currency": string;
   readonly "economic_claim_ids": ReadonlyArray<string>;
   readonly "evidence_hash": string;
@@ -56,6 +57,13 @@ export type Claim = {
   readonly "known_basis": "owner_reviewed_instant" | "date_only" | "unproven";
   readonly "reasons": ReadonlyArray<string>;
   readonly "state": "eligible_amount" | "evidenced_absence" | "unavailable";
+};
+
+export type ClaimCoverage = {
+  readonly "component": "cash" | "nonoperating_assets" | "debt" | "leases" | "preferred" | "nci" | "other";
+  readonly "disposition": "included" | "excluded" | "unknown";
+  readonly "evidence_hash": string | null;
+  readonly "explanation": string;
 };
 
 export type Evaluation = {
@@ -94,10 +102,16 @@ export type Interval = {
 };
 
 export type Judgment = {
+  readonly "author_id": string;
+  readonly "authored_at": string;
+  readonly "binding": ScalarBinding | VectorBinding | SolvedBinding | ScheduleBinding | SolverBinding;
   readonly "effective_from": string;
   readonly "effective_to": string;
+  readonly "known_at": string;
+  readonly "origin": "user_judgment";
   readonly "parameter": string;
   readonly "rationale": string;
+  readonly "scenario": string;
   readonly "supporting_hashes": ReadonlyArray<string>;
   readonly "unit": "fraction" | "currency" | "years" | "schedule" | "solver_policy";
 };
@@ -195,6 +209,11 @@ export type SafeAssumptions = {
   readonly "scenarios": ReadonlyArray<Scenario>;
 };
 
+export type ScalarBinding = {
+  readonly "kind": "scalar";
+  readonly "value": string;
+};
+
 export type Scenario = {
   readonly "growth": ReadonlyArray<string> | null;
   readonly "margins": ReadonlyArray<string> | null;
@@ -220,6 +239,11 @@ export type ScenarioResult = {
   readonly "solve": SolveResult;
   readonly "solve_variable": "revenue_cagr" | "terminal_operating_margin" | "reinvestment_to_revenue";
   readonly "unit": "fraction";
+};
+
+export type ScheduleBinding = {
+  readonly "kind": "schedule";
+  readonly "value": ReadonlyArray<string>;
 };
 
 export type SelectionKey = {
@@ -301,6 +325,10 @@ export type SharePool = {
   readonly "no_dilutive_claims": boolean;
   readonly "operating_lease_basis_matches": boolean;
   readonly "reasons": ReadonlyArray<string>;
+  readonly "source_basic": string | null;
+  readonly "source_diluted": string | null;
+  readonly "source_multiplier": string | null;
+  readonly "source_unit": "shares" | "thousand_shares" | "million_shares" | null;
   readonly "unrestricted_nonoperating_cash": boolean;
 };
 
@@ -331,6 +359,16 @@ export type SolveSpec = {
   readonly "upper": string;
   readonly "variable": "revenue_cagr" | "terminal_operating_margin" | "reinvestment_to_revenue";
   readonly "width_tolerance": string;
+};
+
+export type SolvedBinding = {
+  readonly "kind": "solved";
+  readonly "variable": "revenue_cagr" | "terminal_operating_margin" | "reinvestment_to_revenue";
+};
+
+export type SolverBinding = {
+  readonly "kind": "solver";
+  readonly "value": SolveSpec;
 };
 
 export type ValidationError = {
@@ -381,6 +419,11 @@ export type ValuationPolicy = {
   readonly "revision": string;
   readonly "sensitivity_ranking": "absolute_symmetric_fraction_elasticity_v1";
   readonly "terminal_dominance_threshold": "0.75";
+};
+
+export type VectorBinding = {
+  readonly "kind": "vector";
+  readonly "value": ReadonlyArray<string>;
 };
 
 export type ValuationReadResult<T> =

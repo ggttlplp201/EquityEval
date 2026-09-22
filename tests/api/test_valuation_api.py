@@ -82,9 +82,9 @@ def test_local_assumption_creation_revision_idempotency_and_no_backdating(
 ):
     source, draft, _ = valuation_setup
     client = client_for(test_database_dsn, source[0].workspace_id)
-    content = draft.assumptions.model_copy(
-        update={"authored_at": datetime.now(UTC), "retrospective": True}
-    )
+    from tests.valuation_seed import reauthor
+
+    content = reauthor(draft.assumptions, datetime.now(UTC))
     body = dict(
         parent_id=str(draft.assumption_set_id),
         idempotency_key="new-judgment",
@@ -94,7 +94,10 @@ def test_local_assumption_creation_revision_idempotency_and_no_backdating(
     assert result.status_code == 201, result.text
     assert result.json()["id"] != str(draft.assumption_set_id)
     assert client.post("/assumption-sets", json=body).json() == result.json()
-    changed = {**body, "content": {**body["content"], "author_id": "changed"}}
+    changed = {
+        **body,
+        "content": reauthor(content, content.authored_at, "changed").model_dump(mode="json"),
+    }
     assert client.post("/assumption-sets", json=changed).status_code == 409
     old = {
         **body,

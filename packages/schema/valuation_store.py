@@ -146,9 +146,10 @@ def save_fixture_assumptions(
         )
         for entry in content.judgments:
             db.execute(
-                "INSERT INTO valuation_assumption_entries VALUES(%s,%s,%s,%s,%s,%s)",
+                "INSERT INTO valuation_assumption_entries VALUES(%s,%s,%s,%s,%s,%s,%s)",
                 (
                     new_id,
+                    entry.scenario,
                     entry.parameter,
                     entry.unit,
                     entry.effective_from,

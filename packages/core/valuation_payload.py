@@ -85,7 +85,40 @@ def bridge(inputs: ValuationManifest) -> BridgeResult:
         reasons.append("price_share_action_mismatch")
     if s.known_at > at or not 0 <= (day - s.as_of).days <= policy.max_claim_age_days:
         reasons.append("share_time_or_freshness")
+    multiplier = {"shares": D(1), "thousand_shares": D(1000), "million_shares": D(1000000)}.get(
+        s.source_unit or ""
+    )
+    if (
+        multiplier is None
+        or s.source_multiplier != multiplier
+        or s.source_basic is None
+        or s.source_diluted is None
+    ):
+        reasons.append("share_source_unit_unproven")
+    else:
+        with localcontext(CONTEXT):
+            if (
+                s.source_basic * multiplier != s.current_basic
+                or s.source_diluted * multiplier != s.current_diluted
+            ):
+                reasons.append("share_normalization_mismatch")
     for claim in inputs.claims:
+        coverage = claim.coverage or ()
+        if (
+            len(coverage) != 7
+            or {row.component for row in coverage} != {c.kind for c in inputs.claims}
+            or any(
+                row.evidence_hash is None
+                or row.disposition
+                != (
+                    "included"
+                    if row.component == claim.kind and claim.state == "eligible_amount"
+                    else "excluded"
+                )
+                for row in coverage
+            )
+        ):
+            reasons.append("claim_scope_unproven_or_overlapping:" + claim.kind)
         if (
             claim.state == "unavailable"
             or claim.captured_at > inputs.bridge_captured_before

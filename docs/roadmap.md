@@ -80,3 +80,7 @@ feature/design retains its detailed acceptance criteria.
 N1 stock-specific discovery, CPI/PPI/Fed calendars, conditional assessments and
 in-app/desktop/email delivery retain the existing [N1 plan](features/N1-news-and-macro-agent.md).
 An SEC financial-filing detector does not complete those news/alert features.
+
+S7a coordinator audit follow-up: [corrective checkpoint](milestones/S7a-corrections.md)
+binds scenario values to provenance, proves bridge exclusions, and verifies source
+share scales before milestone approval. The earlier checkpoint remains in Git.

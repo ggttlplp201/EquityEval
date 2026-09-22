@@ -434,3 +434,21 @@ generated-client, migration, concurrency and independent numeric/spec/standards
 reviews gate the checkpoint. Real valuation publication is a separate decision
 requiring the currently missing quote/action/claims/dilution/normalization/policy
 prerequisites. Stop here for coordinator review of this packet and its test plan.
+
+## Corrective acceptance addendum — after 7c86c04
+
+The coordinator requires a distinct scenario/parameter judgment with a typed
+value/vector/solved/schedule/solver binding, unit, effective period, explicit
+user-judgment origin, author/authored-known timing, rationale and support. Shared
+parameter names alone do not bind scenario-specific values. Complete rosters and
+exact binding are enforced in both typed and SQL contracts; public runs exclude
+private attribution/rationale.
+
+Claim IDs alone cannot prove economic nonoverlap. Coverage must explicitly account
+for all seven bridge components, with evidence and inclusion/exclusion explanation;
+unknown or contradictory coverage, including debt already containing separate
+lease claims, makes the entire bridge unavailable. N17 additionally requires
+source share units/counts/multipliers and exact normalization to canonical shares.
+Supported units are shares, thousand_shares and million_shares only. These are
+corrective requirements within D038's approved synthetic scope, not approval of
+production evidence. See [correction record](../../milestones/S7a-corrections.md).
