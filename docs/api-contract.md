@@ -2,7 +2,10 @@
 
 D037 approves narrow **S6a fundamentals publication and read-only retrieval**.
 The implementation and generated contract cover governed synthetic S5 outputs.
-S6b assumptions/DCF/model contracts remain unimplemented, with D004/D005 open.
+S6b assumptions/DCF/model contracts remain unimplemented. D004/D005 now have
+[proposed resolutions and routes](design/s6/valuation-contract-proposal.md), with
+an [acceptance plan](design/s7/acceptance-plan.md), awaiting coordinator review.
+Those proposed mutation/model routes are not part of the generated S6a API.
 No production source or application financial result was activated.
 
 | Endpoint | Contract |

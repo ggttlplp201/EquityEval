@@ -20,7 +20,8 @@ above. This repository and its commits are the implementation source of truth.
 | S5b fiscal | Reviewed fiscal-calendar assembly and growth compatibility implemented | [Fiscal follow-on](S5b-fiscal.md) | Explicit calendar/edition/PIT proof; no application calendar inferred |
 | S5c/S5d | Engine acceptance, 386 core tests before full checkpoint gate | [Source engine handoff](S5c-engine-handoff.md) | Applicability/freshness, neutral rules, trend, accounting checks and blocker audit |
 | S6a | Narrow synthetic fundamentals publication complete; milestone/s6a-fundamentals | [Publication milestone](S6a-fundamentals-publication.md) | D037; immutable snapshots, W1 publication and read-only API; S6b/D004/D005 remain gated |
-| S7 | Planned | Forward DCF | After S6 |
+| S6b/S7a | Proposal ready for coordinator audit; no implementation | [Assumptions and reverse valuation](S6b-S7a-valuation-contract.md) | D004/D005/D038 proposed; exact contract and acceptance packet; preserve S6a checkpoint |
+| S7 follow-on | Planned | Forward comparison and later model extensions | After reviewed S6b/S7a scope; Monte Carlo remains P1 |
 | N1a–d | Requested; continuous discovery and stock assessments specified (D017/D018) | [News and macro agent](../features/N1-news-and-macro-agent.md) | Alongside S2–S8 contracts |
 | W1 | Durable requests and SEC/price/macro source stages implemented; full pipeline/UI follow | [Watchlist and reanalysis](../features/W1-watchlist-analysis.md) | S2 → engines → S8/N1 |
 | U1 | Development Help with searchable glossary; complete release manual acceptance pending | [Manual and glossary](../features/U1-user-manual.md) | Required before finished release |

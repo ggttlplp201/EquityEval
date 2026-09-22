@@ -61,8 +61,12 @@ feature/design retains its detailed acceptance criteria.
    enqueue-time selection intent and read-only API. See the
    [milestone](milestones/S6a-fundamentals-publication.md) and
    [operator/manual chapter](user-manual/saved-fundamentals.md). UI is unchanged.
-   S6b assumptions/model contracts and a separately reviewed real-data tracer
-   remain next decisions; D004/D005 still gate the full valuation/P0 API freeze.
+   The [S6b/S7a proposal](design/s6/valuation-contract-proposal.md) and
+   [acceptance plan](design/s7/acceptance-plan.md) are now ready for coordinator
+   audit. D004/D005 propose reverse DCF as primary and a deterministic named range;
+   D038 keeps new assumptions/model/schema/API/math implementation gated. Review
+   the [proposal milestone](milestones/S6b-S7a-valuation-contract.md), then stop
+   until scoped approval. A real-data tracer remains a separate reviewed gate.
 4. Resolve S4 reference/quote evidence and source entitlement, S4b lifecycle and
    real governed normalization/PIT/profile/calendar/precision inputs. No source
    scope expansion, quote inference or provider activation occurred in S5.
