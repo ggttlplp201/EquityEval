@@ -158,3 +158,10 @@ strict editable tree named by that pointer. The full hook retry uses the same
 explicit path inherited by subprocesses; it does not skip a check, alter a
 package/dependency, or change feature code. This is a local verification workaround,
 not evidence that the launcher permanently fixes hidden-pointer recurrence.
+
+## Liquidity follow-on — 2026-09-21
+
+After D4c UI acceptance, the user requested continuing functional work.
+[S5b liquidity](S5b-liquidity.md) adds current ratio and reported net working
+capital using existing selected balance-sheet concepts and Calculation output.
+No schema/API or source activation; real publication remains downstream.

@@ -8,7 +8,7 @@ formulas and history math have core tests; the product walkthrough is pending.
 
 The full [fundamentals plan](../features/F1-fundamentals-guide.md) includes more
 metrics and a guided company view. This first slice covers supported revenue
-growth, margins and cash-flow calculations, plus configurable own-history
+growth, margins, cash-flow and liquidity calculations, plus configurable own-history
 comparison mathematics.
 
 ## Start with the amount and period
@@ -94,6 +94,22 @@ separate from **free cash flow to the firm (FCFF)** used in an enterprise
 valuation. It does not automatically represent cash distributable to
 shareholders. Do not pair an enterprise value with this FCF amount without a
 reviewed, compatible valuation definition.
+
+## Working capital and the current ratio
+
+**Current assets** and **current liabilities** are reported balance-sheet totals
+at a specific date. Both amounts must describe the same company and date.
+
+**Current ratio** = current assets ÷ current liabilities. For example, 150 of
+current assets and 100 of current liabilities gives **1.5x**.
+
+**Net working capital** = current assets − current liabilities. The same example
+gives **50** in the reporting currency. Assets of 50 and liabilities of 100 give
+**−50**. This is an accounting difference, not cash available to spend or a forecast
+of cash flows. Its meaning depends on the business and composition of the balances.
+
+Unavailable results display **N/A**. The calculation preserves its source operands
+for inspection and does not assign a good/bad liquidity score.
 
 ## Percentages, percentage points and units
 

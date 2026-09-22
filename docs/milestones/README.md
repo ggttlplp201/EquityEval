@@ -15,6 +15,7 @@ above. This repository and its commits are the implementation source of truth.
 | S3 | Complete for accepted scope; 440 tests; milestone/s3 | [SEC ingestion](S3-ingestion.md) | Same milestone build-log task; D008 accepted |
 | S4 | S4a complete; 717 tests; milestone/s4a; S4b/live sources remain open | [Prices and macro sources](S4-prices-macro.md) | Same milestone build-log task |
 | S5 | First source-metric/history slice implemented; full S5 in progress | [Ratios and guided fundamentals](S5-ratios.md) | D022 source core; calendar-period prerequisite complete before X1; S4b gates price/share ratios |
+| S5b liquidity | Source-only current ratio and net working capital implemented | [Liquidity follow-on](S5b-liquidity.md) | Reuses selected balance-sheet inputs; UI unchanged; missing source values remain N/A |
 | S6 | Planned; include F1 result, snapshot and cache review | [API contract review/freeze](../api-contract.md) | After S5 |
 | S7 | Planned | Forward DCF | After S6 |
 | N1a–d | Requested; continuous discovery and stock assessments specified (D017/D018) | [News and macro agent](../features/N1-news-and-macro-agent.md) | Alongside S2–S8 contracts |

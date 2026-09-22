@@ -57,6 +57,7 @@ def _source_issues(
     expected: tuple[Concept, ...],
     *,
     same_period: bool = True,
+    balance_sheet: bool = False,
 ) -> set[str]:
     problems = {flag for item in operands for flag in item.blocking_flags}
     if any(item.value is None for item in operands):
@@ -80,7 +81,13 @@ def _source_issues(
         for item in operands
     ):
         problems.add("incompatible_units")
-    if any(
+    if balance_sheet:
+        if any(
+            item.period.period_kind != "instant" or item.period.start_date is not None
+            for item in operands
+        ):
+            problems.add("instant_period_required")
+    elif any(
         item.period.period_kind != "duration" or item.period.start_date is None for item in operands
     ):
         problems.add("flow_period_required")
@@ -94,7 +101,8 @@ def _source_issues(
             Concept.CASH_FROM_OPERATING_ACTIVITIES,
             Concept.CAPITAL_EXPENDITURES_PPE,
         }
-        if item.selection.query.statement_family != ("cash_flow" if cash else "income"):
+        family = "balance_sheet" if balance_sheet else "cash_flow" if cash else "income"
+        if item.selection.query.statement_family != family:
             problems.add("incompatible_statement_family")
         try:
             scope = json.loads(item.scope.descriptor_json)
@@ -296,6 +304,38 @@ def free_cash_flow_margin(
         problems,
         lambda values: _difference(values[0], values[1]) / values[2],
         margin=True,
+    )
+
+
+def _current_balance_issues(assets: FinancialInput, liabilities: FinancialInput) -> set[str]:
+    operands = (assets, liabilities)
+    problems = _source_issues(
+        operands, (Concept.CURRENT_ASSETS, Concept.CURRENT_LIABILITIES), balance_sheet=True
+    )
+    if any(item.value is not None and item.value < 0 for item in operands):
+        problems.add("negative_current_balance")
+    return problems
+
+
+def current_ratio(assets: FinancialInput, liabilities: FinancialInput) -> Calculation:
+    """Reported current assets / current liabilities, without a health score."""
+    return _calculate(
+        "current_ratio",
+        (assets, liabilities),
+        _current_balance_issues(assets, liabilities) | _denominator(liabilities),
+        lambda values: values[0] / values[1],
+        unit="multiple",
+    )
+
+
+def net_working_capital(assets: FinancialInput, liabilities: FinancialInput) -> Calculation:
+    """Reported current assets less current liabilities; not operating NWC or cash."""
+    return _calculate(
+        "net_working_capital",
+        (assets, liabilities),
+        _current_balance_issues(assets, liabilities),
+        lambda values: _difference(values[0], values[1]),
+        unit=assets.unit.unit_key,
     )
 
 
