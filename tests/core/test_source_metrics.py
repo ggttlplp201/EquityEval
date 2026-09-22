@@ -166,7 +166,15 @@ def test_revenue_growth_uses_comparable_periods_without_guessing_fiscal_alignmen
 
     current = operand(Concept.REVENUE, "125", start=start, end=end)
     prior = operand(Concept.REVENUE, "100", start=prior_start, end=prior_end, edition="prior")
-    result = revenue_growth(current, prior)
+    from equity_core.periods import RevisionCompatibility
+
+    assert revenue_growth(current, prior).value is None
+    proof = RevisionCompatibility(
+        (current.selection.input_hash, prior.selection.input_hash),
+        ("synthetic:reviewed-comparative-editions",),
+        "synthetic-review-v1",
+    )
+    result = revenue_growth(current, prior, revision_compatibility=proof)
     assert result.value == (Decimal(expected) if expected is not None else None)
     assert result.operands == (current, prior)
     if expected is None:

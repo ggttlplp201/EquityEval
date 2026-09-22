@@ -7,9 +7,9 @@ guards. An absent input never authorizes a fallback to another concept.
 
 | Metric family | First-slice disposition | Remaining dependency |
 | --- | --- | --- |
-| Revenue amount and YoY growth | Implemented selected source amount and exact comparable calendar-quarter/year pairs | Reviewed 52/53-week fiscal alignment and multi-period/TTM assembly remain later S5. |
+| Revenue amount and YoY growth | Implemented selected source amount and exact comparable calendar-quarter/year pairs | Reviewed fiscal quarter/year growth and period assembly are supported; unequal weekly exposures and assembled fiscal TTM growth remain explicit gaps. See [fiscal calendars](fiscal-calendars.md). |
 | Gross, operating and consolidated net margins | Implemented direct ratios; explicitly named derived gross margin from matching revenue/cost | Approved consolidated net income is absent for some reviewed companies; no parent-income substitution. |
-| CFO, PPE-capex FCF and FCF margin | Implemented same-period and same-edition inputs with cash-PPE sign checks | Quarter-from-YTD/TTM reconstruction remains later S5. |
+| CFO, PPE-capex FCF and FCF margin | Implemented same-period and same-edition inputs with cash-PPE sign checks | Calendar and reviewed fiscal YTD/TTM reconstruction are implemented; real calendar/source evidence and S6 publication remain required. |
 | EPS and growth | Deferred from this slice | Instrument/split compatibility, quarter/TTM EPS policy; loss transitions follow those eligible inputs. |
 | P/E trailing, P/B, P/S, earnings yield | Deferred | Usable raw-price/calendar evidence, eligible per-share or complete issuer-capitalization denominator and S4b identity/action basis. |
 | Forward P/E and PEG | Deferred | Reviewed dated estimates and compatible horizon/EPS basis; no estimate-provider activation in this slice. |

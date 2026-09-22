@@ -24,7 +24,8 @@ from equity_core.inputs import FinancialInput
 from equity_schema.concepts import Concept
 
 if TYPE_CHECKING:
-    from equity_core.periods import PeriodAmount
+    from equity_core.fiscal import FiscalCalendarEvidence
+    from equity_core.periods import PeriodAmount, RevisionCompatibility
 
     FinancialOperand = FinancialInput | PeriodAmount
 
@@ -37,6 +38,12 @@ class Calculation:
     operands: tuple[FinancialOperand, ...]
     flags: tuple[str, ...] = ()
     formula_revision: str = "s5-source-metrics-v1"
+
+
+@dataclass(frozen=True)
+class ReviewedGrowthCalculation(Calculation):
+    calendar_evidence: FiscalCalendarEvidence | None = None
+    revision_compatibility: RevisionCompatibility | None = None
 
 
 def _denominator(input_value: FinancialOperand) -> set[str]:
@@ -428,16 +435,56 @@ def _comparison_period(current: FinancialOperand, prior: FinancialOperand) -> bo
     return old_start == previous_start and old_end == previous_end
 
 
-def revenue_growth(current: FinancialOperand, prior: FinancialOperand) -> Calculation:
+def revenue_growth(
+    current: FinancialOperand,
+    prior: FinancialOperand,
+    *,
+    calendar_evidence: FiscalCalendarEvidence | None = None,
+    revision_compatibility: RevisionCompatibility | None = None,
+) -> Calculation:
     operands = (current, prior)
     problems = _issues(
         operands, (Concept.REVENUE, Concept.REVENUE), same_period=False
     ) | _denominator(prior)
-    if not _comparison_period(current, prior):
+    from equity_core.periods import _revision_problems
+
+    leaves = tuple(
+        source
+        for item in operands
+        for source in ((item,) if isinstance(item, FinancialInput) else item.operands)
+    )
+    problems.update(_revision_problems(leaves, revision_compatibility))
+    bases = {
+        "selected" if isinstance(item, FinancialInput) else item.formula_id for item in operands
+    }
+    if len(bases) != 1:
+        problems.add("incompatible_comparison_basis")
+    comparable = _comparison_period(current, prior)
+    if calendar_evidence is not None:
+        problems.update(calendar_evidence.problems(leaves))
+        comparable = (
+            isinstance(current, FinancialInput)
+            and isinstance(prior, FinancialInput)
+            and calendar_evidence.comparable(current, prior)
+        )
+    if not comparable:
         problems.add("unsupported_comparison_periods")
-    return _calculate(
+    calculation = _calculate(
         "revenue_growth_yoy",
         operands,
         problems,
         lambda values: _difference(values[0], values[1]) / values[1],
     )
+
+    if calendar_evidence is not None or revision_compatibility is not None:
+        return ReviewedGrowthCalculation(
+            calculation.metric_id,
+            calculation.value,
+            calculation.unit,
+            calculation.operands,
+            calculation.flags,
+            calculation.formula_revision,
+            calendar_evidence,
+            revision_compatibility,
+        )
+    return calculation

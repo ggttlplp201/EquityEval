@@ -17,6 +17,7 @@ above. This repository and its commits are the implementation source of truth.
 | S5 | First source-metric/history slice implemented; full S5 in progress | [Ratios and guided fundamentals](S5-ratios.md) | D022 source core; calendar-period prerequisite complete before X1; S4b gates price/share ratios |
 | S5b liquidity | Source-only current ratio and net working capital implemented | [Liquidity follow-on](S5b-liquidity.md) | Reuses selected balance-sheet inputs; UI unchanged; missing source values remain N/A |
 | S5b ROA | Reported-annual return on assets implemented | [ROA follow-on](S5b-roa.md) | Same-edition net income and exact opening/closing total assets; UI unchanged |
+| S5b fiscal | Reviewed fiscal-calendar assembly and growth compatibility implemented | [Fiscal follow-on](S5b-fiscal.md) | Explicit calendar/edition/PIT proof; no application calendar inferred |
 | S6 | Planned; include F1 result, snapshot and cache review | [API contract review/freeze](../api-contract.md) | After S5 |
 | S7 | Planned | Forward DCF | After S6 |
 | N1a–d | Requested; continuous discovery and stock assessments specified (D017/D018) | [News and macro agent](../features/N1-news-and-macro-agent.md) | Alongside S2–S8 contracts |

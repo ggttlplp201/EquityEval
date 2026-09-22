@@ -172,3 +172,9 @@ The user's next continuation adds [annual ROA](S5b-roa.md) to the pure engine,
 using exact opening/closing asset dates, same-edition source evidence and
 positive endpoints at reported precision. Publication and other returns remain
 in their existing later milestones.
+
+## Fiscal-period follow-on — 2026-09-22
+
+[S5b fiscal](S5b-fiscal.md) extends period assembly using exact reviewed fiscal
+calendars and tightens cross-edition growth. The [completion plan](../design/s5/completion-plan.md)
+continues through remaining unblocked S5 work to the S6 proposal gate.

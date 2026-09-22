@@ -188,3 +188,17 @@ freshness and interpretation policies, complete historical collection and the
 guided screen belong to later slices of the [S5 plan](../milestones/S5-ratios.md)
 and its S4/S6/S8 prerequisites. This chapter will gain verified screen
 instructions and a five-minute company walkthrough when those features exist.
+
+## Fiscal years and comparable periods
+
+A fiscal year is a company's reporting year; it need not start in January. Some
+companies report in 52- or 53-week years. The engine can assemble their reported
+flows when exact fiscal boundaries have reviewed source evidence. TTM here means
+four consecutive fiscal quarters, with their actual dates retained. It does not
+scale amounts to a standard number of days.
+
+Growth comparisons need matching quarter/year positions and compatible filing
+editions. Unequal 52/53-week exposures and irregular transition years currently
+show N/A. The original reported amounts and sources remain available. These are
+engine capabilities; they do not indicate a live fiscal calendar or published
+financial result for your watchlist.

@@ -12,6 +12,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from equity_ingest.financial_types import ScopeSpec, UnitSpec
 
+from equity_core.fiscal import FiscalCalendarEvidence
 from equity_core.inputs import FinancialInput, PrecisionEvidence
 from equity_core.metrics import _issues
 from equity_schema.concepts import Concept
@@ -69,6 +70,7 @@ class PeriodAmount:
     formula_id: str
     formula_revision: str = "s5-period-amounts-v1"
     revision_compatibility: RevisionCompatibility | None = None
+    calendar_evidence: FiscalCalendarEvidence | None = None
 
     @property
     def concept(self) -> Concept:
@@ -99,6 +101,7 @@ class PeriodAmount:
         return (
             self.formula_id,
             self.formula_revision,
+            self.calendar_evidence.comparison_key if self.calendar_evidence else None,
             tuple(
                 (
                     source.period.start_date,
@@ -169,9 +172,17 @@ def _problems(operands: tuple[FinancialInput, ...]) -> set[str]:
     return problems
 
 
-def annual_amount(source: FinancialInput) -> PeriodAmount:
+def annual_amount(
+    source: FinancialInput, *, calendar_evidence: FiscalCalendarEvidence | None = None
+) -> PeriodAmount:
     problems = _problems((source,))
-    if _month_span(source) != 12:
+    if calendar_evidence is not None:
+        problems.update(calendar_evidence.problems((source,)))
+        match = calendar_evidence.match(source, cumulative=True)
+        annual = match is not None and match[1] == 4
+    else:
+        annual = _month_span(source) == 12
+    if not annual:
         problems.add("unsupported_annual_period")
     return PeriodAmount(
         None if problems else source.value,
@@ -181,6 +192,7 @@ def annual_amount(source: FinancialInput) -> PeriodAmount:
         source.precision,
         tuple(sorted(set(source.flags) | problems)),
         "direct_annual",
+        calendar_evidence=calendar_evidence,
     )
 
 
@@ -219,6 +231,7 @@ def _assemble(
     formula: str,
     problems: set[str],
     revision_compatibility: RevisionCompatibility | None = None,
+    calendar_evidence: FiscalCalendarEvidence | None = None,
 ) -> PeriodAmount:
     flags = set(problems) | {flag for source in sources for flag in source.flags}
     value = None
@@ -262,6 +275,7 @@ def _assemble(
         tuple(sorted(flags)),
         formula,
         revision_compatibility=revision_compatibility,
+        calendar_evidence=calendar_evidence,
     )
 
 
@@ -282,13 +296,18 @@ def ttm_from_quarters(
     sources: tuple[FinancialInput, ...],
     *,
     revision_compatibility: RevisionCompatibility | None = None,
+    calendar_evidence: FiscalCalendarEvidence | None = None,
 ) -> PeriodAmount:
     if not isinstance(sources, tuple) or not sources:
         raise ValueError("A nonempty immutable tuple of quarterly source inputs is required")
     problems = _problems(sources) | _revision_problems(sources, revision_compatibility)
     if len(sources) != 4:
         problems.add("four_quarters_required")
-    if any(
+    if calendar_evidence is not None:
+        problems.update(calendar_evidence.problems(sources))
+        if any(calendar_evidence.match(source, cumulative=False) is None for source in sources):
+            problems.add("unsupported_quarter_period")
+    elif any(
         _month_span(source) != 3
         or source.period.start_date is None
         or source.period.start_date.month not in {1, 4, 7, 10}
@@ -308,10 +327,16 @@ def ttm_from_quarters(
         "sum_four_quarters",
         problems,
         revision_compatibility,
+        calendar_evidence,
     )
 
 
-def quarter_from_ytd(current: FinancialInput, prior: FinancialInput) -> PeriodAmount:
+def quarter_from_ytd(
+    current: FinancialInput,
+    prior: FinancialInput,
+    *,
+    calendar_evidence: FiscalCalendarEvidence | None = None,
+) -> PeriodAmount:
     """Derive one fiscal quarter from two same-edition cumulative amounts."""
     sources = (current, prior)
     problems = _problems(sources)
@@ -324,6 +349,16 @@ def quarter_from_ytd(current: FinancialInput, prior: FinancialInput) -> PeriodAm
         and current_span - prior_span == 3
         and current.period.start_date == prior.period.start_date
     )
+    if calendar_evidence is not None:
+        problems.update(calendar_evidence.problems(sources))
+        current_label = calendar_evidence.match(current, cumulative=True)
+        prior_label = calendar_evidence.match(prior, cumulative=True)
+        valid_periods = (
+            current_label is not None
+            and prior_label is not None
+            and current_label[0] == prior_label[0]
+            and current_label[1] == prior_label[1] + 1
+        )
     if not valid_periods:
         problems.add("incompatible_ytd_periods")
     if current.selection.filing_version_ids != prior.selection.filing_version_ids:
@@ -335,6 +370,7 @@ def quarter_from_ytd(current: FinancialInput, prior: FinancialInput) -> PeriodAm
         PeriodWindow(start, current.period.end_date),
         "ytd_difference",
         problems,
+        calendar_evidence=calendar_evidence,
     )
 
 
@@ -344,6 +380,7 @@ def ttm_from_annual_ytd(
     prior_ytd: FinancialInput,
     *,
     revision_compatibility: RevisionCompatibility | None = None,
+    calendar_evidence: FiscalCalendarEvidence | None = None,
 ) -> PeriodAmount:
     """Annual plus current fiscal YTD less the comparable prior fiscal YTD."""
     sources = (annual, current_ytd, prior_ytd)
@@ -358,6 +395,23 @@ def ttm_from_annual_ytd(
         and annual.period.end_date < date.max
         and annual.period.end_date + timedelta(days=1) == current_ytd.period.start_date
     )
+    if calendar_evidence is not None:
+        problems.update(calendar_evidence.problems(sources))
+        a = calendar_evidence.match(annual, cumulative=True)
+        c = calendar_evidence.match(current_ytd, cumulative=True)
+        p = calendar_evidence.match(prior_ytd, cumulative=True)
+        valid_periods = (
+            a is not None
+            and c is not None
+            and p is not None
+            and a[1] == 4
+            and a[0] == p[0]
+            and c[0] == a[0] + 1
+            and c[1] == p[1]
+            and c[1] in {1, 2, 3}
+            and current_ytd.period.start_date is not None
+            and annual.period.end_date.toordinal() + 1 == current_ytd.period.start_date.toordinal()
+        )
     if not valid_periods:
         problems.add("incompatible_annual_ytd_periods")
     start = prior_ytd.period.end_date + timedelta(days=1) if valid_periods else None
@@ -368,4 +422,5 @@ def ttm_from_annual_ytd(
         "annual_ytd_bridge",
         problems,
         revision_compatibility,
+        calendar_evidence,
     )

@@ -7,6 +7,8 @@ The milestone record is [S5 ratios and fundamentals](../../milestones/S5-ratios.
 - [Source-metric boundary](source-metrics.md): supported inputs/formulas and limits.
 - [Annual return on assets](return-on-assets.md): matching income and opening/closing assets.
 - [Liquidity calculations](liquidity.md): current ratio and reported net working capital.
+- [Fiscal calendar extension](fiscal-calendars.md): reviewed fiscal boundaries and exposure.
+- [Completion plan](completion-plan.md): remaining pure-engine slices and S6 stop gate.
 - [Period assembly](period-assembly.md): the source-preserving prerequisite completed before X1.
 - [Metric inventory](metric-inventory.md): complete original S5 backlog disposition.
 - [Numeric review and validation](review.md): findings, repairs and evidence.

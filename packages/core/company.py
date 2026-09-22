@@ -189,19 +189,24 @@ def _operand_problems(source: FinancialInput | PeriodAmount) -> set[str]:
         inputs = source.operands
         rebuilt = None
         if source.formula_id == "direct_annual" and len(inputs) == 1:
-            rebuilt = annual_amount(inputs[0])
+            rebuilt = annual_amount(inputs[0], calendar_evidence=source.calendar_evidence)
         elif source.formula_id == "sum_four_quarters":
             rebuilt = ttm_from_quarters(
-                inputs, revision_compatibility=source.revision_compatibility
+                inputs,
+                revision_compatibility=source.revision_compatibility,
+                calendar_evidence=source.calendar_evidence,
             )
         elif source.formula_id == "ytd_difference" and len(inputs) == 2:
-            rebuilt = quarter_from_ytd(inputs[0], inputs[1])
+            rebuilt = quarter_from_ytd(
+                inputs[0], inputs[1], calendar_evidence=source.calendar_evidence
+            )
         elif source.formula_id == "annual_ytd_bridge" and len(inputs) == 3:
             rebuilt = ttm_from_annual_ytd(
                 inputs[0],
                 inputs[1],
                 inputs[2],
                 revision_compatibility=source.revision_compatibility,
+                calendar_evidence=source.calendar_evidence,
             )
         if rebuilt != source:
             problems.add("period_projection_mismatch")
