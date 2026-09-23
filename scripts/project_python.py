@@ -33,7 +33,7 @@ def main() -> None:
                 or pointer.is_symlink()
             ):
                 raise RuntimeError("Project editable pointer escapes its generated build")
-            flags = pointer.stat().st_flags
+            flags = getattr(pointer.stat(), "st_flags", 0)
             if flags & stat.UF_HIDDEN:
                 os.chflags(pointer, flags & ~stat.UF_HIDDEN)
     os.execv(str(PYTHON), [str(PYTHON), *sys.argv[1:]])

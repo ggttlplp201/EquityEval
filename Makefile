@@ -37,6 +37,7 @@ lint:
 
 typecheck:
 	$(VENV_PY) -m mypy
+	$(VENV_PY) -m mypy --platform linux scripts/project_python.py
 	npm run typecheck
 
 check: lint typecheck test test-core test-golden
