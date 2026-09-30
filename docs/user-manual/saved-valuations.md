@@ -149,3 +149,12 @@ activates a control; Escape closes the evidence drawer and returns focus.
 Terminal contribution is discounted terminal value divided by operating EV;
 above 75% is labelled terminal dominant. All monetary amounts use unscaled USD;
 exact rate values are fractions. The page does not edit or publish runs.
+
+The span is labelled complete only when every declared scenario has a unique
+converged result and the saved span is present. Otherwise N/A accompanies the
+specific gating reason. The visible selected-scenario bridge lists operating
+EV, signed adjustment, common equity, common shares and conditional per-share
+value exactly as saved. Financial values with dotted underlines open their
+calculation/source evidence directly, including forecast cells, assumptions,
+terminal contribution and sensitivity axes/ranks. Selecting a sensitivity result
+also opens its evidence; Escape returns focus to that value.

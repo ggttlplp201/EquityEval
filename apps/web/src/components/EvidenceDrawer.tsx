@@ -9,7 +9,11 @@ export default function EvidenceDrawer({ detail, onClose, eyebrow = "FROZEN SNAP
     if (detail && !dialog.current?.open) dialog.current?.showModal();
     if (!detail && dialog.current?.open) dialog.current.close();
   }, [detail]);
-  return <dialog ref={dialog} className="source-drawer" onClose={onClose} onClick={(event) => {
+  return <dialog ref={dialog} className="source-drawer" onCancel={(event) => {
+    // State owns closure; a queued native close event cannot clear the next inspection.
+    event.preventDefault();
+    onClose();
+  }} onClick={(event) => {
     if (event.target !== event.currentTarget) return;
     const bounds = event.currentTarget.getBoundingClientRect();
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) onClose();

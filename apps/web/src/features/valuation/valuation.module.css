@@ -38,3 +38,10 @@
 .selectedCell { padding: 20px; background: var(--surface-subtle); margin-top: 20px; }
 .footer { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 30px; font-size: 12px; }
 @media (max-width: 768px) { .page { padding: 24px 16px; } .heading, .sectionHeading { align-items: flex-start; flex-direction: column; gap: 12px; } .context, .metrics, .result { grid-template-columns: 1fr; } .panel { padding: 16px; } .tableWrap table { min-width: 580px; } .metrics > div { padding: 18px; } }
+.evidenceValue { background: transparent; padding: 0; color: var(--accent-bright); text-align: left; font: inherit; white-space: pre-wrap; overflow-wrap: anywhere; max-width: 100%; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 4px; }
+.evidenceValue.value { font: 500 22px var(--mono); }
+.result .evidenceValue.value { font-size: 32px; }
+.bridgeEndpoints { grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); }
+.bridgeEndpoints > div { min-width: 0; padding: 12px; border: 1px solid var(--line); }
+.bridgeEndpoints dt { color: var(--muted); }
+.bridgeEndpoints dd { margin: 8px 0 0; font: 13px var(--mono); overflow-wrap: anywhere; }

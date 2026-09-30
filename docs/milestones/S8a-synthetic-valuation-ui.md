@@ -55,3 +55,37 @@ publication and real valuation assumption/evidence review remain necessary.
 This milestone activates no provider, scheduler, application write, production
 valuation or live assumption editor. Forward DCF, Monte Carlo and comps stay in
 later scope. The accepted company 3/5/10-year history choices are unchanged.
+
+## Corrective checkpoint — coordinator audit
+
+Baseline `fff930f` and `milestone/s8a-synthetic-valuation-ui` are preserved.
+The subsequent audit identified three gaps not caught by the initial review:
+truthful null-span eligibility, visible selected bridge endpoints and direct
+provenance controls for all financial values. The bounded correction addresses
+all three and fixes the shared drawer's queued-close race revealed by consecutive
+keyboard evidence inspections. See the appended [review](../design/s8/review.md).
+
+No core formula, schema, API, migration, source manifest or generated valuation
+fixture changed. There are no provider, production-data or scheduling side effects.
+Corrective checkpoint tag: `milestone/s8a-synthetic-valuation-ui-corrected`.
+
+Corrective verification completed on 2026-09-29:
+
+- Full retry **1,607 passed**, core **505 passed**, golden **110 passed**.
+- Python presentation **4 passed**; Node presentation **6 passed**; browser
+  **6 passed** (four viewport subtests, navigation/shared-drawer subtest, parent).
+- Fixture and generated-contract no-diff, Ruff/format/policy, ESLint,
+  Python/Linux and TypeScript checks, and production build passed.
+- Spec and standards follow-up: no remaining findings.
+- Initial full attempt: two unchanged filing-monitor cases failed (lease loss
+  and error outcome); all **34 monitor tests** then passed unchanged in isolation,
+  followed by the successful full retry. No test or timing limits were relaxed.
+  The transient cause remains unestablished; both logs are retained.
+- Evidence: `var/s8a-correction-verification.log` (initial failure),
+  `var/s8a-correction-monitor-rerun.log`,
+  `var/s8a-correction-verification-retry.log`, `var/s8a-correction-build.log`,
+  `var/s8a-correction-browser.log` and `var/s8a-correction-browser/`.
+  Required commit-hook rerun: `var/s8a-correction-commit-checks.log`.
+
+The previous S8a verification counts above describe the preserved original
+checkpoint. This corrective record supersedes its acceptance assessment.

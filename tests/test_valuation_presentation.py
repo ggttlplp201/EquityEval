@@ -51,3 +51,19 @@ def test_export_is_deterministic_public_and_generated_file_matches():
     for row in bundle["examples"]:
         if row["payload"]:
             assert ValuationPayload.model_validate(row["payload"]).evidence_mode == "synthetic"
+
+
+def test_saved_bridge_endpoints_have_exact_reference_values_and_keep_gaps():
+    examples = {row["id"]: row["payload"] for row in build()["examples"]}
+    payload = ValuationPayload.model_validate(examples["reference"])
+    scenario = payload.scenarios[1]
+    assert scenario.evaluation.operating_ev == D("193.4375")
+    assert payload.bridge.adjustment == D("-20")
+    assert scenario.common_equity == D("173.4375")
+    assert payload.bridge.shares == D("10")
+    assert scenario.conditional_per_share == D("17.34375")
+    for state in ("unavailable", "inconclusive", "no_solution_in_domain", "non_unique"):
+        saved = ValuationPayload.model_validate(examples[state]).scenarios[0]
+        assert saved.evaluation is None
+        assert saved.common_equity is None
+        assert saved.conditional_per_share is None

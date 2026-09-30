@@ -5,7 +5,9 @@ const path = require('node:path');
 const { chromium } = require(process.env.EQUITY_PLAYWRIGHT_MODULE || 'playwright');
 const base = process.env.EQUITY_PREVIEW_URL || 'http://127.0.0.1:3102';
 assert.ok(['127.0.0.1', 'localhost'].includes(new URL(base).hostname));
-const output = path.resolve(__dirname, '../../var/s8a-browser');
+const fixtures = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../apps/web/src/features/valuation/fixture.json'), 'utf8')).examples;
+const reference = fixtures.find(row => row.id === 'reference').payload;
+const output = path.resolve(__dirname, '../../var/s8a-correction-browser');
 
 test('S8a read-only valuation flows and responsive states', { timeout: 120000 }, async (t) => {
   fs.mkdirSync(output, { recursive: true });
@@ -15,6 +17,19 @@ test('S8a read-only valuation flows and responsive states', { timeout: 120000 },
   page.on('pageerror', error => errors.push(String(error)));
   page.on('console', message => { if (message.type() === 'error' && !message.location().url.endsWith('/favicon.ico')) errors.push(message.text()); });
   page.on('request', request => requests.push({ url: request.url(), method: request.method() }));
+  const inspect = async (title, expected) => {
+    const trigger = page.locator(`[data-evidence-value="${title}"]`);
+    await trigger.focus(); await page.keyboard.press('Enter');
+    const drawer = page.getByRole('dialog');
+    await drawer.waitFor({ state: 'visible' });
+    assert.equal(await drawer.locator('h2').innerText(), title);
+    assert.match(await drawer.innerText(), /Source lineage/);
+    if (expected) assert.ok((await drawer.innerText()).includes(expected), `Missing evidence ${expected}`);
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    await page.keyboard.press('Escape');
+    await drawer.waitFor({ state: 'hidden' });
+    assert.equal(await trigger.evaluate(node => document.activeElement === node), true);
+  };
   try {
     for (const width of [320, 390, 768, 1440]) {
       await t.test(`reference, keyboard, sensitivities and evidence at ${width}`, async () => {
@@ -28,14 +43,32 @@ test('S8a read-only valuation flows and responsive states', { timeout: 120000 },
         await selector.selectOption('1');
         assert.match(await page.getByRole('status').innerText(), /reference.*Unique solution/);
         assert.match(await page.locator('main').innerText(), /20%/);
+        assert.equal(await page.locator('[data-span-status]').innerText(), 'Complete eligible named roster');
+        await inspect('Declared domain lower', 'absolute_tolerance');
+        await inspect('Terminal contribution', 'pv_terminal');
+        await inspect('reference domain upper', 'terminal_margin');
         await page.getByText('Numerical evidence · exact intervals', { exact: true }).press('Enter');
+        await inspect('Evaluations', 'proof_revision');
+        await inspect('Root intervals', 'root_intervals');
         assert.match(await page.locator('details[open]').innerText(), /Root intervals/);
         await page.getByText('Numerical evidence · exact intervals', { exact: true }).press('Enter');
         const forecast = page.getByText('Forecast and terminal amounts · exact USD', { exact: true });
         await forecast.press('Enter');
         const first = page.locator('details[open] tbody tr').first();
         assert.deepEqual((await first.locator('td').allTextContents()).map(Number), [1, 110, 22, 5.5, 16.5, 5.5, 11, 10]);
+        await inspect('Forecast year 1 revenue', '110.0');
         await forecast.press('Enter');
+        const assumptions = page.getByText('Dated assumptions · model · policy', { exact: true });
+        await assumptions.press('Enter');
+        await inspect('Assumption wacc', 'risk_free');
+        await assumptions.press('Enter');
+        const expectedEndpoints = { operating_ev: reference.scenarios[1].evaluation.operating_ev, adjustment: reference.bridge.adjustment, common_equity: reference.scenarios[1].common_equity, shares: reference.bridge.shares, conditional_per_share: reference.scenarios[1].conditional_per_share };
+        for (const [id, value] of Object.entries(expectedEndpoints)) assert.equal(await page.locator(`[data-bridge-endpoint="${id}"] button`).innerText(), value);
+        await inspect('Selected operating EV', expectedEndpoints.operating_ev);
+        await inspect('Bridge adjustment', '-20');
+        await inspect('Selected common equity', expectedEndpoints.common_equity);
+        await inspect('Conditional value per share', expectedEndpoints.conditional_per_share);
+        await inspect('Common shares', 'source_multiplier');
         const evidence = page.getByRole('button', { name: 'Implied parameter: 20%. Inspect evidence' });
         await evidence.focus(); await page.keyboard.press('Enter');
         await page.getByRole('dialog').waitFor({ state: 'visible' });
@@ -48,9 +81,17 @@ test('S8a read-only valuation flows and responsive states', { timeout: 120000 },
         await page.getByRole('button', { name: 'Sensitivity', exact: true }).press('Enter');
         assert.equal(await page.getByRole('table').filter({ has: page.locator('caption', { hasText: 'Discount rate and terminal growth' }) }).count(), 1);
         await page.getByLabel('Grid', { exact: true }).selectOption('1');
-        const cell = page.getByRole('button', { name: '17.34375', exact: true });
+        const cell = page.locator('[data-evidence-value="Sensitivity cell 5 result"]');
         await cell.focus(); await page.keyboard.press('Enter');
+        await page.getByRole('dialog').waitFor({ state: 'visible' });
+        assert.match(await page.getByRole('dialog').innerText(), /17.34375/);
+        await page.keyboard.press('Escape');
+        await page.getByRole('dialog').waitFor({ state: 'hidden' });
+        assert.equal(await cell.evaluate(node => document.activeElement === node), true);
         assert.equal(await cell.getAttribute('aria-pressed'), 'true');
+        await inspect('Sensitivity cell 5 terminal operating margin', 'conditional_reprice');
+        await inspect('terminal operating margin sensitivity rank', 'perturbations');
+        await inspect('Selected axis reinvestment to revenue', '0.05');
         assert.match(await page.locator('[aria-live="polite"]').innerText(), /terminal operating margin: 0.2/);
         assert.match(await page.locator('[aria-live="polite"]').innerText(), /reinvestment to revenue: 0.05/);
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `overflow ${width}`);
@@ -62,10 +103,17 @@ test('S8a read-only valuation flows and responsive states', { timeout: 120000 },
           await page.getByLabel('Fictional example', { exact: true }).selectOption(state);
           await page.waitForURL(base + '/development/valuation?example=' + state, { timeout: 10000 }).catch(async error => { throw new Error(`${error.message}; actual URL ${page.url()}; status ${await page.getByRole('status').innerText()}; selected ${await page.getByLabel('Fictional example', { exact: true }).inputValue()}`); });
           await page.waitForLoadState('networkidle');
+          assert.equal(await page.locator('[data-span-status]').getAttribute('data-span-status'), 'ineligible');
+          assert.ok(!(await page.locator('main').innerText()).includes('Complete eligible named roster'));
+          const reasons = { no_solution_in_domain: 'reference: No solution in domain; at least two named scenarios required', non_unique: 'reference: Multiple solutions; at least two named scenarios required', inconclusive: 'reference: Inconclusive; at least two named scenarios required', unavailable: 'low investment: Unavailable; reference: Unavailable; high investment: Unavailable', missing: 'Missing saved result' };
+          assert.equal(await page.locator('[data-span-status]').innerText(), reasons[state]);
           if (state === 'missing') assert.match(await page.locator('main').innerText(), /Missing saved result/);
           else {
             assert.equal(await page.locator('[data-solve-state]').getAttribute('data-solve-state'), state);
             assert.match(await page.getByRole('button', { name: /^Implied parameter:/ }).innerText(), /N\/A/);
+            assert.equal(await page.locator('[data-evidence-value="Scenario dispersion"]').innerText(), 'N/A');
+            for (const id of ['operating_ev', 'common_equity', 'conditional_per_share']) assert.equal(await page.locator(`[data-bridge-endpoint="${id}"] button`).innerText(), 'N/A');
+            await inspect('Selected common equity', 'scenario');
             await page.getByRole('button', { name: 'Sensitivity', exact: true }).click();
             assert.match(await page.getByRole('region', { name: 'Sensitivity', exact: true }).innerText(), /N\/A/);
           }
@@ -76,6 +124,17 @@ test('S8a read-only valuation flows and responsive states', { timeout: 120000 },
     assert.ok(requests.every(request => !new URL(request.url).pathname.startsWith('/development/company')), 'No unrelated Company fixture prefetch');
     await t.test('navigation, skip link and read-only network', async () => {
       await page.goto(base + '/development/company', { waitUntil: 'networkidle' });
+      const companyEvidence = page.getByRole('button', { name: 'Inspect source & calculation ↗', exact: true });
+      await companyEvidence.click();
+      await page.getByRole('dialog').waitFor({ state: 'visible' });
+      await page.getByRole('button', { name: 'Close source details', exact: true }).click();
+      await page.getByRole('dialog').waitFor({ state: 'hidden' });
+      assert.equal(await companyEvidence.evaluate(node => document.activeElement === node), true);
+      await companyEvidence.press('Enter');
+      await page.getByRole('dialog').waitFor({ state: 'visible' });
+      await page.mouse.click(10, 500);
+      await page.getByRole('dialog').waitFor({ state: 'hidden' });
+      assert.equal(await companyEvidence.evaluate(node => document.activeElement === node), true);
       await page.getByRole('link', { name: 'Fictional reverse DCF' }).click();
       await page.waitForURL(base + '/development/valuation');
       await page.getByRole('link', { name: 'Skip to main content' }).focus();
