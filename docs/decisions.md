@@ -68,3 +68,12 @@ D038 corrective scope after `7c86c04`: coordinator explicitly requested scenario
 provenance bindings, typed economic claim exclusions and N17 share-unit scaling.
 [Corrective milestone](milestones/S7a-corrections.md) preserves the prior commit/tag;
 0001–0011, real application data, providers and UI remain unchanged.
+
+D039 — authorized next-phase continuation (2026-09-30): [D5a](design/d5a/proposal.md)
+pins a bounded first genuine CRCL normalization/PIT tracer from existing governed
+D3c captures and exact S1/S3 rules. Commit the proposal before implementation or
+application writes; retain all incomplete-history and applicability blockers.
+Reuse existing archived-replay publication and PIT contracts without quote,
+provider, schema/API or real S5/S6 result changes. If prerequisites fail, deliver
+honest verified readiness instead. Authorization is the coordinator's explicit
+continuation request; this is not an approval of broader financial publication.
