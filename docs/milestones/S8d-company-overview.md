@@ -1,8 +1,9 @@
 # S8d — Company Overview integration
 
-Status: implementation, independent reviews and browser verification complete; mandatory commit gate pending.
+Status: bounded missing-sentinel correction reviewed; corrected full gate pending.
 Branch: `codex/s8d-company-overview`.
 Baseline: `ee50c317874dbcc1464d5fdc2fb971411dd31b56`.
+Original implementation: `8f04518fdb650d4533a61fa23b3f337a937d9f3d` (preserved, untagged).
 Acceptance: [pinned before implementation](../design/s8d/acceptance.md).
 Reviews: [two independent axes](../design/s8d/review.md).
 Manual: [Company Overview](../user-manual/company-overview.md).
@@ -30,7 +31,9 @@ remain present. No core/schema/API/migration/provider/scheduler changes.
 
 ## Verification
 
-Mandatory commit gate pending. Red-first evidence:
+Original implementation gate passed: 1,649 full tests, 505 core, 110 golden,
+26 Node, lint/types/exports, in `var/s8d-commit-checks.log`. Corrected gate pending.
+Original red-first evidence:
 `var/s8d-red-python.log`, `var/s8d-red-node.log`, `var/s8d-units-red.log`.
 Focused source tests: 26 (13 new metadata checks plus 13 existing Company checks).
 Overview Node tests: 8 (26 across S8a/b/c/d). Production build and lint/types pass.
@@ -55,3 +58,20 @@ findings were corrected and rereviewed with no remaining findings.
 
 Stop at S8d. Real sources, financial publication, background monitoring and
 additional original Overview features retain their separate reviewed gates.
+
+## Final coordinator correction
+
+An additional independent audit found High: literal matching N/A could establish
+compatibility. `complete()` now requires affirmative nonmissing string leaves,
+recursively through dictionary/list/tuple metadata. Case/whitespace handling is
+limited to missing-marker detection; valid evidence and equality stay exact.
+Unsupported scalar proof is unavailable. No UI/fixture/financial value changes.
+
+Corrected focused tests: **46 Python** (33 metadata + 13 existing Company),
+**26 Node** (8 Overview), deterministic no-diff export, lint/types/build pass.
+Red-first sentinel log: `var/s8d-sentinel-red.log`; corrected focused evidence:
+`var/s8d-corrected-python.log`, `var/s8d-corrected-lint-types.log`,
+`var/s8d-corrected-build.log`. Both narrow rereviews report no remaining findings.
+The original implementation's source fixtures and all 39 prior refs are unchanged;
+`var/s8d-preservation-check.json` records the verification. Corrective browser/full
+checks and final tag follow before completion. Stop at S8d.

@@ -39,3 +39,20 @@ form to the same local default route; the browser assertion still activates the
 actual user control and waits for the exact saved view. It is not replaced by
 programmatic navigation. The full S8d browser run subsequently passes all seven
 checks. Error Retry similarly rereads the restored manifest via a fresh GET.
+
+## Coordinator final review — missing sentinel correction
+
+The coordinator's separate two-axis audit of 8f04518 found a High compatibility
+bug: equal literal N/A fields could count as affirmative proof. The bounded
+corrective change rejects N/A (case/whitespace variants), blank strings, empty
+containers and unsupported scalar leaves recursively, including tuple scopes.
+It does not mutate metadata or loosen exact comparison of legitimate strings.
+Red-first evidence: `var/s8d-sentinel-red.log` (14 failures, 19 passes before fix).
+The corrected 33 metadata tests plus 13 existing Company tests pass (46 total).
+The generated metadata manifest is byte-identical. Both independent local
+reviewers rereviewed the correction with no remaining findings; neither reran
+tests. Final corrected gate and tag are recorded in the milestone after passing.
+
+The coordinator also requested final commit/count/clean-tree traceability, which
+is completed after the corrected implementation gate. The initial 8f04518
+checkpoint is preserved; it will not receive the milestone tag.

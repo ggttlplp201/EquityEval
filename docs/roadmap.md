@@ -94,7 +94,7 @@ editions are represented; balances stay instants and TTM stays unavailable.
 Real statement publication and S8d retain their separate prerequisites.
 
 S8d Company Overview integration is implemented and independently reviewed;
-browser regressions pass and the mandatory commit gate is pending. See the [milestone](milestones/S8d-company-overview.md).
+initial browser/full gates passed; the reviewed missing-marker correction awaits its final gate. See the [milestone](milestones/S8d-company-overview.md).
 The metadata manifest proves the current workspaces are separate fictional
 examples, preserves their own default selectors and exposes exact linkage
 and source evidence. It does not fulfill real-company publication prerequisites.

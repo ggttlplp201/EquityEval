@@ -46,13 +46,20 @@ def digest(value: bytes) -> str:
 
 
 def complete(value: Any) -> bool:
-    if value is None or value == "" or value == [] or value == {}:
-        return False
+    """Affirmative metadata has nonmissing string leaves; never normalize evidence.
+
+    N/A is the presentation boundary's missing marker (case/whitespace variants
+    included). Other literal strings retain exact equality in classify().
+    Tuples occur in the exporter's scope projection before JSON serialization.
+    """
+    if isinstance(value, str):
+        marker = value.strip()
+        return bool(marker) and marker.casefold() != "n/a"
     if isinstance(value, dict):
-        return all(complete(item) for item in value.values())
-    if isinstance(value, list):
-        return all(complete(item) for item in value)
-    return True
+        return bool(value) and all(complete(item) for item in value.values())
+    if isinstance(value, (list, tuple)):
+        return bool(value) and all(complete(item) for item in value)
+    return False
 
 
 def classify(left: dict[str, Any], right: dict[str, Any] | None) -> tuple[str, list[str]]:
