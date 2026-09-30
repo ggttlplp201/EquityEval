@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
-Canonical dependency/status list, reconciled 2026-09-22 through the
-[S6b/S7a synthetic valuation](milestones/S6b-S7a-valuation-contract.md). This links existing milestones and features;
+Canonical dependency/status list, reconciled 2026-09-29 through the
+[corrected S8c Financials checkpoint](milestones/S8c-financials-ui.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -23,7 +23,7 @@ feature/design retains its detailed acceptance criteria.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
   operating provider, normalized production fact or published financial result.
-- **Development UI:** Company/Sector/Valuation examples are fictional; pilot observations
+- **Development UI:** Company/Sector/Fundamentals/Financials/Valuation examples are fictional; pilot observations
   and pipeline audits have distinct saved-data labels. News/calendar views are
   unconfigured. No background SEC poller, automatic result refresh or delivery
   scheduler is operating.
@@ -86,7 +86,7 @@ binds scenario values to provenance, proves bridge exclusions, and verifies sour
 share scales before milestone approval. The earlier checkpoint remains in Git.
 
 
-S8c is correcting coverage-count evidence after review of its bounded [saved Financials view](milestones/S8c-financials-ui.md).
+S8c is complete at `milestone/s8c-financials-ui-corrected` for its bounded [saved Financials view](milestones/S8c-financials-ui.md).
 The audited S6a metric payload is not a full-statement contract. S8c therefore
 uses separate fictional source copies and normalized period/unit semantics,
 without joining Company/Sector/Fundamentals identities. Annual and direct-quarter

@@ -1,116 +1,102 @@
 # S8c — saved financial statement lines
 
-Status: bounded corrective pass in progress after independent coordinator review.
-Original implementation commit: `c0f6bc60a2c6ed0643662eefc2f009fd8f481c8c`.
-Original annotated tag: `milestone/s8c-financials-ui` (preserved).
-Corrected commit/tag pending successful corrective verification.
+Status: complete for the bounded fictional/read-only scope, including the
+independent coordinator coverage-evidence correction.
 Branch: `codex/s8c-financials-ui`.
 Baseline: `30c35c61b9f42602381acbf5c0ae2423ecc2b762` (clean S8b).
+Final implementation commit: `7a96cb645cf58a7c369a9eb650d9465d3a7d54e7`.
+Final annotated tag: `milestone/s8c-financials-ui-corrected`.
+Original implementation: `c0f6bc60a2c6ed0643662eefc2f009fd8f481c8c` and
+`milestone/s8c-financials-ui`, both preserved.
 Acceptance: [pinned audited boundary](../design/s8c/acceptance.md).
 Manual: [Saved Financials](../user-manual/saved-financials.md).
 
-## Implementation
+## Delivered scope
 
 `/development/company/financials` presents a separate fictional company with
 Income statement, Balance sheet and Cash flow sections. Three immutable local
 snapshots: original annual, revised annual and directly reported first quarter.
 No S6a selected metrics are relabelled as full statements. The checked exporter
-uses existing Concept, PeriodSpec and UnitSpec semantics and content hashes.
-No core, shared schema, API, migration, provider or production-publication change.
+uses existing Concept, PeriodSpec, UnitSpec and canonical content hashes. No
+core, shared schema, API, migration, provider or production-publication change.
 
 Exact source strings, dates, units, scope, source identity and revision lineage
-are retained. Balance-sheet periods are instants, flows are durations, TTM is
+are retained. Balance-sheet periods are instants; flows are durations; TTM is
 disabled. Missing lines remain null/N/A. Visible amounts round at four decimals;
-the shared evidence drawer retains exact strings. Shared navigation and Help
-link the new page; existing S8a/S8b data and history behavior remain unchanged.
+the shared drawer retains exact strings. Both supplied coverage counts open the
+exact statement coverage, selected-row roster/evidence and snapshot identity.
+React does not calculate amounts or coverage. Shared navigation and Help link
+the new page; S8a/S8b financial behavior and 3/5/10-year history stay unchanged.
 
-## Validation
+## Independent reviews and corrections
 
-Red-first exporter and selector tests were captured in `var/s8c-red-python.log`
-and `var/s8c-red-node.log`. Focused exporter tests pass 20; Node tests pass 3.
-Build, lint, types, independent reviews and all 7 S8c browser checks passed.
-S8b browser regression passed all 6 tests. The mandatory full commit gate passed.
-See [review and repairs](../design/s8c/review.md). The checkpoint tag resolves to the tested implementation commit above.
-This final record follows that checkpoint in a documentation-only commit.
+[Review record](../design/s8c/review.md) retains both axes and their rereviews.
+Initial spec/standards review found precision-only edits mislabelled as financial
+restatements, plus an undefined CSS border token. Fixed using Decimal equality
+for status only (exact source strings retained), signed-zero regressions and the
+existing --line token. Rereviews found no remaining issues in those changes.
 
-## Limitations and handoff
+A separate coordinator two-axis review against baseline 30c35c6 found:
 
-Selected statement lines only; coverage is not a full-filing completeness claim.
-Only fictional calendar-year and direct-quarter sources are reviewed. No TTM,
-YTD conversion, accounting total inference, investment verdict or live refresh.
-Production data rights, normalization/publication and remaining company-page
-milestones retain their gates. Stop at S8c after its reviewed checkpoint.
+- **Spec P2:** coverage counts had no clickable provenance. Corrected in 7a96cb6;
+  all six controls open exact supplied counts and their statement's row evidence.
+  A red-first Node test injects distinctive supplied counts to detect browser
+  recomputation; browser assertions compare the complete saved coverage and rows.
+  Narrow independent spec rereview found no remaining coverage issue.
+- **Standards Low:** committed milestone/index/roadmap status was stale. The
+  corrective commit incorporated the staged traceability updates, and this final
+  record identifies both implementation commits and immutable checkpoint tags.
 
+The coordinator's hold arrived just after the original tag was created. That tag
+was preserved; the documentation commit was stopped pending review results.
+`var/s8c-record-commit-checks-interrupted.log` is a partial, intentionally stopped
+run, not a completed or failed gate. No S8d work began.
 
-Browser evidence: `var/s8c-browser-recovery.log` is the final 7-pass Financials
-run against `var/s8c-build-recovery.log`. It covers four widths, every edition,
-exact source strings, N/A, keyboard/focus, invalid selectors, local GET-only
-requests, actual pending DOM state, missing-fixture failure and Retry recovery.
-Source fixture was restored byte-for-byte after fault injection. Screenshots:
-`var/s8c-browser/financials-{320,390,768,1440}.png`; all four final neutral-focus
-responsive screenshots visually inspected. No table or page overflow.
-Earlier failing/aborted browser logs remain preserved for traceability.
+## Verification and evidence
 
-S8a browser regression passed 6 tests in `var/s8c-prior-browser-regression.log`.
-That run also reproduced S8b's previously recorded client-navigation timeout;
-five isolated unchanged Fundamentals-to-Reverse-DCF transitions subsequently
-passed (`var/s8c-navigation-probe.log`). No cause or fix for the intermittent
-framework/navigation behavior is claimed; the full unchanged S8b test subsequently passed all 6 checks
-(`var/s8c-fundamentals-regression-final.log`). Existing frontend financial behavior is unchanged.
+- **20 Python source tests**: exact source-pointer/period/unit/snapshot binding,
+  temporal and incompatible-input rejection, nulls/coverage, content-bound IDs,
+  separate editions and financial versus formatting restatement distinction.
+- **4 S8c Node tests**: fail-closed exact selectors, rounded/exact values, actual
+  server route isolation and inspectable supplied coverage/row/source identity.
+- **7 Financials browser tests**, `var/s8c-corrected-browser.log`: 320/390/768/1440,
+  every edition, all six coverage controls, full exact source evidence, N/A,
+  keyboard/focus, invalid selectors, local GET-only requests, actual pending DOM
+  status and disabled control, missing-fixture error and Retry recovery to the
+  exact snapshot. Fault injection restores the source fixture byte-for-byte.
+- Production build: `var/s8c-corrected-build.log`. Final screenshots in
+  `var/s8c-browser/`; all four responsive widths were inspected, with 320px
+  inspected again after the coverage correction. Every column fits its container.
+- Mandatory corrected commit hook: `var/s8c-corrected-commit-checks.log` —
+  **1,636 full tests** (two existing upstream warnings), **505 core**, **110
+  golden**, Ruff/policy, generated contracts and deterministic exports, **18
+  Node tests** (S8a 8 + S8b 6 + S8c 4), ESLint, Python types (**93 sources** plus
+  Linux launcher) and TypeScript. Original gate: `var/s8c-commit-checks.log`.
+- Prior browser regressions: **6 S8a** in
+  `var/s8c-prior-browser-regression.log`; **6 S8b** in
+  `var/s8c-fundamentals-regression-final.log`. The coverage correction changes no
+  S8a/S8b or shared-component code; their 14 Node checks also pass in the final
+  corrected hook. One earlier S8b client-navigation timeout was preserved; five
+  isolated unchanged transitions and the full unchanged rerun passed. No root
+  cause or permanent fix for that pre-existing intermittent behavior is claimed.
 
+Verification repaired mobile table clipping and a real Retry lifecycle bug:
+boundary reset did not reread the restored file, so Retry now performs a fresh
+local GET. Test harness corrections avoided waiting on intentionally held
+navigation and disambiguated the Financials error panel from Next's announcer.
+Assertions and timeout limits were not weakened. Earlier failing logs are retained.
+Red-first logs: `var/s8c-red-python.log`, `var/s8c-red-node.log`,
+`var/s8c-restatement-red.log`, `var/s8c-coverage-red.log`.
 
-## Final checkpoint evidence
+The corrective implementation left a clean tree. Main, all S8a/S8b refs and the
+original S8c tag were verified unchanged. This final documentation-only record
+runs the required hook again (`var/s8c-final-record-checks.log`); it does not
+change the tagged implementation. The final task response reports its commit.
 
-- `var/s8c-commit-checks.log`: mandatory hook passed on implementation commit
-  `c0f6bc6`: **1,636 full tests** (two existing upstream warnings), **505 core**,
-  **110 golden**, Ruff/policy, generated contracts and all three deterministic
-  UI exporters, **17 Node tests** (S8a 8 + S8b 6 + S8c 3), ESLint, Python types
-  (**93 sources** plus Linux launcher check) and TypeScript.
-- New S8c source suite: **20 tests**, including exact source-pointer binding,
-  temporal/period/unit rejection, explicit nulls, content-bound identity and
-  financial-vs-formatting restatement distinction.
-- `var/s8c-build-recovery.log`: optimized production build passed, including the
-  new route and actual Retry reload repair.
-- `var/s8c-browser-recovery.log`: **7 passed**. Prior regressions: **6 S8a** in
-  `var/s8c-prior-browser-regression.log`, **6 S8b** in
-  `var/s8c-fundamentals-regression-final.log`. Earlier failed attempts remain
-  documented above; assertions and timeout limits were not weakened.
-- Spec/standards reviewers rereviewed their fixes with no remaining findings;
-  the standards reviewer additionally checked the real Retry recovery repair.
-- Before final recording, working tree was clean after implementation commit.
-  `main` and every S8a/S8b checkpoint ref matched `var/s8c-prior-refs.json`.
-  No diff in core, shared schemas, APIs or migrations. Final documentation commit
-  runs the mandatory hook again (`var/s8c-record-commit-checks.log`).
+## Limits and stopping point
 
-S8c is the stopping checkpoint. S8d, production financial statements, real
-publication and recurring activation are not started by this milestone.
-
-
-Coordinator requested a hold after the implementation commit and tag had already
-been created. The documentation-only commit was interrupted before completion
-(`var/s8c-record-commit-checks-interrupted.log`, partial run, not a failed or
-completed gate). The existing tag is preserved. No S8d work starts; final record
-and clean-tree checkpoint await the additional independent review results.
-
-
-## Corrective scope
-
-Additional coordinator spec review found orphan coverage counts; both supplied
-available/requested counts now open the exact saved coverage, statement row
-roster/evidence and snapshot identity. No browser count calculation was added.
-Focused Node and four-width browser tests cover all six controls. Standards review
-found stale committed traceability text; these records are included in the new
-corrective commit. The original commit/tag stay immutable; the final corrected
-checkpoint will use `milestone/s8c-financials-ui-corrected` after checks pass.
-
-
-Corrective focused evidence: **20 Python source tests**, **4 Node UI/route tests**,
-**7 Financials browser tests** (`var/s8c-corrected-browser.log`) and optimized
-build (`var/s8c-corrected-build.log`) passed. All six counts open their exact
-statement coverage and row evidence; 320px screenshot re-inspected with every
-column and count visible. Narrow independent spec rereview found no remaining
-coverage issues. The correction does not change S8a/S8b or shared components;
-their already-passed full browser regressions above remain applicable, and their
-14 Node regressions run again in the corrected mandatory hook. Corrective full
-hook evidence will be `var/s8c-corrected-commit-checks.log`; tag/commit references
-are finalized only after successful completion.
+Selected statement lines only; coverage is not full-filing completeness. Only
+fictional calendar-year and direct-quarter sources are reviewed. No TTM, YTD
+conversion, inferred accounting totals, investment verdict, live refresh or real
+publication. Production source/normalization/publication gates remain open.
+Stop at corrected S8c. S8d and recurring activation have not started.
