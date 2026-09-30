@@ -23,7 +23,7 @@ feature/design retains its detailed acceptance criteria.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
   operating provider, normalized production fact or published financial result.
-- **Development UI:** Company/Sector examples are fictional; pilot observations
+- **Development UI:** Company/Sector/Valuation examples are fictional; pilot observations
   and pipeline audits have distinct saved-data labels. News/calendar views are
   unconfigured. No background SEC poller, automatic result refresh or delivery
   scheduler is operating.
@@ -68,7 +68,7 @@ feature/design retains its detailed acceptance criteria.
    0012, immutable assumptions, certified Decimal solver, full bridge, W1 worker
    and generated API. See the [milestone](milestones/S6b-S7a-valuation-contract.md)
    for checkpoint verification and [manual](user-manual/saved-valuations.md) for
-   the operator workflow. Real publication and connected valuation UI remain later.
+   the operator workflow. Real publication remains later. [S8a](milestones/S8a-synthetic-valuation-ui.md) adds a separate read-only fictional valuation view using these audited outputs; it does not connect production data.
 
 4. Resolve S4 reference/quote evidence and source entitlement, S4b lifecycle and
    real governed normalization/PIT/profile/calendar/precision inputs. No source

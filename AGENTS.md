@@ -205,3 +205,8 @@ assumptions, certified Decimal reverse FCFF, complete claims and W1 publication
 are implemented. Preserve numerical/scenario/source uncertainty separately.
 Real publication, providers, automated WACC, Monte Carlo and valuation UI remain
 outside that approval. Existing 0001–0011 and the accepted UI stay unchanged.
+
+S8a separately adds a read-only fictional valuation UI from baseline `ee39ff2`;
+read docs/milestones/S8a-synthetic-valuation-ui.md. It reuses S7a public contracts
+and core through a checked exporter, with no engine/schema/API changes.
+Real-company publication and live assumption editing remain separately gated.

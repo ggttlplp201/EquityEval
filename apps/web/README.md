@@ -105,3 +105,23 @@ Reproduce without provider or database access:
 Read `docs/milestones/D2-real-data-pilot.md` for checks and concrete next steps.
 The pilot does not convert the seven stocks into a sector universe, start
 monitoring, or replace the separate fictional Company/Sector fixtures.
+
+## Synthetic reverse DCF — S8a
+
+`/development/valuation` renders existing generated S7a public payload contracts.
+Python validates separate fictional presentation manifests and calculates all
+results with the unchanged core. The page sends only the selected example to
+the browser; selecting another example uses a local GET navigation.
+
+```sh
+.venv/bin/python scripts/project_python.py scripts/export_valuation.py --check
+node --test tests/web/valuation.test.cjs
+# Against a running production preview, using an installed Playwright module:
+EQUITY_PREVIEW_URL=http://127.0.0.1:3102 \
+  node --test tests/web/valuation-browser.cjs
+```
+
+Set `EQUITY_PLAYWRIGHT_MODULE` to an existing Playwright module directory if it
+is not on Node's resolution path. Browser tests launch headless Chromium and
+only access localhost. No database, provider or mutation endpoint is used.
+See `docs/milestones/S8a-synthetic-valuation-ui.md` for scope and verification.

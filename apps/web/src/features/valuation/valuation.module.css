@@ -1,0 +1,40 @@
+.page { max-width: 1440px; padding: 32px 40px 48px; margin: auto; }
+.heading, .sectionHeading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.heading h1 { font-size: clamp(26px, 3vw, 38px); letter-spacing: -.04em; margin: 8px 0; }
+.heading p, .status, .panel p, .footer { color: var(--muted); }
+.context { display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 24px; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.context div, .context label, .sectionHeading label { display: grid; gap: 6px; }
+.context span, .context label, .sectionHeading label { color: var(--muted); font-size: 12px; }
+.context strong { color: var(--ink); font-weight: 500; overflow-wrap: anywhere; }
+.context select, .sectionHeading select { background: var(--bg); border: 1px solid var(--line-strong); padding: 8px; border-radius: 5px; }
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin: 24px 0; }
+.metrics > div { display: flex; flex-direction: column; align-items: flex-start; padding: 24px; background: var(--surface); gap: 8px; }
+.metrics span, .result span { color: var(--muted); }
+.value { background: transparent; color: var(--accent-bright); padding: 0; font: 500 22px var(--mono); text-align: left; overflow-wrap: anywhere; }
+.value span { color: var(--muted); font-size: 13px; }
+.metrics small { color: var(--muted); }
+.panel { margin-top: 24px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+.panel h2 { font-size: 19px; margin: 0 0 16px; }
+.result { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.result > div { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.result .value { font-size: 32px; }
+.result small { overflow-wrap: anywhere; color: var(--muted); }
+.terminal { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; border-block: 1px solid var(--line); margin: 24px 0; padding: 12px 0; }
+.terminal strong { color: var(--accent-bright); font-family: var(--mono); }
+.tableWrap { overflow: auto; max-width: 100%; }
+.tableWrap table { border-collapse: collapse; width: 100%; text-align: left; table-layout: fixed; }
+.tableWrap caption { text-align: left; padding: 16px 0; color: var(--muted); }
+.tableWrap th, .tableWrap td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+.tableWrap td { font-family: var(--mono); font-size: 12px; }
+.tableWrap th { font-size: 12px; color: var(--muted); }
+.tableWrap .value { font-size: 15px; }
+.tableWrap button { max-width: 100%; overflow-wrap: anywhere; text-align: left; }
+.cell { background: transparent; padding: 4px; color: var(--ink); }
+.cell[aria-pressed="true"] { background: var(--tint-ok); outline: 1px solid var(--accent-deep); color: var(--accent-bright); }
+.disclosure { margin-top: 16px; padding: 16px 0; border-top: 1px solid var(--line); }
+.disclosure summary { color: var(--ink-2); }
+.disclosure dl, .panel dl { display: grid; gap: 12px; }
+.disclosure dd { font-family: var(--mono); font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; margin: 4px 0 12px; max-height: 300px; overflow: auto; }
+.selectedCell { padding: 20px; background: var(--surface-subtle); margin-top: 20px; }
+.footer { display: flex; flex-wrap: wrap; gap: 24px; padding-top: 30px; font-size: 12px; }
+@media (max-width: 768px) { .page { padding: 24px 16px; } .heading, .sectionHeading { align-items: flex-start; flex-direction: column; gap: 12px; } .context, .metrics, .result { grid-template-columns: 1fr; } .panel { padding: 16px; } .tableWrap table { min-width: 580px; } .metrics > div { padding: 18px; } }

@@ -121,3 +121,31 @@ normalize exactly to the stored canonical share counts. Currency is not a share
 unit. Changing a unit label without the correct multiplier and matching counts
 cannot produce a valuation. Interest/growth rates remain explicit fractions;
 no automatic percentage or foreign-exchange conversion occurs.
+
+## Read the fictional development view
+
+Open `/development/valuation` from **Reverse DCF** in the navigation. These
+frozen examples demonstrate the model; they are separate from Company examples
+and contain no real-company observations.
+
+1. Start with **Reverse DCF**. Compare the observed common equity market value
+   and the operating EV target. The claims bridge explains their difference.
+2. Choose a named scenario. Read the solved variable, declared search domain,
+   result state and terminal contribution together. Select a number for evidence.
+3. Expand the exact scenario/forecast tables, numerical intervals or assumptions.
+   The scenario span compares all eligible named scenarios. A numerical root
+   interval describes solver precision. Source measurement uncertainty describes
+   source precision. They are different quantities.
+4. Choose **Sensitivity**, then a grid and an exact result. Reverse grids solve
+   the declared parameter again. Conditional repricing starts from the supplied parameter value, then changes
+   the named axes; each cell retains its declared axis values. Effects and ranks apply only
+   within the selected grid.
+5. Use **Fictional example** to inspect other states: no solution in the declared
+   domain, multiple solutions, inconclusive search, unavailable inputs, or a
+   missing saved result. An absent scalar is N/A, never zero.
+
+All selectors, table buttons and disclosures work with the keyboard. Enter
+activates a control; Escape closes the evidence drawer and returns focus.
+Terminal contribution is discounted terminal value divided by operating EV;
+above 75% is labelled terminal dominant. All monetary amounts use unscaled USD;
+exact rate values are fractions. The page does not edit or publish runs.
