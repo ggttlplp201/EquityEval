@@ -45,5 +45,6 @@ export interface CompanyBundle {
   views: Record<string, CompanyView>; details: Record<string, EvidenceDetail>;
 }
 export interface CompanyPageData extends Omit<CompanyBundle, "views"> {
+  overview: import("./overview").OverviewData;
   company: CompanyIdentity; selectedAsOf: string; views: CompanyView[];
 }

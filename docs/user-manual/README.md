@@ -49,3 +49,5 @@ and distinguishes them from U1's pending real-data and alert workflow acceptance
 - [Filing schedules](filing-scheduler.md): manual application scheduling, revisions, pause/resume, health, budgets and the fixed-window rebase gate. No background service is configured.
 
 - [Saved valuations and assumptions](saved-valuations.md): synthetic reverse DCF, trusted-local operator flow, immutable reruns, outcomes and financial terminology.
+
+- [Company Overview](company-overview.md): saved-company selection, exact linkage evidence, separate fictional workspaces, units, history and recovery.
