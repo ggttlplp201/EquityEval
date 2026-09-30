@@ -1,6 +1,6 @@
 # F1 — Guided fundamentals
 
-Status: first S5 source-metric/history slice implemented on 2026-09-19; full feature remains in progress.
+Status: S5/S6a core/publication and bounded fictional [S8b Fundamentals](../milestones/S8b-fundamentals-ui.md) implemented; production feature remains in progress.
 User direction: read the supplied spec, check conflicts and reuse, place the work
 in existing milestones, and finish current work first. The user also explicitly
 requested retaining 5–10-year history as an option.

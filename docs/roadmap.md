@@ -68,7 +68,7 @@ feature/design retains its detailed acceptance criteria.
    0012, immutable assumptions, certified Decimal solver, full bridge, W1 worker
    and generated API. See the [milestone](milestones/S6b-S7a-valuation-contract.md)
    for checkpoint verification and [manual](user-manual/saved-valuations.md) for
-   the operator workflow. Real publication remains later. [S8a](milestones/S8a-synthetic-valuation-ui.md) adds a separate read-only fictional valuation view using these audited outputs; it does not connect production data.
+   the operator workflow. Real publication remains later. [S8a](milestones/S8a-synthetic-valuation-ui.md) adds a separate read-only fictional valuation view using these audited outputs; it does not connect production data. [S8b](milestones/S8b-fundamentals-ui.md) adds a separate fictional Company Fundamentals view over validated S6a payloads, with saved 3/5/10-year history and coverage.
 
 4. Resolve S4 reference/quote evidence and source entitlement, S4b lifecycle and
    real governed normalization/PIT/profile/calendar/precision inputs. No source

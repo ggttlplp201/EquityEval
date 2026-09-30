@@ -130,3 +130,19 @@ S8a displays numbers with at most four decimal places and no trailing zeros.
 Decimal strings round halfway away from zero without a binary-float conversion;
 percentages shift before rounding. Structured solver/assumption displays format
 only known numeric fields. All source strings remain unchanged in the drawer.
+
+
+## Fictional S6a fundamentals — S8b
+
+`/development/company/ratios` presents a selected validated FundamentalsPayload,
+separate from D1b Company/Sector identity. Generate with
+`.venv/bin/python scripts/project_python.py -m scripts.export_fundamentals`;
+append `--check` for deterministic verification (included in `make lint`).
+Inputs live under `scripts/fixtures/fundamentals-presentation.json` and the typed
+production helper; neither imports test fixtures. The page sends only the exact
+selected offline snapshot. S6a public types and financial formulas are unchanged.
+
+`node --test tests/web/fundamentals.test.cjs` checks presentation. The browser
+suite is `tests/web/fundamentals-browser.cjs`, with the same local preview and
+Playwright environment options as S8a. See `docs/design/s8b/acceptance.md`, the
+S8b milestone and `docs/user-manual/saved-fundamentals.md` for limits and usage.

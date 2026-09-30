@@ -1,7 +1,7 @@
 # Saved fundamentals results
 
 S6a provides a tested storage and read-only API path using fictional integration
-fixtures. The accepted application screens are unchanged. Real company results
+fixtures. S8b adds a separate read-only fictional Fundamentals screen. Real company results
 and a connected Add/Rerun workflow require the next data/integration milestone.
 
 ## Reading a result
@@ -79,3 +79,43 @@ source tags and hashes, normalized input values, scope, formula and coefficient
 lineage. Private archives, raw metadata, reviewer contacts and credentials remain
 outside the response. Only the reviewed identity-decimal normalization operation
 is projected; other transformation metadata is retained privately by its digest.
+
+
+## Five-minute walkthrough: Company → Fundamentals
+
+Open `/development/company/ratios` from **Fundamentals** in the navigation or
+**Separate fundamentals example** on Company. Fictional Workshop Co. is separate
+from the older Company/Sector example; these are not interchangeable snapshots.
+
+1. Choose an example and evaluation date. Read the actual annual or instant
+   financial basis, financial period, currency, filing/capture cutoff and snapshot
+   ID. No annual amount is labelled TTM. The balance-sheet example has its own
+   instant selection; sections without saved metrics show N/A.
+2. Read Growth, Profitability, Cash generation, Balance sheet and Valuation in
+   order. Expand Returns on capital for ROA. Each metric has a definition,
+   saved status and reasons. Status examples demonstrate N/M, missing, invalid,
+   stale and inapplicable; trailing P/E remains unsupported in this S6a route.
+3. Check coverage counts separately for all seven statuses. Covered includes
+   evidenced N/M; it is not a score. Stale or inapplicable results can retain a
+   saved number, but that number does not become valid. Review notes show at
+   most three saved neutral prompts, with their original rule evidence.
+4. Select a history metric and **3, 5 or 10 years**. The requested bounds,
+   minimum count, eligible/excluded snapshots and missing quarter ends remain
+   visible. June's three-year operating-margin example has 12 eligible samples;
+   the five- and ten-year windows remain insufficient. March excludes later
+   observations. No window silently shrinks and no gaps are filled.
+5. Read the saved P25–P75 chart and matching table when available. It describes
+   a distribution of eligible saved evaluations, not a time series. Equal
+   quartiles share one chart label. An insufficient band displays N/A. Expand
+   Coverage dates and exclusions for exact missing dates and snapshot IDs.
+6. Select any financial value for exact decimals, formula revisions, operand
+   coefficients, source values/precision, dates, IDs and hashes. Main-view values
+   round to at most four decimals. The history drawer shows saved bands and
+   eligible/excluded snapshot references; historical sample operands are N/A in
+   the current PublicHistory contract, and current facts are not substituted.
+   Enter activates a value, Escape closes the drawer and returns focus.
+
+These checked files are offline presentation snapshots, not database-published
+company analyses. Quotes/forward estimates, mixed-basis summaries, sample-level
+history values, real governed publication and watchlist reruns retain their
+separate prerequisites. This view edits nothing and fetches no market data.

@@ -1,0 +1,97 @@
+{
+  "fictional": true,
+  "label": "Fictional Workshop Co.",
+  "sources": {
+    "revenue": "100",
+    "prior_revenue": "80",
+    "gross_profit": "40",
+    "operating_income": "20",
+    "net_income_consolidated": "10",
+    "cash_from_operating_activities": "12",
+    "capital_expenditures_ppe": "20",
+    "opening_assets": "80",
+    "total_assets": "120",
+    "current_assets": "60",
+    "current_liabilities": "30"
+  },
+  "examples": [
+    {
+      "id": "reference",
+      "label": "Annual operations",
+      "basis": "annual",
+      "dates": [
+        "2026-03-31",
+        "2026-06-30"
+      ],
+      "case": "valid"
+    },
+    {
+      "id": "balance",
+      "label": "Balance sheet",
+      "basis": "instant",
+      "dates": [
+        "2026-06-30"
+      ],
+      "case": "valid"
+    },
+    {
+      "id": "not_meaningful",
+      "label": "Zero revenue \u00b7 N/M",
+      "basis": "annual",
+      "dates": [
+        "2026-06-30"
+      ],
+      "case": "not_meaningful"
+    },
+    {
+      "id": "missing",
+      "label": "Missing revenue",
+      "basis": "annual",
+      "dates": [
+        "2026-06-30"
+      ],
+      "case": "missing"
+    },
+    {
+      "id": "invalid",
+      "label": "Invalid source evidence",
+      "basis": "annual",
+      "dates": [
+        "2026-06-30"
+      ],
+      "case": "invalid"
+    },
+    {
+      "id": "stale",
+      "label": "Stale financial period",
+      "basis": "annual",
+      "dates": [
+        "2026-06-30"
+      ],
+      "case": "stale"
+    },
+    {
+      "id": "inapplicable",
+      "label": "Profile excludes gross margin",
+      "basis": "annual",
+      "dates": [
+        "2026-06-30"
+      ],
+      "case": "inapplicable"
+    }
+  ],
+  "history_operating_income": [
+    "10",
+    "12",
+    "14",
+    "16",
+    "18",
+    "20",
+    "20",
+    "22",
+    "24",
+    "26",
+    "28",
+    "20"
+  ]
+}

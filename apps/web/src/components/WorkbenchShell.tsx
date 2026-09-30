@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type Destination = "sectors" | "company" | "pilot" | "news" | "help" | "valuation";
+type Destination = "sectors" | "company" | "pilot" | "news" | "help" | "valuation" | "fundamentals";
 const destinations: { id: Destination; href: string; label: string }[] = [
   { id: "sectors", href: "/development/sectors", label: "Sector Explorer" },
   { id: "company", href: "/development/company", label: "Company" },
+  { id: "fundamentals", href: "/development/company/ratios", label: "Fundamentals" },
   { id: "valuation", href: "/development/valuation", label: "Reverse DCF" },
   { id: "pilot", href: "/development/pilot", label: "Real-data pilot" },
   { id: "news", href: "/development/news", label: "News & calendar" },
