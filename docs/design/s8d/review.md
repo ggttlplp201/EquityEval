@@ -56,3 +56,11 @@ tests. Final corrected gate and tag are recorded in the milestone after passing.
 The coordinator also requested final commit/count/clean-tree traceability, which
 is completed after the corrected implementation gate. The initial 8f04518
 checkpoint is preserved; it will not receive the milestone tag.
+
+## Corrected checkpoint
+
+Corrected commit `bdc3a977128be19c371269d5f32405e7a997b8fd` passed its mandatory hook: 1,669 full,
+505 core, 110 golden, 26 Node, lint/types/exports. All 26 browser checks pass on
+the corrected build. The annotated milestone/s8d-company-overview tag points to
+this corrected implementation; the initial commit and 39 earlier refs remain
+unchanged. Final documentation records exact evidence and stopping scope.

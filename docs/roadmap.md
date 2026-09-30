@@ -91,10 +91,11 @@ The audited S6a metric payload is not a full-statement contract. S8c therefore
 uses separate fictional source copies and normalized period/unit semantics,
 without joining Company/Sector/Fundamentals identities. Annual and direct-quarter
 editions are represented; balances stay instants and TTM stays unavailable.
-Real statement publication and S8d retain their separate prerequisites.
+Real statement publication retains its separate prerequisites; bounded S8d
+integration is recorded below.
 
-S8d Company Overview integration is implemented and independently reviewed;
-initial browser/full gates passed; the reviewed missing-marker correction awaits its final gate. See the [milestone](milestones/S8d-company-overview.md).
+S8d Company Overview integration is complete at `milestone/s8d-company-overview`
+with the independent missing-marker correction, 1,669 full tests and 26 browser checks. See the [milestone](milestones/S8d-company-overview.md).
 The metadata manifest proves the current workspaces are separate fictional
 examples, preserves their own default selectors and exposes exact linkage
 and source evidence. It does not fulfill real-company publication prerequisites.

@@ -44,7 +44,7 @@ above. This repository and its commits are the implementation source of truth.
 | S8a | Rounded fictional UI; prior 1,607-test checkpoint preserved; milestone/s8a-rounded-display | [Valuation UI](S8a-synthetic-valuation-ui.md) | Dedicated branch from ee39ff2; fictional/read-only |
 | S8b | Complete fictional S6a UI; 1,616 tests; milestone/s8b-fundamentals-ui | [Fundamentals UI](S8b-fundamentals-ui.md) | Dedicated branch from f46bf52; read-only; 3/5/10-year saved history |
 | S8c | Complete; 1,636 tests; milestone/s8c-financials-ui-corrected | [Financials UI](S8c-financials-ui.md) | Separate local source-copy payload; no real publication |
-| S8d | Missing-marker correction reviewed; corrected gate pending | [Company Overview](S8d-company-overview.md) | Checked metadata linkage; separate fictional datasets |
+| S8d | Complete; 1,669 tests; milestone/s8d-company-overview | [Company Overview](S8d-company-overview.md) | Checked metadata linkage; separate fictional datasets |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,
 link decisions and validation evidence, and use a named commit. Future Codex
