@@ -43,7 +43,7 @@ above. This repository and its commits are the implementation source of truth.
 | D4c | Pilot copy simplified; unavailable values show N/A | [Pilot UI cleanup](D4c-pilot-ui-simplification.md) | User-requested removal of repetitive notices; source details and history controls retained |
 | S8a | Rounded fictional UI; prior 1,607-test checkpoint preserved; milestone/s8a-rounded-display | [Valuation UI](S8a-synthetic-valuation-ui.md) | Dedicated branch from ee39ff2; fictional/read-only |
 | S8b | Complete fictional S6a UI; 1,616 tests; milestone/s8b-fundamentals-ui | [Fundamentals UI](S8b-fundamentals-ui.md) | Dedicated branch from f46bf52; read-only; 3/5/10-year saved history |
-| S8c | In progress; bounded fictional Financials | [Financials UI](S8c-financials-ui.md) | Separate local source-copy payload; no real publication |
+| S8c | Coverage evidence correction in progress; original checkpoint preserved | [Financials UI](S8c-financials-ui.md) | Separate local source-copy payload; no real publication |
 | S8d | Planned; Overview and integration | P0 company pages and integration | After relevant engine/contracts |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,

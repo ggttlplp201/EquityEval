@@ -43,6 +43,22 @@ test('S8c selected statements, editions and evidence',{timeout:180000},async t=>
       assert.match(await page.locator('#balance_sheet').innerText(),/At 2025-12-31/);
       assert.equal(await page.getByRole('button',{name:'TTM · N/A',exact:true}).isDisabled(),true);
       await inspect('Revenue','100.1234567');
+      for(const [family,title] of [['income','Income statement'],['balance_sheet','Balance sheet'],['cash_flow','Cash flow']]){
+        const statement=bundle.snapshots[0].statements.find(s=>s.family===family);
+        for(const [field,label] of [['available','available lines'],['requested','requested lines']]){
+          const name=title+' · '+label;
+          assert.equal(await page.locator(`[data-evidence-value="${name}"]`).innerText(),String(statement.coverage[field]));
+          const button=page.locator(`[data-evidence-value="${name}"]`);
+          await button.focus();await page.keyboard.press('Enter');await page.getByRole('dialog').waitFor({state:'visible'});
+          const text=await page.getByRole('dialog').innerText();
+          const exact=JSON.parse(await page.getByRole('dialog').locator('section').filter({has:page.getByRole('heading',{name:'Exact source evidence',exact:true})}).locator('dd').innerText());
+          assert.deepEqual(exact.coverage,statement.coverage);assert.deepEqual(exact.rows,statement.rows);
+          for(const expected of [bundle.snapshots[0].snapshot_id,statement.rows[0].evidence.source_id,...statement.rows.map(row=>row.concept)])assert.ok(text.includes(expected),expected);
+          await page.keyboard.press('Escape');await page.getByRole('dialog').waitFor({state:'hidden'});
+          assert.ok(await button.evaluate(node=>node===document.activeElement));
+        }
+      }
+
       await inspect('Cash and cash equivalents','"period_kind": "instant"');
       assert.equal(await page.locator('[data-evidence-value="Dividends paid"]').innerText(),'N/A');
       await inspect('Dividends paid','source_not_supplied');

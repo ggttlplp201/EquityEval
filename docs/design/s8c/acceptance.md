@@ -32,7 +32,8 @@ reviewed TTM statement export exists. Unsupported data remains null / N/A.
   snapshot and selector metadata only. No future/revised rows in original payload.
 - `/development/company/financials`: three statement sections, Annual/Quarterly
   controls, TTM disabled, saved-edition selection. Coverage is supplied count of
-  reviewed lines, never a claim of full filing coverage. Concise N/A placeholders.
+  reviewed lines, never a claim of full filing coverage. Both supplied counts open
+  their exact statement coverage, selected-row roster and source evidence. Concise N/A placeholders.
 - Existing shell/navigation, evidence drawer and S8a maximum four display decimals;
   exact raw strings in evidence. Identity, source fixture pointer/hash, accession,
   filed/known/retrieved dates, unit/scale, scope, transform and prior-source lineage.

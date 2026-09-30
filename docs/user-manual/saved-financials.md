@@ -20,7 +20,9 @@ Company overview and Sector Explorer. The page contains no real company data.
    source/issuer/snapshot identity, identity transform and revision lineage.
 5. Table values show at most four decimals. The source drawer retains every
    supplied decimal digit. A missing value is null with a quality flag; it is
-   never zero. Coverage counts only the selected lines in each section.
+   never zero. Coverage counts only the selected lines in each section. Select
+   either count to inspect the supplied coverage record and the exact selected-row
+   roster, including each row’s source evidence and the saved snapshot identity.
 
 **Income statement**: revenues and expenses over a period. **Gross profit**:
 revenue less related cost, if supplied as a reported line. **Operating income**:

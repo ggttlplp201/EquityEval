@@ -42,3 +42,32 @@ test('server route sends selected snapshot only and fails closed',async()=>{
   const duplicate=structuredClone(bundle);duplicate.snapshots.push(duplicate.snapshots[0]);await assert.rejects(routeFor(duplicate)({searchParams:Promise.resolve({})}),/not found/);
   const wrong=structuredClone(bundle);wrong.fictional=false;await assert.rejects(routeFor(wrong)({searchParams:Promise.resolve({})}),/Fictional/);
 });
+
+test('supplied coverage counts open exact statement roster and snapshot evidence',()=>{
+  let opened;
+  const jsx=(type,props)=>({type,props});
+  const Workspace=load('apps/web/src/features/financials/FinancialsWorkspace.tsx',name=>{
+    if(name==='react')return {useState:()=>[undefined,value=>{opened=value}]};
+    if(name==='react/jsx-runtime')return {jsx,jsxs:jsx};
+    if(name==='@/features/valuation/presentation')return load('apps/web/src/features/valuation/presentation.ts');
+    return name;
+  }).default;
+  const saved=structuredClone(bundle.snapshots[0]);
+  // Deliberately distinctive supplied counts prove the renderer does not derive them.
+  saved.statements[0].coverage.available=7;saved.statements[0].coverage.requested=9;
+  const tree=Workspace({saved,choices:bundle.choices});
+  function nodes(node){if(!node||typeof node!=='object')return [];return [node,...[node.props?.children].flat(Infinity).flatMap(nodes)];}
+  const controls=nodes(tree).filter(node=>node.type==='@/features/valuation/EvidenceValue');
+  for(const [field,title] of [['available','Income statement · available lines'],['requested','Income statement · requested lines']]){
+    const control=controls.find(node=>node.props.title===title);
+    assert.ok(control,'Coverage must be inspectable');
+    assert.equal(control.props.value,saved.statements[0].coverage[field]);
+    control.props.onInspect(title);
+    const evidence=opened.sections.flatMap(section=>section.rows).map(row=>row.value).join('\n');
+    const statement=JSON.parse(opened.sections[1].rows[0].value);
+    assert.deepEqual(statement.coverage,saved.statements[0].coverage);
+    assert.deepEqual(statement.rows,saved.statements[0].rows);
+    for(const value of [saved.snapshot_id,saved.statements[0].rows[0].evidence.source_id,'100.1234567','source_locator'])assert.ok(evidence.includes(value),value);
+    assert.ok(!evidence.includes('capital_expenditures_ppe'),'Coverage drawer is scoped to its statement');
+  }
+});

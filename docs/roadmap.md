@@ -86,7 +86,7 @@ binds scenario values to provenance, proves bridge exclusions, and verifies sour
 share scales before milestone approval. The earlier checkpoint remains in Git.
 
 
-S8c is in progress on a bounded [saved Financials view](milestones/S8c-financials-ui.md).
+S8c is correcting coverage-count evidence after review of its bounded [saved Financials view](milestones/S8c-financials-ui.md).
 The audited S6a metric payload is not a full-statement contract. S8c therefore
 uses separate fictional source copies and normalized period/unit semantics,
 without joining Company/Sector/Fundamentals identities. Annual and direct-quarter

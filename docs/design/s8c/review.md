@@ -44,3 +44,21 @@ React boundary reset alone did not reread the server-side source file. Retry now
 performs a fresh local GET reload. The same exact snapshot recovery assertion is
 retained. The browser error selector is scoped to the Financials main element,
 so Next's separate route-announcer alert cannot satisfy it.
+
+
+## Additional coordinator two-axis review
+
+The independent review against baseline 30c35c6 found a spec P2: available and
+requested coverage counts were rendered without evidence controls, contrary to
+spec §0.3. A bounded corrective pass wraps both supplied counts in the shared
+EvidenceValue control. Each opens only its own saved statement coverage, full
+selected-row roster/evidence and snapshot identity; React never computes counts.
+A red-first Node test uses deliberately distinctive supplied counts to detect
+recomputation and verifies the exact drawer payload; browser checks all six
+controls, full roster/source identity and keyboard focus return at all four widths.
+
+The standards review also found stale committed milestone/README/roadmap status;
+staged final records are incorporated into the corrective checkpoint. Original
+implementation c0f6bc6 and milestone/s8c-financials-ui are preserved; the corrected
+checkpoint uses a new commit and milestone/s8c-financials-ui-corrected tag.
+Corrective validation and final references are recorded in the milestone.

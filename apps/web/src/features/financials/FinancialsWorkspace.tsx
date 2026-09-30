@@ -18,14 +18,14 @@ export default function FinancialsWorkspace({ saved, choices }: { saved: SavedFi
     setPending(true);
     window.location.assign(`/development/company/financials?${new URLSearchParams({ basis, edition })}`);
   }
-  function inspect(title: string, row?: StatementRow) {
+  function inspect(title: string, row?: StatementRow, statement?: SavedFinancials["statements"][number]) {
     const identity = Object.fromEntries(Object.entries(saved).filter(([key]) => key !== "statements"));
-    const evidence = row?.evidence;
+    const evidence = row?.evidence ?? statement?.rows[0]?.evidence;
     setDetail({
       title, subtitle: `${saved.company} · ${saved.label}`,
       sections: [
         { heading: "Snapshot identity", rows: [{ label: "Saved selection", value: exact(identity) }] },
-        { heading: "Exact source evidence", rows: [{ label: row?.label ?? "Saved statements", value: exact(row ?? saved.statements) }] },
+        { heading: "Exact source evidence", rows: [{ label: row?.label ?? (statement ? "Saved statement coverage and row evidence" : "Saved statements"), value: exact(row ?? statement ?? saved.statements) }] },
       ],
       sources: evidence ? [{ label: evidence.fixture_source, accession: evidence.accession ?? undefined,
         capturedAt: evidence.retrieved_at, transform: exact(evidence.transform), licence: "Fictional fixture" }] : [],
@@ -46,7 +46,7 @@ export default function FinancialsWorkspace({ saved, choices }: { saved: SavedFi
     <nav aria-label="Statements" className={styles.statementNav}>{saved.statements.map((statement) => <a key={statement.family} href={`#${statement.family}`}>{titles[statement.family]}</a>)}</nav>
     {saved.statements.map((statement) => <section id={statement.family} key={statement.family} className={styles.panel} data-statement={statement.family}>
       <div className={styles.heading}><h2>{titles[statement.family]}</h2><p>{statement.period.period_kind === "instant" ? `At ${statement.period.end_date}` : `${statement.period.start_date} – ${statement.period.end_date}`}</p></div>
-      <p className={styles.coverage}>Selected lines · {statement.coverage.available} / {statement.coverage.requested} available · USD</p>
+      <p className={styles.coverage}>Selected lines · <EvidenceValue title={`${titles[statement.family]} · available lines`} value={statement.coverage.available} onInspect={(title) => inspect(title, undefined, statement)} /> / <EvidenceValue title={`${titles[statement.family]} · requested lines`} value={statement.coverage.requested} onInspect={(title) => inspect(title, undefined, statement)} /> available · USD</p>
       <div className={styles.tableWrap} role="region" aria-label={titles[statement.family]} tabIndex={0}><table><caption>{statement.period.period_kind === "instant" ? "Balances at period end" : "Reported flows for the stated duration"}</caption><thead><tr><th scope="col">Line item</th><th scope="col">Amount</th><th scope="col">Edition status</th></tr></thead><tbody>{statement.rows.map((row) => <tr key={row.concept} data-concept={row.concept} data-status={row.status}>
         <th scope="row">{row.label}</th><td><EvidenceValue title={row.label} value={row.value} display={number(row.value)} onInspect={() => inspect(row.label, row)} /></td>
         <td>{row.evidence.restatement_status === "unavailable" ? "N/A" : row.evidence.restatement_status === "repeated" ? "Unchanged" : row.evidence.restatement_status === "restated" ? "Restated" : "Original"}</td>
