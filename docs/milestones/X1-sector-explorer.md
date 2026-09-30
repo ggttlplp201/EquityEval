@@ -98,6 +98,17 @@ Reproduce with the root/web README commands. The unchanged mandatory commit hook
 runs all required checks again over the staged checkpoint. Tag:
 `milestone/x1-core-graphs`; use `git show milestone/x1-core-graphs` for its commit.
 
+## History-chart correction — 2026-09-30
+
+The history chart previously used geometry scaled across every sector in the
+artifact, including unselected series and a forced zero baseline. A single
+selected P/E series therefore appeared almost flat even when its displayed
+quarterly values changed. The presentation now rescales display geometry from
+the existing exported labels for the currently selected one-to-four series,
+without changing the core result, eligibility or source detail. Missing quarters
+still break the path. The chart states that its selected-series history axis may
+not start at zero, and the data/source table retains the exact observations.
+
 ## Next handoff
 
 Resolve D021/D024's concrete company/membership/snapshot/API contracts in the
