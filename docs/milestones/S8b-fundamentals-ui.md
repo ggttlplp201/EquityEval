@@ -1,10 +1,10 @@
 # S8b — read-only fictional fundamentals
 
-Status: pending checkpoint; implementation, focused checks and reviews are complete.
-The full commit hook and creation of the planned tag have not completed.
+Status: complete for the bounded fictional/read-only S8b scope.
 Task: EquityEval milestone build log, continued on 2026-09-29.
 Branch: `codex/s8b-fundamentals-ui`; baseline `f46bf52`.
-Planned tag: `milestone/s8b-fundamentals-ui` (not yet created).
+Implementation commit: `33c13ffc7319d5e07a070912e50a681810e0e6b7`.
+Annotated checkpoint tag: `milestone/s8b-fundamentals-ui`.
 Dependencies: S5 source engines, S6a public contracts, D1b shell/drawer, S8a rounding.
 Source: [F1](../features/F1-fundamentals-guide.md), S6a and
 [pinned acceptance](../design/s8b/acceptance.md).
@@ -103,11 +103,37 @@ confirmed the repair. Final build: `var/s8b-build-selector.log`; final browser:
 navigation to Reverse DCF. Isolated Company → Fundamentals → Reverse DCF passed.
 Navigation checks now wait for completed destination content between link clicks,
 retaining all timeouts and assertions. The clean final browser pass is recorded below; earlier logs remain as the
-diagnostic record. Full commit-hook verification is still pending.
+diagnostic record. The full implementation commit hook subsequently passed.
 
 
 Final pre-commit browser result: **6 passed** in `var/s8b-browser-selector.log`,
 including the navigation/invalid-selector/GET-only footer subtest. All four
 completed-snapshot screenshots were regenerated under `var/s8b-browser/`.
-The final selector build passed. Full checkpoint completion remains conditional
-on the mandatory hook and the subsequently created annotated tag.
+The final selector build passed. The implementation commit and annotated tag now exist; final totals are below.
+
+
+## Completed checkpoint evidence
+
+Recorded after creation of implementation commit
+`33c13ffc7319d5e07a070912e50a681810e0e6b7` and annotated tag
+`milestone/s8b-fundamentals-ui` on 2026-09-29. The tag points to the verified
+implementation; this documentation follow-up closes the previously pending log.
+
+- Mandatory implementation hook: **1,616 full**, **505 core**, **110 golden**
+  passed. Python checked 92 source files plus the Linux launcher; TypeScript,
+  ESLint, Ruff/format/policy and all generated contract/fixture checks passed.
+- Focused checks: **9 Python presentation**, **6 S8b Node presentation/route**,
+  **8 existing S8a Node**, **6 final S8b browser**, **6 S8a browser regression**.
+- Final build: `var/s8b-build-selector.log`. Complete browser footer and
+  GET-only checks: `var/s8b-browser-selector.log`. All four final screenshots
+  under `var/s8b-browser/` were inspected and show completed route content.
+- Hook log: `var/s8b-commit-checks.log`. An earlier hook was deliberately
+  interrupted to make the pre-commit milestone wording accurately pending;
+  its partial log is retained as `var/s8b-commit-checks-interrupted.log` and is
+  not counted as a completed gate. No verification hook was bypassed.
+- Two existing upstream deprecation warnings remain. No test or timeout was
+  weakened. Independent spec and standards follow-ups are clear.
+
+The documentation follow-up uses the same mandatory hook; its log is
+`var/s8b-record-commit-checks.log`. Prior S8a commits/tags and main are preserved.
+Work stops at S8b; no S8c/S8d implementation is included.
