@@ -51,3 +51,8 @@ and distinguishes them from U1's pending real-data and alert workflow acceptance
 - [Saved valuations and assumptions](saved-valuations.md): synthetic reverse DCF, trusted-local operator flow, immutable reruns, outcomes and financial terminology.
 
 - [Company Overview](company-overview.md): saved-company selection, exact linkage evidence, separate fictional workspaces, units, history and recovery.
+
+The [real CRCL normalization guide](real-normalization.md) covers the first genuine
+application batch, historical cutoff controls, exact source evidence, retained
+quality flags and read-only operator verification. The in-app counterpart is
+`/help#real-normalization`.

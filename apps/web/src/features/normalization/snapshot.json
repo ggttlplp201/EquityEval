@@ -1,0 +1,1370 @@
+{
+  "batchId": "923458e4-242d-4731-9f57-9fd6779d7e9a",
+  "captureCount": 5,
+  "details": {
+    "as_filed:operating_income": {
+      "sections": [
+        {
+          "heading": "Point-in-time selection",
+          "rows": [
+            {
+              "label": "Exact value (USD)",
+              "value": "-96435000"
+            },
+            {
+              "label": "Status",
+              "value": "observed"
+            },
+            {
+              "label": "Accession",
+              "value": "0001876042-26-000062"
+            },
+            {
+              "label": "Filed date",
+              "value": "2026-03-09"
+            },
+            {
+              "label": "Filed cutoff",
+              "value": "2026-03-09"
+            },
+            {
+              "label": "Retrieval cutoff",
+              "value": "2026-09-21 17:07:36.842185+00:00"
+            },
+            {
+              "label": "History mode",
+              "value": "as_filed_by_date"
+            },
+            {
+              "label": "Selection hash",
+              "value": "50f147cf768da5758518d592656532872bbf3c1961c46b0c79716543e032b69f"
+            },
+            {
+              "label": "PIT flags",
+              "value": "blocking_quality_flag"
+            },
+            {
+              "label": "Eligible for valuation",
+              "value": "False"
+            },
+            {
+              "label": "Observation IDs",
+              "value": "f73c5738-0c97-5296-87ed-5a964db804d1"
+            },
+            {
+              "label": "Source hashes",
+              "value": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af"
+            },
+            {
+              "label": "Company Facts locator",
+              "value": "/facts/us-gaap/OperatingIncomeLoss/units/USD/13"
+            },
+            {
+              "label": "Company Facts source token",
+              "value": "-96435000"
+            },
+            {
+              "label": "Transform",
+              "value": "{\"operation\": \"identity_decimal\", \"scale_applied\": false}"
+            }
+          ]
+        },
+        {
+          "heading": "Separate original-filing precision evidence",
+          "rows": [
+            {
+              "label": "Original literal",
+              "value": "96,435"
+            },
+            {
+              "label": "Scale",
+              "value": "3"
+            },
+            {
+              "label": "Decimals",
+              "value": "-3"
+            },
+            {
+              "label": "Sign",
+              "value": "-"
+            },
+            {
+              "label": "Context",
+              "value": "c-1"
+            },
+            {
+              "label": "Period start",
+              "value": "2025-01-01"
+            },
+            {
+              "label": "Period end",
+              "value": "2025-12-31"
+            },
+            {
+              "label": "Unit",
+              "value": "USD"
+            },
+            {
+              "label": "Filing locators",
+              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+            },
+            {
+              "label": "Source capture ID",
+              "value": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809"
+            },
+            {
+              "label": "Whole-document extraction issues",
+              "value": "249"
+            },
+            {
+              "label": "Company Facts context/precision",
+              "value": "Unknown; filing evidence remains separate"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "financial facts",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "filing inventory",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "reviewed coverage",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "quarterly review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
+      "subtitle": "CRCL \u00b7 FY2025 \u00b7 Filed by Mar 9, 2026",
+      "title": "Operating income (loss)"
+    },
+    "as_filed:revenue": {
+      "sections": [
+        {
+          "heading": "Point-in-time selection",
+          "rows": [
+            {
+              "label": "Exact value (USD)",
+              "value": "2746642000"
+            },
+            {
+              "label": "Status",
+              "value": "observed"
+            },
+            {
+              "label": "Accession",
+              "value": "0001876042-26-000062"
+            },
+            {
+              "label": "Filed date",
+              "value": "2026-03-09"
+            },
+            {
+              "label": "Filed cutoff",
+              "value": "2026-03-09"
+            },
+            {
+              "label": "Retrieval cutoff",
+              "value": "2026-09-21 17:07:36.842185+00:00"
+            },
+            {
+              "label": "History mode",
+              "value": "as_filed_by_date"
+            },
+            {
+              "label": "Selection hash",
+              "value": "50f147cf768da5758518d592656532872bbf3c1961c46b0c79716543e032b69f"
+            },
+            {
+              "label": "PIT flags",
+              "value": "blocking_quality_flag"
+            },
+            {
+              "label": "Eligible for valuation",
+              "value": "False"
+            },
+            {
+              "label": "Observation IDs",
+              "value": "19b4020e-e673-5c98-bbe1-1a6a4216eb6d"
+            },
+            {
+              "label": "Source hashes",
+              "value": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af"
+            },
+            {
+              "label": "Company Facts locator",
+              "value": "/facts/us-gaap/Revenues/units/USD/13"
+            },
+            {
+              "label": "Company Facts source token",
+              "value": "2746642000"
+            },
+            {
+              "label": "Transform",
+              "value": "{\"operation\": \"identity_decimal\", \"scale_applied\": false}"
+            }
+          ]
+        },
+        {
+          "heading": "Separate original-filing precision evidence",
+          "rows": [
+            {
+              "label": "Original literal",
+              "value": "2,746,642"
+            },
+            {
+              "label": "Scale",
+              "value": "3"
+            },
+            {
+              "label": "Decimals",
+              "value": "-3"
+            },
+            {
+              "label": "Sign",
+              "value": "positive"
+            },
+            {
+              "label": "Context",
+              "value": "c-1"
+            },
+            {
+              "label": "Period start",
+              "value": "2025-01-01"
+            },
+            {
+              "label": "Period end",
+              "value": "2025-12-31"
+            },
+            {
+              "label": "Unit",
+              "value": "USD"
+            },
+            {
+              "label": "Filing locators",
+              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\nelementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[4]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+            },
+            {
+              "label": "Source capture ID",
+              "value": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809"
+            },
+            {
+              "label": "Whole-document extraction issues",
+              "value": "249"
+            },
+            {
+              "label": "Company Facts context/precision",
+              "value": "Unknown; filing evidence remains separate"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "financial facts",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "filing inventory",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "reviewed coverage",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "quarterly review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
+      "subtitle": "CRCL \u00b7 FY2025 \u00b7 Filed by Mar 9, 2026",
+      "title": "Revenue and reserve income"
+    },
+    "before_filing:operating_income": {
+      "sections": [
+        {
+          "heading": "Point-in-time selection",
+          "rows": [
+            {
+              "label": "Exact value (USD)",
+              "value": "N/A"
+            },
+            {
+              "label": "Status",
+              "value": "unavailable"
+            },
+            {
+              "label": "Accession",
+              "value": "N/A"
+            },
+            {
+              "label": "Filed date",
+              "value": "N/A"
+            },
+            {
+              "label": "Filed cutoff",
+              "value": "2026-03-08"
+            },
+            {
+              "label": "Retrieval cutoff",
+              "value": "2026-09-21 17:07:36.842185+00:00"
+            },
+            {
+              "label": "History mode",
+              "value": "as_filed_by_date"
+            },
+            {
+              "label": "Selection hash",
+              "value": "efa6d72fcf81b860e095e44eceb0fee0e841db9ae7c60b73f711e9ed2077ab88"
+            },
+            {
+              "label": "PIT flags",
+              "value": "coverage_unavailable"
+            },
+            {
+              "label": "Eligible for valuation",
+              "value": "False"
+            },
+            {
+              "label": "Observation IDs",
+              "value": ""
+            },
+            {
+              "label": "Source hashes",
+              "value": ""
+            },
+            {
+              "label": "Company Facts locator",
+              "value": "N/A"
+            },
+            {
+              "label": "Company Facts source token",
+              "value": "N/A"
+            },
+            {
+              "label": "Transform",
+              "value": "N/A"
+            }
+          ]
+        },
+        {
+          "heading": "Separate original-filing precision evidence",
+          "rows": [
+            {
+              "label": "Original literal",
+              "value": "96,435"
+            },
+            {
+              "label": "Scale",
+              "value": "3"
+            },
+            {
+              "label": "Decimals",
+              "value": "-3"
+            },
+            {
+              "label": "Sign",
+              "value": "-"
+            },
+            {
+              "label": "Context",
+              "value": "c-1"
+            },
+            {
+              "label": "Period start",
+              "value": "2025-01-01"
+            },
+            {
+              "label": "Period end",
+              "value": "2025-12-31"
+            },
+            {
+              "label": "Unit",
+              "value": "USD"
+            },
+            {
+              "label": "Filing locators",
+              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+            },
+            {
+              "label": "Source capture ID",
+              "value": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809"
+            },
+            {
+              "label": "Whole-document extraction issues",
+              "value": "249"
+            },
+            {
+              "label": "Company Facts context/precision",
+              "value": "Unknown; filing evidence remains separate"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "financial facts",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "filing inventory",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "reviewed coverage",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "quarterly review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
+      "subtitle": "CRCL \u00b7 FY2025 \u00b7 Filed by Mar 8, 2026",
+      "title": "Operating income (loss)"
+    },
+    "before_filing:revenue": {
+      "sections": [
+        {
+          "heading": "Point-in-time selection",
+          "rows": [
+            {
+              "label": "Exact value (USD)",
+              "value": "N/A"
+            },
+            {
+              "label": "Status",
+              "value": "unavailable"
+            },
+            {
+              "label": "Accession",
+              "value": "N/A"
+            },
+            {
+              "label": "Filed date",
+              "value": "N/A"
+            },
+            {
+              "label": "Filed cutoff",
+              "value": "2026-03-08"
+            },
+            {
+              "label": "Retrieval cutoff",
+              "value": "2026-09-21 17:07:36.842185+00:00"
+            },
+            {
+              "label": "History mode",
+              "value": "as_filed_by_date"
+            },
+            {
+              "label": "Selection hash",
+              "value": "efa6d72fcf81b860e095e44eceb0fee0e841db9ae7c60b73f711e9ed2077ab88"
+            },
+            {
+              "label": "PIT flags",
+              "value": "coverage_unavailable"
+            },
+            {
+              "label": "Eligible for valuation",
+              "value": "False"
+            },
+            {
+              "label": "Observation IDs",
+              "value": ""
+            },
+            {
+              "label": "Source hashes",
+              "value": ""
+            },
+            {
+              "label": "Company Facts locator",
+              "value": "N/A"
+            },
+            {
+              "label": "Company Facts source token",
+              "value": "N/A"
+            },
+            {
+              "label": "Transform",
+              "value": "N/A"
+            }
+          ]
+        },
+        {
+          "heading": "Separate original-filing precision evidence",
+          "rows": [
+            {
+              "label": "Original literal",
+              "value": "2,746,642"
+            },
+            {
+              "label": "Scale",
+              "value": "3"
+            },
+            {
+              "label": "Decimals",
+              "value": "-3"
+            },
+            {
+              "label": "Sign",
+              "value": "positive"
+            },
+            {
+              "label": "Context",
+              "value": "c-1"
+            },
+            {
+              "label": "Period start",
+              "value": "2025-01-01"
+            },
+            {
+              "label": "Period end",
+              "value": "2025-12-31"
+            },
+            {
+              "label": "Unit",
+              "value": "USD"
+            },
+            {
+              "label": "Filing locators",
+              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\nelementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[4]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+            },
+            {
+              "label": "Source capture ID",
+              "value": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809"
+            },
+            {
+              "label": "Whole-document extraction issues",
+              "value": "249"
+            },
+            {
+              "label": "Company Facts context/precision",
+              "value": "Unknown; filing evidence remains separate"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "financial facts",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "filing inventory",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "reviewed coverage",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "quarterly review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
+      "subtitle": "CRCL \u00b7 FY2025 \u00b7 Filed by Mar 8, 2026",
+      "title": "Revenue and reserve income"
+    },
+    "eligibility": {
+      "sections": [
+        {
+          "heading": "Retained source-history flags",
+          "rows": [
+            {
+              "label": "inventory_history_incomplete",
+              "value": "error \u00b7 inventory review must cover period end through retrieval assessment"
+            },
+            {
+              "label": "event_history_incomplete",
+              "value": "error \u00b7 event review must cover period end through retrieval assessment"
+            }
+          ]
+        },
+        {
+          "heading": "Next prerequisites",
+          "rows": [
+            {
+              "label": "Valuation eligibility",
+              "value": "False"
+            },
+            {
+              "label": "Financial analysis",
+              "value": "N/A"
+            },
+            {
+              "label": "Pending",
+              "value": "Reviewed financial/event history, applicable source metrics and S5/S6 publication"
+            },
+            {
+              "label": "Quote currency",
+              "value": "N/A"
+            },
+            {
+              "label": "Fair value",
+              "value": "N/A"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "financial facts",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "filing inventory",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "reviewed coverage",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "quarterly review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
+      "subtitle": "Source normalization completed",
+      "title": "Calculation eligibility"
+    },
+    "original:operating_income": {
+      "sections": [
+        {
+          "heading": "Point-in-time selection",
+          "rows": [
+            {
+              "label": "Exact value (USD)",
+              "value": "-96435000"
+            },
+            {
+              "label": "Status",
+              "value": "observed"
+            },
+            {
+              "label": "Accession",
+              "value": "0001876042-26-000062"
+            },
+            {
+              "label": "Filed date",
+              "value": "2026-03-09"
+            },
+            {
+              "label": "Filed cutoff",
+              "value": "N/A"
+            },
+            {
+              "label": "Retrieval cutoff",
+              "value": "2026-09-21 17:07:36.842185+00:00"
+            },
+            {
+              "label": "History mode",
+              "value": "original_as_filed"
+            },
+            {
+              "label": "Selection hash",
+              "value": "9b09a93b867bdc11685e8466d1092ac9080ad488830d1572cd807b101bf14b1c"
+            },
+            {
+              "label": "PIT flags",
+              "value": "blocking_quality_flag, earliest_available"
+            },
+            {
+              "label": "Eligible for valuation",
+              "value": "False"
+            },
+            {
+              "label": "Observation IDs",
+              "value": "f73c5738-0c97-5296-87ed-5a964db804d1"
+            },
+            {
+              "label": "Source hashes",
+              "value": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af"
+            },
+            {
+              "label": "Company Facts locator",
+              "value": "/facts/us-gaap/OperatingIncomeLoss/units/USD/13"
+            },
+            {
+              "label": "Company Facts source token",
+              "value": "-96435000"
+            },
+            {
+              "label": "Transform",
+              "value": "{\"operation\": \"identity_decimal\", \"scale_applied\": false}"
+            }
+          ]
+        },
+        {
+          "heading": "Separate original-filing precision evidence",
+          "rows": [
+            {
+              "label": "Original literal",
+              "value": "96,435"
+            },
+            {
+              "label": "Scale",
+              "value": "3"
+            },
+            {
+              "label": "Decimals",
+              "value": "-3"
+            },
+            {
+              "label": "Sign",
+              "value": "-"
+            },
+            {
+              "label": "Context",
+              "value": "c-1"
+            },
+            {
+              "label": "Period start",
+              "value": "2025-01-01"
+            },
+            {
+              "label": "Period end",
+              "value": "2025-12-31"
+            },
+            {
+              "label": "Unit",
+              "value": "USD"
+            },
+            {
+              "label": "Filing locators",
+              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+            },
+            {
+              "label": "Source capture ID",
+              "value": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809"
+            },
+            {
+              "label": "Whole-document extraction issues",
+              "value": "249"
+            },
+            {
+              "label": "Company Facts context/precision",
+              "value": "Unknown; filing evidence remains separate"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "financial facts",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "filing inventory",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "reviewed coverage",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "quarterly review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
+      "subtitle": "CRCL \u00b7 FY2025 \u00b7 Earliest available",
+      "title": "Operating income (loss)"
+    },
+    "original:revenue": {
+      "sections": [
+        {
+          "heading": "Point-in-time selection",
+          "rows": [
+            {
+              "label": "Exact value (USD)",
+              "value": "2746642000"
+            },
+            {
+              "label": "Status",
+              "value": "observed"
+            },
+            {
+              "label": "Accession",
+              "value": "0001876042-26-000062"
+            },
+            {
+              "label": "Filed date",
+              "value": "2026-03-09"
+            },
+            {
+              "label": "Filed cutoff",
+              "value": "N/A"
+            },
+            {
+              "label": "Retrieval cutoff",
+              "value": "2026-09-21 17:07:36.842185+00:00"
+            },
+            {
+              "label": "History mode",
+              "value": "original_as_filed"
+            },
+            {
+              "label": "Selection hash",
+              "value": "9b09a93b867bdc11685e8466d1092ac9080ad488830d1572cd807b101bf14b1c"
+            },
+            {
+              "label": "PIT flags",
+              "value": "blocking_quality_flag, earliest_available"
+            },
+            {
+              "label": "Eligible for valuation",
+              "value": "False"
+            },
+            {
+              "label": "Observation IDs",
+              "value": "19b4020e-e673-5c98-bbe1-1a6a4216eb6d"
+            },
+            {
+              "label": "Source hashes",
+              "value": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af"
+            },
+            {
+              "label": "Company Facts locator",
+              "value": "/facts/us-gaap/Revenues/units/USD/13"
+            },
+            {
+              "label": "Company Facts source token",
+              "value": "2746642000"
+            },
+            {
+              "label": "Transform",
+              "value": "{\"operation\": \"identity_decimal\", \"scale_applied\": false}"
+            }
+          ]
+        },
+        {
+          "heading": "Separate original-filing precision evidence",
+          "rows": [
+            {
+              "label": "Original literal",
+              "value": "2,746,642"
+            },
+            {
+              "label": "Scale",
+              "value": "3"
+            },
+            {
+              "label": "Decimals",
+              "value": "-3"
+            },
+            {
+              "label": "Sign",
+              "value": "positive"
+            },
+            {
+              "label": "Context",
+              "value": "c-1"
+            },
+            {
+              "label": "Period start",
+              "value": "2025-01-01"
+            },
+            {
+              "label": "Period end",
+              "value": "2025-12-31"
+            },
+            {
+              "label": "Unit",
+              "value": "USD"
+            },
+            {
+              "label": "Filing locators",
+              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\nelementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[4]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+            },
+            {
+              "label": "Source capture ID",
+              "value": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809"
+            },
+            {
+              "label": "Whole-document extraction issues",
+              "value": "249"
+            },
+            {
+              "label": "Company Facts context/precision",
+              "value": "Unknown; filing evidence remains separate"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "financial facts",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "filing inventory",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "reviewed coverage",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "quarterly review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
+      "subtitle": "CRCL \u00b7 FY2025 \u00b7 Earliest available",
+      "title": "Revenue and reserve income"
+    },
+    "publication": {
+      "sections": [
+        {
+          "heading": "Publication",
+          "rows": [
+            {
+              "label": "Batch ID",
+              "value": "923458e4-242d-4731-9f57-9fd6779d7e9a"
+            },
+            {
+              "label": "Published at",
+              "value": "2026-09-30 00:55:38.969756-07:00"
+            },
+            {
+              "label": "Input hash",
+              "value": "7970f9dc775f50f0c136ce66234e1a5478cd682fce75517ae24f222458caff47"
+            },
+            {
+              "label": "Output hash",
+              "value": "1971a99bc729858fc3d60c703834d7d3444b8c0a2ad38f6f2f902730c2e445f5"
+            },
+            {
+              "label": "Mapping ID",
+              "value": "b4b8a7fa-f01d-5b60-8a15-9f4668c2d40d"
+            },
+            {
+              "label": "Mapping approved at",
+              "value": "2026-09-30 00:55:38.917671-07:00"
+            },
+            {
+              "label": "Mapping hash",
+              "value": "82be7f830184aa80b7cd2b33925cb9f0a1b8a490ba75638419ee4ff02d4b6d72"
+            },
+            {
+              "label": "Prior rows preserved",
+              "value": "True"
+            },
+            {
+              "label": "Exact replay reused batch",
+              "value": "True"
+            }
+          ]
+        },
+        {
+          "heading": "Application counts after publication",
+          "rows": [
+            {
+              "label": "alembic_version",
+              "value": "1"
+            },
+            {
+              "label": "analysis_executions",
+              "value": "5"
+            },
+            {
+              "label": "analysis_request_keys",
+              "value": "5"
+            },
+            {
+              "label": "analysis_request_state",
+              "value": "5"
+            },
+            {
+              "label": "analysis_requests",
+              "value": "5"
+            },
+            {
+              "label": "analysis_stage_attempts",
+              "value": "23"
+            },
+            {
+              "label": "capture_policy_links",
+              "value": "12"
+            },
+            {
+              "label": "data_quality_flags",
+              "value": "2"
+            },
+            {
+              "label": "execution_events",
+              "value": "84"
+            },
+            {
+              "label": "fact_resolutions",
+              "value": "2"
+            },
+            {
+              "label": "filing_monitor_seed_approvals",
+              "value": "1"
+            },
+            {
+              "label": "filing_schedule_events",
+              "value": "4"
+            },
+            {
+              "label": "filing_schedule_revisions",
+              "value": "2"
+            },
+            {
+              "label": "filing_schedule_slots",
+              "value": "1"
+            },
+            {
+              "label": "filing_schedule_state",
+              "value": "1"
+            },
+            {
+              "label": "filing_schedules",
+              "value": "1"
+            },
+            {
+              "label": "filing_versions",
+              "value": "3"
+            },
+            {
+              "label": "filings",
+              "value": "3"
+            },
+            {
+              "label": "issuers",
+              "value": "1"
+            },
+            {
+              "label": "mapping_revisions",
+              "value": "1"
+            },
+            {
+              "label": "normalization_batches",
+              "value": "1"
+            },
+            {
+              "label": "normalization_inputs",
+              "value": "5"
+            },
+            {
+              "label": "periods",
+              "value": "3"
+            },
+            {
+              "label": "resolution_candidates",
+              "value": "9"
+            },
+            {
+              "label": "securities",
+              "value": "1"
+            },
+            {
+              "label": "semantic_scopes",
+              "value": "1"
+            },
+            {
+              "label": "source_attempt_payloads",
+              "value": "2"
+            },
+            {
+              "label": "source_captures",
+              "value": "12"
+            },
+            {
+              "label": "source_fetch_attempts",
+              "value": "14"
+            },
+            {
+              "label": "source_observations",
+              "value": "9"
+            },
+            {
+              "label": "source_policy_revisions",
+              "value": "1"
+            },
+            {
+              "label": "sources",
+              "value": "1"
+            },
+            {
+              "label": "statement_coverage",
+              "value": "1"
+            },
+            {
+              "label": "units",
+              "value": "1"
+            },
+            {
+              "label": "watchlists",
+              "value": "1"
+            },
+            {
+              "label": "workspaces",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "heading": "Original filing context",
+          "rows": [
+            {
+              "label": "Coverage",
+              "value": "Two selected FY2025 consolidated income concepts only"
+            },
+            {
+              "label": "Amendment",
+              "value": "10-K/A adds separate Circle Reserve Fund statements; no restatement edge created"
+            },
+            {
+              "label": "Quarterly report",
+              "value": "Separate filing metadata; no quarterly concept coverage requested"
+            },
+            {
+              "label": "Observation count",
+              "value": "9 retained Company Facts candidates; 2 selected resolutions"
+            },
+            {
+              "label": "History",
+              "value": "Filed-date reconstruction using September captures; not app knowledge in March"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "financial facts",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "filing inventory",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "reviewed coverage",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "quarterly review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
+      "subtitle": "Real application \u00b7 D5a",
+      "title": "Publication and retained evidence"
+    }
+  },
+  "factCount": 2,
+  "flagCount": 2,
+  "kind": "real-crcl-normalization",
+  "periodLabel": "FY2025",
+  "publishedAt": "2026-09-30 00:55:38.969756-07:00",
+  "retrievalCutoff": "2026-09-21 17:07:36.842185+00:00",
+  "views": {
+    "as_filed": {
+      "facts": [
+        {
+          "detailId": "as_filed:revenue",
+          "id": "revenue",
+          "label": "Revenue and reserve income",
+          "value": "2746642000"
+        },
+        {
+          "detailId": "as_filed:operating_income",
+          "id": "operating_income",
+          "label": "Operating income (loss)",
+          "value": "-96435000"
+        }
+      ],
+      "label": "Filed by Mar 9, 2026"
+    },
+    "before_filing": {
+      "facts": [
+        {
+          "detailId": "before_filing:revenue",
+          "id": "revenue",
+          "label": "Revenue and reserve income",
+          "value": null
+        },
+        {
+          "detailId": "before_filing:operating_income",
+          "id": "operating_income",
+          "label": "Operating income (loss)",
+          "value": null
+        }
+      ],
+      "label": "Filed by Mar 8, 2026"
+    },
+    "original": {
+      "facts": [
+        {
+          "detailId": "original:revenue",
+          "id": "revenue",
+          "label": "Revenue and reserve income",
+          "value": "2746642000"
+        },
+        {
+          "detailId": "original:operating_income",
+          "id": "operating_income",
+          "label": "Operating income (loss)",
+          "value": "-96435000"
+        }
+      ],
+      "label": "Earliest available"
+    }
+  }
+}

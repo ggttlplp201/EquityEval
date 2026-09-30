@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import type { NormalizationSnapshot } from "@/features/normalization/types";
+type NormalizationSummary = Pick<NormalizationSnapshot, "batchId" | "factCount" | "publishedAt">;
 import { useState } from "react";
 import FilingSchedulePanel from "./FilingSchedulePanel";
 import schedulerSnapshot from "./schedulerSnapshot";
@@ -27,7 +29,7 @@ function Evidence({ items, captures }: { items: PipelineEvidence[]; captures: Pi
   })}</ul>;
 }
 
-function StageContent({ selected, data }: { selected: PipelineStageId; data: PipelineSnapshot }) {
+function StageContent({ selected, data, normalization }: { selected: PipelineStageId; data: PipelineSnapshot; normalization: NormalizationSummary }) {
   if (selected === "plan") return <>
     <dl className={styles.facts}>
       <div><dt>Source scope</dt><dd>{data.plan.policy}</dd></div>
@@ -101,10 +103,9 @@ function StageContent({ selected, data }: { selected: PipelineStageId; data: Pip
     </details>
   </>;
   if (selected === "normalization") return <div className={styles.unstarted}>
-    <h3>Source bodies are available; financial facts are not published.</h3>
-    <p>The application has zero normalization batches. Financial statement and event coverage, reviewed mappings and point-in-time eligibility still need review.</p>
-    <p>The older archived observations on the pilot page are a separate research artifact. They do not populate or complete this application stage.</p>
-    <Link href="/development/pilot?company=CRCL">Inspect the separate archived observations ↗</Link>
+    <h3>{normalization.factCount} reviewed FY2025 facts published</h3>
+    <p>CRCL · Saved {normalization.publishedAt.slice(0, 10)}</p>
+    <Link href="/development/pilot/normalization">Inspect normalized financials ↗</Link>
   </div>;
   return <div className={styles.unstarted}>
     <h3>No financial-analysis result</h3>
@@ -113,7 +114,7 @@ function StageContent({ selected, data }: { selected: PipelineStageId; data: Pip
   </div>;
 }
 
-export default function PipelineWorkspace({ data }: { data: PipelineSnapshot }) {
+export default function PipelineWorkspace({ data, normalization }: { data: PipelineSnapshot; normalization: NormalizationSummary }) {
   const [selected, setSelected] = useState<PipelineStageId>("registration");
   const stage = data.stages.find((item) => item.id === selected)!;
   return <WorkbenchShell active="pilot">
@@ -121,7 +122,7 @@ export default function PipelineWorkspace({ data }: { data: PipelineSnapshot }) 
       <Link href="/development/pilot?company=CRCL" className={styles.back}>← Archived company observations</Link>
       <header className={styles.intro}>
         <div><p className="eyebrow">REAL APPLICATION STATE / CRCL</p><h1>From source to analysis<span aria-hidden="true">.</span></h1><p>Inspect source collection, filing discovery and the evidence still needed for analysis.</p></div>
-        <div className={styles.stamp}><strong>Saved snapshot · {data.reviewedOn}</strong><span>D3c acquisition / D3f search / D4a filing check / D4b schedule</span><span>Read-only preview · not a live status service</span></div>
+        <div className={styles.stamp}><strong>Saved checkpoints · {data.reviewedOn} → {normalization.publishedAt.slice(0, 10)}</strong><span>D3c acquisition / D3f search / D4a filing check / D4b schedule / D5a normalization</span><span>Read-only preview · not a live status service</span></div>
       </header>
       <section className={styles.boundary} aria-label="Application snapshot scope">
         <strong>Acquisition readiness is not financial-analysis readiness.</strong>
@@ -145,7 +146,7 @@ export default function PipelineWorkspace({ data }: { data: PipelineSnapshot }) 
         <section id="stage-panel" aria-labelledby="stage-title" tabIndex={0} className={styles.stagePanel}>
           <p className="sr-only" role="status">{stage.label}: {stage.statusLabel}</p>
           <header className={styles.stageHeader}><span className="eyebrow">STAGE {stage.number}</span><span className={styles.badge} data-state={stage.status}>{stage.statusLabel}</span><h2 id="stage-title">{stage.label}</h2><p>{stage.summary}</p></header>
-          <div key={selected}><StageContent selected={selected} data={data} /></div>
+          <div key={selected}><StageContent selected={selected} data={data} normalization={normalization} /></div>
         </section>
       </div>
       <aside className={styles.nextAction} aria-labelledby="next-action-title"><div><p className="eyebrow">NEXT STEP / BLOCKED</p><h2 id="next-action-title">Evidence before registration</h2></div><p>{data.blocker.nextAction}</p><p className={styles.note}>This preview does not fetch sources, retry requests or change registrations.</p></aside>

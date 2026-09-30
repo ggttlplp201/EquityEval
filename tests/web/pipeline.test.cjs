@@ -166,7 +166,7 @@ test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, 
       }
       assert.match(await page.locator("#stage-panel").innerText(), /No financial-analysis result/);
       await select("normalization");
-      assert.match(await page.locator("#stage-panel").innerText(), /zero normalization batches/);
+      assert.match(await page.locator("#stage-panel").innerText(), /2 reviewed FY2025 facts published/);
     });
     await t.test("capture disclosures retain exact source hashes, UTC dates and safe source links", async () => {
       await select("captures");

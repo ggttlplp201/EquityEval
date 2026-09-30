@@ -99,3 +99,13 @@ with the independent missing-marker correction, 1,669 full tests and 26 browser 
 The metadata manifest proves the current workspaces are separate fictional
 examples, preserves their own default selectors and exposes exact linkage
 and source evidence. It does not fulfill real-company publication prerequisites.
+
+D5a is complete at `milestone/d5a-crcl-normalization` and publishes the first
+bounded real CRCL normalization/PIT batch using the
+existing governed D3c archives and S3 mapping/publisher/reader. Its separate
+[results view and milestone](milestones/D5a-crcl-normalization.md) expose two FY2025
+facts, five source captures, three filing editions and retained incomplete-history
+flags. Exact replay reuses the batch; historical and original read-back are checked.
+The application stays on migration 0010. No real S5/S6 analysis, price-dependent
+ratios, valuations or sector results were published. Complete source/event coverage
+and the existing downstream review gates remain the next prerequisites.
