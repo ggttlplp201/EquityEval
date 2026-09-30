@@ -1,0 +1,87 @@
+{
+  "fictional": true,
+  "label": "Fictional Statement Co.",
+  "editions": [
+    {
+      "id": "annual_original",
+      "label": "2025 \u00b7 original",
+      "basis": "annual",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "filed_on": "2026-01-31",
+      "known_on": "2026-02-01",
+      "retrieved_at": "2026-02-01T12:00:00Z",
+      "currency": "USD",
+      "scale": "1",
+      "scope": "consolidated",
+      "supersedes": null,
+      "values": {
+        "revenue": "100.1234567",
+        "gross_profit": "40",
+        "operating_income": "20",
+        "net_income_consolidated": "10",
+        "cash_and_cash_equivalents": "15",
+        "total_assets": "120",
+        "total_liabilities": "70",
+        "equity_including_noncontrolling_interests": "50",
+        "cash_from_operating_activities": "12",
+        "capital_expenditures_ppe": "20",
+        "dividends_paid": null
+      }
+    },
+    {
+      "id": "annual_revised",
+      "label": "2025 \u00b7 revised",
+      "basis": "annual",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "filed_on": "2026-03-31",
+      "known_on": "2026-04-01",
+      "retrieved_at": "2026-04-01T12:00:00Z",
+      "currency": "USD",
+      "scale": "1",
+      "scope": "consolidated",
+      "supersedes": "annual_original",
+      "values": {
+        "revenue": "102.9876543",
+        "gross_profit": "40",
+        "operating_income": "22",
+        "net_income_consolidated": "12",
+        "cash_and_cash_equivalents": "15",
+        "total_assets": "122",
+        "total_liabilities": "70",
+        "equity_including_noncontrolling_interests": "52",
+        "cash_from_operating_activities": "12",
+        "capital_expenditures_ppe": "20",
+        "dividends_paid": null
+      }
+    },
+    {
+      "id": "quarter",
+      "label": "2026 Q1 \u00b7 original",
+      "basis": "quarter",
+      "period_start": "2026-01-01",
+      "period_end": "2026-03-31",
+      "filed_on": "2026-04-30",
+      "known_on": "2026-05-01",
+      "retrieved_at": "2026-05-01T12:00:00Z",
+      "currency": "USD",
+      "scale": "1",
+      "scope": "consolidated",
+      "supersedes": null,
+      "values": {
+        "revenue": "30",
+        "gross_profit": "12",
+        "operating_income": "6",
+        "net_income_consolidated": "3",
+        "cash_and_cash_equivalents": "15",
+        "total_assets": "120",
+        "total_liabilities": "70",
+        "equity_including_noncontrolling_interests": "50",
+        "cash_from_operating_activities": "4",
+        "capital_expenditures_ppe": "5",
+        "dividends_paid": null
+      }
+    }
+  ]
+}

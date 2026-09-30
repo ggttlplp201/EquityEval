@@ -35,7 +35,8 @@ lint:
 	$(VENV_PY) scripts/generate_valuation_api.py --check
 	$(VENV_PY) scripts/export_valuation.py --check
 	$(VENV_PY) -m scripts.export_fundamentals --check
-	node --test tests/web/valuation.test.cjs tests/web/fundamentals.test.cjs
+	$(VENV_PY) -m scripts.export_financials --check
+	node --test tests/web/valuation.test.cjs tests/web/fundamentals.test.cjs tests/web/financials.test.cjs
 	npm run lint
 
 typecheck:

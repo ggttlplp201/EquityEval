@@ -146,3 +146,17 @@ selected offline snapshot. S6a public types and financial formulas are unchanged
 suite is `tests/web/fundamentals-browser.cjs`, with the same local preview and
 Playwright environment options as S8a. See `docs/design/s8b/acceptance.md`, the
 S8b milestone and `docs/user-manual/saved-fundamentals.md` for limits and usage.
+
+
+## Saved financial statement lines — S8c
+
+`/development/company/financials` uses a separate local synthetic presentation
+payload. Generate via `.venv/bin/python scripts/project_python.py -m
+scripts.export_financials` (on one line); `--check` is part of lint. Source recipe:
+`scripts/fixtures/financials-presentation.json`. No shared schema/API change.
+Three editions: original annual, revised annual and directly reported quarter.
+Balance-sheet rows retain instant periods; TTM is unsupported and disabled.
+Run `tests/test_financials_presentation.py`, `node --test
+tests/web/financials.test.cjs`, and `tests/web/financials-browser.cjs` using the
+same existing Playwright module and local preview options as S8a/S8b.
+See `docs/user-manual/saved-financials.md` and `docs/design/s8c/acceptance.md`.

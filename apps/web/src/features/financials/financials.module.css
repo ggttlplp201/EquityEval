@@ -1,0 +1,39 @@
+.page { max-width: 1200px; margin: auto; padding: 36px 28px 60px; }
+.heading { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+.heading h1 { margin: 8px 0; font-size: clamp(2rem, 5vw, 3rem); }
+.heading p, .coverage, .context dt, .tableWrap caption { color: var(--muted); }
+.context, .panel { margin-top: 24px; padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.context { overflow-wrap: anywhere; }
+.context label { display: grid; gap: 8px; max-width: 360px; margin: 20px 0; }
+.context select { width: 100%; min-height: 44px; padding: 8px; color: inherit; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.context dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.context dd { margin: 6px 0 0; }
+.context > button { max-width: 100%; text-align: left; overflow-wrap: anywhere; }
+.basis, .statementNav, .footer { display: flex; flex-wrap: wrap; gap: 12px; }
+.basis button { padding: 10px 16px; border: 1px solid var(--line); border-radius: 8px; background: transparent; color: inherit; cursor: pointer; }
+.basis button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.basis button:disabled { opacity: .45; cursor: default; }
+.statementNav { margin-top: 28px; }
+.panel { scroll-margin-top: 24px; }
+.panel h2 { margin: 0; }
+.coverage { font-size: .85rem; }
+.tableWrap { overflow-x: auto; }
+.tableWrap table { width: 100%; min-width: 0; table-layout: fixed; border-collapse: collapse; }
+.tableWrap caption { text-align: left; font-size: .8rem; padding: 12px 0; }
+.tableWrap th, .tableWrap td { padding: 16px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+.tableWrap th { font-weight: 500; white-space: normal; }
+.tableWrap th:first-child { width: 45%; }
+.tableWrap th:nth-child(2) { width: 28%; }
+.tableWrap tbody th { font: inherit; text-transform: none; letter-spacing: normal; background: transparent; color: var(--ink); }
+.tableWrap td:nth-child(2) { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+.tableWrap th:nth-child(2) { text-align: right; }
+.tableWrap td:last-child { color: var(--muted); }
+.footer { margin-top: 32px; align-items: center; }
+@media (max-width: 600px) {
+  .page { padding: 24px 12px 40px; }
+  .context, .panel { padding: 16px 12px; }
+  .context dl { grid-template-columns: 1fr; }
+  .tableWrap th, .tableWrap td { padding: 12px 6px; font-size: .8rem; }
+  .basis { gap: 6px; }
+  .basis button { padding: 10px; }
+}

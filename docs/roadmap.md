@@ -84,3 +84,11 @@ An SEC financial-filing detector does not complete those news/alert features.
 S7a coordinator audit follow-up: [corrective checkpoint](milestones/S7a-corrections.md)
 binds scenario values to provenance, proves bridge exclusions, and verifies source
 share scales before milestone approval. The earlier checkpoint remains in Git.
+
+
+S8c is in progress on a bounded [saved Financials view](milestones/S8c-financials-ui.md).
+The audited S6a metric payload is not a full-statement contract. S8c therefore
+uses separate fictional source copies and normalized period/unit semantics,
+without joining Company/Sector/Fundamentals identities. Annual and direct-quarter
+editions are represented; balances stay instants and TTM stays unavailable.
+Real statement publication and S8d retain their separate prerequisites.

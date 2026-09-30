@@ -1,0 +1,1757 @@
+{
+  "choices": [
+    {
+      "basis": "annual",
+      "edition": "annual_original",
+      "label": "2025 · original"
+    },
+    {
+      "basis": "annual",
+      "edition": "annual_revised",
+      "label": "2025 · revised"
+    },
+    {
+      "basis": "quarter",
+      "edition": "quarter",
+      "label": "2026 Q1 · original"
+    }
+  ],
+  "fictional": true,
+  "label": "Fictional Statement Co.",
+  "snapshots": [
+    {
+      "basis": "annual",
+      "company": "Fictional Statement Co.",
+      "currency": "USD",
+      "edition": "annual_original",
+      "filed_on": "2026-01-31",
+      "history_mode": "original_as_filed",
+      "input_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+      "issuer_id": "72c60c2a-9006-5721-8715-da33a00c1018",
+      "known_on": "2026-02-01",
+      "label": "2025 · original",
+      "payload_hash": "c7caa93cfcf4fe93ef1c82a5df66de72b1d4849a4b671325b03a023a73f859c9",
+      "retrieved_at": "2026-02-01T12:00:00+00:00",
+      "revision": "s8c-source-copy-v1",
+      "scale": "1",
+      "scope": "consolidated",
+      "snapshot_id": "44415fb2-7afa-58c8-ac47-826406b8e376",
+      "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+      "statements": [
+        {
+          "coverage": {
+            "available": 4,
+            "requested": 4,
+            "scope": "selected_lines"
+          },
+          "family": "income",
+          "period": {
+            "end_date": "2025-12-31",
+            "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+            "period_kind": "duration",
+            "start_date": "2025-01-01"
+          },
+          "rows": [
+            {
+              "concept": "revenue",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "4e07cc9b-d631-59b7-8ac6-7db8cb6bca84",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "100.1234567",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/revenue",
+                "source_tag": "fictional:revenue",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Revenue",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "100.1234567"
+            },
+            {
+              "concept": "gross_profit",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "3cdb0a50-5ec3-52f6-ac01-e223a608c6c6",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "40",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/gross_profit",
+                "source_tag": "fictional:gross_profit",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Gross profit",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "40"
+            },
+            {
+              "concept": "operating_income",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "4bc10039-18ff-530b-8b1b-e65905b1f52c",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "20",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/operating_income",
+                "source_tag": "fictional:operating_income",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Operating income",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "20"
+            },
+            {
+              "concept": "net_income_consolidated",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "f0713508-dc91-5716-b26c-907a0e2f0975",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "10",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/net_income_consolidated",
+                "source_tag": "fictional:net_income_consolidated",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Net income · consolidated",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "10"
+            }
+          ]
+        },
+        {
+          "coverage": {
+            "available": 4,
+            "requested": 4,
+            "scope": "selected_lines"
+          },
+          "family": "balance_sheet",
+          "period": {
+            "end_date": "2025-12-31",
+            "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+            "period_kind": "instant",
+            "start_date": null
+          },
+          "rows": [
+            {
+              "concept": "cash_and_cash_equivalents",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "4cc08591-eca4-5131-9587-b4556b7319d7",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "15",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/cash_and_cash_equivalents",
+                "source_tag": "fictional:cash_and_cash_equivalents",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Cash and cash equivalents",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "15"
+            },
+            {
+              "concept": "total_assets",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "1ecb2e53-3087-52fe-a51e-69c37d53b9e4",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "120",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/total_assets",
+                "source_tag": "fictional:total_assets",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Total assets",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "120"
+            },
+            {
+              "concept": "total_liabilities",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "dc37b8e4-25ae-5bfe-8db7-f95d638bbd1d",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "70",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/total_liabilities",
+                "source_tag": "fictional:total_liabilities",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Total liabilities",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "70"
+            },
+            {
+              "concept": "equity_including_noncontrolling_interests",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "256cca2e-653f-5982-9411-cdf1055775f3",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "50",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/equity_including_noncontrolling_interests",
+                "source_tag": "fictional:equity_including_noncontrolling_interests",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Equity · including NCI",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "coverage": {
+            "available": 2,
+            "requested": 3,
+            "scope": "selected_lines"
+          },
+          "family": "cash_flow",
+          "period": {
+            "end_date": "2025-12-31",
+            "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+            "period_kind": "duration",
+            "start_date": "2025-01-01"
+          },
+          "rows": [
+            {
+              "concept": "cash_from_operating_activities",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "19f1507d-8fd6-5ce0-946c-00c26b4608a5",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "12",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/cash_from_operating_activities",
+                "source_tag": "fictional:cash_from_operating_activities",
+                "statement": "cash_flow",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Cash from operations",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "12"
+            },
+            {
+              "concept": "capital_expenditures_ppe",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "24a1f8f8-b135-55a9-8b82-cc66f3b344db",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": "20",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/capital_expenditures_ppe",
+                "source_tag": "fictional:capital_expenditures_ppe",
+                "statement": "cash_flow",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Capital expenditures · PPE",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "20"
+            },
+            {
+              "concept": "dividends_paid",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "b09071ef-9c8a-5acc-999d-45838bf605cf",
+                "filed_on": "2026-01-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/0",
+                "known_on": "2026-02-01",
+                "original_numeric_text": null,
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "unavailable",
+                "retrieved_at": "2026-02-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "2f9ca4b89c2ac8161ce90c26d2fc4d6385a45b06e9db9bbed270e6597f667dfc",
+                "source_id": "74da686b-ba01-56e0-93bd-acbc446d2dec",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/0/values/dividends_paid",
+                "source_tag": "fictional:dividends_paid",
+                "statement": "cash_flow",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Dividends paid",
+              "quality_flags": [
+                "source_not_supplied"
+              ],
+              "status": "missing",
+              "value": null
+            }
+          ]
+        }
+      ],
+      "supersedes": null
+    },
+    {
+      "basis": "annual",
+      "company": "Fictional Statement Co.",
+      "currency": "USD",
+      "edition": "annual_revised",
+      "filed_on": "2026-03-31",
+      "history_mode": "latest_reported",
+      "input_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+      "issuer_id": "72c60c2a-9006-5721-8715-da33a00c1018",
+      "known_on": "2026-04-01",
+      "label": "2025 · revised",
+      "payload_hash": "317441aa28cd8f1f6411a775172727c8bcd427bc727af91d2fc2917cf6d28c06",
+      "retrieved_at": "2026-04-01T12:00:00+00:00",
+      "revision": "s8c-source-copy-v1",
+      "scale": "1",
+      "scope": "consolidated",
+      "snapshot_id": "dac58701-aa90-5f89-8b0d-7266b86f951e",
+      "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+      "statements": [
+        {
+          "coverage": {
+            "available": 4,
+            "requested": 4,
+            "scope": "selected_lines"
+          },
+          "family": "income",
+          "period": {
+            "end_date": "2025-12-31",
+            "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+            "period_kind": "duration",
+            "start_date": "2025-01-01"
+          },
+          "rows": [
+            {
+              "concept": "revenue",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "3fb23982-b7e5-56c9-94b4-57a0d0803b31",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "102.9876543",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": "4e07cc9b-d631-59b7-8ac6-7db8cb6bca84",
+                "prior_value": "100.1234567",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "restated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/revenue",
+                "source_tag": "fictional:revenue",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Revenue",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "102.9876543"
+            },
+            {
+              "concept": "gross_profit",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "78235b9c-45fc-57c7-a79d-233a15450dc8",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "40",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": "3cdb0a50-5ec3-52f6-ac01-e223a608c6c6",
+                "prior_value": "40",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "repeated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/gross_profit",
+                "source_tag": "fictional:gross_profit",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Gross profit",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "40"
+            },
+            {
+              "concept": "operating_income",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "61000001-468a-55e0-a2ae-3e33153d8df1",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "22",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": "4bc10039-18ff-530b-8b1b-e65905b1f52c",
+                "prior_value": "20",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "restated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/operating_income",
+                "source_tag": "fictional:operating_income",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Operating income",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "22"
+            },
+            {
+              "concept": "net_income_consolidated",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "7b81d881-a268-55fe-98fd-3a917345e397",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "12",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": "f0713508-dc91-5716-b26c-907a0e2f0975",
+                "prior_value": "10",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "restated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/net_income_consolidated",
+                "source_tag": "fictional:net_income_consolidated",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Net income · consolidated",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "12"
+            }
+          ]
+        },
+        {
+          "coverage": {
+            "available": 4,
+            "requested": 4,
+            "scope": "selected_lines"
+          },
+          "family": "balance_sheet",
+          "period": {
+            "end_date": "2025-12-31",
+            "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+            "period_kind": "instant",
+            "start_date": null
+          },
+          "rows": [
+            {
+              "concept": "cash_and_cash_equivalents",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "29ac180d-703e-5e25-b5dd-191d7e0cab21",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "15",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": "4cc08591-eca4-5131-9587-b4556b7319d7",
+                "prior_value": "15",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "repeated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/cash_and_cash_equivalents",
+                "source_tag": "fictional:cash_and_cash_equivalents",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Cash and cash equivalents",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "15"
+            },
+            {
+              "concept": "total_assets",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "e661b1bf-ab70-5777-9cdd-33c7c6b1a624",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "122",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": "1ecb2e53-3087-52fe-a51e-69c37d53b9e4",
+                "prior_value": "120",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "restated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/total_assets",
+                "source_tag": "fictional:total_assets",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Total assets",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "122"
+            },
+            {
+              "concept": "total_liabilities",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "0060239c-9831-5d42-9df3-eac563702b63",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "70",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": "dc37b8e4-25ae-5bfe-8db7-f95d638bbd1d",
+                "prior_value": "70",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "repeated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/total_liabilities",
+                "source_tag": "fictional:total_liabilities",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Total liabilities",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "70"
+            },
+            {
+              "concept": "equity_including_noncontrolling_interests",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "e62d41e2-f060-57e7-ab46-7a82c3a3d3b8",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "52",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "c409666d-2e91-5a19-aa0a-b8cb7edbf48b",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": "256cca2e-653f-5982-9411-cdf1055775f3",
+                "prior_value": "50",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "restated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/equity_including_noncontrolling_interests",
+                "source_tag": "fictional:equity_including_noncontrolling_interests",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Equity · including NCI",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "52"
+            }
+          ]
+        },
+        {
+          "coverage": {
+            "available": 2,
+            "requested": 3,
+            "scope": "selected_lines"
+          },
+          "family": "cash_flow",
+          "period": {
+            "end_date": "2025-12-31",
+            "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+            "period_kind": "duration",
+            "start_date": "2025-01-01"
+          },
+          "rows": [
+            {
+              "concept": "cash_from_operating_activities",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "c00a2530-08b3-5624-af25-6c3f4a5d2ecd",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "12",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": "19f1507d-8fd6-5ce0-946c-00c26b4608a5",
+                "prior_value": "12",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "repeated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/cash_from_operating_activities",
+                "source_tag": "fictional:cash_from_operating_activities",
+                "statement": "cash_flow",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Cash from operations",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "12"
+            },
+            {
+              "concept": "capital_expenditures_ppe",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "964c91c9-1492-50ed-9da7-24a2d9b6059f",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": "20",
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": "24a1f8f8-b135-55a9-8b82-cc66f3b344db",
+                "prior_value": "20",
+                "reporting_basis": "us_gaap",
+                "restatement_status": "repeated",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/capital_expenditures_ppe",
+                "source_tag": "fictional:capital_expenditures_ppe",
+                "statement": "cash_flow",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Capital expenditures · PPE",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "20"
+            },
+            {
+              "concept": "dividends_paid",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "67b38c88-5845-57da-9ef7-ad7554208e2d",
+                "filed_on": "2026-03-31",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/1",
+                "known_on": "2026-04-01",
+                "original_numeric_text": null,
+                "period": {
+                  "end_date": "2025-12-31",
+                  "id": "224f3491-d956-562c-9424-cf9cb4a876ad",
+                  "period_kind": "duration",
+                  "start_date": "2025-01-01"
+                },
+                "prior_evidence_id": "b09071ef-9c8a-5acc-999d-45838bf605cf",
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "unavailable",
+                "retrieved_at": "2026-04-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "31a78e51343423a2ac3b08eda2b1a92ea2a2d716449f47272122d0da70a268a3",
+                "source_id": "53d42ddd-e449-5d3c-89b4-57c7e36915e9",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/1/values/dividends_paid",
+                "source_tag": "fictional:dividends_paid",
+                "statement": "cash_flow",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Dividends paid",
+              "quality_flags": [
+                "source_not_supplied"
+              ],
+              "status": "missing",
+              "value": null
+            }
+          ]
+        }
+      ],
+      "supersedes": "annual_original"
+    },
+    {
+      "basis": "quarter",
+      "company": "Fictional Statement Co.",
+      "currency": "USD",
+      "edition": "quarter",
+      "filed_on": "2026-04-30",
+      "history_mode": "original_as_filed",
+      "input_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+      "issuer_id": "72c60c2a-9006-5721-8715-da33a00c1018",
+      "known_on": "2026-05-01",
+      "label": "2026 Q1 · original",
+      "payload_hash": "df6b2f4ac9da79b7e8ed587f3ba097dafa8cfee7aa312b6d65f6810b69c6890f",
+      "retrieved_at": "2026-05-01T12:00:00+00:00",
+      "revision": "s8c-source-copy-v1",
+      "scale": "1",
+      "scope": "consolidated",
+      "snapshot_id": "cddbce84-06df-5695-aebb-8cc2945a1b2f",
+      "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+      "statements": [
+        {
+          "coverage": {
+            "available": 4,
+            "requested": 4,
+            "scope": "selected_lines"
+          },
+          "family": "income",
+          "period": {
+            "end_date": "2026-03-31",
+            "id": "dbe0eb17-6a20-58f1-99af-c93b5ddf1687",
+            "period_kind": "duration",
+            "start_date": "2026-01-01"
+          },
+          "rows": [
+            {
+              "concept": "revenue",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "d6739b98-e3f1-5566-aa37-3124f8507675",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "30",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "dbe0eb17-6a20-58f1-99af-c93b5ddf1687",
+                  "period_kind": "duration",
+                  "start_date": "2026-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/revenue",
+                "source_tag": "fictional:revenue",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Revenue",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "30"
+            },
+            {
+              "concept": "gross_profit",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "d1b87cbb-99b3-58f7-8314-187f0991a751",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "12",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "dbe0eb17-6a20-58f1-99af-c93b5ddf1687",
+                  "period_kind": "duration",
+                  "start_date": "2026-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/gross_profit",
+                "source_tag": "fictional:gross_profit",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Gross profit",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "12"
+            },
+            {
+              "concept": "operating_income",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "615c4715-45d6-5feb-a1e1-32ecfb8a22c6",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "6",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "dbe0eb17-6a20-58f1-99af-c93b5ddf1687",
+                  "period_kind": "duration",
+                  "start_date": "2026-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/operating_income",
+                "source_tag": "fictional:operating_income",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Operating income",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "6"
+            },
+            {
+              "concept": "net_income_consolidated",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "65014b80-20a7-5efc-a2c3-86a487648777",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "3",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "dbe0eb17-6a20-58f1-99af-c93b5ddf1687",
+                  "period_kind": "duration",
+                  "start_date": "2026-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/net_income_consolidated",
+                "source_tag": "fictional:net_income_consolidated",
+                "statement": "income",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Net income · consolidated",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "3"
+            }
+          ]
+        },
+        {
+          "coverage": {
+            "available": 4,
+            "requested": 4,
+            "scope": "selected_lines"
+          },
+          "family": "balance_sheet",
+          "period": {
+            "end_date": "2026-03-31",
+            "id": "2f1c683d-766f-58cf-8fea-34c609d16528",
+            "period_kind": "instant",
+            "start_date": null
+          },
+          "rows": [
+            {
+              "concept": "cash_and_cash_equivalents",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "dd4df5bc-a933-5f8c-bc8c-f97808a60280",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "15",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "2f1c683d-766f-58cf-8fea-34c609d16528",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/cash_and_cash_equivalents",
+                "source_tag": "fictional:cash_and_cash_equivalents",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Cash and cash equivalents",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "15"
+            },
+            {
+              "concept": "total_assets",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "94d5a00b-815e-528f-a5d0-c842aa8434ce",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "120",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "2f1c683d-766f-58cf-8fea-34c609d16528",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/total_assets",
+                "source_tag": "fictional:total_assets",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Total assets",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "120"
+            },
+            {
+              "concept": "total_liabilities",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "60d62c84-68ac-5f78-a338-cdbebce9f9e2",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "70",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "2f1c683d-766f-58cf-8fea-34c609d16528",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/total_liabilities",
+                "source_tag": "fictional:total_liabilities",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Total liabilities",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "70"
+            },
+            {
+              "concept": "equity_including_noncontrolling_interests",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "ad153fd9-d5cb-547f-9316-66e3127d9b73",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "50",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "2f1c683d-766f-58cf-8fea-34c609d16528",
+                  "period_kind": "instant",
+                  "start_date": null
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/equity_including_noncontrolling_interests",
+                "source_tag": "fictional:equity_including_noncontrolling_interests",
+                "statement": "balance_sheet",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Equity · including NCI",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "50"
+            }
+          ]
+        },
+        {
+          "coverage": {
+            "available": 2,
+            "requested": 3,
+            "scope": "selected_lines"
+          },
+          "family": "cash_flow",
+          "period": {
+            "end_date": "2026-03-31",
+            "id": "dbe0eb17-6a20-58f1-99af-c93b5ddf1687",
+            "period_kind": "duration",
+            "start_date": "2026-01-01"
+          },
+          "rows": [
+            {
+              "concept": "cash_from_operating_activities",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "6a7c44d0-1f34-5d2d-b946-2f161af6d795",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "4",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "dbe0eb17-6a20-58f1-99af-c93b5ddf1687",
+                  "period_kind": "duration",
+                  "start_date": "2026-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/cash_from_operating_activities",
+                "source_tag": "fictional:cash_from_operating_activities",
+                "statement": "cash_flow",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Cash from operations",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "4"
+            },
+            {
+              "concept": "capital_expenditures_ppe",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "d8566d1f-7c7d-5edf-a6ae-33cfb0e55053",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": "5",
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "dbe0eb17-6a20-58f1-99af-c93b5ddf1687",
+                  "period_kind": "duration",
+                  "start_date": "2026-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "original",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/capital_expenditures_ppe",
+                "source_tag": "fictional:capital_expenditures_ppe",
+                "statement": "cash_flow",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Capital expenditures · PPE",
+              "quality_flags": [],
+              "status": "reported",
+              "value": "5"
+            },
+            {
+              "concept": "dividends_paid",
+              "evidence": {
+                "accession": null,
+                "currency": "USD",
+                "evidence_id": "7b5be004-ddf7-5e46-abfd-ca7d9682ab3d",
+                "filed_on": "2026-04-30",
+                "fixture_source": "scripts/fixtures/financials-presentation.json#/editions/2",
+                "known_on": "2026-05-01",
+                "original_numeric_text": null,
+                "period": {
+                  "end_date": "2026-03-31",
+                  "id": "dbe0eb17-6a20-58f1-99af-c93b5ddf1687",
+                  "period_kind": "duration",
+                  "start_date": "2026-01-01"
+                },
+                "prior_evidence_id": null,
+                "prior_value": null,
+                "reporting_basis": "us_gaap",
+                "restatement_status": "unavailable",
+                "retrieved_at": "2026-05-01T12:00:00+00:00",
+                "scale": "1",
+                "scope": "consolidated",
+                "source_hash": "9c0d661a354d4b71601a748c1412087c6d74d1af15d15b12ef5c407a79dc4290",
+                "source_id": "2dd63cc7-70aa-590d-8747-f22c884082f8",
+                "source_locator": "scripts/fixtures/financials-presentation.json#/editions/2/values/dividends_paid",
+                "source_tag": "fictional:dividends_paid",
+                "statement": "cash_flow",
+                "transform": {
+                  "operation": "identity_decimal",
+                  "revision": "s8c-source-copy-v1"
+                },
+                "unit": {
+                  "denominator_measures": [],
+                  "id": "f3452009-4f4d-50e6-8bef-3dca12b5fffa",
+                  "numerator_measures": [
+                    "iso4217:USD"
+                  ],
+                  "unit_key": "USD"
+                }
+              },
+              "label": "Dividends paid",
+              "quality_flags": [
+                "source_not_supplied"
+              ],
+              "status": "missing",
+              "value": null
+            }
+          ]
+        }
+      ],
+      "supersedes": null
+    }
+  ]
+}
