@@ -7,7 +7,7 @@ const base = process.env.EQUITY_PREVIEW_URL || 'http://127.0.0.1:3102';
 assert.ok(['127.0.0.1', 'localhost'].includes(new URL(base).hostname));
 const fixtures = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../apps/web/src/features/valuation/fixture.json'), 'utf8')).examples;
 const reference = fixtures.find(row => row.id === 'reference').payload;
-const output = path.resolve(__dirname, '../../var/s8a-correction-browser');
+const output = path.resolve(__dirname, '../../var/s8a-rounding-browser');
 
 test('S8a read-only valuation flows and responsive states', { timeout: 120000 }, async (t) => {
   fs.mkdirSync(output, { recursive: true });
@@ -47,23 +47,27 @@ test('S8a read-only valuation flows and responsive states', { timeout: 120000 },
         await inspect('Declared domain lower', 'absolute_tolerance');
         await inspect('Terminal contribution', 'pv_terminal');
         await inspect('reference domain upper', 'terminal_margin');
-        await page.getByText('Numerical evidence · exact intervals', { exact: true }).press('Enter');
+        await page.getByText('Numerical evidence · rounded intervals', { exact: true }).press('Enter');
         await inspect('Evaluations', 'proof_revision');
-        await inspect('Root intervals', 'root_intervals');
+        await inspect('Root intervals', reference.scenarios[1].solve.root_intervals[0].lower);
+        assert.doesNotMatch(await page.locator('details[open]').innerText(), /[0-9]\.[0-9]{5}/);
         assert.match(await page.locator('details[open]').innerText(), /Root intervals/);
-        await page.getByText('Numerical evidence · exact intervals', { exact: true }).press('Enter');
-        const forecast = page.getByText('Forecast and terminal amounts · exact USD', { exact: true });
+        await page.getByText('Numerical evidence · rounded intervals', { exact: true }).press('Enter');
+        const forecast = page.getByText('Forecast and terminal amounts · rounded USD', { exact: true });
         await forecast.press('Enter');
         const first = page.locator('details[open] tbody tr').first();
         assert.deepEqual((await first.locator('td').allTextContents()).map(Number), [1, 110, 22, 5.5, 16.5, 5.5, 11, 10]);
         await inspect('Forecast year 1 revenue', '110.0');
+        assert.doesNotMatch(await page.locator('details[open]').innerText(), /[0-9]\.[0-9]{5}/);
         await forecast.press('Enter');
         const assumptions = page.getByText('Dated assumptions · model · policy', { exact: true });
         await assumptions.press('Enter');
         await inspect('Assumption wacc', 'risk_free');
+        assert.doesNotMatch(await page.locator('details[open]').innerText(), /[0-9]\.[0-9]{5}/);
         await assumptions.press('Enter');
         const expectedEndpoints = { operating_ev: reference.scenarios[1].evaluation.operating_ev, adjustment: reference.bridge.adjustment, common_equity: reference.scenarios[1].common_equity, shares: reference.bridge.shares, conditional_per_share: reference.scenarios[1].conditional_per_share };
-        for (const [id, value] of Object.entries(expectedEndpoints)) assert.equal(await page.locator(`[data-bridge-endpoint="${id}"] button`).innerText(), value);
+        const roundedEndpoints = { operating_ev: "193.4375", adjustment: "-20", common_equity: "173.4375", shares: "10", conditional_per_share: "17.3438" };
+        for (const [id, value] of Object.entries(roundedEndpoints)) assert.equal(await page.locator(`[data-bridge-endpoint="${id}"] button`).innerText(), value);
         await inspect('Selected operating EV', expectedEndpoints.operating_ev);
         await inspect('Bridge adjustment', '-20');
         await inspect('Selected common equity', expectedEndpoints.common_equity);
@@ -82,6 +86,8 @@ test('S8a read-only valuation flows and responsive states', { timeout: 120000 },
         assert.equal(await page.getByRole('table').filter({ has: page.locator('caption', { hasText: 'Discount rate and terminal growth' }) }).count(), 1);
         await page.getByLabel('Grid', { exact: true }).selectOption('1');
         const cell = page.locator('[data-evidence-value="Sensitivity cell 5 result"]');
+        assert.equal(await cell.innerText(), '17.3438');
+        assert.equal(await cell.getAttribute('aria-label'), 'Sensitivity cell 5 result: 17.3438. Inspect evidence');
         await cell.focus(); await page.keyboard.press('Enter');
         await page.getByRole('dialog').waitFor({ state: 'visible' });
         assert.match(await page.getByRole('dialog').innerText(), /17.34375/);
@@ -95,6 +101,7 @@ test('S8a read-only valuation flows and responsive states', { timeout: 120000 },
         assert.match(await page.locator('[aria-live="polite"]').innerText(), /terminal operating margin: 0.2/);
         assert.match(await page.locator('[aria-live="polite"]').innerText(), /reinvestment to revenue: 0.05/);
         assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), `overflow ${width}`);
+        assert.doesNotMatch(await page.locator('main').innerText(), /[0-9]\.[0-9]{5}/);
         await page.screenshot({ path: path.join(output, `sensitivity-${width}.png`), fullPage: true });
         await page.getByRole('button', { name: 'Reverse DCF', exact: true }).click();
         await page.screenshot({ path: path.join(output, `reverse-${width}.png`), fullPage: true });

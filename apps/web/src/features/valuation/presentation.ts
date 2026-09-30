@@ -8,10 +8,58 @@ export const states: Record<SolveResult["state"], string> = {
   unavailable: "Unavailable",
 };
 export function words(value: string): string { return value.replaceAll("_", " "); }
-// Display formatting only. Exact decimal strings are retained in the evidence tables.
+// Presentation only: round saved decimal digits, never convert them through a float.
+// Halfway values round away from zero; percent shifts the decimal point first.
+function decimal(value: string, percent = false): string {
+  const match = /^([+-]?)(?:(0|[1-9]\d*)(?:\.(\d*))?|\.(\d+))(?:[eE]([+-]?\d+))?$/.exec(value);
+  if (!match) return value;
+  const fraction = match[3] ?? match[4] ?? "";
+  const exponent = Number(match[5] ?? 0);
+  // Public Decimal inputs are bounded; do not expand arbitrary metadata-sized exponents.
+  if (!Number.isSafeInteger(exponent) || Math.abs(exponent) > 1000) return value;
+  const coefficient = BigInt((match[2] ?? "0") + fraction);
+  const shift = exponent - fraction.length + (percent ? 2 : 0) + 4;
+  let units: bigint;
+  if (shift >= 0) units = coefficient * 10n ** BigInt(shift);
+  else {
+    const divisor = 10n ** BigInt(-shift);
+    units = coefficient / divisor + (coefficient % divisor * 2n >= divisor ? 1n : 0n);
+  }
+  const digits = units.toString().padStart(5, "0");
+  const tail = digits.slice(-4).replace(/0+$/, "");
+  const sign = units === 0n ? "" : match[1];
+  return `${sign}${digits.slice(0, -4)}${tail ? `.${tail}` : ""}`;
+}
+
+// Only traverse known numeric/interval fields in solver and assumption displays.
+// Unrecognized subtrees (including IDs, dates, hashes, names and reasons) stay exact.
+const numericFields = new Set([
+  "lower", "upper", "absolute_tolerance", "relative_tolerance", "width_tolerance",
+  "anchor_margin", "margin_weights", "max_evaluations", "max_iterations", "max_subdivisions",
+  "evaluations", "iterations", "subdivisions", "representative",
+  "growth", "margins", "reinvestment", "revenue_anchor", "risk_free", "taxes",
+  "terminal_growth", "terminal_margin", "terminal_roic", "terminal_tax", "wacc",
+]);
+const intervalFields = new Set([
+  "solve", "proof", "interval", "root_intervals", "unresolved_domains", "domain",
+  "derivative", "residual", "left_residual", "right_residual", "root",
+]);
+function displayProjection(value: unknown): unknown {
+  if (typeof value === "string" || typeof value === "number") return decimal(String(value));
+  if (Array.isArray(value)) return value.map(displayProjection);
+  if (value && typeof value === "object") return Object.fromEntries(Object.entries(value).map(([key, item]) => [
+    key, numericFields.has(key) || intervalFields.has(key) ? displayProjection(item) : item,
+  ]));
+  return value;
+}
+/** Root scalars are numeric controls; structured values use known numeric fields only. */
+export function rounded(value: unknown): string { return exact(displayProjection(value)); }
 export function number(value: string | null | undefined, percent = false): string {
   if (value == null) return "N/A";
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 4, style: percent ? "percent" : "decimal" }).format(Number(value));
+  const display = decimal(value, percent);
+  const [whole, fraction] = display.split(".");
+  const grouped = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return `${grouped}${fraction ? `.${fraction}` : ""}${percent ? "%" : ""}`;
 }
 export function interval(value: Interval | null | undefined, percent = false): string {
   return value ? `${number(value.lower, percent)} – ${number(value.upper, percent)}` : "N/A";

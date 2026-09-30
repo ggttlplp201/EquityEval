@@ -132,11 +132,11 @@ and contain no real-company observations.
    and the operating EV target. The claims bridge explains their difference.
 2. Choose a named scenario. Read the solved variable, declared search domain,
    result state and terminal contribution together. Select a number for evidence.
-3. Expand the exact scenario/forecast tables, numerical intervals or assumptions.
+3. Expand the scenario/forecast tables, numerical intervals or assumptions.
    The scenario span compares all eligible named scenarios. A numerical root
    interval describes solver precision. Source measurement uncertainty describes
    source precision. They are different quantities.
-4. Choose **Sensitivity**, then a grid and an exact result. Reverse grids solve
+4. Choose **Sensitivity**, then a grid and a result. Reverse grids solve
    the declared parameter again. Conditional repricing starts from the supplied parameter value, then changes
    the named axes; each cell retains its declared axis values. Effects and ranks apply only
    within the selected grid.
@@ -154,7 +154,10 @@ The span is labelled complete only when every declared scenario has a unique
 converged result and the saved span is present. Otherwise N/A accompanies the
 specific gating reason. The visible selected-scenario bridge lists operating
 EV, signed adjustment, common equity, common shares and conditional per-share
-value exactly as saved. Financial values with dotted underlines open their
+value rounded to at most four decimal places, with trailing zeros removed.
+Halfway values round away from zero; percentages are rounded after conversion.
+The evidence drawer retains the full saved decimal strings, including numerical
+intervals that may appear equal or zero in the rounded display. Financial values with dotted underlines open their
 calculation/source evidence directly, including forecast cells, assumptions,
 terminal contribution and sensitivity axes/ranks. Selecting a sensitivity result
 also opens its evidence; Escape returns focus to that value.

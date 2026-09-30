@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { exact } from "./presentation";
+import { rounded } from "./presentation";
 import styles from "./valuation.module.css";
 
 export type InspectEvidence = (title: string, evidence: unknown) => void;
@@ -15,10 +15,10 @@ export default function EvidenceValue({ title, value, display, evidence = value,
   onSelect?: () => void;
   pressed?: boolean;
 }) {
-  const label = typeof display === "string" ? display : exact(value);
+  const label = typeof display === "string" ? display : rounded(value);
   return <button type="button" className={`${styles.evidenceValue} ${className ?? ""}`}
     data-evidence-value={title} aria-label={`${title}: ${label}. Inspect evidence`}
     aria-pressed={pressed} onClick={() => { onSelect?.(); onInspect(title, evidence); }}>
-    {display ?? exact(value)}
+    {display ?? rounded(value)}
   </button>;
 }

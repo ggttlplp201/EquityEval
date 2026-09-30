@@ -84,3 +84,18 @@ The complete unchanged filing-monitor file then passed **34 tests** in isolation
 established; no tests, assertions or timing limits were relaxed. The initial
 failed log is preserved as `var/s8a-correction-verification.log`; the full retry
 is separate in `var/s8a-correction-verification-retry.log`.
+
+
+## Display-rounding review — 2026-09-29
+
+Fixed point `4caf54b`; bounded working diff reviewed independently on standards
+and specification axes. Both found no findings. Financial computation and exact
+saved evidence remain untouched. The shared formatter uses Decimal-string digits
+and BigInt for display rounding, avoiding binary-float precision loss. Explicit
+structured numeric fields protect metadata. Added red/green tests exercise
+halfway cases, signs, carry, exponent notation, percentage scaling, large
+integers, missing values and immutable metadata/evidence.
+
+The four viewport browser regressions check rounded main-view numbers, original
+exact strings in keyboard-accessible evidence, all solver states and source
+controls. Detailed execution evidence belongs to the milestone record.

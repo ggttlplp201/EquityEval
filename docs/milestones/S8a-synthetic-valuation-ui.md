@@ -89,3 +89,43 @@ Corrective verification completed on 2026-09-29:
 
 The previous S8a verification counts above describe the preserved original
 checkpoint. This corrective record supersedes its acceptance assessment.
+
+
+## Display-rounding correction — 2026-09-29
+
+Baseline `4caf54b` and both prior S8a checkpoint tags remain unchanged.
+New checkpoint: `milestone/s8a-rounded-display`.
+
+Visible valuation values now round to at most four decimal places, trim trailing
+zeros and preserve integer precision. Decimal digits round halfway away from
+zero; percentages shift before rounding. The same presentation covers scenarios,
+domains, forecasts, solver intervals/certificates, assumptions, sensitivity
+axes/results/effects, claims, bridge endpoints and source uncertainty. Exact
+saved values remain in the evidence drawer. Numeric structured fields are
+explicitly selected so IDs, dates, hashes, names and unrecognized metadata remain
+unchanged. N/A remains separate from zero. Rounded numerical interval endpoints
+may coincide; their exact saved bounds remain available by selecting the value.
+
+Captions, Help and the user manual distinguish rounded display from exact
+saved evidence. No core, schema, API, migration, manifest, fixture or provider
+changes are part of this correction. No next milestone has started.
+
+Verification:
+
+- Tests written first: the two new formatting tests failed before implementation.
+  All **8 Node presentation tests** and **4 Python presentation tests** now pass.
+- Production build passed, including frontend lint and TypeScript validation.
+- Independent specification and standards reviews: no findings.
+- Browser evidence and refreshed desktop/mobile captures:
+  `var/s8a-rounding-browser/`; build: `var/s8a-rounding-build.log`.
+- The mandatory commit hook records lint, all generated no-diff checks, Python
+  and TypeScript checks, full/core/golden tests in
+  `var/s8a-rounding-commit-checks.log`. This checkpoint is created only if all
+  required gates pass; the annotated tag records final test totals.
+
+- Browser **6 passed** on the unchanged suite retry, including all four viewport
+  flows and Company navigation/shared drawer/Help. Initial run passed the four
+  viewport flows but timed out at Company-to-valuation navigation. Isolated
+  reproduction then passed, followed by the clean full browser retry. Cause
+  remains unconfirmed; no timeout or assertion was weakened. Retained logs:
+  `var/s8a-rounding-browser.log` and `var/s8a-rounding-browser-retry.log`.

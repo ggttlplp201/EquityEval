@@ -125,3 +125,8 @@ Set `EQUITY_PLAYWRIGHT_MODULE` to an existing Playwright module directory if it
 is not on Node's resolution path. Browser tests launch headless Chromium and
 only access localhost. No database, provider or mutation endpoint is used.
 See `docs/milestones/S8a-synthetic-valuation-ui.md` for scope and verification.
+
+S8a displays numbers with at most four decimal places and no trailing zeros.
+Decimal strings round halfway away from zero without a binary-float conversion;
+percentages shift before rounding. Structured solver/assumption displays format
+only known numeric fields. All source strings remain unchanged in the drawer.

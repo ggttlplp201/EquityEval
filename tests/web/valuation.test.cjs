@@ -79,3 +79,40 @@ test('complete span requires exactly the declared scenario roster', () => {
   const unknown = structuredClone(reference); unknown.scenarios[2].name = 'undeclared';
   assert.equal(presentation.spanStatus(unknown).eligible, false);
 });
+
+// Display-only rounding oracles; saved Decimal evidence must not be rewritten.
+test('rounds decimal strings half away from zero without binary precision loss', () => {
+  for (const [input, expected] of [
+    ['17.34375', '17.3438'], ['-17.34375', '-17.3438'],
+    ['1.234449999999999999999', '1.2344'], ['1.23445', '1.2345'],
+    ['9.99995', '10'], ['-0.000049', '0'], ['-0.00005', '-0.0001'],
+    ['0.00005', '0.0001'], ['1.23000000000000000', '1.23'],
+    ['9007199254740993.12345', '9007199254740993.1235'],
+    ['9007199254740993', '9007199254740993'], ['1.23456E-2', '0.0123'],
+    ['1E-80', '0'], ['1.23455e+2', '123.455'], ['+1.23456', '+1.2346'],
+  ]) assert.equal(presentation.rounded(input), expected, input);
+  assert.equal(presentation.number('9007199254740993.12345'), '9,007,199,254,740,993.1235');
+  assert.equal(presentation.number('0.1234565', true), '12.3457%');
+  assert.equal(presentation.number('-0.0000001', true), '0%');
+  assert.equal(presentation.rounded(null), 'N/A');
+  assert.equal(presentation.rounded(0), '0');
+  assert.equal(presentation.rounded(-1.23456), '-1.2346');
+});
+test('structured display rounds only numeric fields and preserves all exact evidence', () => {
+  const value = { lower: '0.123456789', upper: '-1.23455',
+    proof: [{ residual: { lower: '1E-50', upper: '0.000056' } }],
+    taxes: ['0.123456'], name: '1.234567', variable: 'terminal_operating_margin',
+    id: '12345678901234567890', source_id: '1.234567', hash: '123e10',
+    evidence_hash: '9'.repeat(64), authored_at: '2026-09-29T00:00:00Z',
+    reasons: ['0.123456'], metadata: { lower: '1.234567' } };
+  const saved = JSON.stringify(value);
+  assert.deepEqual(JSON.parse(presentation.rounded(value)), { ...value,
+    lower: '0.1235', upper: '-1.2346',
+    proof: [{ residual: { lower: '0', upper: '0.0001' } }], taxes: ['0.1235'] });
+  assert.equal(JSON.stringify(value), saved);
+  assert.equal(presentation.exact(value), JSON.stringify(value, null, 2));
+  for (const raw of ['2026-09-29', '2026-09-29T00:00:00Z', 'abc123e10', '001234', 'N/A', '', ' 1.23456 ', '123-456', 'NaN', 'Infinity']) {
+    assert.equal(presentation.rounded(raw), raw);
+  }
+  assert.equal(presentation.exact('17.343750000000000000'), '17.343750000000000000');
+});
