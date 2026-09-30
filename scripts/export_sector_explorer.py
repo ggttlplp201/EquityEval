@@ -13,6 +13,7 @@ import hashlib
 import json
 from datetime import date
 from decimal import Context, Decimal, localcontext
+from itertools import combinations
 from pathlib import Path
 from typing import Any
 
@@ -59,6 +60,36 @@ def domain(values: list[Decimal], *, zero: bool = True) -> tuple[Decimal, Decima
         return (low - 1, high + 1) if low else (Decimal(0), Decimal(1))
     padding = (high - low) / 20
     return (low - padding if low < 0 else low, high + padding)
+
+
+def focused_domain(values: list[Decimal], unit: str) -> tuple[Decimal, Decimal]:
+    """Plot an observed selection without forcing zero into its display range."""
+    if not values:
+        return (Decimal(0), Decimal(1))
+    low, high = min(values), max(values)
+    spread = high - low
+    if spread:
+        padding = spread * Decimal("0.08")
+    else:
+        minimum = Decimal("0.005") if unit == "fraction" else Decimal(1)
+        padding = max(abs(high) * Decimal("0.05"), minimum)
+    return low - padding, high + padding
+
+
+def history_selections(sectors: list[Row]) -> list[tuple[str, ...]]:
+    """Return every one-to-four-series choice the checked UI can expose."""
+    groups: list[list[str]] = [
+        [str(item["id"]) for item in sectors if item.get("parentId") is None]
+    ]
+    for parent in groups[0]:
+        children = [str(item["id"]) for item in sectors if item.get("parentId") == parent]
+        if children:
+            groups.append(children)
+    selected: set[tuple[str, ...]] = set()
+    for group in groups:
+        for size in range(1, min(4, len(group)) + 1):
+            selected.update(tuple(sorted(choice)) for choice in combinations(group, size))
+    return sorted(selected)
 
 
 def position(value: Decimal, limits: tuple[Decimal, Decimal], start: int, end: int) -> float:
@@ -233,49 +264,68 @@ def history(raw: Row, as_of: str, metric: str, method: str, unit: str, years: in
         and item["method"] == method
         and start < date.fromisoformat(item["asOf"]) <= end
     ]
-    eligible = [decimal(item["value"]) for item in points if item["status"] == "eligible"]
-    y_limits = domain([item for item in eligible if item is not None])
     x_limits = (Decimal(start.toordinal()), Decimal(end.toordinal()))
     series = []
+    source_by_sector: dict[str, list[Row]] = {}
     for sector in raw["sectors"]:
         items = sorted(
             (item for item in points if item["sectorId"] == sector["id"]),
             key=lambda item: item["asOf"],
         )
+        source_by_sector[str(sector["id"])] = items
         coordinates: list[Row] = []
-        paths: list[str] = []
-        segment: list[str] = []
+        segments: list[list[int]] = []
+        segment: list[int] = []
         previous: date | None = None
-        for item in items:
+        for index, item in enumerate(items):
             observation_date = date.fromisoformat(item["asOf"])
             x = position(Decimal(observation_date.toordinal()), x_limits, 60, 730)
             value = decimal(item["value"])
-            y = (
-                position(value, y_limits, 245, 25)
-                if value is not None and item["status"] == "eligible"
-                else None
-            )
             coordinates.append(
                 {
                     "asOf": item["asOf"],
                     "x": x,
-                    "y": y,
                     "valueLabel": label(item["value"], unit, item["status"]),
                     "status": STATUS[item["status"]],
                     "detailId": item["detailId"],
                 }
             )
             gap = previous is not None and (observation_date - previous).days > 100
-            if y is None or gap:
+            eligible = value is not None and item["status"] == "eligible"
+            if not eligible or gap:
                 if segment:
-                    paths.append(" ".join(segment))
+                    segments.append(segment)
                 segment = []
-            if y is not None:
-                segment.append(f"{'M' if not segment else 'L'} {x} {y}")
+            if eligible:
+                segment.append(index)
             previous = observation_date
         if segment:
-            paths.append(" ".join(segment))
-        series.append({"sectorId": sector["id"], "paths": paths, "points": coordinates})
+            segments.append(segment)
+        series.append({"sectorId": sector["id"], "segments": segments, "points": coordinates})
+
+    scales: dict[str, Row] = {}
+    for selected in history_selections(raw["sectors"]):
+        values = [
+            value
+            for sector_id in selected
+            for item in source_by_sector[sector_id]
+            if item["status"] == "eligible"
+            for value in [decimal(item["value"])]
+            if value is not None
+        ]
+        y_limits = focused_domain(values, unit)
+        y_by_sector: dict[str, list[float | None]] = {}
+        for sector_id in selected:
+            y_by_sector[sector_id] = [
+                position(value, y_limits, 245, 25)
+                if item["status"] == "eligible" and (value := decimal(item["value"])) is not None
+                else None
+                for item in source_by_sector[sector_id]
+            ]
+        scales["|".join(selected)] = {
+            "yAxis": axis(y_limits, unit, 245, 25),
+            "yBySector": y_by_sector,
+        }
     return {
         "xAxis": {
             "ticks": [
@@ -284,8 +334,8 @@ def history(raw: Row, as_of: str, metric: str, method: str, unit: str, years: in
             ],
             "zero": 60,
         },
-        "yAxis": axis(y_limits, unit, 245, 25),
         "series": series,
+        "scales": scales,
         "note": "Quarter-end snapshots · gaps stay gaps. "
         + raw["context"]["membershipMode"]
         + ". Eligibility and source evidence are recorded separately for every date.",

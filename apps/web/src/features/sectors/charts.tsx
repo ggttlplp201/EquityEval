@@ -2,7 +2,6 @@
 
 import { useId } from "react";
 import type { Axis, Distribution, HistoryPlot, ScatterPlot, Sector } from "./types";
-import { scaleHistory } from "./history-scale";
 
 const EMPTY_SECTOR: Sector = { id: "unknown", label: "Unclassified", color: "#748287" };
 function lookup(sectors: Sector[], id: string) { return sectors.find((sector) => sector.id === id) ?? EMPTY_SECTOR; }
@@ -20,16 +19,17 @@ export function PlotAxes({ xAxis, yAxis }: { xAxis: Axis; yAxis: Axis }) {
 }
 export function HistoryChart({ data, selected, slots, sectors, onDetail, describeDetail }: { data: HistoryPlot; selected: string[]; slots: Record<string, number>; sectors: Sector[]; onDetail: (id: string) => void; describeDetail: (id: string) => string }) {
   const id = useId();
-  const scaled = scaleHistory(data, selected);
-  const series = scaled.series;
+  const scale = data.scales[[...selected].sort().join("|")];
+  const series = data.series.filter((item) => selected.includes(item.sectorId));
+  if (!scale) return <div className="empty-chart">No checked presentation exists for this sector selection.</div>;
   return <>
     <div className="plot-scroll" tabIndex={0} role="region" aria-label="Chart; scroll horizontally on smaller screens"><svg className="analytical-plot" viewBox="-16 0 776 285" role="group" aria-labelledby={`${id}-title ${id}-desc`}>
       <title id={`${id}-title`}>Quarter-end history of the selected metric</title>
       <desc id={`${id}-desc`}>Gaps indicate unavailable or limited-coverage observations. Use the history data table for all dates and values.</desc>
-      <PlotAxes xAxis={data.xAxis} yAxis={scaled.yAxis} />
+      <PlotAxes xAxis={data.xAxis} yAxis={scale.yAxis} />
       {series.map((item) => <g key={item.sectorId} style={{ color: "var(--accent)" }}>
-        {item.paths.map((path, index) => <path key={index} d={path} fill="none" stroke="currentColor" strokeWidth="2.5" strokeDasharray={historyLinePattern(slots[item.sectorId])} />)}
-        {item.points.filter((point) => point.y !== null).map((point) => <circle key={point.asOf} cx={point.x} cy={point.y!} r="4" fill="var(--surface)" stroke="currentColor" strokeWidth="2" tabIndex={0} role="button" aria-label={`${lookup(sectors, item.sectorId).label}, ${point.asOf}: ${point.valueLabel}. Open source details.`} onClick={() => onDetail(point.detailId)} onKeyDown={(event) => activate(event, () => onDetail(point.detailId))}><title>{`${lookup(sectors, item.sectorId).label} · ${point.asOf} · ${point.valueLabel} · ${point.status}\n${describeDetail(point.detailId)}`}</title></circle>)}
+        {item.segments.map((segment, index) => <polyline key={index} points={segment.map((pointIndex) => `${item.points[pointIndex].x},${scale.yBySector[item.sectorId][pointIndex]}`).join(" ")} fill="none" stroke="currentColor" strokeWidth="2.5" strokeDasharray={historyLinePattern(slots[item.sectorId])} />)}
+        {item.points.map((point, index) => ({ point, y: scale.yBySector[item.sectorId][index] })).filter(({ y }) => y !== null).map(({ point, y }) => <circle key={point.asOf} cx={point.x} cy={y!} r="4" fill="var(--surface)" stroke="currentColor" strokeWidth="2" tabIndex={0} role="button" aria-label={`${lookup(sectors, item.sectorId).label}, ${point.asOf}: ${point.valueLabel}. Open source details.`} onClick={() => onDetail(point.detailId)} onKeyDown={(event) => activate(event, () => onDetail(point.detailId))}><title>{`${lookup(sectors, item.sectorId).label} · ${point.asOf} · ${point.valueLabel} · ${point.status}\n${describeDetail(point.detailId)}`}</title></circle>)}
       </g>)}
     </svg></div>
     <p className="chart-note">Y-axis auto-scales to the selected series and may not start at zero. {data.note}</p>

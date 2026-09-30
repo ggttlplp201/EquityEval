@@ -5,7 +5,14 @@ from decimal import Decimal
 
 import pytest
 
-from scripts.export_sector_explorer import bar, distribution, export, history, scatter
+from scripts.export_sector_explorer import (
+    bar,
+    distribution,
+    export,
+    focused_domain,
+    history,
+    scatter,
+)
 
 
 def evaluated(metric="pe", status="eligible", value="150"):
@@ -117,9 +124,59 @@ def test_limited_values_remain_visible_but_never_enter_scatter():
 def test_history_paths_end_at_missing_observations():
     result = history(raw_bundle(), "2026-06-30", "pe", "total", "multiple", 1)
     series = result["series"][0]
-    assert series["points"][1]["y"] is None
-    assert len(series["paths"]) == 2
-    assert all("L" not in path for path in series["paths"])
+    scale = result["scales"]["fictional"]
+    assert scale["yBySector"]["fictional"][1] is None
+    assert series["segments"] == [[0], [2]]
+
+
+def test_history_selection_scales_share_one_exact_domain_without_rounded_label_loss():
+    data = raw_bundle()
+    data["sectors"].append({"id": "other", "label": "Other", "color": "#999999"})
+    exact = ["6.7741", "6.7749"]
+    data["history"] = [
+        dict(evaluated(value=exact[0]), asOf="2025-12-31", sectorId="fictional"),
+        dict(evaluated(value=exact[1]), asOf="2026-06-30", sectorId="fictional"),
+        dict(evaluated(value="10"), asOf="2025-12-31", sectorId="other"),
+        dict(evaluated(value="11"), asOf="2026-06-30", sectorId="other"),
+    ]
+    result = history(data, "2026-06-30", "pe", "total", "multiple", 1)
+
+    focused = result["scales"]["fictional"]
+    assert focused["yBySector"]["fictional"][0] != focused["yBySector"]["fictional"][1]
+    assert [point["valueLabel"] for point in result["series"][0]["points"]] == ["6.77×", "6.77×"]
+
+    shared = result["scales"]["fictional|other"]
+    fictional_y = shared["yBySector"]["fictional"]
+    other_y = shared["yBySector"]["other"]
+    assert min(fictional_y) > max(other_y)
+    assert "other|fictional" not in result["scales"]
+
+
+def test_history_constant_percentage_scale_uses_percentage_sized_padding():
+    data = raw_bundle()
+    data["metrics"] = [
+        {
+            "id": "profit_breadth",
+            "label": "Profit breadth",
+            "definition": "Fictional",
+            "unit": "fraction",
+        }
+    ]
+    data["history"] = [
+        dict(evaluated(metric="profit_breadth", value="0.9167"), asOf="2025-12-31"),
+        dict(evaluated(metric="profit_breadth", value="0.9167"), asOf="2026-06-30"),
+    ]
+    result = history(data, "2026-06-30", "profit_breadth", "total", "fraction", 1)
+    labels = [tick["label"] for tick in result["scales"]["fictional"]["yAxis"]["ticks"]]
+    assert labels[0].endswith("%") and labels[-1].endswith("%")
+    assert float(labels[0][:-1]) > 80
+    assert float(labels[-1][:-1]) < 100
+
+
+def test_history_negative_domain_keeps_sign_and_observed_range_visible():
+    low, high = focused_domain([Decimal("-0.20"), Decimal("-0.10")], "fraction")
+    assert low < Decimal("-0.20")
+    assert Decimal("-0.10") < high < 0
 
 
 def test_distribution_uses_supplied_bins_and_company_memberships():

@@ -103,11 +103,13 @@ runs all required checks again over the staged checkpoint. Tag:
 The history chart previously used geometry scaled across every sector in the
 artifact, including unselected series and a forced zero baseline. A single
 selected P/E series therefore appeared almost flat even when its displayed
-quarterly values changed. The presentation now rescales display geometry from
-the existing exported labels for the currently selected one-to-four series,
-without changing the core result, eligibility or source detail. Missing quarters
-still break the path. The chart states that its selected-series history axis may
-not start at zero, and the data/source table retains the exact observations.
+quarterly values changed. The offline Python presentation exporter now supplies
+an exact Decimal-based axis and coordinates for every one-to-four-series choice
+the checked UI can expose. The browser selects that immutable geometry; it does
+not parse rounded labels or calculate a financial scale. All selected series
+share one axis, exact differences remain visible even when labels round alike,
+and missing quarters still break the path. The chart states that its axis may
+not start at zero, while the data/source table retains every observation.
 
 ## Next handoff
 

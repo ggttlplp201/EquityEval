@@ -33,10 +33,11 @@ export interface Distribution {
   xAxis: Axis; yAxis: Axis; companies: Company[];
   excluded: { label: string; count: number }[]; emptyReason: string | null;
 }
-export interface HistoryPoint { asOf: string; x: number; y: number | null; valueLabel: string; status: string; detailId: string }
+export interface HistoryPoint { asOf: string; x: number; valueLabel: string; status: string; detailId: string }
 export interface HistoryPlot {
-  xAxis: Axis; yAxis: Axis;
-  series: { sectorId: string; paths: string[]; points: HistoryPoint[] }[];
+  xAxis: Axis;
+  series: { sectorId: string; segments: number[][]; points: HistoryPoint[] }[];
+  scales: Record<string, { yAxis: Axis; yBySector: Record<string, (number | null)[]> }>;
   note: string;
 }
 export interface ScatterPlot {
