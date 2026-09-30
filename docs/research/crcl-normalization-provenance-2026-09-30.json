@@ -1,0 +1,81 @@
+{
+  "batch_id": "923458e4-242d-4731-9f57-9fd6779d7e9a",
+  "details": {
+    "as_filed:operating_income": {
+      "review_context_capture_ids": [
+        "a091bf37-ac2e-4ba8-8500-77c59e0da24a",
+        "e58aaf2d-ba12-417e-9b2d-872df7a10610"
+      ],
+      "source_chain_capture_ids": [
+        "923841dc-5a9b-44c4-b59b-ddf7e567fc3b",
+        "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "0e93340d-a10c-40eb-b463-047c23be58bf"
+      ]
+    },
+    "as_filed:revenue": {
+      "review_context_capture_ids": [
+        "a091bf37-ac2e-4ba8-8500-77c59e0da24a",
+        "e58aaf2d-ba12-417e-9b2d-872df7a10610"
+      ],
+      "source_chain_capture_ids": [
+        "923841dc-5a9b-44c4-b59b-ddf7e567fc3b",
+        "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "0e93340d-a10c-40eb-b463-047c23be58bf"
+      ]
+    },
+    "before_filing:operating_income": {
+      "review_context_capture_ids": [],
+      "source_chain_capture_ids": []
+    },
+    "before_filing:revenue": {
+      "review_context_capture_ids": [],
+      "source_chain_capture_ids": []
+    },
+    "eligibility": {
+      "review_context_capture_ids": [
+        "923841dc-5a9b-44c4-b59b-ddf7e567fc3b",
+        "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "0e93340d-a10c-40eb-b463-047c23be58bf",
+        "a091bf37-ac2e-4ba8-8500-77c59e0da24a",
+        "e58aaf2d-ba12-417e-9b2d-872df7a10610"
+      ],
+      "source_chain_capture_ids": []
+    },
+    "original:operating_income": {
+      "review_context_capture_ids": [
+        "a091bf37-ac2e-4ba8-8500-77c59e0da24a",
+        "e58aaf2d-ba12-417e-9b2d-872df7a10610"
+      ],
+      "source_chain_capture_ids": [
+        "923841dc-5a9b-44c4-b59b-ddf7e567fc3b",
+        "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "0e93340d-a10c-40eb-b463-047c23be58bf"
+      ]
+    },
+    "original:revenue": {
+      "review_context_capture_ids": [
+        "a091bf37-ac2e-4ba8-8500-77c59e0da24a",
+        "e58aaf2d-ba12-417e-9b2d-872df7a10610"
+      ],
+      "source_chain_capture_ids": [
+        "923841dc-5a9b-44c4-b59b-ddf7e567fc3b",
+        "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "0e93340d-a10c-40eb-b463-047c23be58bf"
+      ]
+    },
+    "publication": {
+      "review_context_capture_ids": [
+        "923841dc-5a9b-44c4-b59b-ddf7e567fc3b",
+        "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "0e93340d-a10c-40eb-b463-047c23be58bf",
+        "a091bf37-ac2e-4ba8-8500-77c59e0da24a",
+        "e58aaf2d-ba12-417e-9b2d-872df7a10610"
+      ],
+      "source_chain_capture_ids": []
+    }
+  },
+  "input_hash": "7970f9dc775f50f0c136ce66234e1a5478cd682fce75517ae24f222458caff47",
+  "output_hash": "1971a99bc729858fc3d60c703834d7d3444b8c0a2ad38f6f2f902730c2e445f5",
+  "publication_audit_sha256": "db58bf64ca5a84501e02417af563e931074beaa6574fdef51a3a47c2fc4917db",
+  "snapshot_sha256": "75df95334e317ffabaede646309dff1bc5a53eb0b52eb650cb700e0436dada06"
+}

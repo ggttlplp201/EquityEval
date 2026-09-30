@@ -3,6 +3,24 @@
   "captureCount": 5,
   "details": {
     "as_filed:operating_income": {
+      "reviewContext": [
+        {
+          "accession": "0001876042-26-000228",
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "10-K/A \u00b7 amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Explanatory-note review of separate Circle Reserve Fund statements; no financial restatement edge or selected FY2025 amount.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "accession": "0001876042-26-000248",
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "10-Q \u00b7 separate-period review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Separate-period review only; contributes no selected FY2025 value.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
       "sections": [
         {
           "heading": "Point-in-time selection",
@@ -126,44 +144,49 @@
       "sources": [
         {
           "capturedAt": "2026-09-21 17:07:35.819182+00:00",
-          "label": "financial facts",
+          "label": "Company Facts \u00b7 selected observation",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "transform": "Source token at /facts/us-gaap/OperatingIncomeLoss/units/USD/13 \u2192 reviewed S3 mapping \u2192 PIT selection; observation f73c5738-0c97-5296-87ed-5a964db804d1. Transform: {\"operation\": \"identity_decimal\", \"scale_applied\": false}",
           "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
         },
         {
-          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
-          "label": "filing inventory",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
-        },
-        {
+          "accession": "0001876042-26-000062",
           "capturedAt": "2026-09-21 17:07:36.472331+00:00",
-          "label": "reviewed coverage",
+          "label": "Original 10-K \u00b7 precision cross-check",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "transform": "Inline XBRL extraction (c-1, USD, scale 3, decimals -3) \u2192 separate value/precision cross-check. Company Facts precision remains unknown.",
           "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
         },
         {
-          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
-          "label": "amendment review",
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "Submissions \u00b7 filing metadata",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
-          "label": "quarterly review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+          "transform": "SEC inventory parsing \u2192 original filing accession, form, filed/report dates and acceptance metadata; supplies no numeric value.",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
         }
       ],
       "subtitle": "CRCL \u00b7 FY2025 \u00b7 Filed by Mar 9, 2026",
       "title": "Operating income (loss)"
     },
     "as_filed:revenue": {
+      "reviewContext": [
+        {
+          "accession": "0001876042-26-000228",
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "10-K/A \u00b7 amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Explanatory-note review of separate Circle Reserve Fund statements; no financial restatement edge or selected FY2025 amount.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "accession": "0001876042-26-000248",
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "10-Q \u00b7 separate-period review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Separate-period review only; contributes no selected FY2025 value.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
       "sections": [
         {
           "heading": "Point-in-time selection",
@@ -287,44 +310,32 @@
       "sources": [
         {
           "capturedAt": "2026-09-21 17:07:35.819182+00:00",
-          "label": "financial facts",
+          "label": "Company Facts \u00b7 selected observation",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "transform": "Source token at /facts/us-gaap/Revenues/units/USD/13 \u2192 reviewed S3 mapping \u2192 PIT selection; observation 19b4020e-e673-5c98-bbe1-1a6a4216eb6d. Transform: {\"operation\": \"identity_decimal\", \"scale_applied\": false}",
           "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
         },
         {
-          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
-          "label": "filing inventory",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
-        },
-        {
+          "accession": "0001876042-26-000062",
           "capturedAt": "2026-09-21 17:07:36.472331+00:00",
-          "label": "reviewed coverage",
+          "label": "Original 10-K \u00b7 precision cross-check",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "transform": "Inline XBRL extraction (c-1, USD, scale 3, decimals -3) \u2192 separate value/precision cross-check. Company Facts precision remains unknown.",
           "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
         },
         {
-          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
-          "label": "amendment review",
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "Submissions \u00b7 filing metadata",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
-          "label": "quarterly review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+          "transform": "SEC inventory parsing \u2192 original filing accession, form, filed/report dates and acceptance metadata; supplies no numeric value.",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
         }
       ],
       "subtitle": "CRCL \u00b7 FY2025 \u00b7 Filed by Mar 9, 2026",
       "title": "Revenue and reserve income"
     },
     "before_filing:operating_income": {
+      "reviewContext": [],
       "sections": [
         {
           "heading": "Point-in-time selection",
@@ -390,102 +401,14 @@
               "value": "N/A"
             }
           ]
-        },
-        {
-          "heading": "Separate original-filing precision evidence",
-          "rows": [
-            {
-              "label": "Original literal",
-              "value": "96,435"
-            },
-            {
-              "label": "Scale",
-              "value": "3"
-            },
-            {
-              "label": "Decimals",
-              "value": "-3"
-            },
-            {
-              "label": "Sign",
-              "value": "-"
-            },
-            {
-              "label": "Context",
-              "value": "c-1"
-            },
-            {
-              "label": "Period start",
-              "value": "2025-01-01"
-            },
-            {
-              "label": "Period end",
-              "value": "2025-12-31"
-            },
-            {
-              "label": "Unit",
-              "value": "USD"
-            },
-            {
-              "label": "Filing locators",
-              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
-            },
-            {
-              "label": "Source capture ID",
-              "value": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809"
-            },
-            {
-              "label": "Whole-document extraction issues",
-              "value": "249"
-            },
-            {
-              "label": "Company Facts context/precision",
-              "value": "Unknown; filing evidence remains separate"
-            }
-          ]
         }
       ],
-      "sources": [
-        {
-          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
-          "label": "financial facts",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
-          "label": "filing inventory",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
-          "label": "reviewed coverage",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
-          "label": "amendment review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
-          "label": "quarterly review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
-        }
-      ],
+      "sources": [],
       "subtitle": "CRCL \u00b7 FY2025 \u00b7 Filed by Mar 8, 2026",
       "title": "Operating income (loss)"
     },
     "before_filing:revenue": {
+      "reviewContext": [],
       "sections": [
         {
           "heading": "Point-in-time selection",
@@ -551,102 +474,53 @@
               "value": "N/A"
             }
           ]
-        },
-        {
-          "heading": "Separate original-filing precision evidence",
-          "rows": [
-            {
-              "label": "Original literal",
-              "value": "2,746,642"
-            },
-            {
-              "label": "Scale",
-              "value": "3"
-            },
-            {
-              "label": "Decimals",
-              "value": "-3"
-            },
-            {
-              "label": "Sign",
-              "value": "positive"
-            },
-            {
-              "label": "Context",
-              "value": "c-1"
-            },
-            {
-              "label": "Period start",
-              "value": "2025-01-01"
-            },
-            {
-              "label": "Period end",
-              "value": "2025-12-31"
-            },
-            {
-              "label": "Unit",
-              "value": "USD"
-            },
-            {
-              "label": "Filing locators",
-              "value": "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\nelementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[4]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
-            },
-            {
-              "label": "Source capture ID",
-              "value": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809"
-            },
-            {
-              "label": "Whole-document extraction issues",
-              "value": "249"
-            },
-            {
-              "label": "Company Facts context/precision",
-              "value": "Unknown; filing evidence remains separate"
-            }
-          ]
         }
       ],
-      "sources": [
-        {
-          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
-          "label": "financial facts",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
-          "label": "filing inventory",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
-          "label": "reviewed coverage",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
-          "label": "amendment review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
-          "label": "quarterly review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
-        }
-      ],
+      "sources": [],
       "subtitle": "CRCL \u00b7 FY2025 \u00b7 Filed by Mar 8, 2026",
       "title": "Revenue and reserve income"
     },
     "eligibility": {
+      "reviewContext": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "Company Facts \u00b7 retained capture",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Retained Company Facts body for review; no value selected in this detail.",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "Original 10-K \u00b7 retained cross-check evidence",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Original Inline XBRL evidence retained for a separate precision cross-check.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "Submissions \u00b7 filing metadata",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "SEC inventory parsing \u2192 filing identities, dates and acceptance metadata; supplies no numeric value.",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "accession": "0001876042-26-000228",
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "10-K/A \u00b7 amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Explanatory-note review of separate Circle Reserve Fund statements; no financial restatement edge or selected FY2025 amount.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "accession": "0001876042-26-000248",
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "10-Q \u00b7 separate-period review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Separate-period review only; contributes no selected FY2025 value.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
       "sections": [
         {
           "heading": "Retained source-history flags",
@@ -687,47 +561,29 @@
           ]
         }
       ],
-      "sources": [
-        {
-          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
-          "label": "financial facts",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
-          "label": "filing inventory",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
-          "label": "reviewed coverage",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
-          "label": "amendment review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
-          "label": "quarterly review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
-        }
-      ],
+      "sources": [],
       "subtitle": "Source normalization completed",
       "title": "Calculation eligibility"
     },
     "original:operating_income": {
+      "reviewContext": [
+        {
+          "accession": "0001876042-26-000228",
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "10-K/A \u00b7 amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Explanatory-note review of separate Circle Reserve Fund statements; no financial restatement edge or selected FY2025 amount.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "accession": "0001876042-26-000248",
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "10-Q \u00b7 separate-period review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Separate-period review only; contributes no selected FY2025 value.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
       "sections": [
         {
           "heading": "Point-in-time selection",
@@ -851,44 +707,49 @@
       "sources": [
         {
           "capturedAt": "2026-09-21 17:07:35.819182+00:00",
-          "label": "financial facts",
+          "label": "Company Facts \u00b7 selected observation",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "transform": "Source token at /facts/us-gaap/OperatingIncomeLoss/units/USD/13 \u2192 reviewed S3 mapping \u2192 PIT selection; observation f73c5738-0c97-5296-87ed-5a964db804d1. Transform: {\"operation\": \"identity_decimal\", \"scale_applied\": false}",
           "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
         },
         {
-          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
-          "label": "filing inventory",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
-        },
-        {
+          "accession": "0001876042-26-000062",
           "capturedAt": "2026-09-21 17:07:36.472331+00:00",
-          "label": "reviewed coverage",
+          "label": "Original 10-K \u00b7 precision cross-check",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "transform": "Inline XBRL extraction (c-1, USD, scale 3, decimals -3) \u2192 separate value/precision cross-check. Company Facts precision remains unknown.",
           "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
         },
         {
-          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
-          "label": "amendment review",
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "Submissions \u00b7 filing metadata",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
-          "label": "quarterly review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+          "transform": "SEC inventory parsing \u2192 original filing accession, form, filed/report dates and acceptance metadata; supplies no numeric value.",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
         }
       ],
       "subtitle": "CRCL \u00b7 FY2025 \u00b7 Earliest available",
       "title": "Operating income (loss)"
     },
     "original:revenue": {
+      "reviewContext": [
+        {
+          "accession": "0001876042-26-000228",
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "10-K/A \u00b7 amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Explanatory-note review of separate Circle Reserve Fund statements; no financial restatement edge or selected FY2025 amount.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "accession": "0001876042-26-000248",
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "10-Q \u00b7 separate-period review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Separate-period review only; contributes no selected FY2025 value.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
       "sections": [
         {
           "heading": "Point-in-time selection",
@@ -1012,44 +873,71 @@
       "sources": [
         {
           "capturedAt": "2026-09-21 17:07:35.819182+00:00",
-          "label": "financial facts",
+          "label": "Company Facts \u00b7 selected observation",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "transform": "Source token at /facts/us-gaap/Revenues/units/USD/13 \u2192 reviewed S3 mapping \u2192 PIT selection; observation 19b4020e-e673-5c98-bbe1-1a6a4216eb6d. Transform: {\"operation\": \"identity_decimal\", \"scale_applied\": false}",
           "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
         },
         {
-          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
-          "label": "filing inventory",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
-        },
-        {
+          "accession": "0001876042-26-000062",
           "capturedAt": "2026-09-21 17:07:36.472331+00:00",
-          "label": "reviewed coverage",
+          "label": "Original 10-K \u00b7 precision cross-check",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
+          "transform": "Inline XBRL extraction (c-1, USD, scale 3, decimals -3) \u2192 separate value/precision cross-check. Company Facts precision remains unknown.",
           "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
         },
         {
-          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
-          "label": "amendment review",
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "Submissions \u00b7 filing metadata",
           "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
-          "label": "quarterly review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+          "transform": "SEC inventory parsing \u2192 original filing accession, form, filed/report dates and acceptance metadata; supplies no numeric value.",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
         }
       ],
       "subtitle": "CRCL \u00b7 FY2025 \u00b7 Earliest available",
       "title": "Revenue and reserve income"
     },
     "publication": {
+      "reviewContext": [
+        {
+          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
+          "label": "Company Facts \u00b7 retained capture",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Retained Company Facts body for review; no value selected in this detail.",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "Original 10-K \u00b7 retained cross-check evidence",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Original Inline XBRL evidence retained for a separate precision cross-check.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "Submissions \u00b7 filing metadata",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "SEC inventory parsing \u2192 filing identities, dates and acceptance metadata; supplies no numeric value.",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "accession": "0001876042-26-000228",
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "10-K/A \u00b7 amendment review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Explanatory-note review of separate Circle Reserve Fund statements; no financial restatement edge or selected FY2025 amount.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        },
+        {
+          "accession": "0001876042-26-000248",
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "10-Q \u00b7 separate-period review",
+          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
+          "transform": "Separate-period review only; contributes no selected FY2025 value.",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
       "sections": [
         {
           "heading": "Publication",
@@ -1267,43 +1155,7 @@
           ]
         }
       ],
-      "sources": [
-        {
-          "capturedAt": "2026-09-21 17:07:35.819182+00:00",
-          "label": "financial facts",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
-          "label": "filing inventory",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
-          "label": "reviewed coverage",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
-          "label": "amendment review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
-        },
-        {
-          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
-          "label": "quarterly review",
-          "licence": "SEC public filings \u00b7 local analysis under the retained source policy",
-          "transform": "Archived bytes \u2192 reviewed S3 mapping \u2192 PIT selection",
-          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
-        }
-      ],
+      "sources": [],
       "subtitle": "Real application \u00b7 D5a",
       "title": "Publication and retained evidence"
     }

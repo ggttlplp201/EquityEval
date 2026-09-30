@@ -90,3 +90,35 @@ D5a stops before real S5/S6 analysis publication. Source/event-history review,
 applicability/accounting coverage and downstream prerequisites remain explicit.
 No provider activation, quote-currency inference, live prices, scheduler service,
 new schema/migration, source refresh, ratios, valuation or sector result.
+
+
+## Corrective checkpoint — source roles, historical evidence and mapping approval
+
+The coordinator authorized moving the annotated D5a tag from initial implementation
+`8ad2fbf659416315bafbcab94d201a65ca62136c` only after these corrections pass all gates.
+The original tag object was `ca9159c4b742f855e38696c9ffe142b93f204960`; the original
+implementation remains in branch history. No other recovery ref may move.
+
+Observed-fact drawers now identify the selected Company Facts observation, original
+10-K precision cross-check and Submissions metadata with distinct transforms.
+Amendment/Q2 material is separate non-PIT review context. Before-filing drawers
+show only the unavailable selection, with no future literals, scales, contexts,
+source links or review material. Mapping replay and standalone verify validate
+`approved_by` and `reviewed_scope` alongside all existing mapping identity fields.
+
+The original publication audit/hash, batch, source rows and numeric results are
+unchanged. [Corrected provenance audit](../research/crcl-normalization-provenance-2026-09-30.json)
+binds the generated presentation to truthful source-chain/context capture groups.
+Red-first logs: `var/d5a-provenance-red.log` (3 expected failures),
+`var/d5a-remaining-red.log` (5 expected failures). Focused: 40 passing tests in
+`var/d5a-correction-focused.log`; read-only application check passes in
+`var/d5a-correction-application-check.log`. Both correction reviews are clear.
+Corrected production build and all **44 browser checks** pass, including negative
+assertions for both before-filing facts at 320/390/768/1440, source-chain membership,
+review-context separation, GET-only operation, keyboard/focus and artifact recovery.
+Log: `var/d5a-correction-browser.log`; screenshots: `var/d5a-correction-browser`.
+The corrected checkpoint is gated by the mandatory hook in
+`var/d5a-correction-commit-checks.log`: **1,709 full / 505 core / 110 golden** Python
+tests, **28 Node** tests, Ruff/policy/generated artifacts, mypy/TypeScript and ESLint.
+The annotated tag moves only after that hook succeeds. The original application
+audit and all other prior recovery refs remain unchanged; the tree is left clean.

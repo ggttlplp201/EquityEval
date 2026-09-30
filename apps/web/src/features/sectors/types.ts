@@ -2,11 +2,15 @@
  * Financial arithmetic and eligibility are computed by equity_core in Python.
  * Coordinates and labels are supplied by the offline presentation exporter.
  */
+export interface EvidenceSource {
+  label: string; url?: string; accession?: string; capturedAt: string; transform: string; licence: string;
+}
 export interface EvidenceDetail {
   title: string;
   subtitle: string;
   sections: { heading: string; rows: { label: string; value: string }[] }[];
-  sources: { label: string; url?: string; accession?: string; capturedAt: string; transform: string; licence: string }[];
+  sources: EvidenceSource[];
+  reviewContext?: EvidenceSource[];
 }
 export interface CatalogEntry { id: string; label: string; definition: string; unit?: string }
 export interface Sector { id: string; label: string; color: string; parentId?: string }

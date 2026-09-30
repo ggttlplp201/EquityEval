@@ -25,6 +25,8 @@ from scripts.review_crcl_identity import read_audit, verify_database_evidence
 INPUT_HASH = "7970f9dc775f50f0c136ce66234e1a5478cd682fce75517ae24f222458caff47"
 OUTPUT_HASH = "1971a99bc729858fc3d60c703834d7d3444b8c0a2ad38f6f2f902730c2e445f5"
 REVISION = "d5a-crcl-fy2025-two-concepts-v1"
+APPROVED_BY = "D039 / reviewed D5a proposal"
+REVIEWED_SCOPE = REVIEW + " — two CRCL FY2025 consolidated income concepts only"
 ALLOWED_ADDITIONS = frozenset(
     {
         "mapping_revisions",
@@ -89,22 +91,30 @@ def register_mapping(db: Database, bundle: NormalizationBundle) -> dict[str, Any
                     REVISION,
                     content_hash(bundle.inputs.rules),
                     bundle.inputs.normalizer_revision,
-                    "D039 / reviewed D5a proposal",
-                    REVIEW + " — two CRCL FY2025 consolidated income concepts only",
+                    APPROVED_BY,
+                    REVIEWED_SCOPE,
                 ),
             )
             row = db.execute(
                 "SELECT * FROM mapping_revisions WHERE id=%s", (bundle.inputs.mapping_revision_id,)
             ).fetchall()
-        if (
-            len(row) != 1
-            or row[0]["id"] != bundle.inputs.mapping_revision_id
-            or row[0]["revision_key"] != REVISION
-            or row[0]["content_sha256"] != content_hash(bundle.inputs.rules)
-            or row[0]["code_revision"] != bundle.inputs.normalizer_revision
-        ):
-            raise ValueError("Existing owner mapping differs from the reviewed D5a mapping")
+        if len(row) != 1:
+            raise ValueError("Expected one owner-reviewed D5a mapping")
+        validate_mapping(row[0], bundle)
         return dict(row[0])
+
+
+def validate_mapping(row: dict[str, Any], bundle: NormalizationBundle) -> None:
+    expected = {
+        "id": bundle.inputs.mapping_revision_id,
+        "revision_key": REVISION,
+        "content_sha256": content_hash(bundle.inputs.rules),
+        "code_revision": bundle.inputs.normalizer_revision,
+        "approved_by": APPROVED_BY,
+        "reviewed_scope": REVIEWED_SCOPE,
+    }
+    if any(row.get(key) != value for key, value in expected.items()):
+        raise ValueError("Existing owner mapping differs from the reviewed D5a mapping")
 
 
 def readback(db: Database, bundle: NormalizationBundle, batch_id: UUID) -> dict[str, Any]:
@@ -250,6 +260,7 @@ def application(action: str) -> dict[str, Any]:
                 "SELECT * FROM mapping_revisions WHERE id=%s", (bundle.inputs.mapping_revision_id,)
             ).fetchone()
             mapping = dict(mapping_row) if mapping_row else {}
+            validate_mapping(mapping, bundle)
             report.update(
                 batch=dict(rows[0]),
                 mapping=mapping,

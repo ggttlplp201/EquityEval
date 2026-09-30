@@ -7,12 +7,19 @@ normalization → Inspect normalized financials**. The direct local route is
 The saved FY2025 view contains reported revenue and reserve income of
 $2,746,642,000 and operating income (loss) of −$96,435,000, in USD. Select an amount
 to see its exact value, accession, filed date, retrieval cutoff, original source
-token and transform. Escape closes the source drawer and restores keyboard focus.
+token and transform. Its Source chain distinguishes the selected Company Facts
+observation, the original 10-K's independent precision cross-check and Submissions
+filing metadata. Only Company Facts supplies the mapped numeric observation.
+The amendment and quarterly filing appear separately under **Review context
+(not PIT-selected)**, with their own review roles. Escape closes the source drawer and restores keyboard focus.
 
 **History selection** controls which filed-date evidence can be selected:
 
 - **Filed by Mar 9, 2026:** includes the original annual filing.
-- **Filed by Mar 8, 2026:** displays N/A for both figures.
+- **Filed by Mar 8, 2026:** displays N/A for both figures. Their drawers contain
+  only the unavailable selection, with no later literals, scales, contexts or
+  filing links. Later material is available separately through **Publication &
+  source records**, explicitly as non-PIT review context.
 - **Earliest available:** selects the earliest eligible retained original. This
   does not claim the financial or event history is complete.
 
@@ -52,7 +59,8 @@ Run from the canonical CloudDocs project with its existing Python launcher:
 .venv/bin/python scripts/project_python.py -m scripts.export_crcl_normalization --check --verify-application
 ```
 
-Preflight and verify are read-only. `publish` is the explicit D039-approved bounded
+Preflight and verify are read-only. Replay and standalone verify both require the
+exact reviewed mapping ID, revision, rule hash, code revision, approver and scope. `publish` is the explicit D039-approved bounded
 write command; the first run registers the reviewed mapping and publishes the
 batch, and subsequent identical runs reuse it. Mapping approval is a separate
 transaction from publication. A failed command does not prove rollback of a batch

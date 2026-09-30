@@ -109,3 +109,8 @@ flags. Exact replay reuses the batch; historical and original read-back are chec
 The application stays on migration 0010. No real S5/S6 analysis, price-dependent
 ratios, valuations or sector results were published. Complete source/event coverage
 and the existing downstream review gates remain the next prerequisites.
+
+D5a's corrective checkpoint separates selected numeric/precision/metadata sources
+from non-PIT filing review context, removes later precision/literals from the
+before-filing view and validates mapping approver/scope during replay and standalone
+verification. Its publication batch and original audit remain unchanged.

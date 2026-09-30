@@ -11,6 +11,10 @@ def test_exact_checked_projection_is_reproducible_and_keeps_history_separate():
     files = export.generated()
     assert files == export.generated()
     view = json.loads(files[export.OUTPUT])
+    provenance = json.loads(files[export.PROVENANCE_AUDIT])
+    assert len(provenance["details"]["as_filed:revenue"]["source_chain_capture_ids"]) == 3
+    assert provenance["details"]["before_filing:revenue"]["source_chain_capture_ids"] == []
+    assert "value_source_capture_ids" not in files[export.PROVENANCE_AUDIT]
     assert (view["factCount"], view["captureCount"], view["flagCount"]) == (2, 5, 2)
     assert [row["value"] for row in view["views"]["as_filed"]["facts"]] == [
         "2746642000",
@@ -44,3 +48,51 @@ def test_failed_publication_is_not_presented_as_completed(key, value):
     audit[key] = value
     with pytest.raises(ValueError):
         export.project(audit)
+
+
+@pytest.mark.parametrize("mode", ["as_filed", "original"])
+def test_value_provenance_excludes_amendment_and_quarter(mode):
+    view = json.loads(export.generated()[export.OUTPUT])
+    for fact in view["views"][mode]["facts"]:
+        detail = view["details"][fact["detailId"]]
+        assert len(detail["sources"]) == 3
+        assert [item["label"] for item in detail["sources"]] == [
+            "Company Facts · selected observation",
+            "Original 10-K · precision cross-check",
+            "Submissions · filing metadata",
+        ]
+        assert len({item["transform"] for item in detail["sources"]}) == 3
+        assert "reviewed S3 mapping → PIT selection" in detail["sources"][0]["transform"]
+        assert all("reviewed S3 mapping" not in item["transform"] for item in detail["sources"][1:])
+        assert [item["accession"] for item in detail["reviewContext"]] == [
+            "0001876042-26-000228",
+            "0001876042-26-000248",
+        ]
+        assert not {item["url"] for item in detail["sources"]} & {
+            item["url"] for item in detail["reviewContext"]
+        }
+        assert all("PIT selection" not in item["transform"] for item in detail["reviewContext"])
+
+
+def test_missing_selection_and_batch_details_do_not_claim_selected_value_provenance():
+    view = json.loads(export.generated()[export.OUTPUT])
+    for key in ("publication", "eligibility"):
+        assert view["details"][key]["sources"] == []
+        assert len(view["details"][key]["reviewContext"]) == 5
+    for fact in view["views"]["before_filing"]["facts"]:
+        detail = view["details"][fact["detailId"]]
+        assert detail["sources"] == []
+        assert detail["reviewContext"] == []
+        text = json.dumps(detail)
+        for future in (
+            "2,746,642",
+            "96,435",
+            "2746642000",
+            "96435000",
+            "Original literal",
+            "Scale",
+            "Decimals",
+            "c-1",
+            "crcl-20251231.htm",
+        ):
+            assert future not in text

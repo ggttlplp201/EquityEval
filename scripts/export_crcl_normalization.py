@@ -17,6 +17,7 @@ AUDIT = "docs/research/crcl-normalization-2026-09-30.json"
 AUDIT_SHA = "db58bf64ca5a84501e02417af563e931074beaa6574fdef51a3a47c2fc4917db"
 OUTPUT = "apps/web/src/features/normalization/snapshot.json"
 MANIFEST = "apps/web/src/features/normalization/manifest.ts"
+PROVENANCE_AUDIT = "docs/research/crcl-normalization-provenance-2026-09-30.json"
 LABELS = {"revenue": "Revenue and reserve income", "operating_income": "Operating income (loss)"}
 
 
@@ -28,6 +29,93 @@ def section(title: str, rows: dict[str, Any]) -> dict[str, Any]:
             for key, value in rows.items()
         ],
     }
+
+
+def review_context(captures: dict[str, Any]) -> list[dict[str, Any]]:
+    roles = {
+        "financial_facts": (
+            "Company Facts · retained capture",
+            "Retained Company Facts body for review; no value selected in this detail.",
+        ),
+        "reviewed_coverage": (
+            "Original 10-K · retained cross-check evidence",
+            "Original Inline XBRL evidence retained for a separate precision cross-check.",
+        ),
+        "filing_inventory": (
+            "Submissions · filing metadata",
+            "SEC inventory parsing → filing identities, dates and acceptance metadata; "
+            "supplies no numeric value.",
+        ),
+        "amendment_review": (
+            "10-K/A · amendment review",
+            "Explanatory-note review of separate Circle Reserve Fund statements; "
+            "no financial restatement edge or selected FY2025 amount.",
+        ),
+        "quarterly_review": (
+            "10-Q · separate-period review",
+            "Separate-period review only; contributes no selected FY2025 value.",
+        ),
+    }
+    if set(captures) != set(roles):
+        raise ValueError("Expected exactly the five reviewed source roles")
+    result = []
+    for role, (label, transform) in roles.items():
+        capture = captures[role]
+        item = {
+            "label": label,
+            "url": capture["request_url"],
+            "capturedAt": capture["completed_at"],
+            "transform": transform,
+            "licence": "SEC public filings · local analysis under the retained source policy",
+        }
+        if capture["source_object_key"].startswith("filing_document/"):
+            item["accession"] = capture["source_object_key"].split("/")[2]
+        result.append(item)
+    return result
+
+
+def fact_provenance(
+    captures: dict[str, Any],
+    fact: dict[str, Any],
+    proof: dict[str, Any],
+    context: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    if fact["value"] is None:
+        return [], []
+    observation = proof["companyfacts_observation"]
+    financial = captures["financial_facts"]
+    if (
+        fact["status"] != "observed"
+        or fact["capture_ids"] != [financial["id"]]
+        or fact["source_hashes"] != [financial["body_sha256"]]
+        or fact["observation_ids"] != [observation["id"]]
+        or observation["source_capture_id"] != financial["id"]
+        or fact["source_locator"] != observation["source_locator"]
+        or proof["capture_id"] != captures["reviewed_coverage"]["id"]
+    ):
+        raise ValueError("Selected fact does not bind its claimed value/precision sources")
+    sources = [dict(item) for item in context[:3]]
+    sources[0].update(
+        label="Company Facts · selected observation",
+        transform=(
+            f"Source token at {fact['source_locator']} → reviewed S3 mapping → PIT selection; "
+            f"observation {observation['id']}. Transform: {fact['transform_json']}"
+        ),
+    )
+    precision = proof["fact"]
+    sources[1].update(
+        label="Original 10-K · precision cross-check",
+        transform=(
+            f"Inline XBRL extraction ({precision['context_id']}, USD, "
+            f"scale {precision['scale']}, decimals {precision['decimals']}) → separate "
+            "value/precision cross-check. Company Facts precision remains unknown."
+        ),
+    )
+    sources[2]["transform"] = (
+        "SEC inventory parsing → original filing accession, form, filed/report dates and "
+        "acceptance metadata; supplies no numeric value."
+    )
+    return sources, context[3:]
 
 
 def project(audit: dict[str, Any]) -> dict[str, Any]:
@@ -42,16 +130,8 @@ def project(audit: dict[str, Any]) -> dict[str, Any]:
     ):
         raise ValueError("A verified D5a publication audit is required")
     inputs = audit["inputs"]
-    sources = [
-        {
-            "label": capture["role"].replace("_", " "),
-            "url": capture["request_url"],
-            "capturedAt": capture["completed_at"],
-            "transform": "Archived bytes → reviewed S3 mapping → PIT selection",
-            "licence": "SEC public filings · local analysis under the retained source policy",
-        }
-        for capture in inputs["captures"]
-    ]
+    captures = {capture["role"]: capture for capture in inputs["captures"]}
+    context = review_context(captures)
     details = {}
     details["publication"] = {
         "title": "Publication and retained evidence",
@@ -96,7 +176,8 @@ def project(audit: dict[str, Any]) -> dict[str, Any]:
                 },
             ),
         ],
-        "sources": sources,
+        "sources": [],
+        "reviewContext": context,
     }
     details["eligibility"] = {
         "title": "Calculation eligibility",
@@ -123,7 +204,8 @@ def project(audit: dict[str, Any]) -> dict[str, Any]:
                 },
             ),
         ],
-        "sources": sources,
+        "sources": [],
+        "reviewContext": context,
     }
     views = {}
     for key, label in (
@@ -137,6 +219,7 @@ def project(audit: dict[str, Any]) -> dict[str, Any]:
             concept = fact["concept"]
             proof = audit["source_precision"][concept]
             detail_id = key + ":" + concept
+            sources, fact_context = fact_provenance(captures, fact, proof, context)
             facts.append(
                 {
                     "id": concept,
@@ -169,27 +252,36 @@ def project(audit: dict[str, Any]) -> dict[str, Any]:
                             "Transform": fact["transform_json"],
                         },
                     ),
-                    section(
-                        "Separate original-filing precision evidence",
-                        {
-                            "Original literal": proof["fact"]["lexical_text"],
-                            "Scale": proof["fact"]["scale"],
-                            "Decimals": proof["fact"]["decimals"],
-                            "Sign": proof["fact"]["sign"] or "positive",
-                            "Context": proof["fact"]["context_id"],
-                            "Period start": proof["context"]["start_date"],
-                            "Period end": proof["context"]["end_date"],
-                            "Unit": "USD",
-                            "Filing locators": "\n".join(proof["candidate_locators"]),
-                            "Source capture ID": proof["capture_id"],
-                            "Whole-document extraction issues": proof["extractor_issue_count"],
-                            "Company Facts context/precision": (
-                                "Unknown; filing evidence remains separate"
-                            ),
-                        },
+                    *(
+                        [
+                            section(
+                                "Separate original-filing precision evidence",
+                                {
+                                    "Original literal": proof["fact"]["lexical_text"],
+                                    "Scale": proof["fact"]["scale"],
+                                    "Decimals": proof["fact"]["decimals"],
+                                    "Sign": proof["fact"]["sign"] or "positive",
+                                    "Context": proof["fact"]["context_id"],
+                                    "Period start": proof["context"]["start_date"],
+                                    "Period end": proof["context"]["end_date"],
+                                    "Unit": "USD",
+                                    "Filing locators": "\n".join(proof["candidate_locators"]),
+                                    "Source capture ID": proof["capture_id"],
+                                    "Whole-document extraction issues": proof[
+                                        "extractor_issue_count"
+                                    ],
+                                    "Company Facts context/precision": (
+                                        "Unknown; filing evidence remains separate"
+                                    ),
+                                },
+                            )
+                        ]
+                        if sources
+                        else []
                     ),
                 ],
                 "sources": sources,
+                "reviewContext": fact_context,
             }
         views[key] = {"label": label, "facts": facts}
     return {
@@ -210,10 +302,32 @@ def generated(root: Path = ROOT) -> dict[str, str]:
     raw = (root / AUDIT).read_bytes()
     if hashlib.sha256(raw).hexdigest() != AUDIT_SHA:
         raise ValueError("D5a audit changed; new review required")
-    snapshot = json.dumps(project(json.loads(raw)), indent=2, sort_keys=True) + "\n"
+    audit = json.loads(raw)
+    presentation = project(audit)
+    snapshot = json.dumps(presentation, indent=2, sort_keys=True) + "\n"
     checksum = hashlib.sha256(snapshot.encode()).hexdigest()
+    capture_ids = {capture["request_url"]: capture["id"] for capture in audit["inputs"]["captures"]}
+    provenance = {
+        "publication_audit_sha256": AUDIT_SHA,
+        "snapshot_sha256": checksum,
+        "batch_id": audit["batch"]["id"],
+        "input_hash": INPUT_HASH,
+        "output_hash": OUTPUT_HASH,
+        "details": {
+            key: {
+                "source_chain_capture_ids": [
+                    capture_ids[item["url"]] for item in detail["sources"]
+                ],
+                "review_context_capture_ids": [
+                    capture_ids[item["url"]] for item in detail["reviewContext"]
+                ],
+            }
+            for key, detail in presentation["details"].items()
+        },
+    }
     return {
         OUTPUT: snapshot,
+        PROVENANCE_AUDIT: json.dumps(provenance, indent=2, sort_keys=True) + "\n",
         MANIFEST: (
             "// Generated by scripts.export_crcl_normalization.\n"
             f'export const snapshotSha256 = "{checksum}";\n'

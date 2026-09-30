@@ -45,3 +45,11 @@ from original-filing scale/decimals and do not turn a 10-K/A into a restatement 
 
 Before further work, inspect the milestone status and verify the recovery tag
 resolves to its tested implementation. Keep earlier refs and artifacts immutable.
+
+
+Coordinator correction: the D5a tag is explicitly authorized to move to the verified
+corrective commit. Preserve the initial `8ad2fbf` commit in history. Corrected source
+chains distinguish numeric observations, independent precision and filing metadata
+from non-PIT review context. Before-filing details must never expose later literals
+or precision. Mapping approver and scope are mandatory for replay and standalone
+verify. See the milestone's corrective section and separate provenance audit.

@@ -136,9 +136,8 @@ def test_concurrent_replay_publishes_once(prepared, db_admin, test_database_dsn)
     assert content_hash(rows_snapshot(db_admin))
 
 
-def test_full_application_orchestration_with_disposable_runtime(
-    prepared, db_admin, test_database_dsn, monkeypatch
-):
+@pytest.fixture
+def application_runtime(prepared, test_database_dsn, monkeypatch):
     from types import SimpleNamespace
 
     from sqlalchemy.engine import make_url
@@ -162,6 +161,11 @@ def test_full_application_orchestration_with_disposable_runtime(
         "owner_connection",
         lambda *_: psycopg.connect(test_database_dsn, autocommit=True, row_factory=dict_row),
     )
+    return app
+
+
+def test_full_application_orchestration_with_disposable_runtime(application_runtime):
+    app = application_runtime
     report = app.application("publish")
     assert report["exact_replay_verified"]
     assert report["prior_rows_preserved"]
@@ -169,3 +173,32 @@ def test_full_application_orchestration_with_disposable_runtime(
     assert verified["before"] == verified["after"]
     assert verified["selections"] == report["selections"]
     assert verified["batch"] == report["batch"]
+
+
+@pytest.mark.parametrize("field", ["approved_by", "reviewed_scope"])
+@pytest.mark.parametrize("action", ["publish", "verify"])
+def test_mapping_approval_identity_is_required_for_replay_and_verify(
+    prepared, db_admin, db, application_runtime, field, action
+):
+    from datetime import UTC, datetime
+
+    from scripts.normalize_crcl import REVIEW
+    from scripts.publish_crcl_normalization import REVISION
+
+    values = dict(
+        id=prepared.inputs.mapping_revision_id,
+        revision_key=REVISION,
+        content_sha256=content_hash(prepared.inputs.rules),
+        code_revision=prepared.inputs.normalizer_revision,
+        approved_at=datetime.now(UTC),
+        approved_by="D039 / reviewed D5a proposal",
+        reviewed_scope=REVIEW + " — two CRCL FY2025 consolidated income concepts only",
+    )
+    values[field] = "Unreviewed altered approval"
+    insert(db_admin, "mapping_revisions", **values)
+    if action == "verify":
+        publish_bundle(db, prepared)
+    before = rows_snapshot(db_admin)
+    with pytest.raises(ValueError, match="mapping"):
+        application_runtime.application(action)
+    assert rows_snapshot(db_admin) == before
