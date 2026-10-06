@@ -77,3 +77,10 @@ Reuse existing archived-replay publication and PIT contracts without quote,
 provider, schema/API or real S5/S6 result changes. If prerequisites fail, deliver
 honest verified readiness instead. Authorization is the coordinator's explicit
 continuation request; this is not an approval of broader financial publication.
+
+D040 — authorized bounded continuation (2026-10-05): [D5b](design/d5b/proposal.md)
+projects the checked D5a result into a read-only CRCL analysis-readiness view.
+It exposes exactly two normalized inputs, their retained blockers and zero real
+published metrics. It does not add database writes, sources, providers, quote
+identity, schema/API concepts, missingness semantics, finance formulas, or real
+S5/S6 publication. The owner's explicit `continue` authorizes this bounded slice.

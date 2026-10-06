@@ -114,3 +114,9 @@ D5a's corrective checkpoint separates selected numeric/precision/metadata source
 from non-PIT filing review context, removes later precision/literals from the
 before-filing view and validates mapping approver/scope during replay and standalone
 verification. Its publication batch and original audit remain unchanged.
+
+D5b is the next bounded step: a checked read-only readiness projection over the
+D5a artifacts. It distinguishes normalized source facts from S5-eligible inputs,
+shows the retained evidence gates and publishes no real metric. It introduces no
+application write, source acquisition, quote identity, schema/API or formula
+change; those remain prerequisites for real S5/S6 publication.
