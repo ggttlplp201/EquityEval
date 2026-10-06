@@ -41,7 +41,7 @@ test('D5a real normalization, exact evidence and recoverable read-only view',{ti
    assert.match(await page.locator('[data-normalized-concept="revenue"]').innerText(),/\$2,746,642,000/);
    assert.match(await page.locator('[data-normalized-concept="operating_income"]').innerText(),/\$-96,435,000/);
    await inspect(page.getByRole('button',{name:'Inspect Revenue and reserve income',exact:true}),['2746642000','0001876042-26-000062','2026-09-21','2,746,642','Decimals','-3','REAL APPLICATION / CRCL']);
-   await inspect(page.getByRole('button',{name:'View calculation status ↗'}),['inventory_history_incomplete','event_history_incomplete','False']);
+   await inspect(page.getByRole('button',{name:/Quality flags/}),['inventory_history_incomplete','event_history_incomplete','False']);
    await page.getByLabel('History selection').selectOption('before_filing');assert.equal(await page.locator('[data-normalized-concept] strong').allTextContents().then(x=>x.join('|')),'N/A|N/A');
    await inspect(page.getByRole('button',{name:'Inspect Revenue and reserve income',exact:true}),['coverage_unavailable','2026-03-08']);
    await inspect(page.getByRole('button',{name:'Inspect Operating income (loss)',exact:true}),['coverage_unavailable','2026-03-08']);

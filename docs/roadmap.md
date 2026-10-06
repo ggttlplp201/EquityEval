@@ -120,3 +120,9 @@ D5a artifacts. It distinguishes normalized source facts from S5-eligible inputs,
 shows the retained evidence gates and publishes no real metric. It introduces no
 application write, source acquisition, quote identity, schema/API or formula
 change; those remain prerequisites for real S5/S6 publication.
+
+D5b is complete with a deterministic fail-closed artifact and
+`/development/pilot/analysis`. Pipeline and normalization now lead to the same
+two-input, zero-metric decision. The next proposal must define CRCL's reviewed
+business/metric profile and exact source/history coverage before any source
+expansion or real calculation publication.

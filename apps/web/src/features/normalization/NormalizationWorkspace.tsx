@@ -26,7 +26,7 @@ export default function NormalizationWorkspace({ data }: { data: NormalizationSn
       <section className={styles.facts} aria-label="Normalized annual figures" aria-live="polite">
         {view.facts.map((fact) => <article key={fact.id} data-normalized-concept={fact.id}><p className="eyebrow">CONSOLIDATED / USD</p><h2>{fact.label}</h2><button className={styles.amount} onClick={() => setDetail(fact.detailId)} aria-label={`Inspect ${fact.label}`}><strong>{fact.value === null ? "N/A" : `$${number(fact.value)}`}</strong><span aria-hidden="true">↗</span></button><p>{data.periodLabel} · {view.label}</p></article>)}
       </section>
-      <section className={styles.next} aria-label="Analysis"><div><h2>Financial analysis</h2><span>N/A</span></div><button onClick={() => setDetail("eligibility")}>View calculation status ↗</button></section>
+      <section className={styles.next} aria-label="Analysis"><div><h2>Financial analysis</h2><span>N/A</span></div><Link href="/development/pilot/analysis">Inspect analysis readiness ↗</Link></section>
       <footer className={styles.footer}><button onClick={() => setDetail("publication")}>Publication &amp; source records ↗</button><Link href="/help#real-normalization">User guide ↗</Link></footer>
     </main>
     <EvidenceDrawer detail={detail ? data.details[detail] : undefined} onClose={() => setDetail(null)} eyebrow="REAL APPLICATION / CRCL" />

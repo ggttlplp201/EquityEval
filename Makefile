@@ -38,7 +38,8 @@ lint:
 	$(VENV_PY) -m scripts.export_financials --check
 	$(VENV_PY) -m scripts.export_company_overview --check
 	$(VENV_PY) -m scripts.export_crcl_normalization --check
-	node --test tests/web/valuation.test.cjs tests/web/fundamentals.test.cjs tests/web/financials.test.cjs tests/web/company.test.cjs tests/web/normalization.test.cjs tests/web/sectors.test.cjs
+	$(VENV_PY) -m scripts.export_crcl_analysis_readiness --check
+	node --test tests/web/valuation.test.cjs tests/web/fundamentals.test.cjs tests/web/financials.test.cjs tests/web/company.test.cjs tests/web/normalization.test.cjs tests/web/analysis-readiness.test.cjs tests/web/sectors.test.cjs
 	npm run lint
 
 typecheck:

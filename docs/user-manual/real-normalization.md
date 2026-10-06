@@ -42,9 +42,32 @@ or precision, so those fields remain unknown in that observation; the original
 filing's evidence is shown separately. Whole-document extraction has unresolved
 items; these two checked facts do not imply complete statement extraction.
 
-**Quality flags** record unresolved conditions. Use **View calculation status**
-to inspect the retained inventory and event-history flags. They prevent valuation
-eligibility. Financial analysis, prices, ratios and fair value stay N/A here.
+**Quality flags** record unresolved conditions. Use **Quality flags** for the
+source rows or **Inspect analysis readiness** for the downstream gate view. The
+retained inventory and event-history flags prevent valuation eligibility.
+Financial analysis, prices, ratios and fair value stay N/A here.
+
+## Read analysis readiness
+
+Open **Financial normalization → Inspect analysis readiness**, or use
+`/development/pilot/analysis`. The page keeps three ideas separate:
+
+- **Normalized inputs:** the two exact source amounts passed D5a normalization.
+- **Analysis values:** both remain unavailable because the reviewed point-in-time
+  selections retain blocking quality flags.
+- **Published metrics:** zero. Operating margin shows its intended formula and
+  N/A, with an explicit statement that no ratio was calculated.
+
+Expand the five publication gates to inspect the remaining history,
+business/metric applicability, accounting coverage, quote identity and real
+fundamentals-publication work. A blocked gate describes missing evidence or an
+unfinished contract. It is not a positive or negative judgment about the stock.
+
+The page reads a hash-checked artifact derived from D5a. It does not query the
+application database, fetch a source, update a watchlist or calculate finance in
+the browser. The two source amounts are abbreviated for display. Select either
+amount to inspect its exact decimal string, accession, retrieval date, transform
+and three-link source chain.
 
 If the saved artifact fails verification, the page shows N/A and a Retry button.
 Retry reloads the local saved page; it neither acquires data nor publishes a batch.
@@ -57,6 +80,7 @@ Run from the canonical CloudDocs project with its existing Python launcher:
 .venv/bin/python scripts/project_python.py -m scripts.publish_crcl_normalization preflight
 .venv/bin/python scripts/project_python.py -m scripts.publish_crcl_normalization verify
 .venv/bin/python scripts/project_python.py -m scripts.export_crcl_normalization --check --verify-application
+.venv/bin/python scripts/project_python.py -m scripts.export_crcl_analysis_readiness --check
 ```
 
 Preflight and verify are read-only. Replay and standalone verify both require the

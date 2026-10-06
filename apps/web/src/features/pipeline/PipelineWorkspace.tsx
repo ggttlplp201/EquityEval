@@ -3,6 +3,7 @@
 import Link from "next/link";
 import type { NormalizationSnapshot } from "@/features/normalization/types";
 type NormalizationSummary = Pick<NormalizationSnapshot, "batchId" | "factCount" | "publishedAt">;
+interface ReadinessSummary { sourceInputCount: number; publishedMetricCount: number }
 import { useState } from "react";
 import FilingSchedulePanel from "./FilingSchedulePanel";
 import schedulerSnapshot from "./schedulerSnapshot";
@@ -29,7 +30,7 @@ function Evidence({ items, captures }: { items: PipelineEvidence[]; captures: Pi
   })}</ul>;
 }
 
-function StageContent({ selected, data, normalization }: { selected: PipelineStageId; data: PipelineSnapshot; normalization: NormalizationSummary }) {
+function StageContent({ selected, data, normalization, readiness }: { selected: PipelineStageId; data: PipelineSnapshot; normalization: NormalizationSummary; readiness: ReadinessSummary }) {
   if (selected === "plan") return <>
     <dl className={styles.facts}>
       <div><dt>Source scope</dt><dd>{data.plan.policy}</dd></div>
@@ -108,13 +109,13 @@ function StageContent({ selected, data, normalization }: { selected: PipelineSta
     <Link href="/development/pilot/normalization">Inspect normalized financials ↗</Link>
   </div>;
   return <div className={styles.unstarted}>
-    <h3>No financial-analysis result</h3>
-    <p>The three acquisition requests are bootstraps. The separate filing check discovers source changes only. Ordinary analysis has not started, and no financial result has been published from them.</p>
-    <p>Quote registration alone would not establish complete financial coverage, add a watchlist membership or publish an analysis. Those prerequisites remain separate.</p>
+    <h3>{readiness.sourceInputCount} normalized inputs · {readiness.publishedMetricCount} published metrics</h3>
+    <p>The real source amounts are retained, but incomplete financial and event history blocks them from analysis. No financial-analysis result has been calculated.</p>
+    <Link href="/development/pilot/analysis">Inspect analysis readiness ↗</Link>
   </div>;
 }
 
-export default function PipelineWorkspace({ data, normalization }: { data: PipelineSnapshot; normalization: NormalizationSummary }) {
+export default function PipelineWorkspace({ data, normalization, readiness }: { data: PipelineSnapshot; normalization: NormalizationSummary; readiness: ReadinessSummary }) {
   const [selected, setSelected] = useState<PipelineStageId>("registration");
   const stage = data.stages.find((item) => item.id === selected)!;
   return <WorkbenchShell active="pilot">
@@ -122,7 +123,7 @@ export default function PipelineWorkspace({ data, normalization }: { data: Pipel
       <Link href="/development/pilot?company=CRCL" className={styles.back}>← Archived company observations</Link>
       <header className={styles.intro}>
         <div><p className="eyebrow">REAL APPLICATION STATE / CRCL</p><h1>From source to analysis<span aria-hidden="true">.</span></h1><p>Inspect source collection, filing discovery and the evidence still needed for analysis.</p></div>
-        <div className={styles.stamp}><strong>Saved checkpoints · {data.reviewedOn} → {normalization.publishedAt.slice(0, 10)}</strong><span>D3c acquisition / D3f search / D4a filing check / D4b schedule / D5a normalization</span><span>Read-only preview · not a live status service</span></div>
+        <div className={styles.stamp}><strong>Saved checkpoints · {data.reviewedOn} → {normalization.publishedAt.slice(0, 10)}</strong><span>D3c acquisition / D3f search / D4a filing check / D4b schedule / D5a normalization / D5b readiness</span><span>Read-only preview · not a live status service</span></div>
       </header>
       <section className={styles.boundary} aria-label="Application snapshot scope">
         <strong>Acquisition readiness is not financial-analysis readiness.</strong>
@@ -146,7 +147,7 @@ export default function PipelineWorkspace({ data, normalization }: { data: Pipel
         <section id="stage-panel" aria-labelledby="stage-title" tabIndex={0} className={styles.stagePanel}>
           <p className="sr-only" role="status">{stage.label}: {stage.statusLabel}</p>
           <header className={styles.stageHeader}><span className="eyebrow">STAGE {stage.number}</span><span className={styles.badge} data-state={stage.status}>{stage.statusLabel}</span><h2 id="stage-title">{stage.label}</h2><p>{stage.summary}</p></header>
-          <div key={selected}><StageContent selected={selected} data={data} normalization={normalization} /></div>
+          <div key={selected}><StageContent selected={selected} data={data} normalization={normalization} readiness={readiness} /></div>
         </section>
       </div>
       <aside className={styles.nextAction} aria-labelledby="next-action-title"><div><p className="eyebrow">NEXT STEP / BLOCKED</p><h2 id="next-action-title">Evidence before registration</h2></div><p>{data.blocker.nextAction}</p><p className={styles.note}>This preview does not fetch sources, retry requests or change registrations.</p></aside>

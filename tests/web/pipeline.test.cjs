@@ -58,7 +58,7 @@ test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, 
       assert.match(scope, /Acquisition readiness is not financial-analysis readiness/);
       assert.match(scope, /separate from the fictional company\/sector/);
       assert.match(await page.locator("#stage-panel").innerText(), /Quote currency needs source evidence/);
-      assert.equal(await page.locator("[data-amount-id], [data-metric-id], svg, canvas").count(), 0);
+      assert.equal(await page.locator("[data-amount-id], [data-metric-id], main svg, main canvas").count(), 0);
       await page.screenshot({ path: path.join(output, "desktop.png"), fullPage: true });
     });
     await t.test("official-source search explains unresolved meaning, dates and retention", async () => {
@@ -164,7 +164,8 @@ test("saved CRCL pipeline interactions and accessibility", { timeout: 120000 }, 
         assert.equal(await page.locator("#stage-title").innerText(), name);
         assert.match(await page.getByRole("status").innerText(), new RegExp(name));
       }
-      assert.match(await page.locator("#stage-panel").innerText(), /No financial-analysis result/);
+      assert.match(await page.locator("#stage-panel").innerText(), /2 normalized inputs · 0 published metrics/);
+      assert.match(await page.locator("#stage-panel").innerText(), /No financial-analysis result has been calculated/);
       await select("normalization");
       assert.match(await page.locator("#stage-panel").innerText(), /2 reviewed FY2025 facts published/);
     });

@@ -54,5 +54,5 @@ and distinguishes them from U1's pending real-data and alert workflow acceptance
 
 The [real CRCL normalization guide](real-normalization.md) covers the first genuine
 application batch, historical cutoff controls, exact source evidence, retained
-quality flags and read-only operator verification. The in-app counterpart is
-`/help#real-normalization`.
+quality flags, downstream analysis-readiness gates and read-only operator
+verification. The in-app counterpart is `/help#real-normalization`.
