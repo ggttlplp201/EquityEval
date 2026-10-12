@@ -92,3 +92,10 @@ preserve genuine retrieval cutoffs and all prior audits. Add deterministic safet
 evidence and read-only UI, never force eligibility. Real S6 publication and any
 shared-contract changes remain separate. Owner explicitly requested continuation
 and delegated data-safety implementation to Astra 6.
+
+D041 outcome: the bounded review retains 16 missing primary bodies through four
+existing governed groups and preserves every prior database row. The annual
+pair/amendment checks pass; eleven exhibits and reclassification scope remain
+unresolved. Historical September eligibility stays blocked, retrospective review
+stays incomplete, and two later events prevent any current-cutoff claim. Real
+S6 publication remains a separate gate. See [D5c](milestones/D5c-crcl-safety.md).

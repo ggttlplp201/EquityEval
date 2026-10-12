@@ -94,3 +94,22 @@ The command is pinned to D3c's five governed captures and two reviewed FY2025
 concepts. It does not fetch new files or expand to a different stock, period or
 mapping. Those require a new reviewed input set. The application remains on
 migration 0010; D5a does not publish a real S5/S6 analysis.
+
+## Safety review after normalization
+
+The analysis page now includes D5c's saved safety review. Expand a check and choose
+**Inspect evidence** for its exact source and limits. Filing coverage lists every
+scoped accession, capture time and body hash; outstanding exhibits and later
+filings are linked separately.
+
+**Historical application knowledge** asks what the app actually retained by the
+September cutoff. October retrievals cannot change that answer. **Retrospective
+content review** asks what later evidence establishes about the old annual pair.
+The pair and amendment wording pass bounded checks, but missing exhibits and
+reclassification scope prevent complete safety proof. A current assessment also
+requires the two later events and a new cutoff/batch.
+
+Operating margin stays N/A. The descriptive stablecoin-issuer profile does not
+turn reported margin into recurring cash profit or generic technology-sector
+comparability. Holder reserves are not corporate excess cash. No real S6 metric,
+price ratio or valuation was published. See the [D5c milestone](../milestones/D5c-crcl-safety.md).

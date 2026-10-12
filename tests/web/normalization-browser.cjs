@@ -10,7 +10,7 @@ const output=path.resolve(__dirname,'../../var/d5a-correction-browser');
 const snapshot=path.resolve(__dirname,'../../apps/web/src/features/normalization/snapshot.json');
 test('D5a real normalization, exact evidence and recoverable read-only view',{timeout:180000},async t=>{
  fs.mkdirSync(output,{recursive:true});
- const browser=await chromium.launch({headless:true});const page=await browser.newPage();
+ const browser=await chromium.launch({headless:true,executablePath:process.env.EQUITY_CHROMIUM_EXECUTABLE||undefined});const page=await browser.newPage();
  const requests=[],errors=[];page.on('request',r=>requests.push({url:r.url(),method:r.method()}));page.on('pageerror',e=>errors.push(String(e)));
  const ready=()=>page.locator('main[data-normalization-kind="real-crcl-normalization"]').waitFor();
  const inspect=async(button,expected)=>{

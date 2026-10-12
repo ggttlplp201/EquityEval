@@ -42,3 +42,36 @@ export interface AnalysisReadinessSnapshot {
     snapshotSha256: string;
   };
 }
+
+export interface SafetyReviewSnapshot {
+  kind: "real-crcl-safety-review";
+  reviewedOn: string;
+  period: string;
+  inventoryWindow: string;
+  historicalRetrievalCutoff: string;
+  historicalDecision: { status: "blocked"; explanation: string; reasonCodes: string[] };
+  retrospectiveDecision: { status: "incomplete"; explanation: string; reasonCodes: string[] };
+  operatingMargin: null;
+  publishedMetricCount: 0;
+  filings: {
+    accession: string; form: string; filedDate: string; acceptedAt: string;
+    reportPeriodEnd: string | null; items: string; url: string;
+    bodyStatus: "retained_at_cutoff" | "retrospective_only" | "missing";
+    availableAtHistoricalCutoff: boolean; captureId: string | null;
+    completedAt: string | null; bodySha256: string | null;
+    metadataCaptureId: string; metadataLocator: string;
+    eventReview: string; reviewSummary: string;
+  }[];
+  checks: { id: string; label: string; status: string; explanation: string; detailId: string }[];
+  details: Record<string, EvidenceDetail>;
+  profile: { business_model: string; revision: string; known_on: string; effective_on: string };
+  profileNotes: string[];
+  inventorySource: { url: string; capturedAt: string };
+  missingExhibits: { accession: string; label: string; url: string; status: string }[];
+  freshInventory: {
+    source: { url: string; capturedAt: string };
+    outsidePinnedWindow: { accession: string; form: string; filedDate: string; url: string }[];
+  };
+  acquisition: { status: string; note: string };
+  nextStep: string;
+}

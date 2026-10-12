@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import EvidenceDrawer from "@/components/EvidenceDrawer";
 import WorkbenchShell from "@/components/WorkbenchShell";
-import type { AnalysisReadinessSnapshot } from "./types";
+import SafetyReviewPanel from "./SafetyReviewPanel";
+import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot } from "./types";
 import styles from "./analysis-readiness.module.css";
 
 const statusLabels = {
@@ -13,7 +14,7 @@ const statusLabels = {
   not_implemented: "Not implemented",
 } as const;
 
-export default function AnalysisReadinessWorkspace({ data }: { data: AnalysisReadinessSnapshot }) {
+export default function AnalysisReadinessWorkspace({ data, safety }: { data: AnalysisReadinessSnapshot; safety: SafetyReviewSnapshot }) {
   const [detailId, setDetailId] = useState<string | null>(null);
   return <WorkbenchShell active="pilot">
     <main id="main-content" tabIndex={-1} className={styles.page} data-analysis-readiness-kind={data.kind}>
@@ -38,6 +39,8 @@ export default function AnalysisReadinessWorkspace({ data }: { data: AnalysisRea
         <h2 id="readiness-boundary-title">The source amounts exist. They are not analysis-ready.</h2>
         <p>Both selections retain incomplete-history blockers. EquityEval keeps their exact source values for review while withholding them from ratio calculations.</p>
       </section>
+
+      <SafetyReviewPanel data={safety} onInspect={(id) => setDetailId(`safety:${id}`)} />
 
       <section aria-labelledby="inputs-title">
         <div className={styles.sectionHeading}>
@@ -72,7 +75,7 @@ export default function AnalysisReadinessWorkspace({ data }: { data: AnalysisRea
 
       <section aria-labelledby="gates-title">
         <div className={styles.sectionHeading}>
-          <div><p className="eyebrow">PUBLICATION GATES</p><h2 id="gates-title">What must be resolved</h2></div>
+          <div><p className="eyebrow">ORIGINAL SAVED D5b GATES</p><h2 id="gates-title">Original publication decision</h2></div>
           <span>{data.gates.length} checks</span>
         </div>
         <div className={styles.gates}>
@@ -93,6 +96,6 @@ export default function AnalysisReadinessWorkspace({ data }: { data: AnalysisRea
         <div><Link href={data.source.normalizationHref}>Normalized financials ↗</Link><Link href="/help#real-normalization">User guide ↗</Link></div>
       </footer>
     </main>
-    <EvidenceDrawer detail={detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
+    <EvidenceDrawer detail={detailId?.startsWith("safety:") ? safety.details[detailId.slice(7)] : detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
   </WorkbenchShell>;
 }

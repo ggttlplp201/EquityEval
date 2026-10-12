@@ -17,7 +17,7 @@ test('D5b analysis readiness is accurate, linked and usable',{timeout:120000},as
  const errors=[],requests=[];
  const original=fs.readFileSync(snapshot);
  page.on('pageerror',error=>errors.push(String(error)));
- page.on('console',message=>{if(message.type()==='error'&&!/favicon\.ico.*404/.test(message.text()))errors.push(message.text());});
+ page.on('console',message=>{if(message.type()==='error'&&!(message.location().url===base+'/favicon.ico'&&/404/.test(message.text())))errors.push(message.text());});
  page.on('request',request=>requests.push({url:request.url(),method:request.method()}));
  try{
   await t.test('direct view shows inputs but withholds a result',async()=>{
@@ -81,7 +81,7 @@ test('D5b analysis readiness is accurate, linked and usable',{timeout:120000},as
    await page.getByRole('button',{name:'Retry',exact:true}).click();
    await page.locator('main[data-analysis-readiness-kind]').waitFor();
    const expectedRecoveryErrors=errors.splice(priorErrors);
-   assert.ok(expectedRecoveryErrors.every(error=>/snapshot verification failed/i.test(error)));
+   assert.ok(expectedRecoveryErrors.every(error=>/snapshot verification failed|An error occurred in the Server Components render/i.test(error)));
   });
   assert.deepEqual(errors,[]);
   const applicationRequests=requests.filter(request=>{

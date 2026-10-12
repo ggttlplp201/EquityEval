@@ -126,3 +126,11 @@ D5b is complete with a deterministic fail-closed artifact and
 two-input, zero-metric decision. The next proposal must define CRCL's reviewed
 business/metric profile and exact source/history coverage before any source
 expansion or real calculation publication.
+
+D5c extends that saved analysis view with a [bounded safety review](milestones/D5c-crcl-safety.md).
+All 19 scoped primary bodies are now retained; historical September knowledge
+still has only three. Retrospective annual-pair/amendment checks pass, but eleven
+exhibits and prior-period reclassification scope remain unresolved. Fresh October
+inventory identifies two later events requiring a new current-cutoff review.
+Next: bounded reconciliation/acquisition, new PIT batch, then dedicated real S6
+publication review. No numeric margin, quote, provider or shared-contract change.

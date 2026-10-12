@@ -1,0 +1,1118 @@
+{
+  "acquisition": {
+    "attemptedGroups": 4,
+    "note": "All sixteen missing primary bodies were retained in October. Historical September knowledge remains incomplete; event and exhibit content review is separate.",
+    "originalRowsPreserved": true,
+    "status": "captured_pending_review"
+  },
+  "acquisitionSha256": "b36f4fa5ac3182a6798f8e3c543dcecb4244ae2115f28766d0c798c1e025ca59",
+  "checks": [
+    {
+      "detailId": "pair",
+      "explanation": "D5a replay reproduces the exact input/output hashes. Both selected facts match the original consolidated annual context, USD, signed value, scale and decimals. Company Facts precision remains unknown; original-filing precision is separate evidence.",
+      "id": "pair",
+      "label": "Annual operand consistency",
+      "status": "passed"
+    },
+    {
+      "detailId": "amendment",
+      "explanation": "The explanatory note adds separate Circle Reserve Fund statements and expressly does not restate other annual disclosures. This checks that amendment only; it does not prove no other correction exists.",
+      "id": "amendment",
+      "label": "Annual amendment meaning",
+      "status": "passed"
+    },
+    {
+      "detailId": "inventory",
+      "explanation": "The retained Submissions document has no advertised older files. All scoped periodic, amendment, event and late-filing forms in the requested window are enumerated. Inventory metadata is not a substantive event review.",
+      "id": "inventory",
+      "label": "Advertised filing inventory",
+      "status": "passed"
+    },
+    {
+      "detailId": "history",
+      "explanation": "Only three scoped filing bodies were retained by the September retrieval cutoff. Later downloads cannot clear that historical gap, and the October profile was not known at that cutoff.",
+      "id": "history",
+      "label": "Historical application knowledge",
+      "status": "blocked"
+    },
+    {
+      "detailId": "events",
+      "explanation": "All scoped primary bodies are now retained, and event primary text was reviewed. Referenced exhibits and reconciliation of periodic reclassifications remain outstanding. No complete absence-of-restatement conclusion is made.",
+      "id": "events",
+      "label": "Retrospective financial/event review",
+      "status": "incomplete"
+    },
+    {
+      "detailId": "reclassifications",
+      "explanation": "Five periodic filings disclose immaterial prior-period reclassifications and unchanged total assets, total liabilities and net income. This does not explicitly establish unchanged revenue or operating income. Reconcile the affected lines and editions before clearing the selected operands; no actual change or restatement is inferred.",
+      "id": "reclassifications",
+      "label": "Prior-period reclassification scope",
+      "status": "blocked"
+    },
+    {
+      "detailId": "profile",
+      "explanation": "The reported margin is a descriptive issuer-level measure after distribution and operating costs. Reserve-income dependence, rates, circulation and IPO-related expense limit comparison with generic technology margins. It is not recurring cash profitability.",
+      "id": "profile",
+      "label": "CRCL operating-margin interpretation",
+      "status": "reviewed"
+    },
+    {
+      "detailId": "publication",
+      "explanation": "S6a is approved for synthetic publication only. Real typed source/policy/precision lineage, request/publication intent and contract review remain required. Quote identity affects price metrics, not this source-only margin.",
+      "id": "publication",
+      "label": "Real S6 publication",
+      "status": "blocked"
+    }
+  ],
+  "details": {
+    "amendment": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Conclusion",
+              "value": "The explanatory note adds separate Circle Reserve Fund statements and expressly does not restate other annual disclosures. This checks that amendment only; it does not prove no other correction exists."
+            },
+            {
+              "label": "amendment",
+              "value": "Except as described above, this Amendment does not amend, update, or restate any other information or disclosure included in the Original Form 10-K \u00b7 normalized XML itertext character offset 6037"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": "0001876042-26-000228",
+          "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 10419022aa21286368e02b193c224af7ad5e059f828ee60c436128c344f51325; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+        }
+      ],
+      "subtitle": "D5c saved safety review \u00b7 reviewed 2026-10-12",
+      "title": "Annual amendment meaning"
+    },
+    "events": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Conclusion",
+              "value": "All scoped primary bodies are now retained, and event primary text was reviewed. Referenced exhibits and reconciliation of periodic reclassifications remain outstanding. No complete absence-of-restatement conclusion is made."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": "0001876042-26-000159",
+          "capturedAt": "2026-10-12 22:28:13.740758+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 028e2042173f6eaefa4124774596cef1e07947d83f32d8e6558af811ae79be2b; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000159/crcl-20260514.htm"
+        },
+        {
+          "accession": "0001876042-26-000192",
+          "capturedAt": "2026-10-12 22:28:13.893017+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 5b7def0d2071319d3cd11ca179a3fe87dd45f5ddb2621f1a74f6acb436bb5de3; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000192/crcl-20260612.htm"
+        },
+        {
+          "accession": "0001876042-26-000205",
+          "capturedAt": "2026-10-12 22:28:14.130801+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 55955e8847f5ce24b17a11698687659d4a1f8dbfa2b8df2a065d4b967864b08d; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000205/crcl-20260629.htm"
+        },
+        {
+          "accession": "0001876042-26-000246",
+          "capturedAt": "2026-10-12 22:28:14.338050+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 3460cad4e36c79cfbb11fb1bf6dde5e23892b423818bff222e8040e739486251; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/crcl-20260805.htm"
+        },
+        {
+          "accession": "0001876042-26-000267",
+          "capturedAt": "2026-10-12 22:28:14.549669+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 3038d0c0a778ee0b4c01bc078d889ac7ca8e3642127fcf316ab9db8922c8e8f1; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000267/crcl-20260904.htm"
+        },
+        {
+          "accession": "0001876042-26-000032",
+          "capturedAt": "2026-10-12 22:28:15.920106+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 d6b6698a252741ebb29be5866f4e30d2483ad459a883016836881a34718da1e2; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000032/crcl-20260225.htm"
+        },
+        {
+          "accession": "0001876042-26-000078",
+          "capturedAt": "2026-10-12 22:28:16.400783+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 71efc5557c96bbdde592648b7a5261b13a29f01795931d590cfc7f298736596a; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000078/crcl-20260316.htm"
+        },
+        {
+          "accession": "0001876042-26-000148",
+          "capturedAt": "2026-10-12 22:28:16.612805+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 eefdca8c225c06d2f7ac234104057d26f27c4cbaf566d547960eff38aa0844bd; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000148/crcl-20260511.htm"
+        },
+        {
+          "accession": "0001628280-25-039749",
+          "capturedAt": "2026-10-12 22:28:17.761374+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 3fa617cbd967433cfa9c83c3a65037ec8b38e6c29a3cc61873f891c0c7de38ee; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000162828025039749/crcl-20250812.htm"
+        },
+        {
+          "accession": "0001876042-25-000004",
+          "capturedAt": "2026-10-12 22:28:18.268989+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 afbc109f14113a325b386daed3a73b4095bb83cc0e6939f1115c06fc91e5a5d8; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000004/cig-20250721.htm"
+        },
+        {
+          "accession": "0001876042-25-000014",
+          "capturedAt": "2026-10-12 22:28:18.484015+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 7a00c7ef32a517c39ce2701d9636406f5906bea35d721dc792196021312dcfa8; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000014/crcl-20250917.htm"
+        },
+        {
+          "accession": "0001876042-25-000045",
+          "capturedAt": "2026-10-12 22:28:18.710748+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 e5a4306691d69607932f65915de5dbc3b01cb420ba0636d448e72420733cf64a; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000045/crcl-20251112.htm"
+        },
+        {
+          "accession": "0000950103-25-007107",
+          "capturedAt": "2026-10-12 22:28:19.472718+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 8d86d8d3fd2e8088087dba9a83fa9e8cf2e513bdd7d3954c4d3d26d90c72c3b6; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000095010325007107/dp229888_8k.htm"
+        }
+      ],
+      "subtitle": "D5c saved safety review \u00b7 reviewed 2026-10-12",
+      "title": "Retrospective financial/event review"
+    },
+    "history": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Conclusion",
+              "value": "Only three scoped filing bodies were retained by the September retrieval cutoff. Later downloads cannot clear that historical gap, and the October profile was not known at that cutoff."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        }
+      ],
+      "subtitle": "D5c saved safety review \u00b7 reviewed 2026-10-12",
+      "title": "Historical application knowledge"
+    },
+    "inventory": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Conclusion",
+              "value": "The retained Submissions document has no advertised older files. All scoped periodic, amendment, event and late-filing forms in the requested window are enumerated. Inventory metadata is not a substantive event review."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        }
+      ],
+      "subtitle": "D5c saved safety review \u00b7 reviewed 2026-10-12",
+      "title": "Advertised filing inventory"
+    },
+    "pair": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Conclusion",
+              "value": "D5a replay reproduces the exact input/output hashes. Both selected facts match the original consolidated annual context, USD, signed value, scale and decimals. Company Facts precision remains unknown; original-filing precision is separate evidence."
+            },
+            {
+              "label": "reserve_income",
+              "value": "our revenue is primarily driven by reserve income earned on the assets backing such stablecoins \u00b7 normalized XML itertext character offset 41839"
+            },
+            {
+              "label": "distribution",
+              "value": "The Collaboration Agreement is accounted for as an executory contract and reflected in distribution and transaction costs in our Consolidated Statements of Operations. \u00b7 normalized XML itertext character offset 338140"
+            },
+            {
+              "label": "holder_reserves",
+              "value": "requirements to hold reserve assets for the benefit of stablecoin holders and prohibitions on lending, pledging, rehypothecating, or otherwise encumbering those reserves \u00b7 normalized XML itertext character offset 67740"
+            },
+            {
+              "label": "ipo_expense",
+              "value": "stock-based compensation related to vesting conditions met by our IPO \u00b7 normalized XML itertext character offset 307181"
+            },
+            {
+              "label": "D5a input hash",
+              "value": "7970f9dc775f50f0c136ce66234e1a5478cd682fce75517ae24f222458caff47"
+            },
+            {
+              "label": "D5a output hash",
+              "value": "1971a99bc729858fc3d60c703834d7d3444b8c0a2ad38f6f2f902730c2e445f5"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        }
+      ],
+      "subtitle": "D5c saved safety review \u00b7 reviewed 2026-10-12",
+      "title": "Annual operand consistency"
+    },
+    "profile": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Conclusion",
+              "value": "The reported margin is a descriptive issuer-level measure after distribution and operating costs. Reserve-income dependence, rates, circulation and IPO-related expense limit comparison with generic technology margins. It is not recurring cash profitability."
+            },
+            {
+              "label": "reserve_income",
+              "value": "our revenue is primarily driven by reserve income earned on the assets backing such stablecoins \u00b7 normalized XML itertext character offset 41839"
+            },
+            {
+              "label": "distribution",
+              "value": "The Collaboration Agreement is accounted for as an executory contract and reflected in distribution and transaction costs in our Consolidated Statements of Operations. \u00b7 normalized XML itertext character offset 338140"
+            },
+            {
+              "label": "holder_reserves",
+              "value": "requirements to hold reserve assets for the benefit of stablecoin holders and prohibitions on lending, pledging, rehypothecating, or otherwise encumbering those reserves \u00b7 normalized XML itertext character offset 67740"
+            },
+            {
+              "label": "ipo_expense",
+              "value": "stock-based compensation related to vesting conditions met by our IPO \u00b7 normalized XML itertext character offset 307181"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        }
+      ],
+      "subtitle": "D5c saved safety review \u00b7 reviewed 2026-10-12",
+      "title": "CRCL operating-margin interpretation"
+    },
+    "publication": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Conclusion",
+              "value": "S6a is approved for synthetic publication only. Real typed source/policy/precision lineage, request/publication intent and contract review remain required. Quote identity affects price metrics, not this source-only margin."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": null,
+          "capturedAt": "2026-09-22 (contract approval, not SEC retrieval)",
+          "label": "S6a repository implementation contract",
+          "licence": "Local project documentation",
+          "transform": "docs/design/s6/implementation.md; D037 synthetic-only authorization",
+          "url": null
+        }
+      ],
+      "subtitle": "D5c saved safety review \u00b7 reviewed 2026-10-12",
+      "title": "Real S6 publication"
+    },
+    "reclassifications": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Conclusion",
+              "value": "Five periodic filings disclose immaterial prior-period reclassifications and unchanged total assets, total liabilities and net income. This does not explicitly establish unchanged revenue or operating income. Reconcile the affected lines and editions before clearing the selected operands; no actual change or restatement is inferred."
+            },
+            {
+              "label": "0001628280-25-039781",
+              "value": "Certain prior period amounts have been reclassified in order to conform with the current period presentation. The impact of these reclassifications is immaterial to the presentation of the unaudited condensed consolidated financial statements taken as a whole and had no impact on previously reported total assets, total liabilities and net income. \u00b7 normalized XML itertext character offset 49819"
+            },
+            {
+              "label": "0001876042-25-000047",
+              "value": "Certain prior period amounts have been reclassified in order to conform with the current period presentation. The impact of these reclassifications is immaterial to the presentation of the unaudited condensed consolidated financial statements taken as a whole and had no impact on previously reported total assets, total liabilities and net income. \u00b7 normalized XML itertext character offset 55294"
+            },
+            {
+              "label": "0001876042-26-000062",
+              "value": "Certain prior period amounts have been reclassified in order to conform with the current period presentation. The impact of these reclassifications is immaterial to the presentation of the Consolidated Financial Statements taken as a whole and had no impact on previously reported total assets, total liabilities and net income. \u00b7 normalized XML itertext character offset 427979"
+            },
+            {
+              "label": "0001876042-26-000150",
+              "value": "Certain prior period amounts have been reclassified in order to conform with the current period presentation. The impact of these reclassifications is immaterial to the presentation of the unaudited Condensed Consolidated Financial Statements taken as a whole and had no impact on previously reported total assets, total liabilities and net income. \u00b7 normalized XML itertext character offset 43713"
+            },
+            {
+              "label": "0001876042-26-000248",
+              "value": "Certain prior period amounts have been reclassified in order to conform with the current period presentation. The impact of these reclassifications is immaterial to the presentation of the unaudited Condensed Consolidated Financial Statements taken as a whole and has no impact on previously reported total assets, total liabilities and net income. \u00b7 normalized XML itertext character offset 51501"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": "0001628280-25-039781",
+          "capturedAt": "2026-10-12 22:28:18.177311+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 eac3ea4970375baaad7ae98b9dcf29eee61efdb366ddb7afcbb962cc06e8b270; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000162828025039781/crcl-20250630.htm"
+        },
+        {
+          "accession": "0001876042-25-000047",
+          "capturedAt": "2026-10-12 22:28:15.497616+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 bb166264df8b73fe98e545564adb6ea122751f773706d8d6320172310d8010c0; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000047/crcl-20250930.htm"
+        },
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        },
+        {
+          "accession": "0001876042-26-000150",
+          "capturedAt": "2026-10-12 22:28:16.895974+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 7ed37b0c499d658c3d7542291a7ae3c51ccb7a5ddab1726a76b3c6d728ecdbad; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000150/crcl-20260331.htm"
+        },
+        {
+          "accession": "0001876042-26-000248",
+          "capturedAt": "2026-09-21 17:07:36.842185+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 81d3190308738e630e9424cc29897d492e943912525ab5f5b03612a160b60cb6; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+        }
+      ],
+      "subtitle": "D5c saved safety review \u00b7 reviewed 2026-10-12",
+      "title": "Prior-period reclassification scope"
+    }
+  },
+  "filings": [
+    {
+      "acceptedAt": "2025-06-06T20:03:46+00:00",
+      "accession": "0000950103-25-007107",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "8d86d8d3fd2e8088087dba9a83fa9e8cf2e513bdd7d3954c4d3d26d90c72c3b6",
+      "bodyStatus": "retrospective_only",
+      "captureId": "7b6d415b-7e28-444a-ab02-878a61905bbf",
+      "completedAt": "2026-10-12 22:28:19.472718+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2025-06-06",
+      "form": "8-K",
+      "items": "3.03,5.03,8.01,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/354",
+      "reportPeriodEnd": "2025-06-06",
+      "resourceKey": "filing_document/0001876042/0000950103-25-007107/dp229888_8k.htm",
+      "reviewSummary": "IPO completion and governing documents; linked governing-document exhibits still missing. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000095010325007107/dp229888_8k.htm"
+    },
+    {
+      "acceptedAt": "2025-07-22T12:16:55+00:00",
+      "accession": "0001876042-25-000004",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "afbc109f14113a325b386daed3a73b4095bb83cc0e6939f1115c06fc91e5a5d8",
+      "bodyStatus": "retrospective_only",
+      "captureId": "c1eb2cc1-3dcf-48bd-bae2-19c32ca1b558",
+      "completedAt": "2026-10-12 22:28:18.268989+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2025-07-22",
+      "form": "8-K",
+      "items": "5.02,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/337",
+      "reportPeriodEnd": "2025-07-21",
+      "resourceKey": "filing_document/0001876042/0001876042-25-000004/cig-20250721.htm",
+      "reviewSummary": "Director appointment; announcement exhibit still missing. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000004/cig-20250721.htm"
+    },
+    {
+      "acceptedAt": "2025-08-12T10:27:11+00:00",
+      "accession": "0001628280-25-039749",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "3fa617cbd967433cfa9c83c3a65037ec8b38e6c29a3cc61873f891c0c7de38ee",
+      "bodyStatus": "retrospective_only",
+      "captureId": "980f77a9-501f-461d-8e49-b1144b212f00",
+      "completedAt": "2026-10-12 22:28:17.761374+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2025-08-12",
+      "form": "8-K",
+      "items": "2.02,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/326",
+      "reportPeriodEnd": "2025-08-12",
+      "resourceKey": "filing_document/0001876042/0001628280-25-039749/crcl-20250812.htm",
+      "reviewSummary": "Quarterly earnings furnished by reference; financial press-release exhibit still missing. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000162828025039749/crcl-20250812.htm"
+    },
+    {
+      "acceptedAt": "2025-08-12T13:21:01+00:00",
+      "accession": "0001628280-25-039781",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "eac3ea4970375baaad7ae98b9dcf29eee61efdb366ddb7afcbb962cc06e8b270",
+      "bodyStatus": "retrospective_only",
+      "captureId": "25701839-b564-4baa-9f99-e528f9c2f0c3",
+      "completedAt": "2026-10-12 22:28:18.177311+00:00",
+      "eventReview": "not_reviewed",
+      "filedDate": "2025-08-12",
+      "form": "10-Q",
+      "items": "",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/325",
+      "reportPeriodEnd": "2025-06-30",
+      "resourceKey": "filing_document/0001876042/0001628280-25-039781/crcl-20250630.htm",
+      "reviewSummary": "Basis, controls and reclassification disclosures reviewed. The stated unchanged totals are assets, liabilities and net income; the impact on selected revenue/operating-income operands remains unresolved. No restatement or changed operand is inferred from this disclosure alone.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000162828025039781/crcl-20250630.htm"
+    },
+    {
+      "acceptedAt": "2025-09-19T21:10:50+00:00",
+      "accession": "0001876042-25-000014",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "7a00c7ef32a517c39ce2701d9636406f5906bea35d721dc792196021312dcfa8",
+      "bodyStatus": "retrospective_only",
+      "captureId": "57eb9cf6-418c-4f8c-9536-3fca1f17b1fb",
+      "completedAt": "2026-10-12 22:28:18.484015+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2025-09-19",
+      "form": "8-K",
+      "items": "5.02,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/293",
+      "reportPeriodEnd": "2025-09-17",
+      "resourceKey": "filing_document/0001876042/0001876042-25-000014/crcl-20250917.htm",
+      "reviewSummary": "Director resignation; primary text reviewed. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000014/crcl-20250917.htm"
+    },
+    {
+      "acceptedAt": "2025-11-12T11:26:42+00:00",
+      "accession": "0001876042-25-000045",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "e5a4306691d69607932f65915de5dbc3b01cb420ba0636d448e72420733cf64a",
+      "bodyStatus": "retrospective_only",
+      "captureId": "1638e097-8b22-4e5b-8a11-7ca1759c9a5c",
+      "completedAt": "2026-10-12 22:28:18.710748+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2025-11-12",
+      "form": "8-K",
+      "items": "2.02,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/280",
+      "reportPeriodEnd": "2025-11-12",
+      "resourceKey": "filing_document/0001876042/0001876042-25-000045/crcl-20251112.htm",
+      "reviewSummary": "Quarterly earnings furnished by reference; financial press-release exhibit still missing. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000045/crcl-20251112.htm"
+    },
+    {
+      "acceptedAt": "2025-11-12T14:21:02+00:00",
+      "accession": "0001876042-25-000047",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "bb166264df8b73fe98e545564adb6ea122751f773706d8d6320172310d8010c0",
+      "bodyStatus": "retrospective_only",
+      "captureId": "85594388-fb5e-4023-b042-289f41e4ba1f",
+      "completedAt": "2026-10-12 22:28:15.497616+00:00",
+      "eventReview": "not_reviewed",
+      "filedDate": "2025-11-12",
+      "form": "10-Q",
+      "items": "",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/279",
+      "reportPeriodEnd": "2025-09-30",
+      "resourceKey": "filing_document/0001876042/0001876042-25-000047/crcl-20250930.htm",
+      "reviewSummary": "Basis, controls and reclassification disclosures reviewed. The stated unchanged totals are assets, liabilities and net income; the impact on selected revenue/operating-income operands remains unresolved. No restatement or changed operand is inferred from this disclosure alone.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000047/crcl-20250930.htm"
+    },
+    {
+      "acceptedAt": "2026-02-25T11:26:39+00:00",
+      "accession": "0001876042-26-000032",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "d6b6698a252741ebb29be5866f4e30d2483ad459a883016836881a34718da1e2",
+      "bodyStatus": "retrospective_only",
+      "captureId": "ece38607-d3fd-4ef9-b2ff-288c5d16ca8d",
+      "completedAt": "2026-10-12 22:28:15.920106+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2026-02-25",
+      "form": "8-K",
+      "items": "2.02,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/213",
+      "reportPeriodEnd": "2026-02-25",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000032/crcl-20260225.htm",
+      "reviewSummary": "Annual earnings furnished by reference; financial press-release exhibit still missing. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000032/crcl-20260225.htm"
+    },
+    {
+      "acceptedAt": "2026-03-09T12:36:51+00:00",
+      "accession": "0001876042-26-000062",
+      "availableAtHistoricalCutoff": true,
+      "bodySha256": "e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c",
+      "bodyStatus": "retained_at_cutoff",
+      "captureId": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+      "completedAt": "2026-09-21 17:07:36.472331+00:00",
+      "eventReview": "not_reviewed",
+      "filedDate": "2026-03-09",
+      "form": "10-K",
+      "items": "",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/177",
+      "reportPeriodEnd": "2025-12-31",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000062/crcl-20251231.htm",
+      "reviewSummary": "Basis, controls and reclassification disclosures reviewed. The stated unchanged totals are assets, liabilities and net income; the impact on selected revenue/operating-income operands remains unresolved. No restatement or changed operand is inferred from this disclosure alone.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+    },
+    {
+      "acceptedAt": "2026-03-17T12:06:38+00:00",
+      "accession": "0001876042-26-000078",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "71efc5557c96bbdde592648b7a5261b13a29f01795931d590cfc7f298736596a",
+      "bodyStatus": "retrospective_only",
+      "captureId": "b8aec4bf-0d70-4bf8-8cba-f991e4e2e6d3",
+      "completedAt": "2026-10-12 22:28:16.400783+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2026-03-17",
+      "form": "8-K",
+      "items": "5.02,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/165",
+      "reportPeriodEnd": "2026-03-16",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000078/crcl-20260316.htm",
+      "reviewSummary": "Director appointment; announcement exhibit still missing. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000078/crcl-20260316.htm"
+    },
+    {
+      "acceptedAt": "2026-05-11T10:27:16+00:00",
+      "accession": "0001876042-26-000148",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "eefdca8c225c06d2f7ac234104057d26f27c4cbaf566d547960eff38aa0844bd",
+      "bodyStatus": "retrospective_only",
+      "captureId": "d55e4c95-c670-49a1-835a-100c016f2203",
+      "completedAt": "2026-10-12 22:28:16.612805+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2026-05-11",
+      "form": "8-K",
+      "items": "2.02,8.01,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/119",
+      "reportPeriodEnd": "2026-05-11",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000148/crcl-20260511.htm",
+      "reviewSummary": "Quarterly earnings and token presale terms; financial press-release exhibit still missing. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000148/crcl-20260511.htm"
+    },
+    {
+      "acceptedAt": "2026-05-11T13:16:55+00:00",
+      "accession": "0001876042-26-000150",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "7ed37b0c499d658c3d7542291a7ae3c51ccb7a5ddab1726a76b3c6d728ecdbad",
+      "bodyStatus": "retrospective_only",
+      "captureId": "dfbd4bf4-bdbc-4fe5-842e-5ce10c395104",
+      "completedAt": "2026-10-12 22:28:16.895974+00:00",
+      "eventReview": "not_reviewed",
+      "filedDate": "2026-05-11",
+      "form": "10-Q",
+      "items": "",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/118",
+      "reportPeriodEnd": "2026-03-31",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000150/crcl-20260331.htm",
+      "reviewSummary": "Basis, controls and reclassification disclosures reviewed. The stated unchanged totals are assets, liabilities and net income; the impact on selected revenue/operating-income operands remains unresolved. No restatement or changed operand is inferred from this disclosure alone.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000150/crcl-20260331.htm"
+    },
+    {
+      "acceptedAt": "2026-05-18T21:04:45+00:00",
+      "accession": "0001876042-26-000159",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "028e2042173f6eaefa4124774596cef1e07947d83f32d8e6558af811ae79be2b",
+      "bodyStatus": "retrospective_only",
+      "captureId": "c22baa8e-fea4-4638-a3fe-0d18bb6a167b",
+      "completedAt": "2026-10-12 22:28:13.740758+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2026-05-18",
+      "form": "8-K",
+      "items": "5.07",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/112",
+      "reportPeriodEnd": "2026-05-14",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000159/crcl-20260514.htm",
+      "reviewSummary": "Stockholder votes and auditor appointment ratification; primary text reviewed. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000159/crcl-20260514.htm"
+    },
+    {
+      "acceptedAt": "2026-06-12T21:01:31+00:00",
+      "accession": "0001876042-26-000192",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "5b7def0d2071319d3cd11ca179a3fe87dd45f5ddb2621f1a74f6acb436bb5de3",
+      "bodyStatus": "retrospective_only",
+      "captureId": "5c2eae10-61dc-42ce-a20a-a42ef6658014",
+      "completedAt": "2026-10-12 22:28:13.893017+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2026-06-12",
+      "form": "8-K",
+      "items": "5.02",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/73",
+      "reportPeriodEnd": "2026-06-12",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000192/crcl-20260612.htm",
+      "reviewSummary": "Director resignation and replacement lead director; primary text reviewed. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000192/crcl-20260612.htm"
+    },
+    {
+      "acceptedAt": "2026-07-02T21:03:03+00:00",
+      "accession": "0001876042-26-000205",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "55955e8847f5ce24b17a11698687659d4a1f8dbfa2b8df2a065d4b967864b08d",
+      "bodyStatus": "retrospective_only",
+      "captureId": "eb83d7e4-738e-4d3d-819e-49eac984f258",
+      "completedAt": "2026-10-12 22:28:14.130801+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2026-07-02",
+      "form": "8-K",
+      "items": "8.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/61",
+      "reportPeriodEnd": "2026-06-29",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000205/crcl-20260629.htm",
+      "reviewSummary": "Additional token presale closing and repayment terms; primary text reviewed. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000205/crcl-20260629.htm"
+    },
+    {
+      "acceptedAt": "2026-07-13T20:40:02+00:00",
+      "accession": "0001876042-26-000228",
+      "availableAtHistoricalCutoff": true,
+      "bodySha256": "10419022aa21286368e02b193c224af7ad5e059f828ee60c436128c344f51325",
+      "bodyStatus": "retained_at_cutoff",
+      "captureId": "a091bf37-ac2e-4ba8-8500-77c59e0da24a",
+      "completedAt": "2026-09-21 17:07:36.604156+00:00",
+      "eventReview": "not_reviewed",
+      "filedDate": "2026-07-13",
+      "form": "10-K/A",
+      "items": "",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/48",
+      "reportPeriodEnd": "2025-12-31",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000228/crcl-20251231.htm",
+      "reviewSummary": "Periodic statement and correction review remains incomplete; original annual pair and amendment have their own bounded checks below.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+    },
+    {
+      "acceptedAt": "2026-08-05T10:12:18+00:00",
+      "accession": "0001876042-26-000246",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "3460cad4e36c79cfbb11fb1bf6dde5e23892b423818bff222e8040e739486251",
+      "bodyStatus": "retrospective_only",
+      "captureId": "113744aa-7ca8-4c57-abf3-555b3f488cae",
+      "completedAt": "2026-10-12 22:28:14.338050+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2026-08-05",
+      "form": "8-K",
+      "items": "2.02,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/37",
+      "reportPeriodEnd": "2026-08-05",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000246/crcl-20260805.htm",
+      "reviewSummary": "Quarterly earnings furnished by reference; financial press-release exhibit still missing. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/crcl-20260805.htm"
+    },
+    {
+      "acceptedAt": "2026-08-05T13:02:57+00:00",
+      "accession": "0001876042-26-000248",
+      "availableAtHistoricalCutoff": true,
+      "bodySha256": "81d3190308738e630e9424cc29897d492e943912525ab5f5b03612a160b60cb6",
+      "bodyStatus": "retained_at_cutoff",
+      "captureId": "e58aaf2d-ba12-417e-9b2d-872df7a10610",
+      "completedAt": "2026-09-21 17:07:36.842185+00:00",
+      "eventReview": "not_reviewed",
+      "filedDate": "2026-08-05",
+      "form": "10-Q",
+      "items": "",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/36",
+      "reportPeriodEnd": "2026-06-30",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000248/crcl-20260630.htm",
+      "reviewSummary": "Basis, controls and reclassification disclosures reviewed. The stated unchanged totals are assets, liabilities and net income; the impact on selected revenue/operating-income operands remains unresolved. No restatement or changed operand is inferred from this disclosure alone.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000248/crcl-20260630.htm"
+    },
+    {
+      "acceptedAt": "2026-09-08T10:04:21+00:00",
+      "accession": "0001876042-26-000267",
+      "availableAtHistoricalCutoff": false,
+      "bodySha256": "3038d0c0a778ee0b4c01bc078d889ac7ca8e3642127fcf316ab9db8922c8e8f1",
+      "bodyStatus": "retrospective_only",
+      "captureId": "b08e7405-25ff-43f3-8165-085dbf4e31a1",
+      "completedAt": "2026-10-12 22:28:14.549669+00:00",
+      "eventReview": "primary_only_reviewed",
+      "filedDate": "2026-09-08",
+      "form": "8-K",
+      "items": "1.01,3.02,7.01,9.01",
+      "metadataCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+      "metadataLocator": "/filings/recent/10",
+      "reportPeriodEnd": "2026-09-04",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000267/crcl-20260904.htm",
+      "reviewSummary": "Proposed Tazapay acquisition and securities terms; agreement and announcement exhibits still missing. No non-reliance or correction was identified in this primary text; this does not clear exhibit or full-history review.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000267/crcl-20260904.htm"
+    }
+  ],
+  "freshInventory": {
+    "outsidePinnedWindow": [
+      {
+        "accession": "0001876042-26-000279",
+        "filedDate": "2026-09-25",
+        "form": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000279/crcl-20260925.htm"
+      },
+      {
+        "accession": "0001876042-26-000276",
+        "filedDate": "2026-09-22",
+        "form": "8-K",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000276/crcl-20260917.htm"
+      }
+    ],
+    "sameHistoricalRoster": true,
+    "sha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+    "source": {
+      "accession": null,
+      "capturedAt": "2026-10-12 22:28:19.103738+00:00",
+      "label": "SEC retained Submissions inventory",
+      "licence": "SEC public filings and government-created data reuse",
+      "transform": "Verified entity bytes SHA256 69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7; exact source replay",
+      "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+    }
+  },
+  "historicalDecision": {
+    "explanation": "The September D5a evidence remains ineligible. Later retrievals and an October profile cannot establish historical application knowledge.",
+    "reasonCodes": [
+      "historical_capture_gap",
+      "profile_not_known_at_cutoff"
+    ],
+    "status": "blocked"
+  },
+  "historicalRetrievalCutoff": "2026-09-21T17:07:36.842185+00:00",
+  "inventorySha256": "c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3",
+  "inventorySource": {
+    "accession": null,
+    "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+    "label": "SEC retained Submissions inventory",
+    "licence": "SEC public filings and government-created data reuse",
+    "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+    "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+  },
+  "inventoryWindow": "2025-01-01 through 2026-09-21",
+  "kind": "real-crcl-safety-review",
+  "missingExhibits": [
+    {
+      "accession": "0000950103-25-007107",
+      "discoveredInCaptureId": "7b6d415b-7e28-444a-ab02-878a61905bbf",
+      "label": "Amended and Restated Certificate of Incorporation of Circle Internet Group, Inc.",
+      "resourceKey": "filing_document/0001876042/0000950103-25-007107/dp229888_ex0301.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000095010325007107/dp229888_ex0301.htm"
+    },
+    {
+      "accession": "0000950103-25-007107",
+      "discoveredInCaptureId": "7b6d415b-7e28-444a-ab02-878a61905bbf",
+      "label": "Amended and Restated Bylaws of Circle Internet Group, Inc.",
+      "resourceKey": "filing_document/0001876042/0000950103-25-007107/dp229888_ex0302.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000095010325007107/dp229888_ex0302.htm"
+    },
+    {
+      "accession": "0001876042-25-000004",
+      "discoveredInCaptureId": "c1eb2cc1-3dcf-48bd-bae2-19c32ca1b558",
+      "label": "Press Release Dated July 22, 2025",
+      "resourceKey": "filing_document/0001876042/0001876042-25-000004/a20250722-selipskypressrel.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000004/a20250722-selipskypressrel.htm"
+    },
+    {
+      "accession": "0001628280-25-039749",
+      "discoveredInCaptureId": "980f77a9-501f-461d-8e49-b1144b212f00",
+      "label": "Press Release of Circle Internet Group, Inc., dated August 12, 2025",
+      "resourceKey": "filing_document/0001876042/0001628280-25-039749/q22025epr.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000162828025039749/q22025epr.htm"
+    },
+    {
+      "accession": "0001876042-25-000045",
+      "discoveredInCaptureId": "1638e097-8b22-4e5b-8a11-7ca1759c9a5c",
+      "label": "Press Release of Circle Internet Group, Inc., dated November 12, 2025",
+      "resourceKey": "filing_document/0001876042/0001876042-25-000045/nolivelinksversion_q3202.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604225000045/nolivelinksversion_q3202.htm"
+    },
+    {
+      "accession": "0001876042-26-000032",
+      "discoveredInCaptureId": "ece38607-d3fd-4ef9-b2ff-288c5d16ca8d",
+      "label": "Press Release of Circle Internet Group, Inc., dated February 25, 2026",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000032/final_circlereportsfourt.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000032/final_circlereportsfourt.htm"
+    },
+    {
+      "accession": "0001876042-26-000078",
+      "discoveredInCaptureId": "b8aec4bf-0d70-4bf8-8cba-f991e4e2e6d3",
+      "label": "Press release dated March 17, 2026",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000078/pressrelease_finalxkirkk.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000078/pressrelease_finalxkirkk.htm"
+    },
+    {
+      "accession": "0001876042-26-000148",
+      "discoveredInCaptureId": "d55e4c95-c670-49a1-835a-100c016f2203",
+      "label": "Press Release of Circle Internet Group, Inc., dated May 11, 2026",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000148/final_05x11q1epr30.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000148/final_05x11q1epr30.htm"
+    },
+    {
+      "accession": "0001876042-26-000246",
+      "discoveredInCaptureId": "113744aa-7ca8-4c57-abf3-555b3f488cae",
+      "label": "Press Release of Circle Internet Group, Inc., dated August 5, 2026",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000246/augustepr-circle_q22026f.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000246/augustepr-circle_q22026f.htm"
+    },
+    {
+      "accession": "0001876042-26-000267",
+      "discoveredInCaptureId": "b08e7405-25ff-43f3-8165-085dbf4e31a1",
+      "label": "Share Purchase Agreement, dated as of September 4, 2026, by and among Taurus Acquisition Inc., the Sellers, Tazapay Pte. Ltd., Fortis Advisors LLC as Sellers\u2019 Representative, and Circle Internet Group, Inc",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000267/final-projecttaurusxshar.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000267/final-projecttaurusxshar.htm"
+    },
+    {
+      "accession": "0001876042-26-000267",
+      "discoveredInCaptureId": "b08e7405-25ff-43f3-8165-085dbf4e31a1",
+      "label": "Press Release issued by Circle Internet Group, Inc., dated September 8, 2026",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000267/final_sept82026announcem.htm",
+      "status": "not_retained_or_reviewed",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000267/final_sept82026announcem.htm"
+    }
+  ],
+  "nextStep": "Retain and review the listed exhibits, finish reconciliation of reclassification scope and editions, and review the two newly discovered later events before pinning a current cutoff and new batch. Review real S6 publication before publishing the supported margin.",
+  "operatingMargin": null,
+  "period": "2025-01-01 through 2025-12-31",
+  "profile": {
+    "business_model": "Stablecoin issuer with reserve-income and distribution economics",
+    "effective_on": "2026-10-12",
+    "evidence_refs": [
+      "filing_document/0001876042/0001876042-26-000062/crcl-20251231.htm",
+      "filing_document/0001876042/0001876042-26-000228/crcl-20251231.htm",
+      "docs/design/d5c/proposal.md"
+    ],
+    "instrument_basis": "Consolidated issuer operations; not token-holder reserves or per-share value",
+    "issuer_id": "00d0d7d7-5864-418b-a973-ba6447a2ebe3",
+    "known_on": "2026-10-12",
+    "lifecycle": "Listed issuer; reported FY2025 includes IPO-related compensation expense",
+    "revision": "d5c-crcl-reported-operating-margin-v1",
+    "rules": [
+      {
+        "applicable": null,
+        "metric_id": "revenue_growth_yoy",
+        "rationale": "Deferred: requires its own accounting operands, scope and business-applicability review."
+      },
+      {
+        "applicable": null,
+        "metric_id": "gross_margin",
+        "rationale": "Deferred: requires its own accounting operands, scope and business-applicability review."
+      },
+      {
+        "applicable": null,
+        "metric_id": "gross_margin_derived",
+        "rationale": "Deferred: requires its own accounting operands, scope and business-applicability review."
+      },
+      {
+        "applicable": true,
+        "metric_id": "operating_margin",
+        "rationale": "Descriptive reported operating result divided by total revenue including reserve income; no generic technology thresholds or recurring-profit inference."
+      },
+      {
+        "applicable": null,
+        "metric_id": "net_margin_consolidated",
+        "rationale": "Deferred: requires its own accounting operands, scope and business-applicability review."
+      },
+      {
+        "applicable": null,
+        "metric_id": "free_cash_flow_ppe",
+        "rationale": "Deferred: requires its own accounting operands, scope and business-applicability review."
+      },
+      {
+        "applicable": null,
+        "metric_id": "free_cash_flow_margin_ppe",
+        "rationale": "Deferred: requires its own accounting operands, scope and business-applicability review."
+      },
+      {
+        "applicable": null,
+        "metric_id": "current_ratio",
+        "rationale": "Deferred: requires its own accounting operands, scope and business-applicability review."
+      },
+      {
+        "applicable": null,
+        "metric_id": "net_working_capital",
+        "rationale": "Deferred: requires its own accounting operands, scope and business-applicability review."
+      },
+      {
+        "applicable": null,
+        "metric_id": "return_on_assets",
+        "rationale": "Deferred: requires its own accounting operands, scope and business-applicability review."
+      }
+    ]
+  },
+  "profileNotes": [
+    "Reserve income depends on the stablecoin reserve base and yield; distribution economics affect the retained margin.",
+    "Reported IPO-related compensation stays in operating expenses; no adjusted or sustainable margin is inferred.",
+    "Holder reserves are not corporate excess cash. Broader balance-sheet and cash-flow metrics need separate scope review.",
+    "No generic technology score, peer percentile, valuation or price ratio is activated."
+  ],
+  "publishedMetricCount": 0,
+  "quoteEvidence": [
+    {
+      "captureId": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+      "id": "reserve_income",
+      "locator": "normalized XML itertext character offset 41839",
+      "quote": "our revenue is primarily driven by reserve income earned on the assets backing such stablecoins",
+      "source": {
+        "accession": "0001876042-26-000062",
+        "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+        "label": "SEC / Circle retained filing",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+      }
+    },
+    {
+      "captureId": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+      "id": "distribution",
+      "locator": "normalized XML itertext character offset 338140",
+      "quote": "The Collaboration Agreement is accounted for as an executory contract and reflected in distribution and transaction costs in our Consolidated Statements of Operations.",
+      "source": {
+        "accession": "0001876042-26-000062",
+        "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+        "label": "SEC / Circle retained filing",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+      }
+    },
+    {
+      "captureId": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+      "id": "holder_reserves",
+      "locator": "normalized XML itertext character offset 67740",
+      "quote": "requirements to hold reserve assets for the benefit of stablecoin holders and prohibitions on lending, pledging, rehypothecating, or otherwise encumbering those reserves",
+      "source": {
+        "accession": "0001876042-26-000062",
+        "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+        "label": "SEC / Circle retained filing",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+      }
+    },
+    {
+      "captureId": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+      "id": "ipo_expense",
+      "locator": "normalized XML itertext character offset 307181",
+      "quote": "stock-based compensation related to vesting conditions met by our IPO",
+      "source": {
+        "accession": "0001876042-26-000062",
+        "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+        "label": "SEC / Circle retained filing",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+      }
+    },
+    {
+      "captureId": "a091bf37-ac2e-4ba8-8500-77c59e0da24a",
+      "id": "amendment",
+      "locator": "normalized XML itertext character offset 6037",
+      "quote": "Except as described above, this Amendment does not amend, update, or restate any other information or disclosure included in the Original Form 10-K",
+      "source": {
+        "accession": "0001876042-26-000228",
+        "capturedAt": "2026-09-21 17:07:36.604156+00:00",
+        "label": "SEC / Circle retained filing",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 10419022aa21286368e02b193c224af7ad5e059f828ee60c436128c344f51325; exact source replay",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000228/crcl-20251231.htm"
+      }
+    }
+  ],
+  "retrospectiveDecision": {
+    "explanation": "The annual pair and amendment wording pass the bounded replay checks. Complete financial/event safety has not been proved, and no current October eligibility judgment is published.",
+    "reasonCodes": [
+      "exhibit_review_incomplete",
+      "reclassification_scope_unresolved",
+      "real_publication_not_approved"
+    ],
+    "status": "incomplete"
+  },
+  "reviewedOn": "2026-10-12"
+}
