@@ -84,3 +84,11 @@ It exposes exactly two normalized inputs, their retained blockers and zero real
 published metrics. It does not add database writes, sources, providers, quote
 identity, schema/API concepts, missingness semantics, finance formulas, or real
 S5/S6 publication. The owner's explicit `continue` authorizes this bounded slice.
+
+D041 — authorized bounded continuation (2026-10-12): [D5c](design/d5c/proposal.md)
+reviews CRCL's FY2025 pair against an explicit financial/event roster and narrow
+business profile. Reuse governed archived replay and bounded source acquisition;
+preserve genuine retrieval cutoffs and all prior audits. Add deterministic safety
+evidence and read-only UI, never force eligibility. Real S6 publication and any
+shared-contract changes remain separate. Owner explicitly requested continuation
+and delegated data-safety implementation to Astra 6.
