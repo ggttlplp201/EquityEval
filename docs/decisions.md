@@ -116,3 +116,13 @@ Governance and acquisition exhibits have explicit scoped findings/limitations.
 Non-GAAP definition changes are not substituted for reported GAAP results.
 Historical/current eligibility remains blocked; later primary review, annual
 accounting scope and real S6 gates remain. See [D5d](milestones/D5d-crcl-exhibits.md).
+
+D043 — authorized current-window continuation (2026-10-13):
+[D5e](design/d5e/proposal.md) pins the two post-D5c-window CRCL primary 8-Ks,
+fresh required inventory/facts, actual cutoff semantics and affected-line/edition
+reconciliation. A new same-concept PIT batch is conditional on proved evidence
+and unchanged existing contracts; otherwise retain a blocked candidate decision.
+Real S6/metrics and schema/API/provider/quote/valuation/sector/scheduler changes
+remain outside scope. Preserve every prior audit and timestamp. The owner also
+explicitly authorized pushing the completed branch to configured GitHub origin
+without force, with remote HEAD verification.
