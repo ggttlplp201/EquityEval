@@ -163,3 +163,11 @@ roster now explicitly exposes seven unreviewed registration/prospectus editions;
 metadata cannot clear their accounting/correction content. Candidate remains
 blocked (`registration_history_unreviewed`), no new PIT batch or financial metric.
 The next evidence scope must be separately pinned; September knowledge is unchanged.
+
+D046 — authorized registration-history continuation (2026-10-13):
+[proposal](design/d5h/proposal.md) pins seven exact remaining S-1/S-1/A/424B4 bodies,
+two governed groups with mandatory inventories and a complete retained-edition
+review. A conditional new same-concept S3 batch requires independently reviewable
+preparation hashes and all genuine source/history/accounting/publication gates;
+otherwise remain blocked. Real S6 metrics and shared-contract/provider expansion
+are excluded. Prior September knowledge and every earlier audit remain immutable.
