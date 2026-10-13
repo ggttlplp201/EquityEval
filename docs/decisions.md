@@ -148,3 +148,11 @@ Facts vintages were exhausted for selected FY2025/Q1 evidence. Q1 Facts point on
 to the 2026 comparative; the inventory-identified IPO prospectus remains an exact
 unretained candidate. Accounting scope stays unconfirmed, with no new batch or
 metric. All prior application rows and historical cutoffs remain preserved.
+
+D045 — authorized IPO-prospectus continuation (2026-10-13):
+[D5g](design/d5g/proposal.md) pins the exact IPO 424B4 identified by D5f plus
+mandatory Facts/Submissions. Reconcile actual Q1 reported operands and retained
+later editions, preserving every earlier audit and cutoff. Any required further
+registration edition is an explicit blocker, not implicit acquisition scope.
+New PIT preparation requires proved evidence and unchanged contracts; real S6
+metrics remain null. Owner authorized continuation and existing-branch sync.
