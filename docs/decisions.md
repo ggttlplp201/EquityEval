@@ -134,3 +134,10 @@ linked CFO-transition Exhibit 99.1 and unresolved affected-line/earlier-edition
 evidence keep the candidate PIT batch blocked. No new batch or metric is published.
 Inventory observation and final retrieval cutoff remain distinct; historical
 September flags remain unchanged. See [D5e](milestones/D5e-crcl-current.md).
+
+D044 — authorized leadership-exhibit continuation (2026-10-13):
+[D5f](design/d5f/proposal.md) pins the exact CFO-transition exhibit identified by
+D5e and fresh mandatory Facts/Submissions. Read the full body and exhaust retained
+selected-line/edition evidence without implicit source expansion. Preserve prior
+history; publish no new batch unless evidence and existing contracts pass, and
+keep real S6 metrics null. Owner authorized continuation and non-force branch push.
