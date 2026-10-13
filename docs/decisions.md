@@ -99,3 +99,12 @@ pair/amendment checks pass; eleven exhibits and reclassification scope remain
 unresolved. Historical September eligibility stays blocked, retrospective review
 stays incomplete, and two later events prevent any current-cutoff claim. Real
 S6 publication remains a separate gate. See [D5c](milestones/D5c-crcl-safety.md).
+
+D042 — authorized exhibit review (2026-10-13 UTC / 2026-10-12 Pacific):
+[D5d](design/d5d/proposal.md) pins all eleven D5c missing exhibits for governed
+acquisition and substantive accounting-safety review. Preserve prior audits and
+September cutoff semantics; retain uncertain conclusions and zero real metrics.
+Three existing BootstrapPlan-compliant groups include required inventories.
+No post-window primary acquisition, shared-contract/S6 publication, provider,
+quote, migration or scheduler change. Owner explicitly authorized exhibit review
+following the read-only evidence matrix; commit this scope before implementation.
