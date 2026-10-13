@@ -39,6 +39,9 @@ def capture_group(
     group_number: int,
     contact: str,
     redis_url: str,
+    *,
+    request_prefix: str = "d5c-safety-2026-10-12-group",
+    worker_id: str = "d5c-safety-capture",
 ) -> dict[str, Any]:
     plan = BootstrapPlan(
         identities["issuer"],
@@ -53,12 +56,12 @@ def capture_group(
         db,
         workspace_id=identities["workspace"],
         security_id=identities["security"],
-        idempotency_key=f"d5c-safety-2026-10-12-group-{group_number}",
+        idempotency_key=f"{request_prefix}-{group_number}",
         plan=plan,
     )
     lease = claim_source_bootstrap(
         db,
-        worker_id="d5c-safety-capture",
+        worker_id=worker_id,
         lease_seconds=360,
         request_id=request.request_id,
     )

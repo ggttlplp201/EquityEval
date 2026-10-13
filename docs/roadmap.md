@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
-Canonical dependency/status list, reconciled 2026-09-29 through the
-[corrected S8c Financials checkpoint](milestones/S8c-financials-ui.md). This links existing milestones and features;
+Canonical dependency/status list, reconciled 2026-10-13 through the
+[D5d CRCL exhibit review](milestones/D5d-crcl-exhibits.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -16,10 +16,12 @@ feature/design retains its detailed acceptance criteria.
   S6b/S7a adds audited synthetic reverse DCF, immutable assumptions/runs, W1 publication
   and a trusted-local generated API.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
-  12 captures, three acquisition bootstraps and two completed filing checks
-  (14 fetch attempts, two retained monitor response bodies). One application-owned
+  53 captures, ten acquisition bootstraps and two completed filing checks
+  (55 fetch attempts, two retained monitor response bodies). One application-owned
   schedule is paused after its bounded D4b slot; no background service is configured.
-  No exchange quote, membership, normalization batch or financial-analysis result.
+  One immutable real normalization batch retains two selected facts. No exchange
+  quote, membership or published financial-analysis result. D5d reviews all eleven
+  formerly missing exhibits; historical/current eligibility remains blocked.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
   operating provider, normalized production fact or published financial result.
@@ -39,7 +41,7 @@ feature/design retains its detailed acceptance criteria.
 | Live/delayed production prices | S4a activation, [S4b](milestones/S4-prices-macro.md#remaining-scope-and-next-handoff), S6/S8 | Adapter/storage code exists; no operating price source | Approved provider, registered quote, reviewed lifecycle/session coverage, application policy | Real bounded capture and exact-date selection, visible source time/delay/staleness/gaps; no stale failure silently revived; source lineage reaches displayed prices. |
 | Corporate-action processing | S4b action/ADS lifecycle review | Planned; not operating | Concrete shared contract, action source rights, instrument lifecycle evidence | Splits/dividends/share-class/ADS changes retain effective/known-at evidence; prevent adjusted/raw/share-basis mixing; restatement and out-of-order action regressions. |
 | Ordinary company analysis requests | [W1b](features/W1-watchlist-analysis.md), S3/S4 stages → S5/S7 | Request/source-stage infrastructure exists; zero ordinary application requests | Quote identity, explicit plan/coverage, eligible implemented engines | Every applicable stage considered; unavailable/unsupported remains visible; immutable results, retry/cancel/fencing, no duplicate membership/results. |
-| Real financial normalization and PIT selection | S3 + [S5](milestones/S5-ratios.md) real-data handoff | Infrastructure and reviewed fixtures exist; zero application batches | Ordinary source request or separately reviewed handoff; exact financial/event coverage and mappings | Real archived filings normalize through existing publication fence; accounting flags/source precision; as-reported/restated and filed/capture cutoffs verified without lookahead. |
+| Real financial normalization and PIT selection | S3 + [S5](milestones/S5-ratios.md) real-data handoff | D5a bounded real batch complete: two facts; analysis eligibility blocked | Ordinary source request or separately reviewed handoff; exact financial/event coverage and mappings | Real archived filings normalize through existing publication fence; accounting flags/source precision; as-reported/restated and filed/capture cutoffs verified without lookahead. |
 | Published company ratios/valuation | S5 → [S6](api-contract.md) → S7/S8; [F1](features/F1-fundamentals-guide.md) | S5, synthetic S6a snapshots and S6b/S7a reverse model/API implemented; production publication pending | Real selected facts; reviewed production S5 policies; S6 snapshots/API; S7 assumptions/valuation; price/actions for applicable ratios | Real values trace to operands/formula/source; 3/5/10-year coverage preserved; missing inputs remain gaps; valuation is a range with assumptions, never a buy/sell signal. |
 | Real sector-wide data/comparisons | [X1](milestones/X1-sector-explorer.md), D024, S6 | Pure calculations/fictional graphs verified; real publication blocked | Reviewed universe/taxonomy/membership history, constituent fundamentals/prices/actions, common basis, S6 | Graphs use real eligible constituents; aggregate vs median explicit; coverage/exclusions/calculation/source details; historical membership and no lookahead; thresholds remain versioned policy. |
 | Automatic result refresh after eligible filings | W1b + S5/S6; D4a discovery → reviewed financial handoff | Not operating; D4a reports discovery eligibility/blockers only | Complete discovery, quote/coverage gates, explicit reviewed deduplicated handoff, published snapshot contract | One eligible filing edition queues one logical downstream job; late completion cannot replace newer result; old snapshots retained; amendment is not automatically restatement/non-reliance. |
@@ -134,3 +136,38 @@ exhibits and prior-period reclassification scope remain unresolved. Fresh Octobe
 inventory identifies two later events requiring a new current-cutoff review.
 Next: bounded reconciliation/acquisition, new PIT batch, then dedicated real S6
 publication review. No numeric margin, quote, provider or shared-contract change.
+
+
+## D5d exhibit review and remaining phases
+
+[D5d](milestones/D5d-crcl-exhibits.md) acquired all eleven D5c exhibit bodies in
+three governed groups and reviewed them within explicit accounting scopes.
+The annual earnings operands match the retained annual filing; tested quarterly
+and comparative rows agree with retained periodic filings. Non-GAAP definition
+changes, share-class reclassification and target-company SFRS representations
+remain distinct from Circle reported GAAP restatement. No metric was published.
+The earlier D5c missing-exhibit decision remains an immutable pre-exhibit snapshot.
+
+**Next main gate:** separately pin current financial/event coverage, review the
+later primary filings, settle remaining annual affected-line accounting scope,
+and prepare a newly governed PIT batch. Real S6 publication needs its own accepted
+contract/authorization. October evidence cannot retrofit September knowledge.
+Acquisition agreement schedules/target financials are not substitutes for Circle
+financial evidence; later transaction accounting needs separate review.
+
+The foundation, source infrastructure and pure S5 engine are complete for their
+accepted scopes. S6/S7 publication and S8 fundamentals/financials/valuation views
+are verified with synthetic or fictional inputs; that is distinct from operating
+real-company analysis. Remaining major phases are:
+
+1. Real eligible fundamentals publication and corresponding UI integration.
+2. Approved quote-provider operation and S4b corporate actions/lifecycle coverage.
+3. Real valuation inputs, reviewed assumptions and publication/UI integration.
+4. Ordinary W1 add/rerun/watchlist workflows, governed filing-to-analysis handoff
+   and configured monitoring; the existing scheduler remains paused.
+5. X1 real universe/taxonomy/membership and comparable constituent coverage.
+6. N1 news/calendar ingestion and delivery, then U1 verified manual and release acceptance.
+
+These are dependency stages, not equal-sized percentage-completion units. A
+source-only operating-margin result does not need a quote; price-dependent
+valuation and comparisons do.

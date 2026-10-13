@@ -75,3 +75,26 @@ export interface SafetyReviewSnapshot {
   acquisition: { status: string; note: string };
   nextStep: string;
 }
+
+export interface ExhibitReviewSnapshot {
+  kind: "real-crcl-exhibit-review";
+  reviewedOn: string;
+  historicalRetrievalCutoff: string;
+  reviewedCount: number;
+  conclusion: string;
+  blockers: string[];
+  nextStep: string;
+  operatingMargin: null;
+  publishedMetricCount: 0;
+  exhibits: {
+    id: string; accession: string; form: string; filedDate: string; items: string;
+    exhibit: string; label: string; url: string; status: string;
+    scope: string; relevance: string; finding: string; limit: string;
+    captureId: string | null; capturedAt: string | null; sha256: string | null;
+  }[];
+  details: Record<string, EvidenceDetail>;
+  freshInventory: null | {
+    source: { url: string; capturedAt: string };
+    outsidePinnedWindow: { accession: string; form: string; filedDate: string; url: string }[];
+  };
+}

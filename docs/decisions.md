@@ -108,3 +108,11 @@ Three existing BootstrapPlan-compliant groups include required inventories.
 No post-window primary acquisition, shared-contract/S6 publication, provider,
 quote, migration or scheduler change. Owner explicitly authorized exhibit review
 following the read-only evidence matrix; commit this scope before implementation.
+
+D042 outcome: all eleven exhibits retained once in three governed groups;
+seventeen captures preserve prior application rows. Five releases corroborate
+22 tested reported operands against periodic contexts, including the annual pair.
+Governance and acquisition exhibits have explicit scoped findings/limitations.
+Non-GAAP definition changes are not substituted for reported GAAP results.
+Historical/current eligibility remains blocked; later primary review, annual
+accounting scope and real S6 gates remain. See [D5d](milestones/D5d-crcl-exhibits.md).

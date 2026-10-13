@@ -47,6 +47,7 @@ above. This repository and its commits are the implementation source of truth.
 | D5a | Corrected; 1,709 tests; milestone/d5a-crcl-normalization | [CRCL normalization/PIT](D5a-crcl-normalization.md) | Existing governed captures; stop before S5/S6 analysis |
 | D5b | Complete; 1,720 tests and 23 browser checks | [CRCL analysis readiness](D5b-analysis-readiness.md) | Checked read-only projection of D5a blockers; zero published metrics |
 | D5c | Complete bounded review; 27 browser checks | [CRCL safety](D5c-crcl-safety.md) | Historical blocked; retrospective incomplete; zero published metrics |
+| D5d | Complete bounded review; 31 browser checks | [CRCL exhibits](D5d-crcl-exhibits.md) | All eleven bodies reviewed with explicit limits; no eligibility promotion |
 | S8d | Complete; 1,669 tests; milestone/s8d-company-overview | [Company Overview](S8d-company-overview.md) | Checked metadata linkage; separate fictional datasets |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,

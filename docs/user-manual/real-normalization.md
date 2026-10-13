@@ -97,7 +97,7 @@ migration 0010; D5a does not publish a real S5/S6 analysis.
 
 ## Safety review after normalization
 
-The analysis page now includes D5c's saved safety review. Expand a check and choose
+The analysis page preserves D5c's saved pre-exhibit safety review. Expand a check and choose
 **Inspect evidence** for its exact source and limits. Filing coverage lists every
 scoped accession, capture time and body hash; outstanding exhibits and later
 filings are linked separately.
@@ -105,11 +105,48 @@ filings are linked separately.
 **Historical application knowledge** asks what the app actually retained by the
 September cutoff. October retrievals cannot change that answer. **Retrospective
 content review** asks what later evidence establishes about the old annual pair.
-The pair and amendment wording pass bounded checks, but missing exhibits and
-reclassification scope prevent complete safety proof. A current assessment also
+The pair and amendment wording pass bounded checks, but at that saved checkpoint missing exhibits and
+reclassification scope prevented complete safety proof. A current assessment also
 requires the two later events and a new cutoff/batch.
 
 Operating margin stays N/A. The descriptive stablecoin-issuer profile does not
 turn reported margin into recurring cash profit or generic technology-sector
 comparability. Holder reserves are not corporate excess cash. No real S6 metric,
 price ratio or valuation was published. See the [D5c milestone](../milestones/D5c-crcl-safety.md).
+
+
+## Latest exhibit review (D5d)
+
+The latest panel on the analysis page lists all eleven acquired exhibit bodies.
+Expand an exhibit to read its actual relevance, review scope and remaining limit.
+**Inspect exhibit evidence** opens retained quotes, capture time, source hash,
+parent accession and, for earnings statements, exact ordered columns and paired
+periodic filing proof. Financial source amounts appear inside this provenance
+view; no operating margin is calculated.
+
+The annual reported operands match. Tested quarterly comparisons also match;
+this does not prove every annual reclassification question resolved. Later
+Adjusted EBITDA definition changes are non-GAAP changes, and cannot replace the
+reported operating result. The certificate reclassifies share classes. The bylaws
+corroborate the fiscal calendar. Tazapay agreement representations describe the
+target under SFRS, with omitted schedules and unavailable target statements;
+they do not certify Circle GAAP figures. The transaction announcement describes
+an expected future closing, not completed acquisition accounting.
+
+All new evidence was retrieved in October. September application knowledge stays
+blocked. The latest inventory identifies later primary filings that were not
+acquired in this exhibit batch; current eligibility requires their review and a
+new cutoff, accounting scope resolution and the real S6 publication gate.
+
+Archive-only verification:
+
+```sh
+.venv/bin/python scripts/project_python.py -m scripts.review_crcl_exhibits --check
+.venv/bin/python scripts/project_python.py -m scripts.export_crcl_exhibits --check
+.venv/bin/python scripts/project_python.py -m scripts.capture_crcl_exhibits verify
+```
+
+The last command also reads the current application to verify preservation.
+Do not rerun `capture`: the saved attempt is immutable and rejects implicit retry.
+Older fixed-count application acquisition audits describe their historical state;
+use D5d's verification for current source-storage preservation.

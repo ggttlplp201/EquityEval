@@ -13,9 +13,10 @@ export default function SafetyReviewPanel({ data, onInspect }: {
 }) {
   return <section className={styles.safety} aria-labelledby="safety-title" data-safety-review={data.kind}>
     <div className={styles.sectionHeading}>
-      <div><p className="eyebrow">D5c / EVIDENCE REVIEW</p><h2 id="safety-title">What the safety checks establish</h2></div>
+      <div><p className="eyebrow">D5c / SAVED PRE-EXHIBIT REVIEW</p><h2 id="safety-title">What the safety checks establish</h2></div>
       <span>Reviewed {data.reviewedOn}</span>
     </div>
+    <p>This immutable earlier decision predates D5d. Its missing-exhibit statements describe that saved review; the latest exhibit findings appear above.</p>
     <div className={styles.decisions}>
       <article data-safety-decision="historical">
         <span className={styles.gateStatus} data-state="blocked">Blocked</span>
