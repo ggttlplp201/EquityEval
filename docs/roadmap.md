@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
 Canonical dependency/status list, reconciled 2026-10-13 through the
-[D5d CRCL exhibit review](milestones/D5d-crcl-exhibits.md). This links existing milestones and features;
+[D5e current-window review](milestones/D5e-crcl-current.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -16,8 +16,8 @@ feature/design retains its detailed acceptance criteria.
   S6b/S7a adds audited synthetic reverse DCF, immutable assumptions/runs, W1 publication
   and a trusted-local generated API.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
-  53 captures, ten acquisition bootstraps and two completed filing checks
-  (55 fetch attempts, two retained monitor response bodies). One application-owned
+  57 captures, eleven acquisition bootstraps and two completed filing checks
+  (59 fetch attempts, two retained monitor response bodies). One application-owned
   schedule is paused after its bounded D4b slot; no background service is configured.
   One immutable real normalization batch retains two selected facts. No exchange
   quote, membership or published financial-analysis result. D5d reviews all eleven
@@ -171,3 +171,27 @@ real-company analysis. Remaining major phases are:
 These are dependency stages, not equal-sized percentage-completion units. A
 source-only operating-margin result does not need a quote; price-dependent
 valuation and comparisons do.
+
+
+## D5e current-window checkpoint
+
+[D5e](milestones/D5e-crcl-current.md) retains the two later primary 8-Ks and fresh
+required Facts/Submissions in one governed group. Both primaries were read in
+full: one describes expanded Binance arrangements/private placement; the other
+describes director/CFO departures. The latter links a previously unretained
+CFO-departure Exhibit 99.1 (`final_leadershiptransiti.htm`), which was not silently
+acquired beyond the pinned group or classified from parent metadata.
+
+Fresh inventory matches the 21 scoped financial/event primaries. Its observation
+at 2026-10-13 05:01:15.264075 UTC is distinct from the final body retrieval at
+05:01:15.734230 UTC; neither changes September application knowledge. Fresh annual
+Company Facts editions still match the original annual values. Actual repeated
+Q2/H1 selected operands match across retained periodic editions. The earlier Q1
+edition and blanket affected-line scope remain unconfirmed; no actual change is
+inferred. No new PIT batch or metric was published.
+
+Next: pin the exact outstanding CFO release and the evidence needed to resolve
+remaining affected-line/edition scope, then reassess governed same-concept batch
+preparation. Real S6 remains a separately explicit contract/authorization stage.
+The major remaining product phases above are unchanged. These bounded evidence
+milestones should not be confused with completion of operating real valuation.

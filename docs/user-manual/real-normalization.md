@@ -150,3 +150,27 @@ The last command also reads the current application to verify preservation.
 Do not rerun `capture`: the saved attempt is immutable and rejects implicit retry.
 Older fixed-count application acquisition audits describe their historical state;
 use D5d's verification for current source-storage preservation.
+
+
+## Current-window decision (D5e)
+
+The newest analysis panel asks whether a new evidence batch can proceed. It shows
+the two later primary events, their full-body findings, the exact unreviewed
+CFO-departure exhibit link, and affected-line/edition comparisons. Expand a row and
+choose **Inspect evidence**; financial source amounts remain inside provenance.
+Fresh annual Company Facts values match the original annual edition, and retained
+Q2/H1 comparative values match. Those findings do not resolve the missing earlier
+Q1 comparison or every affected-line reclassification question.
+
+Read the three times separately: the old September cutoff, the current inventory
+observation, and the time all new bodies were held. The last is a retrieval cutoff,
+not an assertion that the inventory covers later public events. A matched scoped
+inventory is not completed event-body review. The candidate batch remains blocked;
+there is still one published normalization batch, two selected facts and no metric.
+Older D5c/D5d panels remain saved checkpoints and are not rewritten.
+
+Verification uses `scripts.review_crcl_current --check`,
+`scripts.export_crcl_current --check` and `scripts.capture_crcl_current verify`
+through the existing project Python runner. Capture is a saved immutable attempt;
+do not rerun it. The current acquisition adds four source captures and preserves
+all prior rows. No financial publication or quote/provider activation occurred.

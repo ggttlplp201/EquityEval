@@ -3,9 +3,10 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { snapshotSha256 } from "./manifest";
+import { currentSha256 } from "./current-manifest";
 import { exhibitsSha256 } from "./exhibits-manifest";
 import { safetySha256 } from "./safety-manifest";
-import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot } from "./types";
+import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot } from "./types";
 
 export async function loadAnalysisReadiness(): Promise<AnalysisReadinessSnapshot> {
   const bytes = await readFile(path.join(process.cwd(), "src/features/analysis-readiness/snapshot.json"));
@@ -29,4 +30,12 @@ export async function loadExhibitReview(): Promise<ExhibitReviewSnapshot> {
     throw new Error("Exhibit-review snapshot verification failed");
   }
   return JSON.parse(bytes.toString("utf8")) as ExhibitReviewSnapshot;
+}
+
+export async function loadCurrentReview(): Promise<CurrentReviewSnapshot> {
+  const bytes = await readFile(path.join(process.cwd(), "src/features/analysis-readiness/current.json"));
+  if (createHash("sha256").update(bytes).digest("hex") !== currentSha256) {
+    throw new Error("Current-review snapshot verification failed");
+  }
+  return JSON.parse(bytes.toString("utf8")) as CurrentReviewSnapshot;
 }

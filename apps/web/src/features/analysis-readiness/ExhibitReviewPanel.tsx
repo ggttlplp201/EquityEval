@@ -7,9 +7,10 @@ export default function ExhibitReviewPanel({ data, onInspect }: {
 }) {
   return <section className={styles.safety} aria-labelledby="exhibits-title" data-exhibit-review={data.kind}>
     <div className={styles.sectionHeading}>
-      <div><p className="eyebrow">D5d / LATEST EXHIBIT REVIEW</p><h2 id="exhibits-title">What the exhibits establish</h2></div>
+      <div><p className="eyebrow">D5d / SAVED ELEVEN-EXHIBIT REVIEW</p><h2 id="exhibits-title">What the exhibits establish</h2></div>
       <span>Reviewed {data.reviewedOn}</span>
     </div>
+    <p>This saved checkpoint covers the eleven exhibits previously missing from D5c. The newer D5e event review appears above.</p>
     <p>{data.conclusion}</p>
     <p>{data.reviewedCount} exhibit bodies reviewed within the stated scopes. Historical retrieval cutoff: {data.historicalRetrievalCutoff}.</p>
     <div className={styles.gates}>

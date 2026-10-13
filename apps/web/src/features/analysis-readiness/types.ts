@@ -98,3 +98,23 @@ export interface ExhibitReviewSnapshot {
     outsidePinnedWindow: { accession: string; form: string; filedDate: string; url: string }[];
   };
 }
+
+export interface CurrentReviewSnapshot {
+  kind: "real-crcl-current-review";
+  reviewedOn: string;
+  inventoryObservedAt: string | null;
+  retrievalCutoff: string | null;
+  historicalRetrievalCutoff: string;
+  conclusion: string;
+  cutoffNote: string;
+  nextStep: string;
+  candidateBatch: { status: string; batchId: null; reasonCodes: string[]; explanation: string };
+  events: { id: string; accession: string; title: string; filedDate: string; form: string;
+    items?: string; status: string; finding: string; limit: string; capturedAt: string | null }[];
+  missingBodies: { resourceKey: string; accession: string; exhibit: string; url: string; reason: string }[];
+  reconciliation: { id: string; label: string; status: string; finding: string; detailId: string }[];
+  annualEditionChecks: { concept: string; status: string; reason: string }[];
+  details: Record<string, EvidenceDetail>;
+  currentInventory: null | { status: string; count: number; forms: string[]; boundaryStart: string;
+    boundaryEnd: string; note: string; source: { url: string; capturedAt: string } };
+}

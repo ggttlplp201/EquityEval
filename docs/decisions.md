@@ -126,3 +126,11 @@ Real S6/metrics and schema/API/provider/quote/valuation/sector/scheduler changes
 remain outside scope. Preserve every prior audit and timestamp. The owner also
 explicitly authorized pushing the completed branch to configured GitHub origin
 without force, with remote HEAD verification.
+
+D043 outcome: both later primary bodies retained and read, with fresh Facts and
+Submissions, preserving all prior rows. The current inventory contains 21 scoped
+primary identities. Annual edition/value and Q2/H1 comparisons match; the newly
+linked CFO-transition Exhibit 99.1 and unresolved affected-line/earlier-edition
+evidence keep the candidate PIT batch blocked. No new batch or metric is published.
+Inventory observation and final retrieval cutoff remain distinct; historical
+September flags remain unchanged. See [D5e](milestones/D5e-crcl-current.md).
