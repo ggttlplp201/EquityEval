@@ -1,0 +1,246 @@
+{
+  "captures": [
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20260921T094830750594+0000-a68a6927-0fc8-4cd0-885f-6d5458090841.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "a68a6927-0fc8-4cd0-885f-6d5458090841",
+      "completed_at": "2026-09-21T09:48:30.772970+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-09-21T09:48:30.772970+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-09-21T09:48:30.591739+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20260921T095624297700+0000-33df6650-2ca9-4668-b513-19f04d421c86.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "33df6650-2ca9-4668-b513-19f04d421c86",
+      "completed_at": "2026-09-21T09:56:24.312603+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-09-21T09:56:24.312603+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-09-21T09:56:24.231512+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20260921T170735801151+0000-923841dc-5a9b-44c4-b59b-ddf7e567fc3b.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "923841dc-5a9b-44c4-b59b-ddf7e567fc3b",
+      "completed_at": "2026-09-21T17:07:35.819182+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-09-21T17:07:35.819182+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-09-21T17:07:35.667129+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20261012T222813352708+0000-60aa03ab-dcae-48b8-ad36-0e65e262e591.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "60aa03ab-dcae-48b8-ad36-0e65e262e591",
+      "completed_at": "2026-10-12T22:28:13.369249+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-10-12T22:28:13.369249+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-10-12T22:28:13.088179+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20261012T222814801514+0000-1c1b0bb3-0d47-4114-8d0e-30a997e078e8.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "1c1b0bb3-0d47-4114-8d0e-30a997e078e8",
+      "completed_at": "2026-10-12T22:28:14.821716+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-10-12T22:28:14.821716+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-10-12T22:28:14.701168+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20261012T222817358592+0000-77383d92-aefe-47a0-ab37-2038c7bcc1b0.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "77383d92-aefe-47a0-ab37-2038c7bcc1b0",
+      "completed_at": "2026-10-12T22:28:17.403670+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-10-12T22:28:17.403670+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-10-12T22:28:16.955805+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20261012T222819031009+0000-07eaea00-c11b-41b1-a34d-189532e5d4e3.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "07eaea00-c11b-41b1-a34d-189532e5d4e3",
+      "completed_at": "2026-10-12T22:28:19.051821+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-10-12T22:28:19.051821+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-10-12T22:28:18.856224+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20261013T033400694141+0000-33ccb3ee-f50c-4cf3-8f19-22b17554015e.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "33ccb3ee-f50c-4cf3-8f19-22b17554015e",
+      "completed_at": "2026-10-13T03:34:00.721088+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-10-13T03:34:00.721088+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-10-13T03:34:00.453893+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20261013T033402328472+0000-f7b98861-13fd-4a52-9de1-78051b8c1d33.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "f7b98861-13fd-4a52-9de1-78051b8c1d33",
+      "completed_at": "2026-10-13T03:34:02.343659+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-10-13T03:34:02.343659+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-10-13T03:34:02.281256+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20261013T033403921107+0000-a7395765-87d5-43b5-b625-baee7897be8c.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "a7395765-87d5-43b5-b625-baee7897be8c",
+      "completed_at": "2026-10-13T03:34:03.940670+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-10-13T03:34:03.940670+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-10-13T03:34:03.864795+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20261013T050115028982+0000-22326644-1969-48c6-a9c1-43e803a66641.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "22326644-1969-48c6-a9c1-43e803a66641",
+      "completed_at": "2026-10-13T05:01:15.043952+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-10-13T05:01:15.043952+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-10-13T05:01:14.953819+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    },
+    {
+      "blob_key": "sec-edgar-public-filings/0b51ba9fa1af895ac0dee6ddce0f4b6ad930da1c1b2e087f22f3d4c54a9752a8/44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a/20261013T065058166670+0000-938f0ff1-1b08-4c66-9a93-596a6905567c.gz",
+      "body_sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "byte_count": 455994,
+      "capture_id": "938f0ff1-1b08-4c66-9a93-596a6905567c",
+      "completed_at": "2026-10-13T06:50:58.186127+00:00",
+      "content_type": "application/json",
+      "fetched_at": "2026-10-13T06:50:58.186127+00:00",
+      "http_status": 200,
+      "observedStageStates": [
+        "completed"
+      ],
+      "policy_revision_id": "3870e281-af8e-44fc-b21a-290b86a7a8d3",
+      "request_params_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "request_url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json",
+      "requested_at": "2026-10-13T06:50:58.053114+00:00",
+      "source_id": "34214115-1cd7-4937-a23c-5d0a48684f62",
+      "source_object_key": "company_facts/0001876042",
+      "terms_review_reference": "sec-public-filings-2026-09-21"
+    }
+  ],
+  "kind": "d5f-read-only-retained-facts-roster",
+  "note": "Retained captures include an initial failed bootstrap; retention is not publication or completed-stage eligibility."
+}

@@ -174,3 +174,14 @@ Verification uses `scripts.review_crcl_current --check`,
 through the existing project Python runner. Capture is a saved immutable attempt;
 do not rerun it. The current acquisition adds four source captures and preserves
 all prior rows. No financial publication or quote/provider activation occurred.
+
+### D5f leadership-exhibit checkpoint
+
+The latest analysis panel closes the named CFO-transition exhibit review and
+shows the remaining accounting blocker. Open its disclosures to inspect the
+full-body finding, all retained periodic-context/reclassification evidence,
+fresh annual source rows and the exact unretained IPO prospectus candidate.
+The prospectus link comes from inventory metadata; its content is not yet proved.
+Older D5e/D5d/D5c panels remain saved checkpoints. Inventory observation and final
+retrieval times stay separate. No new normalized batch or metric is published;
+September application knowledge remains unchanged. Preview uses port 3103.

@@ -6,8 +6,8 @@ export default function CurrentReviewPanel({ data, onInspect }: {
   onInspect: (id: string) => void;
 }) {
   return <section className={styles.safety} aria-labelledby="current-review-title" data-current-review={data.kind}>
-    <div className={styles.sectionHeading}><div><p className="eyebrow">D5e / LATEST CURRENT-WINDOW REVIEW</p><h2 id="current-review-title">Can a new evidence batch proceed?</h2></div><span>Reviewed {data.reviewedOn}</span></div>
-    <p>{data.conclusion}</p>
+    <div className={styles.sectionHeading}><div><p className="eyebrow">D5e / SAVED CURRENT-WINDOW REVIEW</p><h2 id="current-review-title">Can a new evidence batch proceed?</h2></div><span>Reviewed {data.reviewedOn}</span></div>
+    <p>Saved D5e decision. The D5f review above records the subsequently reviewed leadership exhibit.</p><p>{data.conclusion}</p>
     <div className={styles.decisions}>
       <article data-current-candidate><span className={styles.gateStatus} data-state="blocked">Blocked</span><h3>New PIT batch</h3><p>{data.candidateBatch.explanation}</p><ul>{data.candidateBatch.reasonCodes.map(code => <li key={code}>{code.replaceAll("_", " ")}</li>)}</ul></article>
       <article><h3>Three distinct times</h3><dl>

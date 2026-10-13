@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useState } from "react";
 import EvidenceDrawer from "@/components/EvidenceDrawer";
 import WorkbenchShell from "@/components/WorkbenchShell";
+import LeadershipReviewPanel from "./LeadershipReviewPanel";
 import CurrentReviewPanel from "./CurrentReviewPanel";
 import ExhibitReviewPanel from "./ExhibitReviewPanel";
 import SafetyReviewPanel from "./SafetyReviewPanel";
-import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot } from "./types";
+import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot, LeadershipReviewSnapshot } from "./types";
 import styles from "./analysis-readiness.module.css";
 
 const statusLabels = {
@@ -16,7 +17,7 @@ const statusLabels = {
   not_implemented: "Not implemented",
 } as const;
 
-export default function AnalysisReadinessWorkspace({ data, safety, exhibits, current }: { data: AnalysisReadinessSnapshot; safety: SafetyReviewSnapshot; exhibits: ExhibitReviewSnapshot; current: CurrentReviewSnapshot }) {
+export default function AnalysisReadinessWorkspace({ data, safety, exhibits, current, leadership }: { data: AnalysisReadinessSnapshot; safety: SafetyReviewSnapshot; exhibits: ExhibitReviewSnapshot; current: CurrentReviewSnapshot; leadership: LeadershipReviewSnapshot }) {
   const [detailId, setDetailId] = useState<string | null>(null);
   return <WorkbenchShell active="pilot">
     <main id="main-content" tabIndex={-1} className={styles.page} data-analysis-readiness-kind={data.kind}>
@@ -41,6 +42,8 @@ export default function AnalysisReadinessWorkspace({ data, safety, exhibits, cur
         <h2 id="readiness-boundary-title">The source amounts exist. They are not analysis-ready.</h2>
         <p>Both selections retain incomplete-history blockers. EquityEval keeps their exact source values for review while withholding them from ratio calculations.</p>
       </section>
+
+      <LeadershipReviewPanel data={leadership} onInspect={(id) => setDetailId(`leadership:${id}`)} />
 
       <CurrentReviewPanel data={current} onInspect={(id) => setDetailId(`current:${id}`)} />
 
@@ -102,6 +105,6 @@ export default function AnalysisReadinessWorkspace({ data, safety, exhibits, cur
         <div><Link href={data.source.normalizationHref}>Normalized financials ↗</Link><Link href="/help#real-normalization">User guide ↗</Link></div>
       </footer>
     </main>
-    <EvidenceDrawer detail={detailId?.startsWith("current:") ? current.details[detailId.slice(8)] : detailId?.startsWith("exhibits:") ? exhibits.details[detailId.slice(9)] : detailId?.startsWith("safety:") ? safety.details[detailId.slice(7)] : detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
+    <EvidenceDrawer detail={detailId?.startsWith("leadership:") ? leadership.details[detailId.slice(11)] : detailId?.startsWith("current:") ? current.details[detailId.slice(8)] : detailId?.startsWith("exhibits:") ? exhibits.details[detailId.slice(9)] : detailId?.startsWith("safety:") ? safety.details[detailId.slice(7)] : detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
   </WorkbenchShell>;
 }

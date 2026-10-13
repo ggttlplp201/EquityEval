@@ -49,6 +49,7 @@ above. This repository and its commits are the implementation source of truth.
 | D5c | Complete bounded review; 27 browser checks | [CRCL safety](D5c-crcl-safety.md) | Historical blocked; retrospective incomplete; zero published metrics |
 | D5d | Complete bounded review; 31 browser checks | [CRCL exhibits](D5d-crcl-exhibits.md) | All eleven bodies reviewed with explicit limits; no eligibility promotion |
 | D5e | Complete | [CRCL current window](D5e-crcl-current.md) | Two later primaries reviewed; candidate PIT batch blocked |
+| D5f | [CRCL leadership exhibit and retained accounting](D5f-crcl-leadership.md) | Complete |
 | S8d | Complete; 1,669 tests; milestone/s8d-company-overview | [Company Overview](S8d-company-overview.md) | Checked metadata linkage; separate fictional datasets |
 
 For every milestone use [the template](TEMPLATE.md). Keep its record current,

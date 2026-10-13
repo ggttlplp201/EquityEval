@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
 Canonical dependency/status list, reconciled 2026-10-13 through the
-[D5e current-window review](milestones/D5e-crcl-current.md). This links existing milestones and features;
+[D5f leadership review](milestones/D5f-crcl-leadership.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -16,12 +16,13 @@ feature/design retains its detailed acceptance criteria.
   S6b/S7a adds audited synthetic reverse DCF, immutable assumptions/runs, W1 publication
   and a trusted-local generated API.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
-  57 captures, eleven acquisition bootstraps and two completed filing checks
-  (59 fetch attempts, two retained monitor response bodies). One application-owned
+  60 captures, twelve acquisition bootstraps and two completed filing checks
+  (62 fetch attempts, two retained monitor response bodies). One application-owned
   schedule is paused after its bounded D4b slot; no background service is configured.
   One immutable real normalization batch retains two selected facts. No exchange
   quote, membership or published financial-analysis result. D5d reviews all eleven
-  formerly missing exhibits; historical/current eligibility remains blocked.
+  formerly missing exhibits; D5f closes the later CFO-release gap. Accounting scope
+  and historical eligibility remain blocked.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
   operating provider, normalized production fact or published financial result.
@@ -195,3 +196,22 @@ remaining affected-line/edition scope, then reassess governed same-concept batch
 preparation. Real S6 remains a separately explicit contract/authorization stage.
 The major remaining product phases above are unchanged. These bounded evidence
 milestones should not be confused with completion of operating real valuation.
+
+## D5f checkpoint — leadership exhibit and retained accounting (2026-10-13)
+
+Proposal `f72a5ed` follows D5e. The named CFO-transition exhibit is retained and
+read in full: transition/search/comments, with no correction/restatement/non-reliance
+identified in that body. Three governed captures preserve prior rows. Application
+now holds 60 captures, 62 attempts, 12 bootstrap and two monitor requests, one
+normalization batch, two facts and zero real metrics.
+
+All six retained periodic/amendment bodies were searched for selected FY2025
+contexts and reclassification passages. Earlier Q1/complete affected-line scope
+remains unconfirmed; unrelated equity/fund-tax/liability changes do not clear it.
+Exact next source candidate: IPO 424B4 `0001193125-25-135795/d737521d424b4.htm`,
+identified from retained inventory only. Its content/sufficiency awaits review.
+Fresh scoped inventory/annual editions match. No new PIT batch or real S6 output.
+The major roadmap remains: resolve evidence/normalization eligibility, then
+separately satisfy real S6 publication, broader metric inputs/history and later
+valuation/sector stages. This checkpoint is not completion of those phases.
+See [milestone](milestones/D5f-crcl-leadership.md).

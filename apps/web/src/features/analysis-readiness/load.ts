@@ -3,10 +3,11 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { snapshotSha256 } from "./manifest";
+import { leadershipSha256 } from "./leadership-manifest";
 import { currentSha256 } from "./current-manifest";
 import { exhibitsSha256 } from "./exhibits-manifest";
 import { safetySha256 } from "./safety-manifest";
-import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot } from "./types";
+import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot, LeadershipReviewSnapshot } from "./types";
 
 export async function loadAnalysisReadiness(): Promise<AnalysisReadinessSnapshot> {
   const bytes = await readFile(path.join(process.cwd(), "src/features/analysis-readiness/snapshot.json"));
@@ -38,4 +39,12 @@ export async function loadCurrentReview(): Promise<CurrentReviewSnapshot> {
     throw new Error("Current-review snapshot verification failed");
   }
   return JSON.parse(bytes.toString("utf8")) as CurrentReviewSnapshot;
+}
+
+export async function loadLeadershipReview(): Promise<LeadershipReviewSnapshot> {
+  const bytes = await readFile(path.join(process.cwd(), "src/features/analysis-readiness/leadership.json"));
+  if (createHash("sha256").update(bytes).digest("hex") !== leadershipSha256) {
+    throw new Error("Leadership-review snapshot verification failed");
+  }
+  return JSON.parse(bytes.toString("utf8")) as LeadershipReviewSnapshot;
 }

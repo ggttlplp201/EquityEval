@@ -118,3 +118,22 @@ export interface CurrentReviewSnapshot {
   currentInventory: null | { status: string; count: number; forms: string[]; boundaryStart: string;
     boundaryEnd: string; note: string; source: { url: string; capturedAt: string } };
 }
+
+export interface LeadershipReviewSnapshot {
+  kind: "real-crcl-leadership-review";
+  reviewedOn: string;
+  conclusion: string;
+  inventoryObservedAt: string | null;
+  retrievalCutoff: string | null;
+  historicalRetrievalCutoff: string;
+  cutoffNote: string;
+  nextStep: string;
+  nextSource: string;
+  nextSourceUrl: string;
+  event: { status: string; finding: string; capturedAt: string | null };
+  accounting: { finding: string; limit: string };
+  candidateBatch: CurrentReviewSnapshot["candidateBatch"];
+  annualEditionChecks: CurrentReviewSnapshot["annualEditionChecks"];
+  currentInventory: CurrentReviewSnapshot["currentInventory"];
+  details: Record<string, EvidenceDetail>;
+}

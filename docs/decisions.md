@@ -141,3 +141,10 @@ D5e and fresh mandatory Facts/Submissions. Read the full body and exhaust retain
 selected-line/edition evidence without implicit source expansion. Preserve prior
 history; publish no new batch unless evidence and existing contracts pass, and
 keep real S6 metrics null. Owner authorized continuation and non-force branch push.
+
+D044 outcome: the entire CFO-transition exhibit is retained and reviewed, closing
+that linked-body gap. Six retained periodic/amendment bodies and twelve retained
+Facts vintages were exhausted for selected FY2025/Q1 evidence. Q1 Facts point only
+to the 2026 comparative; the inventory-identified IPO prospectus remains an exact
+unretained candidate. Accounting scope stays unconfirmed, with no new batch or
+metric. All prior application rows and historical cutoffs remain preserved.
