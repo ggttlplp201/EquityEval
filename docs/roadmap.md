@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
 Canonical dependency/status list, reconciled 2026-10-13 through the
-[D5f leadership review](milestones/D5f-crcl-leadership.md). This links existing milestones and features;
+[D5g prospectus review](milestones/D5g-crcl-prospectus.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -16,13 +16,14 @@ feature/design retains its detailed acceptance criteria.
   S6b/S7a adds audited synthetic reverse DCF, immutable assumptions/runs, W1 publication
   and a trusted-local generated API.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
-  60 captures, twelve acquisition bootstraps and two completed filing checks
-  (62 fetch attempts, two retained monitor response bodies). One application-owned
+  63 captures, thirteen acquisition bootstraps and two completed filing checks
+  (65 fetch attempts, two retained monitor response bodies). One application-owned
   schedule is paused after its bounded D4b slot; no background service is configured.
   One immutable real normalization batch retains two selected facts. No exchange
   quote, membership or published financial-analysis result. D5d reviews all eleven
-  formerly missing exhibits; D5f closes the later CFO-release gap. Accounting scope
-  and historical eligibility remain blocked.
+  formerly missing exhibits; D5f closes the later CFO-release gap. D5g matches the
+  earlier Q1 and annual comparative selected lines. Seven registration/prospectus
+  bodies remain unreviewed; current batch and historical eligibility stay blocked.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
   operating provider, normalized production fact or published financial result.
@@ -215,3 +216,28 @@ The major roadmap remains: resolve evidence/normalization eligibility, then
 separately satisfy real S6 publication, broader metric inputs/history and later
 valuation/sector stages. This checkpoint is not completion of those phases.
 See [milestone](milestones/D5f-crcl-leadership.md).
+
+
+## D5g checkpoint — IPO prospectus reconciliation (2026-10-13)
+
+Proposal `4866b16` (D045) acquired the exact IPO 424B4 and mandatory inventories.
+The reported Q1 selected pair matches the later Q1 comparative and all thirteen
+retained Facts vintages. FY2024/FY2023 annual selected lines match the later annual
+comparatives. These specific earlier-edition comparisons are now established.
+
+The prior 21-primary roster covered K/Q/8-K, not registration history. Seven known
+S-1/S-1/A/424B4 bodies remain unreviewed. Their correction/edition content cannot
+be inferred from metadata. The next bounded evidence gate is their substantive
+review in two BootstrapPlan groups (five plus two), each with mandatory inventories.
+No additional acquisition is implicit. Then reassess completeness, affected-line
+scope and current cutoff before proposing a new same-concept PIT normalization batch.
+
+Current totals: 63 captures, 65 attempts, 13 bootstrap and two monitor requests,
+one normalization batch, two facts, zero metrics. No shared-contract or real S6
+publication occurred. Historical September knowledge is unchanged. The roadmap
+remains in real-source/PIT safety; later main phases are real S6 publication,
+reviewed price/provider and corporate-action coverage, broader fundamentals and
+valuation assumptions/engines/UI, sector coverage, ordinary watchlist orchestration,
+recurring operation and release/manual verification. Existing synthetic S6/S7/S8
+checkpoints are implemented, not proof of real-company publication readiness.
+See [milestone](milestones/D5g-crcl-prospectus.md).

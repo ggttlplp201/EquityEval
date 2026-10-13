@@ -156,3 +156,10 @@ later editions, preserving every earlier audit and cutoff. Any required further
 registration edition is an explicit blocker, not implicit acquisition scope.
 New PIT preparation requires proved evidence and unchanged contracts; real S6
 metrics remain null. Owner authorized continuation and existing-branch sync.
+
+D045 outcome: the pinned prospectus and mandatory inventories were retained once.
+Specific Q1 and annual comparative selected-line matches are proved. The source
+roster now explicitly exposes seven unreviewed registration/prospectus editions;
+metadata cannot clear their accounting/correction content. Candidate remains
+blocked (`registration_history_unreviewed`), no new PIT batch or financial metric.
+The next evidence scope must be separately pinned; September knowledge is unchanged.

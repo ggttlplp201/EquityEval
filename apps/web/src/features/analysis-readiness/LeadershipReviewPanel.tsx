@@ -5,8 +5,8 @@ export default function LeadershipReviewPanel({ data, onInspect }: {
   data: LeadershipReviewSnapshot; onInspect: (id: string) => void;
 }) {
   return <section className={styles.safety} aria-labelledby="leadership-review-title" data-leadership-review>
-    <div className={styles.sectionHeading}><div><p className="eyebrow">D5f / LATEST EVIDENCE REVIEW</p><h2 id="leadership-review-title">One exhibit gap closed. Accounting scope remains open.</h2></div><span>Reviewed {data.reviewedOn}</span></div>
-    <p>{data.conclusion}</p>
+    <div className={styles.sectionHeading}><div><p className="eyebrow">D5f / SAVED LEADERSHIP REVIEW</p><h2 id="leadership-review-title">One exhibit gap closed. Accounting scope remains open.</h2></div><span>Reviewed {data.reviewedOn}</span></div>
+    <p>Saved D5f decision. The D5g review above records the subsequently acquired IPO prospectus and exact remaining registration-history gap.</p><p>{data.conclusion}</p>
     <div className={styles.decisions}>
       <article data-leadership-candidate><span className={styles.gateStatus} data-state="blocked">Blocked</span><h3>New PIT batch</h3><p>{data.candidateBatch.explanation}</p><ul>{data.candidateBatch.reasonCodes.map(code => <li key={code}>{code.replaceAll("_", " ")}</li>)}</ul></article>
       <article><h3>Actual evidence times</h3><dl><div><dt>Inventory observed</dt><dd>{data.inventoryObservedAt ?? "Unavailable"}</dd></div><div><dt>Acquired evidence held by</dt><dd>{data.retrievalCutoff ?? "Unavailable"}</dd></div><div><dt>Historical cutoff unchanged</dt><dd>{data.historicalRetrievalCutoff}</dd></div></dl><p>{data.cutoffNote}</p></article>

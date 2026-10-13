@@ -1,0 +1,1546 @@
+{
+  "acquisitionSha256": "808dda949242c4bb952d81beed6609e333eadc8aa4f1f10598969c905f41a41b",
+  "annualEditionChecks": [
+    {
+      "concept": "Revenues",
+      "reason": "Exact original annual edition and source value match.",
+      "records": [
+        {
+          "accn": "0001876042-26-000062",
+          "end": "2025-12-31",
+          "filed": "2026-03-09",
+          "form": "10-K",
+          "fp": "FY",
+          "frame": "CY2025",
+          "fy": 2025,
+          "start": "2025-01-01",
+          "val": 2746642000
+        }
+      ],
+      "status": "matched"
+    },
+    {
+      "concept": "OperatingIncomeLoss",
+      "reason": "Exact original annual edition and source value match.",
+      "records": [
+        {
+          "accn": "0001876042-26-000062",
+          "end": "2025-12-31",
+          "filed": "2026-03-09",
+          "form": "10-K",
+          "fp": "FY",
+          "frame": "CY2025",
+          "fy": 2025,
+          "start": "2025-01-01",
+          "val": -96435000
+        }
+      ],
+      "status": "matched"
+    }
+  ],
+  "candidateBatch": {
+    "batchId": null,
+    "explanation": "No new PIT batch is published. Specific statement matches do not establish complete registration/event history; real S6 remains separately gated.",
+    "reasonCodes": [
+      "registration_history_unreviewed"
+    ],
+    "status": "blocked"
+  },
+  "comparison": {
+    "finding": "The final IPO prospectus supplies the earlier Q1 reported pair. Both operands match the retained 2026 Q1 comparative. Its FY2024/FY2023 annual selected lines also match the FY2025 annual filing comparatives. This resolves those specific earlier-edition and affected-line comparisons, alongside saved Q2/H1 matches. No ratio or synthetic quarter is calculated; pro forma EPS and adjusted EBITDA are excluded.",
+    "laterComparisons": [
+      {
+        "captureId": "dfbd4bf4-bdbc-4fe5-842e-5ce10c395104",
+        "concept": "Revenues",
+        "end": "2025-03-31",
+        "exhibitColumn": 1,
+        "literalThousands": "578,573",
+        "locators": [
+          "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[140]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[6]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction",
+          "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[14]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[8]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+        ],
+        "scale": 3,
+        "sha256": "7ed37b0c499d658c3d7542291a7ae3c51ccb7a5ddab1726a76b3c6d728ecdbad",
+        "start": "2025-01-01",
+        "unit": "USD"
+      },
+      {
+        "captureId": "dfbd4bf4-bdbc-4fe5-842e-5ce10c395104",
+        "concept": "OperatingIncomeLoss",
+        "end": "2025-03-31",
+        "exhibitColumn": 1,
+        "literalThousands": "92,940",
+        "locators": [
+          "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[140]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[20]/{http://www.w3.org/1999/xhtml}td[6]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+        ],
+        "scale": 3,
+        "sha256": "7ed37b0c499d658c3d7542291a7ae3c51ccb7a5ddab1726a76b3c6d728ecdbad",
+        "start": "2025-01-01",
+        "unit": "USD"
+      },
+      {
+        "captureId": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "concept": "Revenues",
+        "end": "2024-12-31",
+        "exhibitColumn": 1,
+        "literalThousands": "1,676,253",
+        "locators": [
+          "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[6]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction",
+          "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[8]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+        ],
+        "scale": 3,
+        "sha256": "e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c",
+        "start": "2024-01-01",
+        "unit": "USD"
+      },
+      {
+        "captureId": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "concept": "Revenues",
+        "end": "2023-12-31",
+        "exhibitColumn": 2,
+        "literalThousands": "1,450,466",
+        "locators": [
+          "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[9]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction",
+          "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[12]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+        ],
+        "scale": 3,
+        "sha256": "e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c",
+        "start": "2023-01-01",
+        "unit": "USD"
+      },
+      {
+        "captureId": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "concept": "OperatingIncomeLoss",
+        "end": "2024-12-31",
+        "exhibitColumn": 1,
+        "literalThousands": "167,158",
+        "locators": [
+          "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[6]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+        ],
+        "scale": 3,
+        "sha256": "e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c",
+        "start": "2024-01-01",
+        "unit": "USD"
+      },
+      {
+        "captureId": "7cdba2c5-76a0-453d-b8fb-cae4b6e77809",
+        "concept": "OperatingIncomeLoss",
+        "end": "2023-12-31",
+        "exhibitColumn": 2,
+        "literalThousands": "269,528",
+        "locators": [
+          "elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[9]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction"
+        ],
+        "scale": 3,
+        "sha256": "e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c",
+        "start": "2023-01-01",
+        "unit": "USD"
+      }
+    ],
+    "limit": "Matching tested statements does not certify unreviewed registration editions or every accounting line. Prospective restatement/control-risk language is not an actual correction. The disclosed February 2023 auditor change is not a FY2025 correction; its referenced letter is not treated as reviewed assurance.",
+    "prospectusStatements": [
+      {
+        "locator": "/html/body/document/type/sequence/filename/description/text/center[248]/div/table",
+        "page": "F-4",
+        "period": "Q1 2025 and Q1 2024",
+        "rows": [
+          {
+            "header": "Three MonthsEnded March 31, (in thousands, except per share information) 2025 2024",
+            "label": "Total revenue and reserve income",
+            "values": [
+              "578,573",
+              "365,094"
+            ]
+          },
+          {
+            "header": "Three MonthsEnded March 31, (in thousands, except per share information) 2025 2024",
+            "label": "Operating income from continuing operations",
+            "values": [
+              "92,940",
+              "52,319"
+            ]
+          }
+        ],
+        "scale": 3,
+        "scope": "Circle Internet Group, Inc. and subsidiaries; consolidated; unaudited",
+        "unit": "USD"
+      },
+      {
+        "locator": "/html/body/document/type/sequence/filename/description/text/center[280]/div/table",
+        "period": "FY2024/FY2023/FY2022",
+        "rows": [
+          {
+            "header": "(in thousands, except per share information) Year Ended December 31, 2024 2023 2022",
+            "label": "Total revenue and reserve income from continuing operations",
+            "values": [
+              "1,676,253",
+              "1,450,466",
+              "772,052"
+            ]
+          },
+          {
+            "header": "(in thousands, except per share information) Year Ended December 31, 2024 2023 2022",
+            "label": "Operating income (loss) from continuing operations",
+            "values": [
+              "167,158",
+              "269,528",
+              "(38,116)"
+            ]
+          }
+        ],
+        "scale": 3,
+        "scope": "Circle Internet Group, Inc. and subsidiaries; consolidated; annual",
+        "unit": "USD"
+      }
+    ],
+    "quotes": [
+      {
+        "offset": 893316,
+        "quote": "Effective February 13, 2023, Grant Thornton LLP (the \u201cFormer Auditor\u201d) was dismissed as our independent accountant."
+      },
+      {
+        "offset": 244022,
+        "quote": "may result in a restatement of our annual or interim financial statements."
+      },
+      {
+        "offset": 500676,
+        "quote": "Our reporting currency is the U.S. dollar and the functional currency of our international operations is its local currency."
+      },
+      {
+        "offset": 916522,
+        "quote": "These reclassifications have no impact on the unaudited condensed consolidated financial statements."
+      },
+      {
+        "offset": 915104,
+        "quote": "The historical basis of accounting was retained as if the entities had always been combined for financial reporting purposes."
+      },
+      {
+        "offset": 897355,
+        "quote": "This prospectus does not contain all of the information set forth in the registration statement and the exhibits and schedules thereto."
+      }
+    ],
+    "sources": [
+      {
+        "accession": "0001193125-25-135795",
+        "capturedAt": "2026-10-13 21:37:25.661952+00:00",
+        "label": "SEC / Circle retained filing",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 c6cad26039ea6e29ef98f5faca7df5419e6828523c89b3895dc568df568b279c; exact source replay",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525135795/d737521d424b4.htm"
+      },
+      {
+        "accession": "0001876042-26-000150",
+        "capturedAt": "2026-10-12 22:28:16.895974+00:00",
+        "label": "SEC / Circle retained filing",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 7ed37b0c499d658c3d7542291a7ae3c51ccb7a5ddab1726a76b3c6d728ecdbad; exact source replay",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000150/crcl-20260331.htm"
+      },
+      {
+        "accession": "0001876042-26-000062",
+        "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+        "label": "SEC / Circle retained filing",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+        "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+      }
+    ],
+    "status": "matched_tested_operands"
+  },
+  "conclusion": "The IPO prospectus resolves the tested earlier-Q1 and annual comparative selected-line matches. Unreviewed registration history still prevents a new eligible PIT batch.",
+  "currentInventory": {
+    "boundaryEnd": "2026-10-13",
+    "boundaryStart": "2025-01-01",
+    "changedIdentities": [],
+    "count": 21,
+    "filings": [
+      {
+        "acceptedAt": "2025-06-07T00:03:46+00:00",
+        "accession": "0000950103-25-007107",
+        "filedDate": "2025-06-06",
+        "form": "8-K",
+        "items": "3.03,5.03,8.01,9.01",
+        "metadataLocator": "/filings/recent/371"
+      },
+      {
+        "acceptedAt": "2025-07-22T16:16:55+00:00",
+        "accession": "0001876042-25-000004",
+        "filedDate": "2025-07-22",
+        "form": "8-K",
+        "items": "5.02,9.01",
+        "metadataLocator": "/filings/recent/354"
+      },
+      {
+        "acceptedAt": "2025-08-12T14:27:11+00:00",
+        "accession": "0001628280-25-039749",
+        "filedDate": "2025-08-12",
+        "form": "8-K",
+        "items": "2.02,9.01",
+        "metadataLocator": "/filings/recent/343"
+      },
+      {
+        "acceptedAt": "2025-08-12T17:21:01+00:00",
+        "accession": "0001628280-25-039781",
+        "filedDate": "2025-08-12",
+        "form": "10-Q",
+        "items": "",
+        "metadataLocator": "/filings/recent/342"
+      },
+      {
+        "acceptedAt": "2025-09-20T01:10:50+00:00",
+        "accession": "0001876042-25-000014",
+        "filedDate": "2025-09-19",
+        "form": "8-K",
+        "items": "5.02,9.01",
+        "metadataLocator": "/filings/recent/310"
+      },
+      {
+        "acceptedAt": "2025-11-12T16:26:42+00:00",
+        "accession": "0001876042-25-000045",
+        "filedDate": "2025-11-12",
+        "form": "8-K",
+        "items": "2.02,9.01",
+        "metadataLocator": "/filings/recent/297"
+      },
+      {
+        "acceptedAt": "2025-11-12T19:21:02+00:00",
+        "accession": "0001876042-25-000047",
+        "filedDate": "2025-11-12",
+        "form": "10-Q",
+        "items": "",
+        "metadataLocator": "/filings/recent/296"
+      },
+      {
+        "acceptedAt": "2026-02-25T16:26:39+00:00",
+        "accession": "0001876042-26-000032",
+        "filedDate": "2026-02-25",
+        "form": "8-K",
+        "items": "2.02,9.01",
+        "metadataLocator": "/filings/recent/230"
+      },
+      {
+        "acceptedAt": "2026-03-09T16:36:51+00:00",
+        "accession": "0001876042-26-000062",
+        "filedDate": "2026-03-09",
+        "form": "10-K",
+        "items": "",
+        "metadataLocator": "/filings/recent/194"
+      },
+      {
+        "acceptedAt": "2026-03-17T16:06:38+00:00",
+        "accession": "0001876042-26-000078",
+        "filedDate": "2026-03-17",
+        "form": "8-K",
+        "items": "5.02,9.01",
+        "metadataLocator": "/filings/recent/182"
+      },
+      {
+        "acceptedAt": "2026-05-11T14:27:16+00:00",
+        "accession": "0001876042-26-000148",
+        "filedDate": "2026-05-11",
+        "form": "8-K",
+        "items": "2.02,8.01,9.01",
+        "metadataLocator": "/filings/recent/136"
+      },
+      {
+        "acceptedAt": "2026-05-11T17:16:55+00:00",
+        "accession": "0001876042-26-000150",
+        "filedDate": "2026-05-11",
+        "form": "10-Q",
+        "items": "",
+        "metadataLocator": "/filings/recent/135"
+      },
+      {
+        "acceptedAt": "2026-05-19T01:04:45+00:00",
+        "accession": "0001876042-26-000159",
+        "filedDate": "2026-05-18",
+        "form": "8-K",
+        "items": "5.07",
+        "metadataLocator": "/filings/recent/129"
+      },
+      {
+        "acceptedAt": "2026-06-13T01:01:31+00:00",
+        "accession": "0001876042-26-000192",
+        "filedDate": "2026-06-12",
+        "form": "8-K",
+        "items": "5.02",
+        "metadataLocator": "/filings/recent/90"
+      },
+      {
+        "acceptedAt": "2026-07-03T01:03:03+00:00",
+        "accession": "0001876042-26-000205",
+        "filedDate": "2026-07-02",
+        "form": "8-K",
+        "items": "8.01",
+        "metadataLocator": "/filings/recent/78"
+      },
+      {
+        "acceptedAt": "2026-07-14T00:40:02+00:00",
+        "accession": "0001876042-26-000228",
+        "filedDate": "2026-07-13",
+        "form": "10-K/A",
+        "items": "",
+        "metadataLocator": "/filings/recent/65"
+      },
+      {
+        "acceptedAt": "2026-08-05T14:12:18+00:00",
+        "accession": "0001876042-26-000246",
+        "filedDate": "2026-08-05",
+        "form": "8-K",
+        "items": "2.02,9.01",
+        "metadataLocator": "/filings/recent/54"
+      },
+      {
+        "acceptedAt": "2026-08-05T17:02:57+00:00",
+        "accession": "0001876042-26-000248",
+        "filedDate": "2026-08-05",
+        "form": "10-Q",
+        "items": "",
+        "metadataLocator": "/filings/recent/53"
+      },
+      {
+        "acceptedAt": "2026-09-08T14:04:21+00:00",
+        "accession": "0001876042-26-000267",
+        "filedDate": "2026-09-08",
+        "form": "8-K",
+        "items": "1.01,3.02,7.01,9.01",
+        "metadataLocator": "/filings/recent/27"
+      },
+      {
+        "acceptedAt": "2026-09-22T14:54:27+00:00",
+        "accession": "0001876042-26-000276",
+        "filedDate": "2026-09-22",
+        "form": "8-K",
+        "items": "8.01",
+        "metadataLocator": "/filings/recent/16"
+      },
+      {
+        "acceptedAt": "2026-09-26T00:05:16+00:00",
+        "accession": "0001876042-26-000279",
+        "filedDate": "2026-09-25",
+        "form": "8-K",
+        "items": "5.02,7.01",
+        "metadataLocator": "/filings/recent/14"
+      }
+    ],
+    "forms": [
+      "10-K",
+      "10-K/A",
+      "10-Q",
+      "10-Q/A",
+      "8-K",
+      "8-K/A",
+      "NT 10-K",
+      "NT 10-Q"
+    ],
+    "missingAccessions": [],
+    "missingHistoryFiles": [],
+    "note": "This is the specified financial/event-form inventory observed at its capture time, not proof of every SEC form or later public event. Date boundaries do not assert knowledge of the remainder of the day.",
+    "source": {
+      "accession": null,
+      "capturedAt": "2026-10-13 21:37:25.001058+00:00",
+      "label": "SEC retained Submissions inventory",
+      "licence": "SEC public filings and government-created data reuse",
+      "transform": "Verified entity bytes SHA256 69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7; exact source replay",
+      "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+    },
+    "status": "matched_scoped_roster",
+    "unexpectedAccessions": []
+  },
+  "cutoffNote": "Inventory is observed at its own timestamp. Later retrieval does not extend public-event knowledge or repair September application knowledge.",
+  "details": {
+    "annual": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Revenues",
+              "value": "{\"concept\": \"Revenues\", \"reason\": \"Exact original annual edition and source value match.\", \"records\": [{\"accn\": \"0001876042-26-000062\", \"end\": \"2025-12-31\", \"filed\": \"2026-03-09\", \"form\": \"10-K\", \"fp\": \"FY\", \"frame\": \"CY2025\", \"fy\": 2025, \"start\": \"2025-01-01\", \"val\": 2746642000}], \"status\": \"matched\"}"
+            },
+            {
+              "label": "OperatingIncomeLoss",
+              "value": "{\"concept\": \"OperatingIncomeLoss\", \"reason\": \"Exact original annual edition and source value match.\", \"records\": [{\"accn\": \"0001876042-26-000062\", \"end\": \"2025-12-31\", \"filed\": \"2026-03-09\", \"form\": \"10-K\", \"fp\": \"FY\", \"frame\": \"CY2025\", \"fy\": 2025, \"start\": \"2025-01-01\", \"val\": -96435000}], \"status\": \"matched\"}"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-10-13 21:37:24.653658+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        }
+      ],
+      "subtitle": "Exact source rows; no ratio",
+      "title": "Fresh FY2025 annual Facts editions"
+    },
+    "facts": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "a68a6927-0fc8-4cd0-885f-6d5458090841",
+              "value": "{\"captureId\": \"a68a6927-0fc8-4cd0-885f-6d5458090841\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "33df6650-2ca9-4668-b513-19f04d421c86",
+              "value": "{\"captureId\": \"33df6650-2ca9-4668-b513-19f04d421c86\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "923841dc-5a9b-44c4-b59b-ddf7e567fc3b",
+              "value": "{\"captureId\": \"923841dc-5a9b-44c4-b59b-ddf7e567fc3b\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "60aa03ab-dcae-48b8-ad36-0e65e262e591",
+              "value": "{\"captureId\": \"60aa03ab-dcae-48b8-ad36-0e65e262e591\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "1c1b0bb3-0d47-4114-8d0e-30a997e078e8",
+              "value": "{\"captureId\": \"1c1b0bb3-0d47-4114-8d0e-30a997e078e8\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "77383d92-aefe-47a0-ab37-2038c7bcc1b0",
+              "value": "{\"captureId\": \"77383d92-aefe-47a0-ab37-2038c7bcc1b0\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "07eaea00-c11b-41b1-a34d-189532e5d4e3",
+              "value": "{\"captureId\": \"07eaea00-c11b-41b1-a34d-189532e5d4e3\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "33ccb3ee-f50c-4cf3-8f19-22b17554015e",
+              "value": "{\"captureId\": \"33ccb3ee-f50c-4cf3-8f19-22b17554015e\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "f7b98861-13fd-4a52-9de1-78051b8c1d33",
+              "value": "{\"captureId\": \"f7b98861-13fd-4a52-9de1-78051b8c1d33\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "a7395765-87d5-43b5-b625-baee7897be8c",
+              "value": "{\"captureId\": \"a7395765-87d5-43b5-b625-baee7897be8c\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "22326644-1969-48c6-a9c1-43e803a66641",
+              "value": "{\"captureId\": \"22326644-1969-48c6-a9c1-43e803a66641\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "938f0ff1-1b08-4c66-9a93-596a6905567c",
+              "value": "{\"captureId\": \"938f0ff1-1b08-4c66-9a93-596a6905567c\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"observedStageStates\": [\"completed\"], \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            },
+            {
+              "label": "78477010-4262-4355-9cf7-a70fed92407c",
+              "value": "{\"captureId\": \"78477010-4262-4355-9cf7-a70fed92407c\", \"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"sha256\": \"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\", \"status\": \"later_comparative_only\"}"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21T09:48:30.772970+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21T09:56:24.312603+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21T17:07:35.819182+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-12T22:28:13.369249+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-12T22:28:14.821716+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-12T22:28:17.403670+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-12T22:28:19.051821+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-13T03:34:00.721088+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-13T03:34:02.343659+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-13T03:34:03.940670+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-13T05:01:15.043952+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-13T06:50:58.186127+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-13 21:37:24.653658+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        }
+      ],
+      "subtitle": "Source attribution and comparison; not a substitute for filing-body review",
+      "title": "Every retained Q1 Facts vintage"
+    },
+    "registration": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Coverage boundary",
+              "value": "Prior 21-primary coverage was limited to K/Q/8-K financial/event forms. Registration/prospectus editions are now explicit; no broad complete-history claim follows from that narrower roster."
+            },
+            {
+              "label": "Required body review",
+              "value": "[{\"accession\": \"0001193125-25-181916\", \"filedDate\": \"2025-08-15\", \"form\": \"424B4\", \"locator\": \"filings.recent row 331\", \"reason\": \"Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.\", \"resourceKey\": \"filing_document/0001876042/0001193125-25-181916/d839239d424b4.htm\", \"url\": \"https://www.sec.gov/Archives/edgar/data/1876042/000119312525181916/d839239d424b4.htm\"}, {\"accession\": \"0001193125-25-178989\", \"filedDate\": \"2025-08-12\", \"form\": \"S-1\", \"locator\": \"filings.recent row 340\", \"reason\": \"Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.\", \"resourceKey\": \"filing_document/0001876042/0001193125-25-178989/d839239ds1.htm\", \"url\": \"https://www.sec.gov/Archives/edgar/data/1876042/000119312525178989/d839239ds1.htm\"}, {\"accession\": \"0001193125-25-132755\", \"filedDate\": \"2025-06-02\", \"form\": \"S-1/A\", \"locator\": \"filings.recent row 393\", \"reason\": \"Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.\", \"resourceKey\": \"filing_document/0001876042/0001193125-25-132755/d737521ds1a.htm\", \"url\": \"https://www.sec.gov/Archives/edgar/data/1876042/000119312525132755/d737521ds1a.htm\"}, {\"accession\": \"0001193125-25-126208\", \"filedDate\": \"2025-05-27\", \"form\": \"S-1/A\", \"locator\": \"filings.recent row 396\", \"reason\": \"Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.\", \"resourceKey\": \"filing_document/0001876042/0001193125-25-126208/d737521ds1a.htm\", \"url\": \"https://www.sec.gov/Archives/edgar/data/1876042/000119312525126208/d737521ds1a.htm\"}, {\"accession\": \"0001193125-25-121234\", \"filedDate\": \"2025-05-16\", \"form\": \"S-1/A\", \"locator\": \"filings.recent row 397\", \"reason\": \"Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.\", \"resourceKey\": \"filing_document/0001876042/0001193125-25-121234/d737521ds1a.htm\", \"url\": \"https://www.sec.gov/Archives/edgar/data/1876042/000119312525121234/d737521ds1a.htm\"}, {\"accession\": \"0001193125-25-084832\", \"filedDate\": \"2025-04-18\", \"form\": \"S-1/A\", \"locator\": \"filings.recent row 400\", \"reason\": \"Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.\", \"resourceKey\": \"filing_document/0001876042/0001193125-25-084832/d737521ds1a.htm\", \"url\": \"https://www.sec.gov/Archives/edgar/data/1876042/000119312525084832/d737521ds1a.htm\"}, {\"accession\": \"0001193125-25-070481\", \"filedDate\": \"2025-04-01\", \"form\": \"S-1\", \"locator\": \"filings.recent row 403\", \"reason\": \"Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.\", \"resourceKey\": \"filing_document/0001876042/0001193125-25-070481/d737521ds1.htm\", \"url\": \"https://www.sec.gov/Archives/edgar/data/1876042/000119312525070481/d737521ds1.htm\"}]"
+            },
+            {
+              "label": "Why required",
+              "value": "These are known financial registration/prospectus editions within the review window. Their selected-line presentation, amendment changes and correction disclosures cannot be classified from form/date metadata. Review them in a separately pinned batch before declaring original/event history complete."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": null,
+          "capturedAt": "2026-10-13 21:37:25.001058+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        }
+      ],
+      "subtitle": "Inventory metadata, not inferred body content",
+      "title": "Exact registration-history gap"
+    },
+    "statements": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Finding",
+              "value": "The final IPO prospectus supplies the earlier Q1 reported pair. Both operands match the retained 2026 Q1 comparative. Its FY2024/FY2023 annual selected lines also match the FY2025 annual filing comparatives. This resolves those specific earlier-edition and affected-line comparisons, alongside saved Q2/H1 matches. No ratio or synthetic quarter is calculated; pro forma EPS and adjusted EBITDA are excluded."
+            },
+            {
+              "label": "Limit",
+              "value": "Matching tested statements does not certify unreviewed registration editions or every accounting line. Prospective restatement/control-risk language is not an actual correction. The disclosed February 2023 auditor change is not a FY2025 correction; its referenced letter is not treated as reviewed assurance."
+            },
+            {
+              "label": "Source statements",
+              "value": "[{\"locator\": \"/html/body/document/type/sequence/filename/description/text/center[248]/div/table\", \"page\": \"F-4\", \"period\": \"Q1 2025 and Q1 2024\", \"rows\": [{\"header\": \"Three MonthsEnded March 31, (in thousands, except per share information) 2025 2024\", \"label\": \"Total revenue and reserve income\", \"values\": [\"578,573\", \"365,094\"]}, {\"header\": \"Three MonthsEnded March 31, (in thousands, except per share information) 2025 2024\", \"label\": \"Operating income from continuing operations\", \"values\": [\"92,940\", \"52,319\"]}], \"scale\": 3, \"scope\": \"Circle Internet Group, Inc. and subsidiaries; consolidated; unaudited\", \"unit\": \"USD\"}, {\"locator\": \"/html/body/document/type/sequence/filename/description/text/center[280]/div/table\", \"period\": \"FY2024/FY2023/FY2022\", \"rows\": [{\"header\": \"(in thousands, except per share information) Year Ended December 31, 2024 2023 2022\", \"label\": \"Total revenue and reserve income from continuing operations\", \"values\": [\"1,676,253\", \"1,450,466\", \"772,052\"]}, {\"header\": \"(in thousands, except per share information) Year Ended December 31, 2024 2023 2022\", \"label\": \"Operating income (loss) from continuing operations\", \"values\": [\"167,158\", \"269,528\", \"(38,116)\"]}], \"scale\": 3, \"scope\": \"Circle Internet Group, Inc. and subsidiaries; consolidated; annual\", \"unit\": \"USD\"}]"
+            },
+            {
+              "label": "Later exact contexts",
+              "value": "[{\"captureId\": \"dfbd4bf4-bdbc-4fe5-842e-5ce10c395104\", \"concept\": \"Revenues\", \"end\": \"2025-03-31\", \"exhibitColumn\": 1, \"literalThousands\": \"578,573\", \"locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[140]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[6]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\", \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[14]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[8]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"scale\": 3, \"sha256\": \"7ed37b0c499d658c3d7542291a7ae3c51ccb7a5ddab1726a76b3c6d728ecdbad\", \"start\": \"2025-01-01\", \"unit\": \"USD\"}, {\"captureId\": \"dfbd4bf4-bdbc-4fe5-842e-5ce10c395104\", \"concept\": \"OperatingIncomeLoss\", \"end\": \"2025-03-31\", \"exhibitColumn\": 1, \"literalThousands\": \"92,940\", \"locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[140]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[20]/{http://www.w3.org/1999/xhtml}td[6]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"scale\": 3, \"sha256\": \"7ed37b0c499d658c3d7542291a7ae3c51ccb7a5ddab1726a76b3c6d728ecdbad\", \"start\": \"2025-01-01\", \"unit\": \"USD\"}, {\"captureId\": \"7cdba2c5-76a0-453d-b8fb-cae4b6e77809\", \"concept\": \"Revenues\", \"end\": \"2024-12-31\", \"exhibitColumn\": 1, \"literalThousands\": \"1,676,253\", \"locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[6]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\", \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[8]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"scale\": 3, \"sha256\": \"e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c\", \"start\": \"2024-01-01\", \"unit\": \"USD\"}, {\"captureId\": \"7cdba2c5-76a0-453d-b8fb-cae4b6e77809\", \"concept\": \"Revenues\", \"end\": \"2023-12-31\", \"exhibitColumn\": 2, \"literalThousands\": \"1,450,466\", \"locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[9]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\", \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[12]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"scale\": 3, \"sha256\": \"e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c\", \"start\": \"2023-01-01\", \"unit\": \"USD\"}, {\"captureId\": \"7cdba2c5-76a0-453d-b8fb-cae4b6e77809\", \"concept\": \"OperatingIncomeLoss\", \"end\": \"2024-12-31\", \"exhibitColumn\": 1, \"literalThousands\": \"167,158\", \"locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[6]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"scale\": 3, \"sha256\": \"e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c\", \"start\": \"2024-01-01\", \"unit\": \"USD\"}, {\"captureId\": \"7cdba2c5-76a0-453d-b8fb-cae4b6e77809\", \"concept\": \"OperatingIncomeLoss\", \"end\": \"2023-12-31\", \"exhibitColumn\": 2, \"literalThousands\": \"269,528\", \"locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[9]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"scale\": 3, \"sha256\": \"e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c\", \"start\": \"2023-01-01\", \"unit\": \"USD\"}]"
+            },
+            {
+              "label": "Basis and edition references",
+              "value": "[{\"offset\": 893316, \"quote\": \"Effective February 13, 2023, Grant Thornton LLP (the \\u201cFormer Auditor\\u201d) was dismissed as our independent accountant.\"}, {\"offset\": 244022, \"quote\": \"may result in a restatement of our annual or interim financial statements.\"}, {\"offset\": 500676, \"quote\": \"Our reporting currency is the U.S. dollar and the functional currency of our international operations is its local currency.\"}, {\"offset\": 916522, \"quote\": \"These reclassifications have no impact on the unaudited condensed consolidated financial statements.\"}, {\"offset\": 915104, \"quote\": \"The historical basis of accounting was retained as if the entities had always been combined for financial reporting purposes.\"}, {\"offset\": 897355, \"quote\": \"This prospectus does not contain all of the information set forth in the registration statement and the exhibits and schedules thereto.\"}]"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": "0001193125-25-135795",
+          "capturedAt": "2026-10-13 21:37:25.661952+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c6cad26039ea6e29ef98f5faca7df5419e6828523c89b3895dc568df568b279c; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525135795/d737521d424b4.htm"
+        },
+        {
+          "accession": "0001876042-26-000150",
+          "capturedAt": "2026-10-12 22:28:16.895974+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 7ed37b0c499d658c3d7542291a7ae3c51ccb7a5ddab1726a76b3c6d728ecdbad; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000150/crcl-20260331.htm"
+        },
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        }
+      ],
+      "subtitle": "Reported consolidated operands; exact USD scale and signed literals",
+      "title": "IPO statements versus later retained editions"
+    }
+  },
+  "historicalRetrievalCutoff": "2026-09-21T17:07:36.842185+00:00",
+  "inventoryObservedAt": "2026-10-13 21:37:25.001058+00:00",
+  "kind": "real-crcl-prospectus-review",
+  "missingBodies": [
+    {
+      "accession": "0001193125-25-181916",
+      "filedDate": "2025-08-15",
+      "form": "424B4",
+      "locator": "filings.recent row 331",
+      "reason": "Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.",
+      "resourceKey": "filing_document/0001876042/0001193125-25-181916/d839239d424b4.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525181916/d839239d424b4.htm"
+    },
+    {
+      "accession": "0001193125-25-178989",
+      "filedDate": "2025-08-12",
+      "form": "S-1",
+      "locator": "filings.recent row 340",
+      "reason": "Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.",
+      "resourceKey": "filing_document/0001876042/0001193125-25-178989/d839239ds1.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525178989/d839239ds1.htm"
+    },
+    {
+      "accession": "0001193125-25-132755",
+      "filedDate": "2025-06-02",
+      "form": "S-1/A",
+      "locator": "filings.recent row 393",
+      "reason": "Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.",
+      "resourceKey": "filing_document/0001876042/0001193125-25-132755/d737521ds1a.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525132755/d737521ds1a.htm"
+    },
+    {
+      "accession": "0001193125-25-126208",
+      "filedDate": "2025-05-27",
+      "form": "S-1/A",
+      "locator": "filings.recent row 396",
+      "reason": "Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.",
+      "resourceKey": "filing_document/0001876042/0001193125-25-126208/d737521ds1a.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525126208/d737521ds1a.htm"
+    },
+    {
+      "accession": "0001193125-25-121234",
+      "filedDate": "2025-05-16",
+      "form": "S-1/A",
+      "locator": "filings.recent row 397",
+      "reason": "Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.",
+      "resourceKey": "filing_document/0001876042/0001193125-25-121234/d737521ds1a.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525121234/d737521ds1a.htm"
+    },
+    {
+      "accession": "0001193125-25-084832",
+      "filedDate": "2025-04-18",
+      "form": "S-1/A",
+      "locator": "filings.recent row 400",
+      "reason": "Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.",
+      "resourceKey": "filing_document/0001876042/0001193125-25-084832/d737521ds1a.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525084832/d737521ds1a.htm"
+    },
+    {
+      "accession": "0001193125-25-070481",
+      "filedDate": "2025-04-01",
+      "form": "S-1",
+      "locator": "filings.recent row 403",
+      "reason": "Registration/prospectus body not retained and substantively reviewed; its edition/correction content is unconfirmed from inventory metadata.",
+      "resourceKey": "filing_document/0001876042/0001193125-25-070481/d737521ds1.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525070481/d737521ds1.htm"
+    }
+  ],
+  "nextStep": "Pin review of the seven remaining registration/prospectus bodies in two governed groups of five and two, each with mandatory inventories. Reassess source scope if inventory changes.",
+  "operatingMargin": null,
+  "priorReviewSha256": "34d2f906550867c3dcd155c8c07e60a94387884c491ae73dc714b8dc209354e5",
+  "proposalCommit": "4866b16",
+  "publishedMetricCount": 0,
+  "q1FactsMatch": true,
+  "q1FactsVintages": [
+    {
+      "captureId": "a68a6927-0fc8-4cd0-885f-6d5458090841",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-09-21T09:48:30.772970+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "33df6650-2ca9-4668-b513-19f04d421c86",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-09-21T09:56:24.312603+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "923841dc-5a9b-44c4-b59b-ddf7e567fc3b",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-09-21T17:07:35.819182+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "60aa03ab-dcae-48b8-ad36-0e65e262e591",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-12T22:28:13.369249+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "1c1b0bb3-0d47-4114-8d0e-30a997e078e8",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-12T22:28:14.821716+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "77383d92-aefe-47a0-ab37-2038c7bcc1b0",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-12T22:28:17.403670+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "07eaea00-c11b-41b1-a34d-189532e5d4e3",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-12T22:28:19.051821+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "33ccb3ee-f50c-4cf3-8f19-22b17554015e",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-13T03:34:00.721088+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "f7b98861-13fd-4a52-9de1-78051b8c1d33",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-13T03:34:02.343659+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "a7395765-87d5-43b5-b625-baee7897be8c",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-13T03:34:03.940670+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "22326644-1969-48c6-a9c1-43e803a66641",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-13T05:01:15.043952+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "938f0ff1-1b08-4c66-9a93-596a6905567c",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "observedStageStates": [
+        "completed"
+      ],
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-13T06:50:58.186127+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    },
+    {
+      "captureId": "78477010-4262-4355-9cf7-a70fed92407c",
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "sha256": "f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af",
+      "source": {
+        "accession": null,
+        "capturedAt": "2026-10-13 21:37:24.653658+00:00",
+        "label": "SEC Company Facts",
+        "licence": "SEC public filings and government-created data reuse",
+        "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+        "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+      },
+      "status": "later_comparative_only"
+    }
+  ],
+  "registrationRoster": [
+    {
+      "accession": "0001193125-25-181916",
+      "filedDate": "2025-08-15",
+      "form": "424B4",
+      "locator": "filings.recent row 331",
+      "resourceKey": "filing_document/0001876042/0001193125-25-181916/d839239d424b4.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525181916/d839239d424b4.htm"
+    },
+    {
+      "accession": "0001193125-25-178989",
+      "filedDate": "2025-08-12",
+      "form": "S-1",
+      "locator": "filings.recent row 340",
+      "resourceKey": "filing_document/0001876042/0001193125-25-178989/d839239ds1.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525178989/d839239ds1.htm"
+    },
+    {
+      "accession": "0001193125-25-135795",
+      "filedDate": "2025-06-05",
+      "form": "424B4",
+      "locator": "filings.recent row 372",
+      "resourceKey": "filing_document/0001876042/0001193125-25-135795/d737521d424b4.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525135795/d737521d424b4.htm"
+    },
+    {
+      "accession": "0001193125-25-132755",
+      "filedDate": "2025-06-02",
+      "form": "S-1/A",
+      "locator": "filings.recent row 393",
+      "resourceKey": "filing_document/0001876042/0001193125-25-132755/d737521ds1a.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525132755/d737521ds1a.htm"
+    },
+    {
+      "accession": "0001193125-25-126208",
+      "filedDate": "2025-05-27",
+      "form": "S-1/A",
+      "locator": "filings.recent row 396",
+      "resourceKey": "filing_document/0001876042/0001193125-25-126208/d737521ds1a.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525126208/d737521ds1a.htm"
+    },
+    {
+      "accession": "0001193125-25-121234",
+      "filedDate": "2025-05-16",
+      "form": "S-1/A",
+      "locator": "filings.recent row 397",
+      "resourceKey": "filing_document/0001876042/0001193125-25-121234/d737521ds1a.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525121234/d737521ds1a.htm"
+    },
+    {
+      "accession": "0001193125-25-084832",
+      "filedDate": "2025-04-18",
+      "form": "S-1/A",
+      "locator": "filings.recent row 400",
+      "resourceKey": "filing_document/0001876042/0001193125-25-084832/d737521ds1a.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525084832/d737521ds1a.htm"
+    },
+    {
+      "accession": "0001193125-25-070481",
+      "filedDate": "2025-04-01",
+      "form": "S-1",
+      "locator": "filings.recent row 403",
+      "resourceKey": "filing_document/0001876042/0001193125-25-070481/d737521ds1.htm",
+      "url": "https://www.sec.gov/Archives/edgar/data/1876042/000119312525070481/d737521ds1.htm"
+    }
+  ],
+  "registrationRosterMatches": true,
+  "retrievalCutoff": "2026-10-13T21:37:25.661952+00:00",
+  "reviewedOn": "2026-10-13"
+}

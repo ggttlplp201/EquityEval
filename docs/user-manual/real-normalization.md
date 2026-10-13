@@ -154,7 +154,7 @@ use D5d's verification for current source-storage preservation.
 
 ## Current-window decision (D5e)
 
-The newest analysis panel asks whether a new evidence batch can proceed. It shows
+The saved D5e analysis panel asks whether a new evidence batch can proceed. It shows
 the two later primary events, their full-body findings, the exact unreviewed
 CFO-departure exhibit link, and affected-line/edition comparisons. Expand a row and
 choose **Inspect evidence**; financial source amounts remain inside provenance.
@@ -177,7 +177,7 @@ all prior rows. No financial publication or quote/provider activation occurred.
 
 ### D5f leadership-exhibit checkpoint
 
-The latest analysis panel closes the named CFO-transition exhibit review and
+The saved D5f analysis panel closes the named CFO-transition exhibit review and
 shows the remaining accounting blocker. Open its disclosures to inspect the
 full-body finding, all retained periodic-context/reclassification evidence,
 fresh annual source rows and the exact unretained IPO prospectus candidate.
@@ -185,3 +185,23 @@ The prospectus link comes from inventory metadata; its content is not yet proved
 Older D5e/D5d/D5c panels remain saved checkpoints. Inventory observation and final
 retrieval times stay separate. No new normalized batch or metric is published;
 September application knowledge remains unchanged. Preview uses port 3103.
+
+
+### D5g IPO-prospectus checkpoint
+
+The latest analysis panel distinguishes proved statement matches from incomplete
+source history. Expand **IPO statements versus later editions** to inspect the
+reported Q1 and annual comparative operands, exact tables/contexts, periods,
+signed literals, USD scale and source lineage. **Every retained Q1 Facts vintage**
+shows all thirteen captures with filing attribution; these are not thirteen
+independent statements. **Unreviewed registration history** names each of seven
+exact missing bodies and explains why metadata cannot establish their content.
+
+The candidate batch remains blocked and operating margin remains N/A. This does
+not discard the statement matches: it prevents them being mistaken for complete
+financial history. Inventory observation, final retrieval and historical cutoff
+have distinct meanings. Earlier panels are saved decisions at their own checkpoint.
+Verify with `scripts.review_crcl_prospectus --check`,
+`scripts.export_crcl_prospectus --check`, and `scripts.capture_crcl_prospectus verify`.
+Do not rerun the immutable acquisition. The next source batch requires its own
+pinned proposal; no further source or publication was included here.

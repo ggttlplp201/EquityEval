@@ -137,3 +137,20 @@ export interface LeadershipReviewSnapshot {
   currentInventory: CurrentReviewSnapshot["currentInventory"];
   details: Record<string, EvidenceDetail>;
 }
+
+export interface ProspectusReviewSnapshot {
+  kind: "real-crcl-prospectus-review";
+  reviewedOn: string;
+  conclusion: string;
+  inventoryObservedAt: string | null;
+  retrievalCutoff: string | null;
+  historicalRetrievalCutoff: string;
+  cutoffNote: string;
+  nextStep: string;
+  comparison: null | { status: string; finding: string; limit: string };
+  q1FactsMatch: boolean;
+  missingBodies: { resourceKey: string; accession: string; form: string; filedDate: string; url: string; reason: string }[];
+  candidateBatch: CurrentReviewSnapshot["candidateBatch"];
+  annualEditionChecks: CurrentReviewSnapshot["annualEditionChecks"];
+  details: Record<string, EvidenceDetail>;
+}
