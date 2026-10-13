@@ -4,12 +4,13 @@ import Link from "next/link";
 import { useState } from "react";
 import EvidenceDrawer from "@/components/EvidenceDrawer";
 import WorkbenchShell from "@/components/WorkbenchShell";
+import RegistrationReviewPanel from "./RegistrationReviewPanel";
 import ProspectusReviewPanel from "./ProspectusReviewPanel";
 import LeadershipReviewPanel from "./LeadershipReviewPanel";
 import CurrentReviewPanel from "./CurrentReviewPanel";
 import ExhibitReviewPanel from "./ExhibitReviewPanel";
 import SafetyReviewPanel from "./SafetyReviewPanel";
-import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot, LeadershipReviewSnapshot, ProspectusReviewSnapshot } from "./types";
+import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot, LeadershipReviewSnapshot, ProspectusReviewSnapshot, RegistrationReviewSnapshot } from "./types";
 import styles from "./analysis-readiness.module.css";
 
 const statusLabels = {
@@ -18,7 +19,7 @@ const statusLabels = {
   not_implemented: "Not implemented",
 } as const;
 
-export default function AnalysisReadinessWorkspace({ data, safety, exhibits, current, leadership, prospectus }: { data: AnalysisReadinessSnapshot; safety: SafetyReviewSnapshot; exhibits: ExhibitReviewSnapshot; current: CurrentReviewSnapshot; leadership: LeadershipReviewSnapshot; prospectus: ProspectusReviewSnapshot }) {
+export default function AnalysisReadinessWorkspace({ data, safety, exhibits, current, leadership, prospectus, registration }: { data: AnalysisReadinessSnapshot; safety: SafetyReviewSnapshot; exhibits: ExhibitReviewSnapshot; current: CurrentReviewSnapshot; leadership: LeadershipReviewSnapshot; prospectus: ProspectusReviewSnapshot; registration: RegistrationReviewSnapshot }) {
   const [detailId, setDetailId] = useState<string | null>(null);
   return <WorkbenchShell active="pilot">
     <main id="main-content" tabIndex={-1} className={styles.page} data-analysis-readiness-kind={data.kind}>
@@ -44,6 +45,7 @@ export default function AnalysisReadinessWorkspace({ data, safety, exhibits, cur
         <p>Both selections retain incomplete-history blockers. EquityEval keeps their exact source values for review while withholding them from ratio calculations.</p>
       </section>
 
+      <RegistrationReviewPanel data={registration} onInspect={(id) => setDetailId(`registration:${id}`)} />
       <ProspectusReviewPanel data={prospectus} onInspect={(id) => setDetailId(`prospectus:${id}`)} />
       <LeadershipReviewPanel data={leadership} onInspect={(id) => setDetailId(`leadership:${id}`)} />
 
@@ -107,6 +109,6 @@ export default function AnalysisReadinessWorkspace({ data, safety, exhibits, cur
         <div><Link href={data.source.normalizationHref}>Normalized financials ↗</Link><Link href="/help#real-normalization">User guide ↗</Link></div>
       </footer>
     </main>
-    <EvidenceDrawer detail={detailId?.startsWith("prospectus:") ? prospectus.details[detailId.slice(11)] : detailId?.startsWith("leadership:") ? leadership.details[detailId.slice(11)] : detailId?.startsWith("current:") ? current.details[detailId.slice(8)] : detailId?.startsWith("exhibits:") ? exhibits.details[detailId.slice(9)] : detailId?.startsWith("safety:") ? safety.details[detailId.slice(7)] : detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
+    <EvidenceDrawer detail={detailId?.startsWith("registration:") ? registration.details[detailId.slice(13)] : detailId?.startsWith("prospectus:") ? prospectus.details[detailId.slice(11)] : detailId?.startsWith("leadership:") ? leadership.details[detailId.slice(11)] : detailId?.startsWith("current:") ? current.details[detailId.slice(8)] : detailId?.startsWith("exhibits:") ? exhibits.details[detailId.slice(9)] : detailId?.startsWith("safety:") ? safety.details[detailId.slice(7)] : detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
   </WorkbenchShell>;
 }

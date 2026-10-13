@@ -62,3 +62,5 @@ for exact commits and `docs/decisions.md` for review status.
 See the [operational roadmap](../roadmap.md) for dependency order and the distinction between implemented code, research and operating application capabilities. D4a SEC incremental discovery and D4b manual scheduling readiness are complete for their bounded scopes. [D036](../design/s3/filing-scheduler-proposal.md) governs D4b; reviewed rebase and service configuration remain next.
 
 | D5g | [CRCL IPO prospectus reconciliation](D5g-crcl-prospectus.md) | Complete |
+
+| D5h | [CRCL registration history reconciliation](D5h-crcl-registration.md) | Complete |

@@ -171,3 +171,9 @@ review. A conditional new same-concept S3 batch requires independently reviewabl
 preparation hashes and all genuine source/history/accounting/publication gates;
 otherwise remain blocked. Real S6 metrics and shared-contract/provider expansion
 are excluded. Prior September knowledge and every earlier audit remain immutable.
+
+D046 outcome (D5h): seven registration bodies retained/reviewed, selected editions
+reconciled; current eligibility blocked because inventory observation precedes final
+body retention. No new S3 batch or S6 metric. Fresh mandatory Facts/Submissions
+after all retained bodies require the next pinned proposal. The original acquisition
+summary bug is preserved and independently checked against two typed groups.

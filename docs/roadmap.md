@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
 Canonical dependency/status list, reconciled 2026-10-13 through the
-[D5g prospectus review](milestones/D5g-crcl-prospectus.md). This links existing milestones and features;
+[D5h registration review](milestones/D5h-crcl-registration.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -16,14 +16,16 @@ feature/design retains its detailed acceptance criteria.
   S6b/S7a adds audited synthetic reverse DCF, immutable assumptions/runs, W1 publication
   and a trusted-local generated API.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
-  63 captures, thirteen acquisition bootstraps and two completed filing checks
-  (65 fetch attempts, two retained monitor response bodies). One application-owned
+  74 captures, fifteen acquisition bootstraps and two completed filing checks
+  (76 fetch attempts, two retained monitor response bodies). One application-owned
   schedule is paused after its bounded D4b slot; no background service is configured.
   One immutable real normalization batch retains two selected facts. No exchange
   quote, membership or published financial-analysis result. D5d reviews all eleven
   formerly missing exhibits; D5f closes the later CFO-release gap. D5g matches the
-  earlier Q1 and annual comparative selected lines. Seven registration/prospectus
-  bodies remain unreviewed; current batch and historical eligibility stay blocked.
+  earlier Q1 and annual comparative selected lines. D5h reviews all seven remaining
+  registration bodies and reconciles selected editions. Current eligibility remains
+  blocked because inventory observation precedes the final body retrieval; a fresh
+  mandatory Facts/Submissions pair after those bodies is the next bounded gate.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
   operating provider, normalized production fact or published financial result.
@@ -241,3 +243,22 @@ valuation assumptions/engines/UI, sector coverage, ordinary watchlist orchestrat
 recurring operation and release/manual verification. Existing synthetic S6/S7/S8
 checkpoints are implemented, not proof of real-company publication readiness.
 See [milestone](milestones/D5g-crcl-prospectus.md).
+
+## D5h checkpoint — registration history (2026-10-13)
+
+All seven exact D5g registration/prospectus bodies were retained and reviewed in
+two governed groups. Selected annual and interim editions reconcile against
+18 periodic operands and 15 Facts vintages. Source-content reconciliation passes
+within its selected-line scope; current temporal completeness does not. The final
+inventory observation precedes final body retention, so neither full-day coverage
+nor a current eligible batch is asserted. No new batch or metric was published.
+
+Totals: 74 captures, 76 attempts, 15 bootstrap and two monitor requests, one batch,
+two facts, zero metrics. Next: separately pin `company_facts/0001876042` and
+`submissions/0001876042`, both captured after all retained bodies; review changed
+inventory before current S3 preparation. Then real S5 applicability/accounting and
+S6 publication remain the next main analysis gates. Broader fundamentals/history,
+provider/quote and price/action coverage, valuation assumptions and real S7/S8,
+sector coverage, automatic refresh and production watchlist/manual flows retain
+their dependencies in the capability register. D5h is a bounded evidence milestone,
+not completion of those product phases. See [milestone](milestones/D5h-crcl-registration.md).

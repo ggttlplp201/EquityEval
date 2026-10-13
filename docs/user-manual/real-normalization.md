@@ -205,3 +205,20 @@ Verify with `scripts.review_crcl_prospectus --check`,
 `scripts.export_crcl_prospectus --check`, and `scripts.capture_crcl_prospectus verify`.
 Do not rerun the immutable acquisition. The next source batch requires its own
 pinned proposal; no further source or publication was included here.
+
+## D5h latest registration review
+
+The latest analysis panel reviews all seven remaining registration bodies. Open
+each disclosure for statement rows and accounting passages, or the comparison
+drawer for exact periodic contexts and every retained Facts vintage. Every source
+shows its URL, accession, retrieval time and transform/hash lineage. Blank preliminary
+tables and derived quarters are not financial inputs.
+
+The selected statements reconcile, but a new batch stays blocked: the last
+Submissions observation precedes the final filing-body capture. Sharing a calendar
+date does not prove coverage through a later instant or through the full day.
+The next bounded step is a fresh mandatory `company_facts/0001876042` and
+`submissions/0001876042` pair, both captured after all retained bodies, followed by
+inventory review. September knowledge and the original batch do not change.
+Operating margin remains N/A; real publication has separate gates. Earlier panels
+are saved checkpoints and retain their then-current blockers.

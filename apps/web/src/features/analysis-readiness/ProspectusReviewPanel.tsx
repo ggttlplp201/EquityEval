@@ -5,8 +5,8 @@ export default function ProspectusReviewPanel({ data, onInspect }: {
   data: ProspectusReviewSnapshot; onInspect: (id: string) => void;
 }) {
   return <section className={styles.safety} aria-labelledby="prospectus-review-title" data-prospectus-review>
-    <div className={styles.sectionHeading}><div><p className="eyebrow">D5g / LATEST EVIDENCE REVIEW</p><h2 id="prospectus-review-title">Earlier statements match. Registration history remains open.</h2></div><span>Reviewed {data.reviewedOn}</span></div>
-    <p>{data.conclusion}</p>
+    <div className={styles.sectionHeading}><div><p className="eyebrow">D5g / SAVED PROSPECTUS REVIEW</p><h2 id="prospectus-review-title">Earlier statements match. Registration history remains open.</h2></div><span>Reviewed {data.reviewedOn}</span></div>
+    <p>Saved D5g decision. The D5h review above records the subsequent registration-body review and remaining cutoff gate.</p><p>{data.conclusion}</p>
     <div className={styles.decisions}>
       <article data-prospectus-candidate><span className={styles.gateStatus} data-state="blocked">Blocked</span><h3>New PIT batch</h3><p>{data.candidateBatch.explanation}</p><ul>{data.candidateBatch.reasonCodes.map(code => <li key={code}>{code.replaceAll("_", " ")}</li>)}</ul></article>
       <article><h3>Actual evidence times</h3><dl><div><dt>Inventory observed</dt><dd>{data.inventoryObservedAt ?? "Unavailable"}</dd></div><div><dt>Acquired evidence held by</dt><dd>{data.retrievalCutoff ?? "Unavailable"}</dd></div><div><dt>Historical cutoff unchanged</dt><dd>{data.historicalRetrievalCutoff}</dd></div></dl><p>{data.cutoffNote}</p></article>

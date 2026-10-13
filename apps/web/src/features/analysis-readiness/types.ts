@@ -154,3 +154,18 @@ export interface ProspectusReviewSnapshot {
   annualEditionChecks: CurrentReviewSnapshot["annualEditionChecks"];
   details: Record<string, EvidenceDetail>;
 }
+
+export interface RegistrationReviewSnapshot {
+  kind: "real-crcl-registration-review";
+  reviewedOn: string;
+  conclusion: string;
+  nextStep: string;
+  cutoffNote: string;
+  inventoryObservedAt: string | null;
+  retrievalCutoff: string | null;
+  historicalRetrievalCutoff: string;
+  candidateBatch: { status: "blocked"; batchId: null; reasonCodes: string[]; explanation: string };
+  documents: { accession: string; form: string; filedDate: string; finding?: string; limit?: string; status?: string }[];
+  details: Record<string, EvidenceDetail>;
+  acquisitionAssessment: { note: string };
+}
