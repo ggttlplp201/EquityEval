@@ -206,9 +206,9 @@ Verify with `scripts.review_crcl_prospectus --check`,
 Do not rerun the immutable acquisition. The next source batch requires its own
 pinned proposal; no further source or publication was included here.
 
-## D5h latest registration review
+## D5h saved registration review
 
-The latest analysis panel reviews all seven remaining registration bodies. Open
+The saved D5h panel reviews all seven remaining registration bodies. Open
 each disclosure for statement rows and accounting passages, or the comparison
 drawer for exact periodic contexts and every retained Facts vintage. Every source
 shows its URL, accession, retrieval time and transform/hash lineage. Blank preliminary
@@ -222,3 +222,22 @@ The next bounded step is a fresh mandatory `company_facts/0001876042` and
 inventory review. September knowledge and the original batch do not change.
 Operating margin remains N/A; real publication has separate gates. Earlier panels
 are saved checkpoints and retain their then-current blockers.
+
+## D5i latest current observation
+
+The latest panel now shows an eligible published normalization batch. Click either
+source amount to open the original filing context, scale/sign/precision, current
+Company Facts locator and retained source URL/hash/time. The evidence drawer shows
+the exact inventory observation and the three explicitly reviewed acceptance-time
+metadata differences. No explanation for those source-vintage differences is inferred.
+
+Eligibility applies at 2026-10-15T21:59:05.195192Z. It does not repair September
+knowledge or promise coverage later that day. The earlier panels remain saved
+checkpoints. Operating margin is still N/A: real S6 publication needs a reviewed
+contract that supports real evidence without an invented exchange quote. Reporting
+USD is a source unit, not proof of quote currency. No ratio is computed in the browser.
+
+Read-only checks: `scripts.review_crcl_observation --check`,
+`scripts.prepare_crcl_observation --check`, `scripts.export_crcl_observation --check`
+and `scripts.publish_crcl_observation verify`. Do not rerun the acquisition or
+rewrite either normalization batch. Publication replay was already proved.

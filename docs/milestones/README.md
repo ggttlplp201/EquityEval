@@ -64,3 +64,5 @@ See the [operational roadmap](../roadmap.md) for dependency order and the distin
 | D5g | [CRCL IPO prospectus reconciliation](D5g-crcl-prospectus.md) | Complete |
 
 | D5h | [CRCL registration history reconciliation](D5h-crcl-registration.md) | Complete |
+
+| D5i | [Current CRCL observation and normalization](D5i-crcl-observation.md) | Complete |

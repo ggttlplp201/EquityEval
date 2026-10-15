@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
-Canonical dependency/status list, reconciled 2026-10-13 through the
-[D5h registration review](milestones/D5h-crcl-registration.md). This links existing milestones and features;
+Canonical dependency/status list, reconciled 2026-10-15 through the
+[D5i current observation and normalization](milestones/D5i-crcl-observation.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -16,16 +16,16 @@ feature/design retains its detailed acceptance criteria.
   S6b/S7a adds audited synthetic reverse DCF, immutable assumptions/runs, W1 publication
   and a trusted-local generated API.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
-  74 captures, fifteen acquisition bootstraps and two completed filing checks
-  (76 fetch attempts, two retained monitor response bodies). One application-owned
+  76 captures, sixteen acquisition bootstraps and two completed filing checks
+  (78 fetch attempts, two retained monitor response bodies). One application-owned
   schedule is paused after its bounded D4b slot; no background service is configured.
-  One immutable real normalization batch retains two selected facts. No exchange
+  Two immutable real normalization batches retain four selected facts. No exchange
   quote, membership or published financial-analysis result. D5d reviews all eleven
   formerly missing exhibits; D5f closes the later CFO-release gap. D5g matches the
   earlier Q1 and annual comparative selected lines. D5h reviews all seven remaining
-  registration bodies and reconciles selected editions. Current eligibility remains
-  blocked because inventory observation precedes the final body retrieval; a fresh
-  mandatory Facts/Submissions pair after those bodies is the next bounded gate.
+  registration bodies and reconciles selected editions. D5i closes the observation gap and publishes a new eligible two-concept batch
+  at the exact October 15 observation. D5a remains historically blocked. Real S6
+  publication is still blocked by synthetic-only contracts and required quote identity.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
   operating provider, normalized production fact or published financial result.
@@ -262,3 +262,22 @@ provider/quote and price/action coverage, valuation assumptions and real S7/S8,
 sector coverage, automatic refresh and production watchlist/manual flows retain
 their dependencies in the capability register. D5h is a bounded evidence milestone,
 not completion of those product phases. See [milestone](milestones/D5h-crcl-registration.md).
+
+## D5i checkpoint — eligible current normalization (2026-10-15)
+
+A fresh governed Facts/Submissions pair postdates all reviewed bodies. Unchanged
+content and exact metadata-vintage reconciliation support a new immutable S3 batch
+at 2026-10-15T21:59:05.195192Z. This is retrospective knowledge at that observation,
+not September knowledge or coverage through the full day. Independent standards,
+specification and plausible-but-wrong numeric reviews cleared the pinned batch.
+Live publication, exact replay, original/current/pre-filing selection and prior-row
+preservation pass. Historical D5a blockers remain unchanged.
+
+Totals: 76 captures, 78 attempts, 16 bootstrap and two monitor requests, two batches,
+four selected facts, zero published real metrics. Next main gate: a separately
+reviewed real-source S6 contract proposal. Existing synthetic-only evidence modes
+and required quote identity cannot represent unpriced real CRCL fundamentals.
+Source acquisition/reconciliation is complete for this bounded two-concept snapshot;
+S4 provider/quote activation, broader S5/S6 product coverage, valuation, automation
+and final dashboard phases remain governed by the capability register above.
+See [milestone](milestones/D5i-crcl-observation.md).

@@ -1,0 +1,441 @@
+{
+  "acquisitionSha256": "fd03ea538aa87fe51a0999a2895fd25a5f30b1d911425a99e8e052d973e7925d",
+  "candidateBatch": {
+    "batchId": null,
+    "reasonCodes": [],
+    "status": "ready_for_s3_preparation"
+  },
+  "comparison": {
+    "allScopedAcceptanceTimesWithinObservation": true,
+    "annualEditionChecks": [
+      {
+        "concept": "Revenues",
+        "reason": "Exact original annual edition and source value match.",
+        "records": [
+          {
+            "accn": "0001876042-26-000062",
+            "end": "2025-12-31",
+            "filed": "2026-03-09",
+            "form": "10-K",
+            "fp": "FY",
+            "frame": "CY2025",
+            "fy": 2025,
+            "start": "2025-01-01",
+            "val": 2746642000
+          }
+        ],
+        "status": "matched"
+      },
+      {
+        "concept": "OperatingIncomeLoss",
+        "reason": "Exact original annual edition and source value match.",
+        "records": [
+          {
+            "accn": "0001876042-26-000062",
+            "end": "2025-12-31",
+            "filed": "2026-03-09",
+            "form": "10-K",
+            "fp": "FY",
+            "frame": "CY2025",
+            "fy": 2025,
+            "start": "2025-01-01",
+            "val": -96435000
+          }
+        ],
+        "status": "matched"
+      }
+    ],
+    "changedMetadataAccessions": [],
+    "inventory": {
+      "boundaryEnd": "2026-10-15",
+      "boundaryStart": "2025-01-01",
+      "changedIdentities": [],
+      "count": 21,
+      "filings": [
+        {
+          "acceptedAt": "2025-06-07T00:03:46+00:00",
+          "accession": "0000950103-25-007107",
+          "filedDate": "2025-06-06",
+          "form": "8-K",
+          "items": "3.03,5.03,8.01,9.01",
+          "metadataLocator": "/filings/recent/371"
+        },
+        {
+          "acceptedAt": "2025-07-22T16:16:55+00:00",
+          "accession": "0001876042-25-000004",
+          "filedDate": "2025-07-22",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "metadataLocator": "/filings/recent/354"
+        },
+        {
+          "acceptedAt": "2025-08-12T14:27:11+00:00",
+          "accession": "0001628280-25-039749",
+          "filedDate": "2025-08-12",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "metadataLocator": "/filings/recent/343"
+        },
+        {
+          "acceptedAt": "2025-08-12T17:21:01+00:00",
+          "accession": "0001628280-25-039781",
+          "filedDate": "2025-08-12",
+          "form": "10-Q",
+          "items": "",
+          "metadataLocator": "/filings/recent/342"
+        },
+        {
+          "acceptedAt": "2025-09-20T01:10:50+00:00",
+          "accession": "0001876042-25-000014",
+          "filedDate": "2025-09-19",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "metadataLocator": "/filings/recent/310"
+        },
+        {
+          "acceptedAt": "2025-11-12T16:26:42+00:00",
+          "accession": "0001876042-25-000045",
+          "filedDate": "2025-11-12",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "metadataLocator": "/filings/recent/297"
+        },
+        {
+          "acceptedAt": "2025-11-12T19:21:02+00:00",
+          "accession": "0001876042-25-000047",
+          "filedDate": "2025-11-12",
+          "form": "10-Q",
+          "items": "",
+          "metadataLocator": "/filings/recent/296"
+        },
+        {
+          "acceptedAt": "2026-02-25T16:26:39+00:00",
+          "accession": "0001876042-26-000032",
+          "filedDate": "2026-02-25",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "metadataLocator": "/filings/recent/230"
+        },
+        {
+          "acceptedAt": "2026-03-09T16:36:51+00:00",
+          "accession": "0001876042-26-000062",
+          "filedDate": "2026-03-09",
+          "form": "10-K",
+          "items": "",
+          "metadataLocator": "/filings/recent/194"
+        },
+        {
+          "acceptedAt": "2026-03-17T16:06:38+00:00",
+          "accession": "0001876042-26-000078",
+          "filedDate": "2026-03-17",
+          "form": "8-K",
+          "items": "5.02,9.01",
+          "metadataLocator": "/filings/recent/182"
+        },
+        {
+          "acceptedAt": "2026-05-11T14:27:16+00:00",
+          "accession": "0001876042-26-000148",
+          "filedDate": "2026-05-11",
+          "form": "8-K",
+          "items": "2.02,8.01,9.01",
+          "metadataLocator": "/filings/recent/136"
+        },
+        {
+          "acceptedAt": "2026-05-11T17:16:55+00:00",
+          "accession": "0001876042-26-000150",
+          "filedDate": "2026-05-11",
+          "form": "10-Q",
+          "items": "",
+          "metadataLocator": "/filings/recent/135"
+        },
+        {
+          "acceptedAt": "2026-05-19T01:04:45+00:00",
+          "accession": "0001876042-26-000159",
+          "filedDate": "2026-05-18",
+          "form": "8-K",
+          "items": "5.07",
+          "metadataLocator": "/filings/recent/129"
+        },
+        {
+          "acceptedAt": "2026-06-13T01:01:31+00:00",
+          "accession": "0001876042-26-000192",
+          "filedDate": "2026-06-12",
+          "form": "8-K",
+          "items": "5.02",
+          "metadataLocator": "/filings/recent/90"
+        },
+        {
+          "acceptedAt": "2026-07-03T01:03:03+00:00",
+          "accession": "0001876042-26-000205",
+          "filedDate": "2026-07-02",
+          "form": "8-K",
+          "items": "8.01",
+          "metadataLocator": "/filings/recent/78"
+        },
+        {
+          "acceptedAt": "2026-07-14T00:40:02+00:00",
+          "accession": "0001876042-26-000228",
+          "filedDate": "2026-07-13",
+          "form": "10-K/A",
+          "items": "",
+          "metadataLocator": "/filings/recent/65"
+        },
+        {
+          "acceptedAt": "2026-08-05T14:12:18+00:00",
+          "accession": "0001876042-26-000246",
+          "filedDate": "2026-08-05",
+          "form": "8-K",
+          "items": "2.02,9.01",
+          "metadataLocator": "/filings/recent/54"
+        },
+        {
+          "acceptedAt": "2026-08-05T17:02:57+00:00",
+          "accession": "0001876042-26-000248",
+          "filedDate": "2026-08-05",
+          "form": "10-Q",
+          "items": "",
+          "metadataLocator": "/filings/recent/53"
+        },
+        {
+          "acceptedAt": "2026-09-08T14:04:21+00:00",
+          "accession": "0001876042-26-000267",
+          "filedDate": "2026-09-08",
+          "form": "8-K",
+          "items": "1.01,3.02,7.01,9.01",
+          "metadataLocator": "/filings/recent/27"
+        },
+        {
+          "acceptedAt": "2026-09-22T14:54:27+00:00",
+          "accession": "0001876042-26-000276",
+          "filedDate": "2026-09-22",
+          "form": "8-K",
+          "items": "8.01",
+          "metadataLocator": "/filings/recent/16"
+        },
+        {
+          "acceptedAt": "2026-09-26T00:05:16+00:00",
+          "accession": "0001876042-26-000279",
+          "filedDate": "2026-09-25",
+          "form": "8-K",
+          "items": "5.02,7.01",
+          "metadataLocator": "/filings/recent/14"
+        }
+      ],
+      "forms": [
+        "10-K",
+        "10-K/A",
+        "10-Q",
+        "10-Q/A",
+        "8-K",
+        "8-K/A",
+        "NT 10-K",
+        "NT 10-Q"
+      ],
+      "missingAccessions": [],
+      "missingHistoryFiles": [],
+      "note": "This is the specified financial/event-form inventory observed at its capture time, not proof of every SEC form or later public event. Date boundaries do not assert knowledge of the remainder of the day.",
+      "status": "matched_scoped_roster",
+      "unexpectedAccessions": []
+    },
+    "matched": true,
+    "q1": {
+      "limit": "Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.",
+      "rows": [
+        {
+          "concept": "Revenues",
+          "locator": "facts.us-gaap.Revenues.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 578573000
+          },
+          "unit": "USD"
+        },
+        {
+          "concept": "OperatingIncomeLoss",
+          "locator": "facts.us-gaap.OperatingIncomeLoss.units.USD[6]",
+          "record": {
+            "accn": "0001876042-26-000150",
+            "end": "2025-03-31",
+            "filed": "2026-05-11",
+            "form": "10-Q",
+            "fp": "Q1",
+            "frame": "CY2025Q1",
+            "fy": 2026,
+            "start": "2025-01-01",
+            "val": 92940000
+          },
+          "unit": "USD"
+        }
+      ],
+      "status": "later_comparative_only"
+    }
+  },
+  "conclusion": "Fresh observation matches the reviewed selected-line history and closes the prior temporal gap. S3 preparation and independent publication review are required; no ratio is published.",
+  "details": {
+    "observation": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Exact cutoff scope",
+              "value": "{\"fullDayCoverage\": false, \"interpretation\": \"Retrospective filing-date scope through the exact observation only; no intraday interval after that instant or whole-day completeness is asserted. September application knowledge is unchanged.\", \"inventoryObservedAt\": \"2026-10-15T21:59:05.195192+00:00\", \"priorEvidenceRetrievalCutoff\": \"2026-10-13T22:27:07.827051+00:00\", \"state\": \"observation_covers_retained_evidence\"}"
+            },
+            {
+              "label": "Fresh comparisons",
+              "value": "{\"allScopedAcceptanceTimesWithinObservation\": true, \"annualEditionChecks\": [{\"concept\": \"Revenues\", \"reason\": \"Exact original annual edition and source value match.\", \"records\": [{\"accn\": \"0001876042-26-000062\", \"end\": \"2025-12-31\", \"filed\": \"2026-03-09\", \"form\": \"10-K\", \"fp\": \"FY\", \"frame\": \"CY2025\", \"fy\": 2025, \"start\": \"2025-01-01\", \"val\": 2746642000}], \"status\": \"matched\"}, {\"concept\": \"OperatingIncomeLoss\", \"reason\": \"Exact original annual edition and source value match.\", \"records\": [{\"accn\": \"0001876042-26-000062\", \"end\": \"2025-12-31\", \"filed\": \"2026-03-09\", \"form\": \"10-K\", \"fp\": \"FY\", \"frame\": \"CY2025\", \"fy\": 2025, \"start\": \"2025-01-01\", \"val\": -96435000}], \"status\": \"matched\"}], \"changedMetadataAccessions\": [], \"inventory\": {\"boundaryEnd\": \"2026-10-15\", \"boundaryStart\": \"2025-01-01\", \"changedIdentities\": [], \"count\": 21, \"filings\": [{\"acceptedAt\": \"2025-06-07T00:03:46+00:00\", \"accession\": \"0000950103-25-007107\", \"filedDate\": \"2025-06-06\", \"form\": \"8-K\", \"items\": \"3.03,5.03,8.01,9.01\", \"metadataLocator\": \"/filings/recent/371\"}, {\"acceptedAt\": \"2025-07-22T16:16:55+00:00\", \"accession\": \"0001876042-25-000004\", \"filedDate\": \"2025-07-22\", \"form\": \"8-K\", \"items\": \"5.02,9.01\", \"metadataLocator\": \"/filings/recent/354\"}, {\"acceptedAt\": \"2025-08-12T14:27:11+00:00\", \"accession\": \"0001628280-25-039749\", \"filedDate\": \"2025-08-12\", \"form\": \"8-K\", \"items\": \"2.02,9.01\", \"metadataLocator\": \"/filings/recent/343\"}, {\"acceptedAt\": \"2025-08-12T17:21:01+00:00\", \"accession\": \"0001628280-25-039781\", \"filedDate\": \"2025-08-12\", \"form\": \"10-Q\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/342\"}, {\"acceptedAt\": \"2025-09-20T01:10:50+00:00\", \"accession\": \"0001876042-25-000014\", \"filedDate\": \"2025-09-19\", \"form\": \"8-K\", \"items\": \"5.02,9.01\", \"metadataLocator\": \"/filings/recent/310\"}, {\"acceptedAt\": \"2025-11-12T16:26:42+00:00\", \"accession\": \"0001876042-25-000045\", \"filedDate\": \"2025-11-12\", \"form\": \"8-K\", \"items\": \"2.02,9.01\", \"metadataLocator\": \"/filings/recent/297\"}, {\"acceptedAt\": \"2025-11-12T19:21:02+00:00\", \"accession\": \"0001876042-25-000047\", \"filedDate\": \"2025-11-12\", \"form\": \"10-Q\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/296\"}, {\"acceptedAt\": \"2026-02-25T16:26:39+00:00\", \"accession\": \"0001876042-26-000032\", \"filedDate\": \"2026-02-25\", \"form\": \"8-K\", \"items\": \"2.02,9.01\", \"metadataLocator\": \"/filings/recent/230\"}, {\"acceptedAt\": \"2026-03-09T16:36:51+00:00\", \"accession\": \"0001876042-26-000062\", \"filedDate\": \"2026-03-09\", \"form\": \"10-K\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/194\"}, {\"acceptedAt\": \"2026-03-17T16:06:38+00:00\", \"accession\": \"0001876042-26-000078\", \"filedDate\": \"2026-03-17\", \"form\": \"8-K\", \"items\": \"5.02,9.01\", \"metadataLocator\": \"/filings/recent/182\"}, {\"acceptedAt\": \"2026-05-11T14:27:16+00:00\", \"accession\": \"0001876042-26-000148\", \"filedDate\": \"2026-05-11\", \"form\": \"8-K\", \"items\": \"2.02,8.01,9.01\", \"metadataLocator\": \"/filings/recent/136\"}, {\"acceptedAt\": \"2026-05-11T17:16:55+00:00\", \"accession\": \"0001876042-26-000150\", \"filedDate\": \"2026-05-11\", \"form\": \"10-Q\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/135\"}, {\"acceptedAt\": \"2026-05-19T01:04:45+00:00\", \"accession\": \"0001876042-26-000159\", \"filedDate\": \"2026-05-18\", \"form\": \"8-K\", \"items\": \"5.07\", \"metadataLocator\": \"/filings/recent/129\"}, {\"acceptedAt\": \"2026-06-13T01:01:31+00:00\", \"accession\": \"0001876042-26-000192\", \"filedDate\": \"2026-06-12\", \"form\": \"8-K\", \"items\": \"5.02\", \"metadataLocator\": \"/filings/recent/90\"}, {\"acceptedAt\": \"2026-07-03T01:03:03+00:00\", \"accession\": \"0001876042-26-000205\", \"filedDate\": \"2026-07-02\", \"form\": \"8-K\", \"items\": \"8.01\", \"metadataLocator\": \"/filings/recent/78\"}, {\"acceptedAt\": \"2026-07-14T00:40:02+00:00\", \"accession\": \"0001876042-26-000228\", \"filedDate\": \"2026-07-13\", \"form\": \"10-K/A\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/65\"}, {\"acceptedAt\": \"2026-08-05T14:12:18+00:00\", \"accession\": \"0001876042-26-000246\", \"filedDate\": \"2026-08-05\", \"form\": \"8-K\", \"items\": \"2.02,9.01\", \"metadataLocator\": \"/filings/recent/54\"}, {\"acceptedAt\": \"2026-08-05T17:02:57+00:00\", \"accession\": \"0001876042-26-000248\", \"filedDate\": \"2026-08-05\", \"form\": \"10-Q\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/53\"}, {\"acceptedAt\": \"2026-09-08T14:04:21+00:00\", \"accession\": \"0001876042-26-000267\", \"filedDate\": \"2026-09-08\", \"form\": \"8-K\", \"items\": \"1.01,3.02,7.01,9.01\", \"metadataLocator\": \"/filings/recent/27\"}, {\"acceptedAt\": \"2026-09-22T14:54:27+00:00\", \"accession\": \"0001876042-26-000276\", \"filedDate\": \"2026-09-22\", \"form\": \"8-K\", \"items\": \"8.01\", \"metadataLocator\": \"/filings/recent/16\"}, {\"acceptedAt\": \"2026-09-26T00:05:16+00:00\", \"accession\": \"0001876042-26-000279\", \"filedDate\": \"2026-09-25\", \"form\": \"8-K\", \"items\": \"5.02,7.01\", \"metadataLocator\": \"/filings/recent/14\"}], \"forms\": [\"10-K\", \"10-K/A\", \"10-Q\", \"10-Q/A\", \"8-K\", \"8-K/A\", \"NT 10-K\", \"NT 10-Q\"], \"missingAccessions\": [], \"missingHistoryFiles\": [], \"note\": \"This is the specified financial/event-form inventory observed at its capture time, not proof of every SEC form or later public event. Date boundaries do not assert knowledge of the remainder of the day.\", \"status\": \"matched_scoped_roster\", \"unexpectedAccessions\": []}, \"matched\": true, \"q1\": {\"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"status\": \"later_comparative_only\"}}"
+            },
+            {
+              "label": "Pinned prior review",
+              "value": "56698d5707f62b2349c5865bc6f98d73f236f493c38d3192477f4ce2909fdce9"
+            },
+            {
+              "label": "Historical metadata differences",
+              "value": "{\"limit\": \"Use the fresh source-reported timestamp in a new immutable version. The cause of the difference is not inferred; old versions and September knowledge remain unchanged.\", \"rows\": [{\"accession\": \"0001876042-26-000062\", \"changedFields\": {\"acceptanceDateTime\": {\"current\": \"2026-03-09T16:36:51.000Z\", \"previous\": \"2026-03-09T12:36:51.000Z\"}}, \"metadataFieldReview\": \"Every raw metadata field compared; only pinned acceptanceDateTime delta allowed.\", \"newBodySha256\": \"69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7\", \"newCaptureId\": \"01551860-7c36-46e5-b31c-9b8fa232ae81\", \"oldBodySha256\": \"c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3\", \"oldCaptureId\": \"0e93340d-a10c-40eb-b463-047c23be58bf\", \"oldFilingVersionId\": \"21dcc7de-ebae-5ae8-92f6-ad8ad5c9fc1f\", \"source\": {\"accession\": null, \"capturedAt\": \"2026-09-21 17:07:35.957888+00:00\", \"label\": \"SEC retained Submissions inventory\", \"licence\": \"SEC public filings and government-created data reuse\", \"transform\": \"Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay\", \"url\": \"https://data.sec.gov/submissions/CIK0001876042.json\"}}, {\"accession\": \"0001876042-26-000228\", \"changedFields\": {\"acceptanceDateTime\": {\"current\": \"2026-07-14T00:40:02.000Z\", \"previous\": \"2026-07-13T20:40:02.000Z\"}}, \"metadataFieldReview\": \"Every raw metadata field compared; only pinned acceptanceDateTime delta allowed.\", \"newBodySha256\": \"69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7\", \"newCaptureId\": \"01551860-7c36-46e5-b31c-9b8fa232ae81\", \"oldBodySha256\": \"c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3\", \"oldCaptureId\": \"0e93340d-a10c-40eb-b463-047c23be58bf\", \"oldFilingVersionId\": \"8e99b0c8-2648-5ba3-bd46-cf7827d4b1f1\", \"source\": {\"accession\": null, \"capturedAt\": \"2026-09-21 17:07:35.957888+00:00\", \"label\": \"SEC retained Submissions inventory\", \"licence\": \"SEC public filings and government-created data reuse\", \"transform\": \"Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay\", \"url\": \"https://data.sec.gov/submissions/CIK0001876042.json\"}}, {\"accession\": \"0001876042-26-000248\", \"changedFields\": {\"acceptanceDateTime\": {\"current\": \"2026-08-05T17:02:57.000Z\", \"previous\": \"2026-08-05T13:02:57.000Z\"}}, \"metadataFieldReview\": \"Every raw metadata field compared; only pinned acceptanceDateTime delta allowed.\", \"newBodySha256\": \"69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7\", \"newCaptureId\": \"01551860-7c36-46e5-b31c-9b8fa232ae81\", \"oldBodySha256\": \"c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3\", \"oldCaptureId\": \"0e93340d-a10c-40eb-b463-047c23be58bf\", \"oldFilingVersionId\": \"d2228bf8-efee-5ce8-b138-de58162ba83f\", \"source\": {\"accession\": null, \"capturedAt\": \"2026-09-21 17:07:35.957888+00:00\", \"label\": \"SEC retained Submissions inventory\", \"licence\": \"SEC public filings and government-created data reuse\", \"transform\": \"Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay\", \"url\": \"https://data.sec.gov/submissions/CIK0001876042.json\"}}], \"status\": \"reviewed_source_vintage_difference\"}"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": null,
+          "capturedAt": "2026-10-15 21:59:05.128575+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-15 21:59:05.195192+00:00",
+          "label": "SEC Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        }
+      ],
+      "subtitle": "D5i fresh mandatory pair; D5h retained-body review pinned by hash",
+      "title": "Exact current observation and edition checks"
+    }
+  },
+  "inventoryObservedAt": "2026-10-15T21:59:05.195192+00:00",
+  "kind": "real-crcl-observation-review",
+  "metadataRebinding": {
+    "limit": "Use the fresh source-reported timestamp in a new immutable version. The cause of the difference is not inferred; old versions and September knowledge remain unchanged.",
+    "rows": [
+      {
+        "accession": "0001876042-26-000062",
+        "changedFields": {
+          "acceptanceDateTime": {
+            "current": "2026-03-09T16:36:51.000Z",
+            "previous": "2026-03-09T12:36:51.000Z"
+          }
+        },
+        "metadataFieldReview": "Every raw metadata field compared; only pinned acceptanceDateTime delta allowed.",
+        "newBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+        "newCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+        "oldBodySha256": "c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3",
+        "oldCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+        "oldFilingVersionId": "21dcc7de-ebae-5ae8-92f6-ad8ad5c9fc1f",
+        "source": {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        }
+      },
+      {
+        "accession": "0001876042-26-000228",
+        "changedFields": {
+          "acceptanceDateTime": {
+            "current": "2026-07-14T00:40:02.000Z",
+            "previous": "2026-07-13T20:40:02.000Z"
+          }
+        },
+        "metadataFieldReview": "Every raw metadata field compared; only pinned acceptanceDateTime delta allowed.",
+        "newBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+        "newCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+        "oldBodySha256": "c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3",
+        "oldCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+        "oldFilingVersionId": "8e99b0c8-2648-5ba3-bd46-cf7827d4b1f1",
+        "source": {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        }
+      },
+      {
+        "accession": "0001876042-26-000248",
+        "changedFields": {
+          "acceptanceDateTime": {
+            "current": "2026-08-05T17:02:57.000Z",
+            "previous": "2026-08-05T13:02:57.000Z"
+          }
+        },
+        "metadataFieldReview": "Every raw metadata field compared; only pinned acceptanceDateTime delta allowed.",
+        "newBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+        "newCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+        "oldBodySha256": "c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3",
+        "oldCaptureId": "0e93340d-a10c-40eb-b463-047c23be58bf",
+        "oldFilingVersionId": "d2228bf8-efee-5ce8-b138-de58162ba83f",
+        "source": {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        }
+      }
+    ],
+    "status": "reviewed_source_vintage_difference"
+  },
+  "operatingMargin": null,
+  "priorReviewSha256": "56698d5707f62b2349c5865bc6f98d73f236f493c38d3192477f4ce2909fdce9",
+  "proposalCommit": "c55c2cf",
+  "publishedMetricCount": 0,
+  "reviewedOn": "2026-10-15",
+  "timeScope": {
+    "fullDayCoverage": false,
+    "interpretation": "Retrospective filing-date scope through the exact observation only; no intraday interval after that instant or whole-day completeness is asserted. September application knowledge is unchanged.",
+    "inventoryObservedAt": "2026-10-15T21:59:05.195192+00:00",
+    "priorEvidenceRetrievalCutoff": "2026-10-13T22:27:07.827051+00:00",
+    "state": "observation_covers_retained_evidence"
+  }
+}

@@ -184,3 +184,9 @@ pair after all retained bodies, exact observation-bound review and conditional
 same-concept S3 publication after independently reviewed preparation. Existing
 mapping, historical batch and evidence remain immutable. D5i publishes no ratio;
 real S6 needs a separate boundary and cannot misuse synthetic-only contracts.
+
+D047 outcome (D5i): the fresh mandatory pair closes the observation gap. All three
+independent pre-publication reviews cleared the exact two-concept preparation;
+existing S3 publication/replay/readback/preservation succeeded. D5a stays immutable
+and historically blocked. No real S6 metric: synthetic-only contracts and quote-ID
+requirements are the next separately reviewed contract boundary.

@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 from dataclasses import asdict
-from datetime import timedelta
+from datetime import date, timedelta
 from typing import Any
 from uuid import UUID
 
@@ -42,6 +42,7 @@ def capture_group(
     *,
     request_prefix: str = "d5c-safety-2026-10-12-group",
     worker_id: str = "d5c-safety-capture",
+    inventory_end: date | None = None,
 ) -> dict[str, Any]:
     plan = BootstrapPlan(
         identities["issuer"],
@@ -49,7 +50,7 @@ def capture_group(
         identities["source"],
         identities["policy"],
         START,
-        CUTOFF.date(),
+        inventory_end if inventory_end is not None else CUTOFF.date(),
         (RESOURCES[0], RESOURCES[1], *resources),
     )
     request = enqueue_source_bootstrap(

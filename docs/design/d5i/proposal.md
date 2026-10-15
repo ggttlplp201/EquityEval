@@ -50,3 +50,25 @@ GET-only local browser checks, independent staged reviews and mandatory hooks.
 Update roadmap/manual/milestone/handoff, leave a clean tree, non-force push the
 existing GitHub branch and verify remote HEAD. Keep preview available on 3103;
 never touch unrelated 3101.
+
+## Concrete pre-publication metadata review
+
+Disposable PIT readback found that retaining September filing-version metadata
+under a manifest whose Submissions role selects the fresh October vintage correctly
+returns `coverage_unavailable`. New immutable versions must bind to fresh metadata;
+old versions must not be revived under an artificial role or rewritten.
+
+The exact three D5a-to-current raw metadata differences are only acceptanceDateTime:
+
+| Accession suffix | September reported UTC | October reported UTC |
+| --- | --- | --- |
+| 000062 (10-K) | 2026-03-09T12:36:51.000Z | 2026-03-09T16:36:51.000Z |
+| 000228 (10-K/A) | 2026-07-13T20:40:02.000Z | 2026-07-14T00:40:02.000Z |
+| 000248 (10-Q) | 2026-08-05T13:02:57.000Z | 2026-08-05T17:02:57.000Z |
+
+All use accession prefix `0001876042-26-`. Pin both source captures, raw hashes and
+exact field deltas. No cause or timezone conversion is inferred. Adopt the fresh
+source-reported timestamps only in new metadata versions; preserve September
+versions and old batch query results. Any additional delta fails closed. Independent
+numeric/spec review must include this concrete rebind and disposable PIT readback
+before current publication. This requires no new source or shared-contract change.

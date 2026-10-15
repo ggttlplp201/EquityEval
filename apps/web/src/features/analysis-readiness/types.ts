@@ -169,3 +169,19 @@ export interface RegistrationReviewSnapshot {
   details: Record<string, EvidenceDetail>;
   acquisitionAssessment: { note: string };
 }
+
+export interface ObservationReviewSnapshot {
+  kind: "real-crcl-current-source-readiness";
+  reviewedOn: string;
+  normalizationStatus: "prepared" | "published";
+  batchId: string | null;
+  historicalBatchId: string | null;
+  capturedBefore: string;
+  timeScope: { interpretation: string };
+  facts: { id: string; label: string; value: string; unit: string }[];
+  operatingMargin: null;
+  publishedMetricCount: 0;
+  publicationBlocker: string;
+  metadataNote: string;
+  details: Record<string, EvidenceDetail>;
+}

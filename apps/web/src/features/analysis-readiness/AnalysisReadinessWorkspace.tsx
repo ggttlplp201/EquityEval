@@ -4,13 +4,14 @@ import Link from "next/link";
 import { useState } from "react";
 import EvidenceDrawer from "@/components/EvidenceDrawer";
 import WorkbenchShell from "@/components/WorkbenchShell";
+import ObservationReviewPanel from "./ObservationReviewPanel";
 import RegistrationReviewPanel from "./RegistrationReviewPanel";
 import ProspectusReviewPanel from "./ProspectusReviewPanel";
 import LeadershipReviewPanel from "./LeadershipReviewPanel";
 import CurrentReviewPanel from "./CurrentReviewPanel";
 import ExhibitReviewPanel from "./ExhibitReviewPanel";
 import SafetyReviewPanel from "./SafetyReviewPanel";
-import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot, LeadershipReviewSnapshot, ProspectusReviewSnapshot, RegistrationReviewSnapshot } from "./types";
+import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot, LeadershipReviewSnapshot, ProspectusReviewSnapshot, RegistrationReviewSnapshot, ObservationReviewSnapshot } from "./types";
 import styles from "./analysis-readiness.module.css";
 
 const statusLabels = {
@@ -19,7 +20,7 @@ const statusLabels = {
   not_implemented: "Not implemented",
 } as const;
 
-export default function AnalysisReadinessWorkspace({ data, safety, exhibits, current, leadership, prospectus, registration }: { data: AnalysisReadinessSnapshot; safety: SafetyReviewSnapshot; exhibits: ExhibitReviewSnapshot; current: CurrentReviewSnapshot; leadership: LeadershipReviewSnapshot; prospectus: ProspectusReviewSnapshot; registration: RegistrationReviewSnapshot }) {
+export default function AnalysisReadinessWorkspace({ data, safety, exhibits, current, leadership, prospectus, registration, observation }: { data: AnalysisReadinessSnapshot; safety: SafetyReviewSnapshot; exhibits: ExhibitReviewSnapshot; current: CurrentReviewSnapshot; leadership: LeadershipReviewSnapshot; prospectus: ProspectusReviewSnapshot; registration: RegistrationReviewSnapshot; observation: ObservationReviewSnapshot }) {
   const [detailId, setDetailId] = useState<string | null>(null);
   return <WorkbenchShell active="pilot">
     <main id="main-content" tabIndex={-1} className={styles.page} data-analysis-readiness-kind={data.kind}>
@@ -28,7 +29,7 @@ export default function AnalysisReadinessWorkspace({ data, safety, exhibits, cur
         <div>
           <p className="eyebrow">{data.company.ticker} / REAL ANALYSIS READINESS</p>
           <h1>Analysis gate<span aria-hidden="true">.</span></h1>
-          <p>{data.periodLabel} · checked from the D5a normalized batch</p>
+          <p>{data.periodLabel} · historical D5a checkpoint</p>
         </div>
         <div className={styles.stamp} data-state={data.status}>
           <strong>BLOCKED</strong>
@@ -40,11 +41,12 @@ export default function AnalysisReadinessWorkspace({ data, safety, exhibits, cur
       </header>
 
       <section className={styles.boundary} aria-labelledby="readiness-boundary-title">
-        <p className="eyebrow">CURRENT RESULT</p>
-        <h2 id="readiness-boundary-title">The source amounts exist. They are not analysis-ready.</h2>
-        <p>Both selections retain incomplete-history blockers. EquityEval keeps their exact source values for review while withholding them from ratio calculations.</p>
+        <p className="eyebrow">PUBLICATION BOUNDARY</p>
+        <h2 id="readiness-boundary-title">Real financial publication remains gated.</h2>
+        <p>The latest source review appears first. Saved September selections retain their original incomplete-history flags. No operating-margin result is published.</p>
       </section>
 
+      <ObservationReviewPanel data={observation} onInspect={(id) => setDetailId(`observation:${id}`)} />
       <RegistrationReviewPanel data={registration} onInspect={(id) => setDetailId(`registration:${id}`)} />
       <ProspectusReviewPanel data={prospectus} onInspect={(id) => setDetailId(`prospectus:${id}`)} />
       <LeadershipReviewPanel data={leadership} onInspect={(id) => setDetailId(`leadership:${id}`)} />
@@ -57,7 +59,7 @@ export default function AnalysisReadinessWorkspace({ data, safety, exhibits, cur
 
       <section aria-labelledby="inputs-title">
         <div className={styles.sectionHeading}>
-          <div><p className="eyebrow">NORMALIZED INPUTS</p><h2 id="inputs-title">What is available</h2></div>
+          <div><p className="eyebrow">SAVED D5a INPUTS</p><h2 id="inputs-title">Historical normalized inputs</h2></div>
           <Link href={data.source.normalizationHref}>Inspect source evidence ↗</Link>
         </div>
         <div className={styles.inputs}>
@@ -109,6 +111,6 @@ export default function AnalysisReadinessWorkspace({ data, safety, exhibits, cur
         <div><Link href={data.source.normalizationHref}>Normalized financials ↗</Link><Link href="/help#real-normalization">User guide ↗</Link></div>
       </footer>
     </main>
-    <EvidenceDrawer detail={detailId?.startsWith("registration:") ? registration.details[detailId.slice(13)] : detailId?.startsWith("prospectus:") ? prospectus.details[detailId.slice(11)] : detailId?.startsWith("leadership:") ? leadership.details[detailId.slice(11)] : detailId?.startsWith("current:") ? current.details[detailId.slice(8)] : detailId?.startsWith("exhibits:") ? exhibits.details[detailId.slice(9)] : detailId?.startsWith("safety:") ? safety.details[detailId.slice(7)] : detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
+    <EvidenceDrawer detail={detailId?.startsWith("observation:") ? observation.details[detailId.slice(12)] : detailId?.startsWith("registration:") ? registration.details[detailId.slice(13)] : detailId?.startsWith("prospectus:") ? prospectus.details[detailId.slice(11)] : detailId?.startsWith("leadership:") ? leadership.details[detailId.slice(11)] : detailId?.startsWith("current:") ? current.details[detailId.slice(8)] : detailId?.startsWith("exhibits:") ? exhibits.details[detailId.slice(9)] : detailId?.startsWith("safety:") ? safety.details[detailId.slice(7)] : detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
   </WorkbenchShell>;
 }

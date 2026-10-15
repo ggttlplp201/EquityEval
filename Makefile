@@ -45,6 +45,7 @@ lint:
 	$(VENV_PY) -m scripts.export_crcl_leadership --check
 	$(VENV_PY) -m scripts.export_crcl_prospectus --check
 	$(VENV_PY) -m scripts.export_crcl_registration --check
+	$(VENV_PY) -m scripts.export_crcl_observation --check
 	node --test tests/web/valuation.test.cjs tests/web/fundamentals.test.cjs tests/web/financials.test.cjs tests/web/company.test.cjs tests/web/normalization.test.cjs tests/web/analysis-readiness.test.cjs tests/web/analysis-safety.test.cjs tests/web/sectors.test.cjs
 	npm run lint
 

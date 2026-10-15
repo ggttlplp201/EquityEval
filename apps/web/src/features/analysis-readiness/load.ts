@@ -1,3 +1,4 @@
+import { observationSha256 } from "./observation-manifest";
 import { registrationSha256 } from "./registration-manifest";
 import { prospectusSha256 } from "./prospectus-manifest";
 import "server-only";
@@ -9,7 +10,7 @@ import { leadershipSha256 } from "./leadership-manifest";
 import { currentSha256 } from "./current-manifest";
 import { exhibitsSha256 } from "./exhibits-manifest";
 import { safetySha256 } from "./safety-manifest";
-import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot, LeadershipReviewSnapshot, ProspectusReviewSnapshot, RegistrationReviewSnapshot } from "./types";
+import type { AnalysisReadinessSnapshot, SafetyReviewSnapshot, ExhibitReviewSnapshot, CurrentReviewSnapshot, LeadershipReviewSnapshot, ProspectusReviewSnapshot, RegistrationReviewSnapshot, ObservationReviewSnapshot } from "./types";
 
 export async function loadAnalysisReadiness(): Promise<AnalysisReadinessSnapshot> {
   const bytes = await readFile(path.join(process.cwd(), "src/features/analysis-readiness/snapshot.json"));
@@ -65,4 +66,12 @@ export async function loadRegistrationReview(): Promise<RegistrationReviewSnapsh
     throw new Error("Registration-review snapshot verification failed");
   }
   return JSON.parse(bytes.toString("utf8")) as RegistrationReviewSnapshot;
+}
+
+export async function loadObservationReview(): Promise<ObservationReviewSnapshot> {
+  const bytes = await readFile(path.join(process.cwd(), "src/features/analysis-readiness/observation.json"));
+  if (createHash("sha256").update(bytes).digest("hex") !== observationSha256) {
+    throw new Error("Observation-review snapshot verification failed");
+  }
+  return JSON.parse(bytes.toString("utf8")) as ObservationReviewSnapshot;
 }

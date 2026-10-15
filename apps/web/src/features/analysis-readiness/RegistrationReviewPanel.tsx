@@ -5,8 +5,8 @@ export default function RegistrationReviewPanel({ data, onInspect }: {
   data: RegistrationReviewSnapshot; onInspect: (id: string) => void;
 }) {
   return <section className={styles.safety} aria-labelledby="registration-review-title" data-registration-review>
-    <div className={styles.sectionHeading}><div><p className="eyebrow">D5h / LATEST EVIDENCE REVIEW</p><h2 id="registration-review-title">Statements reconcile. Current coverage remains blocked.</h2></div><span>Reviewed {data.reviewedOn}</span></div>
-    <p>{data.conclusion}</p>
+    <div className={styles.sectionHeading}><div><p className="eyebrow">D5h / SAVED REGISTRATION REVIEW</p><h2 id="registration-review-title">Statements reconcile. Current coverage remains blocked.</h2></div><span>Reviewed {data.reviewedOn}</span></div>
+    <p>Saved D5h decision. The D5i panel above records the later mandatory observation and current normalization status.</p><p>{data.conclusion}</p>
     <div className={styles.decisions}>
       <article data-registration-candidate><span className={styles.gateStatus} data-state="blocked">Blocked</span><h3>New PIT batch</h3><p>{data.candidateBatch.explanation}</p><ul>{data.candidateBatch.reasonCodes.map(code => <li key={code}>{code.replaceAll("_", " ")}</li>)}</ul><p>No eligible preparation or new publication. The historical batch retains its original flags; operating margin remains N/A.</p></article>
       <article><h3>Observation is not full-day coverage</h3><dl><div><dt>Inventory observed</dt><dd>{data.inventoryObservedAt ?? "Unavailable"}</dd></div><div><dt>Final body retained</dt><dd>{data.retrievalCutoff ?? "Unavailable"}</dd></div><div><dt>Historical cutoff unchanged</dt><dd>{data.historicalRetrievalCutoff}</dd></div></dl><p>The inventory observation precedes the final retained body. A shared calendar date cannot prove coverage of that later instant or the whole day.</p><p>{data.cutoffNote}</p></article>

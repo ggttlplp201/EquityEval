@@ -1,0 +1,186 @@
+{
+  "batchId": "b49859b5-9f27-455a-87a4-e6fe776f5314",
+  "capturedBefore": "2026-10-15T21:59:05.195192+00:00",
+  "details": {
+    "observation": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Exact cutoff scope",
+              "value": "{\"fullDayCoverage\": false, \"interpretation\": \"Retrospective filing-date scope through the exact observation only; no intraday interval after that instant or whole-day completeness is asserted. September application knowledge is unchanged.\", \"inventoryObservedAt\": \"2026-10-15T21:59:05.195192+00:00\", \"priorEvidenceRetrievalCutoff\": \"2026-10-13T22:27:07.827051+00:00\", \"state\": \"observation_covers_retained_evidence\"}"
+            },
+            {
+              "label": "Fresh comparisons",
+              "value": "{\"allScopedAcceptanceTimesWithinObservation\": true, \"annualEditionChecks\": [{\"concept\": \"Revenues\", \"reason\": \"Exact original annual edition and source value match.\", \"records\": [{\"accn\": \"0001876042-26-000062\", \"end\": \"2025-12-31\", \"filed\": \"2026-03-09\", \"form\": \"10-K\", \"fp\": \"FY\", \"frame\": \"CY2025\", \"fy\": 2025, \"start\": \"2025-01-01\", \"val\": 2746642000}], \"status\": \"matched\"}, {\"concept\": \"OperatingIncomeLoss\", \"reason\": \"Exact original annual edition and source value match.\", \"records\": [{\"accn\": \"0001876042-26-000062\", \"end\": \"2025-12-31\", \"filed\": \"2026-03-09\", \"form\": \"10-K\", \"fp\": \"FY\", \"frame\": \"CY2025\", \"fy\": 2025, \"start\": \"2025-01-01\", \"val\": -96435000}], \"status\": \"matched\"}], \"changedMetadataAccessions\": [], \"inventory\": {\"boundaryEnd\": \"2026-10-15\", \"boundaryStart\": \"2025-01-01\", \"changedIdentities\": [], \"count\": 21, \"filings\": [{\"acceptedAt\": \"2025-06-07T00:03:46+00:00\", \"accession\": \"0000950103-25-007107\", \"filedDate\": \"2025-06-06\", \"form\": \"8-K\", \"items\": \"3.03,5.03,8.01,9.01\", \"metadataLocator\": \"/filings/recent/371\"}, {\"acceptedAt\": \"2025-07-22T16:16:55+00:00\", \"accession\": \"0001876042-25-000004\", \"filedDate\": \"2025-07-22\", \"form\": \"8-K\", \"items\": \"5.02,9.01\", \"metadataLocator\": \"/filings/recent/354\"}, {\"acceptedAt\": \"2025-08-12T14:27:11+00:00\", \"accession\": \"0001628280-25-039749\", \"filedDate\": \"2025-08-12\", \"form\": \"8-K\", \"items\": \"2.02,9.01\", \"metadataLocator\": \"/filings/recent/343\"}, {\"acceptedAt\": \"2025-08-12T17:21:01+00:00\", \"accession\": \"0001628280-25-039781\", \"filedDate\": \"2025-08-12\", \"form\": \"10-Q\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/342\"}, {\"acceptedAt\": \"2025-09-20T01:10:50+00:00\", \"accession\": \"0001876042-25-000014\", \"filedDate\": \"2025-09-19\", \"form\": \"8-K\", \"items\": \"5.02,9.01\", \"metadataLocator\": \"/filings/recent/310\"}, {\"acceptedAt\": \"2025-11-12T16:26:42+00:00\", \"accession\": \"0001876042-25-000045\", \"filedDate\": \"2025-11-12\", \"form\": \"8-K\", \"items\": \"2.02,9.01\", \"metadataLocator\": \"/filings/recent/297\"}, {\"acceptedAt\": \"2025-11-12T19:21:02+00:00\", \"accession\": \"0001876042-25-000047\", \"filedDate\": \"2025-11-12\", \"form\": \"10-Q\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/296\"}, {\"acceptedAt\": \"2026-02-25T16:26:39+00:00\", \"accession\": \"0001876042-26-000032\", \"filedDate\": \"2026-02-25\", \"form\": \"8-K\", \"items\": \"2.02,9.01\", \"metadataLocator\": \"/filings/recent/230\"}, {\"acceptedAt\": \"2026-03-09T16:36:51+00:00\", \"accession\": \"0001876042-26-000062\", \"filedDate\": \"2026-03-09\", \"form\": \"10-K\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/194\"}, {\"acceptedAt\": \"2026-03-17T16:06:38+00:00\", \"accession\": \"0001876042-26-000078\", \"filedDate\": \"2026-03-17\", \"form\": \"8-K\", \"items\": \"5.02,9.01\", \"metadataLocator\": \"/filings/recent/182\"}, {\"acceptedAt\": \"2026-05-11T14:27:16+00:00\", \"accession\": \"0001876042-26-000148\", \"filedDate\": \"2026-05-11\", \"form\": \"8-K\", \"items\": \"2.02,8.01,9.01\", \"metadataLocator\": \"/filings/recent/136\"}, {\"acceptedAt\": \"2026-05-11T17:16:55+00:00\", \"accession\": \"0001876042-26-000150\", \"filedDate\": \"2026-05-11\", \"form\": \"10-Q\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/135\"}, {\"acceptedAt\": \"2026-05-19T01:04:45+00:00\", \"accession\": \"0001876042-26-000159\", \"filedDate\": \"2026-05-18\", \"form\": \"8-K\", \"items\": \"5.07\", \"metadataLocator\": \"/filings/recent/129\"}, {\"acceptedAt\": \"2026-06-13T01:01:31+00:00\", \"accession\": \"0001876042-26-000192\", \"filedDate\": \"2026-06-12\", \"form\": \"8-K\", \"items\": \"5.02\", \"metadataLocator\": \"/filings/recent/90\"}, {\"acceptedAt\": \"2026-07-03T01:03:03+00:00\", \"accession\": \"0001876042-26-000205\", \"filedDate\": \"2026-07-02\", \"form\": \"8-K\", \"items\": \"8.01\", \"metadataLocator\": \"/filings/recent/78\"}, {\"acceptedAt\": \"2026-07-14T00:40:02+00:00\", \"accession\": \"0001876042-26-000228\", \"filedDate\": \"2026-07-13\", \"form\": \"10-K/A\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/65\"}, {\"acceptedAt\": \"2026-08-05T14:12:18+00:00\", \"accession\": \"0001876042-26-000246\", \"filedDate\": \"2026-08-05\", \"form\": \"8-K\", \"items\": \"2.02,9.01\", \"metadataLocator\": \"/filings/recent/54\"}, {\"acceptedAt\": \"2026-08-05T17:02:57+00:00\", \"accession\": \"0001876042-26-000248\", \"filedDate\": \"2026-08-05\", \"form\": \"10-Q\", \"items\": \"\", \"metadataLocator\": \"/filings/recent/53\"}, {\"acceptedAt\": \"2026-09-08T14:04:21+00:00\", \"accession\": \"0001876042-26-000267\", \"filedDate\": \"2026-09-08\", \"form\": \"8-K\", \"items\": \"1.01,3.02,7.01,9.01\", \"metadataLocator\": \"/filings/recent/27\"}, {\"acceptedAt\": \"2026-09-22T14:54:27+00:00\", \"accession\": \"0001876042-26-000276\", \"filedDate\": \"2026-09-22\", \"form\": \"8-K\", \"items\": \"8.01\", \"metadataLocator\": \"/filings/recent/16\"}, {\"acceptedAt\": \"2026-09-26T00:05:16+00:00\", \"accession\": \"0001876042-26-000279\", \"filedDate\": \"2026-09-25\", \"form\": \"8-K\", \"items\": \"5.02,7.01\", \"metadataLocator\": \"/filings/recent/14\"}], \"forms\": [\"10-K\", \"10-K/A\", \"10-Q\", \"10-Q/A\", \"8-K\", \"8-K/A\", \"NT 10-K\", \"NT 10-Q\"], \"missingAccessions\": [], \"missingHistoryFiles\": [], \"note\": \"This is the specified financial/event-form inventory observed at its capture time, not proof of every SEC form or later public event. Date boundaries do not assert knowledge of the remainder of the day.\", \"status\": \"matched_scoped_roster\", \"unexpectedAccessions\": []}, \"matched\": true, \"q1\": {\"limit\": \"Facts are observations with filing attribution, not a substitute for an earlier primary body or selected-line accounting review.\", \"rows\": [{\"concept\": \"Revenues\", \"locator\": \"facts.us-gaap.Revenues.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 578573000}, \"unit\": \"USD\"}, {\"concept\": \"OperatingIncomeLoss\", \"locator\": \"facts.us-gaap.OperatingIncomeLoss.units.USD[6]\", \"record\": {\"accn\": \"0001876042-26-000150\", \"end\": \"2025-03-31\", \"filed\": \"2026-05-11\", \"form\": \"10-Q\", \"fp\": \"Q1\", \"frame\": \"CY2025Q1\", \"fy\": 2026, \"start\": \"2025-01-01\", \"val\": 92940000}, \"unit\": \"USD\"}], \"status\": \"later_comparative_only\"}}"
+            },
+            {
+              "label": "Pinned prior review",
+              "value": "56698d5707f62b2349c5865bc6f98d73f236f493c38d3192477f4ce2909fdce9"
+            },
+            {
+              "label": "Historical metadata differences",
+              "value": "{\"limit\": \"Use the fresh source-reported timestamp in a new immutable version. The cause of the difference is not inferred; old versions and September knowledge remain unchanged.\", \"rows\": [{\"accession\": \"0001876042-26-000062\", \"changedFields\": {\"acceptanceDateTime\": {\"current\": \"2026-03-09T16:36:51.000Z\", \"previous\": \"2026-03-09T12:36:51.000Z\"}}, \"metadataFieldReview\": \"Every raw metadata field compared; only pinned acceptanceDateTime delta allowed.\", \"newBodySha256\": \"69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7\", \"newCaptureId\": \"01551860-7c36-46e5-b31c-9b8fa232ae81\", \"oldBodySha256\": \"c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3\", \"oldCaptureId\": \"0e93340d-a10c-40eb-b463-047c23be58bf\", \"oldFilingVersionId\": \"21dcc7de-ebae-5ae8-92f6-ad8ad5c9fc1f\", \"source\": {\"accession\": null, \"capturedAt\": \"2026-09-21 17:07:35.957888+00:00\", \"label\": \"SEC retained Submissions inventory\", \"licence\": \"SEC public filings and government-created data reuse\", \"transform\": \"Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay\", \"url\": \"https://data.sec.gov/submissions/CIK0001876042.json\"}}, {\"accession\": \"0001876042-26-000228\", \"changedFields\": {\"acceptanceDateTime\": {\"current\": \"2026-07-14T00:40:02.000Z\", \"previous\": \"2026-07-13T20:40:02.000Z\"}}, \"metadataFieldReview\": \"Every raw metadata field compared; only pinned acceptanceDateTime delta allowed.\", \"newBodySha256\": \"69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7\", \"newCaptureId\": \"01551860-7c36-46e5-b31c-9b8fa232ae81\", \"oldBodySha256\": \"c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3\", \"oldCaptureId\": \"0e93340d-a10c-40eb-b463-047c23be58bf\", \"oldFilingVersionId\": \"8e99b0c8-2648-5ba3-bd46-cf7827d4b1f1\", \"source\": {\"accession\": null, \"capturedAt\": \"2026-09-21 17:07:35.957888+00:00\", \"label\": \"SEC retained Submissions inventory\", \"licence\": \"SEC public filings and government-created data reuse\", \"transform\": \"Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay\", \"url\": \"https://data.sec.gov/submissions/CIK0001876042.json\"}}, {\"accession\": \"0001876042-26-000248\", \"changedFields\": {\"acceptanceDateTime\": {\"current\": \"2026-08-05T17:02:57.000Z\", \"previous\": \"2026-08-05T13:02:57.000Z\"}}, \"metadataFieldReview\": \"Every raw metadata field compared; only pinned acceptanceDateTime delta allowed.\", \"newBodySha256\": \"69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7\", \"newCaptureId\": \"01551860-7c36-46e5-b31c-9b8fa232ae81\", \"oldBodySha256\": \"c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3\", \"oldCaptureId\": \"0e93340d-a10c-40eb-b463-047c23be58bf\", \"oldFilingVersionId\": \"d2228bf8-efee-5ce8-b138-de58162ba83f\", \"source\": {\"accession\": null, \"capturedAt\": \"2026-09-21 17:07:35.957888+00:00\", \"label\": \"SEC retained Submissions inventory\", \"licence\": \"SEC public filings and government-created data reuse\", \"transform\": \"Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay\", \"url\": \"https://data.sec.gov/submissions/CIK0001876042.json\"}}], \"status\": \"reviewed_source_vintage_difference\"}"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": null,
+          "capturedAt": "2026-10-15 21:59:05.128575+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-10-15 21:59:05.195192+00:00",
+          "label": "SEC Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        },
+        {
+          "accession": null,
+          "capturedAt": "2026-09-21 17:07:35.957888+00:00",
+          "label": "SEC retained Submissions inventory",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 c4f43a9e2582ab88f8cfa1d8f3527bfbf515770e3c33766e21629845c16026a3; exact source replay",
+          "url": "https://data.sec.gov/submissions/CIK0001876042.json"
+        }
+      ],
+      "subtitle": "D5i fresh mandatory pair; D5h retained-body review pinned by hash",
+      "title": "Exact current observation and edition checks"
+    },
+    "operating_income": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Exact selected source fact",
+              "value": "{\"accession\": \"0001876042-26-000062\", \"capture_ids\": [\"71797c44-139b-4f08-ad6e-eeed88af0259\"], \"concept\": \"operating_income\", \"filed_date\": \"2026-03-09\", \"flags\": [], \"observation_ids\": [\"d0276728-a7ff-5b23-b497-7a352e4c6bcd\"], \"original_numeric_text\": \"-96435000\", \"reason\": null, \"resolution_ids\": [\"beb4431a-11f6-5fca-bff3-ccbae51ca0e9\"], \"source_hashes\": [\"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\"], \"source_locator\": \"/facts/us-gaap/OperatingIncomeLoss/units/USD/13\", \"source_tag\": \"us-gaap:OperatingIncomeLoss\", \"source_url\": \"https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json\", \"status\": \"observed\", \"transform_json\": \"{\\\"operation\\\": \\\"identity_decimal\\\", \\\"scale_applied\\\": false}\", \"value\": \"-96435000\"}"
+            },
+            {
+              "label": "Original filing precision and context",
+              "value": "{\"candidate_locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"capture_id\": \"7cdba2c5-76a0-453d-b8fb-cae4b6e77809\", \"companyfacts_observation\": {\"context_id\": null, \"context_knowledge\": \"unknown\", \"filing_version_id\": \"9bd6def4-8a40-5ab1-b7e7-e3e6a8c7714a\", \"id\": \"d0276728-a7ff-5b23-b497-7a352e4c6bcd\", \"namespace\": \"us-gaap\", \"numeric_value\": \"-96435000\", \"original_numeric_text\": \"-96435000\", \"parser_revision\": \"companyfacts-json-v1\", \"period_id\": \"224f3491-d956-562c-9424-cf9cb4a876ad\", \"raw_dimensions\": null, \"raw_metadata\": \"{\\\"api_unit\\\":\\\"USD\\\",\\\"source_cik_json\\\":\\\"\\\\\\\"0001876042\\\\\\\"\\\",\\\"source_cik_type\\\":\\\"string\\\",\\\"source_description\\\":\\\"The net result for the period of deducting operating expenses from operating revenues.\\\",\\\"source_label\\\":\\\"Operating Income (Loss)\\\",\\\"source_row_json\\\":\\\"{\\\\\\\"start\\\\\\\":\\\\\\\"2025-01-01\\\\\\\",\\\\\\\"end\\\\\\\":\\\\\\\"2025-12-31\\\\\\\",\\\\\\\"val\\\\\\\":-96435000,\\\\\\\"accn\\\\\\\":\\\\\\\"0001876042-26-000062\\\\\\\",\\\\\\\"fy\\\\\\\":2025,\\\\\\\"fp\\\\\\\":\\\\\\\"FY\\\\\\\",\\\\\\\"form\\\\\\\":\\\\\\\"10-K\\\\\\\",\\\\\\\"filed\\\\\\\":\\\\\\\"2026-03-09\\\\\\\",\\\\\\\"frame\\\\\\\":\\\\\\\"CY2025\\\\\\\"}\\\"}\", \"semantic_scope_id\": \"0ac0ab7d-1110-5e63-9a15-b06341eafb11\", \"source_capture_id\": \"71797c44-139b-4f08-ad6e-eeed88af0259\", \"source_locator\": \"/facts/us-gaap/OperatingIncomeLoss/units/USD/13\", \"tag\": \"OperatingIncomeLoss\", \"transform_metadata\": \"{\\\"operation\\\":\\\"identity_decimal\\\",\\\"scale_applied\\\":false}\", \"unit_id\": \"f3452009-4f4d-50e6-8bef-3dca12b5fffa\", \"value_state\": \"numeric\"}, \"context\": {\"cik\": \"0001876042\", \"dimensions\": [], \"end_date\": \"2025-12-31\", \"entity_identifier\": \"0001876042\", \"entity_scheme\": \"http://www.sec.gov/CIK\", \"id\": \"c-1\", \"locator\": \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1]/{http://www.xbrl.org/2013/inlineXBRL}header/{http://www.xbrl.org/2013/inlineXBRL}resources/{http://www.xbrl.org/2003/instance}context[1]\", \"period_kind\": \"duration\", \"raw_xml\": \"<xbrli:context xmlns:xbrli=\\\"http://www.xbrl.org/2003/instance\\\" xmlns=\\\"http://www.w3.org/1999/xhtml\\\" xmlns:ixt=\\\"http://www.xbrl.org/inlineXBRL/transformation/2020-02-12\\\" xmlns:ixt-sec=\\\"http://www.sec.gov/inlineXBRL/transformation/2015-08-31\\\" xmlns:ix=\\\"http://www.xbrl.org/2013/inlineXBRL\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:dei=\\\"http://xbrl.sec.gov/dei/2025\\\" xmlns:us-gaap=\\\"http://fasb.org/us-gaap/2025\\\" xmlns:srt=\\\"http://fasb.org/srt/2025\\\" xmlns:stpr=\\\"http://xbrl.sec.gov/stpr/2025\\\" xmlns:country=\\\"http://xbrl.sec.gov/country/2025\\\" xmlns:iso4217=\\\"http://www.xbrl.org/2003/iso4217\\\" xmlns:xbrldi=\\\"http://xbrl.org/2006/xbrldi\\\" xmlns:cyd=\\\"http://xbrl.sec.gov/cyd/2025\\\" xmlns:ecd=\\\"http://xbrl.sec.gov/ecd/2025\\\" xmlns:crcl=\\\"http://circle.com/20251231\\\" xmlns:link=\\\"http://www.xbrl.org/2003/linkbase\\\" xmlns:xlink=\\\"http://www.w3.org/1999/xlink\\\" id=\\\"c-1\\\"><xbrli:entity><xbrli:identifier scheme=\\\"http://www.sec.gov/CIK\\\">0001876042</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startDate>2025-01-01</xbrli:startDate><xbrli:endDate>2025-12-31</xbrli:endDate></xbrli:period></xbrli:context>\", \"start_date\": \"2025-01-01\", \"valid\": true}, \"extractor_issue_count\": 249, \"fact\": {\"attributes\": [[\"contextRef\", \"c-1\"], [\"decimals\", \"-3\"], [\"format\", \"ixt:num-dot-decimal\"], [\"id\", \"f-209\"], [\"name\", \"us-gaap:OperatingIncomeLoss\"], [\"scale\", \"3\"], [\"sign\", \"-\"], [\"unitRef\", \"usd\"]], \"context_id\": \"c-1\", \"decimals\": \"-3\", \"evidence_locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"format_qname\": \"{http://www.xbrl.org/inlineXBRL/transformation/2020-02-12}num-dot-decimal\", \"id\": \"f-209\", \"issue_codes\": [], \"kind\": \"nonFraction\", \"lexical_text\": \"96,435\", \"locator\": \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[21]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\", \"precision\": null, \"qualified_tag\": \"{http://fasb.org/us-gaap/2025}OperatingIncomeLoss\", \"raw_name\": \"us-gaap:OperatingIncomeLoss\", \"scale\": 3, \"sign\": \"-\", \"status\": \"observed\", \"unit_id\": \"usd\", \"value\": \"-9.6435E+7\"}, \"unit\": {\"denominator_measures\": [], \"id\": \"usd\", \"locator\": \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1]/{http://www.xbrl.org/2013/inlineXBRL}header/{http://www.xbrl.org/2013/inlineXBRL}resources/{http://www.xbrl.org/2003/instance}unit[1]\", \"numerator_measures\": [\"{http://www.xbrl.org/2003/iso4217}USD\"], \"raw_xml\": \"<xbrli:unit xmlns:xbrli=\\\"http://www.xbrl.org/2003/instance\\\" xmlns=\\\"http://www.w3.org/1999/xhtml\\\" xmlns:ixt=\\\"http://www.xbrl.org/inlineXBRL/transformation/2020-02-12\\\" xmlns:ixt-sec=\\\"http://www.sec.gov/inlineXBRL/transformation/2015-08-31\\\" xmlns:ix=\\\"http://www.xbrl.org/2013/inlineXBRL\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:dei=\\\"http://xbrl.sec.gov/dei/2025\\\" xmlns:us-gaap=\\\"http://fasb.org/us-gaap/2025\\\" xmlns:srt=\\\"http://fasb.org/srt/2025\\\" xmlns:stpr=\\\"http://xbrl.sec.gov/stpr/2025\\\" xmlns:country=\\\"http://xbrl.sec.gov/country/2025\\\" xmlns:iso4217=\\\"http://www.xbrl.org/2003/iso4217\\\" xmlns:xbrldi=\\\"http://xbrl.org/2006/xbrldi\\\" xmlns:cyd=\\\"http://xbrl.sec.gov/cyd/2025\\\" xmlns:ecd=\\\"http://xbrl.sec.gov/ecd/2025\\\" xmlns:crcl=\\\"http://circle.com/20251231\\\" xmlns:link=\\\"http://www.xbrl.org/2003/linkbase\\\" xmlns:xlink=\\\"http://www.w3.org/1999/xlink\\\" id=\\\"usd\\\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>\", \"valid\": true}}"
+            },
+            {
+              "label": "Exact batch and cutoff",
+              "value": "b49859b5-9f27-455a-87a4-e6fe776f5314 / 2026-10-15 21:59:05.195192+00:00"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-10-15 21:59:05.128575+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        }
+      ],
+      "subtitle": "Published normalization source operand; no ratio or investment conclusion",
+      "title": "Operating income (loss)"
+    },
+    "revenue": {
+      "sections": [
+        {
+          "heading": "Evidence and limits",
+          "rows": [
+            {
+              "label": "Exact selected source fact",
+              "value": "{\"accession\": \"0001876042-26-000062\", \"capture_ids\": [\"71797c44-139b-4f08-ad6e-eeed88af0259\"], \"concept\": \"revenue\", \"filed_date\": \"2026-03-09\", \"flags\": [], \"observation_ids\": [\"582c9414-deb8-5537-ad8f-1b6c56911da2\"], \"original_numeric_text\": \"2746642000\", \"reason\": null, \"resolution_ids\": [\"30163aeb-7bf4-58a9-ae22-5bf603052efa\"], \"source_hashes\": [\"f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af\"], \"source_locator\": \"/facts/us-gaap/Revenues/units/USD/13\", \"source_tag\": \"us-gaap:Revenues\", \"source_url\": \"https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json\", \"status\": \"observed\", \"transform_json\": \"{\\\"operation\\\": \\\"identity_decimal\\\", \\\"scale_applied\\\": false}\", \"value\": \"2746642000\"}"
+            },
+            {
+              "label": "Original filing precision and context",
+              "value": "{\"candidate_locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\", \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric[15]/{http://www.xbrl.org/2013/inlineXBRL}nonNumeric/{http://www.w3.org/1999/xhtml}div/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[11]/{http://www.w3.org/1999/xhtml}td[4]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"capture_id\": \"7cdba2c5-76a0-453d-b8fb-cae4b6e77809\", \"companyfacts_observation\": {\"context_id\": null, \"context_knowledge\": \"unknown\", \"filing_version_id\": \"9bd6def4-8a40-5ab1-b7e7-e3e6a8c7714a\", \"id\": \"582c9414-deb8-5537-ad8f-1b6c56911da2\", \"namespace\": \"us-gaap\", \"numeric_value\": \"2746642000\", \"original_numeric_text\": \"2746642000\", \"parser_revision\": \"companyfacts-json-v1\", \"period_id\": \"224f3491-d956-562c-9424-cf9cb4a876ad\", \"raw_dimensions\": null, \"raw_metadata\": \"{\\\"api_unit\\\":\\\"USD\\\",\\\"source_cik_json\\\":\\\"\\\\\\\"0001876042\\\\\\\"\\\",\\\"source_cik_type\\\":\\\"string\\\",\\\"source_description\\\":\\\"Amount of revenue recognized from goods sold, services rendered, insurance premiums, or other activities that constitute an earning process. Includes, but is not limited to, investment and interest income before deduction of interest expense when recognized as a component of revenue, and sales and trading gain (loss).\\\",\\\"source_label\\\":\\\"Revenues\\\",\\\"source_row_json\\\":\\\"{\\\\\\\"start\\\\\\\":\\\\\\\"2025-01-01\\\\\\\",\\\\\\\"end\\\\\\\":\\\\\\\"2025-12-31\\\\\\\",\\\\\\\"val\\\\\\\":2746642000,\\\\\\\"accn\\\\\\\":\\\\\\\"0001876042-26-000062\\\\\\\",\\\\\\\"fy\\\\\\\":2025,\\\\\\\"fp\\\\\\\":\\\\\\\"FY\\\\\\\",\\\\\\\"form\\\\\\\":\\\\\\\"10-K\\\\\\\",\\\\\\\"filed\\\\\\\":\\\\\\\"2026-03-09\\\\\\\",\\\\\\\"frame\\\\\\\":\\\\\\\"CY2025\\\\\\\"}\\\"}\", \"semantic_scope_id\": \"0ac0ab7d-1110-5e63-9a15-b06341eafb11\", \"source_capture_id\": \"71797c44-139b-4f08-ad6e-eeed88af0259\", \"source_locator\": \"/facts/us-gaap/Revenues/units/USD/13\", \"tag\": \"Revenues\", \"transform_metadata\": \"{\\\"operation\\\":\\\"identity_decimal\\\",\\\"scale_applied\\\":false}\", \"unit_id\": \"f3452009-4f4d-50e6-8bef-3dca12b5fffa\", \"value_state\": \"numeric\"}, \"context\": {\"cik\": \"0001876042\", \"dimensions\": [], \"end_date\": \"2025-12-31\", \"entity_identifier\": \"0001876042\", \"entity_scheme\": \"http://www.sec.gov/CIK\", \"id\": \"c-1\", \"locator\": \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1]/{http://www.xbrl.org/2013/inlineXBRL}header/{http://www.xbrl.org/2013/inlineXBRL}resources/{http://www.xbrl.org/2003/instance}context[1]\", \"period_kind\": \"duration\", \"raw_xml\": \"<xbrli:context xmlns:xbrli=\\\"http://www.xbrl.org/2003/instance\\\" xmlns=\\\"http://www.w3.org/1999/xhtml\\\" xmlns:ixt=\\\"http://www.xbrl.org/inlineXBRL/transformation/2020-02-12\\\" xmlns:ixt-sec=\\\"http://www.sec.gov/inlineXBRL/transformation/2015-08-31\\\" xmlns:ix=\\\"http://www.xbrl.org/2013/inlineXBRL\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:dei=\\\"http://xbrl.sec.gov/dei/2025\\\" xmlns:us-gaap=\\\"http://fasb.org/us-gaap/2025\\\" xmlns:srt=\\\"http://fasb.org/srt/2025\\\" xmlns:stpr=\\\"http://xbrl.sec.gov/stpr/2025\\\" xmlns:country=\\\"http://xbrl.sec.gov/country/2025\\\" xmlns:iso4217=\\\"http://www.xbrl.org/2003/iso4217\\\" xmlns:xbrldi=\\\"http://xbrl.org/2006/xbrldi\\\" xmlns:cyd=\\\"http://xbrl.sec.gov/cyd/2025\\\" xmlns:ecd=\\\"http://xbrl.sec.gov/ecd/2025\\\" xmlns:crcl=\\\"http://circle.com/20251231\\\" xmlns:link=\\\"http://www.xbrl.org/2003/linkbase\\\" xmlns:xlink=\\\"http://www.w3.org/1999/xlink\\\" id=\\\"c-1\\\"><xbrli:entity><xbrli:identifier scheme=\\\"http://www.sec.gov/CIK\\\">0001876042</xbrli:identifier></xbrli:entity><xbrli:period><xbrli:startDate>2025-01-01</xbrli:startDate><xbrli:endDate>2025-12-31</xbrli:endDate></xbrli:period></xbrli:context>\", \"start_date\": \"2025-01-01\", \"valid\": true}, \"extractor_issue_count\": 249, \"fact\": {\"attributes\": [[\"contextRef\", \"c-1\"], [\"decimals\", \"-3\"], [\"format\", \"ixt:num-dot-decimal\"], [\"id\", \"f-173\"], [\"name\", \"us-gaap:Revenues\"], [\"scale\", \"3\"], [\"unitRef\", \"usd\"]], \"context_id\": \"c-1\", \"decimals\": \"-3\", \"evidence_locators\": [\"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\"], \"format_qname\": \"{http://www.xbrl.org/inlineXBRL/transformation/2020-02-12}num-dot-decimal\", \"id\": \"f-173\", \"issue_codes\": [], \"kind\": \"nonFraction\", \"lexical_text\": \"2,746,642\", \"locator\": \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1489]/{http://www.w3.org/1999/xhtml}table/{http://www.w3.org/1999/xhtml}tr[7]/{http://www.w3.org/1999/xhtml}td[3]/{http://www.w3.org/1999/xhtml}span[1]/{http://www.xbrl.org/2013/inlineXBRL}nonFraction\", \"precision\": null, \"qualified_tag\": \"{http://fasb.org/us-gaap/2025}Revenues\", \"raw_name\": \"us-gaap:Revenues\", \"scale\": 3, \"sign\": null, \"status\": \"observed\", \"unit_id\": \"usd\", \"value\": \"2.746642E+9\"}, \"unit\": {\"denominator_measures\": [], \"id\": \"usd\", \"locator\": \"elementpath:{http://www.w3.org/1999/xhtml}body/{http://www.w3.org/1999/xhtml}div[1]/{http://www.xbrl.org/2013/inlineXBRL}header/{http://www.xbrl.org/2013/inlineXBRL}resources/{http://www.xbrl.org/2003/instance}unit[1]\", \"numerator_measures\": [\"{http://www.xbrl.org/2003/iso4217}USD\"], \"raw_xml\": \"<xbrli:unit xmlns:xbrli=\\\"http://www.xbrl.org/2003/instance\\\" xmlns=\\\"http://www.w3.org/1999/xhtml\\\" xmlns:ixt=\\\"http://www.xbrl.org/inlineXBRL/transformation/2020-02-12\\\" xmlns:ixt-sec=\\\"http://www.sec.gov/inlineXBRL/transformation/2015-08-31\\\" xmlns:ix=\\\"http://www.xbrl.org/2013/inlineXBRL\\\" xmlns:xsi=\\\"http://www.w3.org/2001/XMLSchema-instance\\\" xmlns:dei=\\\"http://xbrl.sec.gov/dei/2025\\\" xmlns:us-gaap=\\\"http://fasb.org/us-gaap/2025\\\" xmlns:srt=\\\"http://fasb.org/srt/2025\\\" xmlns:stpr=\\\"http://xbrl.sec.gov/stpr/2025\\\" xmlns:country=\\\"http://xbrl.sec.gov/country/2025\\\" xmlns:iso4217=\\\"http://www.xbrl.org/2003/iso4217\\\" xmlns:xbrldi=\\\"http://xbrl.org/2006/xbrldi\\\" xmlns:cyd=\\\"http://xbrl.sec.gov/cyd/2025\\\" xmlns:ecd=\\\"http://xbrl.sec.gov/ecd/2025\\\" xmlns:crcl=\\\"http://circle.com/20251231\\\" xmlns:link=\\\"http://www.xbrl.org/2003/linkbase\\\" xmlns:xlink=\\\"http://www.w3.org/1999/xlink\\\" id=\\\"usd\\\"><xbrli:measure>iso4217:USD</xbrli:measure></xbrli:unit>\", \"valid\": true}}"
+            },
+            {
+              "label": "Exact batch and cutoff",
+              "value": "b49859b5-9f27-455a-87a4-e6fe776f5314 / 2026-10-15 21:59:05.195192+00:00"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-10-15 21:59:05.128575+00:00",
+          "label": "SEC Company Facts",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 f7139545b482a7b31520225bc155cb41241b82f004eb8fbca55f4ab66d1426af; exact source replay",
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001876042.json"
+        },
+        {
+          "accession": "0001876042-26-000062",
+          "capturedAt": "2026-09-21 17:07:36.472331+00:00",
+          "label": "SEC / Circle retained filing",
+          "licence": "SEC public filings and government-created data reuse",
+          "transform": "Verified entity bytes SHA256 e535360770ac9230b871b4a4f9ab74336f790aa089f3dd0a078be83e517bbd4c; exact source replay",
+          "url": "https://www.sec.gov/Archives/edgar/data/1876042/000187604226000062/crcl-20251231.htm"
+        }
+      ],
+      "subtitle": "Published normalization source operand; no ratio or investment conclusion",
+      "title": "Revenue and reserve income"
+    }
+  },
+  "facts": [
+    {
+      "id": "revenue",
+      "label": "Revenue and reserve income",
+      "unit": "USD",
+      "value": "2746642000"
+    },
+    {
+      "id": "operating_income",
+      "label": "Operating income (loss)",
+      "unit": "USD",
+      "value": "-96435000"
+    }
+  ],
+  "historicalBatchId": "923458e4-242d-4731-9f57-9fd6779d7e9a",
+  "kind": "real-crcl-current-source-readiness",
+  "metadataNote": "Three filing acceptance timestamps differ between the September and October inventories. New metadata uses the exact fresh source values; the cause is not inferred and old versions are preserved.",
+  "normalizationStatus": "published",
+  "operatingMargin": null,
+  "publicationBlocker": "The existing S6 input and result contracts only permit synthetic evidence and require a quote identifier. Real source-only publication needs a separate reviewed contract; no synthetic label or quote is invented.",
+  "publishedMetricCount": 0,
+  "reviewedOn": "2026-10-15",
+  "timeScope": {
+    "fullDayCoverage": false,
+    "interpretation": "Retrospective filing-date scope through the exact observation only; no intraday interval after that instant or whole-day completeness is asserted. September application knowledge is unchanged.",
+    "inventoryObservedAt": "2026-10-15T21:59:05.195192+00:00",
+    "priorEvidenceRetrievalCutoff": "2026-10-13T22:27:07.827051+00:00",
+    "state": "observation_covers_retained_evidence"
+  }
+}
