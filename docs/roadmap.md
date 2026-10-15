@@ -24,7 +24,8 @@ feature/design retains its detailed acceptance criteria.
   formerly missing exhibits; D5f closes the later CFO-release gap. D5g matches the
   earlier Q1 and annual comparative selected lines. D5h reviews all seven remaining
   registration bodies and reconciles selected editions. D5i closes the observation gap and publishes a new eligible two-concept batch
-  at the exact October 15 observation. D5a remains historically blocked. Real S6
+  at the exact October 15 observation. D5a remains historically blocked. [D5j](design/d5j/proposal.md)
+  pins the concrete next contract proposal. Real S6
   publication is still blocked by synthetic-only contracts and required quote identity.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
@@ -45,7 +46,7 @@ feature/design retains its detailed acceptance criteria.
 | Live/delayed production prices | S4a activation, [S4b](milestones/S4-prices-macro.md#remaining-scope-and-next-handoff), S6/S8 | Adapter/storage code exists; no operating price source | Approved provider, registered quote, reviewed lifecycle/session coverage, application policy | Real bounded capture and exact-date selection, visible source time/delay/staleness/gaps; no stale failure silently revived; source lineage reaches displayed prices. |
 | Corporate-action processing | S4b action/ADS lifecycle review | Planned; not operating | Concrete shared contract, action source rights, instrument lifecycle evidence | Splits/dividends/share-class/ADS changes retain effective/known-at evidence; prevent adjusted/raw/share-basis mixing; restatement and out-of-order action regressions. |
 | Ordinary company analysis requests | [W1b](features/W1-watchlist-analysis.md), S3/S4 stages → S5/S7 | Request/source-stage infrastructure exists; zero ordinary application requests | Quote identity, explicit plan/coverage, eligible implemented engines | Every applicable stage considered; unavailable/unsupported remains visible; immutable results, retry/cancel/fencing, no duplicate membership/results. |
-| Real financial normalization and PIT selection | S3 + [S5](milestones/S5-ratios.md) real-data handoff | D5a bounded real batch complete: two facts; analysis eligibility blocked | Ordinary source request or separately reviewed handoff; exact financial/event coverage and mappings | Real archived filings normalize through existing publication fence; accounting flags/source precision; as-reported/restated and filed/capture cutoffs verified without lookahead. |
+| Real financial normalization and PIT selection | S3 + [S5](milestones/S5-ratios.md) real-data handoff | D5i current batch eligible: two new facts; historical D5a remains blocked | Ordinary source request or separately reviewed handoff; exact financial/event coverage and mappings | Real archived filings normalize through existing publication fence; accounting flags/source precision; as-reported/restated and filed/capture cutoffs verified without lookahead. |
 | Published company ratios/valuation | S5 → [S6](api-contract.md) → S7/S8; [F1](features/F1-fundamentals-guide.md) | S5, synthetic S6a snapshots and S6b/S7a reverse model/API implemented; production publication pending | Real selected facts; reviewed production S5 policies; S6 snapshots/API; S7 assumptions/valuation; price/actions for applicable ratios | Real values trace to operands/formula/source; 3/5/10-year coverage preserved; missing inputs remain gaps; valuation is a range with assumptions, never a buy/sell signal. |
 | Real sector-wide data/comparisons | [X1](milestones/X1-sector-explorer.md), D024, S6 | Pure calculations/fictional graphs verified; real publication blocked | Reviewed universe/taxonomy/membership history, constituent fundamentals/prices/actions, common basis, S6 | Graphs use real eligible constituents; aggregate vs median explicit; coverage/exclusions/calculation/source details; historical membership and no lookahead; thresholds remain versioned policy. |
 | Automatic result refresh after eligible filings | W1b + S5/S6; D4a discovery → reviewed financial handoff | Not operating; D4a reports discovery eligibility/blockers only | Complete discovery, quote/coverage gates, explicit reviewed deduplicated handoff, published snapshot contract | One eligible filing edition queues one logical downstream job; late completion cannot replace newer result; old snapshots retained; amendment is not automatically restatement/non-reliance. |
@@ -281,3 +282,14 @@ Source acquisition/reconciliation is complete for this bounded two-concept snaps
 S4 provider/quote activation, broader S5/S6 product coverage, valuation, automation
 and final dashboard phases remain governed by the capability register above.
 See [milestone](milestones/D5i-crcl-observation.md).
+
+## D5j proposed boundary — real source-only S6
+
+[D048 / concrete packet](design/d5j/proposal.md) identifies the existing synthetic-only
+input/result modes, required quote selector/storage fields and W1 request bindings.
+It chooses separate real v2 endpoints/client and companion relational records,
+with an explicitly discriminated W1 source-only intent and unchanged v1 behavior/statuses and
+existing core math, typed policy/source evidence, additive migration and reviewed
+source-only W1 intent. The coordinator has confirmed approval of this exact design under the user’s
+continuation. Implementation plus staged SQL/Pydantic/API and pre-publication
+numeric reviews are the next gates; no real metric is published by this proposal.

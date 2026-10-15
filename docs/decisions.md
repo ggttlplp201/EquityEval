@@ -190,3 +190,25 @@ independent pre-publication reviews cleared the exact two-concept preparation;
 existing S3 publication/replay/readback/preservation succeeded. D5a stays immutable
 and historically blocked. No real S6 metric: synthetic-only contracts and quote-ID
 requirements are the next separately reviewed contract boundary.
+
+D048 — concrete real-source S6 boundary proposal (2026-10-15):
+[D5j packet](design/d5j/proposal.md) records the genuine synthetic-mode/required-quote
+contract blocker after eligible D5i normalization. Documentation and independent
+review only; implementation of schema/API/migration/W1 changes is not authorized
+by this packet. No real metric is published. A separate explicit approval and
+reviewed policy/numeric candidate are required before that mutation boundary.
+
+D048 concrete design refinement: choose separate real v2 read-only endpoints and
+separately generated client, companion real policy/review/intent/input/payload/
+snapshot/latest tables, and narrowly discriminated existing-W1 request/claim/
+freeze/publish functions. Preserve all v1 contracts and quoted request behavior.
+The packet lists exact FKs, quote prohibition and compatibility/no-result semantics;
+no implementation or migration has been applied.
+
+D048 approval: after both design reviews passed, the coordinator explicitly relayed
+that the user’s “continue until finished” authorizes this exact real-source contract
+step. Commit this packet first, then implement only the chosen companion/v2 design.
+Staged SQL/Pydantic/API review precedes migration application; separate independent
+numeric review precedes real S6 publication. No broader source/provider/quote,
+valuation, sector or scheduler scope is approved. Earlier proposed-only wording
+above records the preceding boundary, not the current approval state.

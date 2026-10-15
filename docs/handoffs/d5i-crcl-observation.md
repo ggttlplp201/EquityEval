@@ -25,3 +25,13 @@ Validation: full make check 1,799/505/110, 14 focused observation tests, product
 build, all 51 browser checks and independent standards/spec/numeric reviews pass.
 Final hooked commit runs the added publication regression in the full suite too.
 Only new D5i research artifacts were added; all prior research bytes are unchanged.
+
+D5i committed and pushed as f42222682892e8602b884e5aaf64c44af9b85d63; remote HEAD
+verified and tree clean. Hooks passed 1,800/505/110. Continue only from the separate
+[D5j contract proposal](../design/d5j/proposal.md) after explicit shared-contract
+approval. Its review does not itself authorize source/API/schema mutations.
+
+D048 was subsequently approved by the coordinator under the user’s continuation,
+after independent design reviews. Proceed with that exact companion-table/v2
+contract; review SQL/Pydantic/API before applying migration and numeric candidate
+before publishing. No other expansion is approved.

@@ -51,3 +51,7 @@ Input hash `a179286890c64c55a8f6afb855506bf4732324bc74d5ef944e037695d67b72a4`;
 output hash `5a0f7405d7d939a9fdae7732ab2bd1b2d368c0f277ba948f47f156a4a33c8240`.
 Totals: 76 captures, 78 attempts, 18 requests (16 bootstrap, two monitor), two
 normalization batches/four selected facts, zero published real metrics.
+
+Final implementation commit `f42222682892e8602b884e5aaf64c44af9b85d63` was pushed
+and remote HEAD verified. Mandatory hooks passed 1,800 full tests, 505 core and
+110 golden; working tree was clean. The separately reviewed [D5j contract packet](../design/d5j/proposal.md) records the remaining genuine publication boundary.

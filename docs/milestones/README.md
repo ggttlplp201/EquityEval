@@ -66,3 +66,5 @@ See the [operational roadmap](../roadmap.md) for dependency order and the distin
 | D5h | [CRCL registration history reconciliation](D5h-crcl-registration.md) | Complete |
 
 | D5i | [Current CRCL observation and normalization](D5i-crcl-observation.md) | Complete |
+
+| D5j | [Real source-only S6 contract proposal](../design/d5j/proposal.md) | Design approved; implementation next |

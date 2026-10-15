@@ -241,3 +241,8 @@ Read-only checks: `scripts.review_crcl_observation --check`,
 `scripts.prepare_crcl_observation --check`, `scripts.export_crcl_observation --check`
 and `scripts.publish_crcl_observation verify`. Do not rerun the acquisition or
 rewrite either normalization batch. Publication replay was already proved.
+
+The concrete [D5j publication proposal](../design/d5j/proposal.md) describes the
+remaining contract gate. It proposes an explicitly real, source-only result and
+request path, preserving all synthetic examples. It is not an implemented metric
+or permission to relabel data. The latest preview remains on port 3103.
