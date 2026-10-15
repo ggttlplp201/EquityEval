@@ -177,3 +177,10 @@ reconciled; current eligibility blocked because inventory observation precedes f
 body retention. No new S3 batch or S6 metric. Fresh mandatory Facts/Submissions
 after all retained bodies require the next pinned proposal. The original acquisition
 summary bug is preserved and independently checked against two typed groups.
+
+D047 — authorized exact current observation (2026-10-15):
+[D5i proposal](design/d5i/proposal.md) pins the mandatory CRCL Facts/Submissions
+pair after all retained bodies, exact observation-bound review and conditional
+same-concept S3 publication after independently reviewed preparation. Existing
+mapping, historical batch and evidence remain immutable. D5i publishes no ratio;
+real S6 needs a separate boundary and cannot misuse synthetic-only contracts.
