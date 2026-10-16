@@ -220,3 +220,12 @@ plausible-but-wrong review cleared r3 signed operating margin and consistent nin
 unsupported slots. Live migration and exact snapshot publication succeeded.
 See [D5j milestone](milestones/D5j-real-fundamentals.md). No quote, provider,
 valuation, sector or scheduler scope was added.
+
+## D049 — Broader CRCL reported fundamentals within existing real-v2
+
+The user's continuation authorizes the next source-only stage after D5j. The
+[proposal](design/d5k/proposal.md) pins seven conditional additional FY2025 metrics,
+comparative source history and explicit stablecoin/cash/attribution limits.
+Existing concepts/S3/real-v2 contracts only; no schema/API/provider/quote expansion.
+Retained October observation remains bounded, D5j and historical batches immutable.
+Independent evidence/numeric review remains required before each live publication.
