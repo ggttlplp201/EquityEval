@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
 Canonical dependency/status list, reconciled 2026-10-15 through the
-[D5i current observation and normalization](milestones/D5i-crcl-observation.md). This links existing milestones and features;
+[D5j real fundamentals publication](milestones/D5j-real-fundamentals.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -19,14 +19,15 @@ feature/design retains its detailed acceptance criteria.
   76 captures, sixteen acquisition bootstraps and two completed filing checks
   (78 fetch attempts, two retained monitor response bodies). One application-owned
   schedule is paused after its bounded D4b slot; no background service is configured.
-  Two immutable real normalization batches retain four selected facts. No exchange
-  quote, membership or published financial-analysis result. D5d reviews all eleven
+  Two immutable real normalization batches retain four selected facts. One real
+  fundamentals request publishes one annual metric and nine explicit gaps; nineteen
+  requests in total. No exchange quote or membership. D5d reviews all eleven
   formerly missing exhibits; D5f closes the later CFO-release gap. D5g matches the
   earlier Q1 and annual comparative selected lines. D5h reviews all seven remaining
   registration bodies and reconciles selected editions. D5i closes the observation gap and publishes a new eligible two-concept batch
-  at the exact October 15 observation. D5a remains historically blocked. [D5j](design/d5j/proposal.md)
-  pins the concrete next contract proposal. Real S6
-  publication is still blocked by synthetic-only contracts and required quote identity.
+  at the exact October 15 observation. D5a remains historically blocked.
+  [D5j](milestones/D5j-real-fundamentals.md) publishes descriptive FY2025 operating
+  margin through a separate reviewed real-v2 contract, without a quote.
 - **Archived research:** D2 seven-company observations and identity research;
   D3d reviewed capture assertions and D3f web-search notes. Research is not an
   operating provider, normalized production fact or published financial result.
@@ -47,7 +48,7 @@ feature/design retains its detailed acceptance criteria.
 | Corporate-action processing | S4b action/ADS lifecycle review | Planned; not operating | Concrete shared contract, action source rights, instrument lifecycle evidence | Splits/dividends/share-class/ADS changes retain effective/known-at evidence; prevent adjusted/raw/share-basis mixing; restatement and out-of-order action regressions. |
 | Ordinary company analysis requests | [W1b](features/W1-watchlist-analysis.md), S3/S4 stages → S5/S7 | Request/source-stage infrastructure exists; zero ordinary application requests | Quote identity, explicit plan/coverage, eligible implemented engines | Every applicable stage considered; unavailable/unsupported remains visible; immutable results, retry/cancel/fencing, no duplicate membership/results. |
 | Real financial normalization and PIT selection | S3 + [S5](milestones/S5-ratios.md) real-data handoff | D5i current batch eligible: two new facts; historical D5a remains blocked | Ordinary source request or separately reviewed handoff; exact financial/event coverage and mappings | Real archived filings normalize through existing publication fence; accounting flags/source precision; as-reported/restated and filed/capture cutoffs verified without lookahead. |
-| Published company ratios/valuation | S5 → [S6](api-contract.md) → S7/S8; [F1](features/F1-fundamentals-guide.md) | S5, synthetic S6a snapshots and S6b/S7a reverse model/API implemented; production publication pending | Real selected facts; reviewed production S5 policies; S6 snapshots/API; S7 assumptions/valuation; price/actions for applicable ratios | Real values trace to operands/formula/source; 3/5/10-year coverage preserved; missing inputs remain gaps; valuation is a range with assumptions, never a buy/sell signal. |
+| Published company ratios/valuation | S5 → [S6](api-contract.md) → S7/S8; [F1](features/F1-fundamentals-guide.md) | D5j publishes one real annual operating margin; nine metrics unresolved. Synthetic S6a and S6b/S7a remain separate | Real selected facts; reviewed production S5 policies; S6 snapshots/API; S7 assumptions/valuation; price/actions for applicable ratios | Real values trace to operands/formula/source; 3/5/10-year coverage preserved; missing inputs remain gaps; valuation is a range with assumptions, never a buy/sell signal. |
 | Real sector-wide data/comparisons | [X1](milestones/X1-sector-explorer.md), D024, S6 | Pure calculations/fictional graphs verified; real publication blocked | Reviewed universe/taxonomy/membership history, constituent fundamentals/prices/actions, common basis, S6 | Graphs use real eligible constituents; aggregate vs median explicit; coverage/exclusions/calculation/source details; historical membership and no lookahead; thresholds remain versioned policy. |
 | Automatic result refresh after eligible filings | W1b + S5/S6; D4a discovery → reviewed financial handoff | Not operating; D4a reports discovery eligibility/blockers only | Complete discovery, quote/coverage gates, explicit reviewed deduplicated handoff, published snapshot contract | One eligible filing edition queues one logical downstream job; late completion cannot replace newer result; old snapshots retained; amendment is not automatically restatement/non-reliance. |
 | Production watchlist/search/add/rerun | [W1a–c](features/W1-watchlist-analysis.md), S6/S8/U1 | Membership/request primitives implemented; production search/UI/full analysis pending | Search/identity source, quote registry, S6 API, W1b engine results | Resolve ambiguous instruments; atomic add+request; repeat-click idempotency; visible progress/errors; remove/re-add and explicit rerun preserve history; verified user-manual walkthrough. |
@@ -283,7 +284,7 @@ S4 provider/quote activation, broader S5/S6 product coverage, valuation, automat
 and final dashboard phases remain governed by the capability register above.
 See [milestone](milestones/D5i-crcl-observation.md).
 
-## D5j proposed boundary — real source-only S6
+## D5j proposal checkpoint — real source-only S6
 
 [D048 / concrete packet](design/d5j/proposal.md) identifies the existing synthetic-only
 input/result modes, required quote selector/storage fields and W1 request bindings.
@@ -291,5 +292,25 @@ It chooses separate real v2 endpoints/client and companion relational records,
 with an explicitly discriminated W1 source-only intent and unchanged v1 behavior/statuses and
 existing core math, typed policy/source evidence, additive migration and reviewed
 source-only W1 intent. The coordinator has confirmed approval of this exact design under the user’s
-continuation. Implementation plus staged SQL/Pydantic/API and pre-publication
-numeric reviews are the next gates; no real metric is published by this proposal.
+continuation. The proposal itself published no metric; staged SQL/Pydantic/API
+and pre-publication numeric reviews subsequently passed for the exact r3 boundary below.
+
+## D5j completed boundary — one real annual metric
+
+The separate real-v2 contract, companion 0013 tables and dedicated W1 intent
+publish the exact reviewed D5i operands as descriptive FY2025 operating margin.
+Snapshot `1a259fc4-7395-4111-939b-30c58919e230` has one valid metric and nine
+null/unsupported slots with exact operand and applicability requirements.
+The source observation is 2026-10-15T21:59:05.195192Z; later evaluation/publication
+does not extend knowledge. All earlier batches, audits and v1 contracts are retained.
+See [milestone](milestones/D5j-real-fundamentals.md) and [handoff](handoffs/d5j-real-fundamentals.md).
+
+**Next main stage:** broader real fundamentals require explicit metric-specific
+source and accounting applicability review, then governed normalization and
+publication. Historical comparison and quarterly trends require complete aligned
+periods. This bounded CRCL operating-margin chain is complete; it does not finish
+the whole application. Separate remaining phases are approved quote/reference
+data and S4b lifecycle coverage; real valuation assumptions/ranges; product
+watchlist/company/sector integration; reviewed automatic refresh/monitor service;
+and release/manual acceptance. Provider entitlement and quote identity remain
+external blockers for price-dependent work. No scheduler is activated.

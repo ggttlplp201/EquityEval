@@ -212,3 +212,11 @@ Staged SQL/Pydantic/API review precedes migration application; separate independ
 numeric review precedes real S6 publication. No broader source/provider/quote,
 valuation, sector or scheduler scope is approved. Earlier proposed-only wording
 above records the preceding boundary, not the current approval state.
+
+D048 implementation acceptance (2026-10-15): the user-authorized continuation
+covered the reviewed additive real-v2 design. Independent standards/spec reviews
+cleared SQL ownership/fencing and the exact live migration plan; independent
+plausible-but-wrong review cleared r3 signed operating margin and consistent nine
+unsupported slots. Live migration and exact snapshot publication succeeded.
+See [D5j milestone](milestones/D5j-real-fundamentals.md). No quote, provider,
+valuation, sector or scheduler scope was added.

@@ -1,3 +1,5 @@
+import { realSha256 } from "./real-manifest";
+import type { RealFundamentalsView } from "./real-types";
 import { observationSha256 } from "./observation-manifest";
 import { registrationSha256 } from "./registration-manifest";
 import { prospectusSha256 } from "./prospectus-manifest";
@@ -74,4 +76,13 @@ export async function loadObservationReview(): Promise<ObservationReviewSnapshot
     throw new Error("Observation-review snapshot verification failed");
   }
   return JSON.parse(bytes.toString("utf8")) as ObservationReviewSnapshot;
+}
+
+
+export async function loadRealFundamentals(): Promise<RealFundamentalsView> {
+  const bytes = await readFile(path.join(process.cwd(), "src/features/analysis-readiness/real.json"));
+  if (createHash("sha256").update(bytes).digest("hex") !== realSha256) {
+    throw new Error("Real-fundamentals snapshot verification failed");
+  }
+  return JSON.parse(bytes.toString("utf8")) as RealFundamentalsView;
 }

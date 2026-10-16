@@ -35,11 +35,11 @@ test('D5b analysis readiness is accurate, linked and usable',{timeout:120000},as
     assert.equal(await dialog.getByRole('region',{name:'Source chain',exact:true}).locator('a').count(),3);
     await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});
    }
-   assert.match(await page.locator('main > header').innerText(),/Retrieved 2026-09-21/);
-   assert.match(await page.locator('main > header').innerText(),/Published 2026-09-30/);
+   assert.match(await page.locator('main > header').innerText(),/Observed 2026-10-15/);
+   assert.match(await page.locator('main > header').innerText(),/Published 2026-10-15/);
    const metric=page.locator('[aria-labelledby="candidate-metric-title"]');
    assert.match(await metric.innerText(),/N\/A/);
-   assert.match(await metric.innerText(),/No ratio has been calculated/);
+   assert.match(await metric.innerText(),/No ratio was published from this September checkpoint/);
    assert.equal(await page.locator('[data-readiness-gate]').count(),5);
    await page.screenshot({path:path.join(output,'desktop.png'),fullPage:true});
   });

@@ -223,9 +223,9 @@ inventory review. September knowledge and the original batch do not change.
 Operating margin remains N/A; real publication has separate gates. Earlier panels
 are saved checkpoints and retain their then-current blockers.
 
-## D5i latest current observation
+## D5i archived source checkpoint
 
-The latest panel now shows an eligible published normalization batch. Click either
+The D5i archived panel shows an eligible published normalization batch. Click either
 source amount to open the original filing context, scale/sign/precision, current
 Company Facts locator and retained source URL/hash/time. The evidence drawer shows
 the exact inventory observation and the three explicitly reviewed acceptance-time
@@ -233,8 +233,8 @@ metadata differences. No explanation for those source-vintage differences is inf
 
 Eligibility applies at 2026-10-15T21:59:05.195192Z. It does not repair September
 knowledge or promise coverage later that day. The earlier panels remain saved
-checkpoints. Operating margin is still N/A: real S6 publication needs a reviewed
-contract that supports real evidence without an invented exchange quote. Reporting
+checkpoints. At D5i, operating margin remained N/A pending the separate real S6
+contract completed in D5j. Reporting
 USD is a source unit, not proof of quote currency. No ratio is computed in the browser.
 
 Read-only checks: `scripts.review_crcl_observation --check`,
@@ -242,7 +242,28 @@ Read-only checks: `scripts.review_crcl_observation --check`,
 and `scripts.publish_crcl_observation verify`. Do not rerun the acquisition or
 rewrite either normalization batch. Publication replay was already proved.
 
-The concrete [D5j publication proposal](../design/d5j/proposal.md) describes the
-remaining contract gate. It proposes an explicitly real, source-only result and
-request path, preserving all synthetic examples. It is not an implemented metric
-or permission to relabel data. The latest preview remains on port 3103.
+## Published real operating margin (D5j)
+
+Open `/development/pilot/analysis`. The first panel displays the saved real FY2025
+reported operating margin, **−3.51%**. Select the percentage to inspect the exact
+core result, signed operands, formula, snapshot identity, filing URLs, accession,
+retrieval times, hashes and transformation evidence. Both USD operand amounts
+open their own source drawers. Escape closes the drawer and restores focus.
+
+This descriptive ratio divides reported operating income (loss) by total revenue
+including reserve income. It is not adjusted earnings or a recurring-profit claim.
+The policy drawer explains stablecoin/reserve-income applicability, annual
+freshness, precision and accounting-review limits. Source knowledge ends exactly
+at 2026-10-15T21:59:05.195192Z. Frozen evaluation and publication are separate times.
+
+Expand any of the nine unavailable metrics for its exact missing operands and
+classification/applicability work. Accounting identity, comparison history and
+quarterly trends remain unavailable. No price, valuation or sector conclusion is
+implied. The older checkpoints below preserve their original blocked decisions;
+the October review does not repair September knowledge. Synthetic development
+pages remain separate. The preview uses port 3103.
+
+Read-only verification: `scripts.publish_crcl_fundamentals verify` and
+`scripts.export_crcl_fundamentals --check`. The display is a hash-checked export
+of the immutable real-v2 snapshot, not a live recalculation. If it is damaged,
+values disappear and Retry can recover after the original bytes are restored.

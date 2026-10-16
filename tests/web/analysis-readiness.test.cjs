@@ -27,7 +27,7 @@ test('D5b browser component presents supplied values without finance arithmetic'
  const source=fs.readFileSync(path.join(root,'AnalysisReadinessWorkspace.tsx'),'utf8');
  const error=fs.readFileSync(path.resolve(root,'../../app/development/pilot/analysis/error.tsx'),'utf8');
  assert.match(source,/data-analysis-readiness-kind/);
- assert.match(source,/No ratio has been calculated/);
+ assert.match(source,/No ratio was published from this September checkpoint/);
  assert.match(error,/Retry/);assert.match(error,/window\.location\.reload/);
  for(const forbidden of ['parseFloat(', 'parseInt(', 'Number(', 'eval(', 'operating_income /', '/ revenue']){
   assert.ok(!source.includes(forbidden),`component must not contain ${forbidden}`);

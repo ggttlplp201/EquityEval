@@ -245,6 +245,7 @@ def test_workflow_only_exposes_reviewed_runtime_entry_points(db_admin, db):
             "workflow_complete_bootstrap_stage",
             "workflow_enqueue_monitor",
             "workflow_claim_monitor",
+            "workflow_claim_real_fundamentals",
             "workflow_monitor_baseline",
             "workflow_complete_monitor",
         }
