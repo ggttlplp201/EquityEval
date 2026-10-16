@@ -244,7 +244,7 @@ rewrite either normalization batch. Publication replay was already proved.
 
 ## Published real operating margin (D5j)
 
-Open `/development/pilot/analysis`. The first panel displays the saved real FY2025
+Open `/development/pilot/analysis`. The preserved D5j panel displays the saved real FY2025
 reported operating margin, **−3.51%**. Select the percentage to inspect the exact
 core result, signed operands, formula, snapshot identity, filing URLs, accession,
 retrieval times, hashes and transformation evidence. Both USD operand amounts
@@ -256,14 +256,46 @@ The policy drawer explains stablecoin/reserve-income applicability, annual
 freshness, precision and accounting-review limits. Source knowledge ends exactly
 at 2026-10-15T21:59:05.195192Z. Frozen evaluation and publication are separate times.
 
-Expand any of the nine unavailable metrics for its exact missing operands and
+Within this preserved earlier snapshot, expand any of the nine unavailable metrics for its exact missing operands and
 classification/applicability work. Accounting identity, comparison history and
 quarterly trends remain unavailable. No price, valuation or sector conclusion is
 implied. The older checkpoints below preserve their original blocked decisions;
 the October review does not repair September knowledge. Synthetic development
 pages remain separate. The preview uses port 3103.
 
-Read-only verification: `scripts.publish_crcl_fundamentals verify` and
-`scripts.export_crcl_fundamentals --check`. The display is a hash-checked export
+After D5k, verify preservation with `scripts.verify_crcl_broader_completion --check`
+and the original display with `scripts.export_crcl_fundamentals --check`. The display is a hash-checked export
 of the immutable real-v2 snapshot, not a live recalculation. If it is damaged,
 values disappear and Retry can recover after the original bytes are restored.
+
+## Broader reported fundamentals (D5k)
+
+The first analysis panel now presents two distinct published results. The annual
+FY2025 section contains operating margin, consolidated net margin, free cash flow
+after cash PPE purchases and its revenue margin. The December 31 closing section
+contains current ratio and net working capital. Select any amount or ratio for its
+exact formula, source operands, filing accession, retrieval time, hash and snapshot.
+Expand Exact source operands for each normalized amount. The balance-identity
+button opens the published assets/liabilities/permanent-equity check.
+
+Net income includes noncontrolling interests. FCF excludes capitalized software
+and acquisitions and must not be interpreted as discretionary cash. Current
+assets/liabilities include holder reserves and obligations; their ratio and
+difference are gross reported totals, not available corporate liquidity. The
+metric-specific scope text travels with the result.
+
+Each result keeps other-period metrics explicitly unavailable in that result.
+Gross margins, growth and ROA remain globally unsupported. The comparative source
+rows disclosure shows earlier reported amounts with provenance, labelled not
+analysis eligible. It does not create full comparison history. Exact missing
+draft/correspondence resources and unsupported PDF acquisition requirements are
+listed beside the review. The same October 15 source observation applies; later
+evaluation/publication does not extend coverage or repair September knowledge.
+
+The older D5j and earlier audit panels remain preserved below. Their unavailable
+slots describe those original snapshots, not a reversal of the newer publication.
+The new display is a checked immutable export with no frontend finance math. A
+damaged artifact hides values; restore its exact bytes and use Retry. Read-only
+verification uses `scripts.verify_crcl_broader_completion --check`,
+`scripts.publish_crcl_broader_fundamentals verify annual`,
+`verify instant`, and `scripts.export_crcl_broader --check`.

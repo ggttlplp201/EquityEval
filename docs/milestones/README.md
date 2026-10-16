@@ -68,3 +68,4 @@ See the [operational roadmap](../roadmap.md) for dependency order and the distin
 | D5i | [Current CRCL observation and normalization](D5i-crcl-observation.md) | Complete |
 
 | D5j | [Real fundamentals publication](D5j-real-fundamentals.md) | Complete; 1,843 tests and 55 browser checks |
+| D5k | [Broader reported fundamentals](D5k-broader-fundamentals.md) | Complete; six supported definitions across two results; paused at user request |

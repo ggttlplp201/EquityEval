@@ -72,3 +72,14 @@
 .filing > a { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; }
 .nextStep { border-left: 2px solid var(--accent); padding: 8px 16px; margin: 20px 0 0; }
 @media(max-width: 700px) { .decisions { grid-template-columns: 1fr; } }
+
+.broader .amount strong { font-size: clamp(1.15rem, 2.5vw, 1.7rem); overflow-wrap: anywhere; }
+.broader > p, .broader section > p, .broader li { font-size: 13px; line-height: 1.7; color: var(--muted); overflow-wrap: anywhere; }
+.broader details { margin: 16px 0; }
+.broader summary { min-height: 44px; padding: 12px 0; cursor: pointer; font-size: 13px; }
+.broader section { margin: 36px 0; }
+
+.broader .gates summary { flex-wrap: wrap; gap: 10px; }
+.broader .gateStatus { max-width: 100%; overflow-wrap: anywhere; }
+
+.broader h4 { overflow-wrap: anywhere; }

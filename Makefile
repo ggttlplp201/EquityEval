@@ -48,7 +48,8 @@ lint:
 	$(VENV_PY) -m scripts.export_crcl_registration --check
 	$(VENV_PY) -m scripts.export_crcl_observation --check
 	$(VENV_PY) -m scripts.export_crcl_fundamentals --check
-	node --test tests/web/valuation.test.cjs tests/web/fundamentals.test.cjs tests/web/financials.test.cjs tests/web/company.test.cjs tests/web/normalization.test.cjs tests/web/analysis-readiness.test.cjs tests/web/analysis-safety.test.cjs tests/web/sectors.test.cjs
+	$(VENV_PY) -m scripts.export_crcl_broader --check
+	node --test tests/web/valuation.test.cjs tests/web/fundamentals.test.cjs tests/web/financials.test.cjs tests/web/company.test.cjs tests/web/normalization.test.cjs tests/web/analysis-readiness.test.cjs tests/web/analysis-safety.test.cjs tests/web/analysis-broader.test.cjs tests/web/sectors.test.cjs
 	npm run lint
 
 typecheck:

@@ -36,7 +36,7 @@ test('D5b analysis readiness is accurate, linked and usable',{timeout:120000},as
     await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});
    }
    assert.match(await page.locator('main > header').innerText(),/Observed 2026-10-15/);
-   assert.match(await page.locator('main > header').innerText(),/Published 2026-10-15/);
+   assert.match(await page.locator('main > header').innerText(),/Published 2026-10-16/);
    const metric=page.locator('[aria-labelledby="candidate-metric-title"]');
    assert.match(await metric.innerText(),/N\/A/);
    assert.match(await metric.innerText(),/No ratio was published from this September checkpoint/);

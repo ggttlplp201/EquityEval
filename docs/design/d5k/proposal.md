@@ -105,3 +105,15 @@ A blocked metric is a valid outcome only with its exact evidence/accounting/
 contract reason. Completion means the coherent supported set is safely published,
 or a genuine remaining contract/external barrier is concretely documented, not
 that every metric is forced to become numeric.
+
+## Pinned period-selector interpretation
+
+Existing `period_basis` validation requires two immutable results from the same
+reviewed source batch: an annual FY2025 selector for operating margin, consolidated
+net margin, CFO-minus-PPE FCF and its margin; and a December 31, 2025 instant
+selector for current ratio and net working capital. Each preserves all ten metric
+slots; the other selector's metrics remain explicit null/unsupported scope gaps,
+with precise companion-scope explanations. No annual/instant bypass or contract
+change is permitted. Both retain the closing balance identity and the original
+D5j snapshot remains immutable. Six supported metrics across two results does not
+mean six valid metrics inside either result.

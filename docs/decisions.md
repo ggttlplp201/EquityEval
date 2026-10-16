@@ -229,3 +229,10 @@ comparative source history and explicit stablecoin/cash/attribution limits.
 Existing concepts/S3/real-v2 contracts only; no schema/API/provider/quote expansion.
 Retained October observation remains bounded, D5j and historical batches immutable.
 Independent evidence/numeric review remains required before each live publication.
+
+
+D049 completion: independent source and candidate reviews cleared ten concepts
+and two existing period selectors. D5k published four annual and two closing
+metric definitions, preserving D5j and all prior batches. Gross margins, growth
+and ROA remain unsupported. The [milestone](milestones/D5k-broader-fundamentals.md)
+records exact scope, validation and the user-requested pause after D5k.
