@@ -299,3 +299,15 @@ damaged artifact hides values; restore its exact bytes and use Retry. Read-only
 verification uses `scripts.verify_crcl_broader_completion --check`,
 `scripts.publish_crcl_broader_fundamentals verify annual`,
 `verify instant`, and `scripts.export_crcl_broader --check`.
+
+## D5l history evidence checkpoint
+
+The analysis page now exposes the exact 47-document history roster. “Retained”
+means bytes were captured and verified; it does not mean accounting review passed.
+46 bodies are retained. The annual-report PDF exceeded its approved download cap,
+seven retained PDFs cannot pass the required bounded-runtime check, and the final
+post-document Facts/Submissions pair was withheld. New growth, ROA, gross margin
+and trend results remain N/A. Each retained document opens its source URL,
+accession, capture time, hash and review limits. Existing six published D5k metric
+definitions retain their original dates and evidence. This checkpoint does not
+make older comparisons safe or extend the application’s eligible knowledge cutoff.

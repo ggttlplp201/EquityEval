@@ -1,7 +1,7 @@
 # Operational implementation roadmap
 
-Canonical dependency/status list, reconciled 2026-10-15 through the
-[D5k broader fundamentals](milestones/D5k-broader-fundamentals.md). This links existing milestones and features;
+Canonical dependency/status list, reconciled 2026-10-17 through the
+[D5l history evidence checkpoint](milestones/D5l-history-evidence.md). This links existing milestones and features;
 it does not create substitute engines or duplicate feature backlogs.
 The [milestone index](milestones/README.md) records checkpoints; each linked
 feature/design retains its detailed acceptance criteria.
@@ -16,13 +16,13 @@ feature/design retains its detailed acceptance criteria.
   S6b/S7a adds audited synthetic reverse DCF, immutable assumptions/runs, W1 publication
   and a trusted-local generated API.
 - **Real application data:** one reviewed SEC source/policy, CRCL issuer/security,
-  76 captures, sixteen acquisition bootstraps and two completed filing checks
-  (78 fetch attempts, two retained monitor response bodies). One application-owned
+  142 captures, twenty-six acquisition bootstraps and two completed filing checks
+  (145 fetch attempts, two retained monitor response bodies). One application-owned
   schedule is paused after its bounded D4b slot; no background service is configured.
   Three immutable real normalization batches retain fourteen selected facts. Three real
   fundamentals requests retain the earlier D5j result plus separate D5k annual and
   closing-instant results: six supported metric definitions with explicit gaps;
-  twenty-one requests in total. No exchange quote or membership. D5d reviews all eleven
+  thirty-one requests in total. No exchange quote or membership. D5d reviews all eleven
   formerly missing exhibits; D5f closes the later CFO-release gap. D5g matches the
   earlier Q1 and annual comparative selected lines. D5h reviews all seven remaining
   registration bodies and reconciles selected editions. D5i closes the observation gap and publishes a new eligible two-concept batch
@@ -344,11 +344,20 @@ See [milestone](milestones/D5k-broader-fundamentals.md) and
 [handoff](handoffs/d5k-broader-fundamentals.md).
 
 
-## D5l resumed boundary — proposed, not yet operating
+## D5l resumed boundary — acquisition implemented, history eligibility blocked
 
-The user resumed after D5k for the next major CRCL source-only milestone.
-[D050 / D5l](design/d5l/proposal.md) proposes the finite 47-body history/registration/correspondence roster, in 11 compliant
-requests,,
-narrow PDF support and accounting/edition reconciliation before any additional
-gross-margin/growth/ROA/history eligibility. D5k counts remain current until new
-reviewed live boundaries occur. Stop after D5l before multi-company rollout.
+The reviewed exact 47-body V2 contract and migration 0014 are applied. The governed
+run retains 46 bodies (39 HTML/seven PDF) and ten mandatory pairs, then stops on the
+ARS 8 MiB body limit. Seven retained PDFs also fail the required host memory-cap
+check before parsing. Group 11 was correctly withheld. All old financial rows and
+three snapshots are preserved; no new source normalization or metric is published.
+The HTML text/reference index records specific accounting findings but does not
+claim full selected-edition clearance. Gross margin, growth, ROA and history remain
+blocked by exact source/runtime/accounting/cutoff requirements. See the
+[milestone](milestones/D5l-history-evidence.md) and
+[remaining unexecuted amendment candidate](design/d5l/remaining-boundary.md).
+Stop after this major checkpoint before multi-company rollout. Remaining phases
+include completing this source/history gate, multi-company governed coverage,
+quote/reference rights and S4b lifecycle, real valuation assumptions/ranges,
+company/watchlist/sector integration, reviewed recurring refresh, and release/manual
+acceptance. No quote provider, scheduler, valuation or multi-company work was added.

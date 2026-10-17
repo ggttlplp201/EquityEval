@@ -577,6 +577,7 @@ def test_commit_before_audit_interruption_recovers_original_baseline_and_snapsho
     from contextlib import contextmanager
     from types import SimpleNamespace
 
+    from alembic import command
     from equity_core.real_fundamentals import calculate_payload
     from equity_ingest.archive import LocalArchive
     from equity_schema.fundamentals_canonical import content_hash
@@ -584,7 +585,10 @@ def test_commit_before_audit_interruption_recovers_original_baseline_and_snapsho
 
     from scripts import publish_crcl_fundamentals as publisher
     from scripts.normalize_crcl import ROOT
+    from tests.conftest import migration_config
 
+    # Replay D5j at its immutable 0013 publication boundary.
+    command.downgrade(migration_config(test_database_dsn), "0013_real_fundamentals")
     workspace, manifest, _ = real_setup
     payload = calculate_payload(manifest, history_payloads={})
 

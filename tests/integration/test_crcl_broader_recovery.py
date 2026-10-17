@@ -24,9 +24,14 @@ def test_broader_publisher_recovers_without_replacing_committed_snapshot(
     tmp_path,
     monkeypatch,  # noqa: F811
 ):
+    from alembic import command
+
     from scripts import publish_crcl_broader_fundamentals as publisher
     from scripts.normalize_crcl import ROOT
+    from tests.conftest import migration_config
 
+    # Replay the original D5k publication boundary; its frozen publisher requires 0013.
+    command.downgrade(migration_config(test_database_dsn), "0013_real_fundamentals")
     workspace, manifest, _ = real_setup
     payload = calculate_payload(manifest, history_payloads={})
     pin = publisher.PublicationPin(

@@ -8,6 +8,7 @@ from enum import StrEnum
 from typing import TYPE_CHECKING, Literal, Protocol
 from uuid import UUID
 
+from equity_schema.crcl_history import CRCL_HISTORY_PDFS
 from equity_schema.workflow import Lease, RequestedPeriod
 
 if TYPE_CHECKING:
@@ -62,8 +63,11 @@ class SecResource:
                 r"[0-9]{10}-[0-9]{2}-[0-9]{6}", self.accession
             ):
                 raise ValueError("Filing document needs a validated accession")
-            if not self.filename or not re.fullmatch(
-                r"[A-Za-z0-9][A-Za-z0-9_.-]*\.(?:htm|html|xml|txt|xsd)", self.filename
+            if not self.filename or (
+                not re.fullmatch(
+                    r"[A-Za-z0-9][A-Za-z0-9_.-]*\.(?:htm|html|xml|txt|xsd)", self.filename
+                )
+                and self.object_key not in CRCL_HISTORY_PDFS
             ):
                 raise ValueError("Invalid filing document filename")
             if ".." in self.filename:

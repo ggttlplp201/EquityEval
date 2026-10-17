@@ -6,6 +6,8 @@ from datetime import date
 from typing import Any
 from uuid import UUID
 
+from .crcl_history import CRCL_HISTORY_CIK, CRCL_HISTORY_DOCUMENTS, CRCL_HISTORY_VERSION
+
 
 @dataclass(frozen=True)
 class BootstrapPlan:
@@ -19,7 +21,7 @@ class BootstrapPlan:
     version: str = "sec-identity-bootstrap-v1"
 
     def __post_init__(self) -> None:
-        if self.version != "sec-identity-bootstrap-v1":
+        if self.version not in {"sec-identity-bootstrap-v1", CRCL_HISTORY_VERSION}:
             raise ValueError("Unsupported bootstrap plan version")
         if not re.fullmatch(r"[0-9]{10}", self.cik) or int(self.cik) == 0:
             raise ValueError("Bootstrap needs a canonical positive CIK")
@@ -29,6 +31,13 @@ class BootstrapPlan:
         keys = set(self.resources)
         if len(keys) != len(self.resources) or not required.issubset(keys):
             raise ValueError("Bootstrap requires unique Company Facts and Submissions resources")
+        if self.version == CRCL_HISTORY_VERSION:
+            if self.cik != CRCL_HISTORY_CIK or not (keys - required) <= CRCL_HISTORY_DOCUMENTS:
+                raise ValueError("CRCL history resources must belong to the exact reviewed roster")
+            if len(keys - required) > 5:
+                raise ValueError("Bootstrap allows at most five filings")
+            object.__setattr__(self, "resources", tuple(sorted(keys)))
+            return
         filings = history = 0
         for key in keys - required:
             if (

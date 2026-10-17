@@ -1,3 +1,5 @@
+import { historySha256 } from "./history-manifest";
+import type { HistoryReviewView } from "./history-types";
 import { broaderSha256 } from "./broader-manifest";
 import type { BroaderFundamentalsView } from "./broader-types";
 import { realSha256 } from "./real-manifest";
@@ -95,4 +97,12 @@ export async function loadBroaderFundamentals(): Promise<BroaderFundamentalsView
     throw new Error("Broader-fundamentals snapshot verification failed");
   }
   return JSON.parse(bytes.toString("utf8")) as BroaderFundamentalsView;
+}
+
+export async function loadHistoryReview(): Promise<HistoryReviewView> {
+  const bytes = await readFile(path.join(process.cwd(), "src/features/analysis-readiness/history.json"));
+  if (createHash("sha256").update(bytes).digest("hex") !== historySha256) {
+    throw new Error("History-review snapshot verification failed");
+  }
+  return JSON.parse(bytes.toString("utf8")) as HistoryReviewView;
 }

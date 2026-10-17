@@ -13,6 +13,7 @@ from typing import Literal, Protocol
 from uuid import UUID, uuid4
 
 from equity_schema.bootstrap import BootstrapPlan
+from equity_schema.crcl_history import CRCL_HISTORY_PDFS, CRCL_HISTORY_VERSION
 from equity_schema.workflow import (
     Database,
     Lease,
@@ -131,6 +132,13 @@ def run_source_stages(
     )
 
 
+def acquisition_lease_seconds(remaining: Callable[[], float] | None) -> int:
+    seconds = 360 if remaining is None else min(360, int(remaining()))
+    if seconds < 1:
+        raise ValueError("Governed acquisition deadline exhausted")
+    return seconds
+
+
 def run_source_bootstrap(
     db: Database,
     lease: Lease,
@@ -139,6 +147,7 @@ def run_source_bootstrap(
     plan: BootstrapPlan,
     *,
     replay_records: tuple[RawRecord, ...] | None = None,
+    acquisition_remaining: Callable[[], float] | None = None,
 ) -> PipelineResult:
     """Acquire only the persisted identity plan; never normalize or register quotes."""
     if not isinstance(plan, BootstrapPlan):
@@ -175,6 +184,7 @@ def run_source_bootstrap(
         finalize_execution=True,
         bootstrap=True,
         bootstrap_plan=plan,
+        acquisition_remaining=acquisition_remaining,
     )
 
 
@@ -190,6 +200,7 @@ def _run_source_stages(
     finalize_execution: bool = True,
     bootstrap: bool,
     bootstrap_plan: BootstrapPlan | None = None,
+    acquisition_remaining: Callable[[], float] | None = None,
 ) -> PipelineResult:
     """Fetch -> inventory -> reviewed normalization -> immutable publication.
 
@@ -199,6 +210,10 @@ def _run_source_stages(
     The supplied archive stores complete, hash-addressed run manifests as well as
     source bodies. Terminal stage audit records retain the manifest reference.
     """
+    if any(resource.object_key in CRCL_HISTORY_PDFS for resource in plan.filing_documents) and (
+        not bootstrap or bootstrap_plan is None or bootstrap_plan.version != CRCL_HISTORY_VERSION
+    ):
+        raise ValueError("PDF acquisition requires the exact V2 bootstrap intent")
     if db.info.transaction_status != TransactionStatus.IDLE:
         raise ValueError("Source stages require an idle database connection")
     row = db.execute(
@@ -220,7 +235,7 @@ def _run_source_stages(
         or source.descriptor.policy_revision_id != bootstrap_plan.policy_revision_id
     ):
         raise ValueError("Bootstrap runtime plan differs from immutable request intent")
-    lease = renew_lease(db, lease, lease_seconds=360)
+    lease = renew_lease(db, lease, lease_seconds=acquisition_lease_seconds(acquisition_remaining))
     cutoff = row["retrieval_vintage"]
     if cutoff is not None and replay_records is None:
         raise ValueError("Historical retrieval vintage requires explicit archived replay")
@@ -242,7 +257,9 @@ def _run_source_stages(
         if bootstrap_plan is not None and resource.object_key not in bootstrap_plan.resources:
             raise ValueError("Resource is outside immutable bootstrap intent")
         nonlocal lease, current_stage
-        lease = renew_lease(db, lease, lease_seconds=360)
+        lease = renew_lease(
+            db, lease, lease_seconds=acquisition_lease_seconds(acquisition_remaining)
+        )
         current_stage = start_stage(
             db,
             lease,
@@ -398,7 +415,9 @@ def _run_source_stages(
                 tuple(dict.fromkeys(blockers)),
             )
         if bootstrap:
-            lease = renew_lease(db, lease, lease_seconds=360)
+            lease = renew_lease(
+                db, lease, lease_seconds=acquisition_lease_seconds(acquisition_remaining)
+            )
             current_stage = start_stage(db, lease, stage_key="sec_bootstrap_manifest")
             payload = canonical_json(
                 {

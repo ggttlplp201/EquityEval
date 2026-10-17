@@ -52,6 +52,13 @@ above. This repository and its commits are the implementation source of truth.
 | D5f | [CRCL leadership exhibit and retained accounting](D5f-crcl-leadership.md) | Complete |
 | S8d | Complete; 1,669 tests; milestone/s8d-company-overview | [Company Overview](S8d-company-overview.md) | Checked metadata linkage; separate fictional datasets |
 
+| D5g | Complete | [CRCL IPO prospectus reconciliation](D5g-crcl-prospectus.md) | See linked milestone for the exact boundary |
+| D5h | Complete | [CRCL registration history reconciliation](D5h-crcl-registration.md) | See linked milestone for the exact boundary |
+| D5i | Complete | [Current CRCL observation and normalization](D5i-crcl-observation.md) | See linked milestone for the exact boundary |
+| D5j | Complete; 1,843 tests and 55 browser checks | [Real fundamentals publication](D5j-real-fundamentals.md) | See linked milestone for the exact boundary |
+| D5k | Complete; six supported definitions across two results; paused at user request | [Broader reported fundamentals](D5k-broader-fundamentals.md) | See linked milestone for the exact boundary |
+| D5l | Acquisition checkpoint with explicit PDF/ARS/cutoff/accounting blockers; no new financial publication | [CRCL history evidence](D5l-history-evidence.md) | See linked milestone for the exact boundary |
+
 For every milestone use [the template](TEMPLATE.md). Keep its record current,
 link decisions and validation evidence, and use a named commit. Future Codex
 tasks should be titled `S1 — EquityEval SEC concepts`, etc. Create a new task
@@ -60,12 +67,3 @@ Do not duplicate active implementation across tasks. Use `git log --oneline`
 for exact commits and `docs/decisions.md` for review status.
 
 See the [operational roadmap](../roadmap.md) for dependency order and the distinction between implemented code, research and operating application capabilities. D4a SEC incremental discovery and D4b manual scheduling readiness are complete for their bounded scopes. [D036](../design/s3/filing-scheduler-proposal.md) governs D4b; reviewed rebase and service configuration remain next.
-
-| D5g | [CRCL IPO prospectus reconciliation](D5g-crcl-prospectus.md) | Complete |
-
-| D5h | [CRCL registration history reconciliation](D5h-crcl-registration.md) | Complete |
-
-| D5i | [Current CRCL observation and normalization](D5i-crcl-observation.md) | Complete |
-
-| D5j | [Real fundamentals publication](D5j-real-fundamentals.md) | Complete; 1,843 tests and 55 browser checks |
-| D5k | [Broader reported fundamentals](D5k-broader-fundamentals.md) | Complete; six supported definitions across two results; paused at user request |

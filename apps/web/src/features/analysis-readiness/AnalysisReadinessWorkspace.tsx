@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import HistoryReviewPanel from "./HistoryReviewPanel";
+import type { HistoryReviewView } from "./history-types";
 import { useState } from "react";
 import EvidenceDrawer from "@/components/EvidenceDrawer";
 import WorkbenchShell from "@/components/WorkbenchShell";
@@ -24,7 +26,7 @@ const statusLabels = {
   not_implemented: "Not implemented",
 } as const;
 
-export default function AnalysisReadinessWorkspace({ broader, real, data, safety, exhibits, current, leadership, prospectus, registration, observation }: { broader: BroaderFundamentalsView; real: RealFundamentalsView; data: AnalysisReadinessSnapshot; safety: SafetyReviewSnapshot; exhibits: ExhibitReviewSnapshot; current: CurrentReviewSnapshot; leadership: LeadershipReviewSnapshot; prospectus: ProspectusReviewSnapshot; registration: RegistrationReviewSnapshot; observation: ObservationReviewSnapshot }) {
+export default function AnalysisReadinessWorkspace({ history, broader, real, data, safety, exhibits, current, leadership, prospectus, registration, observation }: { history: HistoryReviewView; broader: BroaderFundamentalsView; real: RealFundamentalsView; data: AnalysisReadinessSnapshot; safety: SafetyReviewSnapshot; exhibits: ExhibitReviewSnapshot; current: CurrentReviewSnapshot; leadership: LeadershipReviewSnapshot; prospectus: ProspectusReviewSnapshot; registration: RegistrationReviewSnapshot; observation: ObservationReviewSnapshot }) {
   const [detailId, setDetailId] = useState<string | null>(null);
   return <WorkbenchShell active="pilot">
     <main id="main-content" tabIndex={-1} className={styles.page} data-analysis-readiness-kind={data.kind}>
@@ -47,9 +49,10 @@ export default function AnalysisReadinessWorkspace({ broader, real, data, safety
       <section className={styles.boundary} aria-labelledby="readiness-boundary-title">
         <p className="eyebrow">PUBLICATION BOUNDARY</p>
         <h2 id="readiness-boundary-title">Six reported metric definitions are available.</h2>
-        <p>Separate annual and closing-balance results appear first. The annual result has four supported metrics and six explicit gaps; the closing result has two supported metrics and eight explicit gaps. Other-period metrics remain null in each result. Saved September selections keep their original incomplete-history flags.</p>
+        <p>Separate annual and closing-balance results are retained below. The annual result has four supported metrics and six explicit gaps; the closing result has two supported metrics and eight explicit gaps. Other-period metrics remain null in each result. Saved September selections keep their original incomplete-history flags.</p>
       </section>
 
+      <HistoryReviewPanel data={history} onInspect={(id) => setDetailId(`history:${id}`)} />
       <BroaderFundamentalsPanel data={broader} onInspect={(id) => setDetailId(`broader:${id}`)} />
       <RealFundamentalsPanel data={real} onInspect={(id) => setDetailId(`real:${id}`)} />
       <p className={styles.nextStep}>Archived checkpoints below retain the decisions and publication boundaries that applied at the time.</p>
@@ -118,6 +121,6 @@ export default function AnalysisReadinessWorkspace({ broader, real, data, safety
         <div><Link href={data.source.normalizationHref}>Normalized financials ↗</Link><Link href="/help#real-normalization">User guide ↗</Link></div>
       </footer>
     </main>
-    <EvidenceDrawer detail={detailId?.startsWith("broader:") ? broader.details[detailId.slice(8)] : detailId?.startsWith("real:") ? real.details[detailId.slice(5)] : detailId?.startsWith("observation:") ? observation.details[detailId.slice(12)] : detailId?.startsWith("registration:") ? registration.details[detailId.slice(13)] : detailId?.startsWith("prospectus:") ? prospectus.details[detailId.slice(11)] : detailId?.startsWith("leadership:") ? leadership.details[detailId.slice(11)] : detailId?.startsWith("current:") ? current.details[detailId.slice(8)] : detailId?.startsWith("exhibits:") ? exhibits.details[detailId.slice(9)] : detailId?.startsWith("safety:") ? safety.details[detailId.slice(7)] : detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
+    <EvidenceDrawer detail={detailId?.startsWith("history:") ? history.details[detailId.slice(8)] : detailId?.startsWith("broader:") ? broader.details[detailId.slice(8)] : detailId?.startsWith("real:") ? real.details[detailId.slice(5)] : detailId?.startsWith("observation:") ? observation.details[detailId.slice(12)] : detailId?.startsWith("registration:") ? registration.details[detailId.slice(13)] : detailId?.startsWith("prospectus:") ? prospectus.details[detailId.slice(11)] : detailId?.startsWith("leadership:") ? leadership.details[detailId.slice(11)] : detailId?.startsWith("current:") ? current.details[detailId.slice(8)] : detailId?.startsWith("exhibits:") ? exhibits.details[detailId.slice(9)] : detailId?.startsWith("safety:") ? safety.details[detailId.slice(7)] : detailId ? data.details[detailId] : undefined} onClose={() => setDetailId(null)} eyebrow="REAL APPLICATION / CRCL" />
   </WorkbenchShell>;
 }

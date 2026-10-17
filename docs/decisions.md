@@ -251,3 +251,13 @@ D050 rendering boundary pins pypdf 6.10.0 and Poppler 26.05.0 with 100 DPI Media
 strict page/pixel/memory/time/output limits (larger total page/output allowance only
 for the exact annual-report PDF) and fail-closed resource-exhaustion
 regressions; see the proposal for exact limits and deterministic blocked outcomes.
+
+D050 execution note (2026-10-17): reviewed migration 0014 and the exact original
+47-body acquisition boundary were independently cleared and applied. The run
+retained 46 bodies plus ten mandatory pairs, then stopped on the ARS 8 MiB cap;
+final group 11 was not dispatched. Seven retained PDFs fail the required RLIMIT_AS
+runtime gate before parsing. No cap substitution, retry, normalization or metric
+publication followed. The D5l milestone records preserved prior results, explicit
+screening/accounting limits and an unexecuted narrow amendment candidate. Source
+acquisition implementation is complete with gaps; broader history eligibility is
+not complete, and multi-company rollout is not cleared.

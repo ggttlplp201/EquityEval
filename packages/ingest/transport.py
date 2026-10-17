@@ -4,8 +4,9 @@ import math
 import random
 import re
 import time
-from collections.abc import Callable
+from collections.abc import Callable, Iterable, Iterator
 from contextlib import closing
+from dataclasses import replace
 from datetime import UTC, datetime
 from email.utils import parsedate_to_datetime
 from typing import Protocol
@@ -36,6 +37,7 @@ from equity_ingest.limiter import (
     RequestLimiter,
 )
 from equity_schema import ingestion
+from equity_schema.crcl_history import CRCL_HISTORY_PDFS
 from equity_schema.workflow import Database, Lease, LeaseLost
 
 
@@ -281,6 +283,15 @@ def retry_after_seconds(value: str | None, now: datetime) -> float:
         return 0.0
 
 
+def _bounded_wire(chunks: Iterable[bytes], limit: int) -> Iterator[bytes]:
+    size = 0
+    for chunk in chunks:
+        size += len(chunk)
+        if size > limit:
+            raise BodyLimitExceeded("PDF wire entity exceeds reviewed limit")
+        yield chunk
+
+
 class DispatchDeadline(TimeoutError):
     pass
 
@@ -326,6 +337,34 @@ class SecTransport:
         self.archive.read_blob(record.blob_key, record.body_sha256, record.byte_count)
 
     def fetch(self, request: FetchRequest) -> FetchResult:
+        result = self._fetch(request)
+        if request.resource.object_key not in CRCL_HISTORY_PDFS:
+            return result
+        gaps = list(result.gaps)
+        for record in result.records:
+            if record.byte_count > min(self.document_body_limit, 8 * 1024 * 1024):
+                gaps.append("pdf_body_limit")
+                continue
+            try:
+                body = self.archive.read_blob(
+                    record.blob_key, record.body_sha256, record.byte_count
+                )
+            except ArchiveError:
+                gaps.append("archive_integrity")
+                continue
+            if (record.content_type or "").split(";", 1)[0].strip().lower() != "application/pdf":
+                gaps.append("pdf_content_type")
+            if not body.startswith(b"%PDF-"):
+                gaps.append("pdf_signature")
+            if not body.rstrip().endswith(b"%%EOF"):
+                gaps.append("pdf_eof")
+        return replace(
+            result,
+            gaps=tuple(dict.fromkeys(gaps)),
+            completeness="incomplete" if gaps else result.completeness,
+        )
+
+    def _fetch(self, request: FetchRequest) -> FetchResult:
         if request.resource.kind not in self.descriptor.resource_kinds:
             raise ValueError("Source does not support this resource kind")
         if request.cache_mode == "replay":
@@ -532,12 +571,17 @@ class SecTransport:
                             if request.resource.kind == ResourceKind.FILING_DOCUMENT
                             else self.json_body_limit
                         )
+                        pdf = request.resource.object_key in CRCL_HISTORY_PDFS
+                        if pdf:
+                            limit = min(limit, 8 * 1024 * 1024)
                         capture_id = uuid4()
                         length_text = response.headers.get("content-length")
                         if length_text is not None and not re.fullmatch(r"[0-9]+", length_text):
                             raise TransferIncomplete("Invalid Content-Length")
                         body = self.archive.write(
-                            response.iter_raw(),
+                            _bounded_wire(response.iter_raw(), limit)
+                            if pdf
+                            else response.iter_raw(),
                             source_key=self.descriptor.source_key,
                             source_object_key=request.resource.object_key,
                             params_hash=request.resource.params_hash,
