@@ -342,3 +342,13 @@ real valuation assumptions/ranges; company/watchlist/sector product integration;
 reviewed automatic refresh and recurring service; release/manual acceptance.
 See [milestone](milestones/D5k-broader-fundamentals.md) and
 [handoff](handoffs/d5k-broader-fundamentals.md).
+
+
+## D5l resumed boundary — proposed, not yet operating
+
+The user resumed after D5k for the next major CRCL source-only milestone.
+[D050 / D5l](design/d5l/proposal.md) proposes the finite 47-body history/registration/correspondence roster, in 11 compliant
+requests,,
+narrow PDF support and accounting/edition reconciliation before any additional
+gross-margin/growth/ROA/history eligibility. D5k counts remain current until new
+reviewed live boundaries occur. Stop after D5l before multi-company rollout.

@@ -236,3 +236,18 @@ and two existing period selectors. D5k published four annual and two closing
 metric definitions, preserving D5j and all prior batches. Gross margins, growth
 and ROA remain unsupported. The [milestone](milestones/D5k-broader-fundamentals.md)
 records exact scope, validation and the user-requested pause after D5k.
+
+
+## D050 — Exact CRCL history/correspondence acquisition and remaining fundamentals
+
+The user resumed after D5k and authorized the next major CRCL source-only step,
+then a stop before multi-company rollout. The [D5l proposal](design/d5l/proposal.md)
+pins 47 exact missing candidate bodies, narrow exact-eight-PDF V2 bootstrap support, sequential
+0014 guards and passive bounded review. Contract implementation and each live
+boundary require independent review; source/history/metric eligibility is conditional.
+No quote/provider/valuation/sector/scheduler or multi-company scope is added.
+
+D050 rendering boundary pins pypdf 6.10.0 and Poppler 26.05.0 with 100 DPI MediaBox PNG,
+strict page/pixel/memory/time/output limits (larger total page/output allowance only
+for the exact annual-report PDF) and fail-closed resource-exhaustion
+regressions; see the proposal for exact limits and deterministic blocked outcomes.

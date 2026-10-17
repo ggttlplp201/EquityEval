@@ -1,0 +1,724 @@
+{
+  "advertisedHistory": [],
+  "groups": [
+    {
+      "inventoryEnd": "2022-12-31",
+      "inventoryStart": "2021-01-01",
+      "number": 1,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0001104659-21-101498/tm2123712-1_s4.htm",
+        "filing_document/0001876042/0001104659-21-102122/tm2123712d3_425.htm",
+        "filing_document/0001876042/0001104659-21-102322/tm2123712d4_425.htm",
+        "filing_document/0001876042/0001104659-21-108632/tm2125702d1_425.htm",
+        "filing_document/0001876042/0001104659-21-108633/tm2125702d2_425.htm",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2022-12-31",
+      "inventoryStart": "2021-01-01",
+      "number": 2,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0001104659-21-122565/tm2124445-1_s4a.htm",
+        "filing_document/0001876042/0001104659-21-128323/tm2124445d5_425.htm",
+        "filing_document/0001876042/0001104659-21-153174/tm2124445-4_s4a.htm",
+        "filing_document/0001876042/0001104659-22-044857/tm2124445d11_425.htm",
+        "filing_document/0001876042/0001104659-22-056979/tm2124445-8_s4a.htm",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2022-12-31",
+      "inventoryStart": "2021-01-01",
+      "number": 3,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0001104659-22-068177/tm2217643d1_425.htm",
+        "filing_document/0001876042/0001104659-22-068962/tm2217643d2_425.htm",
+        "filing_document/0001876042/0001104659-22-078873/tm2124445-12_s4a.htm",
+        "filing_document/0001876042/0001104659-22-096202/tm2124445-15_s4a.htm",
+        "filing_document/0001876042/0001104659-22-110332/tm2124445-18_s4a.htm",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2022-12-31",
+      "inventoryStart": "2021-01-01",
+      "number": 4,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0001104659-22-118597/tm2124445-21_s4a.htm",
+        "filing_document/0001876042/0001104659-22-124570/tm2124445d25_rw.htm",
+        "filing_document/0001876042/0001213900-22-008149/ea155842-8k425_concord.htm",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2024-12-31",
+      "inventoryStart": "2023-01-01",
+      "number": 5,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0000000000-24-002161/filename1.pdf",
+        "filing_document/0001876042/0000000000-24-007530/filename1.pdf",
+        "filing_document/0001876042/0000000000-24-012208/filename1.pdf",
+        "filing_document/0001876042/0000950103-24-005276/filename1.htm",
+        "filing_document/0001876042/0000950123-23-011178/filename1.htm",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2024-12-31",
+      "inventoryStart": "2023-01-01",
+      "number": 6,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0000950123-24-003285/filename1.htm",
+        "filing_document/0001876042/0000950123-24-007245/filename1.htm",
+        "filing_document/0001876042/0000950123-24-007246/filename1.htm",
+        "filing_document/0001876042/0000950123-24-012158/filename1.htm",
+        "filing_document/0001876042/0000950123-24-012159/filename1.htm",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2026-10-16",
+      "inventoryStart": "2025-01-01",
+      "number": 7,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0000000000-25-000390/filename1.pdf",
+        "filing_document/0001876042/0000000000-25-002262/filename1.pdf",
+        "filing_document/0001876042/0000000000-25-003884/filename1.pdf",
+        "filing_document/0001876042/0000000000-25-008270/filename1.pdf",
+        "filing_document/0001876042/0000950103-25-003718/filename1.htm",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2026-10-16",
+      "inventoryStart": "2025-01-01",
+      "number": 8,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0000950103-25-004232/filename1.htm",
+        "filing_document/0001876042/0000950103-25-006798/filename1.htm",
+        "filing_document/0001876042/0000950103-25-006799/filename1.htm",
+        "filing_document/0001876042/0000950103-25-007009/dp229827_s1mef.htm",
+        "filing_document/0001876042/0000950123-25-000606/filename1.htm",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2026-10-16",
+      "inventoryStart": "2025-01-01",
+      "number": 9,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0000950123-25-001965/filename1.htm",
+        "filing_document/0001876042/0000950123-25-001969/filename1.htm",
+        "filing_document/0001876042/0000950123-25-006942/filename1.htm",
+        "filing_document/0001876042/0001193125-25-084837/filename1.htm",
+        "filing_document/0001876042/0001193125-25-098254/filename1.htm",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2026-10-16",
+      "inventoryStart": "2025-01-01",
+      "number": 10,
+      "resources": [
+        "company_facts/0001876042",
+        "filing_document/0001876042/0001193125-25-179050/filename1.htm",
+        "filing_document/0001876042/0001193125-25-179053/filename1.htm",
+        "filing_document/0001876042/0001193125-26-335377/d149697ds3asr.htm",
+        "filing_document/0001876042/0001876042-26-000116/a2025annualreport0331.pdf",
+        "submissions/0001876042"
+      ]
+    },
+    {
+      "inventoryEnd": "2026-10-16",
+      "inventoryStart": "2025-01-01",
+      "number": 11,
+      "purpose": "Fresh post-body observation; all earlier-window roots also retained for roster comparison",
+      "resources": [
+        "company_facts/0001876042",
+        "submissions/0001876042"
+      ]
+    }
+  ],
+  "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+  "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+  "inventoryEarliestDate": "2021-08-06",
+  "kind": "d5l-proposed-inventory-scope",
+  "note": "Finite candidate registration/correspondence/transaction/annual-report primary roster. Actual relevance/MIME unavailable. Does not assert all filings or every historical period is complete.",
+  "resources": [
+    {
+      "accession": "0001104659-21-101498",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2021-08-06",
+      "form": "S-4",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-21-101498/tm2123712-1_s4.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-21-102122",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2021-08-09",
+      "form": "425",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-21-102122/tm2123712d3_425.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-21-102322",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2021-08-10",
+      "form": "425",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-21-102322/tm2123712d4_425.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-21-108632",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2021-08-23",
+      "form": "425",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-21-108632/tm2125702d1_425.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-21-108633",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2021-08-23",
+      "form": "425",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-21-108633/tm2125702d2_425.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-21-122565",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2021-10-04",
+      "form": "S-4/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-21-122565/tm2124445-1_s4a.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-21-128323",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2021-10-21",
+      "form": "425",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-21-128323/tm2124445d5_425.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-21-153174",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2021-12-23",
+      "form": "S-4/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-21-153174/tm2124445-4_s4a.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001213900-22-008149",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-02-17",
+      "form": "425",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001213900-22-008149/ea155842-8k425_concord.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-22-044857",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-04-12",
+      "form": "425",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-22-044857/tm2124445d11_425.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-22-056979",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-05-06",
+      "form": "S-4/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-22-056979/tm2124445-8_s4a.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-22-068177",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-06-03",
+      "form": "425",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-22-068177/tm2217643d1_425.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-22-068962",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-06-07",
+      "form": "425",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-22-068962/tm2217643d2_425.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-22-078873",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-07-11",
+      "form": "S-4/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-22-078873/tm2124445-12_s4a.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-22-096202",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-08-31",
+      "form": "S-4/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-22-096202/tm2124445-15_s4a.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-22-110332",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-10-20",
+      "form": "S-4/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-22-110332/tm2124445-18_s4a.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-22-118597",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-11-14",
+      "form": "S-4/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-22-118597/tm2124445-21_s4a.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001104659-22-124570",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2022-12-05",
+      "form": "RW",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001104659-22-124570/tm2124445d25_rw.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-23-011178",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2023-12-13",
+      "form": "DRS",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-23-011178/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000000000-24-002161",
+      "actualContentType": null,
+      "expectedRepresentation": "PDF",
+      "filedDate": "2024-02-27",
+      "form": "UPLOAD",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000000000-24-002161/filename1.pdf",
+      "retained": false
+    },
+    {
+      "accession": "0000950103-24-005276",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2024-04-12",
+      "form": "DRSLTR",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950103-24-005276/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-24-003285",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2024-04-12",
+      "form": "DRS/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-24-003285/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000000000-24-007530",
+      "actualContentType": null,
+      "expectedRepresentation": "PDF",
+      "filedDate": "2024-07-02",
+      "form": "UPLOAD",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000000000-24-007530/filename1.pdf",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-24-007245",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2024-08-06",
+      "form": "DRS/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-24-007245/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-24-007246",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2024-08-06",
+      "form": "DRSLTR",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-24-007246/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000000000-24-012208",
+      "actualContentType": null,
+      "expectedRepresentation": "PDF",
+      "filedDate": "2024-11-01",
+      "form": "UPLOAD",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000000000-24-012208/filename1.pdf",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-24-012158",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2024-12-03",
+      "form": "DRS/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-24-012158/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-24-012159",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2024-12-03",
+      "form": "DRSLTR",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-24-012159/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000000000-25-000390",
+      "actualContentType": null,
+      "expectedRepresentation": "PDF",
+      "filedDate": "2025-01-14",
+      "form": "UPLOAD",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000000000-25-000390/filename1.pdf",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-25-000606",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-01-27",
+      "form": "DRSLTR",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-25-000606/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-25-001965",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-02-13",
+      "form": "DRS/A",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-25-001965/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-25-001969",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-02-13",
+      "form": "DRSLTR",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-25-001969/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000000000-25-002262",
+      "actualContentType": null,
+      "expectedRepresentation": "PDF",
+      "filedDate": "2025-02-27",
+      "form": "UPLOAD",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000000000-25-002262/filename1.pdf",
+      "retained": false
+    },
+    {
+      "accession": "0000950103-25-003718",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-03-21",
+      "form": "DRSLTR",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950103-25-003718/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950103-25-004232",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-04-01",
+      "form": "CORRESP",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950103-25-004232/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000000000-25-003884",
+      "actualContentType": null,
+      "expectedRepresentation": "PDF",
+      "filedDate": "2025-04-11",
+      "form": "UPLOAD",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000000000-25-003884/filename1.pdf",
+      "retained": false
+    },
+    {
+      "accession": "0001193125-25-084837",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-04-18",
+      "form": "CORRESP",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001193125-25-084837/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001193125-25-098254",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-04-28",
+      "form": "CORRESP",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001193125-25-098254/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950103-25-006798",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-06-02",
+      "form": "CORRESP",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950103-25-006798/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950103-25-006799",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-06-02",
+      "form": "CORRESP",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950103-25-006799/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950103-25-007009",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-06-04",
+      "form": "S-1MEF",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950103-25-007009/dp229827_s1mef.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000950123-25-006942",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-08-04",
+      "form": "DRS",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000950123-25-006942/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0000000000-25-008270",
+      "actualContentType": null,
+      "expectedRepresentation": "PDF",
+      "filedDate": "2025-08-06",
+      "form": "UPLOAD",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0000000000-25-008270/filename1.pdf",
+      "retained": false
+    },
+    {
+      "accession": "0001193125-25-179050",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-08-12",
+      "form": "CORRESP",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001193125-25-179050/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001193125-25-179053",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2025-08-12",
+      "form": "CORRESP",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001193125-25-179053/filename1.htm",
+      "retained": false
+    },
+    {
+      "accession": "0001876042-26-000116",
+      "actualContentType": null,
+      "expectedRepresentation": "PDF",
+      "filedDate": "2026-04-01",
+      "form": "ARS",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001876042-26-000116/a2025annualreport0331.pdf",
+      "retained": false
+    },
+    {
+      "accession": "0001193125-26-335377",
+      "actualContentType": null,
+      "expectedRepresentation": "HTML",
+      "filedDate": "2026-08-05",
+      "form": "S-3ASR",
+      "inventoryBodySha256": "69a7a0884e0e2fda9600481d967b498368da68b21d9a8be1539be59fc37bbaf7",
+      "inventoryCaptureId": "01551860-7c36-46e5-b31c-9b8fa232ae81",
+      "relevance": "Unconfirmed: body unavailable; candidate accounting/registration history evidence, not inferable from form alone",
+      "resourceKey": "filing_document/0001876042/0001193125-26-335377/d149697ds3asr.htm",
+      "retained": false
+    }
+  ],
+  "status": "review_required_not_acquisition_authorization"
+}
