@@ -261,3 +261,16 @@ publication followed. The D5l milestone records preserved prior results, explici
 screening/accounting limits and an unexecuted narrow amendment candidate. Source
 acquisition implementation is complete with gaps; broader history eligibility is
 not complete, and multi-company rollout is not cleared.
+
+
+## D051 — Proposed D5l completion amendment (2026-10-22)
+
+The user resumed to finish the CRCL history section. [D5m proposal](design/d5m/proposal.md)
+pins an exact-ARS-only 32 MiB transfer cap, observable transfer counts using existing
+audit fields, mandatory fresh inventories and a separately reviewed enforcing Linux
+PDF runtime. Vercel has no verified EquityEval project scope. The selected alternative
+is a manual exact-repository GitHub Actions job with offline constrained Docker,
+original D050 process caps, pinned toolchain and signed hash-verified outputs.
+Account access, toolchain and actual enforcement remain unproved. No source retry,
+cloud proof dispatch, migration or financial publication is cleared by this draft.
+Prior D050 artifacts remain immutable; stop before multi-company rollout.

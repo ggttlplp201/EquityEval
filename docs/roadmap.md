@@ -361,3 +361,14 @@ include completing this source/history gate, multi-company governed coverage,
 quote/reference rights and S4b lifecycle, real valuation assumptions/ranges,
 company/watchlist/sector integration, reviewed recurring refresh, and release/manual
 acceptance. No quote provider, scheduler, valuation or multi-company work was added.
+
+
+## D5m proposal — finish D5l after explicit resume (2026-10-22)
+
+The user resumed the blocked D5l section. [D051 amendment](design/d5m/proposal.md)
+limits new source acquisition to the exact missing ARS and mandatory inventories,
+with a separately proven enforcing Linux PDF interpretation runtime. Runtime/account
+access and signed outputs are unproved; no retry or new publication has occurred.
+The published six D5k definitions and D5l application totals above remain unchanged.
+Complete PDF/accounting/history review and independent S3/S6 clearance precede any
+new metric. Multi-company rollout remains outside this resumed section.
