@@ -97,11 +97,28 @@ class Store:
         if self.lose_on_headers:
             self.lost = True
 
-    def finish(self, request, attempt_id, outcome, at, *, capture=None, reused=None, failure=None):
+    def finish(
+        self,
+        request,
+        attempt_id,
+        outcome,
+        at,
+        *,
+        capture=None,
+        reused=None,
+        failure=None,
+        failure_detail=None,
+    ):
         if self.lose_on_finish:
             self.lost = True
         self.guard(request)
-        self.rows[attempt_id].update(state=outcome, capture=capture, reused=reused, failure=failure)
+        self.rows[attempt_id].update(
+            state=outcome,
+            capture=capture,
+            reused=reused,
+            failure=failure,
+            failure_detail=failure_detail,
+        )
 
 
 @pytest.fixture

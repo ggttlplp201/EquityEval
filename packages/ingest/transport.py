@@ -36,6 +36,7 @@ from equity_ingest.limiter import (
     RateDeferred,
     RequestLimiter,
 )
+from equity_ingest.pdf_transfer import PdfTransferEvidence, pdf_body_limit
 from equity_schema import ingestion
 from equity_schema.crcl_history import CRCL_HISTORY_PDFS
 from equity_schema.workflow import Database, Lease, LeaseLost
@@ -73,6 +74,7 @@ class AttemptStore(Protocol):
         capture: RawRecord | None = None,
         reused: UUID | None = None,
         failure: str | None = None,
+        failure_detail: str | None = None,
     ) -> None: ...
 
 
@@ -206,6 +208,7 @@ class DatabaseAttemptStore:
         capture: RawRecord | None = None,
         reused: UUID | None = None,
         failure: str | None = None,
+        failure_detail: str | None = None,
     ) -> None:
         if outcome == "content_unchanged":
             if reused is None or capture is not None:
@@ -235,6 +238,7 @@ class DatabaseAttemptStore:
             completed_capture=metadata,
             reused_capture_id=reused,
             failure_code=failure,
+            failure_detail=failure_detail,
         )
 
 
@@ -283,13 +287,17 @@ def retry_after_seconds(value: str | None, now: datetime) -> float:
         return 0.0
 
 
-def _bounded_wire(chunks: Iterable[bytes], limit: int) -> Iterator[bytes]:
+def _bounded_wire(
+    chunks: Iterable[bytes], limit: int, evidence: PdfTransferEvidence
+) -> Iterator[bytes]:
     size = 0
     for chunk in chunks:
         size += len(chunk)
+        evidence.observe_wire(chunk)
         if size > limit:
             raise BodyLimitExceeded("PDF wire entity exceeds reviewed limit")
         yield chunk
+    evidence.wire_eof = True
 
 
 class DispatchDeadline(TimeoutError):
@@ -324,6 +332,40 @@ class SecTransport:
         self._user_agent = "EquityEval/0.1 " + contact
         self.monotonic, self.now, self.sleep, self.jitter = monotonic, now, sleep, jitter
         self.json_body_limit, self.document_body_limit = json_body_limit, document_body_limit
+        self._pdf_transfers: dict[UUID, PdfTransferEvidence] = {}
+
+    def _finish(
+        self,
+        request: FetchRequest,
+        attempt_id: UUID,
+        outcome: ingestion.AttemptOutcome,
+        at: datetime,
+        *,
+        capture: RawRecord | None = None,
+        reused: UUID | None = None,
+        failure: str | None = None,
+    ) -> None:
+        evidence = self._pdf_transfers.get(attempt_id)
+        detail = (
+            evidence.seal(
+                outcome,
+                str(capture.capture_id) if capture else None,
+                capture.body_sha256 if capture else None,
+            )
+            if evidence
+            else None
+        )
+        self.attempts.finish(
+            request,
+            attempt_id,
+            outcome,
+            at,
+            capture=capture,
+            reused=reused,
+            failure=failure,
+            failure_detail=detail,
+        )
+        self._pdf_transfers.pop(attempt_id, None)
 
     def _verify(self, record: RawRecord, request: FetchRequest) -> None:
         if (
@@ -342,7 +384,9 @@ class SecTransport:
             return result
         gaps = list(result.gaps)
         for record in result.records:
-            if record.byte_count > min(self.document_body_limit, 8 * 1024 * 1024):
+            if record.byte_count > min(
+                self.document_body_limit, pdf_body_limit(request.resource.object_key)
+            ):
                 gaps.append("pdf_body_limit")
                 continue
             try:
@@ -424,9 +468,7 @@ class SecTransport:
                             else "coordination_unavailable"
                         )
                     )
-                    self.attempts.finish(
-                        request, current_id, "cancelled", self.now(), failure=reason
-                    )
+                    self._finish(request, current_id, "cancelled", self.now(), failure=reason)
                     outcomes.append(AttemptOutcome(current_id, "cancelled", reason=reason))
                     return FetchResult(
                         records=tuple(records),
@@ -477,7 +519,7 @@ class SecTransport:
                             if isinstance(error, PermitExpired)
                             else ("coordination_unavailable")
                         )
-                        self.attempts.finish(
+                        self._finish(
                             request,
                             current_id,
                             "cancelled",
@@ -539,7 +581,7 @@ class SecTransport:
                                 self._verify(validator, request)
                                 check_deadline()
                             except ArchiveError:
-                                self.attempts.finish(
+                                self._finish(
                                     request,
                                     current_id,
                                     "transport_error",
@@ -553,7 +595,7 @@ class SecTransport:
                                 )
                                 validator = None
                                 continue
-                            self.attempts.finish(
+                            self._finish(
                                 request,
                                 current_id,
                                 "not_modified",
@@ -573,14 +615,28 @@ class SecTransport:
                         )
                         pdf = request.resource.object_key in CRCL_HISTORY_PDFS
                         if pdf:
-                            limit = min(limit, 8 * 1024 * 1024)
+                            limit = min(limit, pdf_body_limit(request.resource.object_key))
                         capture_id = uuid4()
                         length_text = response.headers.get("content-length")
-                        if length_text is not None and not re.fullmatch(r"[0-9]+", length_text):
+                        transfer = None
+                        if pdf:
+                            transfer = PdfTransferEvidence.create(
+                                self.archive.root / "pdf-transfer",
+                                current_id,
+                                request.resource.object_key,
+                                headers_at.isoformat(),
+                                length_text,
+                                evidence.content_encoding,
+                                limit,
+                            )
+                            self._pdf_transfers[current_id] = transfer
+                        if length_text is not None and not re.fullmatch(
+                            r"[0-9]{1,19}", length_text
+                        ):
                             raise TransferIncomplete("Invalid Content-Length")
                         body = self.archive.write(
-                            _bounded_wire(response.iter_raw(), limit)
-                            if pdf
+                            _bounded_wire(response.iter_raw(chunk_size=65536), limit, transfer)
+                            if transfer is not None
                             else response.iter_raw(),
                             source_key=self.descriptor.source_key,
                             source_object_key=request.resource.object_key,
@@ -593,7 +649,10 @@ class SecTransport:
                             if length_text is not None
                             else None,
                             check_deadline=check_deadline,
+                            validate_decoded=transfer.observe_decoded if transfer else None,
                         )
+                        if transfer is not None:
+                            transfer.archive_complete = True
                         check_deadline()
                         finished = self.now()
                         if request.monitor_payload and current_status == 200:
@@ -614,7 +673,7 @@ class SecTransport:
                                 cached.byte_count,
                             ):
                                 self._verify(cached, request)
-                                self.attempts.finish(
+                                self._finish(
                                     request,
                                     current_id,
                                     "content_unchanged",
@@ -649,9 +708,7 @@ class SecTransport:
                             evidence.last_modified,
                         )
                         if 200 <= current_status < 300:
-                            self.attempts.finish(
-                                request, current_id, "complete", finished, capture=capture
-                            )
+                            self._finish(request, current_id, "complete", finished, capture=capture)
                             outcomes.append(AttemptOutcome(current_id, "complete", current_status))
                             records.append(capture)
                             return FetchResult(records=tuple(records), attempts=tuple(outcomes))
@@ -659,7 +716,7 @@ class SecTransport:
                             outcome: ingestion.AttemptOutcome = (
                                 "redirected" if target and sequence < 3 else "redirect_refused"
                             )
-                            self.attempts.finish(
+                            self._finish(
                                 request,
                                 current_id,
                                 outcome,
@@ -679,9 +736,7 @@ class SecTransport:
                             assert target is not None
                             url, validator = target, None
                             continue
-                        self.attempts.finish(
-                            request, current_id, "http_error", finished, capture=capture
-                        )
+                        self._finish(request, current_id, "http_error", finished, capture=capture)
                         records.append(capture)
                         outcomes.append(AttemptOutcome(current_id, "http_error", current_status))
                         delay = retry_after_seconds(evidence.retry_after, self.now())
@@ -720,9 +775,7 @@ class SecTransport:
                         if isinstance(error, DispatchDeadline)
                         else "transfer_incomplete"
                     )
-                    self.attempts.finish(
-                        request, current_id, "transport_error", self.now(), failure=reason
-                    )
+                    self._finish(request, current_id, "transport_error", self.now(), failure=reason)
                     outcomes.append(
                         AttemptOutcome(current_id, "transport_error", current_status, reason)
                     )
@@ -736,7 +789,7 @@ class SecTransport:
                             else "archive_error"
                         )
                     )
-                    self.attempts.finish(request, current_id, outcome, self.now(), failure=outcome)
+                    self._finish(request, current_id, outcome, self.now(), failure=outcome)
                     outcomes.append(AttemptOutcome(current_id, outcome, current_status, outcome))
                     return FetchResult(
                         records=tuple(records),

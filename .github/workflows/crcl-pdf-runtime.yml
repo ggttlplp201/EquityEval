@@ -1,0 +1,56 @@
+name: bounded-crcl-pdf-runtime
+on:
+  push:
+    branches:
+      - codex/d5m-runtime-proof
+      - codex/d5m-runtime-review
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+concurrency:
+  group: bounded-crcl-pdf-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  synthetic-proof:
+    if: github.ref == 'refs/heads/codex/d5m-runtime-proof'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify exact reviewed packet before tool staging
+        run: python3 -m scripts.crcl_pdf_runtime verify-packet --packet infra/pdf-runtime/execution-packet.json --output /tmp/packet-verified.json
+      - name: Build pinned tools without financial documents
+        run: docker build --platform linux/amd64 -t equity-crcl-pdf-proof -f infra/pdf-runtime/Dockerfile .
+      - name: Prove effective Linux controls with synthetic fixtures only
+        id: proof
+        continue-on-error: true
+        run: python3 -m scripts.run_crcl_pdf_container --image equity-crcl-pdf-proof --output runtime-output
+      - name: Bind bounded outputs to reviewed packet and exact run
+        run: |
+          python3 -m scripts.crcl_pdf_runtime seal --packet infra/pdf-runtime/execution-packet.json --output runtime-output
+          tar -czf runtime-output.tar.gz runtime-output
+      - name: Sign output digest outside interpretation container
+        uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6
+        with:
+          subject-path: runtime-output.tar.gz
+      - name: Preserve signed proof outputs
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: crcl-pdf-proof-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runtime-output.tar.gz
+          if-no-files-found: error
+          overwrite: false
+          retention-days: 7
+      - name: Preserve failure after exporting signed diagnostic evidence
+        if: steps.proof.outcome != 'success'
+        run: exit 1
+  real-review-held:
+    if: github.ref == 'refs/heads/codex/d5m-runtime-review'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 1
+    steps:
+      - name: Real documents require a separately frozen execution packet
+        run: exit 1

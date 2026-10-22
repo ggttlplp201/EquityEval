@@ -10,12 +10,15 @@ import zlib
 from pathlib import Path
 from typing import Any
 
+from equity_ingest.pdf_transfer import PdfCaptureBinding, pdf_body_limit
 from equity_schema.crcl_history import CRCL_HISTORY_PDFS
 
 ARS_KEY = "filing_document/0001876042/0001876042-26-000116/a2025annualreport0331.pdf"
 
 
-def inspect_pdf(path: Path, resource_key: str, *, python: Path) -> dict[str, Any]:
+def inspect_pdf(
+    path: Path, resource_key: str, *, python: Path, capture: PdfCaptureBinding | None = None
+) -> dict[str, Any]:
     body = path.read_bytes()
     result: dict[str, Any] = {
         "resourceKey": resource_key,
@@ -34,8 +37,12 @@ def inspect_pdf(path: Path, resource_key: str, *, python: Path) -> dict[str, Any
     }
     if resource_key not in CRCL_HISTORY_PDFS:
         return result | {"reason": "pdf_resource_not_reviewed"}
-    if len(body) > 8 * 1024 * 1024:
+    if capture is not None and not capture.matches(resource_key, body):
+        return result | {"reason": "pdf_capture_binding_invalid"}
+    if len(body) > pdf_body_limit(resource_key):
         return result | {"reason": "pdf_body_limit"}
+    if len(body) > 8 * 1024 * 1024 and capture is None:
+        return result | {"reason": "pdf_capture_binding_required"}
     worker = Path(__file__).with_name("pdf_review_worker.py").resolve()
     if not python.is_file():
         return result | {"reason": "pdf_parser_unavailable"}
@@ -127,12 +134,18 @@ def _valid_png(data: bytes, width: int, height: int) -> bool:
 
 
 def render_pdf(
-    path: Path, resource_key: str, *, python: Path, poppler: Path, output_dir: Path
+    path: Path,
+    resource_key: str,
+    *,
+    python: Path,
+    poppler: Path,
+    output_dir: Path,
+    capture: PdfCaptureBinding | None = None,
 ) -> dict[str, Any]:
     """Render bounded page evidence; human visual inspection remains a separate gate."""
     import time
 
-    review = inspect_pdf(path, resource_key, python=python)
+    review = inspect_pdf(path, resource_key, python=python, capture=capture)
     review["renderedPages"] = []
     if review["status"] != "parsed":
         return review
