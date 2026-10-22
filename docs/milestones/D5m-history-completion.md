@@ -52,3 +52,9 @@ execution, source retry or financial publication. D5m remains incomplete.
 Proof4 standards/spec review passed after canonical-packet regression. Full make
 check passed1934/512/110 (two existing warnings); the added packet dispatch test
 also passes. Mandatory hooks will check the complete final tree before commit.
+
+Proof4 succeeded: commitf65f95e, hooks1935/512/110, run39864760623 attempt1,
+artifact12464125859; all13 synthetic checks and exact signed-output verification
+passed. The real-document sequence/finite candidate roster is staged in
+design/d5m/real-document-boundary.md and .json. No SEC retry, final pair, draft
+release, real execution or financial publication yet. D5m remains incomplete.
