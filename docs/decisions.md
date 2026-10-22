@@ -294,3 +294,11 @@ and checkpoint intermediate results before assertions. Do not accept generic
 parser errors or infer the missing reason. See
 [proof3 boundary](design/d5m/proof-3-diagnostic-export.md). New execution identity
 and independent review precede any atomic descendant update; source holds remain.
+
+### D051 exact Flate fixture amendment (2026-10-22, reviewed)
+
+Signed proof3 isolates a skipped Contents fixture, not a safe decompression result.
+Add Resources/font and recognize only the pinned parser's exact typed Flate-boundary
+exception; retain generic errors as blocked. Bind observed built-toolchain hash
+before probes. See [proof4 boundary](design/d5m/proof-4-flate-boundary.md).
+Preserve proof3 evidence; independent review precedes any new execution/ref update.

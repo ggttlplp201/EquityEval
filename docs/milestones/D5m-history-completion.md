@@ -41,3 +41,14 @@ attestation and output identity verification; it proves failed-diagnostic origin
 not runtime eligibility. Proof3 stages bounded live tmpfs export and intermediate
 checkpoints without relaxing the unknown parser result. Review boundary:
 design/d5m/proof-3-diagnostic-export.md. All source/publication holds remain.
+
+Proof3: commit08f4c58 passed1932/512/110 mandatory checks and was pushed.
+Run39860919258 attempt1 produced verified signed diagnostics:12/13 checks passed,
+Contents fixture skipped because Resources was absent. Proof4 stages the exact
+fixture/typed Flate repair and observed toolchain binding; focused tests42 pass.
+See design/d5m/proof-4-flate-boundary.md. Independent review pending; no new cloud
+execution, source retry or financial publication. D5m remains incomplete.
+
+Proof4 standards/spec review passed after canonical-packet regression. Full make
+check passed1934/512/110 (two existing warnings); the added packet dispatch test
+also passes. Mandatory hooks will check the complete final tree before commit.

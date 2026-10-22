@@ -12,7 +12,7 @@ from typing import Any
 
 from equity_ingest.pdf_review import inspect_pdf, render_pdf
 
-from scripts.crcl_pdf_runtime import canonical, prove_controls
+from scripts.crcl_pdf_runtime import canonical, prove_controls, verify_built_toolchain
 
 KEY = "filing_document/0001876042/0000000000-24-002161/filename1.pdf"
 
@@ -40,6 +40,22 @@ def blank(box: bytes = b"0 0 612 792") -> bytes:
             b"<< /Type /Catalog /Pages 2 0 R >>",
             b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
             b"<< /Type /Page /Parent 2 0 R /MediaBox [" + box + b"] >>",
+        ]
+    )
+
+
+def stream_pdf(compressed: bytes) -> bytes:
+    # Resources ensure text extraction cannot silently skip the Contents stream.
+    return pdf(
+        [
+            b"<< /Type /Catalog /Pages 2 0 R >>",
+            b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+            b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] "
+            b"/Resources << /Font << /F1 5 0 R >> >> /Contents 4 0 R >>",
+            f"<< /Length {len(compressed)} /Filter /FlateDecode >>\nstream\n".encode()
+            + compressed
+            + b"\nendstream",
+            b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
         ]
     )
 
@@ -156,6 +172,7 @@ def main() -> None:
     (output / "built-toolchain.json").write_bytes(
         Path("/opt/bootstrap/built-toolchain.json").read_bytes()
     )
+    verify_built_toolchain(output / "built-toolchain.json")
     # Effective isolation is a prerequisite for every subsequent probe.
     prove_controls(output / "controls.json")
     results = CheckpointResults(output / "synthetic-progress.json")
@@ -205,23 +222,19 @@ def main() -> None:
     compressed = (
         b"".join(compressor.compress(b" " * 65536) for _ in range(16384)) + compressor.flush()
     )
-    stream = pdf(
-        [
-            b"<< /Type /Catalog /Pages 2 0 R >>",
-            b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
-            b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R >>",
-            f"<< /Length {len(compressed)} /Filter /FlateDecode >>\nstream\n".encode()
-            + compressed
-            + b"\nendstream",
-        ]
-    )
+    stream = stream_pdf(compressed)
     results.probe(
         "compressedStream",
         lambda: parse(stream),
         lambda row: (
             row["status"] == "blocked"
             and row["reason"]
-            in {"pdf_parser_memory", "pdf_parser_timeout", "pdf_parser_process_failed"}
+            in {
+                "pdf_parser_memory",
+                "pdf_parser_timeout",
+                "pdf_parser_process_failed",
+                "pdf_parser_decompression_limit",
+            }
         ),
     )
     results.probe(

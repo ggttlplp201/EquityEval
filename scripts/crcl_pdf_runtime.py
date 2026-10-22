@@ -97,6 +97,14 @@ def validate_predecessor(value: Any) -> None:
         raise ValueError("runtime_predecessor_identity")
 
 
+OBSERVED_BUILT_TOOLCHAIN_SHA256 = "7a78dcefce1302d6da1974679abd4c9b3031765cc16d00e40cdb8087ff1e62b4"
+
+
+def verify_built_toolchain(path: Path) -> None:
+    if digest(path) != OBSERVED_BUILT_TOOLCHAIN_SHA256:
+        raise ValueError("runtime_built_toolchain_hash")
+
+
 def validate_packet(packet: dict[str, Any], *, ref: str, repository: str, now: datetime) -> None:
     if (
         packet.get("revision") != "d051-pdf-runtime-v1"
@@ -113,6 +121,11 @@ def validate_packet(packet: dict[str, Any], *, ref: str, repository: str, now: d
         raise ValueError("runtime_packet_expired")
     if not _sha(packet.get("toolchainSha256")):
         raise ValueError("runtime_packet_toolchain")
+    if (
+        "observedBuiltToolchainSha256" in packet
+        and packet["observedBuiltToolchainSha256"] != OBSERVED_BUILT_TOOLCHAIN_SHA256
+    ):
+        raise ValueError("runtime_packet_built_toolchain")
     files = packet.get("files")
     if (
         not isinstance(files, dict)

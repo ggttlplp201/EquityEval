@@ -375,3 +375,48 @@ def test_render_process_failure_preserves_completed_page_roster(tmp_path, monkey
 def test_png_oversized_dimensions_are_blocked(tmp_path, monkeypatch):
     run = mocked_renderer(tmp_path, monkeypatch, payload=png_bytes(2001, 1))
     assert run()["reason"] == "pdf_render_pixels"
+
+
+def test_contents_fixture_reaches_exact_flate_limit_and_rejects_other_errors(tmp_path):
+    import zlib
+
+    from scripts.run_crcl_pdf_proof import stream_pdf
+
+    path = tmp_path / "tiny-compressed.pdf"
+    path.write_bytes(stream_pdf(zlib.compress(b" " * 1024)))
+    worker = Path("packages/ingest/pdf_review_worker.py").resolve()
+    # Tiny synthetic bytes only: lower the parser limit in this test process.
+    code = """
+import runpy,json,sys
+from pathlib import Path
+import pypdf.filters as filters
+from pypdf.errors import LimitReachedError
+m=runpy.run_path(sys.argv[1])
+filters.ZLIB_MAX_OUTPUT_LENGTH=64
+result=m['inspect_document'](Path(sys.argv[2]),False)
+assert result['reason']=='pdf_parser_decompression_limit', result
+for error in (LimitReachedError('Limit reached while decompressing.'),
+              ValueError('Limit reached while decompressing.'),
+              RuntimeError('Limit reached while decompressing.')):
+    try:
+        raise error
+    except Exception as caught:
+        assert not m['is_flate_decompression_limit'](caught)
+# A wrong exception raised by an actual decompression frame must not match.
+original=filters.zlib.decompressobj
+filters.zlib.decompressobj=lambda: (_ for _ in ()).throw(ValueError('wrong'))
+try:
+    filters._decompress_with_limit(b'x')
+except Exception as caught:
+    assert not m['is_flate_decompression_limit'](caught)
+finally:
+    filters.zlib.decompressobj=original
+print(json.dumps(result))
+"""
+    result = subprocess.run(
+        [str(PYTHON), "-I", "-c", code, str(worker), str(path)],
+        check=True,
+        capture_output=True,
+        timeout=10,
+    )
+    assert json.loads(result.stdout)["status"] == "blocked"

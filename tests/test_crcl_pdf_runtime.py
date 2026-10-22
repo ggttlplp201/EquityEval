@@ -296,3 +296,33 @@ def test_real_git_lease_blocks_changed_predecessor_even_when_still_ancestor(tmp_
         push_execution_ref(checkout, intent)
     expected = "" if delete else f"{moved}\t{ref}"
     assert git("ls-remote", "origin", ref) == expected
+
+
+def test_observed_toolchain_identity_cannot_drift(tmp_path):
+    from scripts.crcl_pdf_runtime import verify_built_toolchain
+
+    source = tmp_path / "built-toolchain.json"
+    source.write_bytes(b"changed")
+    with pytest.raises(ValueError, match="runtime_built_toolchain_hash"):
+        verify_built_toolchain(source)
+    good = packet() | {"observedBuiltToolchainSha256": "f" * 64}
+    with pytest.raises(ValueError, match="runtime_packet_built_toolchain"):
+        validate_packet(
+            good,
+            ref=good["ref"],
+            repository=good["repository"],
+            now=datetime(2026, 10, 22, tzinfo=UTC),
+        )
+
+
+def test_checked_in_execution_packet_has_dispatch_canonical_bytes():
+    import json
+    from pathlib import Path
+
+    from scripts.crcl_pdf_runtime import canonical, verify_files
+
+    path = Path("infra/pdf-runtime/execution-packet.json")
+    raw = path.read_bytes()
+    saved = json.loads(raw)
+    assert raw == canonical(saved)
+    verify_files(Path.cwd(), saved["files"])

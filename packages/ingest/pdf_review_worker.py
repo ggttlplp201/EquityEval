@@ -10,6 +10,23 @@ from pathlib import Path
 from typing import Any
 
 
+def is_flate_decompression_limit(error: Exception) -> bool:
+    """Recognize only the pinned parser's typed Flate decompression boundary."""
+    if (type(error).__module__, type(error).__name__) != ("pypdf.errors", "LimitReachedError"):
+        return False
+    errors = importlib.import_module("pypdf.errors")
+    filters = importlib.import_module("pypdf.filters")
+    if type(error) is not errors.LimitReachedError:
+        return False
+    boundaries = {filters._decompress_with_limit.__code__, filters.decompress.__code__}
+    trace = error.__traceback__
+    while trace is not None:
+        if trace.tb_frame.f_code in boundaries:
+            return True
+        trace = trace.tb_next
+    return False
+
+
 def inspect_document(path: Path, annual: bool) -> dict[str, Any]:
     result: dict[str, Any] = {"status": "blocked", "reason": "pdf_parser_error", "pages": []}
     try:
@@ -101,8 +118,12 @@ def inspect_document(path: Path, annual: bool) -> dict[str, Any]:
         result["reason"] = "pdf_parser_memory"
     except ValueError as error:
         result["reason"] = str(error) if str(error).startswith("pdf_") else "pdf_parser_error"
-    except Exception:
-        result["reason"] = "pdf_parser_error"
+    except Exception as error:
+        result["reason"] = (
+            "pdf_parser_decompression_limit"
+            if is_flate_decompression_limit(error)
+            else "pdf_parser_error"
+        )
     return result
 
 
