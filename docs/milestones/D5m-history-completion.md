@@ -33,3 +33,11 @@ passed final1918/512/110 hooks and was pushed. Run39854492748 attempt1 failed du
 CA bootstrap before PDF execution; no signed artifact exists. All receipts/logs
 are retained. The exact pinned CA repair and predecessor-bound proof2 are staged
 for independent review in design/d5m/proof-2-ca-bootstrap.md. No source retry.
+
+Proof2: commit e0046e9bae40378ab6bddcc3f1d899993819ed34 passed1926/512/110 hooks
+and was pushed. Run39856955079 attempt1 built the pinned tools but failed the
+compressed-stream assertion. Artifact12459797527 passed digest, exact GitHub
+attestation and output identity verification; it proves failed-diagnostic origin,
+not runtime eligibility. Proof3 stages bounded live tmpfs export and intermediate
+checkpoints without relaxing the unknown parser result. Review boundary:
+design/d5m/proof-3-diagnostic-export.md. All source/publication holds remain.

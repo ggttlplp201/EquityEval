@@ -1,3 +1,6 @@
+> Historical second proof: executed as run39856955079 attempt1. Tool build passed;
+> synthetic assertion failed. See [diagnostic repair](proof-3-diagnostic-export.md).
+
 # D051 synthetic proof 2 — CA bootstrap repair
 
 Status: independent standards/spec review passed; second execution remains behind

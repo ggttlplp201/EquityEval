@@ -284,3 +284,13 @@ checks, and a new predecessor-bound logical execution with independently checked
 atomic exact expected-OID lease, allowing only the reviewed descendant update. First packet/run/receipts remain immutable. See
 [the exact second-proof boundary](design/d5m/proof-2-ca-bootstrap.md). No retry
 beyond the independently cleared exact packet; no SEC or real-PDF action.
+
+### D051 diagnostic export amendment (2026-10-22, reviewed)
+
+Proof2 built successfully but failed its compressed-stream assertion, and Docker
+cp omitted live tmpfs diagnostics. Preserve its verified signed output, replace
+copy with bounded live-container tar streaming and safe exclusive extraction,
+and checkpoint intermediate results before assertions. Do not accept generic
+parser errors or infer the missing reason. See
+[proof3 boundary](design/d5m/proof-3-diagnostic-export.md). New execution identity
+and independent review precede any atomic descendant update; source holds remain.
