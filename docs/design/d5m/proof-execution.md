@@ -1,3 +1,6 @@
+> Historical first proof gate: executed as run39854492748 attempt1 and failed
+> at CA bootstrap before any PDF operation. See [second proof repair](proof-2-ca-bootstrap.md).
+
 # D5m synthetic Linux proof — staged execution gate
 
 No execution ref, draft release, live acquisition or financial publication has

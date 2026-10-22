@@ -147,3 +147,152 @@ def test_synthetic_image_fixture_is_drawn_by_page_contents():
     assert b"/Im1 Do" in body
     assert b"/Width 32768 /Height 32768" in body
     assert b"/Filter /FlateDecode" in body
+
+
+def test_proof_ref_update_requires_exact_failed_predecessor_and_descendant():
+    from scripts.crcl_pdf_cloud import validate_ref_update
+
+    intent = {"commit": "b" * 40, "predecessor": {"commit": "a" * 40}}
+    validate_ref_update(intent, "a" * 40, True)
+    for remote, ancestor in (("c" * 40, True), ("a" * 40, False), (None, True)):
+        with pytest.raises(ValueError):
+            validate_ref_update(intent, remote, ancestor)
+    with pytest.raises(ValueError):
+        validate_ref_update(intent | {"commit": "a" * 40}, "a" * 40, True)
+    validate_ref_update({"commit": "a" * 40}, None, False)
+    with pytest.raises(ValueError):
+        validate_ref_update({"commit": "a" * 40}, "a" * 40, True)
+
+
+def test_predecessor_packet_rejects_wrong_outcome_or_reused_identity():
+    from scripts.crcl_pdf_runtime import validate_predecessor
+
+    previous = {
+        "executionId": str(uuid4()),
+        "commit": "a" * 40,
+        "packetSha256": "b" * 64,
+        "intentSha256": "c" * 64,
+        "runReceiptSha256": "d" * 64,
+        "runId": 17,
+        "runAttempt": 1,
+        "conclusion": "failure",
+    }
+    validate_predecessor(previous)
+    for changed in (
+        previous | {"conclusion": "success"},
+        previous | {"runAttempt": 2},
+        previous | {"runReceiptSha256": "wrong"},
+    ):
+        with pytest.raises(ValueError):
+            validate_predecessor(changed)
+    good = packet() | {"predecessor": previous}
+    now = datetime(2026, 10, 22, tzinfo=UTC)
+    validate_packet(good, ref=good["ref"], repository=good["repository"], now=now)
+    good["executionId"] = previous["executionId"]
+    with pytest.raises(ValueError):
+        validate_packet(good, ref=good["ref"], repository=good["repository"], now=now)
+
+
+def test_ca_bootstrap_matches_reviewed_package_derivation():
+    import hashlib
+    import json
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parents[1]
+    pin = json.loads((root / "infra/pdf-runtime/toolchain.json").read_bytes())["caBootstrap"]
+    bundle = (root / "infra/pdf-runtime/ubuntu-ca-bootstrap.pem").read_bytes()
+    assert len(bundle) == pin["pemBytes"] == 219342
+    assert hashlib.sha256(bundle).hexdigest() == pin["pemSha256"]
+    assert bundle.count(b"-----BEGIN CERTIFICATE-----") == pin["certificateCount"] == 146
+    docker = (root / "infra/pdf-runtime/Dockerfile").read_text()
+    assert docker.index("ubuntu-ca-bootstrap.pem") < docker.index("apt-get update")
+    assert pin["pemSha256"] in docker
+    assert "Verify-Peer" not in docker and "--allow-unauthenticated" not in docker
+
+
+@pytest.mark.parametrize("moved", [None, "c" * 40])
+def test_proof_ref_push_lease_rejects_post_preflight_deletion_or_move(monkeypatch, tmp_path, moved):
+    import subprocess
+
+    from scripts.crcl_pdf_cloud import push_execution_ref
+
+    intent = {
+        "commit": "b" * 40,
+        "ref": "refs/heads/codex/d5m-runtime-proof",
+        "predecessor": {"commit": "a" * 40},
+    }
+
+    def race(command, **kwargs):
+        lease = f"--force-with-lease={intent['ref']}:{'a' * 40}"
+        assert lease in command and "--force" not in command
+        assert moved != "a" * 40
+        raise subprocess.CalledProcessError(1, command)
+
+    monkeypatch.setattr(subprocess, "run", race)
+    with pytest.raises(subprocess.CalledProcessError):
+        push_execution_ref(tmp_path, intent)
+
+
+def test_proof_ref_push_verifies_remote_after_atomic_update(monkeypatch, tmp_path):
+    import subprocess
+
+    from scripts.crcl_pdf_cloud import push_execution_ref
+
+    intent = {
+        "commit": "b" * 40,
+        "ref": "refs/heads/codex/d5m-runtime-proof",
+        "predecessor": {"commit": "a" * 40},
+    }
+    monkeypatch.setattr(subprocess, "run", lambda *args, **kwargs: None)
+    monkeypatch.setattr(
+        subprocess, "check_output", lambda *args, **kwargs: f"{'c' * 40}\t{intent['ref']}\n"
+    )
+    with pytest.raises(ValueError, match="Post-push"):
+        push_execution_ref(tmp_path, intent)
+
+
+@pytest.mark.parametrize("delete", [False, True])
+def test_real_git_lease_blocks_changed_predecessor_even_when_still_ancestor(tmp_path, delete):
+    import subprocess
+
+    from scripts.crcl_pdf_cloud import push_execution_ref, validate_ref_update
+
+    checkout = tmp_path / "checkout"
+    remote = tmp_path / "remote.git"
+    checkout.mkdir()
+
+    def git(*args):
+        return subprocess.check_output(
+            ["git", *args], cwd=checkout, text=True, stderr=subprocess.DEVNULL
+        ).strip()
+
+    git("init", "-q")
+    git("init", "--bare", "-q", str(remote))
+    git("remote", "add", "origin", str(remote))
+    commits = []
+    for value in ("a", "c", "b"):
+        (checkout / "value").write_text(value)
+        git("add", "value")
+        git(
+            "-c",
+            "user.name=Proof test",
+            "-c",
+            "user.email=proof@example.invalid",
+            "commit",
+            "-qm",
+            value,
+        )
+        commits.append(git("rev-parse", "HEAD"))
+    prior, moved, candidate = commits
+    ref = "refs/heads/codex/d5m-runtime-proof"
+    git("push", "origin", f"{prior}:{ref}")
+    intent = {"commit": candidate, "ref": ref, "predecessor": {"commit": prior}}
+    validate_ref_update(intent, prior, True)
+    if delete:
+        git("--git-dir", str(remote), "update-ref", "-d", ref)
+    else:
+        git("push", "origin", f"{moved}:{ref}")
+    with pytest.raises(subprocess.CalledProcessError):
+        push_execution_ref(checkout, intent)
+    expected = "" if delete else f"{moved}\t{ref}"
+    assert git("ls-remote", "origin", ref) == expected

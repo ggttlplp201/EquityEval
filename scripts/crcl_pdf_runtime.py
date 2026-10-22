@@ -25,6 +25,7 @@ REQUIRED_FILES = frozenset(
         "infra/pdf-runtime/Dockerfile",
         "infra/pdf-runtime/toolchain.json",
         "infra/pdf-runtime/ubuntu.sources",
+        "infra/pdf-runtime/ubuntu-ca-bootstrap.pem",
         "infra/pdf-runtime/apt-SHA256SUMS",
         "infra/pdf-runtime/Dockerfile.dockerignore",
         "scripts/build_crcl_pdf_runtime.py",
@@ -68,6 +69,34 @@ def safe_relative(value: str) -> bool:
     )
 
 
+def validate_predecessor(value: Any) -> None:
+    if value is None:
+        return
+    required = {
+        "executionId",
+        "commit",
+        "packetSha256",
+        "intentSha256",
+        "runReceiptSha256",
+        "runId",
+        "runAttempt",
+        "conclusion",
+    }
+    if not isinstance(value, dict) or set(value) != required:
+        raise ValueError("runtime_predecessor_shape")
+    UUID(value["executionId"])
+    if (
+        not isinstance(value["commit"], str)
+        or not re.fullmatch(r"[a-f0-9]{40}", value["commit"])
+        or any(not _sha(value[k]) for k in ("packetSha256", "intentSha256", "runReceiptSha256"))
+        or type(value["runId"]) is not int
+        or value["runId"] <= 0
+        or value["runAttempt"] != 1
+        or value["conclusion"] != "failure"
+    ):
+        raise ValueError("runtime_predecessor_identity")
+
+
 def validate_packet(packet: dict[str, Any], *, ref: str, repository: str, now: datetime) -> None:
     if (
         packet.get("revision") != "d051-pdf-runtime-v1"
@@ -92,6 +121,12 @@ def validate_packet(packet: dict[str, Any], *, ref: str, repository: str, now: d
         or any(not safe_relative(k) or not _sha(v) for k, v in files.items())
     ):
         raise ValueError("runtime_packet_files")
+    predecessor = packet.get("predecessor")
+    validate_predecessor(predecessor)
+    if predecessor is not None and (
+        mode != "proof" or predecessor["executionId"] == packet["executionId"]
+    ):
+        raise ValueError("runtime_predecessor_mode")
     source = packet.get("input")
     if mode == "proof":
         if source is not None:

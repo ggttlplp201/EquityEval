@@ -13,7 +13,14 @@ from uuid import UUID
 
 import httpx
 
-from scripts.crcl_pdf_runtime import REPOSITORY, canonical, digest, validate_packet, verify_files
+from scripts.crcl_pdf_runtime import (
+    REPOSITORY,
+    canonical,
+    digest,
+    validate_packet,
+    validate_predecessor,
+    verify_files,
+)
 
 WORKFLOW = ".github/workflows/crcl-pdf-runtime.yml"
 
@@ -128,7 +135,7 @@ def execution_intent(root: Path, packet_path: Path, commit: str) -> dict[str, An
         raise ValueError("Execution requires a clean committed tree")
     if digest(root / "infra/pdf-runtime/toolchain.json") != packet["toolchainSha256"]:
         raise ValueError("Execution toolchain mismatch")
-    return {
+    result = {
         "revision": "d051-cloud-execution-v1",
         "executionId": packet["executionId"],
         "repository": REPOSITORY,
@@ -139,6 +146,9 @@ def execution_intent(root: Path, packet_path: Path, commit: str) -> dict[str, An
         "mode": packet["mode"],
         "runAttempt": 1,
     }
+    if packet.get("predecessor") is not None:
+        result["predecessor"] = packet["predecessor"]
+    return result
 
 
 def load_retained_intent(audit_root: Path, execution_id: str, commit: str) -> dict[str, Any]:
@@ -160,6 +170,9 @@ def load_retained_intent(audit_root: Path, execution_id: str, commit: str) -> di
         "mode": "proof",
         "runAttempt": 1,
     }
+    if "predecessor" in intent:
+        validate_predecessor(intent["predecessor"])
+        expected["predecessor"] = intent["predecessor"]
     if (
         intent != expected
         or data != canonical(intent)
@@ -169,6 +182,74 @@ def load_retained_intent(audit_root: Path, execution_id: str, commit: str) -> di
     ):
         raise ValueError("Retained execution intent identity mismatch")
     return intent
+
+
+def validate_ref_update(intent: dict[str, Any], remote_sha: str | None, ancestor: bool) -> None:
+    predecessor = intent.get("predecessor")
+    if predecessor is None:
+        if remote_sha is not None:
+            raise ValueError("Execution ref already exists; no implicit rerun")
+    elif remote_sha != predecessor["commit"] or not ancestor or intent["commit"] == remote_sha:
+        raise ValueError("Proof retry requires exact predecessor and strict fast-forward")
+
+
+def verify_failed_predecessor(
+    root: Path, audit_root: Path, intent: dict[str, Any], api: Github
+) -> None:
+    predecessor = intent.get("predecessor")
+    if predecessor is None:
+        return
+    validate_predecessor(predecessor)
+    old = load_retained_intent(audit_root, predecessor["executionId"], predecessor["commit"])
+    old_path = audit_root / f"{predecessor['executionId']}.intent.json"
+    receipt = audit_root / predecessor["executionId"] / "run.json"
+    if (
+        digest(old_path) != predecessor["intentSha256"]
+        or old["packetSha256"] != predecessor["packetSha256"]
+        or digest(receipt) != predecessor["runReceiptSha256"]
+    ):
+        raise ValueError("Proof predecessor retained evidence mismatch")
+    run = api.get(f"/actions/runs/{predecessor['runId']}")
+    if (
+        run.get("id") != predecessor["runId"]
+        or run.get("head_sha") != predecessor["commit"]
+        or run.get("head_branch") != intent["ref"].removeprefix("refs/heads/")
+        or run.get("path") != WORKFLOW
+        or run.get("run_attempt") != 1
+        or run.get("status") != "completed"
+        or run.get("conclusion") != "failure"
+    ):
+        raise ValueError("Proof predecessor live identity changed")
+
+
+def push_execution_ref(root: Path, intent: dict[str, Any]) -> str:
+    # The caller has independently enforced strict ancestry. The explicit lease
+    # adds atomic expected-OID comparison; it never authorizes a history rewrite.
+    predecessor = intent.get("predecessor")
+    expected = predecessor["commit"] if predecessor is not None else ""
+    subprocess.run(
+        [
+            "git",
+            "push",
+            f"--force-with-lease={intent['ref']}:{expected}",
+            "origin",
+            f"{intent['commit']}:{intent['ref']}",
+        ],
+        cwd=root,
+        check=True,
+    )
+    remote = (
+        subprocess.check_output(
+            ["git", "ls-remote", "origin", intent["ref"]],
+            cwd=root,
+            text=True,
+        )
+        .strip()
+        .split()
+    )
+    if remote != [intent["commit"], intent["ref"]]:
+        raise ValueError("Post-push execution ref identity mismatch; recover only")
+    return remote[0]
 
 
 def main() -> None:
@@ -208,11 +289,29 @@ def main() -> None:
         existing = subprocess.check_output(
             ["git", "ls-remote", "origin", intent["ref"]], cwd=root, text=True
         )
-        if existing.strip():
-            raise ValueError("Execution ref already exists; no implicit rerun")
-        subprocess.run(
-            ["git", "push", "origin", f"{args.commit}:{intent['ref']}"], cwd=root, check=True
-        )
+        rows = [line.split() for line in existing.splitlines() if line.strip()]
+        if len(rows) > 1 or (rows and (len(rows[0]) != 2 or rows[0][1] != intent["ref"])):
+            raise ValueError("Ambiguous execution ref")
+        remote_sha = rows[0][0] if rows else None
+        ancestor = False
+        if intent.get("predecessor") is not None:
+            verify_failed_predecessor(root, args.audit_root, intent, api)
+            ancestor = (
+                subprocess.run(
+                    [
+                        "git",
+                        "merge-base",
+                        "--is-ancestor",
+                        intent["predecessor"]["commit"],
+                        args.commit,
+                    ],
+                    cwd=root,
+                    check=False,
+                ).returncode
+                == 0
+            )
+        validate_ref_update(intent, remote_sha, ancestor)
+        remote_head = push_execution_ref(root, intent)
         receipt = {
             "revision": "d051-cloud-dispatch-v1",
             "executionId": intent["executionId"],
@@ -220,6 +319,7 @@ def main() -> None:
             "ref": intent["ref"],
             "commit": args.commit,
             "observedAt": datetime.now(UTC).isoformat(),
+            "verifiedRemoteHead": remote_head,
         }
         write_exclusive(args.audit_root / f"{intent['executionId']}.dispatch.json", receipt)
         print(json.dumps(recover_execution(intent, api.runs(args.commit)), sort_keys=True))

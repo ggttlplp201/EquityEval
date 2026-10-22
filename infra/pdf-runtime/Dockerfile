@@ -1,5 +1,7 @@
 FROM ubuntu:24.04@sha256:a2d43bffc46670d7108bb3c0468c67c5557c4c92e83e1e34cbff1322ad1b94dc
 ENV DEBIAN_FRONTEND=noninteractive SOURCE_DATE_EPOCH=1792627200 LC_ALL=C TZ=UTC
+COPY infra/pdf-runtime/ubuntu-ca-bootstrap.pem /etc/ssl/certs/ca-certificates.crt
+RUN echo "6d84ab71cb726c0641b0af84303c316e3fa50db941dc8507d09045eb2fa5d238  /etc/ssl/certs/ca-certificates.crt" | sha256sum -c -
 COPY infra/pdf-runtime/ubuntu.sources /opt/bootstrap/ubuntu.sources
 COPY infra/pdf-runtime/apt-SHA256SUMS /opt/bootstrap/apt-SHA256SUMS
 RUN rm -f /etc/apt/sources.list /etc/apt/sources.list.d/* && \

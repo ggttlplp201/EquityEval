@@ -274,3 +274,13 @@ original D050 process caps, pinned toolchain and signed hash-verified outputs.
 Account access, toolchain and actual enforcement remain unproved. No source retry,
 cloud proof dispatch, migration or financial publication is cleared by this draft.
 Prior D050 artifacts remain immutable; stop before multi-company rollout.
+
+### D051 amendment — synthetic proof CA bootstrap (2026-10-22, reviewed)
+
+Proof1 failed closed before PDF execution because the minimal Ubuntu image lacked
+a CA bundle for the snapshot HTTPS redirect. The bounded repair uses the exact
+Ubuntu ca-certificates20240203-derived public bundle, preserving TLS/signature/hash
+checks, and a new predecessor-bound logical execution with independently checked ancestry and
+atomic exact expected-OID lease, allowing only the reviewed descendant update. First packet/run/receipts remain immutable. See
+[the exact second-proof boundary](design/d5m/proof-2-ca-bootstrap.md). No retry
+beyond the independently cleared exact packet; no SEC or real-PDF action.

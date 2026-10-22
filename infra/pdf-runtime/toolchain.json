@@ -30,5 +30,15 @@
     "url": "https://github.com/cli/cli/releases/download/v2.80.0/gh_2.80.0_macOS_arm64.zip",
     "bytes": 17561757,
     "sha256": "4e3567687d714272be3664244c045785573660803eabf41dff9a3a701b39f3b6"
+  },
+  "caBootstrap": {
+    "packageUrl": "https://snapshot.ubuntu.com/ubuntu/20261022T000000Z/pool/main/c/ca-certificates/ca-certificates_20240203_all.deb",
+    "packageBytes": 159378,
+    "packageSha256": "641de77d8f142cfd62a1a6f964ba67b20754d3337c480efb529d086075a06c9a",
+    "packageVersion": "20240203",
+    "pemBytes": 219342,
+    "pemSha256": "6d84ab71cb726c0641b0af84303c316e3fa50db941dc8507d09045eb2fa5d238",
+    "certificateCount": 146,
+    "derivation": "Lexical concatenation of usr/share/ca-certificates/mozilla/*.crt from exact package, preserving one terminal newline."
   }
 }

@@ -5,6 +5,7 @@
 !infra/pdf-runtime/Dockerfile.dockerignore
 !infra/pdf-runtime/toolchain.json
 !infra/pdf-runtime/ubuntu.sources
+!infra/pdf-runtime/ubuntu-ca-bootstrap.pem
 !infra/pdf-runtime/apt-SHA256SUMS
 !scripts/
 !scripts/build_crcl_pdf_runtime.py
